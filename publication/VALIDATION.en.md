@@ -15,3 +15,5 @@ Date: 2026-09-10. Scope: documentation, catalog and selected Unity import.
 - Not run in this revision: ARM/NDK/Godot build, commercial game, on-device extraction, physical testing, port rebuilds or the complete historical V5 suite.
 
 Source integrity, documentation consistency and synthetic tests do not certify gameplay or every file's license. [Pending work](REVIEW.en.md).
+
+The subsequent first-port simulation ran the host example from a clean export, generated a skeleton and checked recipes/pins. Its results and limits are in the [separate report](ONBOARDING-SIMULATION.en.md); the counts above describe the earlier editorial review.

@@ -15,3 +15,5 @@ Data: 10/09/2026. Escopo: documentação, catálogo e importação selecionada U
 - Não executado nesta revisão: build ARM/NDK/Godot, jogo comercial, extração no aparelho, teste físico, reconstrução dos ports ou suíte histórica completa V5.
 
 Integridade de fontes, consistência de documentação e testes sintéticos não certificam gameplay nem licenças de cada arquivo. [Pendências](REVIEW.md).
+
+A simulação posterior de um primeiro port executou o exemplo host em uma exportação limpa, gerou um esqueleto e verificou receitas/pins. Os resultados e limites estão no [relatório próprio](ONBOARDING-SIMULATION.md); os números acima descrevem a revisão editorial anterior.

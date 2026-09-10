@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-Framework V5 para criar ports Android em Linux ARM, com **guias completos em português e inglês**, fontes selecionadas de **45 títulos** e mais **2 ports no catálogo comunitário**. A IA pode conduzir a maior parte da investigação, código, build e verificações.
+Framework V5 para criar ports Android em Linux ARM, com **guias ampliados em português e inglês**, fontes selecionadas de **45 títulos** e mais **2 ports no catálogo comunitário**. A IA pode conduzir a maior parte da investigação, código, build e verificações.
 
 **Repositório privado para revisão. Tornar público exige aprovação explícita de NextOS.** A coleção não inclui dados comerciais de jogos e não representa 47 pacotes instaláveis certificados.
 
@@ -45,7 +45,7 @@ ctest --test-dir work/host --output-on-failure
 | `suportando_outros_devices/extrator-universal/` | NXExtract pinado: engine, runner e UI |
 | `ports/` | Snapshots de código, fichas PT/EN e manifestos |
 | `portando_unity/` | Edição selecionada bilíngue, casos e ferramentas genéricas |
-| `docs/pt-BR/`, `docs/en/` | Guias completos e correspondentes |
+| `docs/pt-BR/`, `docs/en/` | Guias ampliados e correspondentes |
 | `examples/`, `toolchains/` | Exemplo didático e configurações de cross-compilação |
 | `publication/` | Integridade, validação, idiomas e pendências |
 

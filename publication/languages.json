@@ -349,6 +349,10 @@
     {
       "pt-BR": "README.md",
       "en": "README.en.md"
+    },
+    {
+      "pt-BR": "publication/ONBOARDING-SIMULATION.md",
+      "en": "publication/ONBOARDING-SIMULATION.en.md"
     }
   ],
   "bilingual_inline": [

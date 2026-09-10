@@ -4,9 +4,11 @@
 
 The maintainer must explicitly approve changing visibility. This preparation remains private.
 
+The [practical first-port simulation](ONBOARDING-SIMULATION.en.md) records tested commands and prioritizes gaps in the ARM environment, pins, integrated examples and reference dependencies.
+
 ## Included in this edition
 
-Preserved V5; sources from 41 repositories/45 titles; two additional community cards; complete PT/EN guides for AI, ARM, shims, NXExtract, Mono Android, Godot, Cocos2d-x and testing; selected Unity edition with 15 cases and two generic tools; FP2 Vulkan→GLES2 study.
+Preserved V5; sources from 41 repositories/45 titles; two additional community cards; expanded PT/EN guides for AI, ARM, shims, NXExtract, Mono Android, Godot, Cocos2d-x and testing; selected Unity edition with 15 cases and two generic tools; FP2 Vulkan→GLES2 study.
 
 ## Publication work still open
 

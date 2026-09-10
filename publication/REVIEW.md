@@ -4,9 +4,11 @@
 
 O mantenedor precisa aprovar explicitamente a mudança de visibilidade. Esta preparação continua privada.
 
+A [simulação prática de um primeiro port](ONBOARDING-SIMULATION.md) registra os comandos testados e prioriza as lacunas de ambiente ARM, pins, exemplos integrados e dependências das referências.
+
 ## Incluído nesta edição
 
-V5 preservada; fontes de 41 repositórios/45 títulos; duas fichas comunitárias adicionais; guias completos PT/EN para IA, ARM, shims, NXExtract, Mono Android, Godot, Cocos2d-x e testes; edição Unity selecionada com 15 casos e duas ferramentas genéricas; estudo de FP2 Vulkan→GLES2.
+V5 preservada; fontes de 41 repositórios/45 títulos; duas fichas comunitárias adicionais; guias ampliados PT/EN para IA, ARM, shims, NXExtract, Mono Android, Godot, Cocos2d-x e testes; edição Unity selecionada com 15 casos e duas ferramentas genéricas; estudo de FP2 Vulkan→GLES2.
 
 ## Pendências de publicação
 

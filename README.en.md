@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-V5 framework for Android-to-Linux ARM ports, with **complete English and Portuguese guides**, selected sources for **45 titles**, and **2 additional community catalog ports**. AI can lead most investigation, coding, building and verification.
+V5 framework for Android-to-Linux ARM ports, with **expanded English and Portuguese guides**, selected sources for **45 titles**, and **2 additional community catalog ports**. AI can lead most investigation, coding, building and verification.
 
 **Private review repository. Public visibility requires explicit NextOS approval.** This collection contains no commercial game data and does not represent 47 certified installable packages.
 
@@ -45,7 +45,7 @@ This is a C contract test on your computer. ARM/NDK builds require explicit tool
 | `suportando_outros_devices/extrator-universal/` | Pinned NXExtract: engine, runner and UI |
 | `ports/` | Code snapshots, PT/EN cards and manifests |
 | `portando_unity/` | Selected bilingual edition, cases and generic tools |
-| `docs/pt-BR/`, `docs/en/` | Complete matching guides |
+| `docs/pt-BR/`, `docs/en/` | Expanded matching guides |
 | `examples/`, `toolchains/` | Teaching example and cross-compilation settings |
 | `publication/` | Integrity, validation, languages and pending work |
 
