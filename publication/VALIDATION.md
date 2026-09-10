@@ -17,3 +17,5 @@ Data: 10/09/2026. Escopo: documentação, catálogo e importação selecionada U
 Integridade de fontes, consistência de documentação e testes sintéticos não certificam gameplay nem licenças de cada arquivo. [Pendências](REVIEW.md).
 
 A simulação posterior de um primeiro port executou o exemplo host em uma exportação limpa, gerou um esqueleto e verificou receitas/pins. Os resultados e limites estão no [relatório próprio](ONBOARDING-SIMULATION.md); os números acima descrevem a revisão editorial anterior.
+
+A implementação posterior do SDK público e dos exercícios tem resultados próprios em [ONBOARDING-UPDATE.md](ONBOARDING-UPDATE.md), incluindo build ARM, guest Android em QEMU, extração limpa, shaders e lógica Godot. As exclusões acima descrevem somente esta revisão editorial anterior.

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "host_architecture": "linux/amd64",
+  "base": "debian@sha256:58ce6f1271ae1c8a2006ff7d3e54e9874d839f573d8009c20154ad0f2fb0a225",
+  "debian_release_url": "https://archive.debian.org/debian/dists/buster/Release",
+  "debian_release_sha256": "f0c7d2d43702c4312f67106aa4addb3ea2ace58f2f761cd6aa8aabce55977dc8",
+  "security_release_url": "https://archive.debian.org/debian-security/dists/buster/updates/Release",
+  "security_release_sha256": "82c249d9156ea99429251ac80b4fe40943d2692757db31f7ff9115e70df9c2f2",
+  "cmake_version": "3.22.6",
+  "python_source_url": "https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tar.xz",
+  "python_source_sha256": "9b1e896523fc510691126c864406d9360a3d1e986acbda59cda57b5abda45b87",
+  "git_source_url": "https://www.kernel.org/pub/software/scm/git/git-2.45.2.tar.xz",
+  "git_source_sha256": "51bfe87eb1c02fed1484051875365eeab229831d30d0cec5d89a14f9e40e9adb",
+  "cmake_wheel_sha256": "a2357c510e37db7df156c31ab43857b4583e3a2ece8220747e8a007aea50aa45",
+  "purpose": "isolated build and CPU emulation; no hardware certification",
+  "linux_glibc_ceiling": "2.30"
+}

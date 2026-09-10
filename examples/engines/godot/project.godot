@@ -1,0 +1,10 @@
+; Original NextOS exercise, Godot 3.5.3. No commercial resources.
+config_version=4
+[application]
+config/name="NextOS Godot Training"
+run/main_scene="res://Main.tscn"
+[display]
+window/size/width=640
+window/size/height=480
+[rendering]
+quality/driver/driver_name="GLES2"

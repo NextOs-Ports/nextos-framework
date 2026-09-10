@@ -2,7 +2,7 @@
 
 [Português](../pt-BR/COMPILAR-ARM.md)
 
-The goal is to identify the compiler for each component, produce an ELF with the correct ABI, and interpret its requirements. The host example has been tested; the cross commands below require a toolchain/sysroot you supply and verify. This collection does not yet distribute a certified public low-glibc environment.
+The goal is to identify the compiler for each component, produce an ELF with the correct ABI, and interpret its requirements. The [public SDK](../../toolchains/sdk/README.en.md) now supplies a tested AArch64/ARMv7 build recipe with low glibc. Start there and with the [integrated example](../../examples/first-port/README.en.md). The generic paths below apply when supplying another toolchain/sysroot; no host build certifies physical support.
 
 ## 1. Understand the three builds
 

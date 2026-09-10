@@ -4,7 +4,7 @@
 
 [Repositório](../../README.md) · [Catálogo dos 47 títulos](../../catalog/README.md) · [Portando Unity](../../portando_unity/README.md)
 
-Comece pelo primeiro exemplo no host; depois escolha a engine. Os guias ensinam comandos, contratos e critérios para a IA conduzir a implementação. Pré-requisitos que ainda precisam ser fornecidos, como sysroot e dados do dono, aparecem explicitamente.
+Comece pelo exemplo C no host e avance ao [primeiro port integrado](../../examples/first-port/README.md), usando o [SDK público](../../toolchains/sdk/README.md). Depois escolha a engine. Os guias ensinam comandos, contratos e critérios para a IA conduzir a implementação; os dados compatíveis do dono permanecem privados.
 
 | Guia | Conteúdo |
 | --- | --- |
@@ -12,6 +12,9 @@ Comece pelo primeiro exemplo no host; depois escolha a engine. Os guias ensinam 
 | [Arquitetura](ARQUITETURA.md) | Componentes, responsabilidades e pins |
 | [Portar com IA](PORTAR-COM-IA.md) | Missão, inventário e implementação autônoma |
 | [Compilar ARM](COMPILAR-ARM.md) | Host, AArch64, ARMv7, NDK e ELF |
+| [Pins e fontes](PINS-E-FONTES.md) | Composição exportada e recuperação de arquivos públicos |
+| [Inventário Android](INVENTARIO-ANDROID.md) | Manifesto, imports, ABI, bloqueios e busca de referências |
+| [Diagnóstico guiado](DIAGNOSTICO-GUIADO.md) | Logs bons/ruins e contraprovas executáveis |
 | [Shims](SHIMS.md) | ABI, JNI, ownership e testes |
 | [Mono Android](MONO-ANDROID.md) | Mono/.NET, MonoGame/FNA e bootstrap |
 | [Godot](GODOT.md) | Engine, export, renderer, C# e input |
@@ -24,6 +27,8 @@ Comece pelo primeiro exemplo no host; depois escolha a engine. Os guias ensinam 
 
 - [Unity](../../portando_unity/README.md): 15 casos com fontes públicas, dois registros comunitários e ferramentas sintéticas.
 - [Freedom Planet 2 — Vulkan para GLES2](../../portando_unity/pt-BR/FP2-VULKAN-GLES2.md): conversão por programa e preservação de dados.
+- [Exercícios por engine](../../examples/engines/README.md): Mono, Godot, Unity e Cocos2d-x, com status de build explícito.
+- [Laboratório de shaders](../../examples/shader-lab/README.md): shaders autorais, pins públicos e contraprova compute.
 - [Exemplo de shims](../../examples/shims-reference/README.md): contrato pequeno compilável.
 - [Licenças e créditos](../../LICENSING.md), [contribuir](../../CONTRIBUTING.md), [validação](../../publication/VALIDATION.md).
 

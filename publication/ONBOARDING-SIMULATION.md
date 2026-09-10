@@ -2,6 +2,8 @@
 
 [English](ONBOARDING-SIMULATION.en.md)
 
+**Registro histórico:** as lacunas abaixo foram observadas no commit indicado. A [atualização posterior](ONBOARDING-UPDATE.md) registra o SDK, exemplos e ferramentas implementados, seus testes e as pendências atuais.
+
 Avaliação de 10/09/2026 sobre o commit `2e7234265f8602d8a31117f65a23874769e13e59`. Cenário: uma pessoa ou IA recebe somente esta coleção e sua própria cópia de um jogo Android, sem conhecer o ambiente interno NextOS.
 
 **Conclusão: a coleção permite começar a investigação e compilar o exemplo host. Ainda falta um caminho reproduzível completo do clone até um port Android demonstrável.** O material é útil como referência, mas a IA ainda precisa descobrir e implementar a ligação entre várias etapas. “Guias completos” descrevia o objetivo editorial com confiança excessiva.

@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "SPIRV-Cross": {
+    "repository": "https://github.com/KhronosGroup/SPIRV-Cross.git",
+    "commit": "be71ee8c12cd7dc5ca8fa9581f708c2e8561fe2a",
+    "license": "Apache-2.0",
+    "scope": "independent teaching lab; not the historical FP2 translator pin"
+  },
+  "smol-v": {
+    "repository": "https://github.com/aras-p/smol-v.git",
+    "commit": "4b52c165c13763051a18e80ffbc2ee436314ceb2",
+    "license": "public domain or MIT; preserve upstream notices",
+    "files": {
+      "source/smolv.cpp": "d6fae91910dda8d0a5f9cc863829bb686815e0fab57235f78cd24ef2f75d72f1",
+      "source/smolv.h": "679e0eb13942d84ef56f1924d239eb93ab3d072a443b968097dd445aa51907e1"
+    }
+  }
+}

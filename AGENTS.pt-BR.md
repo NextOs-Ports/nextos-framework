@@ -23,3 +23,7 @@ Este rascunho privado é uma coleção de referências de fonte. O mantenedor pr
 - Mantenha documentação editorial completa em português e inglês na mesma mudança; registre pares em publication/languages.json e execute publication/verify-docs.py.
 - O catálogo contém somente ports NextOS. Separe snapshots de repositórios públicos de entradas comunitárias sem código, explicitamente autorizadas. Nunca invente URLs de fonte/download.
 - Use somente casos Unity admitidos e ferramentas genéricas de portando_unity. Não importar outros jogos dos estudos locais. A tradução de shader de Freedom Planet 2 é específica da build, não suporte geral Vulkan.
+
+- Para começar um port, siga [SDK público](toolchains/sdk/README.md), [pins da coleção](docs/pt-BR/PINS-E-FONTES.md) e [exemplo integrado](examples/first-port/README.md). Use Python 3.11+; clones precisam conter o commit fixado, não somente HEAD raso.
+- Execute inventário e busca de perfis antes de escolher uma referência. Não trate campos desconhecidos como suporte. Preserve o registro de testes/limites em [ONBOARDING-UPDATE.md](publication/ONBOARDING-UPDATE.md).
+- Os inputs de treino são autorais e gerados em work/. CI manual executa somente esse treino e não publica APKs/ELFs/logs como artefatos. Headless/QEMU não aprovam UI nem gráficos físicos.

@@ -2,6 +2,8 @@
 
 [Português](../pt-BR/COCOS2D-X.md)
 
+The [original Cocos scene](../../examples/engines/README.en.md) demonstrates drawing, input and persistence, with integration instructions for the Cocos2d-x 3.17.2 template. Its build has not run in this revision; the scene alone does not implement an Android loader.
+
 Cocos2d-x often concentrates engine and game logic in a C++ library, but also depends on Java/JNI for lifecycle, assets, text, audio, services and input. Reconstruct these boundaries while preserving the game's native loop and order.
 
 ## 1. Confirm engine and ABI

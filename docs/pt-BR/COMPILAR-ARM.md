@@ -2,7 +2,7 @@
 
 [English](../en/BUILD-ARM.md)
 
-O objetivo é saber qual compilador constrói cada parte, produzir um ELF da ABI correta e interpretar seus requisitos. O exemplo host já foi testado; os comandos cross abaixo dependem de um toolchain/sysroot fornecido e verificado por você. Esta coleção ainda não distribui um ambiente público de baixa glibc certificado.
+O objetivo é saber qual compilador constrói cada parte, produzir um ELF da ABI correta e interpretar seus requisitos. O [SDK público](../../toolchains/sdk/README.md) agora fornece uma receita testada de build AArch64/ARMv7 e baixa glibc. Comece por ele e pelo [exemplo integrado](../../examples/first-port/README.md). Os caminhos genéricos abaixo servem para quem fornece outro toolchain/sysroot; nenhum build host certifica suporte físico.
 
 ## 1. Entender as três compilações
 

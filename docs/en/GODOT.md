@@ -2,6 +2,8 @@
 
 [Português](../pt-BR/GODOT.md)
 
+The [original Godot project](../../examples/engines/README.en.md) includes complete sources and a headless logic test. Rendering and ARM export need their own templates and validation; porting an Android build still follows the investigation below.
+
 First identify the version, project format and extensions required by the runtime. A Godot APK may allow a compatible Linux-engine route, but an isolated PCK does not establish independence from Android plugins, C# or native libraries.
 
 ## 1. Inventory the project

@@ -2,6 +2,8 @@
 
 [English](../en/COCOS2D-X.md)
 
+A [cena Cocos autoral](../../examples/engines/README.md) mostra desenho, input e persistência, com instruções de integração ao template Cocos2d-x 3.17.2. Seu build ainda não foi executado nesta revisão; a cena não implementa sozinha um loader Android.
+
 Cocos2d-x costuma concentrar a engine e a lógica numa biblioteca C++, mas também depende de Java/JNI para lifecycle, assets, texto, áudio, serviços e entrada. O objetivo é reconstruir essas fronteiras mantendo o loop e a ordem nativa do jogo.
 
 ## 1. Confirmar engine e ABI

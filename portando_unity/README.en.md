@@ -2,6 +2,8 @@
 
 [Português](README.md)
 
+To experiment without commercial data, use the [original Unity project](../examples/engines/README.en.md) and [shader laboratory](../examples/shader-lab/README.en.md). The host laboratory passed; the Unity editor build remains pending.
+
 This bilingual edition adapts the `portando_unity` study for **15 cases with public repositories**, plus two generic tools and synthetic fixtures. Two additional ports have explicitly authorized community-distribution cards. Sources and recipes for other local games were not included.
 
 ## Reading order

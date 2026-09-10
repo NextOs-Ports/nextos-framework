@@ -2,6 +2,8 @@
 
 [English](README.en.md)
 
+Para experimentar sem dados comerciais, há um [projeto Unity autoral](../examples/engines/README.md) e um [laboratório de shaders](../examples/shader-lab/README.md). O laboratório host passou; o build do editor Unity ainda está pendente.
+
 Esta edição bilíngue adapta o estudo `portando_unity` para **15 casos com repositório público**, com duas ferramentas genéricas e fixtures sintéticas. Dois ports adicionais têm fichas de distribuição comunitária explicitamente autorizadas. As fontes e receitas dos demais jogos locais não foram incluídas.
 
 ## Ordem de leitura

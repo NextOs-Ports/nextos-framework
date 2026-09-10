@@ -2,6 +2,8 @@
 
 [English](../en/FP2-VULKAN-GLES2.md)
 
+O [laboratório autoral executável](../../examples/shader-lab/README.md) demonstra SMOL-V/SPIR-V → ESSL 1.00 e rejeição de compute. Ele explica quais dependências públicas foram recuperadas e por que seu pin SPIRV-Cross não substitui o pin histórico ainda não localizado do FP2.
+
 Freedom Planet 2 merece uma trilha própria porque a build Android examinada, Unity 2018.4.36f1/IL2CPP AArch64, declara Vulkan e contém programas SMOL-V/SPIR-V. O port NextOS prepara os programas necessários para GLES2 durante a instalação da cópia do dono. O resultado é uma adaptação desta build, não suporte irrestrito à API Vulkan.
 
 ## 1. O que foi convertido

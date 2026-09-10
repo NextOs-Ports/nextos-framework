@@ -2,6 +2,8 @@
 
 [English](../en/MONO-ANDROID.md)
 
+Pratique primeiro o [exercício Mono autoral](../../examples/engines/README.md): P/Invoke, layout, callback e erro testados no host Linux. Ele ensina essa fronteira; o bootstrap Mono Android descrito abaixo continua uma implementação distinta.
+
 Este guia ensina a escolher a rota de execução de jogos Android com código gerenciado, preservar o bootstrap e diagnosticar as pontes nativas. Não existe uma receita única “copiar as DLLs e executar mono” que cubra todas essas builds.
 
 ## 1. Classificar o runtime real

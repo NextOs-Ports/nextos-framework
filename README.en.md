@@ -12,7 +12,7 @@ Collection/integration author: **NextOS** · [official GitHub](https://github.co
 
 1. [Getting started](docs/en/GETTING-STARTED.md) and [complete guide index](docs/en/README.md).
 2. [Let AI lead the port](docs/en/AI-PORTING.md).
-3. [Build host, AArch64, ARMv7 and an NDK example](docs/en/BUILD-ARM.md).
+3. [Public ARM SDK](toolchains/sdk/README.en.md) and [integrated first port](examples/first-port/README.en.md).
 4. [Shims](docs/en/SHIMS.md), [NXExtract](docs/en/NXEXTRACT.md) and [testing](docs/en/TESTING.md).
 
 ## Engine guides
@@ -33,7 +33,9 @@ cmake --build work/host --parallel 2
 ctest --test-dir work/host --output-on-failure
 ```
 
-This is a C contract test on your computer. ARM/NDK builds require explicit tools and sysroots; a host test does not prove a game on hardware.
+This is the introductory C test on the computer. Next, the [integrated original minigame](examples/first-port/README.en.md) teaches ARM64 compilation, loading an Android guest, NXExtract installation and 11 checks under CPU emulation. The [public SDK](toolchains/sdk/README.en.md) supplies its build environment; physical graphics, sound and controls still require device testing.
+
+For another game, use the [executable inventory](docs/en/ANDROID-INVENTORY.md), [pins and sources](docs/en/PINS-AND-SOURCES.md), [engine exercises](examples/engines/README.en.md) and [shader laboratory](examples/shader-lab/README.en.md).
 
 ## Catalog and sources
 
@@ -46,7 +48,7 @@ This is a C contract test on your computer. ARM/NDK builds require explicit tool
 | `ports/` | Code snapshots, PT/EN cards and manifests |
 | `portando_unity/` | Selected bilingual edition, cases and generic tools |
 | `docs/pt-BR/`, `docs/en/` | Expanded matching guides |
-| `examples/`, `toolchains/` | Teaching example and cross-compilation settings |
+| `examples/`, `toolchains/` | Integrated examples, engines, shaders and public SDK |
 | `publication/` | Integrity, validation, languages and pending work |
 
 V5: `framework-v5` @ `657fb65a23b5c3b20040e76307b27e6470b1d17c`. [Exported hashes](publication/v5-export.json). Twelve historical tests with private dependencies were omitted; runtime bytes were preserved. Existing ports retain V3/V4/V5/V6 pins; no migration occurred.
@@ -55,4 +57,4 @@ V5: `framework-v5` @ `657fb65a23b5c3b20040e76307b27e6470b1d17c`. [Exported hashe
 
 Read [AGENTS.md](AGENTS.md), [contributing](CONTRIBUTING.en.md) and [licensing/credits](LICENSING.en.md). Prepare data only from the owner's copy; never upload APK, IPA, OBB, original libraries, assets or saves to GitHub/CI. ZIPs follow each component's license and preserve NextOS/third-party credits. The noncommercial proposal remains under review and does not replace existing GPL/MIT permissions.
 
-Editorial guides are bilingual; historical source, comments and normative licenses retain their original language. [What was verified](publication/VALIDATION.en.md) · [Work before publication](publication/REVIEW.en.md).
+Editorial guides are bilingual; historical source, comments and normative licenses retain their original language. [Update and checks](publication/ONBOARDING-UPDATE.en.md) · [Work before publication](publication/REVIEW.en.md).

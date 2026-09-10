@@ -2,6 +2,8 @@
 
 [English](../en/NXEXTRACT.md)
 
+A [aula integrada](../../examples/first-port/README.md) fornece input autoral, hook transacional, instalação limpa, reempacotamento positivo e rollback real. Esses testes usam UI desativada no host; a UI gráfica canônica continua obrigatória para aceitar um port no aparelho.
+
 Um port BYO-data distribui o código/runtime permitido, framework completo, receita e NXExtract com a UI gráfica canônica. Os dados vêm da cópia compatível fornecida pelo dono. Isso vale também para ZIPs de teste em repositórios privados.
 
 ## 1. Definir a identidade dos inputs

@@ -1,0 +1,16 @@
+{
+  "schema": "nextos-training-adapter-v1",
+  "status": "implemented-development",
+  "release_ready": false,
+  "physical_support_proven": false,
+  "source": ["guest.c", "adapter.c", "demo.h"],
+  "lifecycle": ["load", "relocate", "resolve", "finalize", "constructors", "JNI_OnLoad", "create", "resume", "step/render/audio", "pause", "save", "destroy"],
+  "jni": ["JavaVM.GetEnv", "JNIEnv.GetVersion"],
+  "unsupported_jni": "all other methods; no JVM, Java classes or worker attachment",
+  "imports": ["__android_log_write", "__errno"],
+  "graphics": "original RGBA framebuffer uploaded through system SDL2/GLES2",
+  "audio": "original mono S16 PCM, queued on main thread, 48000 Hz",
+  "input": "keyboard arrows or SDL gamepad D-pad/left stick; Escape, Back or Start saves and exits",
+  "save": "score.txt, per-installation working directory",
+  "scope": "teaching adapter; not a universal Android compatibility layer"
+}

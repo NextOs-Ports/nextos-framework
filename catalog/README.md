@@ -2,6 +2,8 @@
 
 [English](README.en.md)
 
+Use os [41 perfis estruturados](profiles.json) e o [guia de inventário/busca](../docs/pt-BR/INVENTARIO-ANDROID.md) para filtrar referências por engine, ABI e renderer. Campos desconhecidos continuam explícitos; seleção de fonte não prova suporte físico.
+
 [Guia para IA](../docs/pt-BR/PORTAR-COM-IA.md) · [Índice Unity](../portando_unity/README.md) · [JSON para ferramentas](ports.json)
 
 O catálogo reúne somente ports criados/integrados por **NextOS**. Há **45 títulos com fontes selecionadas de 41 repositórios públicos**, mais **2 referências distribuídas à comunidade** segundo o mantenedor, sem snapshot GitHub incluído. Freedom Planet 2 já está entre os 45; o primeiro Freedom Planet não foi acrescentado.

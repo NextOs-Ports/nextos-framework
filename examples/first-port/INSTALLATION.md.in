@@ -1,0 +1,21 @@
+# NextOS Training / Treino
+
+## Português
+
+Este diretório é uma execução de desenvolvimento do exemplo autoral. Não é um ZIP de release, nem uma instalação PortMaster aprovada. A árvore `generated/` separada mostra o launcher canônico e conserva seu receipt; não copie arquivos para ela fingindo que foram gerados.
+
+Input: NextOS Training 1.0, package ID `org.nextos.training`, ABI `arm64-v8a`, tamanho @INPUT_SIZE@ bytes, SHA-256 `@INPUT_SHA256@`. O arquivo `training-input.apk` é um container sintético autoral, não um aplicativo Android instalável. O hash integral é referência; a receita confere os payloads internos.
+
+Execute o tutorial em `examples/first-port/README.md` a partir da raiz da coleção. A primeira extração escreve `lib/arm64-v8a/libtraining.so` e transforma `seed.txt` através do hook. O executável Linux fica em `bin/aarch64/first-port-nextos`. Dados de progresso ficam em `score.txt`; preserve-os ao repetir uma execução interativa.
+
+Os testes host usam explicitamente extração sem UI e emulação de CPU, que não provam a UI gráfica. A instalação física usa NXExtract gráfico e NXSplash canônicos sem alterações, com teste posterior no aparelho autorizado. D-pad/analógico esquerdo/setas movem o quadrado até o alvo; Start/Back/Escape salva e sai. Erros de extração ficam em `nxextract.log`; erros do adapter saem em stderr.
+
+## English
+
+This directory is a development run of the original example. It is not a release ZIP or an approved PortMaster installation. The separate `generated/` tree demonstrates the canonical launcher and preserves its receipt; do not copy files into it while pretending they were generated.
+
+Input: NextOS Training 1.0, package ID `org.nextos.training`, ABI `arm64-v8a`, size @INPUT_SIZE@ bytes, SHA-256 `@INPUT_SHA256@`. `training-input.apk` is an original synthetic container, not an installable Android application. The whole-container hash is a reference; the recipe checks internal payloads.
+
+Follow `examples/first-port/README.en.md` from the collection root. First extraction writes `lib/arm64-v8a/libtraining.so` and transforms `seed.txt` through the hook. The Linux executable is at `bin/aarch64/first-port-nextos`. Progress is stored in `score.txt`; preserve it when repeating interactive execution.
+
+Host tests explicitly use extraction without UI and CPU emulation, which do not prove graphical UI. Physical installation uses unchanged canonical graphical NXExtract and NXSplash, followed by testing on the authorized device. D-pad/left stick/arrows move the square to the target; Start/Back/Escape saves and exits. Extraction errors go to `nxextract.log`; adapter errors go to stderr.

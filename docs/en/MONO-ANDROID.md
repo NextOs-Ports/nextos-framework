@@ -2,6 +2,8 @@
 
 [Português](../pt-BR/MONO-ANDROID.md)
 
+First practice the [original Mono exercise](../../examples/engines/README.en.md): P/Invoke, layout, callback and errors tested on Linux. It teaches that boundary; the Mono Android bootstrap below remains a distinct implementation.
+
 This guide explains how to choose an execution route for Android games with managed code, preserve bootstrap order and diagnose native bridges. No single “copy the DLLs and run mono” recipe covers all these builds.
 
 ## 1. Identify the actual runtime

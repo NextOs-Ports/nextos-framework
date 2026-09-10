@@ -353,6 +353,38 @@
     {
       "pt-BR": "publication/ONBOARDING-SIMULATION.md",
       "en": "publication/ONBOARDING-SIMULATION.en.md"
+    },
+    {
+      "pt-BR": "toolchains/sdk/README.md",
+      "en": "toolchains/sdk/README.en.md"
+    },
+    {
+      "pt-BR": "examples/first-port/README.md",
+      "en": "examples/first-port/README.en.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/PINS-E-FONTES.md",
+      "en": "docs/en/PINS-AND-SOURCES.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/INVENTARIO-ANDROID.md",
+      "en": "docs/en/ANDROID-INVENTORY.md"
+    },
+    {
+      "pt-BR": "examples/shader-lab/README.md",
+      "en": "examples/shader-lab/README.en.md"
+    },
+    {
+      "pt-BR": "examples/engines/README.md",
+      "en": "examples/engines/README.en.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/DIAGNOSTICO-GUIADO.md",
+      "en": "docs/en/DIAGNOSTIC-LAB.md"
+    },
+    {
+      "pt-BR": "publication/ONBOARDING-UPDATE.md",
+      "en": "publication/ONBOARDING-UPDATE.en.md"
     }
   ],
   "bilingual_inline": [

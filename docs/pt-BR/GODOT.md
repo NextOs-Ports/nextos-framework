@@ -2,6 +2,8 @@
 
 [English](../en/GODOT.md)
 
+O [projeto Godot autoral](../../examples/engines/README.md) acompanha fontes completas e teste headless de lógica. Renderização e export ARM exigem seus próprios templates e validação; portar uma build Android continua seguindo a investigação abaixo.
+
 O primeiro objetivo é identificar a versão, o formato do projeto e as extensões que o runtime precisa. Um APK Godot pode permitir uma rota com engine Linux compatível, mas um PCK isolado não garante que o jogo dispense plugins Android, C# ou bibliotecas nativas.
 
 ## 1. Fazer o inventário

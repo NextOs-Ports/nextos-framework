@@ -17,3 +17,5 @@ Date: 2026-09-10. Scope: documentation, catalog and selected Unity import.
 Source integrity, documentation consistency and synthetic tests do not certify gameplay or every file's license. [Pending work](REVIEW.en.md).
 
 The subsequent first-port simulation ran the host example from a clean export, generated a skeleton and checked recipes/pins. Its results and limits are in the [separate report](ONBOARDING-SIMULATION.en.md); the counts above describe the earlier editorial review.
+
+The later public SDK and exercise implementation has separate results in [ONBOARDING-UPDATE.en.md](ONBOARDING-UPDATE.en.md), including ARM builds, an Android guest in QEMU, clean extraction, shaders and Godot logic. The exclusions above apply only to this earlier editorial review.

@@ -2,6 +2,8 @@
 
 [Português](../pt-BR/NXEXTRACT.md)
 
+The [integrated lesson](../../examples/first-port/README.en.md) supplies original input, a transactional hook, clean installation, positive repackaging and real rollback. These tests disable UI on the host; canonical graphical UI remains mandatory for device port acceptance.
+
 A BYO-data port distributes permitted code/runtime, the complete framework, a recipe and NXExtract with its canonical graphical UI. Data comes from the owner's compatible copy. This also applies to test ZIPs in private repositories.
 
 ## 1. Define input identity

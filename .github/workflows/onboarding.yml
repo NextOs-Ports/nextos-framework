@@ -1,0 +1,31 @@
+name: Original first-port training
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  training:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify collection and bilingual guides
+        run: |
+          python3 publication/verify.py
+          python3 publication/verify-docs.py
+          python3 -m unittest discover -s tests -v
+      - name: Build SDK from public sources
+        run: docker build --platform linux/amd64 -t nextos-public-sdk:1 toolchains/sdk
+      - name: Build and exercise original Android guest
+        run: |
+          mkdir -p work
+          docker run --rm --network none --user "$(id -u):$(id -g)" \
+            -v "$PWD:/src:ro" -v "$PWD/work:/src/work" \
+            nextos-public-sdk:1 bash -c '
+              set -eu
+              python3 examples/first-port/build.py --output work/ci-first-port
+              python3 examples/first-port/test_pipeline.py work/ci-first-port
+            '

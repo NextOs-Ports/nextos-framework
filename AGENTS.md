@@ -24,3 +24,7 @@ This private draft is a source reference collection. The maintainer must explici
 - Maintain complete Portuguese and English editorial documentation together; register pairs in publication/languages.json and run publication/verify-docs.py.
 - The catalog contains only NextOS ports. Keep public-repository snapshots distinct from explicitly authorized community-distributed catalog-only entries. Never invent source or download URLs.
 - Use only the admitted Unity cases and generic tools in portando_unity. Do not import other games from local studies. Freedom Planet 2 shader translation is build-specific, not general Vulkan support.
+
+- To start a port, follow the [public SDK](toolchains/sdk/README.en.md), [collection pins](docs/en/PINS-AND-SOURCES.md), and [integrated example](examples/first-port/README.en.md). Use Python 3.11+; clones must contain the fixed commit, not only a shallow HEAD.
+- Run inventory and profile search before selecting a reference. Never interpret unknown fields as support. Preserve recorded checks/limits in [ONBOARDING-UPDATE.en.md](publication/ONBOARDING-UPDATE.en.md).
+- Training inputs are original and generated in work/. Manual CI runs only this training and does not publish APKs/ELFs/logs as artifacts. Headless/QEMU do not approve UI or physical graphics.

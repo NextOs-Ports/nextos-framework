@@ -2,6 +2,8 @@
 
 [Português](../pt-BR/SHIMS.md)
 
+For imports connected to the real nxloader, run the [integrated first port](../../examples/first-port/README.en.md). It implements two providers, JNI/lifecycle order and a missing-import negative case before constructors. Expand coverage by contract, never by name counts.
+
 A shim adapts an interface expected by an Android guest to its Linux host. Correct implementations preserve signature, calling convention, layout, ownership, lifetime, errors and callbacks. Finding a symbol name does not demonstrate compatibility.
 
 ## 1. Study the executable example

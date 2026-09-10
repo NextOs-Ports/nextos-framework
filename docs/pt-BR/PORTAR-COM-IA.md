@@ -2,6 +2,8 @@
 
 [English](../en/AI-PORTING.md)
 
+Antes de inventar ferramentas novas, use o [inventário Android](INVENTARIO-ANDROID.md), os [pins e fontes](PINS-E-FONTES.md) e o [diagnóstico guiado](DIAGNOSTICO-GUIADO.md). O [primeiro port](../../examples/first-port/README.md) dá à IA uma execução demonstrada para comparar cada fronteira.
+
 A IA deve investigar, escrever código, compilar, executar verificações autorizadas e deixar resultados reproduzíveis. O dono fornece os inputs compatíveis, escolhe o alvo, relata a experiência física necessária e aprova a publicação. Não é preciso responder a uma pergunta a cada ajuste local reversível.
 
 ## 1. Entregar uma missão concreta

@@ -2,6 +2,8 @@
 
 [Português](../pt-BR/PORTAR-COM-IA.md)
 
+Before inventing new tools, use [Android inventory](ANDROID-INVENTORY.md), [pins and sources](PINS-AND-SOURCES.md), and the [diagnostic laboratory](DIAGNOSTIC-LAB.md). The [first port](../../examples/first-port/README.en.md) gives the assistant a demonstrated run for comparing each boundary.
+
 The assistant should investigate, write code, compile, run authorized checks and leave reproducible results. The owner supplies compatible inputs, chooses the target, provides necessary physical feedback and approves publication. A question is not needed for every reversible local adjustment.
 
 ## 1. Give a concrete mission
