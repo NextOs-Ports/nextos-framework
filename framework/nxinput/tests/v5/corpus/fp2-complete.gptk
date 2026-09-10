@@ -1,0 +1,59 @@
+format = NEXTOS_CONTROLLERS/4
+port = fp2
+CONTROL_STANDARD = xbox
+GLYPH_STYLE = xbox
+AUTHORITY = nextos
+CONTEXT_POLICY = unified
+
+# Positional: A = south, B = east, X = west, Y = north. One map for
+# title, menu and gameplay; the adapter projects each family per context.
+[base]
+A = action:fp2.primary
+B = action:fp2.secondary
+X = action:fp2.special
+Y = action:fp2.guard
+L1 = native
+R1 = native
+L3 = native
+R3 = native
+START = action:fp2.pause
+SELECT = native
+GUIDE = native
+UP = native
+DOWN = native
+LEFT = native
+RIGHT = native
+
+[stick.left]
+mode = vector
+vector = action:fp2.move
+up = null
+down = null
+left = null
+right = null
+enter_threshold = 0.55
+exit_threshold = 0.40
+diagonal = 8way
+tie_break = horizontal
+
+[stick.right]
+mode = vector
+vector = native
+up = null
+down = null
+left = null
+right = null
+
+[trigger.left]
+mode = analog
+analog = native
+digital = null
+
+[trigger.right]
+mode = analog
+analog = native
+digital = null
+
+# Only where the game proved the screen diverges.
+[override.menu]
+X = null

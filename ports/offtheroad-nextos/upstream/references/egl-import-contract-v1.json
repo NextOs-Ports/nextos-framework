@@ -1,0 +1,54 @@
+{
+  "binary": {
+    "build_id": "0d71eeb6a3ead7db0d489cfbe574f3b96014a7f4",
+    "sha256": "5258d644cbb023b137719901fa84acf8a8ae3da01c573b52a7a31255245628dd",
+    "size": 9501104
+  },
+  "context_owner": "SDL2",
+  "guest_imports": [
+    "eglChooseConfig",
+    "eglCreateContext",
+    "eglCreateWindowSurface",
+    "eglDestroyContext",
+    "eglDestroySurface",
+    "eglGetConfigAttrib",
+    "eglGetCurrentContext",
+    "eglGetDisplay",
+    "eglGetProcAddress",
+    "eglInitialize",
+    "eglMakeCurrent",
+    "eglQueryString",
+    "eglSwapBuffers",
+    "eglSwapInterval",
+    "eglTerminate"
+  ],
+  "normal_path": "eglGetCurrentContext -> bgfx::setPlatformData -> adopt current SDL context",
+  "provider_imports": [
+    "eglChooseConfig",
+    "eglCreateContext",
+    "eglCreateWindowSurface",
+    "eglDestroyContext",
+    "eglDestroySurface",
+    "eglGetConfigAttrib",
+    "eglGetCurrentContext",
+    "eglGetDisplay",
+    "eglInitialize",
+    "eglMakeCurrent",
+    "eglQueryString",
+    "eglSwapBuffers",
+    "eglSwapInterval",
+    "eglTerminate"
+  ],
+  "rocknix_failure": {
+    "callsite": "libgame+0x7f0118",
+    "got_offset": "0x906cb8",
+    "link_time_slot_value": "0x8bbb40",
+    "return_address": "libgame+0x7f011c",
+    "symbol": "eglGetCurrentContext"
+  },
+  "routes": {
+    "eglGetProcAddress": "SDL_GL_GetProcAddress",
+    "provider_imports": "explicit DynLibFunction table from the concrete provider observing the current SDL context, validated RTLD_LOCAL before RTLD_GLOBAL promotion"
+  },
+  "schema": "offtheroad-egl-import-contract-v1"
+}

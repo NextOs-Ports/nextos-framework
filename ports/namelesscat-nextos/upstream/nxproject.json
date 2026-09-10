@@ -1,0 +1,824 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "controls": {
+    "actions": [
+      {
+        "id": "cursor.click",
+        "kind": "button",
+        "sinks": [
+          "adapter.pointer.click"
+        ]
+      },
+      {
+        "id": "cursor.move",
+        "kind": "vector",
+        "sinks": [
+          "adapter.pointer.move"
+        ]
+      },
+      {
+        "id": "menu.accept",
+        "kind": "button",
+        "sinks": [
+          "engine.ui_accept"
+        ]
+      },
+      {
+        "id": "player.down",
+        "kind": "button",
+        "sinks": [
+          "engine.input.down"
+        ]
+      },
+      {
+        "id": "player.interact",
+        "kind": "button",
+        "sinks": [
+          "engine.input.interact"
+        ]
+      },
+      {
+        "id": "player.jump",
+        "kind": "button",
+        "sinks": [
+          "engine.input.jump"
+        ]
+      },
+      {
+        "id": "player.move",
+        "kind": "vector",
+        "sinks": [
+          "engine.input.move"
+        ]
+      },
+      {
+        "id": "system.pause",
+        "kind": "button",
+        "sinks": [
+          "engine.input.pause"
+        ]
+      },
+      {
+        "id": "system.quit",
+        "kind": "button",
+        "sinks": [
+          "adapter.system.quit"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "player.jump",
+        "B": "player.interact",
+        "DOWN": "native",
+        "L1": "native",
+        "L2": "null",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "player.move",
+        "R1": "native",
+        "R2": "null",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "native",
+        "START": "system.pause",
+        "UP": "native",
+        "X": "native",
+        "Y": "player.down"
+      },
+      "menu": {
+        "A": "menu.accept",
+        "B": "native",
+        "DOWN": "native",
+        "L1": "native",
+        "L2": "null",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "native",
+        "R1": "native",
+        "R2": "null",
+        "R3": "cursor.click",
+        "RIGHT": "native",
+        "RIGHT_STICK": "cursor.move",
+        "SELECT": "native",
+        "START": "system.pause",
+        "UP": "native",
+        "X": "native",
+        "Y": "native"
+      }
+    },
+    "controller_profiles": {
+      "bundle": "controllers.nxb",
+      "enabled": true,
+      "face_layout_variants": {
+        "modern": {
+          "bundle": "controllers-modern.nxb",
+          "sha256": "bfce688bb383cf2d239193ea3c4b3ea57b8bb28b06f46955b71bc0561ada139b"
+        },
+        "retro": {
+          "bundle": "controllers-retro.nxb",
+          "sha256": "3429bb94a48930b8cc9abb768957815138c686fd2436aca6eadadb5b6a3359f0"
+        }
+      },
+      "sha256": "83e8023699486dee627245305026837b25c30549ced63744975916fdc32fb64b"
+    },
+    "face_layout": "auto",
+    "proof": {
+      "clones": 2,
+      "navigation": {
+        "gameplay": [
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 500
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": 1.0,
+            "ms": 1200
+          },
+          {
+            "sleep_ms": 300
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "hold": "RIGHT_STICK",
+            "x": 0.0,
+            "y": -1.0,
+            "ms": 25
+          },
+          {
+            "sleep_ms": 250
+          },
+          {
+            "press": "R3",
+            "ms": 150
+          },
+          {
+            "sleep_ms": 2200
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 4000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 600,
+            "press": "RIGHT"
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 600,
+            "press": "RIGHT"
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 600,
+            "press": "RIGHT"
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 600,
+            "press": "RIGHT"
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 600,
+            "press": "RIGHT"
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 600,
+            "press": "RIGHT"
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 600,
+            "press": "RIGHT"
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 2300
+          },
+          {
+            "ms": 600,
+            "press": "RIGHT"
+          },
+          {
+            "sleep_ms": 1500
+          },
+          {
+            "timeout_s": 30,
+            "wait_log": "context=gameplay"
+          },
+          {
+            "sleep_ms": 2000
+          }
+        ],
+        "menu": [
+          {
+            "timeout_s": 900,
+            "wait_log": "\\[nc/gptk\\] context=menu"
+          },
+          {
+            "sleep_ms": 6000
+          }
+        ]
+      },
+      "owner_remap": {
+        "context": "gameplay",
+        "move_to": "R2",
+        "null": "A"
+      }
+    },
+    "runtime_mapping": "nxinput-gptk",
+    "schema": 3
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "authored"
+  },
+  "graphics": {
+    "api": "gles",
+    "drawable_ready_timeout_ms": 15000,
+    "profile": "es",
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "adapter",
+    "sinks": [
+      "engine.locale"
+    ],
+    "supported": [
+      "en",
+      "pt",
+      "ru",
+      "de",
+      "es",
+      "fr",
+      "it",
+      "pl",
+      "zh",
+      "ja",
+      "ko",
+      "tr",
+      "uk",
+      "cs",
+      "nl"
+    ]
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "game-dir-and-passthrough",
+    "enabled_quirks": [],
+    "executable": "namelesscat-nextos",
+    "generation_runtime": [
+      {
+        "mode": "0755",
+        "path": "namelesscat-nextos",
+        "role": "executable",
+        "sha256": "b8c8be2d0ebada4e3709acd4adec782c130c7b9cf56578bc9f9eed31265d46a8"
+      },
+      {
+        "mode": "0644",
+        "path": "port-env.sh",
+        "role": "runtime-hook",
+        "sha256": "da5fd90e09be1d6bb6b411b1c24b49f2640b0fdd0d4c80953fa90c6a97cd0458"
+      },
+      {
+        "mode": "0644",
+        "path": "extractor.json",
+        "role": "nxextract-recipe",
+        "sha256": "b2b8122cde0ade9f949ac6e8557f76fd3287cf40ffbecd6260c379ffba149f3a"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract.py",
+        "role": "nxextract-engine",
+        "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/run-extractor.sh",
+        "role": "nxextract-runner",
+        "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract-runtime-env.sh",
+        "role": "nxextract-runtime-env",
+        "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+      },
+      {
+        "mode": "0755",
+        "path": "nxextract/nxextract-ui",
+        "role": "nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      }
+    ],
+    "home_mode": "preserve",
+    "id": "namelesscat",
+    "launcher_name": "Nameless Cat.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.3.0"
+    },
+    "prepare_script": "",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "host.aarch64-libs",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "graphics.egl-config",
+      "graphics.drawable",
+      "audio.output-open",
+      "input.controller-mapping",
+      "input.controller-api"
+    ],
+    "required_files": [
+      "namelesscat-nextos",
+      "nxsplash-nextos",
+      "port-env.sh",
+      "lib/libmain.so",
+      "lib/libunity.so",
+      "lib/libil2cpp.so",
+      "assets/bin/Data/Managed/Resources/System.Data.dll-resources.dat",
+      "assets/bin/Data/Managed/Resources/System.Drawing.dll-resources.dat",
+      "assets/bin/Data/Managed/Resources/mscorlib.dll-resources.dat",
+      "assets/bin/Data/Resources/unity default resources",
+      "assets/bin/Data/RuntimeInitializeOnLoads.json",
+      "assets/bin/Data/ScriptingAssemblies.json",
+      "assets/bin/Data/boot.config",
+      "assets/bin/Data/data.unity3d",
+      "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "assets/bin/Data/sharedassets0.resource",
+      "assets/bin/Data/sharedassets10.resource",
+      "assets/bin/Data/sharedassets13.resource",
+      "assets/bin/Data/sharedassets16.resource",
+      "assets/bin/Data/sharedassets24.resource",
+      "assets/bin/Data/sharedassets31.resource",
+      "assets/bin/Data/sharedassets32.resource",
+      "assets/bin/Data/sharedassets46.resource",
+      "assets/bin/Data/sharedassets47.resource",
+      "assets/bin/Data/unity_app_guid"
+    ],
+    "runtime_report": "log-and-logo",
+    "schema_version": 3,
+    "sdl_provider": "system",
+    "title": "Nameless Cat",
+    "video_proof": "required"
+  },
+  "package_payload": [
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "INSTALLATION.md",
+      "sha256": "ca96664a64b0358bd4fb9051ee8daa098de4911d9e25f94ae746edd3a46bc7f4"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "NOTICE.md",
+      "sha256": "10fb29a3437dc11cee988a35afd233bc9f7ce5f0e5cca2d966b59d1ab6fb8061"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "NXSPLASH-LICENSE",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "README.md",
+      "sha256": "7872f6c275579f072921f58bd44c482fadd231a2237d9975c836c98bb5e2354e"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "controllers-modern.nxb",
+      "sha256": "bfce688bb383cf2d239193ea3c4b3ea57b8bb28b06f46955b71bc0561ada139b"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "controllers-retro.nxb",
+      "sha256": "3429bb94a48930b8cc9abb768957815138c686fd2436aca6eadadb5b6a3359f0"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "controllers.nxb",
+      "sha256": "83e8023699486dee627245305026837b25c30549ced63744975916fdc32fb64b"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/NXExtract-MIT.txt",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/SDL2-zlib.txt",
+      "sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "nxextract-version.txt",
+      "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "vendor/nxgl/PINS.json",
+      "sha256": "a44f55825d599db08f5c1b108580bdd17f0593becf85fbf12050764c911c28c8"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "vendor/nxinput/PINS.json",
+      "sha256": "26fbec425666d21ca151829bf130329081cf7289596c6f8e758baa5648b68998"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "vendor/nxinput/engine-patches/C6-SDL-PROVENANCE.json",
+      "sha256": "22c7243582c5393314ccee4f7f06cb283785bc051b562a76db4b61d7a60e1294"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "version.txt",
+      "sha256": "d9e8e8429c6a7d0b965e4fac26a5efff7103f055faa98cceb5bd4731fd24603a"
+    }
+  ],
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.27",
+    "runtime": []
+  },
+  "promotion": {
+    "adapter_contract": "adapter/adapter-contract.json",
+    "claims": {
+      "adapter_lifecycle_implemented": true,
+      "physical_support_proven": false,
+      "release_ready": true
+    }
+  },
+  "runtime_root": "runtime",
+  "schema_version": 3
+}

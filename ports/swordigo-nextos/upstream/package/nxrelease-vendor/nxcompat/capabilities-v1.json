@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "registry_version": "1.0.0",
+  "default_required": false,
+  "states": [
+    "absent",
+    "observed",
+    "opened",
+    "active",
+    "lost"
+  ],
+  "phases": [
+    "preflight",
+    "graphics",
+    "audio",
+    "input",
+    "ready"
+  ],
+  "sources": [
+    "probe",
+    "nxgl",
+    "sdl2-audio",
+    "nxinput",
+    "engine-adapter"
+  ],
+  "roles": [
+    "observation",
+    "baseline-graphics",
+    "port-declared",
+    "optional-enhancement",
+    "optional-runtime"
+  ],
+  "capabilities": [
+    {
+      "id": "host.portmaster",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.armhf-libs",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.aarch64-libs",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.i386-libs",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.session-runtime",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.short-memory",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.fuse-like-filesystem",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.network-filesystem",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.fbdev",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.drm",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.drm-connected",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.wayland",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "host.x11",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "audio.pulse-socket",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "audio.pipewire-socket",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "audio.alsa",
+      "phase": "preflight",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "observation"
+    },
+    {
+      "id": "graphics.window",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "baseline-graphics"
+    },
+    {
+      "id": "graphics.gles2",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "baseline-graphics"
+    },
+    {
+      "id": "graphics.gles3",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "optional-enhancement"
+    },
+    {
+      "id": "graphics.egl",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "baseline-graphics"
+    },
+    {
+      "id": "graphics.egl-config",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "baseline-graphics"
+    },
+    {
+      "id": "graphics.drawable",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "baseline-graphics"
+    },
+    {
+      "id": "graphics.etc1",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "optional-enhancement"
+    },
+    {
+      "id": "graphics.etc2",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "optional-enhancement"
+    },
+    {
+      "id": "graphics.astc",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "optional-enhancement"
+    },
+    {
+      "id": "graphics.npot-full",
+      "phase": "graphics",
+      "source": "nxgl",
+      "minimum_evidence": "opened",
+      "role": "optional-enhancement"
+    },
+    {
+      "id": "audio.output-open",
+      "phase": "audio",
+      "source": "sdl2-audio",
+      "minimum_evidence": "opened",
+      "role": "port-declared"
+    },
+    {
+      "id": "input.controller-mapping",
+      "phase": "input",
+      "source": "probe",
+      "minimum_evidence": "observed",
+      "role": "port-declared"
+    },
+    {
+      "id": "input.controller-api",
+      "phase": "input",
+      "source": "nxinput",
+      "minimum_evidence": "active",
+      "role": "port-declared"
+    },
+    {
+      "id": "input.controller-connected",
+      "phase": "input",
+      "source": "nxinput",
+      "minimum_evidence": "active",
+      "role": "optional-runtime"
+    },
+    {
+      "id": "input.hotplug",
+      "phase": "input",
+      "source": "nxinput",
+      "minimum_evidence": "active",
+      "role": "optional-runtime"
+    }
+  ]
+}

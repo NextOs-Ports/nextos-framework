@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameList>
+  <game>
+    <path>./PartyBoard.sh</path>
+    <name>PartyBoard</name>
+    <desc>Native Mario Party 4 reimplementation, adapted for NextOS and Mali-450 OpenGL ES 2.0.</desc>
+    <genre>Party</genre>
+    <developer>Mario Party R&amp;D contributors</developer>
+    <publisher>Community Port</publisher>
+    <players>4</players>
+  </game>
+</gameList>

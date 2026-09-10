@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": null,
+    "title": "Bomb Chicken"
+  },
+  "items": [
+    "Bomb Chicken.sh",
+    "bombchicken/"
+  ],
+  "items_opt": [],
+  "name": "bombchicken.zip",
+  "version": 4
+}

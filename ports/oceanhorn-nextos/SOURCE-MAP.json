@@ -1,0 +1,392 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/oceanhorn-nextos",
+  "observed_commit": "7cb05cca86afbb4b8a6e76aa251c8f0f8397bc9e",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Oceanhorn: Chronos Dungeon"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "bb808d5da1e2b312f9267f3ecc45b09c88809336",
+      "sha256": "fc9d7af691b149347a02913cd2857286342010a088d7b8850718ef975bc3cbef"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "0o644",
+      "upstream_blob": "f634ce608a627e960cdc93e4bf69b4a67c094a33",
+      "sha256": "6fee4e4e9012970576f927fd98b5cd8b7a55ae2a6e13f248ffaefa57fc488a0a"
+    },
+    {
+      "path": "FRAMEWORK-PIN.json",
+      "mode": "0o644",
+      "upstream_blob": "99429e9789d769ee8ffeecfca7eb29f8737057b1",
+      "sha256": "11a14045afe1414439506021f382e3e5a2d2e923b8cd99a68b01c169072c1b7b"
+    },
+    {
+      "path": "GENERATION.json",
+      "mode": "0o644",
+      "upstream_blob": "1cfc17d9eb00c56f7c70bc65505909ec8244c384",
+      "sha256": "9c826e9b927976851f41bb0f90869b7aad377e540e45a3cb5746566f2c8508db"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "967c06a89712316c5d400176a5949a62676e457b",
+      "sha256": "a1447204af67995b92f7ee73bc0b5e6a0f01bcaaad1f133044983d11abbf91c8"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "341ad819ee4f9d1a0f5f8a1102847a6c9754ff86",
+      "sha256": "a4848456dc47d86190d3028e865e8dc7670b5a668ade10e80439188fbe385f04"
+    },
+    {
+      "path": "Oceanhorn Chronos Dungeon.sh",
+      "mode": "0o755",
+      "upstream_blob": "445ed1bfcb47579608b8d3a236e1f722cbee95d1",
+      "sha256": "ab7b6420d91f2a8f7aa42b909282d5d472de79c67ac5e167ac31103581b78a29"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "dc296a03a319e4ebce7b9dbe2788ec669976701a",
+      "sha256": "e4d81319bf7384934ed1edad1dfc4c32761fc2f9fa64a8ee592cdff01f5d6b30"
+    },
+    {
+      "path": "adapter/adapter-contract.json",
+      "mode": "0o644",
+      "upstream_blob": "aada300963feae86a8638127a4746d8a9e26162c",
+      "sha256": "dbd60853647966ce94c7df14edcd43d40faa1467ee4efbcaa13d973fa664a4a2"
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "mode": "0o644",
+      "upstream_blob": "41785d2571b260946353fa680f13f176fa2394c0",
+      "sha256": "e53c6c41899e0e3595312903f92272618995aaf38a9f861c29dcd05014695e70"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "4c3bbd79f58db46a43fb503dfbb962095700f8d8",
+      "sha256": "5134aee6a38a22feb1e2cfcb954fd44859d1f5458c53cf3c40fda14b00c2e1e0"
+    },
+    {
+      "path": "gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "a0b947810d353cb39e690a5234cf169a2fbed76f",
+      "sha256": "eebb92ad52a6b00558f37331bf537c4dc84ea75f4580f9bc4140ed5d0b3efa46"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "591bdbcd6affb9685da99f1f8e94c74489d3c269",
+      "sha256": "1046822942b68dbf8a31e81e25f587c411ec42cfa7b13498b2df79723e8b248a"
+    },
+    {
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "mode": "0o755",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "47762e424125e880382fc1a109d21d4d9da68e2d",
+      "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f"
+    },
+    {
+      "path": "nxextract/run-extractor.sh",
+      "mode": "0o755",
+      "upstream_blob": "d092f8108f656ea27888fb2885b46726a3d217f2",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "d23d26a8f35592c9fa0d3f9516b4b5902178d12b",
+      "sha256": "e3acb6204da16b28ff01633d55254158f3d7589f16edcff495cea8dc1f8be3e3"
+    },
+    {
+      "path": "nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "851c2e42092a13c3f0de6ee1ceefd54e69c588d3",
+      "sha256": "10a85074082bb4ab60dd3b319a6dede03bedb399465999ba97f37fd65b62c478"
+    },
+    {
+      "path": "nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "4c38d74797eee3d008ad6f6fe98213b38a9a963f",
+      "sha256": "3e7e834bb6f9d21e58a67798a5251ad45fcbc81913b7425e50888fe019ab16f7"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "ca5156dbd7c6d706105ebec5d0f634dce219604a",
+      "sha256": "bf02f03bc91e53e0c6ae585ac491d030283bb3cbf27d942a36938af2d0f39111"
+    },
+    {
+      "path": "port-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "74f39dfded8904f64ab96e4195b3e4952a673e1e",
+      "sha256": "ea03560b6240b9c90dede433ce52c9e36cd2ed04e9fca650699f27499b0c4c8c"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "12dfc606e5bb78571579829069889f7bc3a1f012",
+      "sha256": "9bf7fafa19df24fa96bca256ceb34fa2f8ca2b8300cc82dff7c4e9a62b20258a"
+    },
+    {
+      "path": "src/astc_decode.c",
+      "mode": "0o644",
+      "upstream_blob": "32c77d1e7f2caa87b4549f62dba338270b821a65",
+      "sha256": "eb3a931c4fb306ee0209e6069d3147024351f6f88d7cb6d6adef6b714b9e4837"
+    },
+    {
+      "path": "src/astc_decode.h",
+      "mode": "0o644",
+      "upstream_blob": "6e97169a069787252fc5bbebad259301adf739b1",
+      "sha256": "4577a709e70711a8b134de0e33579d1e9b92acc11dfeea17f71de24a151c85a0"
+    },
+    {
+      "path": "src/bionic_shims.c",
+      "mode": "0o644",
+      "upstream_blob": "5280a4a4e7039f9498ae3b9365d6ca52588fef44",
+      "sha256": "eb692e6540ded5ab58188746a18815a0ba3c70f7c96060c9338d39904bd64619"
+    },
+    {
+      "path": "src/egl_config_contract.c",
+      "mode": "0o644",
+      "upstream_blob": "a194dce1da1f6068aed5572d53b7baba333e8f6a",
+      "sha256": "a36c143ee3eec1de694274a72620247c7937ebd2a0e394223a06e79d2baddc82"
+    },
+    {
+      "path": "src/egl_config_contract.h",
+      "mode": "0o644",
+      "upstream_blob": "758c42ac7a27edcfc670de1d8fd235d5e0e1dfce",
+      "sha256": "9c10ffd1f29cbbfa3eacebd2682f07fae32a8529b03fd9d3f35babbc6d50758f"
+    },
+    {
+      "path": "src/egl_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "a400a3d2ca915b20431cf002fe973d7bfc8cad2f",
+      "sha256": "a69e065222861b664b80aa73c38fc773c19dbdafb48f69c67876d4f83076b459"
+    },
+    {
+      "path": "src/egl_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "aa672a089c42cee8a924d5c681350a07f84c35e8",
+      "sha256": "5734f83540c84d0b205e59006532a7a852916c816a3eaa5f1cc3422467b64b42"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "657acd34d8b35050e31bdb0301518fbf0fda09db",
+      "sha256": "1bc4ccd363c0e181cd3854501fde61117b8efb887b65986510c4e50336691e2d"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "f7030977c14ec8d62e53ed71cd277cd04a95cbf2",
+      "sha256": "8e3787cf76c976577f81bfe0719cb64d028389838d1a21f3dbd0dc2a79b3bc42"
+    },
+    {
+      "path": "src/etc2_decode.c",
+      "mode": "0o644",
+      "upstream_blob": "985e68ebaed74f1be2a5be8d7cda744b5460ae51",
+      "sha256": "5bbda76184b258939d7fa03bb6c0902a677863342a393c9acede7886eb3a2903"
+    },
+    {
+      "path": "src/etc2_decode.h",
+      "mode": "0o644",
+      "upstream_blob": "c978b403d731d34766e29e7f72d0bd9e5e4525e1",
+      "sha256": "92fb5dd2fa42f4727a5eb6ed328d50b40dd63ff1a9fc055a83cd47be5a678ad2"
+    },
+    {
+      "path": "src/gamepad.c",
+      "mode": "0o644",
+      "upstream_blob": "b653b5d39228c1aefed6eab753bccd6cfbe12db9",
+      "sha256": "60440d14d48d4e9dd65d380db4c3f3ed0e09e5a9934e3b02390c1f69219af1c9"
+    },
+    {
+      "path": "src/gpu_perf.c",
+      "mode": "0o644",
+      "upstream_blob": "5f06840b2fff5b9063750d516cbe468f79bacae9",
+      "sha256": "28cc5b573ab5e09e95acf3c66f8a1e0ced037375da42b47f5172600f3799720f"
+    },
+    {
+      "path": "src/hashmap.h",
+      "mode": "0o644",
+      "upstream_blob": "f762dc5b3d5ab301fa9c38d7d24f7167b2478585",
+      "sha256": "0f751037468fd2be581fb7f09dd2fe04e2f93126abb7cfe759b6ac78a8763572"
+    },
+    {
+      "path": "src/horizon_input.c",
+      "mode": "0o644",
+      "upstream_blob": "d3232570ca14f609df8ac94ec003006ddadfac1f",
+      "sha256": "a2263e23a27f138056e0a9e1978ef11c33ea39727b8a40e50d2506089030d5bd"
+    },
+    {
+      "path": "src/horizon_input.h",
+      "mode": "0o644",
+      "upstream_blob": "870dbce89a2f5654c4f0ed29b7c1967678f84d70",
+      "sha256": "4ade85dc1ac063c55eacffdbacf470b1791d5eeee816871f2d2ac1113382b24b"
+    },
+    {
+      "path": "src/imports.gen.c",
+      "mode": "0o644",
+      "upstream_blob": "b37ab1a8a81a068c188916608afc5a49cb9cdd7a",
+      "sha256": "dc592cd03438c101a0c521e979e40428efad71ea212138be39df284c85d78311"
+    },
+    {
+      "path": "src/imports.h",
+      "mode": "0o644",
+      "upstream_blob": "266a71f30c705547487eb87c51c9820d1c805327",
+      "sha256": "7467418c0db71a934e772077b456a59860baadf8c4ad032bdc80fbb6d08e56ff"
+    },
+    {
+      "path": "src/jni_idx_stubs.gen.c",
+      "mode": "0o644",
+      "upstream_blob": "7881d67c84aaf33a382c4587fe9c5154a7053ae6",
+      "sha256": "3277721e5ff16e2c094d03bbe939b9ae841cd4b27a319f8c64ad5520a3d29b65"
+    },
+    {
+      "path": "src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "5d8907da804da78e2792d2552f361f67c5030358",
+      "sha256": "509efa9cc92e69972cb6c2c261a984f7f6004c59a35d6dbe97517fed00abc328"
+    },
+    {
+      "path": "src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "dc34a060f6d54c8b9936715e64c23109169bdce8",
+      "sha256": "c2b0aa0c481040413eefb9268c3db6e44369ad0ec92973f401dad4f7a5a2e48d"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "88b9a327c48dc8960a378d1ee7e59d6e661b5252",
+      "sha256": "50a5d507a5b08d3ad8d9d77adde916b044522cc777b320ddde3332228b261c90"
+    },
+    {
+      "path": "src/native_pad.c",
+      "mode": "0o644",
+      "upstream_blob": "36324b99e04207a751c16113a78e891b6805ce8d",
+      "sha256": "265d4bda2464a932cbe8141c68e76056433481df432ffc779dc727df89c13429"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.c",
+      "mode": "0o644",
+      "upstream_blob": "12111f52ba3183ee3971d7b3a1e4423be55accd2",
+      "sha256": "4ca0618fb311306b09786dc09138d11d296806e4a509b561be9ed5f075bbe329"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.h",
+      "mode": "0o644",
+      "upstream_blob": "f0080c8b93ea13a73f1ffe768322a24fab4f7a46",
+      "sha256": "b452624fe91178fd5a43b04987f96e4bbbd6a02ce66c35d0c130caef53ce2edb"
+    },
+    {
+      "path": "src/ocean_input.c",
+      "mode": "0o644",
+      "upstream_blob": "983cdebd4f417a80b92d3f9dd49749e3a42ce250",
+      "sha256": "37dd1a9ef1c143b9a8d233bc3ee55edb311240e0c86b52d1c864dde6ad45a831"
+    },
+    {
+      "path": "src/ocean_input.h",
+      "mode": "0o644",
+      "upstream_blob": "f881ee912710bc1a040e8475e9b7b1011b80e8eb",
+      "sha256": "b25621774532f5bf42472069d7b87e553dbb960c0df60e839a2634612930a6e8"
+    },
+    {
+      "path": "src/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "13b45573c3c7c3b1ce9b92734767dc96b88a3d9b",
+      "sha256": "225b5353d53699d2a54a0d4f6f14addd3ecff79efeed0889f3e39d7523d3c4aa"
+    },
+    {
+      "path": "src/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "411ae913c1718d6ee0f87ecdc2754939cc25e724",
+      "sha256": "169252be0e47127add67c6f3ab9ea18720ae550096c836eadf79c6ddf1a7d5a6"
+    },
+    {
+      "path": "src/pthread_fake.c",
+      "mode": "0o644",
+      "upstream_blob": "44563923d772da3faf524eb652741de70db598c3",
+      "sha256": "6dfa06886f3dd62c83d63cf3ae4b2b6c95e6a0f2003fe1fa9a3ac44ddd24c650"
+    },
+    {
+      "path": "src/renderscale.c",
+      "mode": "0o644",
+      "upstream_blob": "d837d93f2675605e9951ff4f22fc4e2b255ee730",
+      "sha256": "4ff7c29007cf91faaa225a79ebc38dc5124a0073c79c648012c89fc763185833"
+    },
+    {
+      "path": "src/sem_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "7e668254841a3e77b4a572d966fc043f8772dd43",
+      "sha256": "87b2739527fcf4c35a4add7af4872526bfc5d5bb3fa94ce5d1a01c4665857ed7"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "869141d8ffbbd0ad2fe53cc263adb99f27d109e3",
+      "sha256": "1ce4f6666f9ed910d9deb0496d5bd679491f663ff604c81b9f8d5759f68fbacd"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "9949529923675ebef9b1abfdaae6652bbee00688",
+      "sha256": "229349c7df8cfdec27c7d1206945999a8822e15b84f8fba6b0c8a01cdb994e9b"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "61a4508fc3178f76810c88050480ad96eee60437",
+      "sha256": "257f8cd1d2698df13255e671e71b33515cc30e6f8c69c03f8b5968091d5f13c7"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "66a8a2688188fb0802112e9563c2ad8ead2b493f",
+      "sha256": "bee58af241655602372ba5c0b6bf0f3402a2f347b9625f039d1f6e58b98563d9"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "38f77a65b3015cb4dc42eebe91514e49b47b8597",
+      "sha256": "fe840f52fb5578d3f77eb497115eb02c6036601c3a53e60df7995c7276baa77a"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "e56367a3589d58459392cc37da3b4abf0f3ea130c8467187e30545f55b2aee5e",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

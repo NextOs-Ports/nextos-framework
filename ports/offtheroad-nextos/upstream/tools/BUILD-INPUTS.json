@@ -1,0 +1,23 @@
+{
+  "builder": {
+    "compiler": "aarch64-linux-gnu-gcc (Debian 8.3.0-2) 8.3.0",
+    "image": "playfetch-builder:buster",
+    "image_id": "sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf"
+  },
+  "digest": "relative-file-list-sha256-v1",
+  "framework_pin_sha256": "90eedfc90f92b64d14b98586daba8a2405a5c41413255fa89ccd8e6f06cbca90",
+  "headers": {
+    "nextos_sysroot": {
+      "paths": [
+        "usr/include/SDL2",
+        "usr/include/GLES2",
+        "usr/include/KHR",
+        "usr/include/freetype2"
+      ],
+      "source_identity": "build.NextOS-Retro-Elite-Edition-Amlogic-old.aarch64-4",
+      "tree_sha256": "256edb96dc7cfc2ba40b3efb68079cf5b0dda7c7069da6d85e5add5ae84a9851"
+    }
+  },
+  "schema": "nextos-port-build-inputs-v1",
+  "schema_version": 1
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "nxadapter-contract-v1",
+  "schema_version": 1,
+  "port_id": "deadtrigger",
+  "engine": "Unity 2019.4.40f1 IL2CPP",
+  "architecture": "aarch64",
+  "status": "release-validated",
+  "release_ready": true,
+  "lifecycle": {
+    "policy": "preserve_native_android_order",
+    "sequence": [
+      "load-libmain",
+      "init-libmain",
+      "jni-onload",
+      "native-loader",
+      "load-libunity",
+      "load-libil2cpp",
+      "init-jni",
+      "surface-created",
+      "surface-changed",
+      "focus-gained",
+      "resume",
+      "native-render-loop",
+      "focus-lost",
+      "pause"
+    ]
+  },
+  "graphics": {
+    "selection": "capability-first",
+    "implementation": "sdl-owned-egl-facade",
+    "gles": "GLES2-compatible",
+    "device_name_branching": false,
+    "global_texture_wrap_override": false,
+    "global_alpha_override": false
+  },
+  "input": {
+    "implementation": "metadata-resolved-PlayerControlsGamepad",
+    "menu_cursor": "right-stick-radial-progressive-smoothed",
+    "menu_click": "R3-or-A-Cross-touch-mirror",
+    "menu_click_preserves_native_a": true,
+    "gameplay_context": "observed-native-axis-consumption",
+    "incomplete_mapping_recovery": "nxinput-exact-topology-face-R3-plus-adapter-classic-L2-R2-R3"
+  },
+  "threading": {
+    "unity_absolute_timeout": "normalized-before-glibc-condvar-wait",
+    "scene_transition_spin": false
+  },
+  "physical_device_evidence": true,
+  "validated_targets": [
+    "NextOS Mali-450 framebuffer",
+    "NextOS X5M KMSDRM Mali-G310",
+    "NextOS Ark KMSDRM Mali-G31"
+  ],
+  "proprietary_payload_packaged": false
+}

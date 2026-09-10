@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "registry_version": "1.1.0",
+  "default_enabled": false,
+  "meaning": "Finite registry of named runtime adjustments. Every quirk is adapter/port opt-in, off by default, and its condition is an observed capability or measured fact - CFW_NAME and DEVICE_NAME are logged facts, never sufficient conditions (portmaster contract device_info_rule).",
+  "namespaces": [
+    "adapter",
+    "engine",
+    "game"
+  ],
+  "activation": "adapter-opt-in",
+  "quirks": [
+    {
+      "id": "engine.utgard-finish-to-flush",
+      "condition": "graphics: GPU family observed as Mali Utgard (mali-4xx) after context creation",
+      "effect": "replace glFinish with glFlush on render-to-texture completion paths; the Utgard blob stalls the GPU and starves audio on per-RTT glFinish",
+      "evidence": [
+        "bully2"
+      ]
+    },
+    {
+      "id": "engine.stream-read-ahead",
+      "condition": "host: game assets streamed from FUSE-like or slow block storage",
+      "effect": "enable block read-ahead for archive streaming",
+      "evidence": [
+        "sonic4ep2"
+      ]
+    },
+    {
+      "id": "adapter.console-keymap-restore",
+      "condition": "host: process owns the console on a KMSDRM/evdev stack (SDL took the VT keyboard)",
+      "effect": "restore KDSKBMODE/kbd_mode and reset the TTY before process exit so the device is not left with the keymap in K_OFF",
+      "evidence": [
+        "kotor"
+      ]
+    },
+    {
+      "id": "adapter.exit-chord-evdev-fallback",
+      "condition": "input: active SDL mapping does not deliver back and start buttons",
+      "effect": "read BTN_TRIGGER_HAPPY1/2 from evdev as an emergency SELECT+START exit chord, gated so it never fires when the mapping already declares back/start",
+      "evidence": [
+        "kotor",
+        "chrono",
+        "pacman256"
+      ]
+    },
+    {
+      "id": "adapter.strip-guide-button",
+      "condition": "input: CFW mapping declares a guide button that collides with the firmware hotkey",
+      "effect": "strip guide:bN from the inherited SDL mapping before use",
+      "evidence": [
+        "kotor"
+      ]
+    },
+    {
+      "id": "adapter.exclusive-fullscreen",
+      "condition": "graphics: FULLSCREEN_DESKTOP produced a wrong-size drawable on the observed backend",
+      "effect": "opt into exclusive fullscreen instead of desktop fullscreen; default stays desktop because exclusive modesets fail with EGL_BAD_MATCH on kmsdrm/wayland",
+      "evidence": [
+        "horizonchase",
+        "sonic4ep2"
+      ]
+    },
+    {
+      "id": "adapter.gl-provider-reexec-preload",
+      "condition": "graphics: real context created but glGetString(GL_RENDERER) is empty - the versioned GLES/EGL SONAME resolves to a driverless Mesa while a Mali blob with the needed entry points exists behind the unversioned name",
+      "effect": "re-execute the process with LD_PRELOAD pointing at the validated Mali blob (prefer an explicit GBM/DRM transport on direct backends, require the GLES1 entry points via dlsym, always refuse dummy/stub/headless providers, and refuse pure x11/wayland variants only when incompatible with the active backend; a hybrid wayland-gbm name remains eligible); healthy stacks incl. Panfrost report a renderer and are never touched",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "adapter.gl-provider-coherent-sdl-reexec",
+      "condition": "graphics: a real SDL window, current context and positive drawable exist but GL_RENDERER is empty, while one transport-compatible provider object exports both EGL and the engine-required GLES entry points",
+      "effect": "after complete video teardown, re-execute once with SDL_VIDEO_EGL_DRIVER and SDL_VIDEO_GL_DRIVER both bound to the exact same validated provider object; no CFW/device name selects the fix and a healthy renderer is never touched",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "adapter.gl-provider-probe-init-reexec",
+      "condition": "graphics: the EGL provider the dynamic linker resolved refuses the kernel driver before any window exists (eglInitialize fails, e.g. Mali user/kernel API mismatch such as user 10.6 vs kernel 11.7); the process would otherwise die at GL init with no context to measure",
+      "effect": "after video teardown, prefilter alternate Mali provider objects by transport (the loaded provider is excluded; dummy/stub/headless always refused; pure x11/wayland refused only when incompatible with the active backend; hybrid wayland-gbm remains eligible), then perform a real eglGetDisplay+eglInitialize on each candidate; re-execute once with LD_PRELOAD pointing at the first candidate that initializes; if none initializes the original failure is left untouched",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "game.swordigo.present-alpha-one",
+      "condition": "graphics: scanout plane honours alpha (ARGB8888 KMSDRM) and the game leaves frames at alpha 0",
+      "effect": "force the frame opaque immediately before present",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "game.swordigo.fullscreen-desktop",
+      "condition": "graphics: exclusive-fullscreen modeset yields a window that never reaches the panel",
+      "effect": "use FULLSCREEN_DESKTOP and keep the firmware mode; exclusive stays an env escape",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "game.swordigo.present-finish",
+      "condition": "graphics: measured tearing/latency on the observed present path",
+      "effect": "glFinish before swap on the drivers where it was measured to help",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "game.bully2.etc1-low-memory-drm",
+      "condition": "measured on this title: /dev/dri present and effective memory below 1.2 GiB made raw textures exceed the RAM budget",
+      "effect": "force ETC1 textures without mipmaps on KMSDRM to keep RAM inside budget",
+      "evidence": [
+        "bully2"
+      ]
+    },
+    {
+      "id": "game.bully2.texture-half-low-memory",
+      "condition": "measured on this title: streamed textures at full resolution exceeded the observed memory budget (Horizon Chase carries its own equivalent as CUP_TEXHALF)",
+      "effect": "halve streamed texture resolution above a floor (512px proven)",
+      "evidence": [
+        "bully2",
+        "horizonchase"
+      ]
+    },
+    {
+      "id": "game.horizonchase.frame-limit-30",
+      "condition": "measured on this title: sustained frame time above target on the observed GPU tier",
+      "effect": "cap the engine choreographer to 30 fps",
+      "evidence": [
+        "horizonchase"
+      ]
+    },
+    {
+      "id": "adapter.home-asoundrc-redirect",
+      "condition": "audio: no session sound server observed, an .asoundrc exists at the login HOME, and the manifest home_mode is preserve (never applied with home_mode: port, which owns HOME)",
+      "effect": "point HOME at the directory holding .asoundrc so firmware volume keys keep working (Knulli/Batocera)",
+      "evidence": [
+        "sonic4ep2"
+      ]
+    },
+    {
+      "id": "game.bombchicken.menu-cursor-v44",
+      "condition": "input: touch-driven menus need a pointer on a gamepad-only device",
+      "effect": "provide a right-stick/analog menu cursor with a tap button (BC_CURSOR)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.native-pause-v44",
+      "condition": "lifecycle: the engine expects Android nativePause to drive its own save/pause on focus-out and exit",
+      "effect": "route pause/exit through UnityPlayer.nativePause so the game saves (BC_PAUSE_NATIVE)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.nonnull-play-games-v44",
+      "condition": "jni: the game queries Google Play Games services that this offline port does not model",
+      "effect": "return a live non-null Play Games stub so the engine does not hit a NullReference (BC_* nonnull)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.playerprefs-getstring-v44",
+      "condition": "persistence: the v44 adapter must distinguish the one-argument and two-argument IL2CPP PlayerPrefs.GetString overload ABIs, including the hidden MethodInfo pointer, when a clean save has no value",
+      "effect": "route each exact v44 RVA through its separately typed adapter hook and return a real managed empty string for a missing one-argument key (BC_PREFS_STRING_FIX)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.present-alpha-one",
+      "condition": "graphics: scanout plane honours alpha (ARGB8888 KMSDRM) and the game leaves frames at alpha 0",
+      "effect": "force the frame opaque immediately before present (BC present-alpha)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.progress-parser-v44",
+      "condition": "persistence: the on-disk progress/save format needs the port-specific parser to load correctly",
+      "effect": "use the game-specific progress parser (BC_PROGRESS_FIX)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.stencil8-v44",
+      "condition": "graphics: the engine renderer needs an 8-bit stencil in the GLES2 config",
+      "effect": "request depth24/stencil8 for the context (BC_FORCE_STENCIL)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.brotato.menu-cursor-v44",
+      "condition": "input: the v44 menu layer (FairyGUI) accepts only touch events; injected gamepad buttons are measured as ignored in the same panel where a touch at the same position acts",
+      "effect": "bridge the right analog stick to a drawn pointer and synthesize a touch tap on R3 (BT_CURSOR)",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.cursor-click-a-v44",
+      "condition": "input: the pointer bridge is active and the port owner asked for the face button to click as well",
+      "effect": "let the A button raise the same synthesized touch tap as R3 (BT_CLICK_A)",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.touch-move-stick-v44",
+      "condition": "input: v44 gameplay movement is read from the floating touch joystick the game draws under the finger, not from a gamepad axis",
+      "effect": "turn the left analog stick and the D-pad into that finger inside the arena, releasing any pending UI touch before the finger goes down",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.hide-touch-joystick-v44",
+      "condition": "graphics: the floating touch joystick ring is meaningful only for a real finger and clutters a handheld screen",
+      "effect": "keep the touch joystick fully functional while drawing its visual component transparent",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.skip-review-v44",
+      "condition": "host: no Google Play services are present, so the v44 store review modal cannot be dismissed and leaves its dark mask stuck over the result screen",
+      "effect": "follow the game's own native path (DBStyle.ReviewFlag) so the modal is never opened",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.road-progress-button-v44",
+      "condition": "persistence: the v44 hall UI shows its native Progress button only when the Road bit of the Google profile is set, and no Google profile exists on this host",
+      "effect": "restore that single profile bit so the game's own button appears",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.playerprefs-getstring-v44",
+      "condition": "persistence: the v44 adapter must serve both IL2CPP PlayerPrefs.GetString overloads and return the complete stored string, otherwise the autosave exists on disk but the Resume button disappears at boot",
+      "effect": "route each exact v44 RVA through its separately typed adapter hook and return the full managed string with no length ceiling",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.playerprefs-payload-ring-v44",
+      "condition": "persistence: this Unity reuses apparently local String and byte[] references, so releasing JNI references globally kills nativeRender, while every autosave leaks tens of KiB",
+      "effect": "keep a short ring of autosave payload generations and recycle only the generations already replaced",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.auto-stick-role-v44",
+      "condition": "input: the same stick must move the pointer outside a wave and the character inside it, and the context is decided by the game's own LevelMgr clock, GameStart state and top UI panel",
+      "effect": "switch the left stick and D-pad role automatically from pointer to character and back, keeping the right stick as a pointer at all times",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.start-taps-pause-v44",
+      "condition": "input: the v44 pause is a UI button of a touch-only panel, so a gamepad START never reaches it",
+      "effect": "make START tap the game's own pause button, and tap it again to leave the pause",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.unlock-abyss-dlc-v44",
+      "condition": "content: the owner's paid Abyssal Terrors expansion is gated behind a store entitlement query that cannot answer on a host without Google Play",
+      "effect": "answer the game's own entitlement getters so the expansion the owner paid for is selectable",
+      "evidence": [
+        "brotato"
+      ]
+    },
+    {
+      "id": "game.brotato.unlock-all-v44",
+      "condition": "content: the port owner asked for the locked-by-progress content to be available without replaying the whole progression on the handheld",
+      "effect": "answer the game's own unlock predicates for characters, items and steps",
+      "evidence": [
+        "brotato"
+      ]
+    }
+  ]
+}

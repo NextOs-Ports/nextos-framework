@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Beach Buggy Racing 2"
+  },
+  "items": [
+    "Beach Buggy Racing 2.sh",
+    "bbracing2/"
+  ],
+  "items_opt": [],
+  "name": "bbracing2.zip",
+  "version": 4
+}

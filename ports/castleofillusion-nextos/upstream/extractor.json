@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "id": "castleofillusion-nextos",
+  "version": "1.4.5-154-universal-2",
+  "title": "CASTLE OF ILLUSION",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "extensions": [
+      ".apk",
+      ".apkm",
+      ".apks",
+      ".xapk",
+      ".zip",
+      ".obb"
+    ],
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 2147483648,
+    "max_bundle_bytes": 4294967296
+  },
+  "extract": [
+    {
+      "id": "engine-arm64-libviewer-154",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libViewer_GP.so"
+        ]
+      },
+      "destination": "lib/libViewer_GP.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 7000000,
+        "max_size": 13000000
+      }
+    },
+    {
+      "id": "audio-arm64-fmodex-154",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libfmodex.so"
+        ]
+      },
+      "destination": "lib/libfmodex.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 1200000,
+        "max_size": 3000000
+      }
+    },
+    {
+      "id": "obb-main-154",
+      "source": {
+        "kind": "entry_or_file",
+        "patterns": [
+          "*.obb",
+          "**/*.obb"
+        ],
+        "file_extensions": [
+          ".obb"
+        ]
+      },
+      "destination": "obb/main.154.obb",
+      "validate": {
+        "type": "file",
+        "magic_hex": "fa012985",
+        "magic_offset": 0,
+        "min_size": 450000000,
+        "max_size": 800000000
+      }
+    }
+  ],
+  "hooks": [],
+  "validate": [
+    {
+      "path": "lib/libViewer_GP.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "min_size": 7000000,
+      "max_size": 13000000
+    },
+    {
+      "path": "lib/libfmodex.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "min_size": 1200000,
+      "max_size": 3000000
+    },
+    {
+      "path": "obb/main.154.obb",
+      "type": "file",
+      "magic_hex": "fa012985",
+      "magic_offset": 0,
+      "min_size": 450000000,
+      "max_size": 800000000
+    }
+  ],
+  "commit": [
+    "lib/libViewer_GP.so",
+    "lib/libfmodex.so",
+    "obb/main.154.obb"
+  ],
+  "marker": ".castleofillusion-data.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log"
+}

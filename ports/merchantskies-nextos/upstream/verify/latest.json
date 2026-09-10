@@ -1,0 +1,90 @@
+{
+  "slug": "merchantskies",
+  "ip": "<device>",
+  "timestamp": "2026-08-26T17:57:22",
+  "epoch": 1787777842,
+  "self_test": {
+    "ok": true,
+    "casos": [
+      {
+        "caso": "pan→metade rica dá IMAGEM",
+        "ok": true
+      },
+      {
+        "caso": "pan→metade preta dá PRETO",
+        "ok": true
+      },
+      {
+        "caso": "tela branca uniforme dá CHAPADO, não IMAGEM",
+        "ok": true
+      },
+      {
+        "caso": "degradê quase preto (144 cores) dá PRETO",
+        "ok": true
+      },
+      {
+        "caso": "buffer truncado não vira IMAGEM",
+        "ok": true
+      }
+    ]
+  },
+  "video": {
+    "verdict": "IMAGEM",
+    "frac_lit": 0.9979253472222223,
+    "luma_std": 44.67155630421701,
+    "luma_mean": 163.85032241892964,
+    "movimento": 0.17390559027327868,
+    "animado": false,
+    "pan_alternou": true,
+    "pans": [
+      0,
+      720,
+      720
+    ],
+    "geo": {
+      "width": 1280,
+      "virtual_height": 1440,
+      "height": 720,
+      "stride": 5120,
+      "bpp": 4
+    },
+    "shots": [
+      {
+        "ok": true,
+        "frac_lit": 0.9979427083333333,
+        "luma_mean": 163.7595617013393,
+        "luma_std": 44.66131667368794,
+        "samples": 115200
+      },
+      {
+        "ok": true,
+        "frac_lit": 0.9979253472222223,
+        "luma_mean": 163.85793826383704,
+        "luma_std": 44.67155630421701,
+        "samples": 115200
+      },
+      {
+        "ok": true,
+        "frac_lit": 0.9979253472222223,
+        "luma_mean": 163.93346729161257,
+        "luma_std": 44.61757787715337,
+        "samples": 115200
+      }
+    ]
+  },
+  "audio": {
+    "verdict": "SOM",
+    "via": "pulseaudio",
+    "sink_inputs": true,
+    "rms": 223,
+    "peak": 1095
+  },
+  "processo": {
+    "verdict": "VIVO",
+    "matches": 1,
+    "sample": "<pid> root      1:51 {Unity Main Thre} /roms/ports/merchantskies/merchantskies-nextos /roms/ports/merchantskies"
+  },
+  "veredito": "VERDE",
+  "motivo": "imagem confirmada; áudio com fluxo",
+  "exit_code": 0
+}

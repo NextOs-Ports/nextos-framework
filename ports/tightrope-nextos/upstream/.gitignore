@@ -1,0 +1,14 @@
+*.o
+*.so
+*.overlay
+*.apk
+*.xapk
+*.log
+*.raw
+assets/
+gamedata/*
+!gamedata/COLOQUE-O-APK-AQUI.txt
+tightrope
+tightrope-nextos
+tightrope-universal
+.build/

@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "id": "meu-port-mixed-armhf",
+  "title": "Meu Port Mixed ARMHF",
+  "launcher_name": "Meu Port Mixed ARMHF.sh",
+  "architecture": "armv7",
+  "executable": "bin/armv7/meu-port-loader",
+  "argument_mode": "game-dir-and-passthrough",
+  "home_mode": "preserve",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.3.0"
+  },
+  "required_files": [
+    "bin/armv7/meu-port-loader"
+  ],
+  "private_library_paths": [
+    "lib"
+  ],
+  "prepare_script": "",
+  "required_capabilities": [
+    "host.portmaster",
+    "host.armhf-libs",
+    "graphics.gles2",
+    "input.controller-mapping"
+  ],
+  "enabled_quirks": [],
+  "runtime_report": "log-and-logo",
+  "execution_roles": {
+    "extractor": {
+      "architecture": "aarch64",
+      "executable": "nxextract/nxextract-ui",
+      "executor": "native",
+      "interpreter": "/lib/ld-linux-aarch64.so.1",
+      "closure": "host"
+    },
+    "splash": {
+      "architecture": "armv7",
+      "executable": "nxsplash-nextos",
+      "executor": "native-or-loader",
+      "interpreter": "/lib/ld-linux-armhf.so.3",
+      "closure": "firmware"
+    },
+    "game": {
+      "architecture": "armv7",
+      "executable": "bin/armv7/meu-port-loader",
+      "executor": "native-or-loader",
+      "interpreter": "/lib/ld-linux-armhf.so.3",
+      "closure": "firmware-and-port"
+    },
+    "helpers": []
+  }
+}

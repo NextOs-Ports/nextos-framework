@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "id": "stardewvalley-nextos",
+  "version": "1.6.15.3-controller-6",
+  "title": "STARDEW VALLEY",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 1073741824,
+    "max_bundle_bytes": 2147483648
+  },
+  "extract": [
+    {
+      "id": "android-arm64-libraries",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "lib/{abi}/**"
+        ],
+        "strip_prefix": "lib/{abi}/"
+      },
+      "destination": "libs",
+      "validate": {
+        "type": "tree",
+        "min_files": 78,
+        "max_files": 96,
+        "min_bytes": 53112352,
+        "max_bytes": 67108864,
+        "required_paths": [
+          "libassemblies.arm64-v8a.blob.so",
+          "libmonosgen-2.0.so",
+          "libmonodroid.so",
+          "libxamarin-app.so",
+          "libSystem.Native.so",
+          "libSystem.IO.Compression.Native.so",
+          "libaot-MonoGame.Framework.dll.so",
+          "libaot-StardewValley.dll.so"
+        ]
+      }
+    },
+    {
+      "id": "android-content",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/Content/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": {
+        "type": "tree",
+        "exact_files": 3556,
+        "exact_bytes": 360359752,
+        "required_paths": [
+          "Content/Maps/BusStop.xnb",
+          "Content/Strings/StringsFromCSFiles.xnb",
+          "Content/LooseSprites/Cursors.xnb",
+          "Content/Minigames/TitleButtons.xnb",
+          "Content/XACT/wavebank.xwb"
+        ],
+        "tree_fingerprint": "66f15e5ec5952e45f0c496d276afe4c22108b6c195725f25d4fb9c58a08cf68e"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "prepare-managed-runtime",
+      "argv": [
+        "python3",
+        "{game_dir}/tools/prepare_stardew_data.py",
+        "--stage",
+        "{stage}"
+      ],
+      "cwd": "{game_dir}",
+      "checkpoint": [
+        {
+          "path": ".stardew-data.json",
+          "type": "file",
+          "size": 208,
+          "sha256": "054b2316665ce1c0842b1705b1bb60c2829a1fd6f6e09bc6e0ce6c724faba5c5",
+          "magic_ascii": "{"
+        },
+        {
+          "path": "libs/libassemblies.arm64-v8a.blob.so",
+          "type": "file",
+          "min_size": 4194304,
+          "max_size": 67108864,
+          "magic_hex": "7f454c46",
+          "elf_machine": "arm64-v8a"
+        }
+      ]
+    }
+  ],
+  "validate": [
+    {
+      "path": ".stardew-data.json",
+      "type": "file",
+      "size": 208,
+      "sha256": "054b2316665ce1c0842b1705b1bb60c2829a1fd6f6e09bc6e0ce6c724faba5c5",
+      "magic_ascii": "{"
+    }
+  ],
+  "commit": [
+    "libs",
+    "assets",
+    ".stardew-data.json"
+  ],
+  "marker": ".nxextract-stardewvalley.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

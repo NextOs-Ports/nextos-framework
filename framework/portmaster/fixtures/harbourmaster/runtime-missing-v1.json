@@ -1,0 +1,11 @@
+{
+  "attr": {
+    "arch": ["aarch64"],
+    "min_glibc": "2.27",
+    "title": "Negative Fixture"
+  },
+  "items": ["Negative Fixture.sh", "negative-fixture/"],
+  "items_opt": [],
+  "name": "negative-fixture.zip",
+  "version": 1
+}

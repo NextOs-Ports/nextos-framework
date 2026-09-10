@@ -1,0 +1,191 @@
+{
+  "actions": [
+    {
+      "id": "menu.accept",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "menu.back",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "player.attack",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "player.open_journal",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "player.open_menu",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "player.select_next",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "player.select_previous",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "player.use_item",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "player.use_tool",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "system.back",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "system.pause",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "action": "player.attack",
+      "context": "gameplay",
+      "control": "A",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "player.use_item",
+      "context": "gameplay",
+      "control": "B",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "player.select_previous",
+      "context": "gameplay",
+      "control": "L1",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "player.open_journal",
+      "context": "gameplay",
+      "control": "L3",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "player.select_next",
+      "context": "gameplay",
+      "control": "R1",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "system.back",
+      "context": "gameplay",
+      "control": "SELECT",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "system.pause",
+      "context": "gameplay",
+      "control": "START",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "player.use_tool",
+      "context": "gameplay",
+      "control": "X",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "player.open_menu",
+      "context": "gameplay",
+      "control": "Y",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "menu.accept",
+      "context": "menu",
+      "control": "A",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "menu.back",
+      "context": "menu",
+      "control": "B",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    }
+  ],
+  "declared_contexts": [
+    "gameplay",
+    "menu"
+  ],
+  "generated_by": "nxgenerator 0.4.5",
+  "gptk_schema": 4,
+  "port_id": "blossomtales",
+  "schema": "nx-controls-closure/1",
+  "schema_version": 1
+}

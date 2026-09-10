@@ -1,0 +1,36 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "game-dir-and-passthrough",
+  "enabled_quirks": [],
+  "executable": "bin/aarch64/hitmango-nextos",
+  "home_mode": "port",
+  "id": "hitmango",
+  "launcher_name": "Hitman GO.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.10"
+  },
+  "prepare_script": "port-env.sh",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "host.aarch64-libs",
+    "graphics.gles2",
+    "audio.output-open",
+    "input.controller-mapping"
+  ],
+  "required_files": [
+    "bin/aarch64/hitmango-nextos",
+    "nxsplash-nextos",
+    "lib/libmain.so",
+    "lib/libunity.so",
+    "lib/libil2cpp.so",
+    "lib/libFirebaseCppApp-12_10_1.so",
+    "assets/bin/Data/boot.config",
+    "assets/bin/Data/globalgamemanagers",
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat"
+  ],
+  "runtime_report": "log",
+  "schema_version": 2,
+  "title": "Hitman GO"
+}

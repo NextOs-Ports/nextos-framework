@@ -1,0 +1,86 @@
+{
+  "schema": "nxandroid-m16-runtime-receipt-v1",
+  "schema_version": 1,
+  "milestone": "M16",
+  "scope": "closed-adapter-contract-acceptance-summary",
+  "method": "The five finalized approved ports retain their prior human acceptance, including native save and load behavior. Additional authorized observations strengthen lifecycle and shutdown evidence without claiming that the agent manually replayed campaigns or reached checkpoints.",
+  "session": {
+    "approval_basis": "finalized_approved_ports",
+    "additional_runtime_adapters": [
+      "sonic4ep2",
+      "horizonchase",
+      "kotor",
+      "asm2_127"
+    ],
+    "frontend_final": "inactive_disabled",
+    "game_processes_final": 0,
+    "approved_scope_only": true,
+    "manual_gameplay_revalidation_claimed": false,
+    "save_load_replay_claimed": false,
+    "virtual_input_claimed_as_physical": false,
+    "unapproved_sources_used": false
+  },
+  "adapters": [
+    {
+      "id": "bully2",
+      "basis": "approved_final_port_acceptance_not_replayed",
+      "boot": "approved",
+      "lifecycle": "approved_adapter_owned_flow",
+      "audio": "approved",
+      "persistence": "approved_native_save_load_acceptance_not_replayed",
+      "exit": "approved_port_owned_select_start_terminal",
+      "acceptance": "accepted_reference",
+      "gaps": ["No M16 blocker; its terminal exception and save semantics remain Bully-specific"]
+    },
+    {
+      "id": "sonic4ep2",
+      "basis": "approved_final_port_acceptance_plus_additional_runtime_observation",
+      "boot": "observed",
+      "lifecycle": "native_flow_and_terminal_observed",
+      "audio": "observed",
+      "persistence": "approved_native_save_load_plus_existing_save_bootstrap_observed",
+      "exit": "select_start_native_exit_observed",
+      "acceptance": "accepted_reference",
+      "gaps": ["No M16 blocker; Fox callbacks, save schema and terminal order remain Sonic-specific"]
+    },
+    {
+      "id": "horizonchase",
+      "basis": "approved_final_port_acceptance_plus_additional_runtime_observation",
+      "boot": "observed",
+      "lifecycle": "native_render_loop_return_observed",
+      "audio": "observed",
+      "persistence": "approved_native_save_load_plus_extrauserdata_write_observed",
+      "exit": "select_start_adapter_boundary_observed",
+      "acceptance": "accepted_reference",
+      "gaps": ["No M16 blocker; Unity offsets, typed preferences and terminal ownership remain version-specific"]
+    },
+    {
+      "id": "kotor",
+      "basis": "approved_final_port_acceptance_plus_additional_runtime_observation",
+      "boot": "observed",
+      "lifecycle": "native_sdl_main_return_observed",
+      "audio": "observed",
+      "persistence": "approved_native_save_load_plus_existing_save_read_observed",
+      "exit": "select_start_adapter_boundary_and_clean_return_observed",
+      "acceptance": "accepted_reference",
+      "gaps": ["No M16 blocker; delegated SDL_main ownership and Odyssey persistence remain KOTOR-specific"]
+    },
+    {
+      "id": "asm2_127",
+      "basis": "approved_final_port_acceptance_plus_runtime_roundtrip",
+      "boot": "observed_on_armhf_target",
+      "lifecycle": "native_pause_input_options_video_shutdown_observed",
+      "audio": "observed",
+      "persistence": "approved_native_save_load_plus_save_write_reload_resume_roundtrip_observed",
+      "exit": "native_clean_return_with_zero_signal_observed",
+      "acceptance": "accepted_reference",
+      "gaps": ["No M16 blocker; DataSharing keys, lifecycle callbacks and terminal exception remain exact-version adapter data"]
+    }
+  ],
+  "closure": {
+    "m16_013": "closed_with_approved_native_flow_and_additional_runtime_evidence",
+    "m16_014": "closed_with_prior_save_load_acceptance_and_native_shutdown_evidence",
+    "m16_020": "closed_for_framework",
+    "reason": "Approved finalized behavior is accepted evidence; adapter-specific lifecycle, persistence and shutdown values remain forbidden universal defaults"
+  }
+}

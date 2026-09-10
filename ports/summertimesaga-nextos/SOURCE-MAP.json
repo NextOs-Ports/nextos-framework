@@ -1,0 +1,1552 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/summertimesaga-nextos",
+  "observed_commit": "bf5929bfdcdb03e17a27d053a91c36477b207032",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Summertime Saga Preview"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "625229d84375455e082fe65872ec7b2811eefdad",
+      "sha256": "bbab07d121a2f92533a5be3336bc7afdbe67df816dd4d83521d03eca7adaa3d9"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "b599e784bb81b6551b32cdbded28a7bc30f6e3f1",
+      "sha256": "c9128d20ad1e59eb7fe07bcd79f796d6648ba87437187e5cdee7aeb800e8b552"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "1a1a7b3517dc5ccb1dd8ea13029d0ee5f044f221",
+      "sha256": "193f3e9affe72959e02382d6f71dc4ba101540b162c7038e337b02fea0dfdad6"
+    },
+    {
+      "path": "Summertime Saga.sh",
+      "mode": "0o755",
+      "upstream_blob": "86a409afada77aa624ed27bf6038c2fd65a54aaf",
+      "sha256": "6ae51e4abe95ed68334aabf5181f08b3360f779a07a57a84c77c4e311ddef6b4"
+    },
+    {
+      "path": "android/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "950290314f4fa4c708a686442e32982aa062ade5",
+      "sha256": "f9cf55b2d86f327f64ce9a053128289509fce75d21f96f84c7b73909911162e0"
+    },
+    {
+      "path": "android/apk.py",
+      "mode": "0o644",
+      "upstream_blob": "fc6499293ee7b55745ca310c4363149963f9ab48",
+      "sha256": "e2b2f025f0a8585fb62c933251e50e38d29dd87d859bb5101ddc8f58be91fa5c"
+    },
+    {
+      "path": "build.sh",
+      "mode": "0o755",
+      "upstream_blob": "509abc40ee3fd7450b0d0ef51ced4e154051efd4",
+      "sha256": "067187d2c79eb9507ec2782179d39f5938194b594450dc9e691262566aa96cae"
+    },
+    {
+      "path": "build_r36s.sh",
+      "mode": "0o755",
+      "upstream_blob": "fec89421aa4ac88b7dc0d5d01c0898bf2f188c84",
+      "sha256": "57ebbd46382f44d248754d9348f1285ed31dc2e2c31f89d49647e675671fa0b8"
+    },
+    {
+      "path": "build_universal.sh",
+      "mode": "0o755",
+      "upstream_blob": "f891e02fd947d1d144a69cf97cda474657ae8da8",
+      "sha256": "1e90836e6bd8a79e80096e842affcdad2edd957690a42dc43e2dea00a139384b"
+    },
+    {
+      "path": "ecdsa/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "342538e03a8c3e5db856c44958b73b16fd953f8a",
+      "sha256": "c11527537834d4c33e98b35e9a7a2ffbff01f350e56d2aeaa05b4e3b86d9cd04"
+    },
+    {
+      "path": "ecdsa/_compat.py",
+      "mode": "0o644",
+      "upstream_blob": "4558e33a2ab0e382b702f3a83483407de86c922b",
+      "sha256": "e443fbdf90e599a49bf12964e0132787d67b32f6294e7192dd2fc30661c44f0a"
+    },
+    {
+      "path": "ecdsa/_sha3.py",
+      "mode": "0o644",
+      "upstream_blob": "2db005869e789d5504ae4f45956a2249d1eed863",
+      "sha256": "0c9b3b40b99d910314df9965c83f0741e01736f7f9b0c72e8ceea815d49c22a2"
+    },
+    {
+      "path": "ecdsa/_version.py",
+      "mode": "0o644",
+      "upstream_blob": "d910ff936fa08436222083457012f178202bd493",
+      "sha256": "e90eb0d3b481e742d6c43c3bfd4e0abe37c54902e2019587bd84ff8837a162ac"
+    },
+    {
+      "path": "ecdsa/curves.py",
+      "mode": "0o644",
+      "upstream_blob": "38e3a758bb1c4c0bf7afd26477eff19144e79a90",
+      "sha256": "11c3c4d16445923a4f3197d5334fa1450eb709d5b918a4e40d1a4af953b2d59a"
+    },
+    {
+      "path": "ecdsa/der.py",
+      "mode": "0o644",
+      "upstream_blob": "7a06b6810150a6aff19c3f1e1ec3226864cf0b5b",
+      "sha256": "c177fc7ed1c92dd259d8c8e9423793e638bfa938f4e5d26da82b2f9b08ef6eea"
+    },
+    {
+      "path": "ecdsa/ecdh.py",
+      "mode": "0o644",
+      "upstream_blob": "7f697d9a372a080b20145052cae45eb1a9179cb0",
+      "sha256": "4e28ab6b0b79c5e8150eb63d792f804efbdf9932339d4cafe5fcb693b567cd39"
+    },
+    {
+      "path": "ecdsa/ecdsa.py",
+      "mode": "0o644",
+      "upstream_blob": "f7109659e69f19ff9cfc211925cdaae13c0478dc",
+      "sha256": "f36102caf7b7eab2f8ff2f1993c8cf07e5326faecfa71e8261da887859e2bfbc"
+    },
+    {
+      "path": "ecdsa/eddsa.py",
+      "mode": "0o644",
+      "upstream_blob": "9769cfd8e63eb17d23d6bfa213d763d3fadb7cba",
+      "sha256": "233b06ce818079f72862317b0d58c5917e5926a88ad8b4ce98031eeb0c9fe145"
+    },
+    {
+      "path": "ecdsa/ellipticcurve.py",
+      "mode": "0o644",
+      "upstream_blob": "a982c1e492ca316ffe28c3e13e5dc1ce3859e615",
+      "sha256": "3a1a3126c249ffb0e9e5ed7401b943fee8bd528d96c68cd16f2dfb831a9cb8e9"
+    },
+    {
+      "path": "ecdsa/errors.py",
+      "mode": "0o644",
+      "upstream_blob": "0184c05b1c863ad99c8f293e780d53998cf1a49e",
+      "sha256": "6f89a19e622946711d1f36de72d1c003917b3bd32d49a23e7d8a1cd77fef0714"
+    },
+    {
+      "path": "ecdsa/numbertheory.py",
+      "mode": "0o644",
+      "upstream_blob": "fe974f8e4f9c0c488edaf817eb1fd9eeeb50cf5f",
+      "sha256": "01ddbe99515a3b2b4ca26042fbb7747096a8e2da6454b878c7bbf2aa3ef71ba0"
+    },
+    {
+      "path": "ecdsa/rfc6979.py",
+      "mode": "0o644",
+      "upstream_blob": "0728b5a41d51b825be1d844a1e375233417365b8",
+      "sha256": "cf0ce8df796c64903daf67527fb1c296223fc886f0e5c274124f6d2dd4513b8d"
+    },
+    {
+      "path": "ecdsa/ssh.py",
+      "mode": "0o644",
+      "upstream_blob": "64e94030f61720cde50b5e5efc0e916d04d9750e",
+      "sha256": "dfad0963475b61e65aab1f64fce8651f33d96194f0e54079c6d2b65cb06a6f43"
+    },
+    {
+      "path": "ecdsa/test_curves.py",
+      "mode": "0o644",
+      "upstream_blob": "93b6c9bdedd21dd9a2ee0fa104dd0761780cf704",
+      "sha256": "97937e9b8628e48032e1af1a24cb016a669294b01f4a862362a0a3d470c45695"
+    },
+    {
+      "path": "ecdsa/test_der.py",
+      "mode": "0o644",
+      "upstream_blob": "b095543158595c5e0ba938611a10ee9ca46b09f9",
+      "sha256": "06a6eedd08844b297c5fd6e3476201cc35b7e5f0c74d507e9a1ce4e6a5e01904"
+    },
+    {
+      "path": "ecdsa/test_ecdsa.py",
+      "mode": "0o644",
+      "upstream_blob": "c1e25829b8558876021f9cdf3401a95a4cd56075",
+      "sha256": "57943843bb9415f4ad55d785b70857569165162d0dc79279babbbd4f78ffdc34"
+    },
+    {
+      "path": "ecdsa/test_eddsa.py",
+      "mode": "0o644",
+      "upstream_blob": "6821b3bca87189d8a411e705522fff6333a31ce6",
+      "sha256": "d637c717f652ca2965bfa0cb28967449e61385ab93087b3244d030792ff83044"
+    },
+    {
+      "path": "ecdsa/test_ellipticcurve.py",
+      "mode": "0o644",
+      "upstream_blob": "864cf108befba232e3b99605339f7470511061a9",
+      "sha256": "9af2010ff28aace63856977829c47727c44207120d26da9696cd56304b058271"
+    },
+    {
+      "path": "ecdsa/test_jacobi.py",
+      "mode": "0o644",
+      "upstream_blob": "f811b9221da7604102827e265a4ea505f77796dd",
+      "sha256": "495ad2fbe3d2c036a40988addb5ea4866cc5f1e42bc96b62237b1859dffaf3dd"
+    },
+    {
+      "path": "ecdsa/test_malformed_sigs.py",
+      "mode": "0o644",
+      "upstream_blob": "e5a87c28a18e4f1f9bde2375cd0d6fb8e8c6ecc1",
+      "sha256": "0e0d4392f833d6d3be2a167a7fd651963ca4cfc14162d95dde1ab55b684b2ccf"
+    },
+    {
+      "path": "ecdsa/test_numbertheory.py",
+      "mode": "0o644",
+      "upstream_blob": "966eca299b43ee48c707a549dc970b07ac6c9136",
+      "sha256": "613b5c96dff9d27ff6e14fffaf62725772c4a91d81b01980e88260870043cfc7"
+    },
+    {
+      "path": "ecdsa/test_sha3.py",
+      "mode": "0o644",
+      "upstream_blob": "d30381d7af8dd839887c6ae35feb2d10059e93ad",
+      "sha256": "d0f9168bb0274c9d7460d7c356a8f6481eda75e4db57a0c2bcc8389fd50b69df"
+    },
+    {
+      "path": "ecdsa/util.py",
+      "mode": "0o644",
+      "upstream_blob": "1aff5bf518f69ac82bf16f32170c85dc8f826a66",
+      "sha256": "522c571fa3d1f69a0cad6409f77acaa54495647c4fd4098bc2592b908dc55851"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "db696b9e62af61de052e2a70ecc43996658fc6c5",
+      "sha256": "516d365c994f2d60839901742253220ce073b89d5f9d65cfd45a1da5c012ae5d"
+    },
+    {
+      "path": "jnius/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "bc7f216d2e30e10aa7bce51aafbcc9ff39243913",
+      "sha256": "ba79dca958d526252d2fff00bbc6381bd748c00cdb6ff0811a79bd329f4d9660"
+    },
+    {
+      "path": "licenses/GPL-3.0.txt",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "licenses/RenPy-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "f9ac278396ef5c7c725f6f29138f6dd411ff8305",
+      "sha256": "9e0f40ac40734e8446aa3b84141088a41bf989ae29486dbd757dbb95cc83aeab"
+    },
+    {
+      "path": "licenses/python-ecdsa-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "577f179e73866a294a5735602521fb0146007c29",
+      "sha256": "6dc6884d9530db609e775584fafe8db0a4dd98ac572afa687d5072bf86e51d9d"
+    },
+    {
+      "path": "licenses/six-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "61354bfd28dd8f2d8664c8806a23f39960c256b0",
+      "sha256": "d73d700a05952d21bed1040f947f0de910a459989a38c2ae1f40b1cc4855c38f"
+    },
+    {
+      "path": "main.py",
+      "mode": "0o644",
+      "upstream_blob": "bfc8b1f634caebc6f985d6c24cf454b3bccab709",
+      "sha256": "98c306a57b581bb9601228b2403a781b4f78df39d149348b103c0775412893b9"
+    },
+    {
+      "path": "nxextract-runtime-env.sh",
+      "mode": "0o755",
+      "upstream_blob": "a0c4cae7699e7a403cf3ab490d859f83e991c664",
+      "sha256": "84b1266ffe50519f371f084e66e800754f3ff43fa506d7cdecf36426d6b1af4a"
+    },
+    {
+      "path": "package/r36s/gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "2acdc26d27dd66e6bd16dcbf5dbae95c3e4d2dad",
+      "sha256": "0bd70967b0b9edfa258a4a8a6f20bfeb8934a39273b00543542368bc466a2aaf"
+    },
+    {
+      "path": "package/r36s/port.json",
+      "mode": "0o644",
+      "upstream_blob": "1291db242803f4dd90bb29e79cdfa4b9eb43446d",
+      "sha256": "7929461770134b92b7aa62f283de6c8e764159467b175cf62f9521760dd13775"
+    },
+    {
+      "path": "package/universal/CHANGELOG.md",
+      "mode": "0o644",
+      "upstream_blob": "abf163ee1845bb351cbc09e6e315f6e7d2806445",
+      "sha256": "5d8a46231b573e9ed5556ffc43bdaa9221d7c9429f08c2114d6011d73eb02360"
+    },
+    {
+      "path": "package/universal/extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "db696b9e62af61de052e2a70ecc43996658fc6c5",
+      "sha256": "516d365c994f2d60839901742253220ce073b89d5f9d65cfd45a1da5c012ae5d"
+    },
+    {
+      "path": "package/universal/version.txt",
+      "mode": "0o644",
+      "upstream_blob": "524cb55242b53f6a64cc646ea05db6acc7696d2d",
+      "sha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989"
+    },
+    {
+      "path": "renpy/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "840e10188e1fac2e665daf079c811969b84ad92a",
+      "sha256": "a2a75442152b1fd89f848aaf400c36a531d2cde5d53aed3260a520e8618872f6"
+    },
+    {
+      "path": "renpy/add_from.py",
+      "mode": "0o644",
+      "upstream_blob": "3cd693454375e6055e2e66b0c32032503e61110e",
+      "sha256": "b7fe6c69d4132d90e2d68071225936ac32cbdfb7febce5bcda4bcef12d233af2"
+    },
+    {
+      "path": "renpy/arguments.py",
+      "mode": "0o644",
+      "upstream_blob": "7f24c63d42f9156bf276dd874dfe2d491f5420b1",
+      "sha256": "582cffd5359b079e576acc65ac411e5803949f6fade72edee9f0c84a0e238d32"
+    },
+    {
+      "path": "renpy/ast.py",
+      "mode": "0o644",
+      "upstream_blob": "066cc0e68c446c755d0949f62879f3f39cacb3be",
+      "sha256": "9daf5d5a54684f44edcbae3f9bedb88ebde6a2035c8a984f1d426f75e351135e"
+    },
+    {
+      "path": "renpy/atl.py",
+      "mode": "0o644",
+      "upstream_blob": "2b8a811b43f3132b723697b60e6e2234f5e7357a",
+      "sha256": "9f40215f320c3ad07552d11632663e1042ce3381d5ed13b4dcdd0523c9ccd70c"
+    },
+    {
+      "path": "renpy/audio/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "5617d4c1daf45fd08290285e88b19d6b42a2663a",
+      "sha256": "8241a0ba81c9ebb0c693b893872b59245a1d0f0eacad5a1954fa6fe9a0d6ef0c"
+    },
+    {
+      "path": "renpy/audio/audio.py",
+      "mode": "0o644",
+      "upstream_blob": "0a10ad56b25eb8c46f9b6dcd78ca50fb66beae76",
+      "sha256": "8c5e914beb89ee24ef209528c585449d26fb5402b4c068203cfe961eae73e16e"
+    },
+    {
+      "path": "renpy/audio/music.py",
+      "mode": "0o644",
+      "upstream_blob": "d99c23f046b199abfbb4f7fa49735a86ab34d6c4",
+      "sha256": "5de87c000fb6dbcfa8fcdc04e74b243be1260e62c37f03385fc6d430607a35ae"
+    },
+    {
+      "path": "renpy/audio/sound.py",
+      "mode": "0o644",
+      "upstream_blob": "4b3364905f3eff6184786b61220a9b56f773bd27",
+      "sha256": "0bb4e2605574f87602e450676071055c411ac12fff4c79476c81f0beaf906d58"
+    },
+    {
+      "path": "renpy/audio/webaudio.py",
+      "mode": "0o644",
+      "upstream_blob": "ee72588bab39cb460fe69d18d63973e671b34737",
+      "sha256": "a3a9f0d2c35e39244a8f3c673bd55f72534d0ad928c75ce1e65114d3df03abfc"
+    },
+    {
+      "path": "renpy/bootstrap.py",
+      "mode": "0o644",
+      "upstream_blob": "4d3b1252dd889cca6ae66dae97848a758180edfd",
+      "sha256": "f56497310608533173dc14dab9ca3f1d994ea70b3729f244ca6b0121f0de40da"
+    },
+    {
+      "path": "renpy/character.py",
+      "mode": "0o644",
+      "upstream_blob": "708fcd492761b2a079a731fc21a707241b892b52",
+      "sha256": "c8981166f9b502328015c50bafed26133aa17307ed914c24ddb1165af2be439f"
+    },
+    {
+      "path": "renpy/color.py",
+      "mode": "0o644",
+      "upstream_blob": "faac7bac6e407e616c041a0fdf1006f50804cf97",
+      "sha256": "2bbaa09bcac0b4dfdd4e03f6c841b987954b5205c49cf00e2ffb4fa5fb759842"
+    },
+    {
+      "path": "renpy/common/00db_ren.py",
+      "mode": "0o644",
+      "upstream_blob": "7a77914e01c3f39d6dfecf21638360de9d54f570",
+      "sha256": "e3e79b166cc4544427151659bd71f57b8e1b09ba5510d703513863d62dad2f19"
+    },
+    {
+      "path": "renpy/common/00layeredimage_ren.py",
+      "mode": "0o644",
+      "upstream_blob": "fd799a70888fca24f59e8adcaed099a982727d01",
+      "sha256": "c39a0dcb7973e7e280b7d293cfb76d825809ce777d5ca782d1405b8a42431ccb"
+    },
+    {
+      "path": "renpy/common/00sshtransition_ren.py",
+      "mode": "0o644",
+      "upstream_blob": "4f4938437cc0854f27956b0e8d283877dcd02a98",
+      "sha256": "5e8b7f0d19ab39ded50f32f89a467e3589fd367a6196e530911b3f84801becd6"
+    },
+    {
+      "path": "renpy/common/00textshader_ren.py",
+      "mode": "0o644",
+      "upstream_blob": "a9b36091a52e04db3eb06e5702f980fb84ad4b58",
+      "sha256": "9fa7773b9e0cf5ba29be8f80529ab2ee3369287406cdf1baa71e7eba6536b741"
+    },
+    {
+      "path": "renpy/common/DejaVuSans.txt",
+      "mode": "0o644",
+      "upstream_blob": "254e2cc42a6d0135cccf2047768b9e44f25e666f",
+      "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e"
+    },
+    {
+      "path": "renpy/common/TwemojiCOLRv0.txt",
+      "mode": "0o644",
+      "upstream_blob": "ffbe429cd4c808013a4b9a98ccd18d59d0ba879b",
+      "sha256": "1d407ea0bf0bae3660a4a0efdded19fd022636031f0e8e345193128c61386290"
+    },
+    {
+      "path": "renpy/common/_OpenDyslexic3-Regular.txt",
+      "mode": "0o644",
+      "upstream_blob": "d743789cfc296503bb9dfc320c44edf18f6d0057",
+      "sha256": "2c77a7b450e58821cc0563fb1b8caf77571c89815a346837b178018bf2288a90"
+    },
+    {
+      "path": "renpy/common/_theme_awt/OFL.txt",
+      "mode": "0o644",
+      "upstream_blob": "0aa3492fdbe416e215b74482e72ea7d577925940",
+      "sha256": "1f742031819a4ae52bb8559387d82cc73ee069f75081c899e6d4338168a80de1"
+    },
+    {
+      "path": "renpy/common/gamecontrollerdb.txt",
+      "mode": "0o644",
+      "upstream_blob": "69422155fffcde38309386768561472caf84bff7",
+      "sha256": "42ad8ea61552359c11c861063c50b5773e2e46df62c2d25857c0274b8cd7cf07"
+    },
+    {
+      "path": "renpy/compat/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "5843d82997042cfb63e97de8b622f479c35f6013",
+      "sha256": "65d08cb04faa4e6037e2a2070a8e177af5745be11c1ce0930483b8ca8cb365e7"
+    },
+    {
+      "path": "renpy/compat/fixes.py",
+      "mode": "0o644",
+      "upstream_blob": "37f485d28006fe624edaabf85cc716abd0849b79",
+      "sha256": "b29f3e6800fceb5d311e7e53f1de30848eec1defef77aa3f32618aba49261d5a"
+    },
+    {
+      "path": "renpy/compat/pickle.py",
+      "mode": "0o644",
+      "upstream_blob": "a48fcca9adaba6e00786208106bb1068bd279309",
+      "sha256": "199dcb215f02f499f7730e0f947c1167d6f0f57628c2d04cda51f18a0513d019"
+    },
+    {
+      "path": "renpy/config.py",
+      "mode": "0o644",
+      "upstream_blob": "dec52c99c4ce163ba8282b490de598d4de63052d",
+      "sha256": "29f7c327f28a5c206573f643814bad33754bb900212a58b093ae46f831ae603b"
+    },
+    {
+      "path": "renpy/curry.py",
+      "mode": "0o644",
+      "upstream_blob": "6ceabd365c87a235eddf63c1f707dbbd46a72095",
+      "sha256": "6dbaa3cd45e56929cbe10f800c7094fb5d6e7f9aede262814201d7a1cdfd38a9"
+    },
+    {
+      "path": "renpy/debug.py",
+      "mode": "0o644",
+      "upstream_blob": "00236465fb654aa4fa1ebc353ee2e3816ecfd60d",
+      "sha256": "e46b2bd10091177b2364525e1400cf1b4af45881cef8802b81ff8a7d4b7850da"
+    },
+    {
+      "path": "renpy/defaultstore.py",
+      "mode": "0o644",
+      "upstream_blob": "9a1ff5b574f26150308ed7a26948ac77342aa0c2",
+      "sha256": "9735f8ec31324a410f0c3ddc2c254b747fa605c4bd97f528144560203e080ce0"
+    },
+    {
+      "path": "renpy/display/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "666f873c4ad20c91103c86d48e5f77a862bd0d55",
+      "sha256": "d830e4f4c38fa551c18dec0ec981948b5af384319a62f834b4a50a8611e1ad5c"
+    },
+    {
+      "path": "renpy/display/anim.py",
+      "mode": "0o644",
+      "upstream_blob": "07771d797320451b9fd79a8f3d0cd8659efcd10c",
+      "sha256": "342680b2913e8b6708ca04cdd506283af4042a58f826cf6530dcd01a600e6fdc"
+    },
+    {
+      "path": "renpy/display/behavior.py",
+      "mode": "0o644",
+      "upstream_blob": "c6612f502b44cc639baf628294b5d2c5da51b9ea",
+      "sha256": "a87ee03d7612efe570c2c4d159db4ac505fa75ec92a8b8caf0c8f521dbd598fd"
+    },
+    {
+      "path": "renpy/display/controller.py",
+      "mode": "0o644",
+      "upstream_blob": "e0a5719f4b26f1370e53eb501a9363283632b803",
+      "sha256": "c8367ca342af657328579678009211087f233200a5d9d1cc4f2d576ff3fca87d"
+    },
+    {
+      "path": "renpy/display/core.py",
+      "mode": "0o644",
+      "upstream_blob": "f721114978115fd4c6eed09c5a6a92999806b66d",
+      "sha256": "f42cd2c55a272c95e8042442ea4d24191a243995e7d5a25e673590f628078f36"
+    },
+    {
+      "path": "renpy/display/displayable.py",
+      "mode": "0o644",
+      "upstream_blob": "374c02762561e6e635b5d6087b060b82dce827e5",
+      "sha256": "face1b2ed70804ddbbbc58b77d22511cd9194233d537010928608ba9dbd585e8"
+    },
+    {
+      "path": "renpy/display/dragdrop.py",
+      "mode": "0o644",
+      "upstream_blob": "0fee83287e464ff08144a2717a3b89b80bb8e361",
+      "sha256": "b64d85ccc66e90e2420532e77d1788aa1c397e12efc5e4014ec9cf5b8b171207"
+    },
+    {
+      "path": "renpy/display/emulator.py",
+      "mode": "0o644",
+      "upstream_blob": "e63f714cf9c0a495b0feb7019aea31e053e80b15",
+      "sha256": "548e78f81478fccf2456d36ae6bd3b5dfbb46163d980f8cacb1ad2c145bdc1ec"
+    },
+    {
+      "path": "renpy/display/error.py",
+      "mode": "0o644",
+      "upstream_blob": "038694847fd52e5b71c38921cfe89f859ff5f34c",
+      "sha256": "e2d044458707f320509992b47329de2ee7311929773b4a5a3c7f622d3850c4b6"
+    },
+    {
+      "path": "renpy/display/focus.py",
+      "mode": "0o644",
+      "upstream_blob": "091256d7d61ea6a48496d5022d105427bbf90d41",
+      "sha256": "fdfea4b5d3b0b42a9182a37304bbbf80a00b6e3d3264ccc19e1ba39d1b41b303"
+    },
+    {
+      "path": "renpy/display/gesture.py",
+      "mode": "0o644",
+      "upstream_blob": "2756aa864dc6f5b1df356d55475c1f41b2a32b0a",
+      "sha256": "61b4e59fb7a77348fed3f4c30e1d554cb9b6358b81e48dc021c7b2616c47fd79"
+    },
+    {
+      "path": "renpy/display/im.py",
+      "mode": "0o644",
+      "upstream_blob": "76d8059ec88df6a7397c4812a716de8484368b9e",
+      "sha256": "ed0b63cad882d237ca4df878bfc3fb25e7fd2b46d0b0ca6a13bbd7098c4cdb1f"
+    },
+    {
+      "path": "renpy/display/image.py",
+      "mode": "0o644",
+      "upstream_blob": "3d2af56062e8afae66980e2d64eeec2ca4d3e824",
+      "sha256": "0a440a924b16ecd6a844ab93f0e4521a7ed8dcae2a51d80f368e88e6cccf55c1"
+    },
+    {
+      "path": "renpy/display/imagelike.py",
+      "mode": "0o644",
+      "upstream_blob": "5514a06d54fb0684ca4b9056d88ec906babee909",
+      "sha256": "c9d4c5b1f79420a894a5c6c2c6059934d8f8f996fca6ea47bd2e1dcd2ddbc818"
+    },
+    {
+      "path": "renpy/display/imagemap.py",
+      "mode": "0o644",
+      "upstream_blob": "8780b26477af4413ed319baa636651b83b59cb2b",
+      "sha256": "ba1236a5d04a4d4891f7ac93d7a84df56d5b1dd5c90dcd7c18e520bc45d94275"
+    },
+    {
+      "path": "renpy/display/joystick.py",
+      "mode": "0o644",
+      "upstream_blob": "0321fec0131d32239aa43d46863dd7a34a7605bb",
+      "sha256": "bfe96420697e3fc83158e621b0b2425d47916d648af6af289245513084a4e85d"
+    },
+    {
+      "path": "renpy/display/layout.py",
+      "mode": "0o644",
+      "upstream_blob": "421a7240f83a692aa076c2f81fede3cb30fa5997",
+      "sha256": "c320ae7a02e115adcbd3590630a386f770c53bb311496f235d1e202cb62e3f7c"
+    },
+    {
+      "path": "renpy/display/minigame.py",
+      "mode": "0o644",
+      "upstream_blob": "e690e085814e0478cedb33b0657b71a53ab52b3c",
+      "sha256": "8334633d6565409035570020d7bf7eaec2c32421b4e3a27b46fac4d9b764d95d"
+    },
+    {
+      "path": "renpy/display/model.py",
+      "mode": "0o644",
+      "upstream_blob": "cd2d3b4fa4ac9aeb65c7163e70e2d2bbba4b0f0c",
+      "sha256": "68ef3da9604e39990865ec9ed5a8c8abf6dc0bdf7d3e52824bac31a96d4f33ae"
+    },
+    {
+      "path": "renpy/display/module.py",
+      "mode": "0o644",
+      "upstream_blob": "efb3a44749e3662a268d186bb692d2b9334ef835",
+      "sha256": "4d67a7e0e0f683f0c7000d6f174dd721f2c3e866c255727840146851f67789ef"
+    },
+    {
+      "path": "renpy/display/motion.py",
+      "mode": "0o644",
+      "upstream_blob": "b68e603f60700af1829903475d4aacda63b5bd6d",
+      "sha256": "9d8109b22f147639345fa3b10dbd40c3a2c9ab46976e6f826e2ed81fb9c70572"
+    },
+    {
+      "path": "renpy/display/movetransition.py",
+      "mode": "0o644",
+      "upstream_blob": "20f7cc2bf9e563c68aff2165817eddc4b96a909f",
+      "sha256": "b7c56f7e1371504e6bbf854ba017dd0c0eab5a32d0619245f8eb210b3b5a941b"
+    },
+    {
+      "path": "renpy/display/particle.py",
+      "mode": "0o644",
+      "upstream_blob": "b8ccfd955802e6c8d8a72aeb1358db1f36a26242",
+      "sha256": "ab1271f4fd02ca04770083379cde9edfffb1a945c04de679c7b384f2418edc65"
+    },
+    {
+      "path": "renpy/display/pgrender.py",
+      "mode": "0o644",
+      "upstream_blob": "7de26f6b8a69cb0ed169d29ff9637179a037898d",
+      "sha256": "67702bbcabe3c1f8f69f776e7385f9fefd90cb91c32631cd3d12a62c1104567b"
+    },
+    {
+      "path": "renpy/display/position.py",
+      "mode": "0o644",
+      "upstream_blob": "89fd341ad77ad80bac7d4e630360122a726058ce",
+      "sha256": "5317442526fd03865384733049c24471dc7629e42fa465d96c337f1e2d75e397"
+    },
+    {
+      "path": "renpy/display/predict.py",
+      "mode": "0o644",
+      "upstream_blob": "fccbb11fee50e27164b2c1aba8d514ce30dea0bd",
+      "sha256": "654f43a9b16868a92922b9e539bb137393b69af21fb8c84cc7c73ae3d4b8fbc8"
+    },
+    {
+      "path": "renpy/display/presplash.py",
+      "mode": "0o644",
+      "upstream_blob": "be35d80264832044c5c7bd659fc84956d839f15b",
+      "sha256": "11f93fe6539e98f4b43a71e2a87b820cd6163f2cecdb72bff74c4229970cf974"
+    },
+    {
+      "path": "renpy/display/scale.py",
+      "mode": "0o644",
+      "upstream_blob": "289182bec6b5f25defb4a48e4543d709e079105f",
+      "sha256": "f5e123e3cb6d58a058a46eaabf5054876cdf54ee6b2bd0247880819fdcc8fd87"
+    },
+    {
+      "path": "renpy/display/scenelists.py",
+      "mode": "0o644",
+      "upstream_blob": "3951b63ff85b40bb24d0b57a640c67f86fd40b5e",
+      "sha256": "6c0f91e524dc3e86161cc96f878bf919bad2c3e5c8452d23fc0f94a1e9e7d4ba"
+    },
+    {
+      "path": "renpy/display/screen.py",
+      "mode": "0o644",
+      "upstream_blob": "89f11548ec25dd6f592406f2f27c5c905848e751",
+      "sha256": "56dfe3568afc1dcba0ce48a64493ba65cff747a83d32b1ec5da26594bff964e6"
+    },
+    {
+      "path": "renpy/display/swdraw.py",
+      "mode": "0o644",
+      "upstream_blob": "5b43a0e0a3f25345c566818ce8f5de552530dbd2",
+      "sha256": "6de944c532fed45729a1fda8314d8ec95af836d6df21b7a02a8a627edee57884"
+    },
+    {
+      "path": "renpy/display/transform.py",
+      "mode": "0o644",
+      "upstream_blob": "4a11fa7ac489b81cc61484fdaf5b3f6cbc912fc6",
+      "sha256": "774bcca993d59dfcc951a02d364c8b92fdcf35112bc8e9d6906d8ebfd738aa01"
+    },
+    {
+      "path": "renpy/display/transition.py",
+      "mode": "0o644",
+      "upstream_blob": "98a8028f18e4fc1c8fe470a3948bdbd9c4b334ac",
+      "sha256": "1d208cf58d7f2a18c258795b4e71cecc06f55f3885c5733e1d725e6d75590ab5"
+    },
+    {
+      "path": "renpy/display/tts.py",
+      "mode": "0o644",
+      "upstream_blob": "34f65760362ca73bc616547414abca14cb7e3166",
+      "sha256": "04b0df9b334a8956c13b788cccc0070c3d744df7f4217e945c778405e4f85014"
+    },
+    {
+      "path": "renpy/display/video.py",
+      "mode": "0o644",
+      "upstream_blob": "acf75909313a74bd31763acdd0cc77d8c5aa7f7f",
+      "sha256": "a64fe8ca6bc78f349343468c0548a3127505184e9ed9856024fce6f88cc9920e"
+    },
+    {
+      "path": "renpy/display/viewport.py",
+      "mode": "0o644",
+      "upstream_blob": "9f0bf00c587dedc856ceba399a3a4ca9270605a5",
+      "sha256": "49f1b7cec7c5d215b322670bb5bdc08b11dd29a152406d45725a7e3f7966fe64"
+    },
+    {
+      "path": "renpy/dump.py",
+      "mode": "0o644",
+      "upstream_blob": "9ce4b0fc651c99547bca2c955e6f0173a9782afb",
+      "sha256": "69c611cbbf59fa7c692a1fba58ee3358c9f7ab98e7e20275dbe4f2d2543b1cae"
+    },
+    {
+      "path": "renpy/easy.py",
+      "mode": "0o644",
+      "upstream_blob": "bb315ca6fc1dee231c97bc04abc00940a81281a5",
+      "sha256": "81313c5e7ec3a145f95a7d9270d57fbcd5be7ae736477b9da4d02511e828c613"
+    },
+    {
+      "path": "renpy/editor.py",
+      "mode": "0o644",
+      "upstream_blob": "1e4fb4b9d6c5ad60eee223d810928989a35a1733",
+      "sha256": "80d863d8342b067bc7551663f30af4c1026bb2d8141a0ab6997a1d7db2aafe77"
+    },
+    {
+      "path": "renpy/error.py",
+      "mode": "0o644",
+      "upstream_blob": "2ac35712afcb33ae11bbeac0a9d4602d81360573",
+      "sha256": "7d1c0c77c40ad8fae8a7d4833891a237b541a71a32716a676a071cbf6a5fbf6b"
+    },
+    {
+      "path": "renpy/execution.py",
+      "mode": "0o644",
+      "upstream_blob": "9da4b1e05a25697d6dc59d988873e4dd2cc105c8",
+      "sha256": "a2b8425239672882632e02a76435a7fcc9b593beec4a5c32c6dd4e9db5e8b857"
+    },
+    {
+      "path": "renpy/exports/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "02c5852aabecff657d86e4eb1e9274589dc0f834",
+      "sha256": "31e67fc066c2eb566fd50ba8039490167362735830860cef71781f385364e213"
+    },
+    {
+      "path": "renpy/exports/actionexports.py",
+      "mode": "0o644",
+      "upstream_blob": "24d36c8c3a0f2e0354c7cc542d2f0b417999991b",
+      "sha256": "50d167d95f1393aa0ca5ecbc15c479b964fbc8e1065276c888ba7dc2f7a0b36b"
+    },
+    {
+      "path": "renpy/exports/commonexports.py",
+      "mode": "0o644",
+      "upstream_blob": "36419b2f9b0fefb0217df2f7d250c19df5df5b00",
+      "sha256": "172a530a6d69dbf0183fc9e39f3bbcd67c12a6d6ff35f71c57fd0bca988d1b8c"
+    },
+    {
+      "path": "renpy/exports/contextexports.py",
+      "mode": "0o644",
+      "upstream_blob": "47563a1487586aebb490927534ec4818e69d74c3",
+      "sha256": "975b21598ed6c23ef9c920e8d57d49bae2517cefe081909896938fba9f4f87d1"
+    },
+    {
+      "path": "renpy/exports/debugexports.py",
+      "mode": "0o644",
+      "upstream_blob": "779d732491c15ce393bcdbe7df6482ec0aa94cb8",
+      "sha256": "7834f56db7a20be4a2349ed7cbbc24d389d5fdafbac186ad7fd482d103e95cf9"
+    },
+    {
+      "path": "renpy/exports/displayexports.py",
+      "mode": "0o644",
+      "upstream_blob": "fcc944c5134c0a592b601da212526391213cc9a4",
+      "sha256": "f16011690b16c48ce0a3804b300eb60912ed999b7e02709aa338194334f9fd33"
+    },
+    {
+      "path": "renpy/exports/fetchexports.py",
+      "mode": "0o644",
+      "upstream_blob": "358207f6ca340da111fcc8882c6163a8ba02ab04",
+      "sha256": "14f1c64e59ed9ee4617e1a9635a7dc52e0de7d3df8185581e3199984c62964b7"
+    },
+    {
+      "path": "renpy/exports/inputexports.py",
+      "mode": "0o644",
+      "upstream_blob": "c90d91130b7640846045f8b333ef4f494867c0f6",
+      "sha256": "224df0af0c50e7f104f1e7dc3067cbbffb4f6bb5af3634ac26d973419a3a643f"
+    },
+    {
+      "path": "renpy/exports/loaderexports.py",
+      "mode": "0o644",
+      "upstream_blob": "0f48b43e221dadb502bc788bdcb4f52a91184bdc",
+      "sha256": "0712865317a8222c9d55cf33debe0f93483b410ff6cf345796836236dcfca445"
+    },
+    {
+      "path": "renpy/exports/mediaexports.py",
+      "mode": "0o644",
+      "upstream_blob": "dd267d1102127857b863e91eabde722dc5e63005",
+      "sha256": "6ba76409990596998b79721b9a921ed3057fe4f9f1c1c2eef4a92969ce0387cf"
+    },
+    {
+      "path": "renpy/exports/menuexports.py",
+      "mode": "0o644",
+      "upstream_blob": "25777dd23e008e9a6c678b70ea2af56d3ba32f9d",
+      "sha256": "90e6a09592da53a0349410decdad5d30c662f7777a9ae663d9e8037ab4469839"
+    },
+    {
+      "path": "renpy/exports/persistentexports.py",
+      "mode": "0o644",
+      "upstream_blob": "151ff86afce59f15d1994b4f57ae694b1f9e1d82",
+      "sha256": "de24edd96bde8aed33442ba35cb1d7b6ac374b8a0f4374850eb3ccac15d7e969"
+    },
+    {
+      "path": "renpy/exports/platformexports.py",
+      "mode": "0o644",
+      "upstream_blob": "ac6850603ef52b1692d21265b62c5a9ed263614f",
+      "sha256": "55bb5154bca9ae28aad574c3a602e74cf45bd3556349a11e4b3d425f4d0e1145"
+    },
+    {
+      "path": "renpy/exports/predictexports.py",
+      "mode": "0o644",
+      "upstream_blob": "2e8e89dcba8ad3ff0ef4dd19b4ba59c753d9fd39",
+      "sha256": "1bb3d5e1d702b99118181e9cde0cd243dc1845229fdea5e75dca7c1c93fd60e3"
+    },
+    {
+      "path": "renpy/exports/restartexports.py",
+      "mode": "0o644",
+      "upstream_blob": "98d784e594d856dc0b4804aeede9b25d553f07c2",
+      "sha256": "7615c4e7fe2bd7602cc2a424c6f4c1c33cc5ae25b35edcbe77a9ee278b246c5f"
+    },
+    {
+      "path": "renpy/exports/rollbackexports.py",
+      "mode": "0o644",
+      "upstream_blob": "f7334831f989c830a27b3303f517d24f4ea93408",
+      "sha256": "bffb6dafbb3b69b21e81da4d5cdeb7467cd2ac72fe7cfac7fe324747660cc4da"
+    },
+    {
+      "path": "renpy/exports/sayexports.py",
+      "mode": "0o644",
+      "upstream_blob": "71bf820aea310b2d41c9c99e6d744b6e2c4a247c",
+      "sha256": "fcad45b56c5f52d555e99995761119dd1d58d4978a106b8b7f1ca18cea64732c"
+    },
+    {
+      "path": "renpy/exports/scriptexports.py",
+      "mode": "0o644",
+      "upstream_blob": "3920942d564ca803bbcee48af3ea34b9dd69dc45",
+      "sha256": "4d7b01c70ad9ee1695a73c21da3803acb6cc610434e37b44314fcaf50d1166cf"
+    },
+    {
+      "path": "renpy/exports/statementexports.py",
+      "mode": "0o644",
+      "upstream_blob": "464b9bfe0b42313ae89460c3ecf3e1d86f5f4bde",
+      "sha256": "7a175e8e676526e94d6b4a03e9a7feb536a32bd5e639fc1d0eb2ffa2416554f1"
+    },
+    {
+      "path": "renpy/game.py",
+      "mode": "0o644",
+      "upstream_blob": "f9c14ea5ca8be29ee2e90bd5d1903d8c67c85af7",
+      "sha256": "552538e22075050fa369a73bd1345cc18e86cd69a525da4c41b5126d69f6c918"
+    },
+    {
+      "path": "renpy/gl2/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "6023eee37138f06136a93c220b54215d5ef58f7a",
+      "sha256": "15407c27031915a19588a2a0ed3ef2b0504623782e7b338ad5bd175b00bf47c2"
+    },
+    {
+      "path": "renpy/gl2/gl2debug.py",
+      "mode": "0o644",
+      "upstream_blob": "210e10512b2f7633c76f90da32959d5e00c39b3f",
+      "sha256": "f1fe9095c26806d9c337af2a04f37f4a6835db863609d39782ea38e66761877c"
+    },
+    {
+      "path": "renpy/gl2/gl2functions.py",
+      "mode": "0o644",
+      "upstream_blob": "effa610095102dba9092bd513ec99a2fa5fabefe",
+      "sha256": "f1a58298d8da4969fbdbd809405dde5b3e3578bc37a067339b08598859465630"
+    },
+    {
+      "path": "renpy/gl2/gl2shadercache.py",
+      "mode": "0o644",
+      "upstream_blob": "8a6e15b7cb192b31fadace19df58d34dfa191b05",
+      "sha256": "8b7eb34904cba4350d596ff18dfa2f9c23966b30a4ef9c33229d1e0c5a3e8584"
+    },
+    {
+      "path": "renpy/gl2/live2d.py",
+      "mode": "0o644",
+      "upstream_blob": "697de821a33ace55e4956bd53e7696c5c5b2ad02",
+      "sha256": "97f8692efebe23d0bc697754fb5ba01ea5aef46c2878794641aaeac437d01826"
+    },
+    {
+      "path": "renpy/gl2/live2dmotion.py",
+      "mode": "0o644",
+      "upstream_blob": "e35c34a40e7dbf8f8d8b27c5625a8d7983818e3a",
+      "sha256": "052bccdcadb4c031a78abb5ca290a721a6f91d781dcd3db9f1eda1f43ad3fdc3"
+    },
+    {
+      "path": "renpy/importer.py",
+      "mode": "0o644",
+      "upstream_blob": "e70b9d98248a4d967fe6184152dc7f177e9eaa5a",
+      "sha256": "ffaea9892be232162cffe140d9e585dc9bd7bf2480194427675b56968b0966a1"
+    },
+    {
+      "path": "renpy/lexer.py",
+      "mode": "0o644",
+      "upstream_blob": "6bf6051c2cc8feb0f7f8715dc3cef747e9eb8a3e",
+      "sha256": "dde86d7706e4826f71663f932593ddae4b5b31b2658a420dda8f1b36cd65336d"
+    },
+    {
+      "path": "renpy/lint.py",
+      "mode": "0o644",
+      "upstream_blob": "ce1a621bc3725ce12e81a33d1417a30bc26ea2f2",
+      "sha256": "1eef59bb35f0e4eb45025d6248c3cf1007f0d98a747a96c492f5285e53e54805"
+    },
+    {
+      "path": "renpy/loader.py",
+      "mode": "0o644",
+      "upstream_blob": "f0fcf2c62fbea52fd6c036f5f23bc9cf8b8521c4",
+      "sha256": "ef178f3f08bf9433676212097e0499a97c21f66de26a9c7fccadda814ead932a"
+    },
+    {
+      "path": "renpy/loadsave.py",
+      "mode": "0o644",
+      "upstream_blob": "631c7e484faf7aea9bf1f428b683ca6820fe03ab",
+      "sha256": "70cd82d5fc2245f647306951ac2ed1a1426f7dc23b3ee8ebb2f5236ec32a34e1"
+    },
+    {
+      "path": "renpy/log.py",
+      "mode": "0o644",
+      "upstream_blob": "272cfc2e8f7d4ca49bbdc7ced7a30d9a789427c0",
+      "sha256": "fad15b72a624b1f9b8382e83cd8197aa5c9966a9cbb20c1f96b058577b194378"
+    },
+    {
+      "path": "renpy/main.py",
+      "mode": "0o644",
+      "upstream_blob": "e8ab67426830b56a14d9f3e064662acc503bf940",
+      "sha256": "ab8eba55a3e25181962ed9e05b2e29c67d8b859cf6f7454f74c8ed9c05e1e1f3"
+    },
+    {
+      "path": "renpy/memory.py",
+      "mode": "0o644",
+      "upstream_blob": "269ca6cee209f316aa5ea4c1746000c6b2807fec",
+      "sha256": "a19b533bf676a9e0055c1fda9a1ada9f20391f594ff72d2c438cba4000bdce0f"
+    },
+    {
+      "path": "renpy/minstore.py",
+      "mode": "0o644",
+      "upstream_blob": "98f4fa4e315936f7073aeb33584f4d26fc0e4391",
+      "sha256": "daf1dd383ce1a19ee4d54e5c5e48d5bf94c582183b36c93032c6ff1fa3e754e5"
+    },
+    {
+      "path": "renpy/object.py",
+      "mode": "0o644",
+      "upstream_blob": "be3a8a530bd15e1d961760923dd23832c6b79b58",
+      "sha256": "acae608901f38a425e174a33aca4e9c363a4101a18233d355cf0f53dcf459839"
+    },
+    {
+      "path": "renpy/parameter.py",
+      "mode": "0o644",
+      "upstream_blob": "4fef403521fd1ba18a3c470476331fdbb3f34570",
+      "sha256": "f42b5af5b40fbd39bf619fae88891785dfa25e7c0dc6579baf5a60c76362cf22"
+    },
+    {
+      "path": "renpy/parser.py",
+      "mode": "0o644",
+      "upstream_blob": "5ce90f86b08c833772ec371afe9e8ed7fb9391bc",
+      "sha256": "1c5153f95d1b8f9c19824e4008bf1fee078ee8307670affc254a59f4ba0150e7"
+    },
+    {
+      "path": "renpy/performance.py",
+      "mode": "0o644",
+      "upstream_blob": "95394af1c6e4de0b6e0710632658940a257cf6d3",
+      "sha256": "720e8a1bfaa3a9d7edf3a6a947c2588ec063f705393e4746e06532ba67254770"
+    },
+    {
+      "path": "renpy/persistent.py",
+      "mode": "0o644",
+      "upstream_blob": "e0a53baa1da810dac3f516a894b1118fed5ea46c",
+      "sha256": "089f630e5d3b6265db3eb63acf85016c725c7ff83e4294174e3e8d30f12a74ab"
+    },
+    {
+      "path": "renpy/preferences.py",
+      "mode": "0o644",
+      "upstream_blob": "0e8f1b50d8d1fa061c928dcdc2af372134ea4639",
+      "sha256": "7a0841b8433eb5149aa8d365d6ec4c9a3562e56b9c998e63eafb5ceec378170c"
+    },
+    {
+      "path": "renpy/pyanalysis.py",
+      "mode": "0o644",
+      "upstream_blob": "de8207fd9209e08e805887009d436106cfe1be42",
+      "sha256": "b5660b85ed77131ec875c5bbaec1c5caa36aa3863c25ccfcd26a33cf5f71c82f"
+    },
+    {
+      "path": "renpy/pygame/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "4b2fa47a4a8463bcd0b8561d089ad3218db5d9af",
+      "sha256": "b7be5b65a34baa1690852fa767f20ab658b7cc9bc747b1dfaeaaea4056f80357"
+    },
+    {
+      "path": "renpy/pygame/compat.py",
+      "mode": "0o644",
+      "upstream_blob": "7f403f2da922c0812da1ba7fdf1978f27dec9e32",
+      "sha256": "a45422b2b17f9187779ffbf6039f018b03fcde6257a3202aea772f8097df1f4d"
+    },
+    {
+      "path": "renpy/pygame/sysfont.py",
+      "mode": "0o644",
+      "upstream_blob": "fb0a9a9160f185ff7e465df0721ccbc325720c91",
+      "sha256": "73e5b402a208d54e17a53971590ab5aeb23c3968a51663261d855f87f4a460bd"
+    },
+    {
+      "path": "renpy/pygame/time.py",
+      "mode": "0o644",
+      "upstream_blob": "7ad784044f9b91e1f5f7f591bb9f2d052b7dedcd",
+      "sha256": "6cb18f5b8ba92ba608ad865623a07076efd24cfccf0918a26245b7dc37a84a19"
+    },
+    {
+      "path": "renpy/pygame/version.py",
+      "mode": "0o644",
+      "upstream_blob": "c5a84dec79da61c7d55013ba56a8439c93506d12",
+      "sha256": "86a24740ac91e67911b00613f74df192ec7aef61fbecc51945ab33b0d1723bf8"
+    },
+    {
+      "path": "renpy/python.py",
+      "mode": "0o644",
+      "upstream_blob": "f8195f64245e52dcf3b14d558b3b96de3e84a2e6",
+      "sha256": "370c756dedbed191b5af81252ca5c70e9709ddb55a3d573df87dd580b4ee4176"
+    },
+    {
+      "path": "renpy/revertable.py",
+      "mode": "0o644",
+      "upstream_blob": "bdb6cd562f0c2d8aa2be77cec3460c831bebe68c",
+      "sha256": "41b0fbde46cd21e24568d6cd435623a931e7308070754f5cd940be2ec807fe0d"
+    },
+    {
+      "path": "renpy/rollback.py",
+      "mode": "0o644",
+      "upstream_blob": "2965eb469dfc8cb366cf588adb9c37b2975f628a",
+      "sha256": "8c44c38a211c7386da766ea5becfdd79e76b100dd4f8ffb781d076bca99b17c2"
+    },
+    {
+      "path": "renpy/savelocation.py",
+      "mode": "0o644",
+      "upstream_blob": "0b3ad1e71f57e5a591eebad4e24470ba171cf2c5",
+      "sha256": "e0b32aab4127325a307a8396b6a9b636781161fd23d595127e668d784342b85c"
+    },
+    {
+      "path": "renpy/savetoken.py",
+      "mode": "0o644",
+      "upstream_blob": "402bb0eb6d3fc52f1c57fdfec8b4cf162dd5cae2",
+      "sha256": "a1c3fce07a6545df5273e41e8391ca18b0574e2d9e6f124c2c90728b9b3b4eae"
+    },
+    {
+      "path": "renpy/screenlang.py",
+      "mode": "0o644",
+      "upstream_blob": "d1dc544a693d7fa119a15da65627875f997ddb99",
+      "sha256": "e53c5ac2cab09ad31e427c7a271893b9ec545daf4387d1b6a25cca23ad6aceae"
+    },
+    {
+      "path": "renpy/script.py",
+      "mode": "0o644",
+      "upstream_blob": "4e787551d814a7599aff58a77fe4cc9b3cb10d96",
+      "sha256": "9c998d22f2d6f41e5e2ccd1d62f6ac18738d1f66f753f91fbe4d93c92aab6d80"
+    },
+    {
+      "path": "renpy/scriptedit.py",
+      "mode": "0o644",
+      "upstream_blob": "2d4abea275e598a7567665fe6bb1021305f4a8bf",
+      "sha256": "a0e372ee1f9980225da8fea5473abcc93f3237a6ffe765d13f7ae54b9d7eed9b"
+    },
+    {
+      "path": "renpy/sl2/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "b510669ff5c403092dc9539ba552073858446554",
+      "sha256": "44e00f5d0fe5c4cf7d7e77e59bff82ff9943e698220d6e3f0ab46101e7a7eaa6"
+    },
+    {
+      "path": "renpy/sl2/slast.py",
+      "mode": "0o644",
+      "upstream_blob": "0247591574a0c9dc6d055b23d3e5c12d17f19cd1",
+      "sha256": "3e61b026759583bbc81de5480762fa5594fb9c96bfdacabf93e66e291539ac3d"
+    },
+    {
+      "path": "renpy/sl2/sldisplayables.py",
+      "mode": "0o644",
+      "upstream_blob": "2dccbee35ef7c0e584687b6740b471ccb610543e",
+      "sha256": "25dfc563938687ad3877bf3bdf161de77492af1624cb49533d73ee44fd1afd3a"
+    },
+    {
+      "path": "renpy/sl2/slparser.py",
+      "mode": "0o644",
+      "upstream_blob": "fc2d5353fff372325476e2f9b0c920049a2979bc",
+      "sha256": "85e18b5c551aebc71ac90c4506c71fae8c4b590b33d91e942194ae72035b09b5"
+    },
+    {
+      "path": "renpy/sl2/slproperties.py",
+      "mode": "0o644",
+      "upstream_blob": "c115492b5a4dd5910199a3dc59bd8ad8d37baef7",
+      "sha256": "00afb3fcfc3ff201aeb4889db2e744ff489e197f60dccefde0ce5a8add3c1102"
+    },
+    {
+      "path": "renpy/statements.py",
+      "mode": "0o644",
+      "upstream_blob": "24aac57391f14c769c439c2c39cbd505762eb419",
+      "sha256": "7bb70b0577abb25e92c189b1bea346e9742a0d81a966466618153ac641f453d3"
+    },
+    {
+      "path": "renpy/styledata/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "3e94f8bffb45a48f08c7cb8fbce47abcc503107a",
+      "sha256": "bcb67b26a8a7911d5b9e7692e4ebc32ddeca142ce1672e81f3e30ec99b2ffc36"
+    },
+    {
+      "path": "renpy/styledata/styleutil.py",
+      "mode": "0o644",
+      "upstream_blob": "f70dd99b90e2927635ee2742e26bb70862f41d04",
+      "sha256": "abfb0c15024fa20db16966482b479a7e1d99fb6f57473bf20f950330d79043dc"
+    },
+    {
+      "path": "renpy/substitutions.py",
+      "mode": "0o644",
+      "upstream_blob": "b5b66cd99007b3fd76c2e9baaef7ba8778c48f5d",
+      "sha256": "0ad688d7239eecf7c48c813dfd883b638c0c0a60da5a40e8fa06eeec83f3a3d8"
+    },
+    {
+      "path": "renpy/test/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "19d6db54549d77206b48e698eeecd94d462ad023",
+      "sha256": "5557cbed9c3f4bd894bb1ae70e44ebd1255e23329bdcdf18897fe3408503ba66"
+    },
+    {
+      "path": "renpy/test/testast.py",
+      "mode": "0o644",
+      "upstream_blob": "66c750dab9e3298a90ad6159d845ecf6ad563b29",
+      "sha256": "3e77d3e376c635f322c9fd2c3f90887a30709f77d54dc35c440d608f6e3cb856"
+    },
+    {
+      "path": "renpy/test/testexecution.py",
+      "mode": "0o644",
+      "upstream_blob": "b27f795f0483da6b4e7f1feb8f0037e14ab9df8e",
+      "sha256": "d0d50707114a71f55688e8ade6946c0fbbeb0ca41cc0796cc615ab28176bf9c4"
+    },
+    {
+      "path": "renpy/test/testfocus.py",
+      "mode": "0o644",
+      "upstream_blob": "3e806cc6dbba759f2903766ca28361436fdcfb57",
+      "sha256": "6ee08265f350486328e1b7d33fe4d47f75833652f663c6fe9f8cb0d542f04e54"
+    },
+    {
+      "path": "renpy/test/testkey.py",
+      "mode": "0o644",
+      "upstream_blob": "bc3711b11ddaaa4a90dbc18779a50461d4575c30",
+      "sha256": "e3517ac91b9919f2908b2a981bd363021e738e4381969c631b912610760d3b4e"
+    },
+    {
+      "path": "renpy/test/testmouse.py",
+      "mode": "0o644",
+      "upstream_blob": "4c56b0c7f1046fbb24337d13c956b144d03fa953",
+      "sha256": "483192b602e0d99de68c6a791e090e6c137ae0f51cbd642d6405aad4ec2a11b0"
+    },
+    {
+      "path": "renpy/test/testparser.py",
+      "mode": "0o644",
+      "upstream_blob": "a290fc989a17af9dc094b245fbc852ff387ca390",
+      "sha256": "e20ab6c00eb2fc9eff290109b207dcc0669acaba7f266242a9c02ab85972ce0a"
+    },
+    {
+      "path": "renpy/test/testreporter.py",
+      "mode": "0o644",
+      "upstream_blob": "bd218759324628df1db810895c3d210c62209f8a",
+      "sha256": "5ca4e27e6d11ae480294bf67a6419ca7d341ccbf883351594e7b2ee76068d327"
+    },
+    {
+      "path": "renpy/test/testsettings.py",
+      "mode": "0o644",
+      "upstream_blob": "642f4d493060842b2b598d8bc02d0e36bcb6426e",
+      "sha256": "5d00677e6e3dea01be6b17619ec033971b4fab27a25e648f998dd8634e0fccfc"
+    },
+    {
+      "path": "renpy/test/types.py",
+      "mode": "0o644",
+      "upstream_blob": "3bff379f8298429b918183fb901479dc1cfeb505",
+      "sha256": "1cf62d595d91c46afb74ec70936ad18d08fff563fe9923cd7c28a96efd847d89"
+    },
+    {
+      "path": "renpy/text/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "8d8f5fae492346979f7daa7e76e245dc8dc10160",
+      "sha256": "b315d066b28bd3114ff8fe5a046556ca1025415a7c61178126d93f6b2af52f8a"
+    },
+    {
+      "path": "renpy/text/emoji_trie.py",
+      "mode": "0o644",
+      "upstream_blob": "c3885acbcdb8c74667f2cde0519e94efff3ed981",
+      "sha256": "dbdaa9d321c187dc16b6c7294cb1fe83bb4eb51b500f1ea9093c32ace5c33daf"
+    },
+    {
+      "path": "renpy/text/extras.py",
+      "mode": "0o644",
+      "upstream_blob": "5e0742717d22922c7ede2352d10a7b0c9337d969",
+      "sha256": "615dada2041d87b887aa0266a193e486f1c6a109a2e818e13eeb14b39f458b2d"
+    },
+    {
+      "path": "renpy/text/font.py",
+      "mode": "0o644",
+      "upstream_blob": "9463e417dcaf41874b47b099ab063d4598dabd8f",
+      "sha256": "5ed0a15ec2cab3a55fff50761308831b96d9a67cc8171ac3e4eafa3970982021"
+    },
+    {
+      "path": "renpy/text/shader.py",
+      "mode": "0o644",
+      "upstream_blob": "555894a6b17cc69c90d1fef21a1929e71cc65afd",
+      "sha256": "ae9f5b6afff3b52207f5c332fe3e29d0822aeaecf58bd935fb45b54d5c1059f3"
+    },
+    {
+      "path": "renpy/text/text.py",
+      "mode": "0o644",
+      "upstream_blob": "75b8e791c1cdc9c9de07d590adb2fdede8c24fad",
+      "sha256": "2613d35dc862118ce900c1b4d494177c0574161b9c0b88cbb0e40c201ad4430d"
+    },
+    {
+      "path": "renpy/translation/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "3a001226f04c6bda062bc11ff3d17bccc84bc6c7",
+      "sha256": "6425f6cf8f451c56b9aa68e340610b590743378ec1def7fb8ba48285abc06b86"
+    },
+    {
+      "path": "renpy/translation/dialogue.py",
+      "mode": "0o644",
+      "upstream_blob": "45aa25f3a2896cde6c4740664d3f0df2d7bc4ac9",
+      "sha256": "7beb258d3ca0b88bdba9facccd3256d359fa404b52e3e313c00a2334f9cce662"
+    },
+    {
+      "path": "renpy/translation/extract.py",
+      "mode": "0o644",
+      "upstream_blob": "9fc1094426f99b2bd96ef9ce40f40e44623c32fd",
+      "sha256": "227a2357dc0fb479bf04e172a5b85e822c3a8e54b6e205c0e9e2d6fae34f1d54"
+    },
+    {
+      "path": "renpy/translation/generation.py",
+      "mode": "0o644",
+      "upstream_blob": "c43366d4d906ee92e54691e450e0c5afcdfcd94f",
+      "sha256": "2c42d73b06b33025cb666d4a4de170db40a891d47dc476ab18a031198939fa53"
+    },
+    {
+      "path": "renpy/translation/merge.py",
+      "mode": "0o644",
+      "upstream_blob": "f9e916afbfbe7a89c7a5b60e98feefe7b86d5d66",
+      "sha256": "15ba61d56ecbb810498a1f6e382c21722c2c76be22f847f8191e746ad5168d0c"
+    },
+    {
+      "path": "renpy/translation/scanstrings.py",
+      "mode": "0o644",
+      "upstream_blob": "564324a7b0b4a2af3c03fe4b92d99d4bca4e6f95",
+      "sha256": "453e56a70a557f8996101e4617c557e7f913f1ccf399cc28570a02c57d353189"
+    },
+    {
+      "path": "renpy/types.py",
+      "mode": "0o644",
+      "upstream_blob": "e14cb71a601778efbf032707dab12fd37f4c49b9",
+      "sha256": "7dfb0da76ffd4ce7a6cba94c47f9bf04f9b2f90fd86b15c34066af7ada0aa3ce"
+    },
+    {
+      "path": "renpy/uguu/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "a36de7f682f7b90caea7275563ddfe12d194e9fc",
+      "sha256": "57c4bd9eca736338b64f3ca8c2e3de0be44d3b73ccaf0e7325c7328da02abfde"
+    },
+    {
+      "path": "renpy/ui.py",
+      "mode": "0o644",
+      "upstream_blob": "623677eb275e9bb495fbaa902eac1d7aecb2ab74",
+      "sha256": "79177cfbb1437e4e39d7ecb5b12c2e6e8ac38312031cea9e8d972b9b62c4c385"
+    },
+    {
+      "path": "renpy/update/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "85b57774501613379358d78ff08d77b04dbee9a9",
+      "sha256": "a1aac07f403ca3dc4acb8ca3a3b9cddf56bc3a7b3bd90e6194037f193f9a9ad8"
+    },
+    {
+      "path": "renpy/update/common.py",
+      "mode": "0o644",
+      "upstream_blob": "fdefbf0950f786e9acaeeb33e3b0f1ef0d671505",
+      "sha256": "80ccfe16834e5848386fcb9efb21b9e377dc60395d16ac1cd2eb64710d005f56"
+    },
+    {
+      "path": "renpy/update/deferred.py",
+      "mode": "0o644",
+      "upstream_blob": "337e5e48ec59bf3776947c5734c286b8dd758547",
+      "sha256": "58d0febadb2cb6ae8e45371c4cf0e5e2121915ae88f48c61988fe31c98ae50cc"
+    },
+    {
+      "path": "renpy/update/download.py",
+      "mode": "0o644",
+      "upstream_blob": "ed0c602746dd818a582cc48d522b5ffa074e6fec",
+      "sha256": "cc3dfca0a5f383e970174e157a1d93898756915d329fc073cf56e3d47178be13"
+    },
+    {
+      "path": "renpy/update/generate.py",
+      "mode": "0o644",
+      "upstream_blob": "0b9bdb75c6e0c7550fc21772579cf4a6e30bf797",
+      "sha256": "4731f98a93f2fd0abaf6bda4e097fb7decf713b8bbc56c6df0cc5d99804ab518"
+    },
+    {
+      "path": "renpy/update/update.py",
+      "mode": "0o644",
+      "upstream_blob": "6722e7e4fea0985b3fdf398b7c4c796969cb2d91",
+      "sha256": "547839c1485bf684fef5c1b83f93501b3131bec5888d7a870afda155da14e41d"
+    },
+    {
+      "path": "renpy/util.py",
+      "mode": "0o644",
+      "upstream_blob": "e1f79c2717cd18c37a3c9dd8acc53135a2fa31b1",
+      "sha256": "240edb3e8a677b7f3b212422befba1bbd84549dc17e3bd8041a76f75eafa91ba"
+    },
+    {
+      "path": "renpy/vc_version.py",
+      "mode": "0o644",
+      "upstream_blob": "b312d6386d3433b5820ee50880211b92dd8de0e9",
+      "sha256": "c8ac4aa356a3296a7f3eee9cb583fa08b0024fd6b2c7119e5f85e20864cd7160"
+    },
+    {
+      "path": "renpy/versions.py",
+      "mode": "0o644",
+      "upstream_blob": "d13951ae17b557fb85a616673eacd7d99691998a",
+      "sha256": "010b01df997d0fcdcaf131add8654b21e1e61c9ad3ca9114e0d5a4a65f4edc0c"
+    },
+    {
+      "path": "renpy/warp.py",
+      "mode": "0o644",
+      "upstream_blob": "d72f2683153c80f0c49ef9c6037e2dd737779c33",
+      "sha256": "ca7cbbc3f78d458c8114dd28ed4e67a0bc5583dcdd174f146b87755a8e387bc3"
+    },
+    {
+      "path": "renpy/webloader.py",
+      "mode": "0o644",
+      "upstream_blob": "9ce2f02b3871fd70331ad37bac3f2e322373d314",
+      "sha256": "7c144b171f53b3cd257208f1f5ac4d891b7ea4577711e51267e596f5c29854b3"
+    },
+    {
+      "path": "run.sh",
+      "mode": "0o755",
+      "upstream_blob": "360e6566dcc15ac8bbf73e1c89ea6a15dd7e88dc",
+      "sha256": "a0d46fe263c105f683a1e2bc13ee4fa99576bfa8b86fcb03c930e4dc6a88560d"
+    },
+    {
+      "path": "runtime-overrides/saga/init/logic.py",
+      "mode": "0o644",
+      "upstream_blob": "51a66230ed55fd6633fc8dd6b3b7f461d414920c",
+      "sha256": "7b1548f68f2913ecf3f3c9f3b2120608321c2beccf8fce29f43adca399ca9f88"
+    },
+    {
+      "path": "runtime-overrides/saga/init/sound.py",
+      "mode": "0o644",
+      "upstream_blob": "55ad7d2fa951cb0b4489895999c98f674445ab84",
+      "sha256": "6e3a9a024666aae4879604876f6448b176934032993b4f5e16bdc28b58c19756"
+    },
+    {
+      "path": "six.py",
+      "mode": "0o644",
+      "upstream_blob": "3de5969b1ad3b973342e5e88ee1770fa7c798152",
+      "sha256": "c51c91f703d3d4b3696c923cb5fec213e05e75d9215393befac7f2fa6a3904df"
+    },
+    {
+      "path": "src/audio.c",
+      "mode": "0o644",
+      "upstream_blob": "92c0e3eaf8485774e54a297eae1724d5e6dd55b5",
+      "sha256": "25be4d594fd74198384bef1b097ef849c6d40777d0b68a2f8890204078ab5ba0"
+    },
+    {
+      "path": "src/audio_backend_policy.c",
+      "mode": "0o644",
+      "upstream_blob": "7f679c5acbcecb7b88bda82f037b897a8df26ed8",
+      "sha256": "12ac28fb3f83a6db1a438765feaddae0699c7b5a5139f305ed704a4a3fb8ef61"
+    },
+    {
+      "path": "src/audio_backend_policy.h",
+      "mode": "0o644",
+      "upstream_blob": "b61d506734b58661dc2548655d52342e79419ffd",
+      "sha256": "efd38b17cd74fc4aba71f2342b20d3109e9a015730d42592b2d1c1e643fb83b4"
+    },
+    {
+      "path": "src/cursor_arrow.h",
+      "mode": "0o644",
+      "upstream_blob": "ea25e33c22fa7632690f319f621692711f199b61",
+      "sha256": "3243f4251e8b100b134c84b8d785f5d1c7f5f66039c24aca1bb556f79a321992"
+    },
+    {
+      "path": "src/egl_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "025f222bf3c62103105b05669325f72bb439e6a9",
+      "sha256": "9cb9896ca55e5484e2702f0abb40898a4f1b2341bbcf217f669a61d9eb34492f"
+    },
+    {
+      "path": "src/egl_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "b5601cf321b81f494df5931f0f0cdeceea0037d7",
+      "sha256": "468f2ea250950f43ad97f92c7be336b7c5cfd1aae7b18402e1a3e1be37584355"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "1fa7618fe512423f5ee40a71ad2bd696c9bf7627",
+      "sha256": "288ee2b02a3791875d6d89942475d0e3f2a28bd36a29f9b0e1c4923249dab668"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "72cdb608014b25f5cd7e1f50a4878a537a81e76e",
+      "sha256": "030953068c7677b011d4491e2460e07941896cb41123a7adf866dc0eb5c4d44c"
+    },
+    {
+      "path": "src/etc1.c",
+      "mode": "0o644",
+      "upstream_blob": "0da1942206efe4523c03e1c9203b736877fdd32e",
+      "sha256": "608fe37e4d29e92d75de7aef45c46e55eaf1712193db8798a57861c5569f9990"
+    },
+    {
+      "path": "src/etc1.h",
+      "mode": "0o644",
+      "upstream_blob": "d6e72187c43b6a4f6d9eccf13266798627d51768",
+      "sha256": "037f78d4e636c239eb4e92a51089f229ebae698c09fbee1d878eeb94a19e9ac5"
+    },
+    {
+      "path": "src/imports.c",
+      "mode": "0o644",
+      "upstream_blob": "717595165b732959d76da33fe7f6c7e2a5635ebe",
+      "sha256": "705a4208041603ab00a67709e7c451c0a50173a1ed83e804ad885d6ff902ccf7"
+    },
+    {
+      "path": "src/imports.h",
+      "mode": "0o644",
+      "upstream_blob": "6859a86b825f8fb99f1d6fa6279faa417b9c4f58",
+      "sha256": "037525aba75ade5faf4aaf3caf8e83f583760edefcbe85c5c6bf327663cd83b3"
+    },
+    {
+      "path": "src/input.c",
+      "mode": "0o644",
+      "upstream_blob": "651654ea460656595b07c0b5d7ffe9f6e46b032f",
+      "sha256": "5f00c51c76129c5c919221ed68dd03c18f55e1c78254c588014c16b8565c1c3b"
+    },
+    {
+      "path": "src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "7610bceb49673a784e15913ecebbfc0ebcd7acb2",
+      "sha256": "c9f4d6215d6df57b9bedfd74b7e9b3bd45675e64e417dd304d0dcd3800e17d26"
+    },
+    {
+      "path": "src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "9831f8ccb9901392b52bf4b2c2a446c53aedd8ab",
+      "sha256": "b98385ce9c58ec902d07b0725970d2005bbf11aa95b2e1783560bc7e07377743"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "ee1ade71cf3aab445f5ad3d55e31a861c10a803f",
+      "sha256": "1bb470c6cd139d32418b6aeb6264b2951c0ad801425eff1f567514f636a702df"
+    },
+    {
+      "path": "src/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "a1bc7d6946f0ee270315d93da075c9c87c211080",
+      "sha256": "1ff5829b746a125048cf4d6fd7c298bf99d0b0cb7a48561b916e365a72286b47"
+    },
+    {
+      "path": "src/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0c4373fe664ee432c21bfd8d7e879d4e51cf6cfb",
+      "sha256": "9ac9bd0bce36d082e3072d36c4d3f6110191d5f8e07ede64a06659be192ae147"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "0f26699079646be9628e080761e3f23ad0b2300d",
+      "sha256": "d1cf9d3bdbee0b8d004d574c5f9f8a307c5b37534d6b32532de0ffd89af3867c"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "303dc18b6098b048c66a9915aa866a6d796e381f",
+      "sha256": "23baeff2d6afb0eb30e3f0e6e2ebddae85da497fcbfa5881505e3ac238f05abf"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "407e2bd20d7cc7cb9724d167730140b440d6c01a",
+      "sha256": "6c372c9270b08467d67a68784790dceaa180a53015d53f11e494bef75f1bd572"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "603ac1fd3268a92de818621379137a7259fa6dba",
+      "sha256": "cf771ea3c2df55f006f8892aa1c55366f041ef79dfbcec39aa4215c20ae775a9"
+    },
+    {
+      "path": "summertime-log-filter.awk",
+      "mode": "0o644",
+      "upstream_blob": "ddb01095ba8785a38de23692f42e9b7a6f1d7494",
+      "sha256": "0b848a6743fd0e17d4ac46d8ea315254984a347bcb706230f2d949e95e9479e9"
+    },
+    {
+      "path": "summertimesaga.gptk",
+      "mode": "0o644",
+      "upstream_blob": "5c7f2ef5b4c7a2efaf7a3f94f1f882d866a77360",
+      "sha256": "e7ceb92e8de6056bab1f071befe5b30564714401b27619969df91e592b370814"
+    },
+    {
+      "path": "tests/audio_backend_policy_test.c",
+      "mode": "0o644",
+      "upstream_blob": "0a2d117876d2df732f8020dedd71c34463941c4b",
+      "sha256": "2f8253555377854014dac6c55b6e2ae32238fc8ca28abda11a6055cf0b93b864"
+    },
+    {
+      "path": "tests/x5m_extractor_sdl_scope_test.sh",
+      "mode": "0o755",
+      "upstream_blob": "f3d438973d84e637b0bed316c2119b92928f8f7f",
+      "sha256": "30b2db3b815d01ae887ab3a3cba46c5e5b7d2e63cac7fdefe34fe71205b42c5e"
+    },
+    {
+      "path": "tools/gen_cursor_arrow.py",
+      "mode": "0o644",
+      "upstream_blob": "04bee1251080a902bb682eebcf03e7d2790970d6",
+      "sha256": "f118b9aeb275c40bcfadd3917390a6cb2999bbb28a689bc175e5c363dd1f932d"
+    },
+    {
+      "path": "tools/prepare_summertime_data.py",
+      "mode": "0o755",
+      "upstream_blob": "fc9ef4056be38588dff66f5f9a8e3c58dd16c703",
+      "sha256": "a450241cdb55961f16b09184e9da8704d9c331a393ec0d269b6b5cc510bd312b"
+    },
+    {
+      "path": "tools/update-game-data.sh",
+      "mode": "0o755",
+      "upstream_blob": "d508c6ab638ee9c49fd759bc99201fd058df2fa7",
+      "sha256": "d7550d1255a233695a2b00e1b853e42b89162d98a395f9828087902973632602"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "53337bf7ea91d782c573ac8653c18f95b7b23c38da9de08288639bcec9993406",
+      "reason": "privacy-review-required; upstream unchanged"
+    },
+    {
+      "path_sha256": "547d88bf5c39d806a0b56f405cefc3593fdc6730c4bafcb1a96d8b560fb03897",
+      "reason": "privacy-review-required; upstream unchanged"
+    },
+    {
+      "path_sha256": "03e82548397f9f262f4ab8c4a0607e73d5998cf84e22718bb848fcb58cf94e99",
+      "reason": "privacy-review-required; upstream unchanged"
+    },
+    {
+      "path_sha256": "19921c18618ffbe0ac0085a62eb732faf1497035c7394baef583b7a920c7ed53",
+      "reason": "privacy-review-required; upstream unchanged"
+    },
+    {
+      "path_sha256": "6273117a825950ea22edd2d01a260d2b851f6af6363cd65eeb59714705d3cd59",
+      "reason": "privacy-review-required; upstream unchanged"
+    },
+    {
+      "path_sha256": "9bbc5eb041ef86644ab11e1c243352f9d782eb55501ae7d11877077c5f057ad1",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

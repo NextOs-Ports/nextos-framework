@@ -1,0 +1,317 @@
+{
+  "artifacts": [
+    {
+      "mode": "0755",
+      "path": "Nameless Cat.sh",
+      "sha256": "471999dec69300b042b3588abae73c10ee78df717795e24b27dc55ff17d100b7"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/commit",
+      "sha256": "939139ce7fde0c2bef4d3a062cddf3186b2ecb4eb5d4965b69a512f620cc9af9"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/components.sha256",
+      "sha256": "b028a16660e19150c8140877f20ec155c36c50032926ed44082b1a7f8daf9644"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/components.v2",
+      "sha256": "2d888135c16c839e1f8d9013c98de05ed1686eee5014fa89362fd288989b96ae"
+    },
+    {
+      "mode": "0755",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/launcher/Nameless Cat.sh",
+      "sha256": "471999dec69300b042b3588abae73c10ee78df717795e24b27dc55ff17d100b7"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/nxport.json",
+      "sha256": "39e79bdbdc91c139a4cae5971714d1922ca978b883b0f0b8a437c69b87fd40e9"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/extractor.json",
+      "sha256": "b2b8122cde0ade9f949ac6e8557f76fd3287cf40ffbecd6260c379ffba149f3a"
+    },
+    {
+      "mode": "0755",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/namelesscat-nextos",
+      "sha256": "b8c8be2d0ebada4e3709acd4adec782c130c7b9cf56578bc9f9eed31265d46a8"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract.py",
+      "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/run-extractor.sh",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0755",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/port-env.sh",
+      "sha256": "da5fd90e09be1d6bb6b411b1c24b49f2640b0fdd0d4c80953fa90c6a97cd0458"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/format",
+      "sha256": "aac4fb5944aa71482880d8838e4de375fd47c4c9a80b6c17043859aee6e20034"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/identity-runtime.v2",
+      "sha256": "ca48bdc1b540a2e2cce44ed54da0ee8fd086591f27da0fc896bfa18d30e84254"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/identity.json",
+      "sha256": "27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/manifest.json",
+      "sha256": "fc230b521e5629fda7f02d814db4323f557c65d39e601e1d15a4e9f3fb745d02"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/INSTALLATION.md",
+      "sha256": "ca96664a64b0358bd4fb9051ee8daa098de4911d9e25f94ae746edd3a46bc7f4"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/LICENSE",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/NOTICE.md",
+      "sha256": "10fb29a3437dc11cee988a35afd233bc9f7ce5f0e5cca2d966b59d1ab6fb8061"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/NXSPLASH-LICENSE",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/README.md",
+      "sha256": "7872f6c275579f072921f58bd44c482fadd231a2237d9975c836c98bb5e2354e"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/adapter/adapter-contract.json",
+      "sha256": "348f908207fce4069171d0cb5b8522da33eec729cfa17759da55e64fc3073531"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/controllers-modern.nxb",
+      "sha256": "bfce688bb383cf2d239193ea3c4b3ea57b8bb28b06f46955b71bc0561ada139b"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/controllers-retro.nxb",
+      "sha256": "3429bb94a48930b8cc9abb768957815138c686fd2436aca6eadadb5b6a3359f0"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/controllers.nxb",
+      "sha256": "83e8023699486dee627245305026837b25c30549ced63744975916fdc32fb64b"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/defaults/NEXTOSCONTROLLERS.gptk",
+      "sha256": "ab73f5f99e3d97569620cfad2d87bb7bc47607f251b741355b5b4b4cd1bdfe1a"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/defaults/NEXTOSSETTINGS.txt",
+      "sha256": "a1e9438fc352e432b7fd441f518cf8478fc6fc52a0add6104189c2c51fbfe03b"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/extractor.json",
+      "sha256": "b2b8122cde0ade9f949ac6e8557f76fd3287cf40ffbecd6260c379ffba149f3a"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/gamedata/README.txt",
+      "sha256": "dc5b47738a50ea3b2d7bd23af4ab3ba1fba02086636dc6a2b0de720dafa7a05f"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/gameinfo.xml",
+      "sha256": "ff545b7832ff522473da8129e4d898bac317adfe67d4cfa5bbd1e9d245b5d651"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/licenses/NXExtract-MIT.txt",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/licenses/SDL2-zlib.txt",
+      "sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127"
+    },
+    {
+      "mode": "0755",
+      "path": "namelesscat/namelesscat-nextos",
+      "sha256": "b8c8be2d0ebada4e3709acd4adec782c130c7b9cf56578bc9f9eed31265d46a8"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/nxextract-version.txt",
+      "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "namelesscat/nxextract/nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/nxextract/nxextract.py",
+      "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/nxextract/run-extractor.sh",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/nxport.json",
+      "sha256": "39e79bdbdc91c139a4cae5971714d1922ca978b883b0f0b8a437c69b87fd40e9"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/nxproject.json",
+      "sha256": "95099116520821734cc0997c107d905b102c21b45bcb95a0e12ac9aaeade2779"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/nxruntime-27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef.nxb",
+      "sha256": "553c9e462252191e683b4aaae7bab47e8bb606e5007207be3e66fb30a87006d3"
+    },
+    {
+      "mode": "0755",
+      "path": "namelesscat/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/port-env.sh",
+      "sha256": "da5fd90e09be1d6bb6b411b1c24b49f2640b0fdd0d4c80953fa90c6a97cd0458"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/port.json",
+      "sha256": "80f77c48ea5b738343283a62cda791d21ea2e8528d7121be2d448c1b6a98f5d9"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/vendor/nxgl/PINS.json",
+      "sha256": "a44f55825d599db08f5c1b108580bdd17f0593becf85fbf12050764c911c28c8"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/vendor/nxinput/PINS.json",
+      "sha256": "26fbec425666d21ca151829bf130329081cf7289596c6f8e758baa5648b68998"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/vendor/nxinput/engine-patches/C6-SDL-PROVENANCE.json",
+      "sha256": "22c7243582c5393314ccee4f7f06cb283785bc051b562a76db4b61d7a60e1294"
+    },
+    {
+      "mode": "0644",
+      "path": "namelesscat/version.txt",
+      "sha256": "d9e8e8429c6a7d0b965e4fac26a5efff7103f055faa98cceb5bd4731fd24603a"
+    }
+  ],
+  "claims": {
+    "adapter_lifecycle_implemented": true,
+    "deterministic_scaffold": true,
+    "physical_support_proven": false,
+    "release_ready": true
+  },
+  "generation_id": "27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef",
+  "generator": {
+    "name": "nxgenerator",
+    "version": "0.3.17"
+  },
+  "project_manifest_sha256": "95099116520821734cc0997c107d905b102c21b45bcb95a0e12ac9aaeade2779",
+  "schema": "nxgenerator-receipt-v1",
+  "schema_version": 1,
+  "source_pins": {
+    "nxbootstrap": {
+      "source_files": {
+        "templates/launcher.sh.in": "7dd2e3a363da3f3f70732ec4b7820c3356573c9c21ffada216ce30c4ccd6c329",
+        "tools/generate-port.py": "a1af56b972f9e1fa0cb266c972ff0294343b579c05f00f4ff22d74ec23c59b11"
+      },
+      "version": "0.7.8"
+    },
+    "nxextract": {
+      "files": {
+        "nxextract-runtime-env.sh": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+        "nxextract-ui": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+        "nxextract.py": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7",
+        "run-extractor.sh": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      "recipe_sha256": "b2b8122cde0ade9f949ac6e8557f76fd3287cf40ffbecd6260c379ffba149f3a",
+      "ui_artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "ui/release/aarch64/nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      },
+      "ui_release_manifest_sha256": "6620d6dd4f25623cd067a1a036be3624cb8faee1d8eef177b470d8e4c4fc20fc",
+      "ui_source_sha256": "00266e1efeabe2716911ff9c431191944162bb550ebf3674a6d88ef62a194bf0",
+      "ui_version": "1.2.16",
+      "version": "1.3.0"
+    },
+    "nxsplash": {
+      "artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "release/aarch64/nxsplash-nextos",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      },
+      "release_manifest_sha256": "14c9a0ec823eceb6b53620e443821375c0d6c2dbe4004470bcee514bb8e3d118",
+      "source_sha256": "c393afcef644745b9d1e557c9833146e908aee4d4b6bfdb57e64e7d304c8e177",
+      "version": "0.1.2"
+    },
+    "portmaster": {
+      "contract": "v3",
+      "contract_sha256": "cfcd2faddd3eddb87106f9821ab78a64728bdc593498529bb26427c37f3c64a6",
+      "legacy_parser_commit": "7471d54c7c6ca57c16dee1b77cdd57d4226a1b86",
+      "legacy_runtime_fixture_sha256": "5d17840297262f23250fbccbefc24fb7e7fb57f4d932402002c1f70ec8e3ce89",
+      "metadata_schema": "port-json-supported-v2",
+      "metadata_schema_sha256": "76350e6794c5c9b980df7cdac74fe42570aa0c66552adf47445c813a7310c21d",
+      "parser_commit": "8f9ddc4b0f75dfe61eb370bd3d1b4ec9d5ef6967",
+      "vendor_provenance_sha256": "15937eb265ccd95ab0e3fce9d0058a5b8849aa3ab4ca536611750bd67028d5ad"
+    }
+  }
+}

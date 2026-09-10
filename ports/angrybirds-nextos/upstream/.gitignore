@@ -1,0 +1,7 @@
+.build/
+angrybirds-nextos
+gamedata/
+*.apk
+*.zip
+*.log
+__pycache__/

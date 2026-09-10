@@ -1,0 +1,40 @@
+{
+  "generated_by": "nxgenerator 0.4.5",
+  "order": [
+    "heal-sealed",
+    "extract",
+    "splash",
+    "seed-owner",
+    "sealed-env",
+    "owner-env",
+    "launch"
+  ],
+  "paths": [
+    {
+      "class": "owner-seeded",
+      "healed": false,
+      "live": "NEXTOSCONTROLLERS.gptk",
+      "path": "defaults/NEXTOSCONTROLLERS.gptk"
+    },
+    {
+      "class": "owner-seeded",
+      "healed": false,
+      "live": "NEXTOSSETTINGS.txt",
+      "path": "defaults/NEXTOSSETTINGS.txt",
+      "schema": "NEXTOS_SETTINGS/2"
+    },
+    {
+      "class": "owner-seeded",
+      "healed": false,
+      "live": "port-env.sh",
+      "path": "defaults/port-env.sh"
+    },
+    {
+      "class": "sealed-runtime",
+      "healed": true,
+      "live": null,
+      "path": "adapter-env.sh"
+    }
+  ],
+  "schema": "nx-ownership/1"
+}

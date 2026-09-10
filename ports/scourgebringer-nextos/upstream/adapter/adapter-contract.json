@@ -1,0 +1,169 @@
+{
+  "schema": "nxadapter-contract-v1",
+  "schema_version": 1,
+  "status": "community_test_1_0_test_8_menu_gameplay_regression_passed",
+  "release_ready": false,
+  "release_boundary": "AArch64 PortMaster community test 1.0.0-test.8; host, emulated-AArch64 ABI, low-glibc and physical glibc 2.41 menu/gameplay regression gates pass, but ArkOS/glibc 2.30 is not claimed until this exact ZIP and hash pass there",
+  "runtime_owner": "engine-adapter",
+  "framework": {
+    "source_branch": "framework/nxbootstrap-0.6.8",
+    "source_commit": "583ec1e977eb377669414fe949969bd784ced730",
+    "runtime": [
+      "nxbootstrap-0.6.8",
+      "nxloader-0.7.1",
+      "nxcompat-0.2.1",
+      "nxgl-0.2.3",
+      "nxaudio-0.2.0",
+      "nxinput-0.3.1",
+      "nxandroid-0.1.0"
+    ],
+    "host_gates": [
+      "nxabi-0.1.0",
+      "nxrelease-0.2.6",
+      "nxobs-0.1.0",
+      "nxgenerator-0.2.0"
+    ],
+    "extractor": "NXExtract-1.2.6"
+  },
+  "lifecycle": {
+    "sequence": [
+      "mono-init-array",
+      "xamarin-app-init-array",
+      "monodroid-init-array",
+      "jni-onload-monodroid",
+      "runtime-init",
+      "runtime-register",
+      "activity-create",
+      "surface-created",
+      "surface-changed",
+      "resume",
+      "focus",
+      "monogame-loop",
+      "activity-finish-request",
+      "pause",
+      "stop",
+      "destroy"
+    ],
+    "delegation": "nxandroid-runtime-delegated",
+    "source_evidence": [
+      "src/main.c:scourgebringer_runtime_main",
+      "src/main.c:sdv_run_input_loop"
+    ]
+  },
+  "loader": {
+    "framework": "nxloader-0.7.1-linked",
+    "guest_mapping": "existing-proven-so_util-adapter",
+    "old_glibc_bionic_imports": "port-owned explicit stat-family, mknod, strlcpy, arc4random_buf and _ctype_ providers; arc4random_buf uses getrandom(2) with /dev/urandom fallback",
+    "signal_abi": "port-owned complete arm64 Bionic 8-byte sigset_t translation for sigaction, sigset operations, process/thread masks, sigsuspend and sigpending; async-safe alternate-stack first-fault reporter"
+  },
+  "graphics": {
+    "framework": "nxgl-0.2.3-receipt-and-surface-metrics",
+    "owner": "SDL2-engine-adapter",
+    "api": "OpenGL ES 2"
+  },
+  "audio": {
+    "framework": "nxaudio-0.2.0-receipt",
+    "owner": "FMOD-AAudio-contract-through-SDL2",
+    "format": "48000-Hz-stereo-S16"
+  },
+  "input": {
+    "framework": "nxinput-0.3.1-nondraining-observer",
+    "engine_mapping": "existing-four-player-Android-event-adapter",
+    "title_root_hidden_selection_guard": "restore only TitleScreenManager._selectedMenuItem when it becomes the retained but undrawn Discord entry; never filter controller buttons or axes",
+    "cursor": "disabled-by-default-during-gameplay"
+  },
+  "platform_services": {
+    "google_play_games": "game-owned offline branch reached through native onActivityResult cancellation",
+    "google_play_core_review": "adapter-owned exact ReviewManagerFactory-to-ReviewManager-to-Task offline object graph; no broad create fallback; no review UI"
+  },
+  "persistence": [
+    "home",
+    "data",
+    "data/.config/.isolated-storage",
+    "legacy-libs-save-copy-if-destination-missing"
+  ],
+  "terminal": "native-Activity.finish-lifecycle-or-SDL-quit-signal-or-Select-plus-Start-through-input-loop",
+  "physical_validation": [
+    {
+      "artifact_sha256": "6fac09615f6f46b8c8b87d893fa9e480fae1118a4514598a647efdbdff96a054",
+      "date": "2026-08-12",
+      "family": "ArkOS RK3326 Mali-G31",
+      "status": "visible-nxextract-transaction-committed; drawable-640x480-aspect-4x3-auto-detected; aspect-fill-640x360-to-640x480-no-bars-user-confirmed; monogame-render-and-swap-active; exact-egl-gles-receipt; fmod-banks-loaded-and-alsa-active; controller-mapping-active; framework-ready-9-of-9"
+    },
+    {
+      "artifact_sha256": "f24209d7d723e126274c794705b578bfbb09c0b00bea0d02d7508dc7e0b4ce11",
+      "date": "2026-08-13",
+      "family": "DarkOS 13 RK3326 Mali-G31",
+      "status": "exact 1.0.0-test.5 ZIP passed boot, gameplay, tree/next-level transition, death/return and save regression; no black screen reported"
+    },
+    {
+      "artifact_sha256": "cb3d43ad691ad5897b5c3884f2ab98749eb15739dec698b2479b821912cefeef",
+      "date": "2026-08-12",
+      "family": "ArkOS RK3326 Mali-G31",
+      "status": "classic-1.61.16-and-b19-blob-physical-runtime-passed; flexible-r4-recipe-transactionally-installed-b19; marker-fast-path-accepted; runtime-init-create-resume-returned; drawable-640x480-mali-g31-swap-active; fmod-alsa-active; controller-active; framework-ready-9-of-9; pt-br-pb-title-capture-and-settings-persistence-passed; legacy-save-hash-preserved; native-quit-b-finish-and-remove-task-pause-stop-destroy-status-0"
+    },
+    {
+      "artifact_sha256": "a245edea4cf83dd9f1dc0e9b808ddf6e9d15ecaee35433bba8bc78c2555c0273",
+      "date": "2026-08-13",
+      "family": "ArkOS RK3326 Mali-G31 glibc 2.41",
+      "status": "exact test.8 ELF reached KMSDRM, MainActivity, FMOD/ALSA, controller and READY 9-of-9; root-menu horizontal input restored the last visible selection; vertical navigation selected Settings; horizontal input remained active in Settings; gameplay received full-range left/right analog values -32768/32767 and movement was visually confirmed by the user"
+    }
+  ],
+  "regression_evidence": [
+    {
+      "date": "2026-08-13",
+      "families": [
+        "ArkOS RK3326 Mali-G31",
+        "ArkOS4Clone R36S Clone Type2 Mali-G31"
+      ],
+      "reported_candidate": "1.0.0-test.3",
+      "runtime_hash_captured": false,
+      "status": "nxextract-and-graphics-and-input-pass; libmonodroid-runtime-init-sigsegv-status-139",
+      "root_cause": "strong Bionic stat import unresolved because AArch64 glibc 2.30 lacks the public stat dynamic export"
+    },
+    {
+      "date": "2026-08-13",
+      "families": [
+        "DarkOS 13 RK3326 Mali-G31"
+      ],
+      "reported_candidate": "1.0.0-test.4",
+      "runtime_hash_captured": true,
+      "status": "exact candidate installed; framework ready 9-of-9; supplied local save loaded; gameplay active; entering tree throws managed NullReferenceException and destroys MonoGame surface/context",
+      "root_cause": "GameStates.ToNextLevel calls AndroidPlayStoreHelper.RequestReview; ReviewManagerFactory.Create returned null and the managed helper unconditionally called RequestReviewFlow"
+    },
+    {
+      "date": "2026-08-13",
+      "families": [
+        "ArkOS4Clone R36S Clone Type2 Mali-G31"
+      ],
+      "reported_candidate": "1.0.0-test.5-derived",
+      "runtime_hash_captured": false,
+      "status": "Runtime_init and registration advance through marshal-ilgen; MainActivity.n_onCreate jumps to raw libSystem.Native PLT0 address 0x15250",
+      "root_cause_candidate": "libSystem.Native arc4random_buf and mknod imports remain unresolved on glibc 2.30; System.Random reaches arc4random_buf and the untouched GOT slot branches to PLT0"
+    }
+  ],
+  "candidate_validation": {
+    "version": "1.0.0-test.8",
+    "artifact_sha256": "a245edea4cf83dd9f1dc0e9b808ddf6e9d15ecaee35433bba8bc78c2555c0273",
+    "max_glibc": "2.17",
+    "host_gates": "passed including guarded 8-byte signal-set regression, crash-handler contract and hidden-title-selection repair without input filtering",
+    "emulated_aarch64": "Bionic signal ABI regression passed under qemu-aarch64",
+    "physical_darkos": "previous exact 1.0.0-test.5 ZIP passed tree and death regressions",
+    "physical_arkos": "exact test.8 ELF passed a glibc 2.41 KMSDRM launch through MainActivity, FMOD, ALSA, controller and READY 9/9; root-menu selection, Settings horizontal input and full-range gameplay movement passed with visual user confirmation; glibc 2.30 acceptance remains pending"
+  },
+  "prohibitions": [
+    "do not reorder or skip the guest Android lifecycle",
+    "do not package owner-supplied Android data",
+    "do not claim an untested physical device family",
+    "do not turn generic create or getInstance JNI calls into Play Core peers",
+    "do not promote port-specific FBO, alpha or texture behavior to framework defaults"
+  ],
+  "quirks": [
+    "force-final-backbuffer-alpha-one",
+    "fbo-present-owner",
+    "backbuffer-aspect-fill-when-narrower-than-16x9",
+    "android-assembly-store-aligned-16384",
+    "play-core-review-offline-manager-task",
+    "title-root-undrawn-discord-selection-repair"
+  ]
+}

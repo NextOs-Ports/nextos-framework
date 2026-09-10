@@ -1,0 +1,27 @@
+PRIZEFIGHTERS 2 v1.09.3 — NEXTOS/PORTMASTER UNIVERSAL ARM64
+
+PORTUGUÊS
+1. Extraia este ZIP dentro da pasta ports do cartão (muOS: mmc/roms/ports;
+   ArkOS/ROCKNIX: roms/ports). O "Prizefighters 2.sh" e a pasta pf2 precisam
+   ficar JUNTOS nessa pasta.
+2. Coloque seu XAPK legal v1.09.3 em ports/pf2/gamedata/.
+   (NextOS/EmuELEC: copie tambem o .sh para roms/ports_scripts/.)
+3. O XAPK precisa conter config.arm64_v8a.apk.
+4. Abra Prizefighters 2 pelo frontend e aguarde o NXExtract terminar.
+5. Select + Start retorna com segurança ao frontend.
+
+O pacote não inclui o jogo. Não use o XAPK somente ARMv7.
+
+ENGLISH
+1. Extract this ZIP INTO the ports folder of the card (muOS: mmc/roms/ports;
+   ArkOS/ROCKNIX: roms/ports).  "Prizefighters 2.sh" and the pf2 folder must
+   sit TOGETHER in that folder.
+2. Put your legally obtained v1.09.3 XAPK in ports/pf2/gamedata/.
+   (NextOS/EmuELEC: also copy the .sh to roms/ports_scripts/.)
+3. The XAPK must contain config.arm64_v8a.apk.
+4. Launch Prizefighters 2 and let NXExtract finish.
+5. Select + Start safely returns to the frontend.
+
+The game is not included. An ARMv7-only XAPK is unsupported.
+
+Full instructions: pf2/INSTALLATION.md

@@ -1,0 +1,134 @@
+{
+  "artifacts": [
+    {
+      "mode": "0755",
+      "path": "Angry Birds Classic.sh",
+      "sha256": "d1e950f047426d6909a02a3c72e06e4ca8fbf9c9b36f621673d3a8a2b85f23bb"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/INSTALLATION.md",
+      "sha256": "dec0bf202d0d56b4852d5e242593fe9beeb04cc400e027bc71188669178f3ccb"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/LICENSE",
+      "sha256": "c7c096bdd57656f215d52488d113006e308d60fbe3345e362a4ae948e30fe526"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/README.md",
+      "sha256": "ae679e8552228ebff83499ba43b35a63d545b960ae3ae603e2edeca164006bf4"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/adapter/adapter-contract.json",
+      "sha256": "dbd60853647966ce94c7df14edcd43d40faa1467ee4efbcaa13d973fa664a4a2"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/extractor.json",
+      "sha256": "3ea804362d3a0a75fafec81c85fa01201dee533989bd66a183a99e021bfe9858"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "angrybirds/nxextract/nxextract-ui",
+      "sha256": "02ce707129b80ca1666f72c9e74792525dd2c7d2ada93bac5a93b9bfb41e3ff6"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/nxextract/nxextract.py",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/nxextract/run-extractor.sh",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/nxport.json",
+      "sha256": "49ef61ee43b56d8f7528e5ce48d7bdbb47b4ae539fb95de1fad931babeb09984"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/nxproject.json",
+      "sha256": "f82029de692916c022deac597a8c540ae2d6380123f2d206936d49fc2c598628"
+    },
+    {
+      "mode": "0755",
+      "path": "angrybirds/nxsplash-nextos",
+      "sha256": "88a2b39be45826348375f966af536e976b37eefd18a88c8fcff75f6fd08015d8"
+    },
+    {
+      "mode": "0644",
+      "path": "angrybirds/port.json",
+      "sha256": "e3db8104f35f60e6d24356710b44f3b879a650fec18929d6720a3aa3222fc286"
+    }
+  ],
+  "claims": {
+    "adapter_lifecycle_implemented": false,
+    "deterministic_scaffold": true,
+    "physical_support_proven": false,
+    "release_ready": false
+  },
+  "generator": {
+    "name": "nxgenerator",
+    "version": "0.2.10"
+  },
+  "project_manifest_sha256": "f82029de692916c022deac597a8c540ae2d6380123f2d206936d49fc2c598628",
+  "schema": "nxgenerator-receipt-v1",
+  "schema_version": 1,
+  "source_pins": {
+    "nxbootstrap": {
+      "source_files": {
+        "templates/launcher.sh.in": "bb16aeedb6fbdbf6e355022b8156cf7036d52ecfe9ff7f7a5ef8f584d6802646",
+        "tools/generate-port.py": "8c75e4f2fd3d586768a36a6b042d9937d1a4a6ffd8657cf51d1d43e0605431fd"
+      },
+      "version": "0.6.17"
+    },
+    "nxextract": {
+      "files": {
+        "nxextract-runtime-env.sh": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+        "nxextract-ui": "02ce707129b80ca1666f72c9e74792525dd2c7d2ada93bac5a93b9bfb41e3ff6",
+        "nxextract.py": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5",
+        "run-extractor.sh": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+      },
+      "recipe_sha256": "3ea804362d3a0a75fafec81c85fa01201dee533989bd66a183a99e021bfe9858",
+      "ui_artifact": {
+        "architecture": "armv7",
+        "mode": "0755",
+        "path": "ui/release/armv7/nxextract-ui",
+        "sha256": "02ce707129b80ca1666f72c9e74792525dd2c7d2ada93bac5a93b9bfb41e3ff6"
+      },
+      "ui_release_manifest_sha256": "0449875cb016fb915e4001742137c919b22087617853bd5f3ed1118b9e2420fc",
+      "ui_source_sha256": "2122d1f5727e1cecf2c572560a07a97411f551c8e77145baa1f383fa5e989fa4",
+      "ui_version": "1.2.9",
+      "version": "1.2.10"
+    },
+    "nxsplash": {
+      "artifact": {
+        "architecture": "armv7",
+        "mode": "0755",
+        "path": "release/armv7/nxsplash-nextos",
+        "sha256": "88a2b39be45826348375f966af536e976b37eefd18a88c8fcff75f6fd08015d8"
+      },
+      "release_manifest_sha256": "14c9a0ec823eceb6b53620e443821375c0d6c2dbe4004470bcee514bb8e3d118",
+      "source_sha256": "c393afcef644745b9d1e557c9833146e908aee4d4b6bfdb57e64e7d304c8e177",
+      "version": "0.1.2"
+    },
+    "portmaster": {
+      "contract": "v2",
+      "contract_sha256": "bfcdcbb52397168283c9b55e13dca274d7b5f5145ae1531a5ad240f54ebac47b",
+      "metadata_schema": "port-json-supported-v1",
+      "metadata_schema_sha256": "fd029622d67c2f6dc060359dd587894d9c8aa23b63fcf7bc609a6b8e087742c7",
+      "parser_commit": "8f9ddc4b0f75dfe61eb370bd3d1b4ec9d5ef6967",
+      "vendor_provenance_sha256": "15937eb265ccd95ab0e3fce9d0058a5b8849aa3ab4ca536611750bd67028d5ad"
+    }
+  }
+}

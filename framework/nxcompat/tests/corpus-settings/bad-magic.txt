@@ -1,0 +1,2 @@
+# NEXTOS_SETTINGS/3
+language=en

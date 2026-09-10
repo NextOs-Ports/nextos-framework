@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "id": "titansouls",
+  "version": "1",
+  "title": "TITAN SOULS",
+  "abi_order": [
+    "armeabi-v7a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.devolver.titansouls"
+    ]
+  },
+  "extract": [
+    {
+      "id": "game-engine",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libTestSuite.so"
+        ]
+      },
+      "destination": "lib/libTestSuite.so",
+      "validate": {
+        "type": "file",
+        "size": 3796852,
+        "sha256": "0e67e9a4639fcf6e517c334b74a497c810c511d3dd584639193c0ae1a2be68b5",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "fmod-ex",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libfmodex.so"
+        ]
+      },
+      "destination": "lib/libfmodex.so",
+      "validate": {
+        "type": "file",
+        "size": 871096,
+        "sha256": "5e4bc3ea5a789816a35154864406d0856434cf04d285a13f99479ee5fd92c72c",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "apk-assets",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": {
+        "type": "tree",
+        "exact_files": 12,
+        "exact_bytes": 97823,
+        "required_paths": [
+          "config.txt",
+          "loading.png",
+          "loading_shader_android.vsh",
+          "loading_shader_android.fsh",
+          "loading_shader_hue_android.vsh",
+          "loading_shader_hue_android.fsh"
+        ],
+        "tree_fingerprint": "c64ed258f19f11d5939dfce58f1d38afed76cec4f17c0dd8a01730300579b579"
+      }
+    },
+    {
+      "id": "game-obb",
+      "source": {
+        "kind": "entry_or_file",
+        "patterns": [
+          "**/main.31.com.devolver.titansouls.obb",
+          "main.31.com.devolver.titansouls.obb"
+        ],
+        "file_extensions": [
+          ".obb",
+          ".zip"
+        ]
+      },
+      "destination": "sdcard/Android/obb/com.devolver.titansouls/main.31.com.devolver.titansouls.obb",
+      "validate": {
+        "type": "file",
+        "size": 186175694,
+        "sha256": "8ae39ba0b6b7c45319058b89be30d2a2898f08d3b41f9f180fe4ed86d98d2c77",
+        "magic_hex": "6b06000008000000666f6e742e706e67"
+      }
+    }
+  ],
+  "validate": [
+    {
+      "path": "lib/libTestSuite.so",
+      "type": "file",
+      "size": 3796852,
+      "sha256": "0e67e9a4639fcf6e517c334b74a497c810c511d3dd584639193c0ae1a2be68b5",
+      "elf_machine": "armeabi-v7a"
+    },
+    {
+      "path": "lib/libfmodex.so",
+      "type": "file",
+      "size": 871096,
+      "sha256": "5e4bc3ea5a789816a35154864406d0856434cf04d285a13f99479ee5fd92c72c",
+      "elf_machine": "armeabi-v7a"
+    },
+    {
+      "path": "assets",
+      "type": "tree",
+      "exact_files": 12,
+      "exact_bytes": 97823,
+      "required_paths": [
+        "config.txt",
+        "loading.png"
+      ],
+      "tree_fingerprint": "c64ed258f19f11d5939dfce58f1d38afed76cec4f17c0dd8a01730300579b579"
+    },
+    {
+      "path": "sdcard/Android/obb/com.devolver.titansouls/main.31.com.devolver.titansouls.obb",
+      "type": "file",
+      "size": 186175694,
+      "sha256": "8ae39ba0b6b7c45319058b89be30d2a2898f08d3b41f9f180fe4ed86d98d2c77",
+      "magic_hex": "6b06000008000000666f6e742e706e67"
+    }
+  ],
+  "commit": [
+    "lib/libTestSuite.so",
+    "lib/libfmodex.so",
+    "assets",
+    "sdcard/Android/obb/com.devolver.titansouls/main.31.com.devolver.titansouls.obb"
+  ],
+  "marker": ".nxextract-titansouls.json",
+  "space": {
+    "safety_bytes": 67108864
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

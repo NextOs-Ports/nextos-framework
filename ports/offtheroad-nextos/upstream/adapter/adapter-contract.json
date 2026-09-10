@@ -1,0 +1,237 @@
+{
+  "audio": {
+    "callbacks": [
+      "offtheroad_audio_device_callback"
+    ],
+    "format": "s16le-stereo-runtime-rate"
+  },
+  "graphics": {
+    "adapter": "nxgl-graphics-contract+explicit-egl-import-table+pre-overlay-frame-proof+provider-namespaced-shader-cache",
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 8000,
+    "profile": "es",
+    "required_devices": [
+      "mali-450",
+      "mali-g31",
+      "mali-g52"
+    ],
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "imports": [
+    "eglChooseConfig",
+    "eglCreateContext",
+    "eglCreateWindowSurface",
+    "eglDestroyContext",
+    "eglDestroySurface",
+    "eglGetConfigAttrib",
+    "eglGetCurrentContext",
+    "eglGetDisplay",
+    "eglGetProcAddress",
+    "eglInitialize",
+    "eglMakeCurrent",
+    "eglQueryString",
+    "eglSwapBuffers",
+    "eglSwapInterval",
+    "eglTerminate"
+  ],
+  "input": {
+    "actions": [
+      {
+        "id": "otr.accelerate",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "otr.brake",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "otr.confirm",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "otr.back",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "otr.pause",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "cursor.click",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "camera.steer",
+        "kind": "vector",
+        "sinks": [
+          "offtheroad.input.vector-sink"
+        ]
+      },
+      {
+        "id": "camera.look",
+        "kind": "vector",
+        "sinks": [
+          "offtheroad.input.vector-sink"
+        ]
+      },
+      {
+        "id": "cursor.move",
+        "kind": "vector",
+        "sinks": [
+          "offtheroad.input.vector-sink"
+        ]
+      }
+    ],
+    "contexts": {
+      "cursor": {
+        "A": "otr.confirm",
+        "B": "otr.back",
+        "R3": "cursor.click",
+        "RIGHT_STICK": "cursor.move",
+        "START": "otr.pause"
+      },
+      "gameplay": {
+        "A": "otr.accelerate",
+        "B": "otr.brake",
+        "LEFT_STICK": "camera.steer",
+        "RIGHT_STICK": "camera.look",
+        "START": "otr.pause"
+      },
+      "menu": {
+        "A": "otr.confirm",
+        "B": "otr.back",
+        "R3": "cursor.click",
+        "RIGHT_STICK": "cursor.move",
+        "START": "otr.pause"
+      }
+    },
+    "mapping": "NEXTOSCONTROLLERS.gptk",
+    "mapping_authority": "gptk-single-authority",
+    "touch": "nativeTouchesBegin/Move/End in cursor context only; L3 is reserved by the loader as the pointer-mode toggle and is never forwarded to the game"
+  },
+  "jni": {
+    "callbacks": [
+      "JNI_OnLoad",
+      "Java_org_cocos2dx_lib_Cocos2dxHelper_nativeSetApkPath",
+      "Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeOnStart",
+      "Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeInit",
+      "Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeOnResume",
+      "Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeRender",
+      "Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeOnPause",
+      "Java_org_cocos2dx_lib_Cocos2dxRenderer_nativeOnStop"
+    ],
+    "classes": [
+      "org/cocos2dx/lib/Cocos2dxHelper",
+      "org/cocos2dx/lib/Cocos2dxRenderer",
+      "com/utils/GameControllerInput"
+    ],
+    "methods": [
+      "cocos2d::nativeGamepadConnected",
+      "cocos2d::nativeGamepadButtonDown",
+      "cocos2d::nativeGamepadButtonUp",
+      "cocos2d::nativeGamepadAxisValueChanged",
+      "cMulti::getLocalPlayer"
+    ]
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "native-menu",
+    "sinks": [],
+    "supported": [
+      "en"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "create and make current SDL GLES2 context",
+      "validate nxgl GLES2/ESSL100 contract and namespace disposable shader cache",
+      "prove the SDL EGL provider and register all guest EGL imports explicitly",
+      "load libc++_shared.so and run init_array",
+      "load libgame.so and run init_array",
+      "resolve required lifecycle/input/context symbols",
+      "load owner/default GPTK, parse, register and bind real sinks",
+      "JNI_OnLoad",
+      "Cocos2dxHelper.nativeSetApkPath",
+      "Cocos2dxRenderer.nativeOnStart",
+      "Cocos2dxRenderer.nativeInit",
+      "Cocos2dxRenderer.nativeOnResume",
+      "native input and Cocos2dxRenderer.nativeRender loop",
+      "pre-overlay native-frame proof and SDL_GL_SwapWindow",
+      "Cocos2dxRenderer.nativeOnPause",
+      "Cocos2dxRenderer.nativeOnStop",
+      "bounded audio shutdown",
+      "_exit(0) without Mali teardown"
+    ],
+    "source_evidence": [
+      "src/main.c",
+      "src/otr_egl_imports.c",
+      "src/otr_audio_recovery.c",
+      "src/otr_exit_monitor.c",
+      "src/otr_gptk.c",
+      "src/otr_runtime_evidence.c",
+      "src/opensles_shim.c",
+      "references/egl-import-contract-v1.json",
+      "references/graphics-contract-static-v1.json"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "Cocos2dxRenderer.nativeOnPause",
+      "Cocos2dxRenderer.nativeOnStop"
+    ],
+    "paths": [
+      "userdata",
+      "NEXTOSCONTROLLERS.gptk",
+      "NEXTOSSETTINGS.txt"
+    ]
+  },
+  "prohibitions": [
+    "never apply a universal alpha fix when native RGB is also zero",
+    "never leave guest EGL JUMP_SLOT resolution to accidental RTLD_DEFAULT visibility",
+    "never promote an EGL candidate globally before its 14-symbol table and current context are validated locally",
+    "never resolve cMulti or game callbacks by binary offsets",
+    "never delete or relocate saves and owner configuration while rotating shader cache",
+    "never deliver a GPTK-owned control through the parallel raw path",
+    "never decide right-stick ownership by heuristics (idle timers, trigger state, engine probes): ownership changes only on the explicit L3 toggle, and cursor auto-hide is visual only"
+  ],
+  "quirks": [
+    "split GLVND EGL loaded RTLD_LOCAL is validated first, then reopened globally and bound through an explicit guest table",
+    "bgfx sh_* cache is disposable and namespaced by measured graphics-provider identity",
+    "native game RGB is sampled before the cursor overlay can affect frame proof",
+    "Mali-450 exits after native pause/stop without destructive GL teardown"
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START",
+    "evidence": [
+      "src/otr_exit_monitor.c: host watcher delivers a sticky request exactly once without entering the guest/render loop",
+      "src/main.c: SDL mapping is primary; canonical evdev fallback is polled only without complete BACK/START binds",
+      "src/main.c: native pause/stop, evidence, audio shutdown and terminal deadline"
+    ]
+  }
+}

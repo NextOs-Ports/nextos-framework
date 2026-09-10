@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "milestone": "M10",
+  "scope": "aarch64-rela-aapcs64-cross-and-approved-read-only-guest-relocation",
+  "physical_device_evidence": false,
+  "approved_guest_relocation_evidence": true,
+  "guest_initializers_executed": false,
+  "guest_jni_onload_executed": false,
+  "requirements": [
+    {
+      "id": "M10-001",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "#define EM_AARCH64 183"}],
+      "tests": [{"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "lp64=1"}]
+    },
+    {
+      "id": "M10-002",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "static int nxloader_add_signed64"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "aarch64-negative-rela-addend"}]
+    },
+    {
+      "id": "M10-003",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "nxloader_aarch64_supported_relocation"}],
+      "tests": [{"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "Inventário exato das relocações AArch64"}]
+    },
+    {
+      "id": "M10-004",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "if (!nxloader_aarch64_supported_relocation(type))"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "unsupported_instruction_types"}]
+    },
+    {
+      "id": "M10-005",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_hooks.c", "token": "nxloader_install_aarch64_hook"}],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_aarch64_hook_pool_range_is_atomic"},
+        {"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "nx_synthetic_loader_hook_gate"}
+      ]
+    },
+    {
+      "id": "M10-006",
+      "implementation": [{"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "nx_callee_saved_probe"}],
+      "tests": [{"path": "framework/nxloader/tests/run-aarch64-cross.sh", "token": "stack_align_16=2"}]
+    },
+    {
+      "id": "M10-007",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_protect.c", "token": "__builtin___clear_cache"}],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "finalize_only_loader_cache_clear=1"},
+        {"path": "framework/nxloader/tests/run-aarch64-cross.sh", "token": "post_finalize_reexecution=2"}
+      ]
+    },
+    {
+      "id": "M10-008",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "unsupported AArch64 relocation"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "aarch64-unknown-relocation"}]
+    },
+    {
+      "id": "M10-009",
+      "implementation": [{"path": "framework/nxloader/tests/m10-approved-aarch64-guests-v1.json", "token": "\"init_array_entries\": 506"}],
+      "tests": [{"path": "framework/nxloader/tests/m10-aarch64-guests-evidence-v1.log", "token": "guest=sonic4ep2-libfox static=PASS"}]
+    },
+    {
+      "id": "M10-010",
+      "implementation": [{"path": "framework/nxloader/tests/m10-approved-aarch64-guests-v1.json", "token": "horizonchase-libil2cpp"}],
+      "tests": [{"path": "framework/nxloader/tests/m10-aarch64-guests-evidence-v1.json", "token": "\"relocation_count\": 305750"}]
+    },
+    {
+      "id": "M10-011",
+      "implementation": [{"path": "framework/nxloader/README.md", "token": "pertencem ao adapter"}],
+      "tests": [{"path": "framework/catalog/abi-variants-v1.json", "token": "never copy Unity hooks"}]
+    },
+    {
+      "id": "M10-012",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "nxloader_validate_relocation_metadata_target"}],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "sectionless64"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_arm32_metadata_target_contract"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_linear_gnu_hash_scan"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_dynamic_name_bounds_and_overlapping_offsets"}
+      ]
+    },
+    {
+      "id": "M10-013",
+      "implementation": [{"path": "framework/nxloader/tests/run-aarch64-cross.sh", "token": "INTERPRETER=/lib/ld-linux-aarch64.so.1"}],
+      "tests": [{"path": "framework/nxloader/tests/run-aarch64-cross.sh", "token": "audit_final_executable"}]
+    },
+    {
+      "id": "M10-014",
+      "implementation": [{"path": "framework/nxloader/tests/run-aarch64-cross.sh", "token": "version_is_above \"$version\" 2.30"}],
+      "tests": [{"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "Hosts Linux AArch64 aprovados"}]
+    },
+    {
+      "id": "M10-015",
+      "implementation": [{"path": "framework/nxloader/tests/run-aarch64-cross.sh", "token": "CMAKE_C_COMPILER_TARGET=aarch64-linux-gnu"}],
+      "tests": [{"path": "framework/nxloader/tests/run-aarch64-cross.sh", "token": "PASS gcc=1 clang=1 lld=1 qemu=1"}]
+    },
+    {
+      "id": "M10-016",
+      "implementation": [{"path": "framework/catalog/abi-variants-v1.json", "token": "\"variant_id\": \"bully2-aarch64\""}],
+      "tests": [{"path": "framework/catalog/tests/test_catalog.py", "token": "aarch64_variants"}]
+    },
+    {
+      "id": "M10-017",
+      "implementation": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_aarch64_relocation_contract"}],
+      "tests": [
+        {"path": "framework/nxloader/tests/run-host.sh", "token": "-runs=20000"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_arm_symbol_type_rejection_is_pre_hook"}
+      ]
+    },
+    {
+      "id": "M10-018",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader.c", "token": "nxloader_pending_sort"},
+        {"path": "framework/nxloader/src/nxloader_registry.c", "token": "nxloader_registry_binary_index"},
+        {"path": "framework/nxloader/src/nxloader_registry.c", "token": "nxloader_registry_candidate_sort"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_pending.c", "token": "stress=16384"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_many_needed_scaling"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_many_segment_lookup_and_relro_scaling"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "REGISTRY_FNV_COLLISION_COUNT 2048u"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_registry_public_name_bounds"},
+        {"path": "framework/nxloader/tests/m10-aarch64-guests-evidence-v1.json", "token": "\"registry_exports\""},
+        {"path": "framework/nxloader/tests/m10-aarch64-guests-evidence-v1.log", "token": "exports=PASS"},
+        {"path": "framework/nxloader/tests/m10-aarch64-guests-evidence-v1.json", "token": "\"total_elapsed_ns\""}
+      ]
+    },
+    {
+      "id": "M10-019",
+      "implementation": [{"path": "framework/nxloader/README.md", "token": "±128 MiB"}],
+      "tests": [{"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "não uma promessa de FPS"}]
+    },
+    {
+      "id": "M10-020",
+      "implementation": [
+        {"path": "framework/nxloader/m10-audit-v1.json", "token": "\"id\": \"M10-020\""},
+        {"path": "framework/nxloader/include/nxloader.h", "token": "callbacks are trusted adapter code."},
+        {"path": "framework/nxloader/README.md", "token": "provider deve permanecer vivo por mais tempo que o registry"},
+        {"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "CALL/JUMP24/THM_CALL` não entram no `relocation_hook"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_m10_audit.py", "token": "M10 audit gate passed"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "callback rejected operation"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "phase-invalid"},
+        {"path": "framework/nxloader/tests/run_m10_aarch64_guest_gate.py", "token": "\"inspector_modes\": [\"--relocate\", \"--exports\"]"},
+        {"path": "framework/nxloader/tests/test_m10_aarch64_guest_gate_runner.py", "token": "test_timeout_uses_kill_fallback_and_leaves_sibling_alive"},
+        {"path": "framework/nxloader/tests/test_m10_aarch64_guest_gate_runner.py", "token": "test_exports_subprocess_is_limited_and_lifecycle_stays_zero"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gameList>
+  <game>
+    <path>./Terraria.sh</path>
+    <name>Terraria</name>
+    <desc>Port AArch64 da versao Android 1.4.5.6.4 por loader Unity/IL2CPP. O mesmo executavel detecta o backend SDL real do firmware, usa controles nativos, som, saves persistentes e saida pelo ciclo pause/focus. Requer o APK legal do proprio usuario, preparado automaticamente pelo NXExtract 1.2.0.</desc>
+    <developer>Re-Logic</developer>
+    <publisher>505 Games</publisher>
+    <genre>Acao / Aventura / Sandbox</genre>
+  </game>
+</gameList>

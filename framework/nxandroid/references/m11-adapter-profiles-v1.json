@@ -1,0 +1,1992 @@
+{
+  "schema": "nxandroid-adapter-profiles-v1",
+  "schema_version": 1,
+  "milestone": "M11",
+  "scope": "hash-pinned-static-source-derived-adapter-phase-profiles",
+  "method": "Profiles project only source-proven adapter boundaries onto the frozen public nxandroid phase vocabulary. A structurally executable profile is not a claim of Android runtime validation.",
+  "source_pins": {
+    "inventory": {
+      "path": "framework/nxandroid/references/m11-android-guests-v1.json",
+      "sha256": "fa9bc25b10a867a41f3e85efb8b225b120f265bc9bcddafec5aa0b3bfbdecc12",
+      "schema": "nxandroid-m11-android-guests-v1",
+      "schema_version": 1
+    },
+    "inventory_audit": {
+      "path": "framework/nxandroid/references/REFERENCE-AUDIT.md",
+      "sha256": "8d22c20ac1f441d2c9ace95c10d652853857a893966649c5dbaf195bf1d3aa13"
+    },
+    "inventory_tool": {
+      "path": "framework/nxandroid/tools/inventory_m11_guests.py",
+      "sha256": "d158855a7214bc4f1b8fdded09b21ce9fa6cc04b457360fb2f7b8dfec8098acb"
+    },
+    "nxandroid_header": {
+      "path": "framework/nxandroid/include/nxandroid.h",
+      "sha256": "62d16338c33240909f8af096038cde8d6477f29aa332ddb718367fd5e5461865"
+    },
+    "nxandroid_version": {
+      "path": "framework/nxandroid/VERSION",
+      "sha256": "a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8",
+      "value": "0.5.0"
+    }
+  },
+  "safety": {
+    "static_files_only": true,
+    "validator_process_free": true,
+    "guest_files_opened": false,
+    "guest_code_executed": false,
+    "guest_initializers_executed": false,
+    "guest_jni_onload_executed": false,
+    "resolve_executed": false,
+    "finalize_executed": false,
+    "device_access": false,
+    "network_access": false
+  },
+  "public_contract": {
+    "api_version": 1,
+    "version": "0.5.0",
+    "phases": [
+      "NXANDROID_PHASE_MODULE_INITIALIZED",
+      "NXANDROID_PHASE_MODULE_JNI",
+      "NXANDROID_PHASE_ACTIVITY_CREATE",
+      "NXANDROID_PHASE_GRAPHICS_REQUEST",
+      "NXANDROID_PHASE_SURFACE_UP",
+      "NXANDROID_PHASE_SURFACE_CHANGED",
+      "NXANDROID_PHASE_GL_READY",
+      "NXANDROID_PHASE_RESUME",
+      "NXANDROID_PHASE_FOCUS_GAIN",
+      "NXANDROID_PHASE_ENTRY",
+      "NXANDROID_PHASE_OBJECTS_READY",
+      "NXANDROID_PHASE_INPUT_ENABLE",
+      "NXANDROID_PHASE_RUN_LOOP",
+      "NXANDROID_PHASE_INPUT_DISABLE",
+      "NXANDROID_PHASE_FOCUS_LOSS",
+      "NXANDROID_PHASE_PAUSE",
+      "NXANDROID_PHASE_SURFACE_DOWN",
+      "NXANDROID_PHASE_SAVE",
+      "NXANDROID_PHASE_NATIVE_SHUTDOWN",
+      "NXANDROID_PHASE_TERMINAL",
+      "NXANDROID_PHASE_RUNTIME_DELEGATED"
+    ],
+    "terminal_policies": [
+      "NXANDROID_TERMINAL_NONE",
+      "NXANDROID_TERMINAL_RETURN",
+      "NXANDROID_TERMINAL_ADAPTER"
+    ],
+    "profile_flags": [
+      "NXANDROID_PROFILE_ALLOW_ADAPTER_TERMINAL",
+      "NXANDROID_PROFILE_ALLOW_DELEGATED_RUNTIME",
+      "NXANDROID_PROFILE_ALLOW_ENTRY_BEFORE_SURFACE_CALLBACK"
+    ],
+    "core_owns": {
+      "java_vm": false,
+      "jni_env": false,
+      "activity": false,
+      "surface": false,
+      "graphics": false,
+      "input": false,
+      "engine_loop": false,
+      "process_terminal": false
+    },
+    "runtime_claim": "The core validates boundary order only; every object and action remains adapter-owned."
+  },
+  "classification_vocabulary": {
+    "availability": [
+      "proven",
+      "not_available",
+      "not_applicable"
+    ],
+    "classification": [
+      "source_proven",
+      "common_boundary_adapter_implementation",
+      "proven_limitation",
+      "static_evidence_only",
+      "delegated_not_visible"
+    ],
+    "module_applicability": [
+      "required",
+      "conditional",
+      "not_applicable"
+    ],
+    "jni_version_acceptance": [
+      "exact",
+      "positive_return",
+      "not_validated",
+      "not_applicable"
+    ],
+    "graphics_surface_relation": [
+      "gl_ready_before_surface_up",
+      "gl_ready_after_surface_up",
+      "delegated_not_visible"
+    ]
+  },
+  "profiles": [
+    {
+      "id": "bully2",
+      "inventory_port_id": "bully2",
+      "adapter_family": "rockstar-bully2-specific",
+      "abi": "NXANDROID_ABI_AARCH64_BIONIC",
+      "modules": [
+        {
+          "id": "bully2-libgame",
+          "sha256": "345f6411bebbd2310b2cb5d2a271341847a054c2b7f6d5ffba8030cd53140d76",
+          "inventory_role": "required-main-guest",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "required",
+          "jni_onload_export": true,
+          "jni_version": {
+            "acceptance": "not_validated",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_available",
+            "classification": "proven_limitation",
+            "evidence_refs": [
+              "ports/bully2/src/jni_shim.c:5532-5573",
+              "ports/bully2/src/jni_shim.c:1243-1297"
+            ]
+          }
+        }
+      ],
+      "vm_jni_activity_boundary": {
+        "java_vm": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Stable adapter VM identity is established before libGame JNI_OnLoad and retained for the runtime.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5532-5573"
+          ]
+        },
+        "jni_env": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter owns the environment table and game-specific JNI dispatch.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5532-5573",
+            "ports/bully2/src/jni_shim.c:1243-1297"
+          ]
+        },
+        "activity": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Rockstar initial setup and Activity-created callbacks form the adapter-specific Activity boundary.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5575-5667"
+          ]
+        }
+      },
+      "android_runtime_trace": {
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "semantics": "The inventory proves static source order only; no Android runtime trace was captured or replayed."
+      },
+      "execution": {
+        "core_executable": false,
+        "validation_scope": "source_phase_projection_only",
+        "flags": [],
+        "variants": [],
+        "reason": "The approved adapter has no complete focus, pause, save and shutdown sequence that satisfies a driven core profile."
+      },
+      "graphics_surface_order": {
+        "relation": "gl_ready_before_surface_up",
+        "availability": "proven",
+        "classification": "source_proven",
+        "semantics": "The real GL context is created before implOnSurfaceCreated and implOnSurfaceChanged.",
+        "evidence_refs": [
+          "ports/bully2/src/jni_shim.c:5575-5667"
+        ]
+      },
+      "proven_phase_projection": [
+        {
+          "order": 10,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "bully2-libgame",
+          "cycle_id": 0,
+          "contract_id": "bully2-libgame-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "libGame is relocated, resolved, finalized and its complete constructor array has returned.",
+          "evidence_refs": [
+            "ports/bully2/src/main.c:754-813",
+            "ports/bully2/src/main.c:764-772"
+          ]
+        },
+        {
+          "order": 20,
+          "phase": "NXANDROID_PHASE_MODULE_JNI",
+          "module_id": "bully2-libgame",
+          "cycle_id": 0,
+          "contract_id": "bully2-libgame-jni-onload-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "Adapter VM and environment are stable and JNI_OnLoad has returned; its version is not validated by the source adapter.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5532-5573"
+          ]
+        },
+        {
+          "order": 30,
+          "phase": "NXANDROID_PHASE_ACTIVITY_CREATE",
+          "module_id": null,
+          "cycle_id": 0,
+          "contract_id": "bully2-rockstar-activity-created-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Rockstar initial setup and Activity-created callbacks have completed.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5575-5667"
+          ]
+        },
+        {
+          "order": 40,
+          "phase": "NXANDROID_PHASE_GRAPHICS_REQUEST",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "bully2-graphics-request-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter starts real host graphics acquisition for the first surface generation.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5575-5667"
+          ]
+        },
+        {
+          "order": 50,
+          "phase": "NXANDROID_PHASE_GL_READY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "bully2-gl-ready-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The host GL context is current before guest surface callbacks.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5575-5667"
+          ]
+        },
+        {
+          "order": 60,
+          "phase": "NXANDROID_PHASE_SURFACE_UP",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "bully2-surface-up-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "implOnSurfaceCreated has returned.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5575-5667"
+          ]
+        },
+        {
+          "order": 70,
+          "phase": "NXANDROID_PHASE_SURFACE_CHANGED",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "bully2-surface-changed-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "implOnSurfaceChanged has received the real dimensions.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5575-5667"
+          ]
+        },
+        {
+          "order": 80,
+          "phase": "NXANDROID_PHASE_RESUME",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "bully2-resume-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The Rockstar resume callback has returned.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5575-5667"
+          ]
+        },
+        {
+          "order": 90,
+          "phase": "NXANDROID_PHASE_RUN_LOOP",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "bully2-draw-loop-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter synchronously owns the implOnDrawFrame loop and its host input pump.",
+          "evidence_refs": [
+            "ports/bully2/src/jni_shim.c:5669-5760"
+          ]
+        }
+      ],
+      "gaps": [
+        {
+          "phases": [
+            "NXANDROID_PHASE_FOCUS_GAIN",
+            "NXANDROID_PHASE_ENTRY",
+            "NXANDROID_PHASE_OBJECTS_READY",
+            "NXANDROID_PHASE_INPUT_ENABLE",
+            "NXANDROID_PHASE_INPUT_DISABLE",
+            "NXANDROID_PHASE_FOCUS_LOSS",
+            "NXANDROID_PHASE_PAUSE",
+            "NXANDROID_PHASE_SURFACE_DOWN",
+            "NXANDROID_PHASE_SAVE",
+            "NXANDROID_PHASE_NATIVE_SHUTDOWN",
+            "NXANDROID_PHASE_TERMINAL"
+          ],
+          "availability": "not_available",
+          "classification": "proven_limitation",
+          "semantics": "The approved source returns from the draw lifecycle and uses process-lifetime termination without a complete proven close sequence; these phases must not be synthesized.",
+          "evidence_refs": [
+            "ports/bully2/src/main.c:815-822"
+          ]
+        }
+      ],
+      "terminal_contract": {
+        "policy": "NXANDROID_TERMINAL_ADAPTER",
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "required_flag_if_completed": "NXANDROID_PROFILE_ALLOW_ADAPTER_TERMINAL",
+        "contract_id": "bully2-process-lifetime-terminal-v1",
+        "semantics": "The observed adapter action cannot be promoted until focus, pause and save boundaries are proven.",
+        "evidence_refs": [
+          "ports/bully2/src/main.c:815-822"
+        ]
+      },
+      "rollback_policy": "No rollback callback is declared because the approved source does not prove a separate compensating path."
+    },
+    {
+      "id": "sonic4ep2",
+      "inventory_port_id": "sonic4ep2",
+      "adapter_family": "fox-f2f-sonic4ep2-specific",
+      "abi": "NXANDROID_ABI_AARCH64_BIONIC",
+      "modules": [
+        {
+          "id": "sonic4ep2-libfox",
+          "sha256": "ca07163ad1e92d767016d43048a2c13eede7b9d6217ed4f032ca4d6d8e342a1a",
+          "inventory_role": "required-main-guest-v3-aarch64",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "required",
+          "jni_onload_export": true,
+          "jni_version": {
+            "acceptance": "not_validated",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_available",
+            "classification": "proven_limitation",
+            "evidence_refs": [
+              "ports/sonic4/src/main.c:1714-1724",
+              "ports/sonic4/src/jni_shim.c:772-919"
+            ]
+          }
+        }
+      ],
+      "vm_jni_activity_boundary": {
+        "java_vm": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "A stable adapter VM is installed before JNI_OnLoad because f2f retains it.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1714-1724"
+          ]
+        },
+        "jni_env": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter owns the environment table and fox/f2f object dispatch.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1714-1724",
+            "ports/sonic4/src/jni_shim.c:772-919"
+          ]
+        },
+        "activity": {
+          "owner": "adapter",
+          "availability": "not_available",
+          "classification": "proven_limitation",
+          "semantics": "A stable game context token exists, but the approved source has no distinct Activity-create boundary.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1714-1724"
+          ]
+        }
+      },
+      "android_runtime_trace": {
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "semantics": "The inventory proves static source order only; no Android runtime trace was captured or replayed."
+      },
+      "execution": {
+        "core_executable": false,
+        "validation_scope": "source_phase_projection_only",
+        "flags": [
+          "NXANDROID_PROFILE_ALLOW_ENTRY_BEFORE_SURFACE_CALLBACK"
+        ],
+        "variants": [],
+        "reason": "The source-proven GL_READY to ENTRY to OBJECTS_READY to SURFACE_UP projection requires the narrow pre-Surface-callback opt-in, but Activity, focus, input-close, pause, save and shutdown boundaries are not jointly proven."
+      },
+      "graphics_surface_order": {
+        "relation": "gl_ready_before_surface_up",
+        "availability": "proven",
+        "classification": "source_proven",
+        "semantics": "The source-proven order is GL_READY, ENTRY, OBJECTS_READY and then DrawEGLCreated/SURFACE_UP for the same cycle; this requires NXANDROID_PROFILE_ALLOW_ENTRY_BEFORE_SURFACE_CALLBACK and does not permit input or the run loop before Surface.",
+        "evidence_refs": [
+          "ports/sonic4/src/main.c:1726-1743",
+          "ports/sonic4/src/main.c:1802-1886"
+        ]
+      },
+      "proven_phase_projection": [
+        {
+          "order": 10,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "sonic4ep2-libfox",
+          "cycle_id": 0,
+          "contract_id": "sonic4ep2-libfox-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "The exact BuildID/layout patch has been validated and applied before finalize, cache flush and constructors.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:551-600,1225-1244"
+          ]
+        },
+        {
+          "order": 20,
+          "phase": "NXANDROID_PHASE_MODULE_JNI",
+          "module_id": "sonic4ep2-libfox",
+          "cycle_id": 0,
+          "contract_id": "sonic4ep2-libfox-jni-onload-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "The stable adapter VM has been passed to JNI_OnLoad; the returned version remains unvalidated.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1714-1724"
+          ]
+        },
+        {
+          "order": 30,
+          "phase": "NXANDROID_PHASE_GRAPHICS_REQUEST",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "sonic4ep2-graphics-request-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter begins EGL-shim window and context acquisition.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1726-1743"
+          ]
+        },
+        {
+          "order": 40,
+          "phase": "NXANDROID_PHASE_GL_READY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "sonic4ep2-gl-ready-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The EGL-shim context is current on the game thread.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1726-1743"
+          ]
+        },
+        {
+          "order": 50,
+          "phase": "NXANDROID_PHASE_ENTRY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "sonic4ep2-fox-entry-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Game paths, language and f2f object/context prerequisites are established before fox init.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1745-1787"
+          ]
+        },
+        {
+          "order": 60,
+          "phase": "NXANDROID_PHASE_OBJECTS_READY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "sonic4ep2-fox-objects-ready-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "fox init has received real dimensions and returned.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1802-1886"
+          ]
+        },
+        {
+          "order": 70,
+          "phase": "NXANDROID_PHASE_SURFACE_UP",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "sonic4ep2-draw-egl-created-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "DrawEGLCreated has returned after the host context became current.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1802-1886"
+          ]
+        },
+        {
+          "order": 80,
+          "phase": "NXANDROID_PHASE_RESUME",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "sonic4ep2-resume-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "resumeEvent has cleared the engine pause state.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1802-1886"
+          ]
+        },
+        {
+          "order": 90,
+          "phase": "NXANDROID_PHASE_RUN_LOOP",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "sonic4ep2-gameprocess-drawframe-loop-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The synchronous loop preserves GameProcess-before-DrawFrame ordering.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:1902-1923,2337-2373"
+          ]
+        }
+      ],
+      "gaps": [
+        {
+          "phases": [
+            "NXANDROID_PHASE_ACTIVITY_CREATE",
+            "NXANDROID_PHASE_SURFACE_CHANGED",
+            "NXANDROID_PHASE_FOCUS_GAIN",
+            "NXANDROID_PHASE_INPUT_ENABLE",
+            "NXANDROID_PHASE_INPUT_DISABLE",
+            "NXANDROID_PHASE_FOCUS_LOSS",
+            "NXANDROID_PHASE_PAUSE",
+            "NXANDROID_PHASE_SURFACE_DOWN",
+            "NXANDROID_PHASE_SAVE",
+            "NXANDROID_PHASE_NATIVE_SHUTDOWN",
+            "NXANDROID_PHASE_TERMINAL"
+          ],
+          "availability": "not_available",
+          "classification": "proven_limitation",
+          "semantics": "The approved source has no complete Android close sequence and uses sync plus process-lifetime termination; missing phases must not be inferred from fox names.",
+          "evidence_refs": [
+            "ports/sonic4/src/main.c:424-438"
+          ]
+        }
+      ],
+      "terminal_contract": {
+        "policy": "NXANDROID_TERMINAL_ADAPTER",
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "required_flag_if_completed": "NXANDROID_PROFILE_ALLOW_ADAPTER_TERMINAL",
+        "contract_id": "sonic4ep2-sync-process-terminal-v1",
+        "semantics": "The observed action cannot become a core terminal step until pause and save are proven.",
+        "evidence_refs": [
+          "ports/sonic4/src/main.c:424-438"
+        ]
+      },
+      "rollback_policy": "No rollback callback is declared because the approved source does not prove a separate compensating path."
+    },
+    {
+      "id": "horizonchase",
+      "inventory_port_id": "horizonchase",
+      "adapter_family": "unity-il2cpp-horizonchase-specific",
+      "abi": "NXANDROID_ABI_AARCH64_BIONIC",
+      "modules": [
+        {
+          "id": "horizonchase-libunity",
+          "sha256": "7c46972d06b6b85f953bf61b477fdbf5bf22f7be55b57e4b54b4403f05478359",
+          "inventory_role": "required-loaded-unity-module",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "required",
+          "jni_onload_export": true,
+          "jni_version": {
+            "acceptance": "not_validated",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_available",
+            "classification": "proven_limitation",
+            "evidence_refs": [
+              "ports/horizonchase/src/main.c:6390-6406"
+            ]
+          }
+        },
+        {
+          "id": "horizonchase-libil2cpp",
+          "sha256": "acf414c77853aa0e7f8d8963f307f65f3d156c8d6d806661b738df3385e48cdc",
+          "inventory_role": "required-loaded-il2cpp-module",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "required",
+          "jni_onload_export": true,
+          "jni_version": {
+            "acceptance": "not_validated",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_available",
+            "classification": "proven_limitation",
+            "evidence_refs": [
+              "ports/horizonchase/src/main.c:6409-6527"
+            ]
+          }
+        },
+        {
+          "id": "horizonchase-libmain",
+          "sha256": "a2dfe24e0170af0ae90b13630fc6d4e788be2c5216b4bddb17a6e0ca3c4c5af8",
+          "inventory_role": "catalog-static-evidence-only-not-loaded-by-current-adapter",
+          "applicability": "not_applicable",
+          "module_initialized": "not_applicable",
+          "module_jni": "not_applicable",
+          "jni_onload_export": true,
+          "jni_version": {
+            "acceptance": "not_applicable",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_applicable",
+            "classification": "static_evidence_only",
+            "evidence_refs": [
+              "ports/horizonchase/src/main.c:4897-4908,5905-5905,6409-6414"
+            ]
+          }
+        }
+      ],
+      "vm_jni_activity_boundary": {
+        "java_vm": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The same stable adapter VM is retained across Unity and IL2CPP JNI_OnLoad.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6390-6406",
+            "ports/horizonchase/src/main.c:6409-6527"
+          ]
+        },
+        "jni_env": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter environment owns the real RegisterNatives registry consumed by Unity callbacks.",
+          "evidence_refs": [
+            "ports/horizonchase/src/jni_shim.c:2863-3017",
+            "ports/horizonchase/src/main.c:6544-6587"
+          ]
+        },
+        "activity": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Stable Unity thiz/context objects and initJni form the Activity contract boundary; the core creates none of them.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6544-6587"
+          ]
+        }
+      },
+      "android_runtime_trace": {
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "semantics": "The structurally valid profile is source-derived; no Android runtime trace or compatible real JavaVM was exercised."
+      },
+      "execution": {
+        "core_executable": false,
+        "validation_scope": "source_phase_projection_only",
+        "flags": [],
+        "variants": [],
+        "reason": "The source proves focus, pause and preference flush but not distinct input close, surface teardown, native shutdown and terminal boundaries sufficient for a complete driven profile."
+      },
+      "graphics_surface_order": {
+        "relation": "gl_ready_before_surface_up",
+        "availability": "proven",
+        "classification": "source_proven",
+        "semantics": "The host EGL backend is created and made current before Unity nativeRecreateGfxState surface callbacks.",
+        "evidence_refs": [
+          "ports/horizonchase/src/main.c:6544-6587",
+          "ports/horizonchase/src/main.c:6588-6653"
+        ]
+      },
+      "proven_phase_projection": [
+        {
+          "order": 10,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "horizonchase-libunity",
+          "cycle_id": 0,
+          "contract_id": "horizonchase-libunity-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "Unity relocation, exact adapters, finalize and constructors have completed.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:5905-6085,6168-6168",
+            "ports/horizonchase/src/main.c:6390-6406"
+          ]
+        },
+        {
+          "order": 20,
+          "phase": "NXANDROID_PHASE_MODULE_JNI",
+          "module_id": "horizonchase-libunity",
+          "cycle_id": 0,
+          "contract_id": "horizonchase-libunity-jni-onload-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "Unity JNI_OnLoad has returned using the stable adapter VM; its version is logged but not validated.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6390-6406"
+          ]
+        },
+        {
+          "order": 30,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "horizonchase-libil2cpp",
+          "cycle_id": 0,
+          "contract_id": "horizonchase-libil2cpp-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "IL2CPP relocation, exact adapters, finalize and constructors have completed after Unity.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6409-6527"
+          ]
+        },
+        {
+          "order": 40,
+          "phase": "NXANDROID_PHASE_MODULE_JNI",
+          "module_id": "horizonchase-libil2cpp",
+          "cycle_id": 0,
+          "contract_id": "horizonchase-libil2cpp-jni-onload-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "IL2CPP JNI_OnLoad has returned using the same VM; its version is logged but not validated.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6409-6527"
+          ]
+        },
+        {
+          "order": 50,
+          "phase": "NXANDROID_PHASE_ACTIVITY_CREATE",
+          "module_id": null,
+          "cycle_id": 0,
+          "contract_id": "horizonchase-unity-activity-contract-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Adapter-owned Unity Activity/context identities are stable before graphics callbacks; initJni remains adapter-specific.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6544-6587"
+          ]
+        },
+        {
+          "order": 60,
+          "phase": "NXANDROID_PHASE_GRAPHICS_REQUEST",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-graphics-request-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter requests the firmware-selected host graphics backend.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6544-6587"
+          ]
+        },
+        {
+          "order": 70,
+          "phase": "NXANDROID_PHASE_GL_READY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-gl-ready-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The selected EGL backend is current before guest surface recreation.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6544-6587"
+          ]
+        },
+        {
+          "order": 80,
+          "phase": "NXANDROID_PHASE_SURFACE_UP",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-surface-up-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Unity nativeRecreateGfxState has accepted the adapter-owned surface.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6588-6653"
+          ]
+        },
+        {
+          "order": 90,
+          "phase": "NXANDROID_PHASE_SURFACE_CHANGED",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-surface-changed-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The repeated recreation and native surface-changed event preserve the APK order.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6588-6653"
+          ]
+        },
+        {
+          "order": 100,
+          "phase": "NXANDROID_PHASE_RESUME",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-resume-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Unity nativeResume has returned.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6588-6653"
+          ]
+        },
+        {
+          "order": 110,
+          "phase": "NXANDROID_PHASE_FOCUS_GAIN",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-focus-gain-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Unity nativeFocusChanged true has returned.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6588-6653"
+          ]
+        },
+        {
+          "order": 120,
+          "phase": "NXANDROID_PHASE_ENTRY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-render-entry-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The registered nativeRender entry and Android loop-driver prerequisites are resolved.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6694-6717,7008-7017"
+          ]
+        },
+        {
+          "order": 130,
+          "phase": "NXANDROID_PHASE_OBJECTS_READY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-handler-choreographer-ready-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "HandlerThread and Choreographer ownership are established before render dispatch.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6694-6717,7008-7017"
+          ]
+        },
+        {
+          "order": 150,
+          "phase": "NXANDROID_PHASE_RUN_LOOP",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-native-render-loop-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter synchronously owns registered nativeRender and callback pumping until shutdown is requested.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:6694-6717,7008-7017"
+          ]
+        },
+        {
+          "order": 160,
+          "phase": "NXANDROID_PHASE_FOCUS_LOSS",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-focus-loss-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Unity nativeFocusChanged false is dispatched first on close.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:7057-7075"
+          ]
+        },
+        {
+          "order": 170,
+          "phase": "NXANDROID_PHASE_PAUSE",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "horizonchase-pause-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Unity nativePause follows focus loss.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:7057-7075"
+          ]
+        },
+        {
+          "order": 190,
+          "phase": "NXANDROID_PHASE_SAVE",
+          "module_id": null,
+          "cycle_id": 0,
+          "contract_id": "horizonchase-preferences-flush-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Adapter-owned preferences are flushed after focus loss and pause and before terminal action.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:7057-7075"
+          ]
+        }
+      ],
+      "gaps": [
+        {
+          "phases": [
+            "NXANDROID_PHASE_INPUT_ENABLE",
+            "NXANDROID_PHASE_INPUT_DISABLE",
+            "NXANDROID_PHASE_SURFACE_DOWN",
+            "NXANDROID_PHASE_NATIVE_SHUTDOWN",
+            "NXANDROID_PHASE_TERMINAL"
+          ],
+          "availability": "not_available",
+          "classification": "proven_limitation",
+          "semantics": "No distinct input enable/disable contract, safe guest surface teardown, nativeDone completion or complete core terminal sequence is proven; none may be synthesized from callback-pump names.",
+          "evidence_refs": [
+            "ports/horizonchase/src/main.c:7057-7075"
+          ]
+        }
+      ],
+      "terminal_contract": {
+        "policy": "NXANDROID_TERMINAL_ADAPTER",
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "required_flag_if_completed": "NXANDROID_PROFILE_ALLOW_ADAPTER_TERMINAL",
+        "contract_id": "horizonchase-native-done-handshake-absent-terminal-v1",
+        "semantics": "The observed process-lifetime action may become adapter-owned only after the missing input-close and terminal boundary is proved; the core itself never terminates.",
+        "evidence_refs": [
+          "ports/horizonchase/src/main.c:7057-7075"
+        ]
+      },
+      "rollback_policy": "No rollback callback is declared; forward close phases are source-proven and must not be replayed as guessed compensation."
+    },
+    {
+      "id": "kotor",
+      "inventory_port_id": "kotor",
+      "adapter_family": "aspyr-kotor-sdl-delegated",
+      "abi": "NXANDROID_ABI_ARMV7_BIONIC",
+      "modules": [
+        {
+          "id": "kotor-lzma",
+          "sha256": "16a177b427c22fedeb40614d600eeca5d4e4c47e572cbdcad50ee3da987b5387",
+          "inventory_role": "required-load-order-1",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "not_applicable",
+          "jni_onload_export": false,
+          "jni_version": {
+            "acceptance": "not_applicable",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_applicable",
+            "classification": "source_proven",
+            "evidence_refs": [
+              "ports/kotor/src/main.c:110-159"
+            ]
+          }
+        },
+        {
+          "id": "kotor-miniz",
+          "sha256": "bebc0935dbd19b74a717d01c501cbb333a08bb0b17006664590439a281dc9474",
+          "inventory_role": "required-load-order-2",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "not_applicable",
+          "jni_onload_export": false,
+          "jni_version": {
+            "acceptance": "not_applicable",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_applicable",
+            "classification": "source_proven",
+            "evidence_refs": [
+              "ports/kotor/src/main.c:110-159"
+            ]
+          }
+        },
+        {
+          "id": "kotor-freetype",
+          "sha256": "c1334ab902a709250baf9400454e3af4c85614a96dd58633af9e4ef8cb843dee",
+          "inventory_role": "required-load-order-3",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "not_applicable",
+          "jni_onload_export": false,
+          "jni_version": {
+            "acceptance": "not_applicable",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_applicable",
+            "classification": "source_proven",
+            "evidence_refs": [
+              "ports/kotor/src/main.c:110-159"
+            ]
+          }
+        },
+        {
+          "id": "kotor-fmod",
+          "sha256": "2b7d3ab984f5e4d6db2a1f12deb3b7f5271f0d83994dac9e33b804bd4e63defc",
+          "inventory_role": "required-load-order-4-jni-onload",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "required",
+          "jni_onload_export": true,
+          "jni_version": {
+            "acceptance": "positive_return",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_available",
+            "classification": "source_proven",
+            "evidence_refs": [
+              "ports/kotor/src/main.c:110-159"
+            ]
+          }
+        },
+        {
+          "id": "kotor-hidapi",
+          "sha256": "857601d54520c1a116a0cb31ee3166cd4698c81c58254802965841dbd16be403",
+          "inventory_role": "optional-load-order-5-native-sdl-handles-pads",
+          "applicability": "conditional",
+          "module_initialized": "conditional",
+          "module_jni": "not_applicable",
+          "jni_onload_export": false,
+          "jni_version": {
+            "acceptance": "not_applicable",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_applicable",
+            "classification": "source_proven",
+            "evidence_refs": [
+              "ports/kotor/src/main.c:266-303"
+            ]
+          }
+        },
+        {
+          "id": "kotor-android-port",
+          "sha256": "a91f9235e4d0bd8bb43450d83b9df61d6339dd09c664278b9ac1666b22afe2da",
+          "inventory_role": "required-load-order-6-provider",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "not_applicable",
+          "jni_onload_export": false,
+          "jni_version": {
+            "acceptance": "not_applicable",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_applicable",
+            "classification": "source_proven",
+            "evidence_refs": [
+              "ports/kotor/src/main.c:110-159"
+            ]
+          }
+        },
+        {
+          "id": "kotor-main",
+          "sha256": "099c43db23a891a19f40f5805c3582b390de39d96d6e50be52649a40498a68b5",
+          "inventory_role": "required-load-order-7-main-sdl",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "not_applicable",
+          "jni_onload_export": false,
+          "jni_version": {
+            "acceptance": "not_applicable",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_applicable",
+            "classification": "source_proven",
+            "evidence_refs": [
+              "ports/kotor/src/main.c:110-159"
+            ]
+          }
+        }
+      ],
+      "vm_jni_activity_boundary": {
+        "java_vm": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The shared adapter VM is initialized before dependencies and retained for FMOD JNI_OnLoad.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:256-265",
+            "ports/kotor/src/main.c:110-159"
+          ]
+        },
+        "jni_env": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The Aspyr/SDL adapter environment and static export flow remain game-specific.",
+          "evidence_refs": [
+            "ports/kotor/src/jni_fake.c:225-300",
+            "ports/kotor/src/main.c:307-340"
+          ]
+        },
+        "activity": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "nativeCreateMutex is the proven KOTOR.onCreate handshake and nativeOnResume precedes delegated SDL_main.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:307-340"
+          ]
+        }
+      },
+      "android_runtime_trace": {
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "semantics": "The delegated source order is proven statically; lifecycle internal to SDL_main has no Android runtime trace in this evidence."
+      },
+      "execution": {
+        "core_executable": true,
+        "validation_scope": "structural-source-derived-delegated-only",
+        "flags": [
+          "NXANDROID_PROFILE_ALLOW_DELEGATED_RUNTIME"
+        ],
+        "variants": [
+          {
+            "id": "kotor-without-hidapi",
+            "included_modules": [
+              "kotor-lzma",
+              "kotor-miniz",
+              "kotor-freetype",
+              "kotor-fmod",
+              "kotor-android-port",
+              "kotor-main"
+            ],
+            "enabled_conditions": []
+          },
+          {
+            "id": "kotor-with-hidapi",
+            "included_modules": [
+              "kotor-lzma",
+              "kotor-miniz",
+              "kotor-freetype",
+              "kotor-fmod",
+              "kotor-hidapi",
+              "kotor-android-port",
+              "kotor-main"
+            ],
+            "enabled_conditions": [
+              "kotor-with-hidapi"
+            ]
+          }
+        ],
+        "reason": "SDL_main is one synchronous blocking owner and must remain the final delegated callback; optional hidapi is selected before profile creation."
+      },
+      "graphics_surface_order": {
+        "relation": "delegated_not_visible",
+        "availability": "not_applicable",
+        "classification": "delegated_not_visible",
+        "semantics": "SDL_main owns window, GL and surface ordering; the wrapper profile makes no claim about them.",
+        "evidence_refs": [
+          "ports/kotor/src/main.c:342-358"
+        ]
+      },
+      "proven_phase_projection": [
+        {
+          "order": 10,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "kotor-lzma",
+          "cycle_id": 0,
+          "contract_id": "kotor-lzma-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "Lzma is initialized first and its exports are available to later modules.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:110-159",
+            "ports/kotor/src/main.c:266-303"
+          ]
+        },
+        {
+          "order": 20,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "kotor-miniz",
+          "cycle_id": 0,
+          "contract_id": "kotor-miniz-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "Miniz is initialized after Lzma in leaves-first order.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:110-159",
+            "ports/kotor/src/main.c:266-303"
+          ]
+        },
+        {
+          "order": 30,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "kotor-freetype",
+          "cycle_id": 0,
+          "contract_id": "kotor-freetype-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "Freetype is initialized before FMOD and the Aspyr modules.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:110-159",
+            "ports/kotor/src/main.c:266-303"
+          ]
+        },
+        {
+          "order": 40,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "kotor-fmod",
+          "cycle_id": 0,
+          "contract_id": "kotor-fmod-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "FMOD constructors have completed before its JNI boundary.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:110-159",
+            "ports/kotor/src/main.c:266-303"
+          ]
+        },
+        {
+          "order": 41,
+          "phase": "NXANDROID_PHASE_MODULE_JNI",
+          "module_id": "kotor-fmod",
+          "cycle_id": 0,
+          "contract_id": "kotor-fmod-jni-onload-positive-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "FMOD JNI_OnLoad has returned a positive version using the shared adapter VM; no exact version is asserted.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:110-159"
+          ]
+        },
+        {
+          "order": 50,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "kotor-hidapi",
+          "cycle_id": 0,
+          "contract_id": "kotor-hidapi-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "kotor-with-hidapi",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "The optional hidapi module is declared and initialized only in the selected with-hidapi profile variant.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:266-303"
+          ]
+        },
+        {
+          "order": 60,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "kotor-android-port",
+          "cycle_id": 0,
+          "contract_id": "kotor-android-port-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "The android_port provider module is initialized before libKOTOR.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:110-159",
+            "ports/kotor/src/main.c:266-303"
+          ]
+        },
+        {
+          "order": 70,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "kotor-main",
+          "cycle_id": 0,
+          "contract_id": "kotor-main-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "libKOTOR is initialized last after every selected dependency.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:110-159",
+            "ports/kotor/src/main.c:266-303"
+          ]
+        },
+        {
+          "order": 80,
+          "phase": "NXANDROID_PHASE_ACTIVITY_CREATE",
+          "module_id": null,
+          "cycle_id": 0,
+          "contract_id": "kotor-native-create-mutex-activity-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter performs the KOTOR.onCreate nativeCreateMutex handshake.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:307-340"
+          ]
+        },
+        {
+          "order": 90,
+          "phase": "NXANDROID_PHASE_RESUME",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "kotor-native-on-resume-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "nativeOnResume clears the Aspyr pause flag before SDL_main.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:307-340"
+          ]
+        },
+        {
+          "order": 100,
+          "phase": "NXANDROID_PHASE_RUNTIME_DELEGATED",
+          "module_id": null,
+          "cycle_id": 0,
+          "contract_id": "kotor-obb-sdl-main-delegated-runtime-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The final synchronous adapter callback mounts available OBBs and enters SDL_main, which owns surface, GL, input, loop and terminal internally.",
+          "evidence_refs": [
+            "ports/kotor/src/main.c:307-358",
+            "ports/kotor/src/main.c:342-358"
+          ]
+        }
+      ],
+      "gaps": [],
+      "delegated_boundaries": {
+        "phases": [
+          "NXANDROID_PHASE_GRAPHICS_REQUEST",
+          "NXANDROID_PHASE_SURFACE_UP",
+          "NXANDROID_PHASE_SURFACE_CHANGED",
+          "NXANDROID_PHASE_GL_READY",
+          "NXANDROID_PHASE_ENTRY",
+          "NXANDROID_PHASE_OBJECTS_READY",
+          "NXANDROID_PHASE_INPUT_ENABLE",
+          "NXANDROID_PHASE_RUN_LOOP",
+          "NXANDROID_PHASE_INPUT_DISABLE",
+          "NXANDROID_PHASE_FOCUS_LOSS",
+          "NXANDROID_PHASE_PAUSE",
+          "NXANDROID_PHASE_SURFACE_DOWN",
+          "NXANDROID_PHASE_SAVE",
+          "NXANDROID_PHASE_NATIVE_SHUTDOWN",
+          "NXANDROID_PHASE_TERMINAL"
+        ],
+        "availability": "not_applicable",
+        "classification": "delegated_not_visible",
+        "semantics": "These boundaries are intentionally opaque inside SDL_main; the wrapper must not fabricate them.",
+        "evidence_refs": [
+          "ports/kotor/src/main.c:3-11,354-358"
+        ]
+      },
+      "terminal_contract": {
+        "policy": "NXANDROID_TERMINAL_NONE",
+        "availability": "not_applicable",
+        "classification": "delegated_not_visible",
+        "required_flag_if_completed": "NXANDROID_PROFILE_ALLOW_DELEGATED_RUNTIME",
+        "contract_id": "kotor-obb-sdl-main-delegated-runtime-v1",
+        "semantics": "RUNTIME_DELEGATED is final and synchronous; no wrapper TERMINAL phase is allowed after it.",
+        "evidence_refs": [
+          "ports/kotor/src/main.c:3-11,354-358"
+        ]
+      },
+      "rollback_policy": "No rollback is invented across SDL_main; only failures before the delegated callback remain observable to the core."
+    },
+    {
+      "id": "tasm2_127",
+      "inventory_port_id": "tasm2_127",
+      "adapter_family": "gameloft-tasm2-1-2-7d-canonical",
+      "abi": "NXANDROID_ABI_ARMV7_BIONIC",
+      "modules": [
+        {
+          "id": "tasm2_127-generator",
+          "sha256": "3871b9c4ae5d1c491abbccc7af1744121bf964f52b4812d2f672c72ff7c062ed",
+          "inventory_role": "canonical-package-static-evidence-not-loaded-by-current-adapter",
+          "applicability": "not_applicable",
+          "module_initialized": "not_applicable",
+          "module_jni": "not_applicable",
+          "jni_onload_export": false,
+          "jni_version": {
+            "acceptance": "not_applicable",
+            "exact_value": null,
+            "exact_name": null,
+            "exact_version_availability": "not_applicable",
+            "classification": "static_evidence_only",
+            "evidence_refs": [
+              "ports/asm2_127/src/main.c:401-432,481-543"
+            ]
+          }
+        },
+        {
+          "id": "tasm2_127-main",
+          "sha256": "d091fe95c56af681f1a06453e9868622935ecbb759c05c340fc16bf8df2ae62e",
+          "inventory_role": "required-main-guest",
+          "applicability": "required",
+          "module_initialized": "required",
+          "module_jni": "required",
+          "jni_onload_export": true,
+          "jni_version": {
+            "acceptance": "exact",
+            "exact_value": 65540,
+            "exact_name": "JNI_VERSION_1_4",
+            "exact_version_availability": "proven",
+            "classification": "source_proven",
+            "evidence_refs": [
+              "ports/asm2_127/src/main.c:544-579"
+            ]
+          }
+        }
+      ],
+      "vm_jni_activity_boundary": {
+        "java_vm": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The full adapter bridge creates and retains the VM identity used by JNI 1.4.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:544-579",
+            "ports/asm2_127/src/jni_bridge.c:2022-2269"
+          ]
+        },
+        "jni_env": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter owns the complete environment table and keyed RegisterNatives registry.",
+          "evidence_refs": [
+            "ports/asm2_127/src/jni_bridge.c:1032-1075",
+            "ports/asm2_127/src/jni_bridge.c:1806-1900",
+            "ports/asm2_127/src/jni_bridge.c:2022-2269"
+          ]
+        },
+        "activity": {
+          "owner": "adapter",
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The exact Gameloft Activity and platform initialization sequence forms the Activity contract boundary.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:581-707"
+          ]
+        }
+      },
+      "android_runtime_trace": {
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "semantics": "The lifecycle order is source-proven for the canonical adapter; no Android runtime trace was captured or replayed."
+      },
+      "execution": {
+        "core_executable": false,
+        "validation_scope": "source_phase_projection_only",
+        "flags": [],
+        "variants": [],
+        "reason": "Focus, save and complete guest shutdown boundaries are not proven, so the observed process-lifetime close cannot be represented as a complete driven profile."
+      },
+      "graphics_surface_order": {
+        "relation": "gl_ready_after_surface_up",
+        "availability": "proven",
+        "classification": "source_proven",
+        "semantics": "Host video creates the real surface/context before the first resize and frame; GL_READY is projected after SURFACE_UP at that acquisition boundary.",
+        "evidence_refs": [
+          "ports/asm2_127/src/main.c:709-862"
+        ]
+      },
+      "proven_phase_projection": [
+        {
+          "order": 10,
+          "phase": "NXANDROID_PHASE_MODULE_INITIALIZED",
+          "module_id": "tasm2_127-main",
+          "cycle_id": 0,
+          "contract_id": "tasm2-127-main-initialized-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "The explicit runtime gate has enabled guest code and the complete constructor array has returned after exact compatibility and finalize.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:401-461",
+            "ports/asm2_127/src/main.c:463-479"
+          ]
+        },
+        {
+          "order": 20,
+          "phase": "NXANDROID_PHASE_MODULE_JNI",
+          "module_id": "tasm2_127-main",
+          "cycle_id": 0,
+          "contract_id": "tasm2-127-main-jni-1-4-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "common_boundary_adapter_implementation",
+          "semantics": "JNI_OnLoad has returned exactly JNI 1.4 and registered natives remain keyed by class, name and signature.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:544-579"
+          ]
+        },
+        {
+          "order": 30,
+          "phase": "NXANDROID_PHASE_ACTIVITY_CREATE",
+          "module_id": null,
+          "cycle_id": 0,
+          "contract_id": "tasm2-127-gameloft-activity-platform-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Activity, social, platform, device, billing, notification, data sharing and GameOptions initialization has completed in exact order.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:581-707"
+          ]
+        },
+        {
+          "order": 40,
+          "phase": "NXANDROID_PHASE_RESUME",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-game-options-resume-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "GameOptions resume has returned before graphics acquisition.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:581-707"
+          ]
+        },
+        {
+          "order": 50,
+          "phase": "NXANDROID_PHASE_GRAPHICS_REQUEST",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-graphics-request-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter begins Gameloft view, path and host video setup.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:709-862"
+          ]
+        },
+        {
+          "order": 60,
+          "phase": "NXANDROID_PHASE_SURFACE_UP",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-host-surface-up-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Host video has created the real display surface and context ownership.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:709-862"
+          ]
+        },
+        {
+          "order": 70,
+          "phase": "NXANDROID_PHASE_GL_READY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-gl-ready-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The host GL context is ready after the surface acquisition boundary.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:709-862"
+          ]
+        },
+        {
+          "order": 80,
+          "phase": "NXANDROID_PHASE_SURFACE_CHANGED",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-resize-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The engine has received state true and real landscape dimensions.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:709-862"
+          ]
+        },
+        {
+          "order": 90,
+          "phase": "NXANDROID_PHASE_ENTRY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-first-step-entry-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The first native step is dispatched only after the display and resize boundary.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:709-862"
+          ]
+        },
+        {
+          "order": 100,
+          "phase": "NXANDROID_PHASE_OBJECTS_READY",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-first-frame-objects-ready-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The first frame has constructed engine-owned objects before controller listener startup.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:709-862"
+          ]
+        },
+        {
+          "order": 110,
+          "phase": "NXANDROID_PHASE_INPUT_ENABLE",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-input-enable-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Controller and input callbacks are enabled only after the first frame.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:709-862"
+          ]
+        },
+        {
+          "order": 120,
+          "phase": "NXANDROID_PHASE_RUN_LOOP",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-native-step-loop-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "The adapter synchronously owns the native step and input pump loop.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:709-862"
+          ]
+        },
+        {
+          "order": 130,
+          "phase": "NXANDROID_PHASE_PAUSE",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-pause-epoch-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "GL and GameOptions pause callbacks run before input shutdown.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:865-916"
+          ]
+        },
+        {
+          "order": 140,
+          "phase": "NXANDROID_PHASE_INPUT_DISABLE",
+          "module_id": null,
+          "cycle_id": 1,
+          "contract_id": "tasm2-127-input-disable-cycle-1-v1",
+          "terminal_policy": "NXANDROID_TERMINAL_NONE",
+          "condition": "always",
+          "rollback_contract_id": null,
+          "rollback_group": 0,
+          "closes_rollback_group": 0,
+          "availability": "proven",
+          "classification": "source_proven",
+          "semantics": "Adapter input is shut down after pause and before the exit dispatch.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:865-916"
+          ]
+        }
+      ],
+      "gaps": [
+        {
+          "phases": [
+            "NXANDROID_PHASE_FOCUS_GAIN",
+            "NXANDROID_PHASE_FOCUS_LOSS",
+            "NXANDROID_PHASE_SURFACE_DOWN",
+            "NXANDROID_PHASE_SAVE",
+            "NXANDROID_PHASE_NATIVE_SHUTDOWN",
+            "NXANDROID_PHASE_TERMINAL"
+          ],
+          "availability": "not_available",
+          "classification": "proven_limitation",
+          "semantics": "The canonical adapter proves pause, input shutdown and exit dispatch, but no focus pair, save boundary or safe guest destroy; GL2JNILib_destroy is intentionally omitted.",
+          "evidence_refs": [
+            "ports/asm2_127/src/main.c:865-916"
+          ]
+        }
+      ],
+      "terminal_contract": {
+        "policy": "NXANDROID_TERMINAL_ADAPTER",
+        "availability": "not_available",
+        "classification": "proven_limitation",
+        "required_flag_if_completed": "NXANDROID_PROFILE_ALLOW_ADAPTER_TERMINAL",
+        "contract_id": "tasm2-127-process-lifetime-terminal-v1",
+        "semantics": "The process-lifetime destroy omission cannot become a core terminal step until a real save boundary and complete close contract are proven.",
+        "evidence_refs": [
+          "ports/asm2_127/src/main.c:865-916"
+        ]
+      },
+      "rollback_policy": "No rollback callback is declared; the exact forward pause and input shutdown must never be duplicated by guessed compensation."
+    }
+  ]
+}

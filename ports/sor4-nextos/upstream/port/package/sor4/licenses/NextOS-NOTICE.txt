@@ -1,0 +1,19 @@
+nextos_ports_android
+Copyright 2026 NextOs-Ports
+
+Este produto inclui código derivado de:
+  - syberia_arm64  (https://github.com/mtojek/syberia_arm64)
+  - lswtcs_arm64   (https://github.com/mtojek/lswtcs_arm64)
+  Copyright mtojek, licenciado sob Apache License 2.0.
+
+Mudanças: o núcleo (so_util, egl_shim, opensles_shim, util, error) foi
+extraído como framework reutilizável; adicionada ferramenta de scaffolding
+(tools/new-port.sh) e suporte ao toolchain NextOS / GPUs Mali.
+
+O port Crazy Taxi Classic (ports/crazytaxi/) usa o loader de:
+  - crazytaxi-aarch64  (https://github.com/initdream/crazytaxi-aarch64)
+  Copyright initdream — que construiu o loader EM CIMA deste framework.
+  Nós (NextOs-Ports) adaptamos esse loader para o Mali-450 (Utgard, fbdev):
+  recompilação no toolchain NextOS Amlogic-old, mapeamento teclado->keycode
+  Android para uso com gptokeyb, e ajustes de áudio (PulseAudio).
+  Apenas o CÓDIGO/loader é versionado — nenhum dado de jogo (copyright Sega).

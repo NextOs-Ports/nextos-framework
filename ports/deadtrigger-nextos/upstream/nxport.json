@@ -1,0 +1,41 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "game-dir-and-passthrough",
+  "enabled_quirks": [],
+  "executable": "deadtrigger-nextos",
+  "home_mode": "port",
+  "id": "deadtrigger",
+  "launcher_name": "Dead Trigger.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.6"
+  },
+  "prepare_script": "",
+  "private_library_paths": [
+    "lib"
+  ],
+  "required_capabilities": [
+    "host.portmaster",
+    "host.aarch64-libs",
+    "graphics.window",
+    "graphics.gles2",
+    "graphics.egl",
+    "graphics.egl-config",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api"
+  ],
+  "required_files": [
+    "deadtrigger-nextos",
+    "lib/libmain.so",
+    "lib/libunity.so",
+    "lib/libil2cpp.so",
+    "assets/bin/Data/boot.config",
+    "assets/bin/Data/globalgamemanagers",
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat"
+  ],
+  "runtime_report": "log-and-logo",
+  "schema_version": 2,
+  "title": "Dead Trigger"
+}

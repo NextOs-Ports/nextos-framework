@@ -1,0 +1,12 @@
+# Dado de jogo NUNCA vai para o repo (regra #14b)
+gamedata/*
+!gamedata/COLOQUE-O-APK-AQUI.txt
+lib/
+tmpbuild/
+logs/
+shots/*.raw
+run.log
+rcrdx
+/rcrdx-nextos
+.nxextract/
+*.zip

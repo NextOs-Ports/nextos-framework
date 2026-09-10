@@ -1,0 +1,301 @@
+{
+  "audio": {
+    "callbacks": [
+      "org.fmod.FMODAudioDevice.fmodProcess",
+      "SDL audio output"
+    ],
+    "format": "signed 16-bit stereo PCM at 24000 Hz"
+  },
+  "egl_binding": {
+    "enabled": false,
+    "imports": []
+  },
+  "graphics": {
+    "adapter": "nxgl_graphics_contract_adapter",
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 5000,
+    "evidence_boundary": "post-first-present",
+    "profile": "es",
+    "required_devices": [
+      "mali-450",
+      "mali-g31"
+    ],
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "imports": [
+    "libmain.so",
+    "libunity.so",
+    "libil2cpp.so"
+  ],
+  "input": {
+    "actions": [
+      {
+        "id": "partyhard.action1",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "partyhard.action2",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "partyhard.action3",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "partyhard.action4",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "partyhard.bumper_left",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "partyhard.bumper_right",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "partyhard.click",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.cursor-click"
+        ]
+      },
+      {
+        "id": "partyhard.cursor",
+        "kind": "vector",
+        "sinks": [
+          "adapter.input.cursor"
+        ]
+      },
+      {
+        "id": "partyhard.move",
+        "kind": "vector",
+        "sinks": [
+          "adapter.input.android-motion"
+        ]
+      },
+      {
+        "id": "partyhard.pause",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "partyhard.action1",
+        "B": "partyhard.action2",
+        "DOWN": "native",
+        "L1": "partyhard.bumper_left",
+        "L2": "native",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "partyhard.move",
+        "R1": "partyhard.bumper_right",
+        "R2": "native",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "native",
+        "START": "partyhard.pause",
+        "UP": "native",
+        "X": "partyhard.action3",
+        "Y": "partyhard.action4"
+      },
+      "menu": {
+        "A": "partyhard.action1",
+        "B": "partyhard.action2",
+        "DOWN": "native",
+        "L1": "partyhard.bumper_left",
+        "L2": "native",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "partyhard.move",
+        "R1": "partyhard.bumper_right",
+        "R2": "native",
+        "R3": "partyhard.click",
+        "RIGHT": "native",
+        "RIGHT_STICK": "partyhard.cursor",
+        "SELECT": "native",
+        "START": "partyhard.pause",
+        "UP": "native",
+        "X": "partyhard.action3",
+        "Y": "partyhard.action4"
+      }
+    },
+    "mapping": null,
+    "mapping_authority": "sdl-portmaster-complete-first",
+    "runtime_contract": {
+      "context_initial": "unproven",
+      "delivery_ack": "required",
+      "schema": "nxinput-gptk-live/1",
+      "sink_coverage": "all-actions-before-activation",
+      "unproven_policy": "native-passthrough"
+    },
+    "runtime_mapping": "nxinput-gptk",
+    "touch": "menu-only adapter pointer: right stick moves an arrow drawn after the Unity frame and R3 injects Android touch at its position; A confirms the native menu selection. Gameplay returns A, right stick and R3 to the native game"
+  },
+  "input_controller_profiles": {
+    "bundle": "controllers.nxb",
+    "enabled": true,
+    "sha256": "10feaf41cf8ee6203cf05c4202119e5bdba2dfb22db41e89ab31a5a9bd6eff13"
+  },
+  "input_sdl3_portmaster": {
+    "enabled": false,
+    "private_sdl3_sha256": ""
+  },
+  "jni": {
+    "callbacks": [
+      "UnityPlayer.nativeInjectEvent",
+      "org.fmod.FMODAudioDevice",
+      "com.google.licensingservicehelper.LicensingServiceCallback.allow"
+    ],
+    "classes": [
+      "com/unity3d/player/NativeLoader",
+      "com/unity3d/player/UnityPlayer",
+      "com/unity3d/player/UnityPlayerForActivityOrService"
+    ],
+    "methods": [
+      "NativeLoader.load",
+      "UnityPlayer.initJni",
+      "nativeRecreateGfxState",
+      "nativeSendSurfaceChangedEvent",
+      "nativeFocusChanged",
+      "nativeResume",
+      "nativeRender",
+      "nativePause"
+    ]
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "single-language",
+    "sinks": [],
+    "supported": [
+      "en"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "nxinput.gptk.preinit-load",
+      "module-map-relocate",
+      "libmain.init_array",
+      "libmain.JNI_OnLoad",
+      "NativeLoader.load(libunity.so)",
+      "libunity.init_array",
+      "libunity.JNI_OnLoad",
+      "NativeLoader.load(libil2cpp.so)",
+      "libil2cpp.init_array",
+      "libil2cpp.JNI_OnLoad",
+      "UnityPlayer.initJni(contextType=0)",
+      "nativeRecreateGfxState(surfaceCreated)",
+      "nativeRecreateGfxState(surfaceChanged)",
+      "nativeSendSurfaceChangedEvent",
+      "nativeFocusChanged(true)",
+      "nativeResume",
+      "nxinput.c6.admit-before-announce",
+      "nxinput.gptk.live-seal",
+      "nativeRender",
+      "nxgl.graphics.pre-present",
+      "nxgl.frame-proof.sample-before-present",
+      "SDL_GL_SwapWindow|eglSwapBuffers",
+      "nxgl.graphics.after-present",
+      "nxbootstrap.health.ready-after-30-real-presents",
+      "nativeFocusChanged(false)",
+      "nativePause",
+      "nxgl.frame-proof.publish",
+      "PlayerPrefs.flush",
+      "_exit"
+    ],
+    "source_evidence": [
+      "src/main.c",
+      "src/nx_elf.c",
+      "src/jni.c",
+      "src/egl.c",
+      "src/egl_sdl.c",
+      "src/health.c",
+      "src/st_graphics_contract.c",
+      "src/input.c",
+      "src/input_guard.c",
+      "src/input_gptk.c"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "PlayerPrefs (asynchronous apply, flushed on nativePause and exit)",
+      "savedGames.gd through the Android file API"
+    ],
+    "paths": [
+      "home/"
+    ]
+  },
+  "prohibitions": [
+    "do not skip or reorder the native Unity lifecycle",
+    "do not vendor or preload a private SDL",
+    "do not accept an APK only by whole-container SHA-256",
+    "do not treat audio or a live PID as video proof",
+    "do not publish generation health before successful real presents",
+    "do not exit on any chord other than SELECT+START",
+    "do not convert controller input into keyboard keys",
+    "do not scan input nodes, open an unassociated raw joystick, or derive button presses from evdev ordinals",
+    "do not let menu pointer input leak into gameplay; A clicks only in a proven menu context"
+  ],
+  "quirks": [
+    "Play Asset Delivery pack datapack.unity3d is unbundled during extraction into the loose serialized layout the engine already probes; nothing is reserialized",
+    "the Play licensing gate is answered locally through the game's own LicensingServiceCallback proxy (allow with an empty payload)",
+    "Unity 6 GLES3 requests are bridged to the real GLES2 context (gles3.c + essl1.c) and ETC2/ASTC uploads are decoded in software",
+    "PlayerPrefs apply() is asynchronous as on Android: memory is the truth, disk is written on nativePause, exit and at most every 15 s",
+    "JNI local references die at the frame boundary; global references are counted and reclaimed objects become tombstones",
+    "the pointer arrow is drawn by geometry inside the swap, after the Unity frame; the first-boot SELECT CONTROLS TYPE box is answered with it",
+    "controls: NEXTOS_CONTROLLERS/4 live in front of Android input; proven menus use right-stick pointer plus R3 click and native A confirmation, while gameplay restores native A/right-stick/R3; D-pad uses one Android KeyEvent route with neutral HAT in every context, contradictory pairs are cancelled, and an exact-device kernel snapshot can only erase conclusively stale SDL button/stick state",
+    "a pending nxbootstrap generation receives its atomic mode-0600 ready receipt only after 30 successful real page flips on the active SDL or raw-EGL backend",
+    "video V5: auto is the total stretch algorithm on every drawable; preserve is an explicit owner choice that centers the same 16:9 source with opaque bars"
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START (nxinput_exit_chord) requests the native lifecycle shutdown: nativeFocusChanged(false), nativePause (writes the save), PlayerPrefs flush, _exit(0)",
+    "evidence": [
+      "src/input.c",
+      "src/main.c"
+    ]
+  },
+  "video": {
+    "aspect": "auto",
+    "aspect_policies": [
+      "auto",
+      "engine",
+      "preserve",
+      "stretch"
+    ],
+    "authority": "nextos",
+    "auto_algorithm": "stretch",
+    "filter": "engine",
+    "invalid_policy": "package_default",
+    "output_size": "display"
+  }
+}

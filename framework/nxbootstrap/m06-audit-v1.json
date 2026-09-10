@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "milestone": "M06",
+  "scope": "local-static-filesystem-and-sealed-process-namespace",
+  "device_evidence": false,
+  "requirements": [
+    {
+      "id": "M06-001",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_validate_config || exit 2"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "invalid configuration caused log or PortMaster side effects"
+        }
+      ]
+    },
+    {
+      "id": "M06-002",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_path_is_contained"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "an intermediate symlink escaped the port containment boundary"
+        }
+      ]
+    },
+    {
+      "id": "M06-003",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/tools/generate-port.py",
+          "token": "! -L \"$GAMEDIR/port-env.sh\""
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-generator.sh",
+          "token": "launcher sources a symlinked port-env.sh"
+        }
+      ]
+    },
+    {
+      "id": "M06-004",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_open_fresh_log_fd"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "runtime log truncated or wrote through an unexpected hardlink"
+        }
+      ]
+    },
+    {
+      "id": "M06-005",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_default_portmaster_roots"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/portmaster/tests/test_portmaster_contract.py",
+          "token": "PortMaster contract v3 gate passed"
+        }
+      ]
+    },
+    {
+      "id": "M06-006",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_install_traps"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "PortMaster control replaced the bootstrap HUP trap"
+        }
+      ]
+    },
+    {
+      "id": "M06-007",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "*[!A-Za-z0-9._-]*"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "unsafe CFW_NAME was used to select a PortMaster mod"
+        }
+      ]
+    },
+    {
+      "id": "M06-008",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_capture_and_filter_inherited_libraries"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "PortMaster control loaded with a private game library provider"
+        }
+      ]
+    },
+    {
+      "id": "M06-009",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_build_library_path 0"
+        },
+        {
+          "path": "framework/nxbootstrap/tools/generate-port.py",
+          "token": "Firmware/PortMaster overlays first; preserve distro-local providers"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "runtime library providers are not private -> PortMaster -> firmware"
+        },
+        {
+          "path": "framework/nxbootstrap/tests/test-generator.sh",
+          "token": "aarch64 launcher lost firmware-local library precedence"
+        }
+      ]
+    },
+    {
+      "id": "M06-010",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "'libSDL2-2.0.so*'"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "private LD_LIBRARY_PATH accepted a bundled SDL provider"
+        }
+      ]
+    },
+    {
+      "id": "M06-011",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "SDL backends remain automatic"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "bootstrap overwrote inherited SDL video/audio drivers without a real failure"
+        }
+      ]
+    },
+    {
+      "id": "M06-012",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_validate_elf_contract"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "Android PT_INTERP was accepted for a Linux AArch64 runtime"
+        }
+      ]
+    },
+    {
+      "id": "M06-013",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/tools/generate-port.py",
+          "token": "export PORT_32BIT"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-generator.sh",
+          "token": "armv7 launcher lacks the literal PORT_32BIT marker"
+        }
+      ]
+    },
+    {
+      "id": "M06-014",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "global per port ID"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "two copies of the same port received different instance locks"
+        }
+      ]
+    },
+    {
+      "id": "M06-015",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "printf '%s %s\\n' \"$$\" \"$self_start\""
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "mkdir lock did not record owner PID+starttime"
+        }
+      ]
+    },
+    {
+      "id": "M06-016",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "another instance owns the port lock; refusing to launch"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "ownerless mkdir lock was not handled fail-closed"
+        }
+      ]
+    },
+    {
+      "id": "M06-017",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "Never reclaim an existing mkdir lock automatically"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "ownerless mkdir lock was not handled fail-closed"
+        }
+      ]
+    },
+    {
+      "id": "M06-018",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "if [[ $owner == \"$NXBOOTSTRAP_LOCK_OWNER\" ]]"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "mkdir lock release removed a lock whose owner record changed"
+        }
+      ]
+    },
+    {
+      "id": "M06-019",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_run_extractor"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "NXExtract did not run after the prepared host environment"
+        }
+      ]
+    },
+    {
+      "id": "M06-020",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_run_prepare"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "prepare phase did not run after NXExtract"
+        }
+      ]
+    },
+    {
+      "id": "M06-021",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_launch \"$@\""
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-generator.sh",
+          "token": "launcher lost the game-dir-and-passthrough arguments"
+        }
+      ]
+    },
+    {
+      "id": "M06-022",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "Authority is limited to the direct child created by this bootstrap"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "PID with a mismatched starttime received a synthetic signal"
+        }
+      ]
+    },
+    {
+      "id": "M06-023",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "NXBOOTSTRAP_CLEANED=1"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "cleanup could execute PortMaster finish more than once"
+        }
+      ]
+    },
+    {
+      "id": "M06-024",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "nxbootstrap_finish_once"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "pm_finish did not run exactly once"
+        }
+      ]
+    },
+    {
+      "id": "M06-025",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "return \"$status\""
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "launcher returned $status, expected $expected_status"
+        }
+      ]
+    },
+    {
+      "id": "M06-026",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/tests/test-safety-static.sh",
+          "token": "broad process/session/system command"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-safety-static.sh",
+          "token": "systemctl|loginctl|shutdown|reboot|poweroff"
+        }
+      ]
+    },
+    {
+      "id": "M06-027",
+      "implementation": [
+        {
+          "path": "framework/portmaster/contract-v1.json",
+          "token": "setsid"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/portmaster/tests/test_portmaster_contract.py",
+          "token": "setsid"
+        }
+      ]
+    },
+    {
+      "id": "M06-028",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/tools/generate-port.py",
+          "token": "def atomic_write"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-generator.sh",
+          "token": "two clean generations from the same manifest differ"
+        }
+      ]
+    },
+    {
+      "id": "M06-029",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/nxbootstrap.sh",
+          "token": "A contended lock proves only that another owner exists"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-nxbootstrap.sh",
+          "token": "a flock error opened a second mkdir lock namespace"
+        }
+      ]
+    },
+    {
+      "id": "M06-030",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/m06-audit-v1.json",
+          "token": "local-static-filesystem-and-sealed-process-namespace"
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-manifest-contract.py",
+          "token": "check_m06_audit"
+        }
+      ]
+    }
+  ]
+}

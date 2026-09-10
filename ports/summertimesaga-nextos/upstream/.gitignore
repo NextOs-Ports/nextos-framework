@@ -1,0 +1,8 @@
+package/dist/
+summertimesaga-nextos
+summertimesaga-r36s
+__pycache__/
+*.pyc
+logs/
+saves/
+gamedata/*.apk

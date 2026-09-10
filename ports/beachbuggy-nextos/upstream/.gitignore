@@ -1,0 +1,5 @@
+gamedata/
+*.apk
+*.apf
+log.txt
+framework

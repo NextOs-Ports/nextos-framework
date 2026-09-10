@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gameList>
+  <game>
+    <path>./Terraria.sh</path>
+    <name>Terraria</name>
+    <desc>Port AArch64 da versão Android 1.4.5&#46;6.4 por loader Unity/IL2CPP. O executável detecta o provider EGL e delega a janela ao backend correto, usa controles nativos, som, saves persistentes e saída pelo lifecycle. Requer os dados legais do próprio usuário, preparados pelo NXExtract 1.2.18.</desc>
+    <developer>Re-Logic</developer>
+    <publisher>505 Games</publisher>
+    <genre>Ação / Aventura / Sandbox</genre>
+  </game>
+</gameList>

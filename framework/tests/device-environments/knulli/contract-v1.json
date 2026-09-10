@@ -1,0 +1,102 @@
+{
+  "schema": "nxframework-device-environment-v1",
+  "schema_version": 1,
+  "id": "knulli-h700-rg-cubexx-20250813",
+  "device": "RG CubeXX (H700)",
+  "firmware": {
+    "name": "Knulli",
+    "version": "gladiator-ii-20250813",
+    "archive_name": "knulli-h700-rg-cubexx-gladiator-ii-20250813.img.gz",
+    "archive_size": 2145567284,
+    "archive_sha256": "87f886e02553387f0cf71ceecec2b3d9e472f2d1d4fa8e69e3435e8d01ea7175",
+    "image_name": "knulli-h700-20250813.img",
+    "image_size": 5981097984,
+    "image_sha256": "ec405c8a9fec9ce98a80101ee30a0db32176a0d5a92f876981dd65ba460b7224",
+    "stored_in_repository": false,
+    "redistributed_by_framework": false
+  },
+  "scope": {
+    "covers": "viewport only",
+    "not_covered": "button order, controller mapping and the SELECT+START chord already have their own gates and are not duplicated here"
+  },
+  "evidence": {
+    "source": "official-firmware-image",
+    "hardware_ran_during_pc_verification": false,
+    "device_access_during_pc_verification": false,
+    "result_scope": "host-side reading of what the firmware declares about the panel; nothing is initialized and no mode is set"
+  },
+  "image_layout": {
+    "partition_table": "gpt",
+    "boot_partition_name": "boot-resource",
+    "boot_offset": 75497472,
+    "filesystem": "fat",
+    "system_image": "/boot/batocera",
+    "system_image_format": "squashfs",
+    "read_method": "mcopy read-only at the partition offset, then unsquashfs of the declared paths; never mounted, never looped, never written"
+  },
+  "seeds": {
+    "boot": [
+      "/batocera-boot.conf",
+      "/boot/batocera.board"
+    ],
+    "system": [
+      "/usr/bin/batocera-resolution",
+      "/usr/share/batocera/datainit/system/batocera.conf"
+    ]
+  },
+  "viewport": {
+    "board_file": "/boot/batocera.board",
+    "board": "rg-cubexx",
+    "authority": "/usr/bin/batocera-resolution",
+    "query_command": "currentResolution",
+    "rotation_setting": "display.rotate",
+    "rotation_values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "internal_panels": {
+      "default": [
+        640,
+        480
+      ],
+      "rg-cubexx": [
+        720,
+        720
+      ],
+      "rg28xx": [
+        480,
+        640
+      ],
+      "rg34xx": [
+        720,
+        480
+      ],
+      "rg34xx-sp": [
+        720,
+        480
+      ]
+    },
+    "hdmi_modes": {
+      "hdmi-1080p": [
+        1280,
+        720
+      ],
+      "hdmi-480p": [
+        640,
+        480
+      ],
+      "hdmi-720p": [
+        1280,
+        720
+      ]
+    },
+    "reported_order_exception": {
+      "board": "rg28xx",
+      "note": "the firmware's own currentResolution prints width and height swapped for this board, so a reported pair is not proof of panel orientation"
+    },
+    "branch_binding": "each geometry is read from the branch that defines it (board test or video-mode test), never from a loose fbset occurrence; rg34xx and rg34xx-sp share one branch in the image",
+    "hdmi_note": "o rótulo hdmi-1080p define 1280x720 nesta imagem: o nome do modo não é a geometria, e o gate lê a geometria do ramo"
+  }
+}

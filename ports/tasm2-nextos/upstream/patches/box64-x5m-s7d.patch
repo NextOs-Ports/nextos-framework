@@ -1,0 +1,138 @@
+diff --git a/src/custommmap.c b/src/custommmap.c
+index 45e88fb5..014e62af 100644
+--- a/src/custommmap.c
++++ b/src/custommmap.c
+@@ -1,6 +1,9 @@
+ #define _GNU_SOURCE         /* See feature_test_macros(7) */
+ #include <unistd.h>
+ #include <stdint.h>
++#include <sys/mman.h>
++#include <sys/stat.h>
++#include <sys/sysmacros.h>
+ 
+ #include "env.h"
+ 
+@@ -33,10 +36,54 @@ void* my_mmap64(x64emu_t* emu, void *addr, unsigned long length, int prot, int f
+ extern int running32bits;
+ extern box64env_t box64env;
+ 
++static int is_native_gpu_fd(int fd)
++{
++    struct stat st;
++    if(fd < 0 || fstat(fd, &st) != 0 || !S_ISCHR(st.st_mode))
++        return 0;
++    const unsigned int device_major = major(st.st_rdev);
++    const unsigned int device_minor = minor(st.st_rdev);
++    return (device_major == 10 && device_minor == 117) || device_major == 226;
++}
++
++static void* mmap_native_gpu_high(unsigned long length, int prot, int flags,
++                                  int fd, ssize_t offset)
++{
++    /*
++     * Box32 reserves native VAs above 4 GiB so ordinary host pointers stay
++     * representable by the guest. Valhall r44p0 is the exception: its private
++     * /dev/mali0 and DRM mappings must live in the native high address space.
++     * Release only the exact GPU mapping slots, retaining low addresses for
++     * libraries, strings, objects and every guest-visible pointer.
++     */
++    const uintptr_t alignment = 0x200000;
++    const uintptr_t allocation = (length + alignment - 1) & ~(alignment - 1);
++    static uintptr_t user_cursor = UINT64_C(0x7f00000000);
++    static uintptr_t gpu_cursor = UINT64_C(0x6000000000);
++    uintptr_t *cursor = offset == 0x2f000 ? &user_cursor : &gpu_cursor;
++    const uintptr_t end =
++        __atomic_fetch_sub(cursor, allocation + alignment, __ATOMIC_RELAXED);
++    const uintptr_t start = (end - allocation) & ~(alignment - 1);
++
++    InternalMunmap((void*)start, allocation);
++    if(mapallmem)
++        freeProtection(start, allocation);
++
++    int native_flags = flags & ~MAP_32BIT;
++    /*
++     * The kbase driver rejects MAP_FIXED for the USER register page. With
++     * every other high VA still reserved, a normal NULL-address mmap can
++     * select only the bounded hole released above.
++     */
++    return InternalMmap(NULL, length, prot, native_flags, fd, offset);
++}
++
+ EXPORT void* mmap64(void *addr, unsigned long length, int prot, int flags, int fd, ssize_t offset)
+ {
+     void* ret;
+-    if(!addr && ((running32bits && BOX64ENV(mmap32)) || (flags&MAP_32BIT) || box64_is32bits))
++    if(box64_is32bits && !addr && is_native_gpu_fd(fd))
++        ret = mmap_native_gpu_high(length, prot, flags, fd, offset);
++    else if(!addr && ((running32bits && BOX64ENV(mmap32)) || (flags&MAP_32BIT) || box64_is32bits))
+         ret = box_mmap(addr, length, prot, flags | MAP_32BIT, fd, offset);
+     else
+         ret = InternalMmap(addr, length, prot, flags, fd, offset);
+diff --git a/src/tools/box64stack.c b/src/tools/box64stack.c
+index 2aebb846..2dcb1370 100644
+--- a/src/tools/box64stack.c
++++ b/src/tools/box64stack.c
+@@ -23,7 +23,16 @@ int CalcStackSize(box64context_t *context)
+         CalcStack(context->elfs[i], &context->stacksz, &context->stackalign);
+ 
+     //if (posix_memalign((void**)&context->stack, context->stackalign, context->stacksz)) {
+-    context->stack = mmap(NULL, context->stacksz, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_GROWSDOWN, -1, 0);
++    int stack_flags = MAP_PRIVATE|MAP_ANONYMOUS|MAP_GROWSDOWN;
++#ifdef BOX32
++    /*
++     * Native wrapped libraries may use high addresses, but the emulated x86
++     * initial stack is guest-visible and must remain below 4 GiB.
++     */
++    if(box64_is32bits)
++        stack_flags |= 0x40; /* MAP_32BIT on x86, handled by custommmap */
++#endif
++    context->stack = mmap(NULL, context->stacksz, PROT_READ|PROT_WRITE, stack_flags, -1, 0);
+     if (context->stack==(void*)-1) {
+         printf_log(LOG_NONE, "Cannot allocate aligned memory (0x%lx/0x%zx) for stack\n", context->stacksz, context->stackalign);
+         return 1;
+diff --git a/src/wrapped32/wrappedsdl2_private.h b/src/wrapped32/wrappedsdl2_private.h
+index 267d3509..d8aa3eff 100644
+--- a/src/wrapped32/wrappedsdl2_private.h
++++ b/src/wrapped32/wrappedsdl2_private.h
+@@ -53,10 +53,10 @@ GO(SDL_ClearQueuedAudio, vFu)
+ GO(SDL_CloseAudio, vFv)
+ GO(SDL_CloseAudioDevice, vFu)
+ //GO(SDL_ComposeCustomBlendMode, uFuuuuuu)
+-//GO(SDL_CondBroadcast, iFp)
+-//GO(SDL_CondSignal, iFp)
+-//GO(SDL_CondWait, iFpp)
+-//GO(SDL_CondWaitTimeout, iFppu)
++GO(SDL_CondBroadcast, iFp)
++GO(SDL_CondSignal, iFp)
++GO(SDL_CondWait, iFpp)
++GO(SDL_CondWaitTimeout, iFppu)
+ //GO(SDL_ConvertAudio, iFp)
+ //GO(SDL_ConvertPixels, iFiiupiupi)
+ GOM(SDL_ConvertSurface, pFppu)  //%noE
+@@ -66,7 +66,7 @@ GOM(SDL_ConvertSurfaceFormat, pFpuu)    //%noE
+ //GO(SDL_cos, dFd)
+ //GO(SDL_cosf, fFf)
+ GOM(SDL_CreateColorCursor, pFpii)   //%noE
+-//GO(SDL_CreateCond, pFv)
++GO(SDL_CreateCond, pFv)
+ //GO(SDL_CreateCursor, pFppiiii)
+ GO(SDL_CreateMutex, pFv)
+ GO(SDL_CreateRenderer, pFpiu)
+@@ -96,7 +96,7 @@ GO(SDL_DestroySemaphore, vFp)
+ GO(SDL_DestroyTexture, vFp)
+ GO(SDL_DestroyWindow, vFp)
+ //GO(SDL_DestroyWindowSurface, iFp)
+-//GO(SDL_DetachThread, vFp)
++GO(SDL_DetachThread, vFp)
+ GO(SDL_DisableScreenSaver, vFv)
+ //GO(SDL_DuplicateSurface, pFp)
+ //GOM(SDL_DYNAPI_entry, iFEupu)
+@@ -178,7 +178,7 @@ GO(SDL_GameControllerTypeForIndex, uFi)
+ GO(SDL_GameControllerUpdate, vFv)
+ // SDL_GetAssertionHandler
+ //GO(SDL_GetAssertionReport, pFv)
+-//GO(SDL_GetAudioDeviceName, pFii)
++GO(SDL_GetAudioDeviceName, pFii)
+ GO(SDL_GetAudioDeviceStatus, uFu)
+ //GO(SDL_GetAudioDriver, pFi)
+ //GO(SDL_GetAudioDeviceSpec, iFiip)

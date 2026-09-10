@@ -1,0 +1,237 @@
+{
+  "schema": 1,
+  "id": "prizefighters2-nextos",
+  "version": "1.09.3-universal-2",
+  "title": "PRIZEFIGHTERS 2",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 268435456,
+    "max_bundle_bytes": 536870912
+  },
+  "extract": [
+    {
+      "id": "android-assets-1093",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": {
+        "type": "tree",
+        "exact_files": 26,
+        "min_bytes": 26277263,
+        "max_bytes": 26382488,
+        "required_paths": [
+          "3H0fStvCiQxkzzNR",
+          "UnityServicesProjectConfiguration.json",
+          "bin/Data/boot.config",
+          "bin/Data/data.unity3d",
+          "bin/Data/Managed/Metadata/global-metadata.dat",
+          "bin/Data/sharedassets0.resource"
+        ]
+      }
+    },
+    {
+      "id": "android-arm64-libraries-1093",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "lib/{abi}/libmain.so",
+          "lib/{abi}/libil2cpp.so",
+          "lib/{abi}/libunity.so",
+          "lib/{abi}/lib_burst_generated.so"
+        ],
+        "strip_prefix": "lib/{abi}/"
+      },
+      "destination": "lib",
+      "validate": {
+        "type": "tree",
+        "min_files": 4,
+        "max_files": 8,
+        "min_bytes": 72938888,
+        "max_bytes": 73110856,
+        "required_paths": [
+          "libmain.so",
+          "libil2cpp.so",
+          "libunity.so",
+          "lib_burst_generated.so",
+          "libil2cpp.text",
+          "libil2cpp.data",
+          "libunity.text",
+          "libunity.data"
+        ]
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "prepare-runtime-and-gles2",
+      "argv": [
+        "python3",
+        "{game_dir}/tools/prepare_pf2_data.py",
+        "--stage",
+        "{stage}",
+        "--game-dir",
+        "{game_dir}"
+      ],
+      "cwd": "{game_dir}",
+      "checkpoint": [
+        {
+          "path": ".pf2-data.json",
+          "type": "file",
+          "min_size": 400,
+          "max_size": 1024,
+          "magic_ascii": "{"
+        },
+        {
+          "path": "assets/bin/Data/data.unity3d",
+          "type": "file",
+          "size": 3808055,
+          "sha256": "5641b592b964362400819666a720d820e300199ea43d04a504bd2aecf942c34e",
+          "magic_ascii": "UnityFS"
+        },
+        {
+          "path": "lib/libil2cpp.text",
+          "type": "file",
+          "size": 51200,
+          "sha256": "9aace79e98b47dd5460a97cfa5810ba2bf7ceb0d7361bfc708598e5aa0c5edc5"
+        },
+        {
+          "path": "lib/libil2cpp.data",
+          "type": "file",
+          "size": 51120,
+          "sha256": "868e71e3a1ef63f9fecb25747c9ccae110419da79eb50d2c720d032f309d6025"
+        },
+        {
+          "path": "lib/libunity.text",
+          "type": "file",
+          "size": 51200,
+          "sha256": "bc7dc02c875f9ebadb904abf031cfd5d141e2b583d0a0d9e42199c219702547b"
+        },
+        {
+          "path": "lib/libunity.data",
+          "type": "file",
+          "size": 18448,
+          "sha256": "b364e95e0a94095a6cdae37d47cf90288135ef9a42c57d1eb8b7923e8a350f58"
+        }
+      ]
+    }
+  ],
+  "validate": [
+    {
+      "path": ".pf2-data.json",
+      "type": "file",
+      "min_size": 400,
+      "max_size": 1024,
+      "magic_ascii": "{"
+    },
+    {
+      "path": "assets",
+      "type": "tree",
+      "exact_files": 26,
+      "exact_bytes": 26382488,
+      "required_paths": [
+        "3H0fStvCiQxkzzNR",
+        "bin/Data/boot.config",
+        "bin/Data/data.unity3d",
+        "bin/Data/Managed/Metadata/global-metadata.dat",
+        "bin/Data/sharedassets0.resource"
+      ],
+      "tree_fingerprint": "770db3a702459ff040c8ba838f0505a4fb2397b34865786546f5af56163b906a"
+    },
+    {
+      "path": "lib",
+      "type": "tree",
+      "exact_files": 8,
+      "exact_bytes": 73110856,
+      "required_paths": [
+        "libmain.so",
+        "libil2cpp.so",
+        "libunity.so",
+        "lib_burst_generated.so",
+        "libil2cpp.text",
+        "libil2cpp.data",
+        "libunity.text",
+        "libunity.data"
+      ],
+      "tree_fingerprint": "dae6e59d81f1ed17fcd2ec68012453d9b30702850e6582952d89542fc0a17196"
+    },
+    {
+      "path": "lib/libmain.so",
+      "type": "file",
+      "size": 6728,
+      "sha256": "9348cd29bcdec5b677c7124b111a2ebb285bfd6550282619c8fd178f2982eb5d",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "lib/libil2cpp.so",
+      "type": "file",
+      "size": 53135664,
+      "sha256": "304ad445f2eafb2ad7177e092e0aeb4cf62731940ac2a05b3ec5cff3a049b2c0",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "lib/libunity.so",
+      "type": "file",
+      "size": 19679648,
+      "sha256": "0f4f6cc64871d381b938bddbb853c2d9b36154a18987ed681c4f6e3bf9340b87",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "lib/lib_burst_generated.so",
+      "type": "file",
+      "size": 116848,
+      "sha256": "12d6e600ac93155b1aafa5247efc91c5c9e91498f1d9655061b2f8b6f5f6e770",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "lib/libil2cpp.text",
+      "type": "file",
+      "size": 51200,
+      "sha256": "9aace79e98b47dd5460a97cfa5810ba2bf7ceb0d7361bfc708598e5aa0c5edc5"
+    },
+    {
+      "path": "lib/libil2cpp.data",
+      "type": "file",
+      "size": 51120,
+      "sha256": "868e71e3a1ef63f9fecb25747c9ccae110419da79eb50d2c720d032f309d6025"
+    },
+    {
+      "path": "lib/libunity.text",
+      "type": "file",
+      "size": 51200,
+      "sha256": "bc7dc02c875f9ebadb904abf031cfd5d141e2b583d0a0d9e42199c219702547b"
+    },
+    {
+      "path": "lib/libunity.data",
+      "type": "file",
+      "size": 18448,
+      "sha256": "b364e95e0a94095a6cdae37d47cf90288135ef9a42c57d1eb8b7923e8a350f58"
+    }
+  ],
+  "commit": [
+    "assets",
+    "lib",
+    ".pf2-data.json"
+  ],
+  "marker": ".nxextract-prizefighters2.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

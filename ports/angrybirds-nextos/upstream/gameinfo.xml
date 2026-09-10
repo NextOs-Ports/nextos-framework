@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Angry Birds Classic.sh</path>
+    <name>Angry Birds Classic</name>
+    <desc>Angry Birds Classic: fling birds to topple the pigs' defenses across the original slingshot levels, from Rovio.</desc>
+    <developer>Rovio Entertainment</developer>
+    <publisher>Rovio Entertainment</publisher>
+    <genre>Puzzle, Arcade</genre>
+  </game>
+</gameList>

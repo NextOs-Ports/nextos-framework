@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Hitman GO"
+  },
+  "items": [
+    "Hitman GO.sh",
+    "hitmango/"
+  ],
+  "items_opt": [],
+  "name": "hitmango.zip",
+  "version": 4
+}

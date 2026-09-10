@@ -1,0 +1,70 @@
+{
+  "schema": "nxloader-0.7.2-closure-v1",
+  "schema_version": 1,
+  "version": "0.7.2",
+  "status": "branch-ready",
+  "scope": "fail-closed relocation-hook semantics for unresolved strong scalar imports",
+  "safety": {
+    "guest_code_execution": false,
+    "device_access": false,
+    "network_access": false,
+    "existing_port_migration": false,
+    "tag_or_merge": false
+  },
+  "requirements": [
+    {
+      "id": "NXL-072-001",
+      "guarantee": "SKIP without a checked default remains an unresolved strong import",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "unresolved strong JUMP_SLOT look resolved"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "jump-slot-skip-retry"}]
+    },
+    {
+      "id": "NXL-072-002",
+      "guarantee": "a missing strong JUMP_SLOT fails before any pending import write is committed",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "context.local_report.unresolved_strong"}, {"path": "framework/nxloader/src/nxloader_elf32.c", "token": "context.local_report.unresolved_strong"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "read_jump_slot(module, arch, weak_vma) == UINT64_C(0x15250)"}]
+    },
+    {
+      "id": "NXL-072-003",
+      "guarantee": "WRITE remains an explicit resolution without a registry provider",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "case NXLOADER_RELOC_WRITE:"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "jump-slot-explicit-write"}]
+    },
+    {
+      "id": "NXL-072-004",
+      "guarantee": "SKIP remains valid after a provider supplies the checked default and retry remains possible after fail-closed resolution",
+      "implementation": [{"path": "framework/nxloader/include/nxloader.h", "token": "SKIP leaves the target untouched only"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "provider-backed retry succeeds"}]
+    },
+    {
+      "id": "NXL-072-005",
+      "guarantee": "undefined weak JUMP_SLOT imports retain the ABI default A on ELF64 and zero on ELF32",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "value = (uint64_t)rela->r_addend;"}, {"path": "framework/nxloader/src/nxloader_elf32.c", "token": "value = 0;"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "const uint64_t weak_default = arch == NXLOADER_ARCH_AARCH64 ? 42u : 0u;"}]
+    },
+    {
+      "id": "NXL-072-006",
+      "guarantee": "ALLOW_UNRESOLVED remains an explicit diagnostic opt-in and still reports every missing strong import",
+      "implementation": [{"path": "framework/nxloader/include/nxloader.h", "token": "NXLOADER_RESOLVE_ALLOW_UNRESOLVED = 1u << 0"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "jump-slot-allow-unresolved"}]
+    },
+    {
+      "id": "NXL-072-007",
+      "guarantee": "the sentinel regression runs for both supported loader ABIs",
+      "implementation": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_missing_strong_jump_slot_contract_for_arch"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_missing_strong_jump_slot_contract_for_arch(NXLOADER_ARCH_ARMV7);"}, {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_missing_strong_jump_slot_contract_for_arch(NXLOADER_ARCH_AARCH64);"}]
+    },
+    {
+      "id": "NXL-072-008",
+      "guarantee": "version, public contract, changelog and automatic regression wiring move together without migrating any port",
+      "implementation": [{"path": "framework/nxloader/CHANGELOG.md", "token": "## 0.7.2"}, {"path": "framework/contracts/declarative-v1.json", "token": "0.7.2 prevents relocation-hook SKIP"}],
+      "tests": [{"path": "framework/tests/test-matrix-v1.json", "token": "nxloader-072-closure"}, {"path": "framework/tests/run-safe-gates.sh", "token": "run_gate nxloader-072-closure"}]
+    },
+    {
+      "id": "NXL-072-009",
+      "guarantee": "the hook translation unit remains buildable by the strict C99 ARMv7 and AArch64 lifecycle gates without relaxing warnings",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_hooks.c", "token": "#define _GNU_SOURCE"}],
+      "tests": [{"path": "framework/nxloader/tests/run-m11-armv7-lifecycle-cross.sh", "token": "-std=c99 -O2 -Wall -Wextra -Wpedantic -Werror"}, {"path": "framework/nxloader/tests/run-m11-aarch64-lifecycle-cross.sh", "token": "-fuse-ld=lld -std=c99 -O2 -Wall -Wextra -Wpedantic -Werror"}]
+    }
+  ]
+}

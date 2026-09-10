@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "milestone": "M09-012",
+  "gate_id": "nxloader-armv7-physical",
+  "execution_date_utc": "2026-08-08",
+  "authorization": "current-session-explicit",
+  "physical_arm_execution": true,
+  "kernel_architecture": "aarch64",
+  "process_abi": "ELF32 little-endian EM_ARM EABI5 hard-float",
+  "pt_interp": "/lib/ld-linux-armhf.so.3",
+  "glibc_max": "2.4",
+  "source_sha256": "058cb408554fcf74890e06dce62470e717b09f00b5dce7026fa872131a136c04",
+  "binary_sha256": "0d63a947fada6b6f9bd3b47c1982f16d7ccea711161f1669335fdc03193fb10b",
+  "binary_size": 12776,
+  "observed_output": "armv7-cache-sync: PASS arm_rewrite=1 thumb_rewrite=1 wx_mapping=0 guest_elf_loaded=0 guest_initializers_executed=0",
+  "results": {
+    "arm_rewrite": true,
+    "thumb_rewrite": true,
+    "wx_mapping": false,
+    "remote_temporary_file_removed": true
+  },
+  "safety": {
+    "game_launched": false,
+    "service_changes": false,
+    "signals_sent": false,
+    "guest_elf_loaded": false,
+    "guest_initializers_executed": false
+  },
+  "privacy": {
+    "device_address_recorded": false,
+    "hostname_recorded": false,
+    "credential_recorded": false
+  },
+  "durable_evidence": {
+    "run_id": "20260808T200559Z-pid2955299-1833629567",
+    "manifest_sha256": "9f319e87e9e4226c481a6b5a85fe1e90cfef706f8f923d2c234a47dbad78bbe7",
+    "console_sha256": "f782f6701f7997dbc8c27e7ee98fa65996ecd98fc62a8f35cc0db118006b7f30",
+    "result_sha256": "840dcce930160c9ff959f036d6f2bbff5860be2a5e1fc648c73e18d18b3c0394",
+    "command_status_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "command_status": 0,
+    "tee_status": 0,
+    "received_signal": "none"
+  }
+}

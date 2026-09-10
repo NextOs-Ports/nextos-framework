@@ -1,0 +1,53 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "documentation": {
+    "proven_support": [
+      "NextOS Mali-450 AArch64 baseline",
+      "R36S ArkOS Mali-G31 AArch64"
+    ],
+    "status": "private-release-candidate"
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "project/extractor.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "game-dir-and-passthrough",
+    "enabled_quirks": [],
+    "executable": "bin/aarch64/actionsquad-nextos",
+    "home_mode": "port",
+    "id": "actionsquad",
+    "launcher_name": "Action Squad.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.6"
+    },
+    "prepare_script": "port-env.sh",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "host.aarch64-libs",
+      "graphics.gles2",
+      "audio.output-open",
+      "input.controller-mapping"
+    ],
+    "required_files": [
+      "bin/aarch64/actionsquad-nextos",
+      "libAndroidEntryPoint.so",
+      "assets/all/media/texts/strings.xml",
+      "alsoft.conf"
+    ],
+    "runtime_report": "log",
+    "schema_version": 2,
+    "title": "Door Kickers: Action Squad"
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.17"
+  },
+  "schema_version": 1
+}

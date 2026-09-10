@@ -1,0 +1,19 @@
+# NEXTOSCONTROLLERS mapping for the corpus gate
+
+# a comment before the magic is allowed
+format = NEXTOS_CONTROLLERS/1
+
+# menu bindings
+[menu]
+A = ui.confirm
+B = ui.back
+
+# gameplay bindings
+
+[gameplay]
+A = player.jump
+	
+[cursor]
+
+# tuning with surrounding whitespace
+	speed = 0.5	

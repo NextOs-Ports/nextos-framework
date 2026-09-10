@@ -1,0 +1,4 @@
+# NEXTOS_SETTINGS/1
+language=en
+theme=dark
+future.knob_2=on

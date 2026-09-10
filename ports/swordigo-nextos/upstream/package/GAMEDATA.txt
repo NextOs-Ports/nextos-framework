@@ -1,0 +1,14 @@
+COLOQUE AQUI O APK LEGAL DO SWORDIGO 1.4.12 / PUT YOUR LEGAL SWORDIGO 1.4.12 APK HERE
+
+PORTUGUES
+  Copie para esta pasta o APK do Swordigo 1.4.12 (pacote com.touchfoo.swordigo)
+  obtido legalmente do aparelho Android onde voce comprou o jogo. O APK precisa
+  conter lib/arm64-v8a/libswordigo.so. Na primeira execucao o NXExtract prepara
+  os dados; depois disso o APK pode ser guardado como fonte de reparo.
+
+ENGLISH
+  Copy your legally obtained Swordigo 1.4.12 APK (package com.touchfoo.swordigo)
+  into this folder. It must contain lib/arm64-v8a/libswordigo.so. NXExtract
+  prepares the data on the first launch; keep the APK as a repair source.
+
+O port NAO inclui o jogo. / The port does not include the game.

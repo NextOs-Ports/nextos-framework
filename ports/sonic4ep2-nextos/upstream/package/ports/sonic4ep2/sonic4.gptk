@@ -1,0 +1,37 @@
+# Sonic 4 Episode II -- PortMaster gptokeyb fallback.
+# Native gamepad is supported by the binary; this file keeps the standard
+# PortMaster path working on devices that route controls through gptokeyb.
+# Exit: SELECT+START.
+
+a = z
+b = c
+x = x
+y = v
+
+start = enter
+back = esc
+
+l1 = q
+r1 = e
+l2 = 1
+r2 = 3
+l3 = n
+r3 = m
+
+up = up
+down = down
+left = left
+right = right
+
+left_analog_up = w
+left_analog_down = s
+left_analog_left = a
+left_analog_right = d
+
+right_analog_up = mouse_movement_up
+right_analog_down = mouse_movement_down
+right_analog_left = mouse_movement_left
+right_analog_right = mouse_movement_right
+
+mouse_scale = 512
+deadzone_y = 15000

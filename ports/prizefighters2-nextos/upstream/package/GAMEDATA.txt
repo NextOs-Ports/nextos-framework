@@ -1,0 +1,5 @@
+Coloque aqui seu XAPK legal do Prizefighters 2 v1.09.3.
+Ele precisa conter o split config.arm64_v8a.apk.
+
+Put your legally obtained Prizefighters 2 v1.09.3 XAPK here.
+It must contain the config.arm64_v8a.apk split.

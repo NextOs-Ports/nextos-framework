@@ -1,0 +1,120 @@
+{
+  "audio": {
+    "callbacks": [
+      "FMOD createSound hook",
+      "SDL queued-audio bridge"
+    ],
+    "format": "signed 16-bit PCM; runtime rate/channels follow the FMOD request"
+  },
+  "imports": [
+    "Android/Bionic compatibility imports",
+    "EGL/GLES provider routing",
+    "ANativeWindow compatibility",
+    "libil2cpp exported API"
+  ],
+  "input": {
+    "mapping": "native InControl/Xbox-compatible controller plus Unity nativeInjectEvent",
+    "touch": "not required for gameplay; on-screen keyboard is limited to text entry"
+  },
+  "jni": {
+    "callbacks": [
+      "UnityPlayer registered natives",
+      "Choreographer frame callback",
+      "Play Asset Delivery completion"
+    ],
+    "classes": [
+      "com/unity3d/player/UnityPlayer",
+      "android/content/pm/ActivityInfo",
+      "android/view/Display",
+      "android/content/SharedPreferences"
+    ],
+    "methods": [
+      "initJni",
+      "nativeRecreateGfxState",
+      "nativeSendSurfaceChangedEvent",
+      "nativeResume",
+      "nativeFocusChanged",
+      "nativeRender",
+      "getRequestedOrientation",
+      "setRequestedOrientation"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "load and relocate libunity.so",
+      "run libunity init_array and JNI_OnLoad",
+      "load and relocate libil2cpp.so",
+      "run libil2cpp init_array",
+      "initialize the firmware-selected SDL video/audio providers",
+      "call UnityPlayer.initJni",
+      "call nativeRecreateGfxState with a stable surface",
+      "send the native surface-changed event",
+      "drive nativeRender until exit",
+      "deliver focus loss, pause and nativeDone during guarded teardown"
+    ],
+    "source_evidence": [
+      "src/main.c",
+      "src/jni_shim.c",
+      "tests/test_android_compat.c"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "SharedPreferences typed round-trip",
+      "guarded Unity pause/focus-loss shutdown"
+    ],
+    "paths": [
+      "userdata/",
+      "Players/",
+      "Worlds/"
+    ]
+  },
+  "prohibitions": [
+    "do not skip Unity init_array or JNI_OnLoad",
+    "do not force an SDL video or audio driver",
+    "do not treat an SDL driver name as proof of the EGL provider",
+    "do not recreate the Linux native window from setRequestedOrientation",
+    "do not enable RVA hooks on an unrecognized owner payload"
+  ],
+  "quirks": [
+    {
+      "condition": "an fbdev-class SDL driver name is paired with a PowerVR/Imagination EGL provider",
+      "effect": "SDL owns the native window and Unity EGL calls use the SDL-backed shim",
+      "evidence": [
+        "external failure signature: EGL_BAD_NATIVE_WINDOW after setRequestedOrientation",
+        "tests/test_android_compat.c"
+      ],
+      "id": "adapter.terraria-powervr-window-owner"
+    },
+    {
+      "condition": "Unity queries android.content.pm.ActivityInfo orientation fields",
+      "effect": "return Android API values and retain the requested Activity orientation without replacing the surface",
+      "evidence": [
+        "src/android_compat.c",
+        "tests/test_android_compat.c"
+      ],
+      "id": "adapter.terraria-activity-orientation"
+    },
+    {
+      "condition": "SDL cannot create a window/context and neither EGL nor GLES provider was explicitly configured",
+      "effect": "tear down SDL video, retry once with portable provider sonames and preserve that provider pair only on success",
+      "evidence": [
+        "tests/test_android_compat.c",
+        "physical dArkOSRE KMSDRM regression: ARM Mali-G31, 640x480, Unity/FMOD/InControl initialized"
+      ],
+      "id": "adapter.terraria-portable-egl-retry"
+    }
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-contract-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START or Quit Game requests the native Unity teardown; a three-second watchdog is the final fallback",
+    "evidence": [
+      "src/main.c",
+      "README.md",
+      "physical dArkOSRE regression: SELECT+START produced runtime status ok and child status 0"
+    ]
+  }
+}

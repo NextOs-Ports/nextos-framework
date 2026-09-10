@@ -1,0 +1,185 @@
+{
+  "schema": "nxframework-device-environment-v1",
+  "schema_version": 1,
+  "id": "spruce-miyoo-flip-4.3.4",
+  "device": "Miyoo Flip",
+  "firmware": {
+    "name": "spruce",
+    "version": "4.3.4",
+    "archive_name": "spruceV4.3.4.7z",
+    "archive_size": 1623598599,
+    "archive_sha256": "1fe1c029e0414faa47ffe5a4d2c52a2f599b7b1389aa097628c64edd98912b4e",
+    "stored_in_repository": false,
+    "redistributed_by_framework": false
+  },
+  "evidence": {
+    "source": "official-firmware-image-plus-physical-runtime-log",
+    "physical_artifact_sha256": "f927e681fee625d4fa344dc189f5dd002f44b4d8a40f8aed4418d205a5a86b02",
+    "hardware_ran_during_pc_verification": false,
+    "device_access_during_pc_verification": false,
+    "result_scope": "host-side ABI, interpreter, closure and compiled-SDL-driver verification only"
+  },
+  "topology": {
+    "host_architecture": "aarch64",
+    "default_armhf_interpreter": {
+      "path": "/lib/ld-linux-armhf.so.3",
+      "state": "absent"
+    },
+    "alternate_armhf_interpreter": "/mnt/SDCARD/spruce/flip/ld-linux-armhf.so.3",
+    "roles": {
+      "nxextract": "aarch64",
+      "nxsplash": "armv7",
+      "game": "armv7"
+    },
+    "armhf_library_path_order": [
+      "/mnt/SDCARD/Persistent/.32bit_chroot/usr/lib32",
+      "/mnt/SDCARD/Persistent/.32bit_chroot/usr/lib",
+      "/mnt/SDCARD/Persistent/.32bit_chroot/lib",
+      "/mnt/SDCARD/spruce/flip/muOS/usr/lib32",
+      "/mnt/SDCARD/spruce/flip/muOS/lib32"
+    ],
+    "sdl": {
+      "version": "2.0.22",
+      "compiled_video_drivers": [
+        "KMSDRM",
+        "dummy"
+      ],
+      "physical_selected_video_driver": "KMSDRM"
+    },
+    "graphics_provider_names": {
+      "egl": "libEGL.so",
+      "gles": "libGLESv2.so"
+    }
+  },
+  "archive_members": [
+    {
+      "id": "alternate-loader",
+      "path": "spruce/flip/ld-linux-armhf.so.3",
+      "size": 146788,
+      "sha256": "a463fb3afd29918303dfe5abe0200025bab02f4d0cf7965036f0b19434795a11"
+    },
+    {
+      "id": "armhf-chroot-image",
+      "path": "spruce/flip/miyoo355_rootfs_32.img",
+      "size": 118775808,
+      "sha256": "7dd2d2cbfab66e1239cf1944ff509ee6bf30c696916269eefa90f12f9125cbe2"
+    },
+    {
+      "id": "muos-reduced-image",
+      "path": "spruce/flip/muOS-pixie-reduced.sqsh",
+      "size": 315645952,
+      "sha256": "23ca157810bc981de7fe113690b6051ab46138934a480dadef7ae39bd2758be9"
+    },
+    {
+      "id": "chroot-setup",
+      "path": "spruce/flip/setup_32bit_chroot.sh",
+      "size": 979,
+      "sha256": "85de9c83c523fef35dc458a18fcfbefb33d174067a43bf6c38a37bfdf9b0e4f7"
+    },
+    {
+      "id": "muos-mount",
+      "path": "spruce/flip/mount_muOS.sh",
+      "size": 146,
+      "sha256": "08224eb48220ca440d690a178e9e3df977505c5ebf91a624f761ecb61415b728"
+    }
+  ],
+  "runtime_files": [
+    {
+      "id": "chroot-loader",
+      "root": "armhf-chroot",
+      "path": "usr/lib/ld-linux-armhf.so.3",
+      "size": 173736,
+      "sha256": "5b73ab6b4f35e0f55b095d46f4f0a9eb6959d5849f100c6f63d5912fe52cba9c",
+      "elf_class": 1,
+      "elf_machine": 40
+    },
+    {
+      "id": "chroot-sdl",
+      "root": "armhf-chroot",
+      "path": "usr/lib/libSDL2-2.0.so.0.22.0",
+      "size": 1018620,
+      "sha256": "20e4cebd2ae4d0e953a1171615274bae8ac85543a598977d4cf80a67c4b28b20",
+      "elf_class": 1,
+      "elf_machine": 40
+    },
+    {
+      "id": "chroot-egl",
+      "root": "armhf-chroot",
+      "path": "usr/lib/libEGL.so.1",
+      "size": 5264,
+      "sha256": "30d9285d50d7525d30dc98de036e1cad42707dc3f8bc81df8ead4da267981fcb",
+      "elf_class": 1,
+      "elf_machine": 40
+    },
+    {
+      "id": "chroot-gles2",
+      "root": "armhf-chroot",
+      "path": "usr/lib/libGLESv2.so.2",
+      "size": 5264,
+      "sha256": "8572a4abbe1bffebc2042d3f0df735d970e45704d9dbeea5ced655ac8f3f2d60",
+      "elf_class": 1,
+      "elf_machine": 40
+    },
+    {
+      "id": "chroot-alsa",
+      "root": "armhf-chroot",
+      "path": "usr/lib/libasound.so.2.0.0",
+      "size": 849488,
+      "sha256": "e06bbedecc37a540765298ba51e07b34aeb35d7826879d7cf561029da7ea9554",
+      "elf_class": 1,
+      "elf_machine": 40
+    },
+    {
+      "id": "muos-loader",
+      "root": "muos-reduced",
+      "path": "lib32/ld-linux-armhf.so.3",
+      "size": 184644,
+      "sha256": "f6f337c0fa8f1bab6ad2accae67fb01a457a4c4bed9d3a3c1f60ab85f840c40b",
+      "elf_class": 1,
+      "elf_machine": 40
+    },
+    {
+      "id": "muos-sdl-armhf",
+      "root": "muos-reduced",
+      "path": "usr/lib32/libSDL2-2.0.so.0.2800.5",
+      "size": 801044,
+      "sha256": "4e95cde522cc7d355e9e93dc3763b831f962ac37f6967a77500991e998606504",
+      "elf_class": 1,
+      "elf_machine": 40
+    },
+    {
+      "id": "muos-mali-armhf",
+      "root": "muos-reduced",
+      "path": "usr/lib32/libmali.so",
+      "size": 14506236,
+      "sha256": "35e6dad3762fe8beb41fa2c0e7d895b3e5a39cdc8cf8cd094a0c7295e6eeb7cb",
+      "elf_class": 1,
+      "elf_machine": 40
+    },
+    {
+      "id": "muos-sdl-aarch64",
+      "root": "muos-reduced",
+      "path": "usr/lib/libSDL2-2.0.so.0.2800.5",
+      "size": 1491000,
+      "sha256": "40d0616f6b97d447f47e1e77c116d84bc4d3d7a5e33a50e2f4f472f9b250f46d",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "muos-mali-aarch64",
+      "root": "muos-reduced",
+      "path": "usr/lib/libmali.so",
+      "size": 44542232,
+      "sha256": "08c4c5f65f31a753065cf7332b5596f045a552697cfd9849aef15ea494192b2b",
+      "elf_class": 2,
+      "elf_machine": 183
+    }
+  ],
+  "prepared_layout": {
+    "root": "root",
+    "alternate_loader": "root/mnt/SDCARD/spruce/flip/ld-linux-armhf.so.3",
+    "armhf_chroot": "root/mnt/SDCARD/Persistent/.32bit_chroot",
+    "muos_reduced": "root/mnt/SDCARD/spruce/flip/muOS",
+    "receipt": "environment-receipt.json"
+  }
+}

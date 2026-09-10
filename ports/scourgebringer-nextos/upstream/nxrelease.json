@@ -1,0 +1,333 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "scourgebringer",
+    "version": "1.0.0-test.8",
+    "profile": "universal-portmaster",
+    "launcher": "ScourgeBringer.sh",
+    "launcher_chain": [
+      "ScourgeBringer.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.16",
+      "config_path": "scourgebringer/nxport.json",
+      "config_sha256": "2e0998e1bc950de21f2bc81836777ddc73476ea3f03d6afe403dc0bc85da7bda"
+    },
+    "port_dir": "scourgebringer",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "file": "scourgebringer/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786579200,
+    "max_glibc": "2.17",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "scourgebringer/nxextract/nxextract.py",
+    "version": "1.2.10",
+    "minimum_version": "1.2.10",
+    "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5",
+    "runner_path": "scourgebringer/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "scourgebringer/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "recipe_path": "scourgebringer/extractor.json",
+    "recipe_sha256": "31285a3eb7af62afd96ce06bd8941a28206310ccf652bc92057b0b94db366c8f",
+    "ui_sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+    "ui_path": "scourgebringer/nxextract/nxextract-ui"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libEGL.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libGLESv2.so.2",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libgcc_s.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libz.so.1",
+      "provider": "firmware"
+    }
+  ],
+  "files": [
+    {
+      "source": "ScourgeBringer.sh",
+      "target": "ScourgeBringer.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "2756a86a915723a01ad1d9fdc6ad6cdefbb5e386050e42ae241784fd1a2acb61"
+    },
+    {
+      "source": "nxport.json",
+      "target": "scourgebringer/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "2e0998e1bc950de21f2bc81836777ddc73476ea3f03d6afe403dc0bc85da7bda"
+    },
+    {
+      "source": "scourgebringer-nextos",
+      "target": "scourgebringer/scourgebringer-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build.sh; framework snapshot extracted from immutable commit 583ec1e977eb377669414fe949969bd784ced730 with all component versions checked against FRAMEWORK-PIN.json; pinned offline Debian Buster image sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf; target sysroot used for headers only",
+      "sha256": "8d085741b732da79d30fe299ae142eee8bdf28df259f73a822618d09b3fc8b31",
+      "needed": [
+        "libEGL.so.1",
+        "libGLESv2.so.2",
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "soname": null
+    },
+    {
+      "source": "port-env.sh",
+      "target": "scourgebringer/port-env.sh",
+      "kind": "script",
+      "mode": "0644",
+      "sha256": "6ab7514564cfea7e044b02f33191e9e7e913c735a2e0c8c4665185448702d42a"
+    },
+    {
+      "source": "extractor.json",
+      "target": "scourgebringer/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "31285a3eb7af62afd96ce06bd8941a28206310ccf652bc92057b0b94db366c8f"
+    },
+    {
+      "source": "nxextract/nxextract.py",
+      "target": "scourgebringer/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "source": "nxextract/run-extractor.sh",
+      "target": "scourgebringer/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "scourgebringer/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "nxextract/nxextract-ui",
+      "target": "scourgebringer/nxextract/nxextract-ui",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "NXExtract 1.2.10 canonical graphical AArch64 UI",
+      "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "nxextract/make-assembly-apk.py",
+      "target": "scourgebringer/nxextract/make-assembly-apk.py",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "c8cae6533af92bd0826b6ca2747becf7da2b98d1ec425a2763f3e8f1f303001e"
+    },
+    {
+      "source": "package/README.md",
+      "target": "scourgebringer/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "50a22958e43b98c83997e9972e6cde2486b2e62d9b8b21c8676a328b3090a756"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "scourgebringer/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "08464c31e7de7474ba1a931e45e73ab4c07248524fc9b889d3ea9d25d30d2bfb"
+    },
+    {
+      "source": "DATA-NOTICE.txt",
+      "target": "scourgebringer/DATA-NOTICE.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "b1123059982fd9fdfba2aaf32003618308b5951d971610e0d508a01e65edf0be"
+    },
+    {
+      "source": "LICENSE",
+      "target": "scourgebringer/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "source": "NOTICE",
+      "target": "scourgebringer/NOTICE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "ad568089e187d2d5bc9a52d6b582a9604ba7921fe061618d8d6448252451e865"
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "scourgebringer/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "BUILD-PROVENANCE.txt",
+      "target": "scourgebringer/BUILD-PROVENANCE.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "1698ce94bed07d7cab9b8a0148af2d3c179ff054a0439fefd85710aca5027cb9"
+    },
+    {
+      "source": "version.txt",
+      "target": "scourgebringer/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "5b4965b72ac1d77382ebe125e7787ac222034bedfc2add3d619215316bca1c24"
+    },
+    {
+      "source": "gamedata/README.txt",
+      "target": "scourgebringer/gamedata/README.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "7763f1c2a47c14435f8688036d885759db7f6efdd0539628c51d4de292c55b43"
+    },
+    {
+      "source": "FRAMEWORK-PIN.json",
+      "target": "scourgebringer/FRAMEWORK-PIN.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "4a15da44a968253acc5ccb3dd44aff714975aa4222d786b82a628e809088ec26"
+    },
+    {
+      "source": "adapter/adapter-contract.json",
+      "target": "scourgebringer/adapter/adapter-contract.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "14178df909c38ef1b0ab79b2709ea1ca6735cde505f153aa39e6110119c27fb7"
+    },
+    {
+      "source": "port.json",
+      "target": "scourgebringer/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "05697cabd8071e2b6cac470f894198669668fbd28879002d8caae462f1ae36a6"
+    },
+    {
+      "source": "gameinfo.xml",
+      "target": "scourgebringer/gameinfo.xml",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "056ad1114110f18e2cdfc9e48ed44feb43f126b5356668d8da45e00876f6e8f7"
+    },
+    {
+      "source": "nxsplash-nextos",
+      "target": "scourgebringer/nxsplash-nextos",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "NXSplash 0.1.2 canonical AArch64 release",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "licenses/nxsplash-MIT.txt",
+      "target": "scourgebringer/licenses/nxsplash-MIT.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    },
+    {
+      "source": "cover.png",
+      "target": "scourgebringer/cover.png",
+      "kind": "portmaster-image",
+      "mode": "0644",
+      "sha256": "f6c577d6ab2bf8fade15f0430bd2f5585088ca6292d27d4e653392c851e10363"
+    }
+  ],
+  "exceptions": [],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "scourgebringer/port.json",
+      "sha256": "05697cabd8071e2b6cac470f894198669668fbd28879002d8caae462f1ae36a6"
+    },
+    "gameinfo_xml": {
+      "path": "scourgebringer/gameinfo.xml",
+      "sha256": "056ad1114110f18e2cdfc9e48ed44feb43f126b5356668d8da45e00876f6e8f7"
+    },
+    "images": [
+      {
+        "path": "scourgebringer/cover.png",
+        "role": "cover",
+        "sha256": "f6c577d6ab2bf8fade15f0430bd2f5585088ca6292d27d4e653392c851e10363"
+      }
+    ]
+  }
+}

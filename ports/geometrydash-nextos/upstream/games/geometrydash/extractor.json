@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "id": "geometrydash-nextos",
+  "version": "1.0-universal",
+  "title": "GEOMETRY DASH",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 3221225472,
+    "max_bundle_bytes": 6442450944,
+    "packages": [
+      "com.robtopx.geometryjump"
+    ]
+  },
+  "extract": [
+    {
+      "id": "game-package",
+      "source": {
+        "kind": "container"
+      },
+      "destination": "game.apk",
+      "validate": {
+        "type": "file",
+        "min_size": 30000000,
+        "max_size": 4000000000,
+        "magic_ascii": "PK"
+      }
+    },
+    {
+      "id": "engine-library",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libcocos2dcpp.so"
+        ]
+      },
+      "destination": "libcocos2dcpp.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 4000000,
+        "max_size": 200000000
+      }
+    },
+    {
+      "id": "audio-library",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libfmod.so"
+        ]
+      },
+      "destination": "libfmod.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 200000,
+        "max_size": 40000000
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "game-apk",
+      "argv": [
+        "python3",
+        "{game_dir}/tools/make-game-apk.py",
+        "--stage",
+        "{stage}",
+        "--input",
+        "game.apk",
+        "--output",
+        "game.apk",
+        "--keep",
+        "assets/",
+        "--stamp",
+        "game-apk.stamp",
+        "--require",
+        "assets/GJ_GameSheet.plist"
+      ],
+      "cwd": "{game_dir}",
+      "checkpoint": [
+        {
+          "path": "game-apk.stamp",
+          "type": "file",
+          "sha256": "29a7cfb609a70c1d1b3bf8df0a1f74ff43293d2c5d54b3cc5e70e29b7ff946a7"
+        }
+      ]
+    }
+  ],
+  "commit": [
+    "game.apk",
+    "game-apk.stamp",
+    "libcocos2dcpp.so",
+    "libfmod.so"
+  ],
+  "marker": ".nxextract-geometrydash.json",
+  "space": {
+    "safety_bytes": 536870912
+  },
+  "log": "nxextract.log",
+  "validate": [
+    {
+      "path": "game.apk",
+      "type": "file",
+      "min_size": 30000000,
+      "max_size": 4000000000
+    },
+    {
+      "path": "libcocos2dcpp.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "min_size": 4000000,
+      "max_size": 200000000
+    },
+    {
+      "path": "libfmod.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "min_size": 200000,
+      "max_size": 40000000
+    }
+  ],
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

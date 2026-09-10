@@ -1,0 +1,37 @@
+ScourgeBringer package 1.0.0-test.8
+
+Build recipe: ports/scourgebringer/build.sh
+Architecture: AArch64
+Profile: universal-low-glibc
+Builder: pinned offline Debian Buster image
+Builder image digest: sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf
+Framework source commit: 583ec1e977eb377669414fe949969bd784ced730
+Framework materialization: immutable git-archive snapshot; all 12 pinned
+component versions checked before the offline container starts
+Project-built executable: scourgebringer-nextos
+Project-built executable SHA-256: a245edea4cf83dd9f1dc0e9b808ddf6e9d15ecaee35433bba8bc78c2555c0273
+Maximum required glibc: GLIBC_2.17
+
+Port adapter delta: retains the old-glibc stat-family, strlcpy and _ctype_
+providers, the complete arm64 Bionic 8-byte sigset_t bridge and the exact
+offline Play Core ReviewManager/Task graph validated in earlier candidates.
+Adds explicit mknod and arc4random_buf providers for glibc 2.30. The latter is
+used by libSystem.Native to seed System.Random during MainActivity.n_onCreate;
+without it the unresolved guest PLT slot jumps to raw PLT0 at 0x15250. The
+provider follows the approved Stardew Valley Mono-Android path through
+getrandom(2) with /dev/urandom fallback. Test.8 also repairs the Android title
+logic's retained but undrawn Discord selection by restoring only
+TitleScreenManager._selectedMenuItem to the last visible entry after the native
+update. It does not filter or rewrite controller buttons or axes. Host,
+emulated AArch64 ABI and low-glibc gates pass. The exact ELF above passed a
+physical glibc 2.41 KMSDRM launch through MainActivity, FMOD/ALSA, controller,
+READY 9/9 and rendered swaps. Root-menu left/right retained visible selection,
+vertical navigation still selected Settings, horizontal input worked inside
+Settings, and full-range -32768/32767 horizontal movement was delivered and
+visually confirmed during gameplay. This is a regression proof only;
+acceptance of the old-glibc fix on glibc 2.30 remains pending.
+
+The NextOS sysroot is used for headers only. Android game data and original
+Android libraries are owner-supplied at runtime and are not part of the ZIP.
+The 1.61.16 classic assembly-store layout and the 1.61 b19 blob-DSO layout are
+validated independently by NXExtract before local extraction.

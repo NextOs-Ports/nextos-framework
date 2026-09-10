@@ -1,0 +1,10 @@
+ScourgeBringer game data is not included.
+
+The APK, native Android libraries, assemblies, artwork, music and other game
+content remain the property of their respective owners. This package accepts
+compatible owner-supplied AArch64 data for package com.pid.scourgebringer. The
+physically validated layouts are APK 1.61.16 with the classic assembly store
+and APK 1.61 b19 with the assembly blob DSO. A bounded flexible recipe also
+permits b17, b18 and other compatible 1.61.x inputs when they retain the
+required package, ABI, core content, 12 languages and libraries. NXExtract
+checks and extracts those data only on the owner's device.

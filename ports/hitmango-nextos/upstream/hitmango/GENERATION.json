@@ -1,0 +1,120 @@
+{
+  "artifacts": [
+    {
+      "mode": "0755",
+      "path": "Hitman GO.sh",
+      "sha256": "0711a16ee8e9750283c728113e1e7522e1d1de045185345fee2c4b5a91423207"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/LICENSE",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/README.md",
+      "sha256": "6335d475318a0ec69a71244b6f0278e72012fb93b710354e8036d305e41a4a16"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/adapter/adapter-contract.json",
+      "sha256": "dbd60853647966ce94c7df14edcd43d40faa1467ee4efbcaa13d973fa664a4a2"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/extractor.json",
+      "sha256": "bf19171367b35bc9dbe59ca6682ae18e6fb62c216706c9b5322da857d76c1a61"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "hitmango/nxextract/nxextract-ui",
+      "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/nxextract/nxextract.py",
+      "sha256": "7c9d44df71cbe06ff24266c3fa73f08d14ad72973c532d8ef0808af7756a4901"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/nxextract/run-extractor.sh",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/nxport.json",
+      "sha256": "6461fce0f05dc95ca5c8e799852dd8cfacd6b8a77cd5338615d825bcf2403a9e"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/nxproject.json",
+      "sha256": "d51c383cbe69b2c58d70d58bb3a6ff787561519190964e7e39c781c42b544c01"
+    },
+    {
+      "mode": "0755",
+      "path": "hitmango/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0644",
+      "path": "hitmango/port.json",
+      "sha256": "e96b0c885e0eae2d58992a852756b5ae6056a4631af9b0a83286182ad8ddff2e"
+    }
+  ],
+  "claims": {
+    "adapter_lifecycle_implemented": false,
+    "deterministic_scaffold": true,
+    "physical_support_proven": false,
+    "release_ready": false
+  },
+  "generator": {
+    "name": "nxgenerator",
+    "version": "0.2.8"
+  },
+  "project_manifest_sha256": "d51c383cbe69b2c58d70d58bb3a6ff787561519190964e7e39c781c42b544c01",
+  "schema": "nxgenerator-receipt-v1",
+  "schema_version": 1,
+  "source_pins": {
+    "nxbootstrap": {
+      "source_files": {
+        "templates/launcher.sh.in": "a3be9b12d048d3111487e9fa0295f3a7e13671258ea92c8db9b0c17ce01035f2",
+        "tools/generate-port.py": "7328364845f1044baa0275344f959d5c98c71080e749343e8b7963163e84268c"
+      },
+      "version": "0.6.14"
+    },
+    "nxextract": {
+      "files": {
+        "nxextract-runtime-env.sh": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+        "nxextract-ui": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+        "nxextract.py": "7c9d44df71cbe06ff24266c3fa73f08d14ad72973c532d8ef0808af7756a4901",
+        "run-extractor.sh": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+      },
+      "recipe_sha256": "bf19171367b35bc9dbe59ca6682ae18e6fb62c216706c9b5322da857d76c1a61",
+      "ui_artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "ui/release/aarch64/nxextract-ui",
+        "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56"
+      },
+      "ui_release_manifest_sha256": "0449875cb016fb915e4001742137c919b22087617853bd5f3ed1118b9e2420fc",
+      "ui_source_sha256": "2122d1f5727e1cecf2c572560a07a97411f551c8e77145baa1f383fa5e989fa4",
+      "version": "1.2.9"
+    },
+    "nxsplash": {
+      "artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "release/aarch64/nxsplash-nextos",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      },
+      "release_manifest_sha256": "14c9a0ec823eceb6b53620e443821375c0d6c2dbe4004470bcee514bb8e3d118",
+      "source_sha256": "c393afcef644745b9d1e557c9833146e908aee4d4b6bfdb57e64e7d304c8e177",
+      "version": "0.1.2"
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "id": "rcrdx-nextos",
+  "version": "1.0.10-arm64-1",
+  "title": "RETRO CITY RAMPAGE DX",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.vblank.RCRDX"
+    ]
+  },
+  "extract": [
+    {
+      "id": "engine-rcrdx-arm64",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libRCRDX.so"
+        ]
+      },
+      "destination": "lib/libRCRDX.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 3597968,
+        "sha256": "b802d1ba7ed01ee0e77267f8dfa420444d3ba1920a37e5717378d22f40b4538a"
+      }
+    },
+    {
+      "id": "game-data",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/gamedata_ios.bfp"
+        ]
+      },
+      "destination": "gamedata/gamedata_ios.bfp",
+      "validate": {
+        "type": "file",
+        "size": 4873088,
+        "sha256": "c175b20c8cb4c831f5f18d4e52a9d28b3cc711572706cf8eaa1299a43e8e536e"
+      }
+    },
+    {
+      "id": "music-data",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/audio_music_W32.bap"
+        ]
+      },
+      "destination": "gamedata/audio_music_W32.bap",
+      "validate": {
+        "type": "file",
+        "size": 3441056,
+        "sha256": "e2aefd812e0170dfca3d83660f582a5f77c9238e45743a09605152c1661d25b2"
+      }
+    },
+    {
+      "id": "sound-data",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/audio_sfx_W32.bap"
+        ]
+      },
+      "destination": "gamedata/audio_sfx_W32.bap",
+      "validate": {
+        "type": "file",
+        "size": 788352,
+        "sha256": "85370bfc46551d896e7d16aa5079a67c617eb92f034c31cbf95fba8fccc8e097"
+      }
+    },
+    {
+      "id": "game-api-key",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/api_key.txt"
+        ]
+      },
+      "destination": "gamedata/api_key.txt",
+      "validate": {
+        "type": "file",
+        "size": 1199,
+        "sha256": "aaf93ab543301db53a286ee76846e92bf017067a8db56db32347030230ce6fd6"
+      }
+    }
+  ],
+  "validate": [
+    {
+      "path": "lib/libRCRDX.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 3597968,
+      "sha256": "b802d1ba7ed01ee0e77267f8dfa420444d3ba1920a37e5717378d22f40b4538a"
+    },
+    {
+      "path": "gamedata/gamedata_ios.bfp",
+      "type": "file",
+      "size": 4873088,
+      "sha256": "c175b20c8cb4c831f5f18d4e52a9d28b3cc711572706cf8eaa1299a43e8e536e"
+    },
+    {
+      "path": "gamedata/audio_music_W32.bap",
+      "type": "file",
+      "size": 3441056,
+      "sha256": "e2aefd812e0170dfca3d83660f582a5f77c9238e45743a09605152c1661d25b2"
+    },
+    {
+      "path": "gamedata/audio_sfx_W32.bap",
+      "type": "file",
+      "size": 788352,
+      "sha256": "85370bfc46551d896e7d16aa5079a67c617eb92f034c31cbf95fba8fccc8e097"
+    },
+    {
+      "path": "gamedata/api_key.txt",
+      "type": "file",
+      "size": 1199,
+      "sha256": "aaf93ab543301db53a286ee76846e92bf017067a8db56db32347030230ce6fd6"
+    }
+  ],
+  "commit": [
+    "lib",
+    "gamedata/gamedata_ios.bfp",
+    "gamedata/audio_music_W32.bap",
+    "gamedata/audio_sfx_W32.bap",
+    "gamedata/api_key.txt"
+  ],
+  "marker": ".nxextract-rcrdx.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

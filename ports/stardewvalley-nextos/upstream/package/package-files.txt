@@ -1,0 +1,24 @@
+LEIA-ME.md
+ports/Stardew Valley (NextOS).sh
+ports/sdvnextos/BUILD-PROVENANCE.json
+ports/sdvnextos/INSTALAR.md
+ports/sdvnextos/LICENSE
+ports/sdvnextos/LZ4-PROVENANCE.md
+ports/sdvnextos/PACKAGE-MANIFEST.sha256
+ports/sdvnextos/README.md
+ports/sdvnextos/alsoft.conf
+ports/sdvnextos/extractor.json
+ports/sdvnextos/gamedata/README.txt
+ports/sdvnextos/licenses/LZ4-BSD-2-Clause.txt
+ports/sdvnextos/licenses/NXExtract-MIT.txt
+ports/sdvnextos/nxextract-runtime-env.sh
+ports/sdvnextos/nxextract-ui
+ports/sdvnextos/nxextract.py
+ports/sdvnextos/run-extractor.sh
+ports/sdvnextos/run.sh
+ports/sdvnextos/stardewvalley
+ports/sdvnextos/stardewvalley.multi
+ports/sdvnextos/tools/liblz4.so.1
+ports/sdvnextos/tools/prepare_stardew_data.py
+ports/sdvnextos/version.txt
+ports_scripts/Stardew Valley (NextOS).sh

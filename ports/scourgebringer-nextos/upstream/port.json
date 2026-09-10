@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.17",
+    "runtime": [],
+    "title": "ScourgeBringer"
+  },
+  "items": [
+    "ScourgeBringer.sh",
+    "scourgebringer/"
+  ],
+  "items_opt": [],
+  "name": "scourgebringer.zip",
+  "version": 4
+}

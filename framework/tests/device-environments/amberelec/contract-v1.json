@@ -1,0 +1,80 @@
+{
+  "schema": "nxframework-device-environment-v1",
+  "schema_version": 1,
+  "id": "amberelec-rg351p-20230203",
+  "device": "RG351P",
+  "firmware": {
+    "name": "AmberELEC",
+    "version": "20230203",
+    "archive_name": "AmberELEC-RG351P-20230203.img.gz",
+    "archive_size": 870863044,
+    "archive_sha256": "64d9f430b96f9e54518025e0835593370e8707bd692062def400d6d15b41bb6e",
+    "image_name": "amberelec.img",
+    "image_size": 2198863872,
+    "image_sha256": "8ff9297e12c7666485ab582dfb6b347275e727fd69e30acb09955592c89fc2bf",
+    "family_note": "this environment proves AmberELEC only. P4ELEC and the other *ELEC forks share the FAT+SquashFS layout, but no P4ELEC image was read here and none of these facts are transferred to it",
+    "stored_in_repository": false,
+    "redistributed_by_framework": false
+  },
+  "scope": {
+    "covers": "OpenAL, ALSA/Pulse presence and the login environment a port inherits, on the AmberELEC image at hand",
+    "not_covered": "the framework's own audio shield already has a gate; no P4ELEC image was available locally, so nothing here is claimed about P4ELEC beyond the shared *ELEC layout"
+  },
+  "evidence": {
+    "source": "official-firmware-image",
+    "hardware_ran_during_pc_verification": false,
+    "device_access_during_pc_verification": false,
+    "result_scope": "host-side reading of what the firmware ships and declares; no audio device is opened"
+  },
+  "image_layout": {
+    "partition_table": "mbr",
+    "boot_offset": 16777216,
+    "filesystem": "fat",
+    "system_image": "/SYSTEM",
+    "system_image_format": "squashfs",
+    "read_method": "mcopy read-only at the partition offset, then unsquashfs of the declared paths; never mounted, never looped, never written"
+  },
+  "audio": {
+    "openal_library": "/usr/lib/libopenal.so.1",
+    "openal_configuration": "/etc/openal/alsoft.conf",
+    "forced_driver_setting": "drivers=alsa",
+    "alsa_library": "/usr/lib/libasound.so.2",
+    "pulse_library": "/usr/lib/libpulse.so.0",
+    "note": "the firmware's own OpenAL configuration forces a driver on every OpenAL that reads the system file, including one embedded in a port",
+    "openal_real_file": "/usr/lib/libopenal.so.1.20.1",
+    "alsa_real_file": "/usr/lib/libasound.so.2.0.0",
+    "pulse_real_file": "/usr/lib/libpulse.so.0.24.2"
+  },
+  "login_environment": {
+    "profile": "/etc/profile",
+    "fragments": [
+      "/etc/profile.d/99-pulseaudio.conf"
+    ],
+    "inherited_variable": "LD_LIBRARY_PATH",
+    "note": "a port inherits this environment; the framework consumes what it finds instead of rebuilding it",
+    "loader_pattern": "/etc/profile.d/*"
+  },
+  "framework_rule": {
+    "capability": "audio.embedded-openal",
+    "registry": "framework/nxcompat/capabilities-v1.json",
+    "rule": "the audio backend is pinned only when the port declares the capability, never by firmware or device name",
+    "forbidden_selectors": [
+      "CFW_NAME",
+      "DEVICE_NAME"
+    ],
+    "scan_scope": "every line of the generator and of the launcher template"
+  },
+  "seeds": [
+    "/etc/openal/alsoft.conf",
+    "/etc/profile",
+    "/etc/profile.d/99-pulseaudio.conf"
+  ],
+  "library_seeds": [
+    "/usr/lib/libopenal.so.1",
+    "/usr/lib/libopenal.so.1.20.1",
+    "/usr/lib/libasound.so.2",
+    "/usr/lib/libasound.so.2.0.0",
+    "/usr/lib/libpulse.so.0",
+    "/usr/lib/libpulse.so.0.24.2"
+  ]
+}

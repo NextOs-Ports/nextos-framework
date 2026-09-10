@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "id": "forager-nextos",
+  "version": "apk-1.0.13-armv7-store-r2-flex",
+  "title": "FORAGER",
+  "abi_order": [
+    "armeabi-v7a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.humblebundle.forager"
+    ],
+    "max_files": 32,
+    "max_bundle_apks": 32,
+    "max_member_bytes": 268435456,
+    "max_bundle_bytes": 536870912
+  },
+  "extract": [
+    {
+      "id": "owner-apk",
+      "source": {
+        "kind": "container"
+      },
+      "destination": "runtime/forager.port",
+      "validate": {
+        "type": "file",
+          "min_size": 100000000,
+          "max_size": 268435456,
+        "magic_hex": "504b0304"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "forager-store-archive",
+      "argv": [
+        "python3",
+        "{game_dir}/tools/build_forager_port.py",
+        "{stage}/runtime/forager.port",
+        "{stage}/runtime/forager.port"
+      ],
+      "cwd": "{game_dir}",
+      "checkpoint": [
+        {
+          "path": "runtime/forager.port",
+          "type": "file",
+          "size": 174614174,
+          "sha256": "fffd65030db5b3ec37474960f03c50575070c6519f22ffac74eeaef956e9645f",
+          "magic_hex": "504b0304"
+        }
+      ]
+    }
+  ],
+  "validate": [
+    {
+      "path": "runtime/forager.port",
+      "type": "file",
+      "size": 174614174,
+      "sha256": "fffd65030db5b3ec37474960f03c50575070c6519f22ffac74eeaef956e9645f",
+      "magic_hex": "504b0304"
+    }
+  ],
+  "commit": [
+    "runtime"
+  ],
+  "marker": ".nxextract-forager.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

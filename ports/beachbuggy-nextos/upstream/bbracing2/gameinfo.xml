@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameList>
+  <game>
+    <path>./Beach Buggy Racing 2.sh</path>
+    <name>Beach Buggy Racing 2</name>
+    <desc>Vector Unit's kart-style beach racing sequel, with more drivers, cars and tracks, running natively on handheld Linux. The port replaces the Android runtime with a native one, built from its own ELF loader, a JNI bridge, an AAsset bridge for the APF asset container, FMOD audio over bundled SDL3, and GLES2/EGL resolved at run time by measurement.</desc>
+    <developer>Vector Unit</developer>
+    <publisher>Vector Unit</publisher>
+    <genre>Racing</genre>
+    <players>1</players>
+  </game>
+</gameList>

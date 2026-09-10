@@ -1,0 +1,3 @@
+# SDL3 gamecontrollerdb for NextOS test controllers.
+# Twin USB PS2 Adapter (vid 0810, pid 0001) — legacy BTN_JOYSTICK codes.
+03000000811000000100000011010000,Twin USB Joystick,a:b2,b:b1,back:b8,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,leftshoulder:b4,leftstick:b10,lefttrigger:b6,leftx:a0,lefty:a1,rightshoulder:b5,rightstick:b11,righttrigger:b7,rightx:a2,righty:a3,start:b9,x:b3,y:b0,platform:Linux,

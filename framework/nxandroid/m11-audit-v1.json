@@ -1,0 +1,1278 @@
+{
+  "schema": "nxandroid-m11-master-audit-v1",
+  "schema_version": 1,
+  "milestone": "M11",
+  "scope": "explicit-import-policy-loader-lifecycle-boundary-and-adapter-owned-android-order",
+  "closure": {
+    "requirements_accounted": 20,
+    "completed_requirement_count": 20,
+    "deferred_requirement_count": 0,
+    "master_milestone_complete": true,
+    "scoped_core_gate_closed": true,
+    "deferred_requirement_ids": [],
+    "deferred_completion_dependencies": [],
+    "approved_adapter_runtime_acceptance_validated": true,
+    "universal_adapter_runtime_validated": false,
+    "physical_device_evidence": false,
+    "real_android_runtime_trace_count": 0,
+    "approved_profile_count": 5,
+    "core_executable_profile_count": 1,
+    "incomplete_profile_count": 4,
+    "delegated_profile": "kotor"
+  },
+  "execution_claims": {
+    "host_mock_contexts_completed": 2000,
+    "test_owned_synthetic_elf_loaded": true,
+    "synthetic_elf_initializers_executed": true,
+    "synthetic_elf_jni_onload_executed": true,
+    "external_guest_elf_loaded_in_m11_lifecycle_runs": false,
+    "external_guest_code_executed": false,
+    "external_guest_initializers_executed": false,
+    "external_guest_jni_onload_executed": false,
+    "external_guest_lifecycle_executed": false,
+    "prior_m10_external_guest_elfs_loaded_and_relocated": 5,
+    "prior_m10_guest_initializers_executed": false,
+    "prior_m10_guest_jni_onload_executed": false,
+    "imported_m16_approved_adapter_acceptance": true,
+    "m16_manual_gameplay_revalidation_claimed": false,
+    "signal_execution": "canonical_isolated_suite_only",
+    "device_access": false,
+    "network_access": false,
+    "hardware_ran": false
+  },
+  "subgates": [
+    {
+      "id": "nxloader-lifecycle-boundary",
+      "ledger_path": "framework/nxloader/m11-audit-v1.json",
+      "validator_path": "framework/nxloader/tests/test_m11_audit.py",
+      "requirement_namespace": "M11-NXL-001..010",
+      "claim": "Loader initializer/JNI boundary and reentrancy only; it is not an Android adapter lifecycle claim."
+    },
+    {
+      "id": "nxandroid-adapter-profiles",
+      "ledger_path": "framework/nxandroid/references/m11-adapter-profiles-v1.json",
+      "validator_path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+      "requirement_namespace": "profile-source-projections",
+      "claim": "Five static source projections; only two KOTOR delegated variants are structurally core-executable."
+    },
+    {
+      "id": "nxandroid-host-contract",
+      "ledger_path": null,
+      "validator_path": "framework/nxandroid/tests/run-host.sh",
+      "requirement_namespace": "host-mock-contract",
+      "claim": "GCC and Clang host mocks only; no guest or signal execution."
+    },
+    {
+      "id": "nxandroid-isolated-signal",
+      "ledger_path": null,
+      "validator_path": "framework/nxandroid/tests/run-signal-isolated.sh",
+      "requirement_namespace": "sealed-signal-contract",
+      "claim": "External-signal fixture runs only through the canonical sealed isolated suite."
+    },
+    {
+      "id": "nxandroid-m16-adapter-acceptance",
+      "ledger_path": "framework/nxandroid/references/m16-adapter-contract-v1.json",
+      "validator_path": "framework/nxandroid/tests/test_m16_adapter_contract.py",
+      "requirement_namespace": "M16-001..020",
+      "claim": "Five approved adapter contracts plus the pinned M16 runtime receipt close the adapter-owned VM, persistence, shutdown and terminal boundaries without turning them into universal defaults."
+    }
+  ],
+  "run_receipts": {
+    "normative": false,
+    "note": "Run identifiers are provenance receipts only; repository source pins and deterministic gates are normative.",
+    "runs": [
+      {
+        "run_id": "20260808T231556Z-pid3104405-1674215057",
+        "scope": "static-guest-inventory",
+        "command_status": 0,
+        "provenance_status": "superseded-by-canonical-isolated-suite"
+      },
+      {
+        "run_id": "20260809T002044Z-pid3150402-1675924064",
+        "scope": "nxloader-m11-subgate",
+        "command_status": 0,
+        "provenance_status": "supplemental"
+      },
+      {
+        "run_id": "20260808T232501Z-pid3112286-292035842",
+        "scope": "nxloader-m11-host",
+        "command_status": 0,
+        "provenance_status": "supplemental"
+      },
+      {
+        "run_id": "20260808T234213Z-pid3123204-1401625209",
+        "scope": "synthetic-armv7-lifecycle-cross",
+        "command_status": 0,
+        "provenance_status": "supplemental"
+      },
+      {
+        "run_id": "20260808T234221Z-pid3123503-1169823495",
+        "scope": "synthetic-aarch64-lifecycle-cross",
+        "command_status": 0,
+        "provenance_status": "supplemental"
+      },
+      {
+        "run_id": "20260808T235649Z-pid3130566-2202031222",
+        "scope": "sealed-external-signal",
+        "command_status": 0,
+        "provenance_status": "supplemental"
+      },
+      {
+        "run_id": "20260809T003509Z-pid3159068-3011016329",
+        "scope": "nxandroid-host",
+        "command_status": 0,
+        "provenance_status": "supplemental"
+      },
+      {
+        "run_id": "20260809T003449Z-pid3158754-1587931310",
+        "scope": "nxandroid-adapter-profile-subgate",
+        "command_status": 0,
+        "provenance_status": "supplemental"
+      }
+    ]
+  },
+  "evidence_pins": [
+    {
+      "path": "framework/nxandroid/CMakeLists.txt",
+      "sha256": "af80d25e3fc124c5404c5fe777c347d7bb25aece954c8999677fc59cf61512d8",
+      "role": "build-contract"
+    },
+    {
+      "path": "framework/nxandroid/VERSION",
+      "sha256": "a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8",
+      "role": "version"
+    },
+    {
+      "path": "framework/nxandroid/README.md",
+      "sha256": "7704d1d73e7ff70820f8cf2b289044c8669a1bd6e17b042d42e330c93e05886d",
+      "role": "public-documentation"
+    },
+    {
+      "path": "framework/nxandroid/CONTRACT.md",
+      "sha256": "af3725636bcb33fdb3397bb6734da9709ddb008d2d455b84f158c58b4f348667",
+      "role": "adapter-primitives-contract"
+    },
+    {
+      "path": "framework/nxandroid/CHANGELOG.md",
+      "sha256": "39f3de83ae88b8f150039f36ba9b9b6cc4fbf38f6888aa8ad5c71caa45bae7dd",
+      "role": "component-changelog"
+    },
+    {
+      "path": "framework/nxandroid/REGRESSION-MATRIX.md",
+      "sha256": "c12cc2b16fc150c15ed51607da6c68b5681e568025e41f69760e2dfa0c796c4c",
+      "role": "regression-matrix"
+    },
+    {
+      "path": "framework/nxandroid/include/nxandroid.h",
+      "sha256": "62d16338c33240909f8af096038cde8d6477f29aa332ddb718367fd5e5461865",
+      "role": "public-contract"
+    },
+    {
+      "path": "framework/nxandroid/include/nxandroid_jni_adapter.h",
+      "sha256": "1f3c59c05001c4bb199ca15e9f352b15743f7ad65ccb4c76ca996f759524485c",
+      "role": "adapter-primitives-public-contract"
+    },
+    {
+      "path": "framework/nxandroid/src/nxandroid.c",
+      "sha256": "738dba82bda470b9cbf3feebbb3301acb194998da6ec531b13e5368164a5bfad",
+      "role": "lifecycle-core"
+    },
+    {
+      "path": "framework/nxandroid/src/nxandroid_imports.c",
+      "sha256": "3561e86d7c70d9e88601c156c813ef9f2035e85f40ed63e2b8b5e018427797f6",
+      "role": "import-policy"
+    },
+    {
+      "path": "framework/nxandroid/src/nxandroid_jni_adapter.c",
+      "sha256": "dfb1501c509fdfa2bce46a2cea5c2aea05de436d6d1131cb7356711afa15b7b4",
+      "role": "adapter-primitives-implementation"
+    },
+    {
+      "path": "framework/nxandroid/tests/test_nxandroid.c",
+      "sha256": "74059daa09c72805cec0e04591172eeb0b5d12ca8a755619d5d8f07e370930d8",
+      "role": "host-contract-tests"
+    },
+    {
+      "path": "framework/nxandroid/tests/run-host.sh",
+      "sha256": "88a4f03a75130c539f02cbdd5d275efd3bbfa0e4410c588662f832c711e6667b",
+      "role": "host-gate"
+    },
+    {
+      "path": "framework/nxandroid/tests/test_signal.c",
+      "sha256": "e7cb6ca1bd9988425d6f2838b2eb27996da3c6fce06dcdf3e10d747454f654aa",
+      "role": "signal-fixture"
+    },
+    {
+      "path": "framework/nxandroid/tests/run-signal-isolated.sh",
+      "sha256": "99bb3abd5509fa3db9b2e482af4ebd0f5b2ae0aa9732a4c9724d770927db9b1d",
+      "role": "signal-gate"
+    },
+    {
+      "path": "framework/nxbootstrap/tests/isolated-suite.sh",
+      "sha256": "73ffdd8f5d1e6afc68fc49e6ce594d80b10006c71f9d944163a0d2be29dd86d7",
+      "role": "canonical-isolated-suite"
+    },
+    {
+      "path": "framework/nxandroid/references/m11-android-guests-v1.json",
+      "sha256": "fa9bc25b10a867a41f3e85efb8b225b120f265bc9bcddafec5aa0b3bfbdecc12",
+      "role": "static-guest-inventory"
+    },
+    {
+      "path": "framework/nxandroid/references/REFERENCE-AUDIT.md",
+      "sha256": "8d22c20ac1f441d2c9ace95c10d652853857a893966649c5dbaf195bf1d3aa13",
+      "role": "reference-audit"
+    },
+    {
+      "path": "framework/nxandroid/tools/inventory_m11_guests.py",
+      "sha256": "d158855a7214bc4f1b8fdded09b21ce9fa6cc04b457360fb2f7b8dfec8098acb",
+      "role": "inventory-validator"
+    },
+    {
+      "path": "framework/nxandroid/references/m11-adapter-profiles-v1.json",
+      "sha256": "75c488de46806ee8fba3df3c300b03f65aee3fd2638b86c08e4523853b1a2c23",
+      "role": "adapter-profiles"
+    },
+    {
+      "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+      "sha256": "4cc92358038c12b0926dfba635e4a7c5b92ab3544e1763e039a95538cf48bced",
+      "role": "adapter-profile-gate"
+    },
+    {
+      "path": "framework/nxandroid/references/m16-adapter-contract-v1.json",
+      "sha256": "a0320cfce0f6337ebedb49f7109dfefb04d5737cc730b2b6d9614cdb3754673e",
+      "role": "adapter-acceptance-contract"
+    },
+    {
+      "path": "framework/nxandroid/references/m16-runtime-receipt-v1.json",
+      "sha256": "dabcf5bd62385b85635ac1e93b60df7e04902414268bc3e90dd24abc9ce640fe",
+      "role": "adapter-runtime-acceptance"
+    },
+    {
+      "path": "framework/nxandroid/tests/test_m16_adapter_contract.py",
+      "sha256": "74dcf0aa6d5f6e9711c867aae925004fa925c50db68ce08ef0171212fc2958ba",
+      "role": "adapter-acceptance-gate"
+    },
+    {
+      "path": "framework/nxloader/include/nxloader.h",
+      "sha256": "550506a3fc9ba3dad62d9377664eda6b0581c64cfa1e790df47ce6202a6351ec",
+      "role": "loader-public-contract"
+    },
+    {
+      "path": "framework/nxloader/VERSION",
+      "sha256": "9d8c94f1ad3ea96b1e2ac4914fda4cb93c76b4a3e0d8cc6dd8976d6c0b227d15",
+      "role": "loader-version"
+    },
+    {
+      "path": "framework/nxloader/src/nxloader.c",
+      "sha256": "290f34633158799c31044fbe076c78597431966c472e3ecd55b566d658adf4ae",
+      "role": "loader-lifecycle"
+    },
+    {
+      "path": "framework/nxandroid/references/jni-adapter-primitives-v1.json",
+      "sha256": "26b204a58c2b002fb51ff577509cce296b54adb9f1f1b4cd6baac4ff88f6c0e7",
+      "role": "adapter-primitives-evidence"
+    },
+    {
+      "path": "framework/nxandroid/tests/test_020_adapter_contract.py",
+      "sha256": "2358be383bd0179eee1e3fd0cf79fee2129616fae33a9b15abf98dbbe2d65689",
+      "role": "adapter-primitives-gate"
+    },
+    {
+      "path": "framework/nxloader/src/nxloader_elf32.c",
+      "sha256": "ed685859200c6a404d9c3b97da876e46f715a47dce77678ebd60984c38929f7f",
+      "role": "loader-armv7-initializers"
+    },
+    {
+      "path": "framework/nxloader/src/nxloader_elf64.c",
+      "sha256": "9e840e9079de36c8f995cca1797bd81ff0dfbdf0ebabac5c250c84e4891ccef1",
+      "role": "loader-aarch64-initializers"
+    },
+    {
+      "path": "framework/nxloader/tests/test_m11_lifecycle_cross.c",
+      "sha256": "341d6011359257072d4f1a763e49fb8a7bf888fc0e244a51e86bb39825747d7e",
+      "role": "synthetic-lifecycle-fixture"
+    },
+    {
+      "path": "framework/nxloader/tests/run-m11-armv7-lifecycle-cross.sh",
+      "sha256": "c954079b9aa5bfd3e28662263e2343088e2e0f1bbf318169d8c2e50ad7329be7",
+      "role": "synthetic-armv7-gate"
+    },
+    {
+      "path": "framework/nxloader/tests/run-m11-aarch64-lifecycle-cross.sh",
+      "sha256": "163e033b18ac03e9b389929c6cd95e3e7e3b7c8b41d66b75ee8528cc60eba1ed",
+      "role": "synthetic-aarch64-gate"
+    },
+    {
+      "path": "framework/nxloader/m11-audit-v1.json",
+      "sha256": "d451a171e6946ca20fe60ba1800a848e33010873d98872668097d7f553215e34",
+      "role": "loader-subledger"
+    },
+    {
+      "path": "framework/nxloader/tests/test_m11_audit.py",
+      "sha256": "0ac2d2ce29df583428e90d5ef8fbb43640dbb251853c5c5ee4de6a6674bd7b63",
+      "role": "loader-subgate"
+    },
+    {
+      "path": "framework/nxloader/tests/m10-aarch64-guests-evidence-v1.json",
+      "sha256": "310e0d9153720d132be6a7e72421709cc12163e93f98d697abc8efb96f694cc4",
+      "role": "prior-m10-guest-relocation-evidence"
+    },
+    {
+      "path": "framework/contracts/declarative-v1.json",
+      "sha256": "586ad707fe32b3e5aa75e5def26c2f61cc71f3c35307aee0bace2bd575ea661f",
+      "role": "framework-contract"
+    },
+    {
+      "path": "framework/tests/test-matrix-v1.json",
+      "sha256": "b1addf7f618fb30387e763d14c108f92c0713df4a2955a6d3b7b4faed7e9e649",
+      "role": "automatic-gate-matrix"
+    },
+    {
+      "path": "framework/tests/run-safe-gates.sh",
+      "sha256": "db9d5d6b046a07eff4b60e4b8c7a34d792b8ad5a383a85bd446a374b093d6078",
+      "role": "canonical-safe-runner"
+    },
+    {
+      "path": "framework/tests/test_infrastructure.py",
+      "sha256": "bc582e5f74da48f50cbd36438dede8cff7d3234b214c40c355983ace1349ea6e",
+      "role": "infrastructure-policy-gate"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "M11-001",
+      "requirement": "registrar imports Bionic/JNI explicitamente",
+      "disposition": "verified",
+      "claim": "The catalog keys every import by name, Bionic ABI, domain, symbol kind, criticality and contract ID; inventory categories are not fallback allowlists.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/include/nxandroid.h",
+          "tokens": [
+            "typedef enum nxandroid_import_domain {",
+            "NXANDROID_IMPORT_BIONIC = 1",
+            "NXANDROID_IMPORT_JNI",
+            "NXANDROID_IMPORT_NDK"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/src/nxandroid_imports.c",
+          "tokens": [
+            "nxandroid_result nxandroid_imports_resolve(",
+            "nxandroid_compare_request_entry"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m11-android-guests-v1.json",
+          "tokens": [
+            "\"classifier\": {",
+            "\"default_resolution\":"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "static int test_import_policy_success(void)",
+            "NXANDROID_IMPORT_BIONIC",
+            "NXANDROID_IMPORT_JNI",
+            "NXANDROID_IMPORT_NDK"
+          ]
+        }
+      ],
+      "limitations": [
+        "The static inventory classifies names but does not itself provide ABI implementations."
+      ]
+    },
+    {
+      "id": "M11-002",
+      "requirement": "implementar stubs somente quando contrato é conhecido",
+      "disposition": "verified",
+      "claim": "A stub requires an explicit provider kind, bounded non-empty semantics, exact contract ID and request opt-in.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/include/nxandroid.h",
+          "tokens": [
+            "NXANDROID_PROVIDER_STUB",
+            "Mandatory and non-empty for a STUB",
+            "A matching explicit stub is rejected unless this is non-zero."
+          ]
+        },
+        {
+          "path": "framework/nxandroid/src/nxandroid_imports.c",
+          "tokens": [
+            "if (entry->provider_kind == NXANDROID_PROVIDER_STUB)",
+            "!request->allow_stub"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "returns NULL; leaves errno unchanged; no side effects",
+            "test_catalog_validation"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M11-003",
+      "requirement": "rejeitar import crítico desconhecido",
+      "disposition": "verified",
+      "claim": "Unknown critical imports fail even when ELF binding is weak; the only zero binding is explicitly optional and weak.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid_imports.c",
+          "tokens": [
+            "request->criticality == NXANDROID_IMPORT_CRITICAL",
+            "The only fail-open case is explicitly non-critical and weak."
+          ]
+        },
+        {
+          "path": "framework/nxandroid/include/nxandroid.h",
+          "tokens": [
+            "Unknown critical weak",
+            "fail exactly like critical strong imports"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "static int test_import_policy_fail_closed(void)",
+            "bionic-critical-missing-v1",
+            "NXANDROID_EUNRESOLVED"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M11-004",
+      "requirement": "executar DT_INIT antes de init_array na ordem ELF",
+      "disposition": "verified_synthetic_only",
+      "claim": "The loader preflights and executes DT_INIT before ordered init_array entries; ARMv7 and AArch64 cross fixtures execute only test-owned synthetic ELFs.",
+      "implementation": [
+        {
+          "path": "framework/nxloader/src/nxloader_elf32.c",
+          "tokens": [
+            "nxloader_initializer_plan32",
+            "if (module->dynamic.init_vma)",
+            "module->state = NXLOADER_STATE_INITIALIZING"
+          ]
+        },
+        {
+          "path": "framework/nxloader/src/nxloader_elf64.c",
+          "tokens": [
+            "nxloader_initializer_plan64",
+            "if (module->dynamic.init_vma)",
+            "module->state = NXLOADER_STATE_INITIALIZING"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxloader/tests/test_m11_lifecycle_cross.c",
+          "tokens": [
+            "state->dt_init_order == 1",
+            "state->init_array1_order == 2",
+            "state->init_array2_order == 3"
+          ]
+        },
+        {
+          "path": "framework/nxloader/tests/run-m11-armv7-lifecycle-cross.sh",
+          "tokens": [
+            "dt_init_order=1 init_array1_order=2 init_array2_order=3",
+            "test_owned_guest=2 external_guest=0"
+          ]
+        },
+        {
+          "path": "framework/nxloader/tests/run-m11-aarch64-lifecycle-cross.sh",
+          "tokens": [
+            "dt_init_order=1 init_array1_order=2 init_array2_order=3",
+            "test_owned_guest=2 external_guest=0"
+          ]
+        }
+      ],
+      "limitations": [
+        "No initializer from an external Android guest ELF was executed."
+      ]
+    },
+    {
+      "id": "M11-005",
+      "requirement": "chamar JNI_OnLoad no ponto nativo correto",
+      "disposition": "verified_synthetic_only",
+      "claim": "The loader permits literal JNI_OnLoad only after INITIALIZED and transitions to READY after an accepted return; cross fixtures prove ordering with test-owned code.",
+      "implementation": [
+        {
+          "path": "framework/nxloader/src/nxloader.c",
+          "tokens": [
+            "nxloader_result nxloader_module_call_jni_onload(",
+            "module->state != NXLOADER_STATE_INITIALIZED",
+            "function(options->java_vm, NULL)"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "case NXANDROID_PHASE_MODULE_JNI:",
+            "case NXANDROID_PHASE_ACTIVITY_CREATE:",
+            "!nxandroid_all_modules_ready(profile, state)"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxloader/tests/test_m11_lifecycle_cross.c",
+          "tokens": [
+            "state->jni_order == 4",
+            "jni_exactly_once"
+          ]
+        },
+        {
+          "path": "framework/nxloader/tests/run-m11-aarch64-lifecycle-cross.sh",
+          "tokens": [
+            "jni_order=4",
+            "external_guest=0"
+          ]
+        }
+      ],
+      "limitations": [
+        "JNI_OnLoad execution evidence is synthetic; external guest JNI_OnLoad remained zero."
+      ]
+    },
+    {
+      "id": "M11-006",
+      "requirement": "construir VM/env/Activity compatíveis por adapter",
+      "disposition": "verified_adapter_acceptance",
+      "claim": "nxandroid deliberately owns no generic VM, env or Activity object; M16 pins adapter-owned JNI/Activity implementations and approved acceptance for all five reference adapters.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/references/m11-adapter-profiles-v1.json",
+          "tokens": [
+            "\"core_owns\": {",
+            "\"java_vm\": false",
+            "\"owner\": \"adapter\""
+          ]
+        },
+        {
+          "path": "framework/nxandroid/include/nxandroid.h",
+          "tokens": [
+            "the core contains no JavaVM, JNIEnv, Activity, Surface, GL or input object",
+            "nxandroid_ops"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m16-adapter-contract-v1.json",
+          "tokens": [
+            "\"approved_adapters\": [",
+            "\"jni_imports\": {",
+            "\"status\": \"adapter_owned\""
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m16-runtime-receipt-v1.json",
+          "tokens": [
+            "\"approval_basis\": \"finalized_approved_ports\"",
+            "\"acceptance\": \"accepted_reference\""
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "core object ownership overclaim",
+            "VM/JNIEnv boundary must be explicit",
+            "Sonic Activity gap was hidden"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m16_adapter_contract.py",
+          "tokens": [
+            "for boundary in (\"lifecycle\", \"jni_imports\", \"input\", \"audio\", \"persistence\"):",
+            "adapter[\"approved_status\"] == \"approved-reference\""
+          ]
+        }
+      ],
+      "limitations": [
+        "Compatibility remains adapter-owned and version-specific; no generic JavaVM/JNIEnv/Activity implementation or new real-Android trace is claimed by the universal core."
+      ]
+    },
+    {
+      "id": "M11-007",
+      "requirement": "reproduzir criação de Surface/window na ordem comprovada",
+      "disposition": "verified_static_only",
+      "claim": "The core accepts adapter-declared GL-before-Surface and Surface-before-GL orders only after GRAPHICS_REQUEST; Sonic's source-proven opt-in additionally freezes GL, ENTRY and OBJECTS before its Surface callback.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "case NXANDROID_PHASE_GRAPHICS_REQUEST:",
+            "case NXANDROID_PHASE_SURFACE_UP:",
+            "case NXANDROID_PHASE_GL_READY:"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m11-adapter-profiles-v1.json",
+          "tokens": [
+            "\"relation\": \"gl_ready_before_surface_up\"",
+            "\"relation\": \"gl_ready_after_surface_up\"",
+            "NXANDROID_PROFILE_ALLOW_ENTRY_BEFORE_SURFACE_CALLBACK"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "Approved Bully-like trace",
+            "opposite Unity-like ordering",
+            "test_sonic_entry_before_surface_callback"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "EXPECTED_GRAPHICS_RELATION",
+            "source-proven graphics relation missing"
+          ]
+        }
+      ],
+      "limitations": [
+        "Relations are source-derived; no Android runtime Surface trace was captured."
+      ]
+    },
+    {
+      "id": "M11-008",
+      "requirement": "reproduzir resume/focus sem pular callbacks",
+      "disposition": "verified_static_only",
+      "claim": "Resume/pause and focus gain/loss are independent adapter-declared epoch pairs with matching cycle IDs; focus is not fabricated for adapters lacking it.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "state->resumed_cycle = step->cycle_id",
+            "step->cycle_id != state->focused_cycle",
+            "step->cycle_id != state->resumed_cycle"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "Resume/focus epochs are adapter-ordered",
+            "static int test_surface_resume_cycles(void)",
+            "CHECK(resumes == 3u)"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "gap was not classified as proven_limitation/not_available"
+          ]
+        }
+      ],
+      "limitations": [
+        "Incomplete adapter profiles keep missing focus/pause boundaries unavailable instead of synthesizing them."
+      ]
+    },
+    {
+      "id": "M11-009",
+      "requirement": "não forçar GL antes da engine pedir contexto",
+      "disposition": "verified",
+      "claim": "GL_READY is rejected unless the adapter has an active or pending generation created by GRAPHICS_REQUEST.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "case NXANDROID_PHASE_GL_READY:",
+            "(!state->surface && !state->graphics_pending)",
+            "step->cycle_id != state->pending_cycle"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "steps[4].phase = NXANDROID_PHASE_GL_READY",
+            "CHECK(expect_bad_profile(steps, 4u, 0u) == 0)",
+            "GRAPHICS_REQUEST remains the mandatory boundary"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M11-010",
+      "requirement": "não chamar entry point fora de ordem",
+      "disposition": "verified",
+      "claim": "Driven ENTRY is Surface-first by default; Sonic's consumed source-proven flag permits same-cycle pending GL then ENTRY and OBJECTS before Surface, while KOTOR remains final synchronous RUNTIME_DELEGATED.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "case NXANDROID_PHASE_ENTRY:",
+            "NXANDROID_PROFILE_ALLOW_ENTRY_BEFORE_SURFACE_CALLBACK",
+            "!state->graphics_pending || !state->gl_ready",
+            "case NXANDROID_PHASE_RUNTIME_DELEGATED:"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/include/nxandroid.h",
+          "tokens": [
+            "NXANDROID_PROFILE_ALLOW_ENTRY_BEFORE_SURFACE_CALLBACK",
+            "INPUT_ENABLE and RUN_LOOP still require an active Surface"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m11-adapter-profiles-v1.json",
+          "tokens": [
+            "\"id\": \"kotor\"",
+            "\"NXANDROID_PROFILE_ALLOW_DELEGATED_RUNTIME\"",
+            "\"phase\": \"NXANDROID_PHASE_RUNTIME_DELEGATED\""
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "static int test_sonic_entry_before_surface_callback(void)",
+            "expect_bad_sonic_profile",
+            "static int test_delegated_runtime(void)",
+            "kotor-obb-sdl-main-delegated-runtime-v1"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "KOTOR delegated owner is not final",
+            "expected exactly two KOTOR module variants"
+          ]
+        }
+      ],
+      "limitations": [
+        "The core intentionally does not claim visibility into KOTOR lifecycle phases bundled inside SDL_main."
+      ]
+    },
+    {
+      "id": "M11-011",
+      "requirement": "encaminhar input somente depois de objetos prontos",
+      "disposition": "verified",
+      "claim": "INPUT_ENABLE requires the active Surface and OBJECTS_READY; SAVE rejects active input.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "case NXANDROID_PHASE_INPUT_ENABLE:",
+            "!state->objects_ready",
+            "state->input || !state->shutdown_armed"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "steps[11].phase = NXANDROID_PHASE_INPUT_ENABLE",
+            "NXANDROID_PHASE_OBJECTS_READY",
+            "NXANDROID_PHASE_INPUT_DISABLE"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M11-012",
+      "requirement": "reproduzir pause antes de save/shutdown",
+      "disposition": "verified",
+      "claim": "PAUSE closes the matching resume epoch and arms shutdown; SAVE requires that state before native shutdown or terminal.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "case NXANDROID_PHASE_PAUSE:",
+            "state->shutdown_armed = 1",
+            "case NXANDROID_PHASE_SAVE:",
+            "!state->shutdown_armed"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_signal.c",
+          "tokens": [
+            "NXANDROID_PHASE_FOCUS_LOSS",
+            "NXANDROID_PHASE_PAUSE",
+            "NXANDROID_PHASE_SAVE",
+            "NXANDROID_PHASE_NATIVE_SHUTDOWN"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "static int test_normal(void)",
+            "NXANDROID_PHASE_PAUSE",
+            "NXANDROID_PHASE_SAVE"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M11-013",
+      "requirement": "persistir save/config pelo caminho da engine",
+      "disposition": "verified_adapter_acceptance",
+      "claim": "SAVE remains an adapter callback with a declared contract ID, while M16 pins the five engine-specific persistence contracts and their approved native save/load acceptance.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/include/nxandroid.h",
+          "tokens": [
+            "NXANDROID_PHASE_SAVE",
+            "nxandroid_invoke_callback invoke;"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "case NXANDROID_PHASE_SAVE:",
+            "state->saved = 1"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m11-adapter-profiles-v1.json",
+          "tokens": [
+            "\"phase\": \"NXANDROID_PHASE_SAVE\"",
+            "\"core_executable\": false"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m16-adapter-contract-v1.json",
+          "tokens": [
+            "\"persistence\": {",
+            "\"status\": \"approved_reference_acceptance\"",
+            "\"status\": \"approved_reference_acceptance_plus_runtime_roundtrip\""
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m16-runtime-receipt-v1.json",
+          "tokens": [
+            "approved_native_save_load_acceptance_not_replayed",
+            "approved_native_save_load_plus_save_write_reload_resume_roundtrip_observed"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "step-17",
+            "test_failure_each_phase"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m16_adapter_contract.py",
+          "tokens": [
+            "closed_with_prior_save_load_acceptance_and_native_",
+            "validate_runtime_receipt(load_json(runtime_path))"
+          ]
+        }
+      ],
+      "limitations": [
+        "Persistence schemas, paths and flush callbacks remain engine-specific; approved prior acceptance is imported explicitly and is not presented as a new M11 gameplay replay."
+      ]
+    },
+    {
+      "id": "M11-014",
+      "requirement": "executar shutdown nativo comprovado",
+      "disposition": "verified_adapter_acceptance",
+      "claim": "RETURN requires explicit NATIVE_SHUTDOWN after Surface teardown; M16 supplies approved adapter-owned shutdown acceptance while the core still never synthesizes guest destructors.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "case NXANDROID_PHASE_NATIVE_SHUTDOWN:",
+            "state->surface || state->graphics_pending || state->gl_ready",
+            "NXANDROID_TERMINAL_RETURN"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m16-runtime-receipt-v1.json",
+          "tokens": [
+            "closed_with_prior_save_load_acceptance_and_native_shutdown_evidence",
+            "native_sdl_main_return_observed",
+            "native_pause_input_options_video_shutdown_observed"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "terminal-return-without-shutdown-invalid-v1",
+            "NXANDROID_PHASE_NATIVE_SHUTDOWN"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "incomplete terminal was promoted",
+            "real close gaps are not explicit"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m16_adapter_contract.py",
+          "tokens": [
+            "m16_014",
+            "closed_with_prior_save_load_acceptance_and_native_"
+          ]
+        }
+      ],
+      "limitations": [
+        "The four original M11 source projections remain intentionally incomplete as executable generic profiles; shutdown completion comes from the separate approved adapter contracts and receipts in M16."
+      ]
+    },
+    {
+      "id": "M11-015",
+      "requirement": "usar saída terminal estreita só quando destruidores guest são inseguros e provado",
+      "disposition": "verified_adapter_acceptance",
+      "claim": "The core requires a narrow opt-in plus contract ID and never exits the process; M16 pins the approved per-engine terminal decisions, including clean delegated return where hard termination is not justified.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/include/nxandroid.h",
+          "tokens": [
+            "NXANDROID_PROFILE_ALLOW_ADAPTER_TERMINAL",
+            "NXANDROID_PROFILE_ALLOW_DELEGATED_RUNTIME",
+            "NXANDROID_TERMINAL_ADAPTER"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "profile->flags & NXANDROID_PROFILE_ALLOW_ADAPTER_TERMINAL",
+            "profile->flags & NXANDROID_PROFILE_ALLOW_DELEGATED_RUNTIME"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m16-adapter-contract-v1.json",
+          "tokens": [
+            "adapter-owned _exit after detached guest workers",
+            "adapter-owned hard exit after pause/save/audio join",
+            "SDL_main return owned by adapter"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m16-runtime-receipt-v1.json",
+          "tokens": [
+            "approved_port_owned_select_start_terminal",
+            "select_start_adapter_boundary_and_clean_return_observed"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "static int test_terminal_opt_in(void)",
+            "terminal-proven-unsafe-destructors-v1",
+            "static int test_delegated_runtime(void)"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "KOTOR must end in delegated runtime, not TERMINAL",
+            "incomplete terminal was promoted"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m16_adapter_contract.py",
+          "tokens": [
+            "adapter-specific lifecycle, persistence and ",
+            "adapter[\"acceptance\"] == \"accepted_reference\""
+          ]
+        }
+      ],
+      "limitations": [
+        "Terminal behavior remains exact-version adapter data: unsafe process-lifetime teardown is never generalized, and KOTOR retains a delegated clean-return boundary instead of a fabricated hard-exit rule."
+      ]
+    },
+    {
+      "id": "M11-016",
+      "requirement": "testar lifecycle normal, erro inicial e sinal externo",
+      "disposition": "verified_synthetic_only",
+      "claim": "Host mocks cover normal and every callback failure; the external SIGTERM fixture covers active forward shutdown and early rollback only inside the sealed canonical suite.",
+      "implementation": [
+        {
+          "path": "framework/nxbootstrap/tests/isolated-suite.sh",
+          "tokens": [
+            "NXANDROID_SIGNAL_WORK_ROOT=$(mktemp -d",
+            "run-signal-isolated.sh\" --inside-suite"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/CMakeLists.txt",
+          "tokens": [
+            "never registered in CTest",
+            "add_executable(nxandroid_signal_test tests/test_signal.c)"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "static int test_normal(void)",
+            "static int test_failure_each_phase(void)"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_signal.c",
+          "tokens": [
+            "SIGNAL_CASE_ACTIVE",
+            "SIGNAL_CASE_EARLY",
+            "pidfd_send_exact(target.pidfd, SIGTERM)"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/run-signal-isolated.sh",
+          "tokens": [
+            "nxbootstrap_require_private_pid_namespace",
+            "host_fallback=0",
+            "signal_authority=pidfd"
+          ]
+        }
+      ],
+      "limitations": [
+        "The signal fixture uses host-owned mocks; no external Android guest lifecycle is started."
+      ]
+    },
+    {
+      "id": "M11-017",
+      "requirement": "bloquear reentrância de callbacks e testar múltiplas entradas/saídas sem estado estático vazando",
+      "disposition": "verified",
+      "claim": "Same-context callback reentry is sticky and fail-closed; independent contexts and 1,000 cycles per compiler prove context-local state.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/src/nxandroid.c",
+          "tokens": [
+            "int callback_violation;",
+            "context->callback_violation = 1",
+            "return NXANDROID_EREENTRANT"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_nxandroid.c",
+          "tokens": [
+            "static int test_reentrancy(void)",
+            "static int test_thousand_contexts(void)",
+            "static int test_independent_contexts(void)"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/run-host.sh",
+          "tokens": [
+            "run_compiler_gate gcc gcc",
+            "run_compiler_gate clang clang",
+            "contexts_completed=2000"
+          ]
+        }
+      ],
+      "limitations": [
+        "The context contract is single-driver-thread; it does not claim general concurrent thread safety."
+      ]
+    },
+    {
+      "id": "M11-018",
+      "requirement": "documentar sequência por engine",
+      "disposition": "verified_static_only",
+      "claim": "Hash-pinned profiles record source-proven phase projections, gaps, object ownership and terminal policy for five approved adapter families.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/references/m11-adapter-profiles-v1.json",
+          "tokens": [
+            "\"profiles\": [",
+            "\"proven_phase_projection\": [",
+            "\"gaps\": ["
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/REFERENCE-AUDIT.md",
+          "tokens": [
+            "Bully2",
+            "Sonic 4",
+            "Horizon Chase",
+            "KOTOR",
+            "TASM2"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/README.md",
+          "tokens": [
+            "NXANDROID_PROFILE_ALLOW_ENTRY_BEFORE_SURFACE_CALLBACK",
+            "RUNTIME_DELEGATED",
+            "Callback code and `ops.userdata` are borrowed",
+            "required destruction order is consumers first, catalog"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "EXPECTED_PROFILE_IDS",
+            "profile identity/order changed",
+            "negative_tests"
+          ]
+        }
+      ],
+      "limitations": [
+        "Four profiles deliberately remain source_phase_projection_only and core_executable=false."
+      ]
+    },
+    {
+      "id": "M11-019",
+      "requirement": "comparar com traces/referências Android reais quando disponíveis",
+      "disposition": "limitation_recorded",
+      "claim": "Hash-pinned approved source references were compared; no Android runtime trace was available, so every profile records not_available/proven_limitation and no replay claim is made.",
+      "implementation": [
+        {
+          "path": "framework/nxandroid/references/m11-adapter-profiles-v1.json",
+          "tokens": [
+            "\"android_runtime_trace\": {",
+            "\"availability\": \"not_available\"",
+            "\"classification\": \"proven_limitation\""
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m11-android-guests-v1.json",
+          "tokens": [
+            "\"guest_lifecycle_executed\": false",
+            "\"guest_files_copied\": false"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "Android runtime trace absence was hidden",
+            "trace.get(\"availability\") == \"not_available\""
+          ]
+        }
+      ],
+      "limitations": [
+        "Real Android runtime trace count is zero; static references cannot prove runtime callback timing or object identity."
+      ]
+    },
+    {
+      "id": "M11-020",
+      "requirement": "fechar gate de lifecycle",
+      "disposition": "verified",
+      "claim": "The master gate combines pinned loader lifecycle, nxandroid host contracts, static profiles, sealed signal handling and M16 approved adapter acceptance; all twenty M11 requirements are closed.",
+      "implementation": [
+        {
+          "path": "framework/nxloader/m11-audit-v1.json",
+          "tokens": [
+            "\"milestone\": \"M11\"",
+            "M11-NXL-001"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m11_adapter_profiles.py",
+          "tokens": [
+            "Process-free validator for the hash-pinned M11 adapter profiles"
+          ]
+        },
+        {
+          "path": "framework/nxbootstrap/tests/isolated-suite.sh",
+          "tokens": [
+            "inventory_m11_guests.py",
+            "run-signal-isolated.sh\" --inside-suite"
+          ]
+        },
+        {
+          "path": "framework/tests/test-matrix-v1.json",
+          "tokens": [
+            "\"id\": \"nxloader-m11-audit\"",
+            "\"id\": \"nxandroid-profile-audit\"",
+            "\"id\": \"nxandroid-m11-audit\"",
+            "\"id\": \"nxandroid-host\""
+          ]
+        },
+        {
+          "path": "framework/tests/run-safe-gates.sh",
+          "tokens": [
+            "run_gate nxloader-m11-audit",
+            "run_gate nxandroid-profile-audit",
+            "run_gate nxandroid-m11-audit",
+            "run_gate nxandroid-host"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/references/m16-runtime-receipt-v1.json",
+          "tokens": [
+            "\"m16_020\": \"closed_for_framework\"",
+            "\"game_processes_final\": 0"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/tests/test_infrastructure.py",
+          "tokens": [
+            "bounded inventory supervisor escaped the sealed process gate",
+            "safe runner command diverges",
+            "nxandroid signal fixture lost pidfd authority"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/run-host.sh",
+          "tokens": [
+            "nxandroid_host_gate=PASS",
+            "contexts_completed=2000"
+          ]
+        },
+        {
+          "path": "framework/nxloader/tests/run-m11-armv7-lifecycle-cross.sh",
+          "tokens": [
+            "lifecycle_runs=2",
+            "external_guest=0"
+          ]
+        },
+        {
+          "path": "framework/nxloader/tests/run-m11-aarch64-lifecycle-cross.sh",
+          "tokens": [
+            "lifecycle_runs=2",
+            "external_guest=0"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/run-signal-isolated.sh",
+          "tokens": [
+            "nxandroid_signal_isolated_gate=PASS",
+            "sibling_signaled=0"
+          ]
+        },
+        {
+          "path": "framework/nxandroid/tests/test_m16_adapter_contract.py",
+          "tokens": [
+            "M16 adapter contract gate passed: items=20 adapters=5",
+            "closure=closed_for_framework"
+          ]
+        }
+      ],
+      "limitations": [
+        "Master closure imports approved M16 adapter acceptance and does not claim a universal JNI implementation, new physical-hardware run, real Android trace or external-guest lifecycle execution inside M11."
+      ]
+    }
+  ]
+}

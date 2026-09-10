@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "id": "magicrampage",
+  "version": "7.8.2-aarch64-2",
+  "title": "MAGIC RAMPAGE",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.asanteegames.magicrampage"
+    ],
+    "max_files": 32,
+    "max_bundle_apks": 16,
+    "max_member_bytes": 536870912,
+    "max_bundle_bytes": 1073741824
+  },
+  "extract": [
+    {
+      "id": "owner-apk",
+      "source": {
+        "kind": "container"
+      },
+      "destination": "game.apk",
+      "validate": {
+        "type": "file",
+        "min_size": 134217728,
+        "max_size": 268435456,
+        "magic_hex": "504b0304"
+      }
+    },
+    {
+      "id": "android-libcxx",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libc++_shared.so"
+        ]
+      },
+      "destination": "libc++_shared.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 1253544,
+        "sha256": "ad74bf43eb1fd576518168f664ad16a74e00eeda9595875c33dd87f6dd197869"
+      }
+    },
+    {
+      "id": "android-crypto",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libcrypto.so"
+        ]
+      },
+      "destination": "libcrypto.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 5613536,
+        "sha256": "97cad5581cdfe401251067ac41b507478ae434d7597fe8d08c78bc215a556587"
+      }
+    },
+    {
+      "id": "android-fmod",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libfmod.so"
+        ]
+      },
+      "destination": "libfmod.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 1472528,
+        "sha256": "fbb2ee0f88bcbd79ad1449d74215f421efa2456b3397da49229986bcfc2f27ad"
+      }
+    },
+    {
+      "id": "android-game",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmachine.so"
+        ]
+      },
+      "destination": "libmachine.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 4916048,
+        "sha256": "a7d56f224bbc7277551a1e16b52b36383a780d356ad099f9197658509d17b4dc"
+      }
+    }
+  ],
+  "hooks": [],
+  "validate": [
+    {
+      "path": "game.apk",
+      "type": "file",
+      "min_size": 134217728,
+      "max_size": 268435456,
+      "magic_hex": "504b0304"
+    },
+    {
+      "path": "libc++_shared.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 1253544,
+      "sha256": "ad74bf43eb1fd576518168f664ad16a74e00eeda9595875c33dd87f6dd197869"
+    },
+    {
+      "path": "libcrypto.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 5613536,
+      "sha256": "97cad5581cdfe401251067ac41b507478ae434d7597fe8d08c78bc215a556587"
+    },
+    {
+      "path": "libfmod.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 1472528,
+      "sha256": "fbb2ee0f88bcbd79ad1449d74215f421efa2456b3397da49229986bcfc2f27ad"
+    },
+    {
+      "path": "libmachine.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 4916048,
+      "sha256": "a7d56f224bbc7277551a1e16b52b36383a780d356ad099f9197658509d17b4dc"
+    }
+  ],
+  "commit": [
+    "game.apk",
+    "libc++_shared.so",
+    "libcrypto.so",
+    "libfmod.so",
+    "libmachine.so"
+  ],
+  "marker": ".nxextract-magicrampage.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

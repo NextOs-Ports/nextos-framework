@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameList>
+  <game>
+    <path>./Final Fantasy IV The After Years.sh</path>
+    <name>Final Fantasy IV The After Years</name>
+    <desc>The direct sequel to Final Fantasy IV, told across the tales of Ceodore and the returning cast, running natively on handheld Linux with the same native host as the 3D Remake port.</desc>
+    <developer>Matrix Software</developer>
+    <publisher>Square Enix</publisher>
+    <genre>Role Playing Game</genre>
+    <players>1</players>
+  </game>
+</gameList>

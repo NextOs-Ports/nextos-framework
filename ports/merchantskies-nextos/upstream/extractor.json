@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "id": "merchantskies-nextos",
+  "version": "2.0-arm64-2",
+  "title": "MERCHANT OF THE SKIES",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.astralride.mots"
+    ]
+  },
+  "extract": [
+    {
+      "id": "libmain",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmain.so"
+        ]
+      },
+      "destination": "lib/libmain.so",
+      "validate": {
+        "type": "file",
+        "min_size": 1024,
+        "magic_hex": "7f454c46",
+        "elf_machine": "arm64-v8a"
+      }
+    },
+    {
+      "id": "libunity",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libunity.so"
+        ]
+      },
+      "destination": "lib/libunity.so",
+      "validate": {
+        "type": "file",
+        "min_size": 1048576,
+        "magic_hex": "7f454c46",
+        "elf_machine": "arm64-v8a"
+      }
+    },
+    {
+      "id": "libil2cpp",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libil2cpp.so"
+        ]
+      },
+      "destination": "lib/libil2cpp.so",
+      "validate": {
+        "type": "file",
+        "min_size": 1048576,
+        "magic_hex": "7f454c46",
+        "elf_machine": "arm64-v8a"
+      }
+    },
+    {
+      "id": "aux-libs",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "lib/{abi}/libc++_shared.so",
+          "lib/{abi}/lib_burst_generated.so",
+          "lib/{abi}/libswappywrapper.so"
+        ],
+        "strip_prefix": "lib/{abi}/"
+      },
+      "destination": "lib",
+      "validate": {
+        "type": "tree",
+        "min_files": 0,
+        "max_files": 6,
+        "min_bytes": 0
+      }
+    },
+    {
+      "id": "unity-data",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/bin/Data/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": {
+        "type": "tree",
+        "min_files": 8,
+        "min_bytes": 33554432,
+        "required_paths": [
+          "bin/Data/boot.config",
+          "bin/Data/data.unity3d",
+          "bin/Data/Managed/Metadata/global-metadata.dat"
+        ]
+      }
+    }
+  ],
+  "compatibility": {
+    "package_families": [
+      "com.astralride.mots"
+    ],
+    "abis": [
+      "arm64-v8a"
+    ],
+    "required_members": [
+      {
+        "member": "lib/arm64-v8a/libmain.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      },
+      {
+        "member": "lib/arm64-v8a/libunity.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      },
+      {
+        "member": "lib/arm64-v8a/libil2cpp.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      },
+      {
+        "member": "lib/arm64-v8a/libc++_shared.so",
+        "role": "optional"
+      },
+      {
+        "member": "lib/arm64-v8a/lib_burst_generated.so",
+        "role": "optional"
+      },
+      {
+        "member": "lib/arm64-v8a/libswappywrapper.so",
+        "role": "optional"
+      },
+      {
+        "member": "assets/bin/Data/boot.config",
+        "role": "core_required"
+      },
+      {
+        "member": "assets/bin/Data/data.unity3d",
+        "role": "core_required"
+      },
+      {
+        "member": "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "role": "core_required"
+      }
+    ]
+  },
+  "validate": [
+    {
+      "path": "lib/libmain.so",
+      "type": "file",
+      "min_size": 1024,
+      "magic_hex": "7f454c46",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "lib/libunity.so",
+      "type": "file",
+      "min_size": 1048576,
+      "magic_hex": "7f454c46",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "lib/libil2cpp.so",
+      "type": "file",
+      "min_size": 1048576,
+      "magic_hex": "7f454c46",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "assets/bin/Data/data.unity3d",
+      "type": "file",
+      "min_size": 33554432,
+      "magic_ascii": "Unity"
+    },
+    {
+      "path": "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "type": "file",
+      "min_size": 1048576
+    }
+  ],
+  "commit": [
+    "lib",
+    "assets"
+  ],
+  "mutable": [],
+  "hooks": [],
+  "marker": ".nxextract-merchantskies.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

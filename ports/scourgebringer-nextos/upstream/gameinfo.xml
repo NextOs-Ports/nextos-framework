@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./ScourgeBringer.sh</path>
+    <name>ScourgeBringer</name>
+    <desc>ScourgeBringer is a fast-paced free-moving roguelite platformer.</desc>
+    <developer>Flying Oak Games</developer>
+    <publisher>Dear Villagers</publisher>
+    <genre>Action, Roguelite, Platformer</genre>
+    <image>./scourgebringer/cover.png</image>
+  </game>
+</gameList>

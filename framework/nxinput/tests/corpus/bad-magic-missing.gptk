@@ -1,0 +1,4 @@
+[menu]
+A = ui.confirm
+[gameplay]
+A = player.jump

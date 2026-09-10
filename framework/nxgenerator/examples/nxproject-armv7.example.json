@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "nxport": {
+    "schema_version": 2,
+    "id": "nxexample-armv7",
+    "title": "NXExample ARMv7",
+    "launcher_name": "NXExample ARMv7.sh",
+    "architecture": "armv7",
+    "executable": "bin/armv7/nxexample-loader",
+    "argument_mode": "game-dir-and-passthrough",
+    "home_mode": "preserve",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.3.0"
+    },
+    "required_files": [
+      "bin/armv7/nxexample-loader"
+    ],
+    "private_library_paths": [],
+    "prepare_script": "",
+    "required_capabilities": [
+      "host.portmaster",
+      "host.armhf-libs",
+      "graphics.gles2",
+      "input.controller-mapping"
+    ],
+    "enabled_quirks": [],
+    "runtime_report": "log-and-logo"
+  },
+  "nxextract_recipe": "suportando_outros_devices/extrator-universal/examples/recipe-minimal.json",
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.17",
+    "runtime": []
+  },
+  "license": {
+    "spdx_id": "GPL-3.0-only",
+    "source": "LICENSE"
+  },
+  "documentation": {
+    "status": "scaffold",
+    "proven_support": []
+  }
+}

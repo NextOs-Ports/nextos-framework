@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "mission": "118_C7",
+  "selection_scope": "exactly the 30 most recent R2 port objects audited on 2026-08-30",
+  "selected_count": 3,
+  "recent_r2_cut": [
+    "tightrope", "gdsubzero", "geometrydash", "gangstarrio",
+    "hamsandwich", "suzycube", "retry", "vector", "angrybirds",
+    "forager", "madskills", "cs16", "danman", "strangerthings1984",
+    "strangerthings3", "supermombo", "catquest", "daggerhood",
+    "sonicrunners", "neonshadow", "edgeex", "pinout", "offtheroad",
+    "slitherio", "merchant", "robberybob", "kingdomnewlands",
+    "partyhardgo", "blossomtales", "catbird"
+  ],
+  "evidence_policy": {
+    "new_framework_harness": "FIXTURE",
+    "pilot_runtime_integration": "PENDING",
+    "physical_history_scope": "the exact previously published artifact only",
+    "physical_new_bytes": "PENDING_PHYSICAL"
+  },
+  "sink_classes": [
+    {"sink": "KeyEvent", "consumer": "blossomtales", "class": "PENDING"},
+    {"sink": "MotionEvent", "consumer": "blossomtales", "class": "PENDING"},
+    {"sink": "JNI_PUSH", "consumer": "offtheroad", "class": "PENDING"},
+    {"sink": "JNI_PULL", "consumer": "c7-realistic-harness", "class": "FIXTURE"},
+    {"sink": "NATIVE_GAMEPAD", "consumer": "offtheroad", "class": "PENDING"},
+    {"sink": "TOUCH_CURSOR", "consumer": "gdsubzero", "class": "PENDING"}
+  ],
+  "consumers": [
+    {
+      "id": "blossomtales",
+      "title": "Blossom Tales: The Sleeping King",
+      "game_version": "1.0.0",
+      "version_code": 25,
+      "package_id": "com.FDGEntertainment.BlossomTales.gp",
+      "runtime": "MonoGame/.NET for Android 10",
+      "abi": "arm64-v8a",
+      "port_commit": "d9aa3b67b469b3a05e3a6e91ee85585d736ada69",
+      "port_tree": "bdbf1a46e481dd107f8d80490d023bbceb17917b",
+      "port_path": "ports/blossomtales",
+      "artifact": {
+        "object": "ports_aio/nextos_elite_exclusivos/Blossom Tales (NextOS Elite).tar.gz",
+        "size": 95588990,
+        "sha256": "ace0ae287d246c7a3c2ba70e90ad3827127d139c7288d938575f7cd51226570d",
+        "receipt": "R2-PRIVADO-PROGRESSO.md:3440",
+        "roundtrip": true
+      },
+      "runtime_sha256": "db9b9c8b43423f496f94fdab2b63fe8c1550dc0bbd27995977115e3d29ef4e54",
+      "adapter_license": "GPL-3.0-only",
+      "game_data_license": "proprietary owner-supplied",
+      "java_classes": [
+        "com.castlepixel.blossomtales.Activity1",
+        "crc64493ac3851fab1842.MonoGameAndroidGameView",
+        "android.view.KeyEvent", "android.view.MotionEvent",
+        "android.view.InputDevice"
+      ],
+      "jni_symbols": [
+        "n_onKeyDown", "n_onKeyUp", "n_onGenericMotionEvent",
+        "n_dispatchKeyEvent", "n_dispatchGenericMotionEvent", "n_onTouch"
+      ],
+      "thread": "single owner input loop; callback returns handled before receipt",
+      "lifecycle": [
+        "n_onCreate", "n_onResume", "n_onPause", "n_onDestroy",
+        "surfaceCreated", "surfaceChanged"
+      ],
+      "sources": [
+        {"path": "ports/blossomtales/src/main.c", "sha256": "f8728be1d2ccf8d82cebdf5aa41135e825341690f07a806c59b742bb00d0ab12"},
+        {"path": "ports/blossomtales/src/jni_shim.c", "sha256": "5b0c98e22a32f013757cdabbaf8a96f562e49cd94987cbc29d425d301a5b5144"},
+        {"path": "ports/blossomtales/src/sdv_egl_bridge.c", "sha256": "ff0e7054c48be2c97521b6ad3e116a21545f509e8e0e9efbb13a45471ab043a7"},
+        {"path": "ports/blossomtales/HANDOFF.md", "sha256": "e13528a2b3f3d160b741906e54d3fdcb80bf868767dff5819ed526bf6d99a7e7"}
+      ],
+      "contract_tokens": [
+        "android.view.KeyEvent", "android.view.MotionEvent",
+        "n_1onKeyDown", "n_1onKeyUp", "n_1onGenericMotionEvent",
+        "n_1dispatchKeyEvent", "n_1dispatchGenericMotionEvent",
+        "n_1onTouch"
+      ],
+      "physical_history": "PHYSICAL",
+      "c7_class": "PENDING",
+      "controls": [
+        {"name":"A","reachable":1,"sink":"KeyEvent"},
+        {"name":"B","reachable":1,"sink":"KeyEvent"},
+        {"name":"X","reachable":1,"sink":"KeyEvent"},
+        {"name":"Y","reachable":1,"sink":"KeyEvent"},
+        {"name":"L1","reachable":1,"sink":"KeyEvent"},
+        {"name":"R1","reachable":1,"sink":"KeyEvent"},
+        {"name":"L2","reachable":1,"sink":"MotionEvent axis 17"},
+        {"name":"R2","reachable":1,"sink":"MotionEvent axis 18"},
+        {"name":"L3","reachable":1,"sink":"KeyEvent 106"},
+        {"name":"R3","reachable":1,"sink":"KeyEvent 107 or touch in cursor context"},
+        {"name":"START","reachable":1,"sink":"KeyEvent 108"},
+        {"name":"SELECT","reachable":1,"sink":"KeyEvent 4; exit chord remains out-of-band"},
+        {"name":"UP","reachable":1,"sink":"KeyEvent 19 and MotionEvent hat"},
+        {"name":"DOWN","reachable":1,"sink":"KeyEvent 20 and MotionEvent hat"},
+        {"name":"LEFT","reachable":1,"sink":"KeyEvent 21 and MotionEvent hat"},
+        {"name":"RIGHT","reachable":1,"sink":"KeyEvent 22 and MotionEvent hat"},
+        {"name":"LEFT_STICK","reachable":1,"sink":"MotionEvent axes 0/1"},
+        {"name":"RIGHT_STICK","reachable":1,"sink":"MotionEvent axes 11/14 or cursor context"}
+      ]
+    },
+    {
+      "id": "offtheroad",
+      "title": "Off The Road",
+      "game_version": "1.18.2",
+      "package_id": "com.dogbytegames.offtheroad",
+      "runtime": "xGen/Horde3D/bgfx with Cocos2d-x shell",
+      "abi": "arm64-v8a",
+      "port_commit": "290876bc15a86603f8ea1a560715fd41cc380e30",
+      "port_tree": "55282a4b2b3a15334fd22ed45a3d753dd2f0a992",
+      "port_path": "ports/offtheroad",
+      "artifact": {
+        "object": "ports_aio/nextos_elite_exclusivos/Off The Road (NextOS Elite).tar.gz",
+        "size": 550323167,
+        "sha256": "a445b4b11ab3ab002027226cc4f37867b53ede606dda6c91a3d3901c642d6403",
+        "receipt": "R2-PRIVADO-PROGRESSO.md:3094",
+        "roundtrip": true
+      },
+      "adapter_license": "GPL-3.0-only",
+      "game_data_license": "proprietary owner-supplied",
+      "java_classes": ["com.utils.GameControllerInput"],
+      "jni_symbols": [
+        "nativeGamepadConnected", "nativeGamepadDisconnected",
+        "nativeGamepadButtonDown", "nativeGamepadButtonUp",
+        "nativeGamepadAxisValueChanged"
+      ],
+      "thread": "runtime render thread pumps one declared nativeGamepad path",
+      "lifecycle": [
+        "nativeOnStart", "nativeOnResume", "nativeOnPause", "nativeOnStop",
+        "nativeInit", "nativeRender"
+      ],
+      "sources": [
+        {"path": "ports/offtheroad/src/main.c", "sha256": "48abb23ae8fa77384d21a982e4e19c110d509d6f000bb87708aa0a27614ae7a0"},
+        {"path": "ports/offtheroad/src/jni_shim.c", "sha256": "03699a0626e2c23bedd3acaf3e08696a79291d949856cfdf8136b4609bd79a55"},
+        {"path": "ports/offtheroad/HANDOFF.md", "sha256": "97d10f342a3c87572924f23f4195e4665232e2a5933b76a3a462a37261c2690e"}
+      ],
+      "contract_tokens": [
+        "nativeGamepadConnected", "nativeGamepadDisconnected",
+        "nativeGamepadButtonDown", "nativeGamepadButtonUp",
+        "nativeGamepadAxisValueChanged"
+      ],
+      "historical_negative": "the published adapter called nativeGamepad and nativeKey on the same edge; C7 permits only nativeGamepad for this profile",
+      "physical_history": "PHYSICAL",
+      "c7_class": "PENDING",
+      "controls": [
+        {"name":"A","reachable":1,"sink":"nativeGamepad button 96"},
+        {"name":"B","reachable":1,"sink":"nativeGamepad button 97"},
+        {"name":"X","reachable":1,"sink":"nativeGamepad button 99"},
+        {"name":"Y","reachable":1,"sink":"nativeGamepad button 100"},
+        {"name":"L1","reachable":1,"sink":"nativeGamepad button 102"},
+        {"name":"R1","reachable":1,"sink":"nativeGamepad button 103"},
+        {"name":"L2","reachable":1,"sink":"nativeGamepad axis 17"},
+        {"name":"R2","reachable":1,"sink":"nativeGamepad axis 18"},
+        {"name":"L3","reachable":1,"sink":"nativeGamepad button 106; cursor context selector"},
+        {"name":"R3","reachable":1,"sink":"nativeGamepad button 107 or touch in cursor context"},
+        {"name":"START","reachable":1,"sink":"nativeGamepad button 108"},
+        {"name":"SELECT","reachable":1,"sink":"nativeGamepad button 109; exit chord out-of-band"},
+        {"name":"UP","reachable":1,"sink":"nativeGamepad button 19 and hat"},
+        {"name":"DOWN","reachable":1,"sink":"nativeGamepad button 20 and hat"},
+        {"name":"LEFT","reachable":1,"sink":"nativeGamepad button 21 and hat"},
+        {"name":"RIGHT","reachable":1,"sink":"nativeGamepad button 22 and hat"},
+        {"name":"LEFT_STICK","reachable":1,"sink":"nativeGamepad axes 0/1"},
+        {"name":"RIGHT_STICK","reachable":1,"sink":"nativeGamepad axes 11/14 or cursor context"}
+      ]
+    },
+    {
+      "id": "gdsubzero",
+      "title": "Geometry Dash SubZero",
+      "game_version": "2.2.147",
+      "version_code": 11,
+      "package_id": "com.robtopx.geometrydashsubzero",
+      "runtime": "Cocos2d-x 2.x",
+      "abi": "arm64-v8a",
+      "port_commit": "4476b0364d5aa657e348ccd1df72af301d42bbbe",
+      "port_tree": "e8415863dd7cb2462fcc4b0225c0d05eee0f9101",
+      "port_path": "ports/gdsubzero",
+      "artifact": {
+        "object": "ports_aio/nextos_elite_exclusivos/Geometry Dash SubZero (NextOS Elite).tar.gz",
+        "size": 131786846,
+        "sha256": "1b938331e42fea6636b48a8a0b7de0a8d970ff5ed051c4d30ee9c1497daead3e",
+        "receipt": "R2-PRIVADO-PROGRESSO.md:2187",
+        "roundtrip": true
+      },
+      "adapter_license": "GPL-3.0-only",
+      "game_data_license": "proprietary owner-supplied",
+      "java_classes": [
+        "org.cocos2dx.lib.Cocos2dxRenderer",
+        "org.cocos2dx.lib.Cocos2dxHelper",
+        "org.cocos2dx.lib.Cocos2dxBitmap"
+      ],
+      "jni_symbols": [
+        "nativeInit", "nativeRender", "nativeOnPause", "nativeOnResume",
+        "nativeTouchesBegin", "nativeTouchesEnd", "nativeTouchesMove",
+        "nativeKeyDown"
+      ],
+      "thread": "Cocos render thread; touch begin/end edges retain pointer ownership",
+      "lifecycle": ["nativeInit", "nativeRender", "nativeOnPause", "nativeOnResume"],
+      "sources": [
+        {"path": "ports/gdsubzero/src/main.c", "sha256": "8f828a9efedea1bcdda66f15c0439e1261c0f8f76ea17a720d777fbc7fc22c6c"},
+        {"path": "ports/gdsubzero/src/jni_shim.c", "sha256": "10758bc75f5bd249f08634dd77fb7111ff8d278af0e25fd2587d9cec43a73e86"},
+        {"path": "ports/gdsubzero/HANDOFF.md", "sha256": "8dd770d924dc2c2e1616e01c4ad96246447bfb8d90e2028ec791842da90d52a9"}
+      ],
+      "contract_tokens": [
+        "nativeTouchesBegin", "nativeTouchesEnd", "nativeTouchesMove",
+        "nativeKeyDown", "nativeOnPause", "nativeOnResume"
+      ],
+      "historical_negative": "D-pad cursor movement in the published adapter is not promoted; C7 reserves cursor movement for the right stick",
+      "physical_history": "PHYSICAL",
+      "c7_class": "PENDING",
+      "controls": [
+        {"name":"A","reachable":1,"sink":"touch hold"},
+        {"name":"B","reachable":1,"sink":"touch hold"},
+        {"name":"X","reachable":1,"sink":"touch hold"},
+        {"name":"Y","reachable":1,"sink":"touch hold"},
+        {"name":"L1","reachable":1,"sink":"touch hold"},
+        {"name":"R1","reachable":1,"sink":"touch hold"},
+        {"name":"L2","reachable":1,"sink":"trigger edge to touch hold"},
+        {"name":"R2","reachable":1,"sink":"trigger edge to touch hold"},
+        {"name":"L3","reachable":0,"sink":"absent in original consumer"},
+        {"name":"R3","reachable":1,"sink":"touch at cursor"},
+        {"name":"START","reachable":1,"sink":"nativeKeyDown Android BACK"},
+        {"name":"SELECT","reachable":0,"sink":"framework exit chord only, not a game consumer"},
+        {"name":"UP","reachable":0,"sink":"no original game action; old D-pad cursor path rejected"},
+        {"name":"DOWN","reachable":0,"sink":"no original game action; old D-pad cursor path rejected"},
+        {"name":"LEFT","reachable":0,"sink":"no original game action; old D-pad cursor path rejected"},
+        {"name":"RIGHT","reachable":0,"sink":"no original game action; old D-pad cursor path rejected"},
+        {"name":"LEFT_STICK","reachable":0,"sink":"deliberately inert"},
+        {"name":"RIGHT_STICK","reachable":1,"sink":"touch cursor movement"}
+      ]
+    }
+  ]
+}

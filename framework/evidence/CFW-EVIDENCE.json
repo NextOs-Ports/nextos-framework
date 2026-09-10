@@ -1,0 +1,1186 @@
+{
+  "schema": "nx-cfw-evidence-v1",
+  "schema_version": 1,
+  "generated_note": "V3 CFW coverage catalog reconciled for base RC 699723e6e84ad7f50d16aeb98d94b6c9e3c9701b plus nxgenerator-v0.2.15 at 8d70b241722d2cec9ef78f9f68cb57cc91b38ae2. The Merchant physical candidate also pins nxgl 0.2.17 at f721af2cc657b3cbd24e8f64b0b61cf8b03aa762. Every claim is independent: nothing is grouped, inherited or copied between claims, and every missing proof is written down in gaps. Receipts are scoped to the exact scenarios and bytes they identify.",
+  "claims": [
+    {
+      "id": "nextos-mali450-fbdev",
+      "cfw": {
+        "name": "NextOS",
+        "version_or_build": "old-generation (Amlogic, Mali-450)",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "Amlogic Mali-450 test handheld",
+        "soc": "Amlogic S905-family",
+        "gpu_driver": "Mali-450 blob (fbdev)",
+        "display_compositor": "none (fbdev direct)",
+        "resolution": "1280x720 (measured in current receipt)",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64 preferred, armv7 fallback",
+        "libc": "glibc",
+        "filesystem_semantics": "vfat game partition, case-insensitive",
+        "ram_free": "about 916 MB total, fraction free varies"
+      },
+      "frontend": {
+        "name": "EmulationStation (NextOS)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt via frontend session"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-rc2-20260827@699723e6 + nxgenerator@8d70b241 + nxgl@f721af2c",
+        "components_note": "Merchant 09371aff, ZIP 341ddacde6384f76f16c233491d8735d25e5af5c72a81269414b85e9ba991700, generation 953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0"
+      },
+      "level": "physical-full",
+      "scope": "exact Merchant physical run on NextOS Mali-450: clean extraction, graphical UI, timed splash runtime, game/fonts, GLES2 single-channel, audio backend, GPTK file load with A/B dispatch, clean exit, singleton and health-loss rollback; frontend click, pixel-valid splash capture, real GPTK profile swap, real process crash, rollback owner-state seal and isolated no-double-input are excluded",
+      "scenarios": [
+        "clean data extraction with NXE0000 and graphical NXExtract SDL",
+        "timed NXSplash runtime and game image",
+        "Mali-450 GLES2 luminance-alpha single-channel",
+        "audio backend, GPTK file load and A/B dispatch",
+        "clean exit and NXU0006",
+        "single-instance refusal",
+        "three missing health receipts followed by NXU0004 and NXU0006",
+        "owner state restored outside the rollback subtest"
+      ],
+      "receipt": {
+        "present": true,
+        "sanitized_ref": "receipts/merchant-v3-nextos-mali450-20260827.json",
+        "private_manifest_sha256": "e6e8cf20bcb3a6aae3ccaf364364acdf06016be60b184692e2cf6fcfc5a2212e"
+      },
+      "gaps": [
+        "sem receipt de clique ou retorno pelo frontend porque EmulationStation estava mascarado",
+        "sem receipt de instalacao limpa do ZIP pelo PortMaster nesta classe",
+        "captura da NXExtract prova renderer SDL visivel, mas nao possui comparacao golden por pixels",
+        "captura da NXSplash ficou preta; log e timing nao provam identidade visual por pixels",
+        "SELECT+START teve aceite humano, mas nao foi selado como causa da saida no bundle",
+        "rollback induzido por supressao do health receipt, nao por crash real do processo",
+        "subteste de rollback nao selou saves, gamedata, GPTK e settings imediatamente antes e depois",
+        "sem troca real do arquivo/perfil GPTK para inverter A e B",
+        "sem sonda fisica isolada de ausencia de duplo input",
+        "sem receipt de diretorio .update vazio depois do teste",
+        "build exato da imagem NextOS nao foi identificado no bundle"
+      ]
+    },
+    {
+      "id": "nextos-x5-x5m-mali-g310-kmsdrm",
+      "cfw": {
+        "name": "NextOS",
+        "version_or_build": "X5/X5M generation (Mali-G310, KMSDRM)",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "NextOS X5 / X5M",
+        "soc": "unknown (G310-class platform)",
+        "gpu_driver": "Mali-G310 (KMSDRM path)",
+        "display_compositor": "KMSDRM",
+        "resolution": "unknown",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64",
+        "libc": "glibc",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (NextOS)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt via frontend session"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "no dedicated V2 matrix profile exists for this stack"
+      },
+      "level": "community",
+      "scope": "old validations of ports on the X5/X5M stack predate the V2 profile battery; only field-level confidence for this tag",
+      "scenarios": [
+        "historical port runs reported on X5/X5M outside the V2 profile battery"
+      ],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "criar perfil V3 proprio para o stack G310/KMSDRM; nunca reaproveitar evidencia do Mali-450",
+        "receipt exato ausente nesta tag"
+      ]
+    },
+    {
+      "id": "emuelec-generic",
+      "cfw": {
+        "name": "EmuELEC",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (EmuELEC)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "no EmuELEC profile exists in the matrix"
+      },
+      "level": "design-only",
+      "scope": "no dedicated profile: only design intent that the launcher contract should work on EmuELEC",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "criar perfil proprio (roots, deteccao, provider grafico) antes de qualquer promessa",
+        "nenhuma imagem oficial lida para este stack"
+      ]
+    },
+    {
+      "id": "arkos-rk3326-mali-g31",
+      "cfw": {
+        "name": "ArkOS",
+        "version_or_build": "RK3326 line (historical physical runs)",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "R36S-class RK3326 handheld",
+        "soc": "Rockchip RK3326",
+        "gpu_driver": "Mali-G31 (KMSDRM path)",
+        "display_compositor": "KMSDRM",
+        "resolution": "640x480",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64 and armv7",
+        "libc": "glibc",
+        "filesystem_semantics": "vfat roms partition, case-insensitive",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (ArkOS)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "V2 profile arkos exercises the launcher contract with a synthetic automatic fixture"
+      },
+      "level": "physical-full",
+      "scope": "historical full physical validation on RK3326/ArkOS; the repeatable harness for this tag is the synthetic automatic fixture, not the real frontend",
+      "scenarios": [
+        "boot-to-gameplay via ES (historical)",
+        "audio output (historical)",
+        "physical controls (historical)",
+        "synthetic launcher-contract fixture replay (this tag)"
+      ],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "receipt fisico exato ausente nesta tag: apenas a fixture sintetica e replayavel hoje",
+        "repetir o harness pelo frontend real do device quando autorizado"
+      ]
+    },
+    {
+      "id": "darkosre-rk3326-mali-g31",
+      "cfw": {
+        "name": "dArkOSRE",
+        "version_or_build": "RK3326 clone line (measured 2026-08-27)",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "ArkOS-clone RK3326 handheld",
+        "soc": "Rockchip RK3326",
+        "gpu_driver": "Mali-G31 (KMSDRM path)",
+        "display_compositor": "KMSDRM",
+        "resolution": "640x480",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64 and armv7",
+        "libc": "glibc",
+        "filesystem_semantics": "exfat roms partition, FAT-like and case-insensitive",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (dArkOSRE)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt (two-marker CFW detection)"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-rc2-20260827@699723e6 + nxgenerator@8d70b241 + nxgl@f721af2c",
+        "components_note": "Merchant 09371aff, ZIP 341ddacde6384f76f16c233491d8735d25e5af5c72a81269414b85e9ba991700, generation 953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0"
+      },
+      "level": "physical-full",
+      "scope": "exact Merchant physical run on dArkOSRE Mali-G31: PortMaster install, clean extraction, timed splash runtime, corrected frontend graphics environment, game/fonts, GLES 3.2 R8/RED swizzle, audio, controls, SELECT+START, clean exit and owner-state restoration; frontend click, pixel captures of setup screens, rollback, singleton, A/B swap and isolated no-double-input are excluded",
+      "scenarios": [
+        "PortMaster install and clean NXExtract",
+        "graphical NXExtract recorded in runtime log",
+        "timed NXSplash runtime",
+        "dArkOSRE frontend graphics environment",
+        "Mali-G31 GLES 3.2 native R8/RED swizzle",
+        "game and fonts visible",
+        "audio, controls and SELECT+START",
+        "clean exit with NXU0006",
+        "owner state restored"
+      ],
+      "receipt": {
+        "present": true,
+        "sanitized_ref": "receipts/merchant-v3-darkosre-malig31-20260827.json",
+        "private_manifest_sha256": "e6e8cf20bcb3a6aae3ccaf364364acdf06016be60b184692e2cf6fcfc5a2212e"
+      },
+      "gaps": [
+        "sem receipt de clique no EmulationStation; o launch aprovado herdou apenas o ambiente grafico do frontend",
+        "sem capturas validas da NXExtract e NXSplash",
+        "rollback, singleton, troca A/B e ausencia isolada de duplo input nao exercitados nesta classe",
+        "diretorio de update verificado vazio antes, nao depois",
+        "build exato da imagem dArkOSRE nao foi identificado no bundle"
+      ]
+    },
+    {
+      "id": "muos-h700",
+      "cfw": {
+        "name": "muOS",
+        "version_or_build": "H700 builds (historical subsystem runs)",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "Anbernic RG-class H700 handheld",
+        "soc": "Allwinner H700",
+        "gpu_driver": "Mali-G31 blob (fbdev path, no KMS)",
+        "display_compositor": "none (fbdev direct)",
+        "resolution": "640x480",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64 and armv7",
+        "libc": "glibc",
+        "filesystem_semantics": "vfat sdcard, case-insensitive",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "muOS frontend",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt (split-root layout)"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "V2 profile muos plus python-probe field cases"
+      },
+      "level": "physical-subsystem",
+      "scope": "historical physical validation of individual subsystems (launcher routing, python probe class) on muOS/H700; never a full per-build cycle",
+      "scenarios": [
+        "launcher discovery and routing on device (historical)",
+        "python bytecode-cache field bug reproduction"
+      ],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "receipt exato ausente nesta tag",
+        "montar matriz por build/device com ciclo completo (boot-jogo-audio-controles-saida)"
+      ]
+    },
+    {
+      "id": "rocknix-rk3566-panfrost-wayland",
+      "cfw": {
+        "name": "ROCKNIX",
+        "version_or_build": "20260801 RK3566-Specific",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "RK3566 handheld (RGDS class)",
+        "soc": "Rockchip RK3566",
+        "gpu_driver": "Panfrost (Mesa)",
+        "display_compositor": "Wayland (sway)",
+        "resolution": "unknown",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64 and armv7",
+        "libc": "glibc",
+        "filesystem_semantics": "image-backed inventory verified; on-device semantics as shipped",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (ROCKNIX)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "device-environments/rocknix contract binds the official image payload; NXExtract UI not verified on device"
+      },
+      "level": "physical-subsystem",
+      "scope": "physical runtime subsystems observed on device, but the NXExtract UI was never verified there; graphics evidence for this tag is image-backed inventory only",
+      "scenarios": [
+        "physical runtime bring-up on RK3566 (subsystem scope)",
+        "image-backed userspace inventory verification"
+      ],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "receipt exato ausente nesta tag",
+        "verificar renderer e pixels reais (UI do NXExtract e provider) no device"
+      ]
+    },
+    {
+      "id": "rocknix-rk3588-panfrost",
+      "cfw": {
+        "name": "ROCKNIX",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown RK3588 device",
+        "soc": "Rockchip RK3588",
+        "gpu_driver": "Panfrost (expected, unmeasured)",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (ROCKNIX)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "absent from every matrix and environment contract"
+      },
+      "level": "design-only",
+      "scope": "no evidence of any kind for the RK3588 line; design intent only",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "nenhuma imagem lida e nenhum device medido para RK3588"
+      ]
+    },
+    {
+      "id": "rocknix-adreno",
+      "cfw": {
+        "name": "ROCKNIX",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown Snapdragon device",
+        "soc": "Qualcomm Snapdragon (unspecified)",
+        "gpu_driver": "Adreno/freedreno (expected, unmeasured)",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (ROCKNIX)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "absent from every matrix and environment contract"
+      },
+      "level": "design-only",
+      "scope": "no evidence of any kind for the Adreno line; design intent only",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "nenhuma imagem lida e nenhum device medido para Adreno"
+      ]
+    },
+    {
+      "id": "knulli-h700",
+      "cfw": {
+        "name": "Knulli",
+        "version_or_build": "H700 builds (release-fix history)",
+        "origin": "release-notes"
+      },
+      "hardware": {
+        "vendor_model": "Anbernic RG-class H700 handheld",
+        "soc": "Allwinner H700",
+        "gpu_driver": "Mali-G31 (Knulli userspace)",
+        "display_compositor": "unknown",
+        "resolution": "640x480",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64 and armv7",
+        "libc": "glibc",
+        "filesystem_semantics": "exfat userdata per official contract",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (Knulli/Batocera family)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "disaggregated from the V2 knulli-batocera profile: this claim is Knulli only"
+      },
+      "level": "community",
+      "scope": "a release fix was published for Knulli/H700 and confirmed by users; no physical replay was done by us for this tag",
+      "scenarios": [
+        "release fix confirmed by community reports on Knulli/H700"
+      ],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "replay fisico proprio do fix e da matriz nesta tag ainda nao feito"
+      ]
+    },
+    {
+      "id": "batocera-generic",
+      "cfw": {
+        "name": "Batocera",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (Batocera)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "was hidden inside the V2 knulli-batocera grouping; now a separate claim with its own (empty) evidence"
+      },
+      "level": "design-only",
+      "scope": "no Batocera-specific evidence exists: the old grouped profile never measured Batocera itself",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "nenhuma medicao propria de Batocera; criar perfil e prova proprios"
+      ]
+    },
+    {
+      "id": "amberelec-rk3326",
+      "cfw": {
+        "name": "AmberELEC",
+        "version_or_build": "20230203 (image fixture)",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "RK3326-class handheld",
+        "soc": "Rockchip RK3326",
+        "gpu_driver": "Mali-G31 (AmberELEC userspace)",
+        "display_compositor": "unknown",
+        "resolution": "640x480",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64 and armv7",
+        "libc": "glibc",
+        "filesystem_semantics": "vfat roms partition, case-insensitive",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (AmberELEC)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "real alsoft.conf fixture from the official image drives the embedded-OpenAL field case"
+      },
+      "level": "image-backed",
+      "scope": "the OpenAL shield behaviour is proven against a fixture taken from the official image; nothing was proven on physical AmberELEC hardware",
+      "scenarios": [
+        "embedded-openal shield against the real image alsoft.conf fixture"
+      ],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "sem comprovacao fisica em hardware AmberELEC"
+      ]
+    },
+    {
+      "id": "p4elec-generic",
+      "cfw": {
+        "name": "P4ELEC",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "unknown",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "no image of P4ELEC was ever read"
+      },
+      "level": "design-only",
+      "scope": "no evidence for P4ELEC itself; AmberELEC evidence must never be presumed to apply here",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "nenhuma imagem lida; proibido reaproveitar a evidencia da AmberELEC por semelhanca"
+      ]
+    },
+    {
+      "id": "trimui-firmware-base",
+      "cfw": {
+        "name": "TrimUI firmware",
+        "version_or_build": "unknown",
+        "origin": "contract"
+      },
+      "hardware": {
+        "vendor_model": "TrimUI device family",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "TrimUI stock frontend",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "V2 profile trimui is a synthetic contract fixture only"
+      },
+      "level": "design-only",
+      "scope": "base TrimUI firmware has design intent and a synthetic route only; no image or device evidence",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "nenhuma imagem lida e nenhum device medido para o firmware base TrimUI"
+      ]
+    },
+    {
+      "id": "crossmix-trimui-smart-pro-powervr",
+      "cfw": {
+        "name": "CrossMix",
+        "version_or_build": "TrimUI Smart Pro line (official environment)",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "TrimUI Smart Pro",
+        "soc": "Allwinner A133P-class",
+        "gpu_driver": "PowerVR blob",
+        "display_compositor": "unknown",
+        "resolution": "1280x720",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "aarch64",
+        "libc": "glibc",
+        "filesystem_semantics": "vfat sdcard, case-insensitive",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "CrossMix frontend",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "official environment inspected; no framework subsystem proven on the physical panel"
+      },
+      "level": "image-backed",
+      "scope": "the official CrossMix environment was read and contracted; panel, DRM path, audio and input were never proven physically",
+      "scenarios": [
+        "official environment inventory and routing contract"
+      ],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "painel, DRM, audio e input nao provados fisicamente"
+      ]
+    },
+    {
+      "id": "spruce-miyoo-flip",
+      "cfw": {
+        "name": "spruce",
+        "version_or_build": "4.3.4",
+        "origin": "official-image"
+      },
+      "hardware": {
+        "vendor_model": "Miyoo Flip",
+        "soc": "unknown (aarch64 host)",
+        "gpu_driver": "unknown (SDL KMSDRM proven in limited scope)",
+        "display_compositor": "KMSDRM (SDL)",
+        "resolution": "640x480",
+        "orientation": "landscape"
+      },
+      "runtime": {
+        "host_abi": "aarch64",
+        "guest_abi": "mixed: game and splash armv7, installer aarch64",
+        "libc": "glibc (armhf loader off the default path)",
+        "filesystem_semantics": "vfat sdcard, case-insensitive",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "spruce frontend",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "PortMaster control.txt"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "device-environments/spruce contract pins the mixed-ABI topology and the alternate armhf loader"
+      },
+      "level": "physical-subsystem",
+      "scope": "narrow scope only: SDL KMSDRM selection and the mixed-ABI armhf route were proven on the device; no full cycle and no broader subsystem coverage",
+      "scenarios": [
+        "SDL KMSDRM video driver selected physically (limited scope)",
+        "mixed-ABI armhf loader route observed in the field"
+      ],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "receipt exato ausente nesta tag",
+        "escopo estreito: ciclo completo e demais subsistemas nao provados"
+      ]
+    },
+    {
+      "id": "aeux-generic",
+      "cfw": {
+        "name": "AeUX",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "unknown",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "mentioned in an incident report; absent from every matrix"
+      },
+      "level": "design-only",
+      "scope": "AeUX was only cited in an incident; there is no profile and no evidence",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "ausente da matriz; nenhuma leitura de imagem ou medicao feita"
+      ]
+    },
+    {
+      "id": "jelos-generic",
+      "cfw": {
+        "name": "JELOS",
+        "version_or_build": "unknown",
+        "origin": "contract"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (JELOS)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "known only through the PortMaster discovery contract"
+      },
+      "level": "design-only",
+      "scope": "PortMaster contract knowledge only; nothing measured for JELOS",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "apenas contrato PortMaster; sem imagem lida e sem device medido"
+      ]
+    },
+    {
+      "id": "unofficialos-uos-generic",
+      "cfw": {
+        "name": "UnofficialOS (uOS)",
+        "version_or_build": "unknown",
+        "origin": "contract"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (UnofficialOS)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "known only through the PortMaster discovery contract"
+      },
+      "level": "design-only",
+      "scope": "PortMaster contract knowledge only; nothing measured for UnofficialOS",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "apenas contrato PortMaster; sem imagem lida e sem device medido"
+      ]
+    },
+    {
+      "id": "reglinux-generic",
+      "cfw": {
+        "name": "RegLinux",
+        "version_or_build": "unknown",
+        "origin": "contract"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "EmulationStation (RegLinux)",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "known only through the PortMaster discovery contract"
+      },
+      "level": "design-only",
+      "scope": "PortMaster contract knowledge only; nothing measured for RegLinux",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "apenas contrato PortMaster; sem imagem lida e sem device medido"
+      ]
+    },
+    {
+      "id": "retrodeck-generic",
+      "cfw": {
+        "name": "RetroDECK",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "RetroDECK",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "nominal discovery only"
+      },
+      "level": "design-only",
+      "scope": "RetroDECK is known by name only; nothing was read or measured",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "descoberta nominal; nenhuma leitura de ambiente feita"
+      ]
+    },
+    {
+      "id": "miyoo-ex-portmaster",
+      "cfw": {
+        "name": "MIYOO_EX (Miyoo PortMaster)",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "Miyoo device family",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "unknown",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "nominal discovery only"
+      },
+      "level": "design-only",
+      "scope": "MIYOO_EX is known by name only; nothing was read or measured",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "descoberta nominal; nenhuma leitura de ambiente feita"
+      ]
+    },
+    {
+      "id": "nextui-out-of-scope",
+      "cfw": {
+        "name": "NextUI",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "NextUI",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "declared out of scope for V3"
+      },
+      "level": "design-only",
+      "scope": "fora de escopo declarado",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "sem prova de integração PortMaster/runtime; não prometer por semelhança"
+      ]
+    },
+    {
+      "id": "minui-out-of-scope",
+      "cfw": {
+        "name": "MinUI",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "MinUI",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "declared out of scope for V3"
+      },
+      "level": "design-only",
+      "scope": "fora de escopo declarado",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "sem prova de integração PortMaster/runtime; não prometer por semelhança"
+      ]
+    },
+    {
+      "id": "onion-out-of-scope",
+      "cfw": {
+        "name": "Onion",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "Onion",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "declared out of scope for V3"
+      },
+      "level": "design-only",
+      "scope": "fora de escopo declarado",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "sem prova de integração PortMaster/runtime; não prometer por semelhança"
+      ]
+    },
+    {
+      "id": "garlic-out-of-scope",
+      "cfw": {
+        "name": "Garlic",
+        "version_or_build": "unknown",
+        "origin": "none"
+      },
+      "hardware": {
+        "vendor_model": "unknown",
+        "soc": "unknown",
+        "gpu_driver": "unknown",
+        "display_compositor": "unknown",
+        "resolution": "unknown",
+        "orientation": "unknown"
+      },
+      "runtime": {
+        "host_abi": "unknown",
+        "guest_abi": "unknown",
+        "libc": "unknown",
+        "filesystem_semantics": "unknown",
+        "ram_free": "unknown"
+      },
+      "frontend": {
+        "name": "Garlic",
+        "portmaster_version": "unknown",
+        "control_mapping_source": "unknown"
+      },
+      "framework_ref": {
+        "tag_or_commit": "framework-v3-candidate",
+        "components_note": "declared out of scope for V3"
+      },
+      "level": "design-only",
+      "scope": "fora de escopo declarado",
+      "scenarios": [],
+      "receipt": {
+        "present": false,
+        "sanitized_ref": null,
+        "private_manifest_sha256": null
+      },
+      "gaps": [
+        "sem prova de integração PortMaster/runtime; não prometer por semelhança"
+      ]
+    }
+  ]
+}

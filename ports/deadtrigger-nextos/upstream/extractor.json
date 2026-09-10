@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "id": "deadtrigger-nextos",
+  "version": "2.1.0-210000062",
+  "title": "DEAD TRIGGER",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.madfingergames.deadtrigger"
+    ],
+    "max_files": 64,
+    "max_bundle_apks": 32,
+    "max_member_bytes": 536870912,
+    "max_bundle_bytes": 1073741824
+  },
+  "extract": [
+    {
+      "id": "android-unity-data",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/bin/Data/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": {
+        "type": "tree",
+        "exact_files": 1441,
+        "exact_bytes": 306315658,
+        "required_paths": [
+          "bin/Data/boot.config",
+          "bin/Data/globalgamemanagers",
+          "bin/Data/Managed/Metadata/global-metadata.dat"
+        ],
+        "tree_fingerprint": "b66c8c7c473bae68dd717eebce991633e83bb33d8105e4e02bc066eb3c7f4ee1"
+      }
+    },
+    {
+      "id": "android-native-loader",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmain.so"
+        ]
+      },
+      "destination": "lib/libmain.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "sha256": "c32a89d727bb920d125e50f1bdc4663e284af3afb5f737e3482fc06f1c6ebc73"
+      }
+    },
+    {
+      "id": "android-unity-player",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libunity.so"
+        ]
+      },
+      "destination": "lib/libunity.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "sha256": "af3519ed16e3fdf5b85afae3b7477aa83ea370c353cd7352fdb77926aac75290"
+      }
+    },
+    {
+      "id": "android-il2cpp-runtime",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libil2cpp.so"
+        ]
+      },
+      "destination": "lib/libil2cpp.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "sha256": "37c25b8fcdb0387c660fb33554c3e585aa13fd505b12bffff48816d91361efe9"
+      }
+    }
+  ],
+  "hooks": [],
+  "validate": [
+    {
+      "path": "assets",
+      "type": "tree",
+      "exact_files": 1441,
+      "exact_bytes": 306315658,
+      "required_paths": [
+        "bin/Data/boot.config",
+        "bin/Data/globalgamemanagers",
+        "bin/Data/Managed/Metadata/global-metadata.dat"
+      ],
+      "tree_fingerprint": "b66c8c7c473bae68dd717eebce991633e83bb33d8105e4e02bc066eb3c7f4ee1"
+    },
+    {
+      "path": "lib/libmain.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "sha256": "c32a89d727bb920d125e50f1bdc4663e284af3afb5f737e3482fc06f1c6ebc73"
+    },
+    {
+      "path": "lib/libunity.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "sha256": "af3519ed16e3fdf5b85afae3b7477aa83ea370c353cd7352fdb77926aac75290"
+    },
+    {
+      "path": "lib/libil2cpp.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "sha256": "37c25b8fcdb0387c660fb33554c3e585aa13fd505b12bffff48816d91361efe9"
+    }
+  ],
+  "commit": [
+    "assets",
+    "lib"
+  ],
+  "marker": ".nxextract-deadtrigger.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

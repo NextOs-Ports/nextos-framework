@@ -1,0 +1,44 @@
+{
+  "schema": "nxloader-0.8.0-closure-v1",
+  "schema_version": 1,
+  "version": "0.8.0",
+  "scope": "V4-GRAPHICS-03 fail-closed initializers; no port is migrated and no device is touched",
+  "safety": {
+    "device_access": false,
+    "hardware_ran": false,
+    "guest_initializers_executed": false,
+    "ports_migrated": false
+  },
+  "requirements": [
+    {
+      "id": "NXL-080-001",
+      "guarantee": "no guest constructor runs while any STRONG import is still undefined; the diagnostic opt-in inspects but never authorizes execution",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "if (module->unresolved_strong)"}, {"path": "framework/nxloader/src/nxloader_internal.h", "token": "size_t unresolved_strong;"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "nxloader_module_call_initializers(module) == NXLOADER_EUNRESOLVED"}]
+    },
+    {
+      "id": "NXL-080-002",
+      "guarantee": "the undefined-strong count is maintained even when the caller asks for no resolution report, so the refusal cannot be bypassed by omitting it",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "module->unresolved_strong = local_report.unresolved_strong;"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "NXLOADER_RESOLVE_ALLOW_UNRESOLVED"}]
+    },
+    {
+      "id": "NXL-080-003",
+      "guarantee": "JNI_OnLoad stays closed by construction, because it requires the INITIALIZED state that the refusal above prevents",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "if (module->state != NXLOADER_STATE_INITIALIZED)"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "nxloader_module_call_jni_onload"}]
+    },
+    {
+      "id": "NXL-080-004",
+      "guarantee": "version, public contract, changelog and the declarative registry move together without migrating any port",
+      "implementation": [{"path": "framework/nxloader/VERSION", "token": "0.8.0"}, {"path": "framework/nxloader/CHANGELOG.md", "token": "# 0.8.0"}, {"path": "framework/nxloader/include/nxloader.h", "token": "#define NXLOADER_VERSION_STRING \"0.8.0\""}, {"path": "framework/contracts/declarative-v1.json", "token": "0.8.0 refuses to run guest initializers"}],
+      "tests": [{"path": "framework/tests/test_component_versions.py", "token": "component_versions=FAIL"}]
+    },
+    {
+      "id": "NXL-080-005",
+      "guarantee": "the five approved AArch64 guests were re-measured against these exact sources and produced byte-identical inspector output, so the refusal is behaviour-neutral for them",
+      "implementation": [{"path": "framework/nxloader/tests/m10-aarch64-guests-evidence-v1.json", "token": "\"status\": \"PASS\""}],
+      "tests": [{"path": "framework/nxloader/tests/test_m10_audit.py", "token": "FINAL_SOURCE_SNAPSHOT_SHA256"}]
+    }
+  ]
+}

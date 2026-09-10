@@ -1,0 +1,50 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "none",
+  "enabled_quirks": [],
+  "executable": "ff4",
+  "home_mode": "port",
+  "id": "ff4",
+  "language": {
+    "default": "en",
+    "supported": [
+      "en",
+      "fr",
+      "de",
+      "it",
+      "es",
+      "pt",
+      "ru",
+      "ko",
+      "zh",
+      "th"
+    ]
+  },
+  "launcher_name": "Final Fantasy IV 3D Remake.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.18"
+  },
+  "prepare_script": "",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "graphics.window",
+    "graphics.egl",
+    "graphics.egl-config",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api",
+    "graphics.gles1"
+  ],
+  "required_files": [
+    "ff4",
+    "nxsplash-nextos",
+    "libff4.so",
+    "data/main.obb"
+  ],
+  "runtime_report": "log",
+  "schema_version": 2,
+  "title": "Final Fantasy IV 3D Remake"
+}

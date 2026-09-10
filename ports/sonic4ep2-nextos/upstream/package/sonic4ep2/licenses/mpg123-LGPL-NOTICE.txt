@@ -1,0 +1,9 @@
+mpg123 notice
+=============
+
+The package bundles an AArch64 fallback copy of libmpg123. A compatible
+firmware-provided library remains preferred by the launcher.
+
+mpg123 is licensed under LGPL-2.1-or-later. The complete license text is in
+`LGPL-2.1-or-later.txt`. Project information is available from
+https://www.mpg123.de/.

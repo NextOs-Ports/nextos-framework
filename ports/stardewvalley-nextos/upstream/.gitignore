@@ -1,0 +1,16 @@
+# BYO-data: nada de conteudo do jogo entra aqui
+assets/
+libs/
+content/
+*.apk
+*.obb
+*.dll
+*.blob
+*.so
+
+# artefatos de build/execucao
+build/
+package/dist/
+__pycache__/
+debug.log
+debug.prev.log

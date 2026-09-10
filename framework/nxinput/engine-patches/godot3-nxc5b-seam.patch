@@ -1,0 +1,327 @@
+--- a/platform/x11/SCsub
++++ b/platform/x11/SCsub
+@@ -2,6 +2,8 @@
+ 
+ Import("env")
+ 
++env.Prepend(CPPPATH=["#"])
++
+ from platform_methods import run_in_subprocess
+ import platform_x11_builders
+ 
+@@ -13,6 +15,10 @@
+     "joypad_linux.cpp",
+     "power_x11.cpp",
+     "detect_prime.cpp",
++    # NXC5B seam: compiled and LINKED into this engine binary.
++    "#nxc5b/nxc5b_glue.cpp",
++    "#nxc5b/nxinput_godot.c",
++    "#nxc5b/nxinput_godot_seam.c",
+ ]
+ 
+ if "udev" in env and env["udev"]:
+--- a/platform/server/SCsub
++++ b/platform/server/SCsub
+@@ -6,0 +7,2 @@
++env.Prepend(CPPPATH=["#"])
++
+@@ -10,0 +13,9 @@
++if sys.platform.startswith("linux"):
++    env.Append(CPPDEFINES=["JOYDEV_ENABLED"])
++    common_server += [
++        "#platform/x11/joypad_linux.cpp",
++        "#nxc5b/nxc5b_glue.cpp",
++        "#nxc5b/nxinput_godot.c",
++        "#nxc5b/nxinput_godot_seam.c",
++    ]
++
+--- a/platform/server/os_server.h
++++ b/platform/server/os_server.h
+@@ -36,0 +37,3 @@
++#ifdef JOYDEV_ENABLED
++#include "platform/x11/joypad_linux.h"
++#endif
+@@ -62,0 +66,3 @@
++#ifdef JOYDEV_ENABLED
++	JoypadLinux *joypad;
++#endif
+--- a/platform/server/os_server.cpp
++++ b/platform/server/os_server.cpp
+@@ -83,0 +84,3 @@
++#ifdef JOYDEV_ENABLED
++	joypad = memnew(JoypadLinux(input));
++#endif
+@@ -107,0 +108,3 @@
++#ifdef JOYDEV_ENABLED
++	memdelete(joypad);
++#endif
+@@ -201,0 +208,4 @@
++#ifdef JOYDEV_ENABLED
++		joypad->process_joypads();
++		input->flush_buffered_events();
++#endif
+--- a/platform/x11/joypad_linux.cpp
++++ b/platform/x11/joypad_linux.cpp
+@@ -32,6 +32,8 @@
+ 
+ #include "joypad_linux.h"
+ 
++#include "nxc5b/nxc5b_glue.h"
++
+ #include "core/os/os.h"
+ 
+ #include <dirent.h>
+@@ -402,6 +404,15 @@
+ 			uint16_t version = BSWAP16(inpid.version);
+ 
+ 			sprintf(uid + String(uid).length(), "%04x%04x%04x%04x%04x%04x", vendor, 0, product, 0, version, 0);
++			/* NXC5B seam: resolve, set and read back through THIS engine,
++			 * on this thread, BEFORE the pad is announced. A pad that is not
++			 * admitted is closed and never reaches the game. */
++			if (!nxc5b_admit_before_announce(input, joy_num, fd, uid,
++						name.utf8().get_data(), p_path)) {
++				close(fd);
++				joypad.fd = -1;
++				return;
++			}
+ 			input->joy_connection_changed(joy_num, true, name, uid);
+ 		} else {
+ 			String uidname = uid;
+@@ -410,6 +421,13 @@
+ 				uidname = uidname + _hex_str(name[i]);
+ 			}
+ 			uidname += "00";
++			if (!nxc5b_admit_before_announce(input, joy_num, fd,
++						uidname.utf8().get_data(),
++						name.utf8().get_data(), p_path)) {
++				close(fd);
++				joypad.fd = -1;
++				return;
++			}
+ 			input->joy_connection_changed(joy_num, true, name, uidname);
+ 		}
+ 	}
+--- a/main/input_default.h
++++ b/main/input_default.h
+@@ -191,6 +191,18 @@
+ 	Vector<JoyDeviceMapping> map_db;
+ 
+ 	JoyEvent _get_mapped_button_event(const JoyDeviceMapping &mapping, int p_button);
++
++	/* NXC5B seam (V4-CONTROLLERS-03 / C5B): minimal, versioned readback of the
++	 * mapping THIS ENGINE stored for a pad. It runs the engine's own
++	 * resolution over its own map_db -- it does not reparse anything the
++	 * adapter produced. Returns the logical JoyButton for a physical button
++	 * index, or -1 when the engine binds nothing to it. */
++public:
++	int nx_find_mapping_by_uid(const String &p_uid);
++	int nx_readback_logical_button(const String &p_uid, int p_button);
++	bool nx_has_mapping(const String &p_uid);
++
++private:
+ 	JoyEvent _get_mapped_axis_event(const JoyDeviceMapping &mapping, int p_axis, float p_value);
+ 	void _get_mapped_hat_events(const JoyDeviceMapping &mapping, int p_hat, JoyEvent r_events[HAT_MAX]);
+ 	JoystickList _get_output_button(String output);
+--- a/main/input_default.cpp
++++ b/main/input_default.cpp
+@@ -947,6 +947,36 @@
+ 	parse_input_event(ievent);
+ };
+ 
++/* NXC5B seam: see input_default.h. Reads the engine's own stored mapping. */
++/* The seam runs BEFORE joy_connection_changed, so joy_names has no entry yet.
++ * These resolve by uid with the SAME rule the engine applies at announce
++ * time, over the engine's own map_db. */
++int InputDefault::nx_find_mapping_by_uid(const String &p_uid) {
++	const Vector<JoyDeviceMapping> &p_db = map_db;
++	for (int i = 0; i < p_db.size(); i++) {
++		if (p_db[i].uid == p_uid) {
++			return i;
++		}
++	}
++	return -1;
++}
++
++int InputDefault::nx_readback_logical_button(const String &p_uid, int p_button) {
++	int idx = nx_find_mapping_by_uid(p_uid);
++	if (idx < 0) {
++		return -1;
++	}
++	JoyEvent ev = _get_mapped_button_event(map_db[idx], p_button);
++	if (ev.type != TYPE_BUTTON) {
++		return -1;
++	}
++	return ev.index;
++}
++
++bool InputDefault::nx_has_mapping(const String &p_uid) {
++	return nx_find_mapping_by_uid(p_uid) >= 0;
++}
++
+ InputDefault::JoyEvent InputDefault::_get_mapped_button_event(const JoyDeviceMapping &mapping, int p_button) {
+ 	JoyEvent event;
+ 	event.type = TYPE_MAX;
+--- a/nxc5b/nxc5b_glue.h
++++ b/nxc5b/nxc5b_glue.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++#ifndef NXC5B_GLUE_H
++#define NXC5B_GLUE_H
++/* C5B seam glue for the executed Godot major. Called from
++ * JoypadLinux::open_joypad(), on the joypad thread, immediately BEFORE
++ * input->joy_connection_changed(). Returns true when the engine may announce
++ * the pad. */
++class InputDefault;
++bool nxc5b_admit_before_announce(InputDefault *p_input, int p_joy_id, int p_fd,
++		const char *p_guid, const char *p_name, const char *p_devpath);
++#endif
+--- a/nxc5b/nxc5b_glue.cpp
++++ b/nxc5b/nxc5b_glue.cpp
+@@ -0,0 +1,147 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++#include "nxc5b_glue.h"
++
++#include "main/input_default.h"
++
++extern "C" {
++#include "nxinput_godot_seam.h"
++}
++
++#include <linux/input.h>
++#include <stdio.h>
++#include <string.h>
++#include <sys/ioctl.h>
++#include <sys/syscall.h>
++#include <time.h>
++#include <unistd.h>
++
++#define NXC5B_BPL (8u * (unsigned int)sizeof(unsigned long))
++#define NXC5B_KEY_WORDS ((NXINPUT_GODOT_KEY_BITS + NXC5B_BPL - 1u) / NXC5B_BPL)
++#define NXC5B_ABS_WORDS ((NXINPUT_GODOT_ABS_BITS + NXC5B_BPL - 1u) / NXC5B_BPL)
++
++namespace {
++
++int op_add_mapping(void *ud, const char *mapping) {
++	static_cast<InputDefault *>(ud)->add_joy_mapping(String::utf8(mapping), true);
++	return 0;
++}
++/* The seam passes the joy id, but the engine cannot key on it yet: at this
++ * point joy_names has no entry, because the announce has not happened. We
++ * resolve by the pad's uid, the same rule the engine uses at announce. */
++static String g_nxc5b_uid;
++int op_has_mapping(void *ud, int joy_id) {
++	(void)joy_id;
++	return static_cast<InputDefault *>(ud)->nx_has_mapping(g_nxc5b_uid) ? 1 : 0;
++}
++int op_readback(void *ud, int joy_id, int physical_button) {
++	(void)joy_id;
++	return static_cast<InputDefault *>(ud)->nx_readback_logical_button(g_nxc5b_uid, physical_button);
++}
++uint64_t op_now(void *) {
++	struct timespec ts;
++	clock_gettime(CLOCK_MONOTONIC, &ts);
++	return (uint64_t)ts.tv_sec * 1000000000ull + (uint64_t)ts.tv_nsec;
++}
++long op_pid(void *) { return (long)getpid(); }
++long op_tid(void *) { return (long)syscall(SYS_gettid); }
++void op_receipt(void *, const char *line) {
++	const char *path = getenv("NXC5B_RECEIPT");
++	print_line(String::utf8(line));
++	if (path && path[0]) {
++		FILE *f = fopen(path, "a");
++		if (f) { fprintf(f, "%s\n", line); fclose(f); }
++	}
++}
++
++} // namespace
++
++namespace {
++/* EVIOCGABS on the ENGINE's own fd. The kernel answers; nothing here is
++ * derived from the mapping's text. */
++static nxinput_godot_absinfo g_nxc5b_absinfo[NXINPUT_GODOT_ABS_BITS];
++
++static size_t nxc5b_read_absinfo(int p_fd, const unsigned long *p_abs_bits) {
++	memset(g_nxc5b_absinfo, 0, sizeof(g_nxc5b_absinfo));
++	size_t seen = 0;
++	for (unsigned int code = 0; code < NXINPUT_GODOT_ABS_MAX; code++) {
++		unsigned int word = code / (8u * (unsigned int)sizeof(unsigned long));
++		unsigned int bit = code % (8u * (unsigned int)sizeof(unsigned long));
++		if (!((p_abs_bits[word] >> bit) & 1ul)) {
++			continue;
++		}
++		struct input_absinfo ai;
++		memset(&ai, 0, sizeof(ai));
++		if (ioctl(p_fd, EVIOCGABS(code), &ai) < 0) {
++			continue;
++		}
++		g_nxc5b_absinfo[code].minimum = ai.minimum;
++		g_nxc5b_absinfo[code].maximum = ai.maximum;
++		g_nxc5b_absinfo[code].fuzz = ai.fuzz;
++		g_nxc5b_absinfo[code].flat = ai.flat;
++		g_nxc5b_absinfo[code].resolution = ai.resolution;
++		g_nxc5b_absinfo[code].present = 1;
++		seen++;
++	}
++	return seen;
++}
++} // namespace
++
++bool nxc5b_admit_before_announce(InputDefault *p_input, int p_joy_id, int p_fd,
++		const char *p_guid, const char *p_name, const char *p_devpath) {
++	const char *decl = getenv("NXC5B_DECLARATION");
++	if (!p_input || p_fd < 0) {
++		return true;
++	}
++	static unsigned long keys[NXC5B_KEY_WORDS];
++	static unsigned long abs_bits[NXC5B_ABS_WORDS];
++	memset(keys, 0, sizeof(keys));
++	memset(abs_bits, 0, sizeof(abs_bits));
++	/* Capabilities come from THIS pad's fd, the one the engine opened. */
++	if (ioctl(p_fd, EVIOCGBIT(EV_KEY, sizeof(keys)), keys) < 0 ||
++			ioctl(p_fd, EVIOCGBIT(EV_ABS, sizeof(abs_bits)), abs_bits) < 0) {
++		return decl && decl[0] ? false : true;
++	}
++
++	g_nxc5b_uid = String::utf8(p_guid ? p_guid : "");
++
++	nxinput_godot_seam_engine engine;
++	memset(&engine, 0, sizeof(engine));
++	engine.api_version = NXINPUT_GODOT_SEAM_API_VERSION;
++	engine.struct_size = sizeof(engine);
++	engine.userdata = p_input;
++	engine.major = (uint8_t)NXINPUT_GODOT_ENGINE_3;
++	engine.add_joy_mapping = op_add_mapping;
++	engine.has_mapping = op_has_mapping;
++	engine.readback_logical_button = op_readback;
++	engine.monotonic_ns = op_now;
++	engine.pid = op_pid;
++	engine.tid = op_tid;
++	engine.receipt = op_receipt;
++
++	nxinput_godot_seam_device device;
++	memset(&device, 0, sizeof(device));
++	device.api_version = NXINPUT_GODOT_SEAM_API_VERSION;
++	device.struct_size = sizeof(device);
++	device.joy_id = p_joy_id;
++	device.fd = p_fd;
++	snprintf(device.guid, sizeof(device.guid), "%s", p_guid ? p_guid : "");
++	snprintf(device.name, sizeof(device.name), "%s", p_name ? p_name : "");
++	snprintf(device.devpath, sizeof(device.devpath), "%s", p_devpath ? p_devpath : "");
++	device.key_bits = keys;
++	device.key_bit_count = NXINPUT_GODOT_KEY_BITS;
++	device.abs_bits = abs_bits;
++	device.abs_bit_count = NXINPUT_GODOT_ABS_BITS;
++	device.abs_info = g_nxc5b_absinfo;
++	device.abs_info_count = nxc5b_read_absinfo(p_fd, abs_bits)
++			? (size_t)NXINPUT_GODOT_ABS_BITS
++			: (size_t)0;
++
++	nxinput_godot_seam_result r =
++			nxinput_godot_seam_admit(&engine, &device, decl ? decl : "");
++	if (r == NXINPUT_GODOT_SEAM_ADMIT || r == NXINPUT_GODOT_SEAM_NO_DECLARATION) {
++		return true;
++	}
++	print_line(String::utf8("NXC5B-SEAM blocked: ") +
++			String::utf8(nxinput_godot_seam_result_name(r)));
++	return false;
++}

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "angrybirds",
+  "version": "1.2.6-2",
+  "title": "Angry Birds Classic 8.0.3",
+  "abi_order": [
+    "armeabi-v7a"
+  ],
+  "input": {
+    "packages": [
+      "com.rovio.angrybirds"
+    ]
+  },
+  "extract": [
+    {
+      "id": "owner-apk",
+      "source": {
+        "kind": "container"
+      },
+      "destination": "game.apk",
+      "validate": {
+        "type": "file",
+        "min_size": 103362175,
+        "max_size": 103772201,
+        "sha256": [
+          "0d533148bde4e2067f9138736dde22e49dcc6d7191d20d5061e2afb7dd35b75d",
+          "8cdea1ef39a2a5c3bad5ac27050b491dbdf68050754241390cf9f0d3d24979b8"
+        ],
+        "magic_hex": "504b0304"
+      }
+    }
+  ]
+}

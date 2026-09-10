@@ -1,0 +1,32 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "game-dir-and-passthrough",
+  "enabled_quirks": [],
+  "executable": "actionsquad-nextos",
+  "home_mode": "port",
+  "id": "actionsquad",
+  "launcher_name": "Action Squad.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.12"
+  },
+  "prepare_script": "port-env.sh",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "host.aarch64-libs",
+    "graphics.gles2",
+    "audio.output-open",
+    "input.controller-mapping"
+  ],
+  "required_files": [
+    "actionsquad-nextos",
+    "nxsplash-nextos",
+    "libAndroidEntryPoint.so",
+    "assets/all/media/texts/strings.xml",
+    "alsoft.conf"
+  ],
+  "runtime_report": "log",
+  "schema_version": 2,
+  "title": "Door Kickers: Action Squad"
+}

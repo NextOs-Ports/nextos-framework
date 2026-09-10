@@ -1,0 +1,280 @@
+{
+  "audio": {
+    "callbacks": [
+      "SDL audio output (OpenSL ES shim)"
+    ],
+    "format": "signed 16-bit stereo PCM"
+  },
+  "display": {
+    "policy": "game",
+    "remap_input": false
+  },
+  "egl_binding": {
+    "enabled": false,
+    "imports": []
+  },
+  "graphics": {
+    "adapter": "nxgl_graphics_contract_adapter",
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 15000,
+    "profile": "es",
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "imports": [
+    "libmain.so",
+    "libunity.so",
+    "libil2cpp.so"
+  ],
+  "input": {
+    "actions": [
+      {
+        "id": "cursor.click",
+        "kind": "button",
+        "sinks": [
+          "adapter.pointer.click"
+        ]
+      },
+      {
+        "id": "cursor.move",
+        "kind": "vector",
+        "sinks": [
+          "adapter.pointer.move"
+        ]
+      },
+      {
+        "id": "menu.accept",
+        "kind": "button",
+        "sinks": [
+          "engine.ui_accept"
+        ]
+      },
+      {
+        "id": "player.down",
+        "kind": "button",
+        "sinks": [
+          "engine.input.down"
+        ]
+      },
+      {
+        "id": "player.interact",
+        "kind": "button",
+        "sinks": [
+          "engine.input.interact"
+        ]
+      },
+      {
+        "id": "player.jump",
+        "kind": "button",
+        "sinks": [
+          "engine.input.jump"
+        ]
+      },
+      {
+        "id": "player.move",
+        "kind": "vector",
+        "sinks": [
+          "engine.input.move"
+        ]
+      },
+      {
+        "id": "system.pause",
+        "kind": "button",
+        "sinks": [
+          "engine.input.pause"
+        ]
+      },
+      {
+        "id": "system.quit",
+        "kind": "button",
+        "sinks": [
+          "adapter.system.quit"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "player.jump",
+        "B": "player.interact",
+        "DOWN": "native",
+        "L1": "native",
+        "L2": "null",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "player.move",
+        "R1": "native",
+        "R2": "null",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "native",
+        "START": "system.pause",
+        "UP": "native",
+        "X": "native",
+        "Y": "player.down"
+      },
+      "menu": {
+        "A": "menu.accept",
+        "B": "native",
+        "DOWN": "native",
+        "L1": "native",
+        "L2": "null",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "native",
+        "R1": "native",
+        "R2": "null",
+        "R3": "cursor.click",
+        "RIGHT": "native",
+        "RIGHT_STICK": "cursor.move",
+        "SELECT": "native",
+        "START": "system.pause",
+        "UP": "native",
+        "X": "native",
+        "Y": "native"
+      }
+    },
+    "mapping": null,
+    "mapping_authority": "sdl-portmaster-complete-first",
+    "runtime_contract": {
+      "context_initial": "unproven",
+      "delivery_ack": "required",
+      "schema": "nxinput-gptk-live/1",
+      "sink_coverage": "all-actions-before-activation",
+      "unproven_policy": "native-passthrough"
+    },
+    "runtime_mapping": "nxinput-gptk",
+    "touch": null
+  },
+  "input_controller_profiles": {
+    "bundle": "controllers.nxb",
+    "enabled": true,
+    "face_layout_variants": {
+      "modern": {
+        "bundle": "controllers-modern.nxb",
+        "sha256": "bfce688bb383cf2d239193ea3c4b3ea57b8bb28b06f46955b71bc0561ada139b"
+      },
+      "retro": {
+        "bundle": "controllers-retro.nxb",
+        "sha256": "3429bb94a48930b8cc9abb768957815138c686fd2436aca6eadadb5b6a3359f0"
+      }
+    },
+    "sha256": "83e8023699486dee627245305026837b25c30549ced63744975916fdc32fb64b"
+  },
+  "input_sdl3_portmaster": {
+    "enabled": false,
+    "private_sdl3_sha256": ""
+  },
+  "jni": {
+    "callbacks": [
+      "UnityPlayer.nativeInjectEvent"
+    ],
+    "classes": [
+      "com/unity3d/player/NativeLoader",
+      "com/unity3d/player/UnityPlayer"
+    ],
+    "methods": [
+      "NativeLoader.load",
+      "UnityPlayer.initJni",
+      "nativeRecreateGfxState",
+      "nativeSendSurfaceChangedEvent",
+      "nativeFocusChanged",
+      "nativeResume",
+      "nativeRender",
+      "nativePause",
+      "nativeDone"
+    ]
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "adapter",
+    "sinks": [
+      "engine.locale"
+    ],
+    "supported": [
+      "en",
+      "pt",
+      "ru",
+      "de",
+      "es",
+      "fr",
+      "it",
+      "pl",
+      "zh",
+      "ja",
+      "ko",
+      "tr",
+      "uk",
+      "cs",
+      "nl"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "nxinput.gptk.preinit-load",
+      "module-map-relocate",
+      "libmain.init_array",
+      "libmain.JNI_OnLoad",
+      "NativeLoader.load(libunity.so,libil2cpp.so)",
+      "UnityPlayer.initJni",
+      "nativeRecreateGfxState(surfaceCreated)",
+      "nativeRecreateGfxState(surfaceChanged)",
+      "nativeSendSurfaceChangedEvent",
+      "nativeFocusChanged(true)",
+      "nativeResume",
+      "nxinput.c6.admit-before-announce",
+      "nxinput.gptk.live-seal",
+      "nativeRender",
+      "nxgl.frame-proof.sample-before-present",
+      "nativeFocusChanged(false)",
+      "nativePause",
+      "nxgl.frame-proof.publish",
+      "_exit(0)"
+    ],
+    "source_evidence": [
+      "src/main.c",
+      "src/input.c",
+      "src/input_gptk.c",
+      "src/jni.c",
+      "src/egl.c",
+      "src/egl_sdl.c"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "PlayerPrefs (shim)",
+      "nativePause flushes the session save"
+    ],
+    "paths": [
+      "home/"
+    ]
+  },
+  "prohibitions": [
+    "do not skip or reorder the native Unity lifecycle",
+    "do not vendor or preload a private SDL",
+    "do not steal A or the D-pad for the cursor",
+    "do not exit on any chord other than SELECT+START",
+    "do not convert controller input into keyboard keys",
+    "do not treat audio or a live PID as video proof"
+  ],
+  "quirks": [
+    "touch buttons are hidden through UIManager.setButtonMode(1) with readback",
+    "pause uses the game's own UIManager.backButtonInGame() while a level is alive; START is KEYCODE_BUTTON_START (JoystickButton10) elsewhere",
+    "the level-select CanvasScaler match is contained to the drawable (ADAPTIVE-VIEWPORT/1)",
+    "trigger axes are never forwarded (the mobile profile reads a trigger axis as pause); L2/R2 exist only as GPTK controls or KEYCODE_BUTTON_L2/R2"
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START (nxinput_exit_chord) requests the native lifecycle shutdown: nativeFocusChanged(false), nativePause, _exit(0)",
+    "evidence": [
+      "src/input.c",
+      "src/main.c"
+    ]
+  }
+}

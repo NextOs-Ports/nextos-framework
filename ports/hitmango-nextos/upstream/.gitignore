@@ -1,0 +1,13 @@
+/build/
+/dist/
+/hitmango-universal
+payload/
+gamedata/
+userdata/
+runtime/
+*.log
+*.ppm
+*.raw
+*.core
+.build/
+.nxextract/

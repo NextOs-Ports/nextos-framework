@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "release": "1.1.0",
+  "artifact": {
+    "binary_name": "kotor-nextos",
+    "binary_sha256": "89a8244b34b970aaa8495ed5811762ff3fd7ceb274bf3ca4f2a6ffb867d4b0d4",
+    "maximum_glibc": "GLIBC_2.28",
+    "release_zip_sha256": "747ea0c668565a586b171141a67be1d190c40c8a9b86a70d44fe4bb58de39cce"
+  },
+  "acceptance": [
+    {
+      "profile": "NextOS Mali-450 fbdev",
+      "framework_ready": true,
+      "graphics": {
+        "api": "OpenGL ES 2.0",
+        "drawable": "1280x720",
+        "visible_title_and_menu_capture": true
+      },
+      "audio": {
+        "backend": "PulseAudio",
+        "sample_rate_hz": 44100,
+        "channels": 2
+      },
+      "input": {
+        "controller_count": 1,
+        "mapping": "runtime",
+        "menu_down_and_accept_observed": true
+      },
+      "data": {
+        "existing_install_adopted": true,
+        "guest_libraries_validated": 7,
+        "proprietary_data_preserved": true
+      },
+      "shutdown_seconds_at_most": 2,
+      "frontend_left_masked_and_inactive": true
+    },
+    {
+      "profile": "ArkOS Mali-G31 KMSDRM",
+      "framework_ready": true,
+      "graphics": {
+        "api": "OpenGL ES 3.2",
+        "drawable": "640x480",
+        "engine_owned_context_receipt": true
+      },
+      "audio": {
+        "backend": "ALSA",
+        "sample_rate_hz": 44100,
+        "channels": 2
+      },
+      "input": {
+        "controller_count": 1,
+        "mapping": "runtime",
+        "physical_controller_path_observed": true,
+        "select_start_exit_path_armed": true,
+        "synthetic_menu_down_accept_back_observed": true
+      },
+      "data": {
+        "existing_install_adopted": true,
+        "guest_libraries_validated": 7,
+        "proprietary_data_preserved": true
+      },
+      "console_restored_to_utf8": true,
+      "shutdown_seconds_at_most": 2,
+      "frontend_restored_active": true
+    }
+  ],
+  "input_claim_boundary": "The current acceptance observed the physical controller node and runtime mapping; remote menu injection exercised down, accept and back. It does not claim a remotely actuated physical button press.",
+  "native_android_order_preserved": true,
+  "run_sh_present": false,
+  "private_device_coordinates_stored": false,
+  "raw_device_logs_stored": false
+}

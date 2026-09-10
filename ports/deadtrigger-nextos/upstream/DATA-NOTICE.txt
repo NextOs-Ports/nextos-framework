@@ -1,0 +1,13 @@
+Dead Trigger game data is not licensed by this source repository.
+
+The loader, launcher and compatibility code do not grant any right to
+redistribute the APK, libmain.so, libunity.so, libil2cpp.so, Unity assets,
+artwork, audio, trademarks or other Madfinger Games material.
+
+Users must provide their own legally obtained Dead Trigger 1 v2.1.0 universal
+APK. NXExtract verifies the exact supported payload and transactionally
+installs the three ARM64 libraries plus the complete 1,441-file Unity Data
+tree. No OBB is needed for this release.
+
+Dead Trigger is a trademark of its respective owner. This unofficial port is
+not affiliated with or endorsed by Madfinger Games.

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Tightrope Theatre.sh</path>
+    <name>Tightrope Theatre</name>
+    <desc>Tightrope Theatre: a precise, physics-driven balancing platformer, run natively from the owner's copy.</desc>
+    <developer>Nitrome</developer>
+    <publisher>Nitrome</publisher>
+    <genre>Platform, Arcade</genre>
+  </game>
+</gameList>

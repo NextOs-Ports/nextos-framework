@@ -1,0 +1,38 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "none",
+  "enabled_quirks": [],
+  "executable": "beachbuggy",
+  "home_mode": "port",
+  "id": "beachbuggy",
+  "launcher_name": "Beach Buggy Racing.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.18"
+  },
+  "prepare_script": "",
+  "private_library_paths": [
+    "lib"
+  ],
+  "required_capabilities": [
+    "host.portmaster",
+    "graphics.window",
+    "graphics.gles2",
+    "graphics.egl",
+    "graphics.egl-config",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api"
+  ],
+  "required_files": [
+    "beachbuggy",
+    "nxsplash-nextos",
+    "lib/libSDL3.so.0",
+    "gamedata/lib/arm64-v8a/libmain.so",
+    "gamedata/assets/Assets.apf"
+  ],
+  "runtime_report": "log",
+  "schema_version": 2,
+  "title": "Beach Buggy Racing"
+}

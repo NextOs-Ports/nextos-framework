@@ -1,0 +1,19 @@
+diff --git a/src/video/sdl2/SDL_sdl2video.c b/src/video/sdl2/SDL_sdl2video.c
+index 1111111..2222222 100644
+--- a/src/video/sdl2/SDL_sdl2video.c
++++ b/src/video/sdl2/SDL_sdl2video.c
+@@ -250,9 +250,14 @@ static bool SDL2_VideoInit(SDL_VideoDevice *_this)
+     /* Pass through video driver hint to SDL2 */
+     const char *sdl2_videodriver = getenv("SDL3SHIM_SDL2_VIDEODRIVER");
+     if (sdl2_videodriver && *sdl2_videodriver) {
+         setenv("SDL_VIDEODRIVER", sdl2_videodriver, 1);
+         SDL_Log("SDL2 backend: setting SDL_VIDEODRIVER=%s", sdl2_videodriver);
++    } else {
++        /* Do not let the outer SDL3 driver name leak into the nested SDL2 init.
++           Firmware SDL2 builds often use private/default video backends. */
++        unsetenv("SDL_VIDEODRIVER");
++        SDL_Log("SDL2 backend: unsetting SDL_VIDEODRIVER for nested SDL2 auto-selection");
+     }
+ 
+     if (SDL2_Init(SDL2_INIT_VIDEO) < 0) {
+         return SDL_SetError("SDL2_Init(VIDEO) failed: %s",

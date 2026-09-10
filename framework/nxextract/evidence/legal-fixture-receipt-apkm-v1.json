@@ -1,0 +1,49 @@
+{
+  "recipe": {
+    "id": "huntdown-nextos",
+    "version": "0.1.23-200023-universal-1"
+  },
+  "reference_copy": {
+    "container_sha256": "e73173cd7274ea796614c298ac3be623c31febda475bac15c56c0e71820a87ae",
+    "container_size": 438127892,
+    "note": "documentation only: identity of the container never decides compatibility"
+  },
+  "resolved": {
+    "abi": "arm64-v8a",
+    "payload_count": 525,
+    "total_bytes": 500241087
+  },
+  "sanitized": true,
+  "schema": "org.nextos.nxextract.legal-fixture-receipt",
+  "schema_version": 1,
+  "variants": [
+    {
+      "result": "accepted",
+      "variant": "as-provided"
+    },
+    {
+      "result": "accepted",
+      "variant": "renamed"
+    },
+    {
+      "result": "accepted",
+      "variant": "repacked-stored-reordered"
+    },
+    {
+      "result": "accepted",
+      "variant": "bundle-extension-swap"
+    },
+    {
+      "result": "refused",
+      "variant": "foreign-package"
+    },
+    {
+      "result": "refused",
+      "variant": "missing-required-payload"
+    },
+    {
+      "result": "refused",
+      "variant": "undeclared-abi"
+    }
+  ]
+}

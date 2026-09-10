@@ -1,0 +1,34 @@
+# Build and release output
+.build/
+dist/
+release/
+pf2
+pf2-universal
+
+# Owner-supplied game data and persistent state
+assets/
+lib/
+home/
+gamedata/*
+!gamedata/*.txt
+*.apk
+*.apkm
+*.apks
+*.xapk
+*.obb
+
+# NXExtract/runtime state
+.nxextract/
+.nxextract-*.json
+nxextract.log
+*.log
+*.prev.log
+*.ppm
+
+# Python/editor artifacts
+__pycache__/
+*.py[cod]
+/tools/vendor/python/UnityPy/lib/
+.*.swp
+.idea/
+.vscode/

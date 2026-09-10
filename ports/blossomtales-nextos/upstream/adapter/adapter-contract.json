@@ -1,0 +1,259 @@
+{
+  "audio": {
+    "callbacks": [
+      "OpenAL (SoundEffect)",
+      "android.media.MediaPlayer -> src/media_player.c (Song)"
+    ],
+    "format": "signed 16-bit stereo PCM at 48000 Hz"
+  },
+  "display": {
+    "policy": "game",
+    "remap_input": false
+  },
+  "egl_binding": {
+    "enabled": false,
+    "imports": []
+  },
+  "graphics": {
+    "adapter": "nxgl_graphics_contract_adapter",
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 15000,
+    "profile": "es",
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "imports": [
+    "libmonosgen-2.0.so",
+    "libmonodroid.so",
+    "libxamarin-app.so"
+  ],
+  "input": {
+    "actions": [
+      {
+        "id": "menu.accept",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "menu.back",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.attack",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.use_item",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.use_tool",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.open_menu",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.select_previous",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.select_next",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.open_journal",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "system.back",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "system.pause",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "player.attack",
+        "B": "player.use_item",
+        "DOWN": "native",
+        "L1": "player.select_previous",
+        "L2": "native",
+        "L3": "player.open_journal",
+        "LEFT": "native",
+        "LEFT_STICK": "native",
+        "R1": "player.select_next",
+        "R2": "native",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "system.back",
+        "START": "system.pause",
+        "UP": "native",
+        "X": "player.use_tool",
+        "Y": "player.open_menu"
+      },
+      "menu": {
+        "A": "menu.accept",
+        "B": "menu.back",
+        "DOWN": "native",
+        "L1": "native",
+        "L2": "native",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "native",
+        "R1": "native",
+        "R2": "native",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "native",
+        "START": "native",
+        "UP": "native",
+        "X": "native",
+        "Y": "native"
+      }
+    },
+    "mapping": null,
+    "mapping_authority": "sdl-portmaster-complete-first",
+    "runtime_contract": {
+      "context_initial": "unproven",
+      "delivery_ack": "required",
+      "schema": "nxinput-gptk-live/1",
+      "sink_coverage": "all-actions-before-activation",
+      "unproven_policy": "native-passthrough"
+    },
+    "runtime_mapping": "nxinput-gptk",
+    "touch": {
+      "right_stick_cursor": "P1 native (R3 = click when the arrow is visible, BUTTON_THUMBR otherwise)"
+    }
+  },
+  "input_controller_profiles": {
+    "bundle": "controllers.nxb",
+    "enabled": true,
+    "sha256": "10feaf41cf8ee6203cf05c4202119e5bdba2dfb22db41e89ab31a5a9bd6eff13"
+  },
+  "input_sdl3_portmaster": {
+    "enabled": false,
+    "private_sdl3_sha256": ""
+  },
+  "jni": {
+    "callbacks": [
+      "MonoGameAndroidGameView.n_onKeyDown",
+      "MonoGameAndroidGameView.n_onKeyUp",
+      "MonoGameAndroidGameView.n_onGenericMotionEvent",
+      "MonoGameAndroidGameView.n_onTouchEvent"
+    ],
+    "classes": [
+      "mono/android/Runtime",
+      "com/castlepixel/blossomtales/Activity1",
+      "crc64493ac3851fab1842/MonoGameAndroidGameView"
+    ],
+    "methods": [
+      "Runtime.init",
+      "Activity1.n_onCreate",
+      "Activity1.n_onResume",
+      "Activity1.n_onPause",
+      "MonoGameAndroidGameView.n_onKeyDown",
+      "MonoGameAndroidGameView.n_onKeyUp"
+    ]
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "native-menu",
+    "sinks": [
+      "engine.locale"
+    ],
+    "supported": [
+      "en"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "nxinput.gptk.preinit-load",
+      "nxc6.seam.stage-before-init",
+      "sdl.video+gamecontroller.init (bridge)",
+      "mono.runtime.init",
+      "Activity1.n_onCreate",
+      "Activity1.n_onResume",
+      "bt_input.init (padset, sinks, seal)",
+      "bt_input.run_loop"
+    ],
+    "source_evidence": [
+      "src/main.c",
+      "src/bt_input.c",
+      "src/fbo_compat.c",
+      "src/imports.gen.c",
+      "src/sdv_egl_bridge.c"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "Activity1.n_onPause (MonoGame saves on pause)"
+    ],
+    "paths": [
+      "gamedata/ (owner data, never in the ZIP)"
+    ]
+  },
+  "prohibitions": [
+    "do not vendor or preload a private SDL (the firmware SDL is resolved by dlsym)",
+    "do not turn evdev codes into a mapping inside the port",
+    "do not deliver a keycode from two owners in the same frame",
+    "do not leave keys latched across focus loss, hotplug or exit",
+    "do not present raw button numbers to the player"
+  ],
+  "quirks": [
+    "right-stick cursor + R3 click (P1) kept native as in 1.3.0",
+    "L2/R2 reach the game only as trigger axes (MotionEvent)",
+    "context proven by Game1.instance.currentState + PauseScreen.IsPaused read through the Mono embedding API (no invoke)"
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START on one instance -> release all -> Activity1.n_onPause (save) -> nxgl frame proof publish -> _exit(0)",
+    "evidence": [
+      "src/bt_input.c",
+      "src/main.c sb_pause_and_exit"
+    ]
+  }
+}

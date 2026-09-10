@@ -1,0 +1,306 @@
+{
+  "dependencies": [
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "portmaster",
+      "soname": "libSDL2-2.0.so.0"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libc.so.6"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libdl.so.2"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "firmware",
+      "soname": "libgcc_s.so.1"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libm.so.6"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libpthread.so.0"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "firmware",
+      "soname": "libz.so.1"
+    }
+  ],
+  "exceptions": [],
+  "files": [
+    {
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "8a3d83f6ea4652ed33399e6fcd9e4898a5eda641111fe8194aca4a394480a0e2",
+      "source": "Merchant of the Skies.sh",
+      "target": "Merchant of the Skies.sh"
+    },
+    {
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "b1bf161627161b77bb9a417e92540fd6f53541c413180ab3f9bd00cd5a0e3ef2",
+      "source": "nxport.json",
+      "target": "merchantskies/nxport.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "174c4015fde455495dd660aca23b058df585d176d374dcc0a283e587466855ba",
+      "source": "nxproject.json",
+      "target": "merchantskies/nxproject.json"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "project-linux",
+      "mode": "0755",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "provenance": "port build script; framework pinned by FRAMEWORK-PIN.json",
+      "sha256": "8cd5de6ae7c4508c56e98de4d08892f812658db617998b265cd442ab0d9f24fa",
+      "soname": null,
+      "source": "merchantskies-nextos",
+      "target": "merchantskies/merchantskies-nextos"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "3a4b885fe9275326d879ab35101cba61ce4f42071ed5bd39ab3a88471b61cd12",
+      "source": "README.md",
+      "target": "merchantskies/README.md"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "84071411cc37611b17de60b8893b02835767542fce99a74bb5bd3c69d1334913",
+      "source": "INSTALLATION.md",
+      "target": "merchantskies/INSTALLATION.md"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a",
+      "source": "LICENSE",
+      "target": "merchantskies/LICENSE"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "7d1460685200b51fd4c33ec423ec53fa3c26409610ee468e02ee5b95b0a6a7df",
+      "source": "port.json",
+      "target": "merchantskies/port.json"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "38615586517dc70da47e4797c1d5d37a105e6741023799d21ad378ea4659be89",
+      "source": "gameinfo.xml",
+      "target": "merchantskies/gameinfo.xml"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXSplash 0.1.2 canonical aarch64 artifact",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "soname": null,
+      "source": "nxsplash-nextos",
+      "target": "merchantskies/nxsplash-nextos"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "5717e7c840171019a4eeab5b79a7f894a4986eaff93d04ec5b12c9a189f594bf",
+      "source": "version.txt",
+      "target": "merchantskies/version.txt"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "45725a36c6c2a9c54472d51a9630bb7e508001b3fdb320a8a69098b411ed8094",
+      "source": "defaults/NEXTOSCONTROLLERS.gptk",
+      "target": "merchantskies/defaults/NEXTOSCONTROLLERS.gptk"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "a1da8b2085fd40aa5548bfc49606a8257e4f8f9a6a282830702dbad21f77c98f",
+      "source": "defaults/NEXTOSSETTINGS.txt",
+      "target": "merchantskies/defaults/NEXTOSSETTINGS.txt"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "97f4480d15c0e0f3231cdfe63e73fe72d10bc40bb1ef7e1b6bac6c32361def4d",
+      "source": "adapter/adapter-contract.json",
+      "target": "merchantskies/adapter/adapter-contract.json"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "59c2355b8168d7d1628348bc09ea51f981ab930cc42e171b200c276ba48ad361",
+      "source": ".nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/commit",
+      "target": "merchantskies/.nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/commit"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "9411d154b59d21c697f0de7c06d4cc6989b444cdce6bcff739650081e0d0536e",
+      "source": ".nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/components.sha256",
+      "target": "merchantskies/.nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/components.sha256"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0755",
+      "sha256": "8a3d83f6ea4652ed33399e6fcd9e4898a5eda641111fe8194aca4a394480a0e2",
+      "source": ".nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/files/launcher/Merchant of the Skies.sh",
+      "target": "merchantskies/.nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/files/launcher/Merchant of the Skies.sh"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "b1bf161627161b77bb9a417e92540fd6f53541c413180ab3f9bd00cd5a0e3ef2",
+      "source": ".nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/files/nxport.json",
+      "target": "merchantskies/.nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/files/nxport.json"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "f8031c2e449dcf0cda2a960be79799b1d48112d9a50dbf78593d8602fa84b639",
+      "source": ".nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/manifest.json",
+      "target": "merchantskies/.nxruntime/generations/953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0/manifest.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "661b84b29415d68e5294f5325fd42fb6d7a4c988f057fa1025f1bdba0a9d9790",
+      "source": "gamedata/README.txt",
+      "target": "merchantskies/gamedata/README.txt"
+    },
+    {
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "8fdfcff2187ab128e8daf60287e3c73a07c49f4eea070cc936820ef317f59d26",
+      "source": "extractor.json",
+      "target": "merchantskies/extractor.json"
+    },
+    {
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "1a2b7c62af46cba2766824904c3f016358e3714a61e3313f22cefc1d7f9bf278",
+      "source": "nxextract/nxextract.py",
+      "target": "merchantskies/nxextract/nxextract.py"
+    },
+    {
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+      "source": "nxextract/run-extractor.sh",
+      "target": "merchantskies/nxextract/run-extractor.sh"
+    },
+    {
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "merchantskies/nxextract/nxextract-runtime-env.sh"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXExtract UI 1.2.20 canonical aarch64 artifact",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "soname": null,
+      "source": "nxextract/nxextract-ui",
+      "target": "merchantskies/nxextract/nxextract-ui"
+    }
+  ],
+  "nxextract": {
+    "minimum_version": "1.2.20",
+    "path": "merchantskies/nxextract/nxextract.py",
+    "recipe_path": "merchantskies/extractor.json",
+    "recipe_sha256": "8fdfcff2187ab128e8daf60287e3c73a07c49f4eea070cc936820ef317f59d26",
+    "runner_path": "merchantskies/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "merchantskies/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "sha256": "1a2b7c62af46cba2766824904c3f016358e3714a61e3313f22cefc1d7f9bf278",
+    "ui_path": "merchantskies/nxextract/nxextract-ui",
+    "ui_sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+    "version": "1.2.20"
+  },
+  "package": {
+    "id": "merchantskies",
+    "launcher": "Merchant of the Skies.sh",
+    "launcher_chain": [
+      "Merchant of the Skies.sh"
+    ],
+    "launcher_contract": {
+      "config_path": "merchantskies/nxport.json",
+      "config_sha256": "b1bf161627161b77bb9a417e92540fd6f53541c413180ab3f9bd00cd5a0e3ef2",
+      "generator": "nxbootstrap",
+      "version": "0.6.32"
+    },
+    "license": {
+      "file": "merchantskies/LICENSE",
+      "source_url": "https://github.com/NextOs-Ports/merchantskies-nextos",
+      "spdx_id": "GPL-3.0-only"
+    },
+    "port_dir": "merchantskies",
+    "profile": "universal-portmaster",
+    "version": "1.0"
+  },
+  "portmaster_metadata": {
+    "gameinfo_xml": {
+      "path": "merchantskies/gameinfo.xml",
+      "sha256": "38615586517dc70da47e4797c1d5d37a105e6741023799d21ad378ea4659be89"
+    },
+    "images": [],
+    "port_json": {
+      "path": "merchantskies/port.json",
+      "sha256": "7d1460685200b51fd4c33ec423ec53fa3c26409610ee468e02ee5b95b0a6a7df"
+    }
+  },
+  "release": {
+    "compression": "deflated",
+    "max_glibc": "2.30",
+    "source_date_epoch": 1786492800
+  },
+  "schema_version": 2,
+  "source_root": "."
+}

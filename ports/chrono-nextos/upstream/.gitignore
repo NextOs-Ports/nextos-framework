@@ -1,0 +1,21 @@
+# dados do jogo (BYO) e artefatos de execucao
+/.build/
+/assets/
+/libchrono.so
+/libc++_shared.so
+/libencrypt.so
+/gamedata/*
+!/gamedata/README.txt
+/userdata/
+/shot_*.raw
+/out.pcm
+/debug.log
+/debug.prev.log
+/nxextract.log
+*.log
+__pycache__/
+*.pyc
+/.nxextract*
+/.build/
+/tmpbuild/
+/dist/

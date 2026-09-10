@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<map>
+    <int name="Screenmanager%20Resolution%20Width" value="2400" />
+    <int name="Screenmanager%20Resolution%20Height" value="1080" />
+    <boolean name="tutorialComplete" value="true" />
+    <string name="owned-save-test">owner-value</string>
+</map>

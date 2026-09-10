@@ -1,0 +1,19 @@
+{
+  "schema": "forager-runner-source-v1",
+  "upstream": {
+    "url": "https://github.com/JohnnyonFlame/gmloader-next.git",
+    "commit": "c2fca354df73761887c15f44a0b28ec823581cd5"
+  },
+  "builder": {
+    "base_image": "debian@sha256:58ce6f1271ae1c8a2006ff7d3e54e9874d839f573d8009c20154ad0f2fb0a225",
+    "compiler": "arm-linux-gnueabihf-g++ 8.3.0",
+    "maximum_glibc": "2.28",
+    "source_date_epoch": 1786579200
+  },
+  "output": {
+    "path": "forager-nextos",
+    "architecture": "ELF32 ARM EABI5",
+    "sha256": "2f7fe91d188070a5b61e282ae085c7251110471165bd71ae78252ff90b5e9353"
+  },
+  "owner_data_included": false
+}

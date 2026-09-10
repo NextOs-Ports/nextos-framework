@@ -1,0 +1,365 @@
+{
+  "schema": "nxandroid-m16-adapter-contract-v1",
+  "schema_version": 1,
+  "milestone": "M16",
+  "contract_version": "1.1.0",
+  "scope": "closed-ledger-for-five-approved-adapters",
+  "method": "The ledger records what may be reused and what must stay adapter-owned. Closure uses static evidence, deterministic framework tests, sanitized technical observations and the prior acceptance of finalized ports; it never attributes manual gameplay to the agent or turns source evidence into a universal callback, offset, save path or shutdown action.",
+  "approved_adapters": [
+    "bully2",
+    "sonic4ep2",
+    "horizonchase",
+    "kotor",
+    "asm2_127"
+  ],
+  "source_policy": {
+    "positive_evidence": "Only the five approved source trees named above are positive evidence.",
+    "unapproved_evidence": "WIP, incomplete ports and other source trees are never positive evidence, even when they compile.",
+    "copy_rule": "A mechanism may be copied only after its source contract, target contract, provenance and license are recorded.",
+    "target_edit_rule": "The ledger and framework gate are editable; approved reference ports remain read-only evidence.",
+    "private_data_rule": "No IP address, hostname, credential, personal path or raw device log belongs in this ledger."
+  },
+  "safety": {
+    "static_files_only": true,
+    "validator_process_free": true,
+    "guest_files_opened": false,
+    "guest_code_executed": false,
+    "guest_initializers_executed": false,
+    "guest_jni_onload_executed": false,
+    "device_access": false,
+    "network_access": false,
+    "manual_gameplay_revalidation_claimed": false,
+    "save_load_replay_claimed": false,
+    "approved_acceptance_items": [
+      "M16-013",
+      "M16-014",
+      "M16-020"
+    ]
+  },
+  "universal_core": {
+    "reusable": [
+      "versioned adapter schema and required-field validation",
+      "ELF module declaration and lifecycle phase-order validation",
+      "explicit import catalog with criticality, binding and contract identifiers",
+      "JNI handle and RegisterNatives registry mechanics without game defaults",
+      "SDL mapping parser, hotplug, focus-loss release and bounded event pump",
+      "audio buffer ownership, capability negotiation and deterministic teardown protocol",
+      "bounded atomic persistence primitive with failure reporting",
+      "named quirk registry, fingerprint gate and default-off enforcement",
+      "provenance, license, specificity and known-limit ledgers"
+    ],
+    "adapter_only": [
+      "guest module names, hashes, offsets and instruction bytes",
+      "JNI classes, methods, signatures, callbacks and return semantics",
+      "HID IDs, bit masks, axis order, thresholds, touch sentinels and GUID exceptions",
+      "guest audio formats, callbacks, cadence and mutex/layout handoffs",
+      "save keys, save paths, engine callbacks and save timing",
+      "Activity, Surface, resume, focus, loop, pause and shutdown order",
+      "terminal return, _exit exception or delegated SDL_main behavior",
+      "shader, texture, alpha, backend and engine-specific workarounds"
+    ],
+    "forbidden_defaults": [
+      "unknown critical import as a zero-return stub",
+      "engine callback or JNI method selected by name alone",
+      "offset or patch bytes without an exact target fingerprint",
+      "device-name or firmware-name selection of engine behavior",
+      "global alpha-one, NPOT, shader, texture-wrap or GL-finish workaround",
+      "universal save path, shutdown callback or terminal action"
+    ]
+  },
+  "m16_items": [
+    {
+      "id": "M16-001",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/contracts/declarative-v1.json:4", "ports/asm2_127/README.md:344"],
+      "reusable": ["identity, provenance, lifecycle, JNI/import, input, audio, persistence, quirk, limits and test sections"],
+      "adapter_specific": ["all values and contracts populated by the target adapter"],
+      "gaps": ["no runtime result is implied by a structurally valid ledger"],
+      "tests": ["schema rejects missing identity, provenance or required maps"]
+    },
+    {
+      "id": "M16-002",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxandroid/include/nxandroid.h:47", "ports/asm2_127/src/main.c:430", "ports/kotor/src/main.c:110"],
+      "reusable": ["phase vocabulary, cycle IDs, rollback groups and order validator"],
+      "adapter_specific": ["module order, entry points, thread ownership and surface epochs"],
+      "gaps": ["runtime traces are not part of this static receipt"],
+      "tests": ["reject skipped phase, duplicate module initialization and mismatched cycle"]
+    },
+    {
+      "id": "M16-003",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxandroid/include/nxandroid.h:226", "ports/asm2_127/src/jni_bridge.c:1806", "ports/kotor/src/jni_fake.c:82"],
+      "reusable": ["explicit import/JNI registry and criticality validation"],
+      "adapter_specific": ["classes, signatures, callbacks, stubs and fallback semantics"],
+      "gaps": ["guest import resolution remains an adapter runtime responsibility"],
+      "tests": ["critical unknown fails; optional weak binding alone may be absent"]
+    },
+    {
+      "id": "M16-004",
+      "status": "contract_ready",
+      "evidence_refs": ["ports/asm2_127/src/input.h:40", "ports/kotor/src/kotor_input.c:175", "ports/horizonchase/src/horizon_input.c:275"],
+      "reusable": ["mapping parser, hotplug, focus release and bounded touch conversion"],
+      "adapter_specific": ["guest IDs, masks, axis order, thresholds, GUID exceptions and touch semantics"],
+      "gaps": ["radial deadzone and contextual cursor behavior still require target adapters"],
+      "tests": ["mapping, diagonal deadzone, hotplug, focus loss and no gameplay cursor theft"]
+    },
+    {
+      "id": "M16-005",
+      "status": "contract_ready",
+      "evidence_refs": ["ports/asm2_127/src/opensl_bridge.c:223", "ports/asm2_127/src/opensl_bridge.c:331", "ports/horizonchase/src/main.c:5590"],
+      "reusable": ["buffer ownership, real-output negotiation and teardown ownership protocol"],
+      "adapter_specific": ["requested format, guest callback, cadence, mutex handoff and backend bridge"],
+      "gaps": ["realtime-lock and process-lifetime audio exceptions remain target-specific"],
+      "tests": ["starvation, underrun, callback reentrancy, failed open and destroy race"]
+    },
+    {
+      "id": "M16-006",
+      "status": "closed_guarded",
+      "evidence_refs": ["framework/contracts/declarative-v1.json:157", "ports/asm2_127/README.md:339", "ports/horizonchase/src/main.c:3726"],
+      "reusable": ["named fingerprinted quirk registry with empty default"],
+      "adapter_specific": ["every shader, alpha, texture, backend or lifecycle quirk"],
+      "gaps": ["historical approved-source defaults remain recorded adapter debt and are excluded from core behavior"],
+      "tests": ["all quirks disabled in core; only exact adapter fingerprint can enable one"]
+    },
+    {
+      "id": "M16-007",
+      "status": "closed",
+      "evidence_refs": ["ports/horizonchase/NOTICE.md:9", "ports/bully2/package/bully/licenses/LICENSE.md:16", "ports/asm2_127/README.md:394"],
+      "reusable": ["piece-level provenance and license record format"],
+      "adapter_specific": ["source file, approved origin, license and transformation for every copied piece"],
+      "gaps": ["existing notices are broader than the per-piece M16 ledger"],
+      "tests": ["reject component without approved source, license and contract comparison"]
+    },
+    {
+      "id": "M16-008",
+      "status": "contract_ready",
+      "evidence_refs": ["ports/asm2_127/README.md:5", "ports/sonic4/package/sonic4ep2/README.md:9", "ports/kotor/README.md:35"],
+      "reusable": ["source/target compatibility comparison fields"],
+      "adapter_specific": ["ABI, ownership, thread, lifecycle, import and data contract results"],
+      "gaps": ["comparison must be completed before any code copy"],
+      "tests": ["reject copy when ABI, ownership or ordering differs without an explicit adapter bridge"]
+    },
+    {
+      "id": "M16-009",
+      "status": "closed_guarded",
+      "evidence_refs": ["ports/asm2_127/src/startup_compat.c:161", "ports/bully2/src/jni_shim.c:314", "ports/horizonchase/src/horizon_input.c:243"],
+      "reusable": ["all-or-none signature and fingerprint gate"],
+      "adapter_specific": ["RVA, expected bytes, replacement bytes, build identity and failure policy"],
+      "gaps": ["target source must not retain foreign offsets or blind writes"],
+      "tests": ["one-byte mutation causes zero writes and no partial patch"]
+    },
+    {
+      "id": "M16-010",
+      "status": "closed",
+      "evidence_refs": ["ports/asm2_127/CLEANROOM.md:10", "framework/contracts/README.md:13"],
+      "reusable": ["approved-source allowlist and negative-source policy"],
+      "adapter_specific": ["none from WIP or incomplete sources"],
+      "gaps": ["policy enforcement is static and does not inspect unapproved source trees"],
+      "tests": ["forbidden provenance path is rejected"]
+    },
+    {
+      "id": "M16-011",
+      "status": "closed",
+      "evidence_refs": ["framework/contracts/declarative-v1.json:43", "framework/README.md:20"],
+      "reusable": ["read-only source boundary"],
+      "adapter_specific": ["all copied code belongs in the target adapter"],
+      "gaps": ["a separate protected-tree CI gate remains desirable"],
+      "tests": ["protected reference tree diff must remain empty"]
+    },
+    {
+      "id": "M16-012",
+      "status": "closed",
+      "evidence_refs": ["ports/bully2/README.md:161", "ports/horizonchase/src/horizon_input.c:348"],
+      "reusable": ["generic mechanism after source/target contract comparison"],
+      "adapter_specific": ["mapping, GUID, ordinal and guest behavior"],
+      "gaps": ["each copied piece still needs exact source commit and license entry"],
+      "tests": ["target input matrix passes while reference tree remains unchanged"]
+    },
+    {
+      "id": "M16-013",
+      "status": "closed_with_approved_acceptance",
+      "evidence_refs": ["ports/asm2_127/src/main.c:847", "ports/kotor/src/main.c:342", "ports/horizonchase/src/main.c:7057", "framework/nxandroid/references/m16-runtime-receipt-v1.json:1"],
+      "reusable": ["trace validator and phase invariants"],
+      "adapter_specific": ["actual native entry points and callbacks"],
+      "gaps": ["entry points and callback order remain per-adapter data and are not inferred by nxandroid"],
+      "tests": ["boot trace, negative skipped-entry test and repeated lifecycle cycle"]
+    },
+    {
+      "id": "M16-014",
+      "status": "closed_with_approved_acceptance",
+      "evidence_refs": ["ports/asm2_127/tests/android_shared_values_test.c:467", "ports/asm2_127/src/main.c:865", "ports/horizonchase/src/main.c:7059", "framework/nxandroid/references/m16-runtime-receipt-v1.json:1"],
+      "reusable": ["bounded atomic persistence and result-bearing shutdown harness"],
+      "adapter_specific": ["save path, key schema, pause callback, native teardown and terminal exception"],
+      "gaps": ["approved native save/load acceptance is not a universal save schema, callback or shutdown order"],
+      "tests": ["fresh profile, checkpoint, reload, corruption recovery, normal quit and combo quit"]
+    },
+    {
+      "id": "M16-015",
+      "status": "closed",
+      "evidence_refs": ["ports/asm2_127/README.md:344", "ports/horizonchase/README.md:243", "framework/nxandroid/references/m16-adapter-contract-v1.json:250"],
+      "reusable": ["specificity counters and trend report"],
+      "adapter_specific": ["LOC and counts of callbacks, imports, offsets, quirks, save keys and shutdown exceptions"],
+      "gaps": ["declarative boundary counts are the baseline; source LOC remains a target-build metric rather than a reusable framework value"],
+      "tests": ["deterministic report and review on every specificity increase"]
+    },
+    {
+      "id": "M16-016",
+      "status": "closed_guarded",
+      "evidence_refs": ["framework/contracts/declarative-v1.json:157", "ports/bully2/README.md:128", "ports/sonic4/src/main.c:1390"],
+      "reusable": ["default-off assertion and adapter-scoped enablement"],
+      "adapter_specific": ["quirk implementation and exact evidence"],
+      "gaps": ["legacy defaults stay quarantined as adapter debt and are never enabled by the universal core"],
+      "tests": ["core startup has an empty enabled-quirks list"]
+    },
+    {
+      "id": "M16-017",
+      "status": "closed_with_recorded_limit",
+      "evidence_refs": ["ports/kotor/NOTICE.txt:3", "ports/kotor/src/main.c:13", "ports/sonic4/package/sonic4ep2/licenses/LICENSE.md:16"],
+      "reusable": ["license/provenance ledger and package scan"],
+      "adapter_specific": ["dependency versions, file ownership and redistribution terms"],
+      "gaps": ["the source/header discrepancy for KOTOR remains an explicit no-copy limit until reconciled; the provenance map itself is complete"],
+      "tests": ["SPDX scan, notice closure and source/header consistency"]
+    },
+    {
+      "id": "M16-018",
+      "status": "closed",
+      "evidence_refs": ["framework/nxandroid/README.md:17", "framework/contracts/README.md:42"],
+      "reusable": ["common review checklist and machine gate"],
+      "adapter_specific": ["answers and evidence for each adapter"],
+      "gaps": ["legacy READMEs are not themselves a uniform gate"],
+      "tests": ["required-field, ownership and forbidden-default linter"]
+    },
+    {
+      "id": "M16-019",
+      "status": "closed",
+      "evidence_refs": ["ports/bully2/README.md:209", "ports/kotor/README.md:131", "ports/asm2_127/README.md:5"],
+      "reusable": ["known-limit schema and coverage declaration"],
+      "adapter_specific": ["unvalidated scenes, versions, backends and terminal exceptions"],
+      "gaps": ["known limits are recorded for every approved adapter and must be carried into any target-specific review"],
+      "tests": ["every open gap appears in both machine ledger and human README"]
+    },
+    {
+      "id": "M16-020",
+      "status": "closed",
+      "evidence_refs": ["framework/nxandroid/m11-audit-v1.json:413", "framework/nxandroid/README.md:136", "framework/nxandroid/references/m16-runtime-receipt-v1.json:1"],
+      "reusable": ["contract closure gate"],
+      "adapter_specific": ["runtime proof and final adapter ownership decisions"],
+      "gaps": ["no M16 framework blocker; a new adapter still needs its own lifecycle, save/load and shutdown acceptance"],
+      "tests": ["all static gates plus per-adapter lifecycle/save/shutdown acceptance"]
+    }
+  ],
+  "adapters": [
+    {
+      "id": "bully2",
+      "port_path": "ports/bully2",
+      "version": "Android v1.4.311 arm64",
+      "abi": "aarch64-bionic",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/bully2/README.md:17"],
+      "provenance": [
+        {"piece": "ELF loader and constructors", "source": "ports/bully2/src/main.c:754", "license": "repository Apache-2.0 family per package notice", "copy_policy": "mechanism only; module order and Rockstar callbacks stay adapter-owned"},
+        {"piece": "JNI/activity bridge", "source": "ports/bully2/src/jni_shim.c:5532", "license": "repository Apache-2.0 family per package notice", "copy_policy": "no Rockstar class, callback or offset becomes core; all bindings remain adapter-specific"},
+        {"piece": "signature-checked patch helper", "source": "ports/bully2/src/jni_shim.c:314", "license": "repository Apache-2.0 family per package notice", "copy_policy": "guard pattern reusable; bytes and RVAs never reusable outside the adapter"}
+      ],
+      "lifecycle": {"status": "static_only", "entry_boundary": "jni_load", "terminal": "adapter-owned _exit after detached guest workers", "refs": ["ports/bully2/src/main.c:815"]},
+      "jni_imports": {"status": "adapter_owned", "required_known": true, "critical_unknown_policy": "fail", "refs": ["ports/bully2/src/jni_shim.c:5532"]},
+      "input": {"status": "adapter_owned", "reusable": ["SDL mapping and hotplug concept"], "specific": ["Rockstar gamepad masks", "Select+Start terminal", "trigger semantics"], "refs": ["ports/bully2/src/jni_shim.c:567"]},
+      "audio": {"status": "adapter_owned", "reusable": ["real backend negotiation"], "specific": ["OpenAL bridge", "mute fallback is not a universal default"], "refs": ["ports/bully2/src/imports.c:3124"]},
+      "persistence": {"status": "approved_reference_acceptance", "specific": ["bully.conf and Rockstar save semantics"], "refs": ["ports/bully2/README.md:143"]},
+      "specificity": {"measurement": "declarative_boundary_counts_v1", "lifecycle_contracts": 1, "jni_import_contracts": 1, "input_contracts": 3, "audio_contracts": 2, "persistence_contracts": 1, "quirks": 1, "total_specific_contracts": 9},
+      "quirks": [{"id": "bully2.native-shadow", "default": "off", "evidence": "ports/bully2/README.md:128"}],
+      "limits": ["save-screen D-pad issue remains unproven"],
+      "runtime_status": "approved_reference_acceptance"
+    },
+    {
+      "id": "sonic4ep2",
+      "port_path": "ports/sonic4",
+      "version": "Android 3.0.0-109 arm64-v8a",
+      "abi": "aarch64-bionic",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/sonic4/package/sonic4ep2/README.md:1"],
+      "provenance": [
+        {"piece": "fox loader lifecycle", "source": "ports/sonic4/src/main.c:1225", "license": "package Apache-2.0 per package notice", "copy_policy": "module and fox callbacks remain adapter-owned"},
+        {"piece": "adaptive audio ladder", "source": "ports/sonic4/src/sonic_audio.c:1144", "license": "package Apache-2.0 per package notice", "copy_policy": "negotiation concept only; format and mixer remain adapter-owned"},
+        {"piece": "native FOX input mask", "source": "ports/sonic4/src/main.c:1932", "license": "package Apache-2.0 per package notice", "copy_policy": "never copy bits or engine globals; mask remains adapter-specific"}
+      ],
+      "lifecycle": {"status": "static_only", "entry_boundary": "fox.GameProcess/DrawFrame", "terminal": "adapter-owned immediate terminal path", "refs": ["ports/sonic4/src/main.c:1863"]},
+      "jni_imports": {"status": "adapter_owned", "required_known": true, "critical_unknown_policy": "fail", "refs": ["ports/sonic4/src/main.c:1714"]},
+      "input": {"status": "adapter_owned", "reusable": ["SDL controller acquisition"], "specific": ["FOX bit mask", "menu/gameplay state", "diagnostic injection is not runtime contract"], "refs": ["ports/sonic4/src/main.c:1932"]},
+      "audio": {"status": "adapter_owned", "reusable": ["reject dummy/disk and retry real backends"], "specific": ["24 kHz/stereo or guest-negotiated format", "FMOD/music voice state"], "refs": ["ports/sonic4/src/sonic_audio.c:1144"]},
+      "persistence": {"status": "approved_reference_acceptance", "specific": ["stsSavePathData", "native save polling"], "refs": ["ports/sonic4/src/main.c:1850"]},
+      "specificity": {"measurement": "declarative_boundary_counts_v1", "lifecycle_contracts": 1, "jni_import_contracts": 1, "input_contracts": 3, "audio_contracts": 2, "persistence_contracts": 2, "quirks": 1, "total_specific_contracts": 10},
+      "quirks": [{"id": "sonic4.clearall", "default": "legacy-default-on-debt", "evidence": "ports/sonic4/src/main.c:1390"}],
+      "limits": ["Android videos are not played", "audio and state issues remain adapter-specific"],
+      "runtime_status": "approved_reference_acceptance_plus_runtime_observation"
+    },
+    {
+      "id": "horizonchase",
+      "port_path": "ports/horizonchase",
+      "version": "Android 2.6.9 Unity 2022.3.33f1",
+      "abi": "aarch64-bionic",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/horizonchase/README.md:19"],
+      "provenance": [
+        {"piece": "Unity/IL2CPP lifecycle skeleton", "source": "ports/horizonchase/src/main.c:6390", "license": "GPL-3.0-only loader; third-party notices retained", "copy_policy": "module and Unity callback order remain adapter-owned"},
+        {"piece": "real-output audio negotiation", "source": "ports/horizonchase/src/main.c:5590", "license": "GPL-3.0-only loader; third-party notices retained", "copy_policy": "backend algorithm only; no game format or FMOD callback promotion; callbacks remain adapter-specific"},
+        {"piece": "input hook boundary", "source": "ports/horizonchase/src/horizon_input.c:275", "license": "GPL-3.0-only loader", "copy_policy": "hook RVAs and replacement signatures remain exact-version adapter data"}
+      ],
+      "lifecycle": {"status": "static_only", "entry_boundary": "Unity nativeRender loop", "terminal": "adapter-owned hard exit after pause/save/audio join", "refs": ["ports/horizonchase/src/main.c:7057"]},
+      "jni_imports": {"status": "adapter_owned", "required_known": false, "critical_unknown_policy": "must be tightened before reuse", "refs": ["ports/horizonchase/src/jni_shim.c:2863"]},
+      "input": {"status": "adapter_owned", "reusable": ["SDL polling and hotplug"], "specific": ["17 IL2CPP hooks", "exact 2.6.9 RVAs", "scalar deadzone"], "refs": ["ports/horizonchase/src/horizon_input.c:275"]},
+      "audio": {"status": "adapter_owned", "reusable": ["inherited backend then real-output fallback"], "specific": ["FMOD PCM layout", "Unity AudioTrack/OpenSL callbacks"], "refs": ["ports/horizonchase/src/main.c:5498"]},
+      "persistence": {"status": "approved_reference_acceptance", "specific": ["typed SharedPreferences and Unity save flow"], "refs": ["ports/horizonchase/README.md:88"]},
+      "specificity": {"measurement": "declarative_boundary_counts_v1", "lifecycle_contracts": 1, "jni_import_contracts": 1, "input_contracts": 3, "audio_contracts": 2, "persistence_contracts": 1, "quirks": 2, "total_specific_contracts": 10},
+      "quirks": [{"id": "horizonchase.opaque-backbuffer", "default": "legacy-default-on-debt", "evidence": "ports/horizonchase/src/main.c:3726"}, {"id": "horizonchase.shader-precision", "default": "legacy-default-on-debt", "evidence": "ports/horizonchase/src/main.c:1475"}],
+      "limits": ["foreign diagnostic blocks must never become positive evidence", "exact Unity offsets are version-scoped"],
+      "runtime_status": "approved_reference_acceptance_plus_runtime_observation"
+    },
+    {
+      "id": "kotor",
+      "port_path": "ports/kotor",
+      "version": "1.0.10-53-universal-2",
+      "abi": "armv7-bionic-softfp",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/kotor/extractor.json:1"],
+      "provenance": [
+        {"piece": "dependency loader and JNI_OnLoad order", "source": "ports/kotor/src/main.c:110", "license": "license reconciliation required", "copy_policy": "module order and JNI symbols remain adapter-owned"},
+        {"piece": "SDL mapping parser", "source": "ports/kotor/src/kotor_input.c:175", "license": "MIT header claim; reconcile with notice before copying", "copy_policy": "parser concept only; Twin/GO profiles remain adapter-specific"},
+        {"piece": "OpenSL bridge ownership", "source": "ports/kotor/src/opensles_shim.c:626", "license": "license reconciliation required", "copy_policy": "buffer ownership concept only; format and process lifetime remain adapter-specific"}
+      ],
+      "lifecycle": {"status": "static_only", "entry_boundary": "SDL_main delegated runtime", "terminal": "SDL_main return owned by adapter", "refs": ["ports/kotor/src/main.c:325"]},
+      "jni_imports": {"status": "adapter_owned", "required_known": false, "critical_unknown_policy": "must be tightened before reuse", "refs": ["ports/kotor/src/jni_fake.c:82"]},
+      "input": {"status": "adapter_owned", "reusable": ["runtime SDL mapping parser"], "specific": ["raw Android joystick order", "Twin/GO fallback profiles", "SDL_QUIT combo"], "refs": ["ports/kotor/src/kotor_input.c:1"]},
+      "audio": {"status": "adapter_owned", "reusable": ["buffer queue concept"], "specific": ["44.1 kHz stereo", "FMOD OpenSL selection", "deferred global device close"], "refs": ["ports/kotor/src/opensles_shim.c:626"]},
+      "persistence": {"status": "approved_reference_acceptance", "specific": ["Odyssey save path and SDL main ownership"], "refs": ["ports/kotor/README.md:131"]},
+      "specificity": {"measurement": "declarative_boundary_counts_v1", "lifecycle_contracts": 1, "jni_import_contracts": 1, "input_contracts": 3, "audio_contracts": 3, "persistence_contracts": 1, "quirks": 0, "total_specific_contracts": 9},
+      "quirks": [],
+      "limits": ["campaign-wide validation is not claimed", "module hashes are weaker than exact source pins"],
+      "runtime_status": "approved_reference_acceptance_plus_runtime_observation"
+    },
+    {
+      "id": "asm2_127",
+      "port_path": "ports/asm2_127",
+      "version": "Android 1.2.7d versionCode 12723",
+      "abi": "armv7-bionic-softfp plus validated x86 route",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/asm2_127/README.md:5"],
+      "provenance": [
+        {"piece": "clean-room loader and init order", "source": "ports/asm2_127/CLEANROOM.md:3", "license": "GPL-3.0-only plus retained upstream notices", "copy_policy": "generic loader mechanics only; ASM2 symbols and callbacks stay target-owned and adapter-specific"},
+        {"piece": "JNI handle/RegisterNatives registry", "source": "ports/asm2_127/src/jni_bridge.h:51", "license": "GPL-3.0-only", "copy_policy": "extract registry mechanics; remove ASM2 defaults and identity; JNI bindings remain adapter-specific"},
+        {"piece": "audio queue and teardown protocol", "source": "ports/asm2_127/src/opensl_bridge.c:223", "license": "GPL-3.0-only", "copy_policy": "buffer and worker ownership concept only; exact mutex resolver stays adapter-specific"},
+        {"piece": "atomic bounded persistence", "source": "ports/asm2_127/src/android_callbacks.c:207", "license": "GPL-3.0-only", "copy_policy": "transaction primitive only; DataSharing keys and callbacks stay adapter-specific"}
+      ],
+      "lifecycle": {"status": "static_plus_historical_runtime_evidence", "entry_boundary": "ordered JNI lifecycle and SDL loop", "terminal": "version-specific process terminal exception", "refs": ["ports/asm2_127/src/main.c:395", "ports/asm2_127/src/main.c:865"]},
+      "jni_imports": {"status": "adapter_owned", "required_known": true, "critical_unknown_policy": "fail", "refs": ["ports/asm2_127/src/main.c:481"]},
+      "input": {"status": "adapter_owned", "reusable": ["SDL pump, hotplug, release, touch slot allocator"], "specific": ["NativeBridgeHID IDs", "12 percent scalar deadzone", "first-accept sentinel"], "refs": ["ports/asm2_127/src/input.h:6"]},
+      "audio": {"status": "adapter_owned", "reusable": ["reusable buffers, callback worker and deterministic destroy"], "specific": ["1.2.7d callback prologue, mutex layout and OpenSL format"], "refs": ["ports/asm2_127/src/audio_compat.c:85"]},
+      "persistence": {"status": "approved_reference_acceptance_plus_runtime_roundtrip", "specific": ["DataSharing keys, bounded store, quarantine and installer preferences"], "refs": ["ports/asm2_127/src/android_callbacks.c:207"]},
+      "specificity": {"measurement": "declarative_boundary_counts_v1", "lifecycle_contracts": 1, "jni_import_contracts": 1, "input_contracts": 3, "audio_contracts": 1, "persistence_contracts": 1, "quirks": 1, "total_specific_contracts": 8},
+      "quirks": [{"id": "asm2.force-opaque", "default": "off", "evidence": "ports/asm2_127/README.md:339"}],
+      "limits": ["EVE/network branch remains offline", "terminal and destructor exception are exact-version behavior"],
+      "runtime_status": "approved_reference_acceptance_plus_runtime_roundtrip"
+    }
+  ]
+}

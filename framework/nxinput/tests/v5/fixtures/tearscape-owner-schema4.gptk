@@ -1,0 +1,87 @@
+# NEXTOSCONTROLLERS — controles do NextOS / NextOS controls
+# Formato próprio do NextOS. NÃO é gptokeyb: nunca vira teclado.
+# NextOS own format. NOT gptokeyb: never becomes a keyboard.
+#
+# Edite as ações à direita para trocar os controles. A lista de ações
+# válidas vem do adapter-contract.json do port. Este arquivo é SEU:
+# atualizações do port nunca sobrescrevem a sua cópia editada.
+# Edit the actions on the right to remap. Valid actions come from the
+# port's adapter-contract.json. This file is YOURS: port updates never
+# overwrite your edited copy.
+
+format = NEXTOS_CONTROLLERS/4
+port = tearscape
+
+CONTROL_STANDARD = xbox
+GLYPH_STYLE = xbox
+AUTHORITY = nextos
+CONTEXT_POLICY = unified
+
+# Positional Xbox surface: A = south, B = east, X = west, Y = north.
+# One base map for title/menu/gameplay; [override.*] only where the game proved a screen diverges.
+[base]
+A = action:player.roll
+B = action:player.switch_tool
+X = action:player.attack
+Y = action:player.heal
+L1 = action:player.select_previous
+R1 = action:player.select_next
+L3 = null
+R3 = null
+START = action:system.pause
+SELECT = action:player.open_map
+GUIDE = native
+UP = native
+DOWN = native
+LEFT = native
+RIGHT = native
+
+[override.menu]
+A = action:menu.accept
+B = action:menu.back
+X = null
+Y = null
+L1 = null
+R1 = null
+SELECT = null
+stick.left.vector = action:menu.navigate
+trigger.left.digital = null
+trigger.right.digital = null
+
+[stick.left]
+mode = vector
+vector = action:player.move
+up = null
+down = null
+left = null
+right = null
+enter_threshold = 0.55
+exit_threshold = 0.40
+diagonal = 8way
+tie_break = horizontal
+
+[stick.right]
+mode = vector
+vector = null
+up = null
+down = null
+left = null
+right = null
+enter_threshold = 0.55
+exit_threshold = 0.40
+diagonal = 8way
+tie_break = horizontal
+
+[trigger.left]
+mode = digital
+analog = null
+digital = action:player.use_shield
+enter_threshold = 0.55
+exit_threshold = 0.40
+
+[trigger.right]
+mode = digital
+analog = null
+digital = action:player.use_tool
+enter_threshold = 0.55
+exit_threshold = 0.40

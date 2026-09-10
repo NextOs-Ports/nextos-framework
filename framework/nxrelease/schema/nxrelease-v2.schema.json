@@ -1,0 +1,589 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.local/schema/nxrelease-v2.schema.json",
+  "title": "NXRelease v2 universal PortMaster manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "package",
+    "release",
+    "nxextract",
+    "portmaster_metadata",
+    "dependencies",
+    "files"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "source_root": {
+      "type": "string",
+      "default": "."
+    },
+    "package": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "profile",
+        "launcher",
+        "launcher_chain",
+        "launcher_contract",
+        "port_dir",
+        "license"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "profile": {
+          "const": "universal-portmaster"
+        },
+        "launcher": {
+          "type": "string",
+          "pattern": "^[^/]+[.]sh$"
+        },
+        "launcher_chain": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "launcher_contract": {
+          "$ref": "#/$defs/launcher_contract"
+        },
+        "port_dir": {
+          "type": "string",
+          "pattern": "^[^/]+$"
+        },
+        "license": {
+          "$ref": "#/$defs/license"
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_date_epoch"
+      ],
+      "properties": {
+        "source_date_epoch": {
+          "type": "integer",
+          "minimum": 315532800,
+          "maximum": 4354819198
+        },
+        "max_glibc": {
+          "type": "string",
+          "default": "2.30",
+          "pattern": "^[0-9]+(?:[.][0-9]+)+$"
+        },
+        "compression": {
+          "enum": [
+            "deflated",
+            "stored"
+          ],
+          "default": "deflated"
+        }
+      }
+    },
+    "nxextract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "version",
+        "minimum_version",
+        "sha256",
+        "runner_path",
+        "runner_sha256",
+        "runtime_env_path",
+        "runtime_env_sha256",
+        "ui_path",
+        "ui_sha256",
+        "recipe_path",
+        "recipe_sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "minimum_version": {
+          "$ref": "#/$defs/version"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "runner_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runner_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "runtime_env_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runtime_env_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "ui_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ui_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "recipe_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipe_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dependency"
+      }
+    },
+    "portmaster_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "port_json",
+        "gameinfo_xml",
+        "images"
+      ],
+      "properties": {
+        "port_json": {
+          "$ref": "#/$defs/pin"
+        },
+        "gameinfo_xml": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/pin"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/image"
+          },
+          "default": []
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/file"
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exception"
+      },
+      "default": []
+    },
+    "sdl3_exception": {
+      "oneOf": [
+        {"$ref": "#/$defs/sdl3_exception"},
+        {"type": "null"}
+      ],
+      "default": null
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+(?:[.][0-9]+)+$"
+    },
+    "soname": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._+~-]{0,126}$"
+    },
+    "sdl3_exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "architecture", "license_file", "license_spdx", "mode", "path",
+        "reason", "sha256", "soname", "source_url", "version"
+      ],
+      "properties": {
+        "architecture": {"enum": ["aarch64", "armv7"]},
+        "license_file": {"type": "string", "minLength": 1},
+        "license_spdx": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9.+-]{1,63}$"
+        },
+        "mode": {"const": "0644"},
+        "path": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 32},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "soname": {
+          "type": "string",
+          "pattern": "^libSDL3(?:[._+-].*)?$"
+        },
+        "source_url": {"type": "string", "pattern": "^https://"},
+        "version": {
+          "type": "string",
+          "pattern": "^3[.][0-9]+[.][0-9]+(?:[-+][A-Za-z0-9._-]+)?$"
+        }
+      }
+    },
+    "launcher_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generator",
+        "version",
+        "config_path",
+        "config_sha256"
+      ],
+      "properties": {
+        "generator": {
+          "const": "nxbootstrap"
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "config_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "config_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "spdx_id",
+        "source_url",
+        "file"
+      ],
+      "properties": {
+        "spdx_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "file": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "namespace",
+        "architecture",
+        "soname",
+        "provider"
+      ],
+      "properties": {
+        "namespace": {
+          "enum": [
+            "linux",
+            "android"
+          ]
+        },
+        "architecture": {
+          "enum": [
+            "aarch64",
+            "armv7"
+          ]
+        },
+        "soname": {
+          "$ref": "#/$defs/soname"
+        },
+        "provider": {
+          "enum": [
+            "package",
+            "glibc-base",
+            "firmware",
+            "portmaster",
+            "nxloader-import-registry"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "provider": {
+                "const": "package"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "path"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "path"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "target",
+        "kind"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "launcher",
+            "script",
+            "payload",
+            "project-linux",
+            "third-party-linux",
+            "nxsplash-linux",
+            "nxextract",
+            "nxextract-runner",
+            "nxextract-recipe",
+            "nxextract-runtime-env",
+            "nxextract-ui-linux",
+            "nxbootstrap-config",
+            "portmaster-metadata",
+            "portmaster-image",
+            "license-notice",
+            "nxruntime-generation",
+            "nxruntime-generation-linux",
+            "nxruntime-seed"
+          ]
+        },
+        "mode": {
+          "enum": [
+            "0644",
+            "0755"
+          ]
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "architecture": {
+          "enum": [
+            "aarch64",
+            "armv7"
+          ]
+        },
+        "build_profile": {
+          "const": "universal-low-glibc"
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "needed": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/soname"
+          }
+        },
+        "soname": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/soname"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "nxruntime-generation-linux"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "required": [
+              "mode",
+              "sha256",
+              "architecture",
+              "build_profile",
+              "provenance",
+              "needed",
+              "soname"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "nxruntime-generation"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "architecture"
+                  ]
+                },
+                {
+                  "required": [
+                    "build_profile"
+                  ]
+                },
+                {
+                  "required": [
+                    "provenance"
+                  ]
+                },
+                {
+                  "required": [
+                    "needed"
+                  ]
+                },
+                {
+                  "required": [
+                    "soname"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "role",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "box",
+            "cover",
+            "screenshot",
+            "splash",
+            "thumbnail"
+          ]
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule",
+        "path",
+        "reason"
+      ],
+      "properties": {
+        "rule": {
+          "enum": [
+            "adaptive-driver",
+            "supervised-child"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 16
+        }
+      }
+    }
+  }
+}

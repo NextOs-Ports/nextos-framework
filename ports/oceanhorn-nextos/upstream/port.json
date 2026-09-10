@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Oceanhorn Chronos Dungeon"
+  },
+  "items": [
+    "Oceanhorn Chronos Dungeon.sh",
+    "oceanhorn/"
+  ],
+  "items_opt": [],
+  "name": "oceanhorn.zip",
+  "version": 4
+}

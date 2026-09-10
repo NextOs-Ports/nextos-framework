@@ -1,0 +1,42 @@
+{
+  "audio": {
+    "callbacks": ["OpenSL ES buffer queue bridge", "dedicated 4 ms completion thread"],
+    "format": "SDL output at 44100 Hz stereo; OpenAL/OpenSL kept at the same rate"
+  },
+  "imports": ["Bionic libc/NDK", "AAsset/fopencookie", "EGL/GLES2", "OpenSL ES"],
+  "input": {
+    "mapping": "PortMaster SDL GameController to Android NativeActivity input queue",
+    "touch": "two proven boot/controller confirmations only; gameplay remains native controller input"
+  },
+  "jni": {
+    "callbacks": ["JNI_OnLoad", "ANativeActivity_onCreate"],
+    "classes": ["com.khg.actionsquad.MyNativeActivity"],
+    "methods": ["SetHaveController", "GetDpi"]
+  },
+  "lifecycle": {
+    "sequence": ["load and relocate libAndroidEntryPoint.so", "init_array", "JNI_OnLoad", "ANativeActivity_onCreate", "start", "resume", "input queue", "window", "focus", "native loop", "pause/save", "window/input teardown", "stop"],
+    "source_evidence": ["Mali-450 physical baseline and R2 publication", "R36S ArkOS AArch64 physical test on 2026-08-14"]
+  },
+  "persistence": {
+    "callbacks": ["engine-owned pause/save path"],
+    "paths": ["gamedata", "userdata/options.xml"]
+  },
+  "prohibitions": [
+    "do not shortcut the NativeActivity lifecycle",
+    "do not force the uint32-index extension on unsupported GLES2 providers",
+    "do not enable NPOT wrap or depth comparison diagnostics globally"
+  ],
+  "quirks": [
+    "checked GPU-resident uint32-to-uint16 EBO mirror when the provider lacks uint indices",
+    "240 dpi JNI value matching the runtime configuration",
+    "one-shot same-DSO EGL/GLES provider retry only after a real SDL window failure"
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_physical_verified",
+  "terminal": {
+    "action": "NativeActivity focus/pause/save/window/input/stop sequence, then process exit",
+    "evidence": ["clean SIGTERM exit status 0 and options.xml write on R36S ArkOS"]
+  }
+}

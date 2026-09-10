@@ -1,0 +1,491 @@
+{
+  "dependencies": [
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "portmaster",
+      "soname": "libSDL2-2.0.so.0"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libc.so.6"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libdl.so.2"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "firmware",
+      "soname": "libgcc_s.so.1"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libm.so.6"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libpthread.so.0"
+    }
+  ],
+  "exceptions": [],
+  "files": [
+    {
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "3f2c30f3a3d43cd469c30b6bbc22c9a1dfadc841a9699b8e60b3bfab44880767",
+      "source": "Huntdown.sh",
+      "target": "Huntdown.sh"
+    },
+    {
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "669252b73fe8c7bcdb118031e16220b06ebd876504807d4a94f946d3dabfacae",
+      "source": "huntdown/nxport.json",
+      "target": "huntdown/nxport.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "9dfc38f350fa1f86cfb00e13495f2e793c8031aedd7962ba628f55222483545f",
+      "source": "huntdown/nxproject.json",
+      "target": "huntdown/nxproject.json"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "project-linux",
+      "mode": "0755",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0"
+      ],
+      "provenance": "port build script; framework pinned by FRAMEWORK-PIN.json",
+      "sha256": "f519a7a4041d6583a00ab029842573fdb8b4d334e5f25fb9fd4150ae63de37b5",
+      "soname": null,
+      "source": "huntdown/huntdown-nextos",
+      "target": "huntdown/huntdown-nextos"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "3473945a92a6f3f4031d9696843bb2687f0e2cf3033ee3335c2acc6a50c273e6",
+      "source": "huntdown/README.md",
+      "target": "huntdown/README.md"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "60f4b64a0a629a70ebc76df0deab2293bb6957a889bce7fcd9bc5b01733ac18a",
+      "source": "huntdown/INSTALLATION.md",
+      "target": "huntdown/INSTALLATION.md"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce",
+      "source": "huntdown/LICENSE",
+      "target": "huntdown/LICENSE"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "bcf1af967ddedda20b1f8ce781f5ee26a95cbf5698184abcde8fed3f4f06f900",
+      "source": "huntdown/port.json",
+      "target": "huntdown/port.json"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "f40cb8fb86258892305d74d768a868b6f2b03e3edb839569d28a173544cd2db1",
+      "source": "huntdown/gameinfo.xml",
+      "target": "huntdown/gameinfo.xml"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXSplash 0.1.2 canonical aarch64 artifact",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "soname": null,
+      "source": "huntdown/nxsplash-nextos",
+      "target": "huntdown/nxsplash-nextos"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "fc0ec988c043a7339a9228f027f5d9a57882fada3fde065258555ae1663bb1a3",
+      "source": "huntdown/GENERATION.json",
+      "target": "huntdown/GENERATION.json"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fd1e452aeee08a7863e27a46440192f6cf365d01c89612450cc4683156051b29",
+      "source": "huntdown/NOTICE.md",
+      "target": "huntdown/NOTICE.md"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "6d6b9230dd8b8aac527f8929b7c2fc1fa0365deccca856216de979d6f5c6a6fe",
+      "source": "huntdown/version.txt",
+      "target": "huntdown/version.txt"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "f73f0e87038fb0adc2ed06b38dff9c13078b31d57f5cb710a060dd9a3f83635d",
+      "source": "huntdown/FRAMEWORK-PIN.json",
+      "target": "huntdown/FRAMEWORK-PIN.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "8d35308d21d63e08c04df3c99e2b229a4de7a1c6d0914acc6793694c4cd50e49",
+      "source": "huntdown/defaults/NEXTOSCONTROLLERS.gptk",
+      "target": "huntdown/defaults/NEXTOSCONTROLLERS.gptk"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "a4e8b0d06fc11418b4f6ee5f6331752d0a822c26f8d984a9fa6870fe58a5c4c9",
+      "source": "huntdown/defaults/NEXTOSSETTINGS.txt",
+      "target": "huntdown/defaults/NEXTOSSETTINGS.txt"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "7e3447d31f6e64b498ab9841d4ccf711c55890537c5e58e0ab311c4424603237",
+      "source": "huntdown/adapter/adapter-contract.json",
+      "target": "huntdown/adapter/adapter-contract.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "b0ea25db5d5f53d174f6cc6a614ca7eb89f0f226502f55c2d7b5adbddee7edf7",
+      "source": "huntdown/tools/build_unity_asset_pack.py",
+      "target": "huntdown/tools/build_unity_asset_pack.py"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "92ef42be496c7945e08c77ce38579dddf4720f3c9e1db7630b171255f35341ce",
+      "source": "huntdown/tools/validate_huntdown_data.py",
+      "target": "huntdown/tools/validate_huntdown_data.py"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "463e29bd66063645023a6e5281868e5a8ab7651aa1ae35958a937ba43b34dc43",
+      "source": "huntdown/gamedata/README.txt",
+      "target": "huntdown/gamedata/README.txt"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "494accc32e50eb523a0e384d0ae6d4b702db867a89d6971216760e92b240ee12",
+      "source": "huntdown/licenses/Apache-2.0.txt",
+      "target": "huntdown/licenses/Apache-2.0.txt"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce",
+      "source": "huntdown/licenses/GPL-3.0.txt",
+      "target": "huntdown/licenses/GPL-3.0.txt"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "5adbdfa7a83930751bf8ebdca604b926d800da20595b4d984bfc1ec1bbaa3fe1",
+      "source": "huntdown/licenses/Producdevity-MIT.txt",
+      "target": "huntdown/licenses/Producdevity-MIT.txt"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c",
+      "source": "huntdown/licenses/Unlicense.txt",
+      "target": "huntdown/licenses/Unlicense.txt"
+    },
+    {
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "a1a7f85c0637ea3baa8fd104407c8c15de5cf7c6e365b216b25fc58b21f285f1",
+      "source": "huntdown/extractor.json",
+      "target": "huntdown/extractor.json"
+    },
+    {
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced",
+      "source": "huntdown/nxextract/nxextract.py",
+      "target": "huntdown/nxextract/nxextract.py"
+    },
+    {
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0",
+      "source": "huntdown/nxextract/run-extractor.sh",
+      "target": "huntdown/nxextract/run-extractor.sh"
+    },
+    {
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+      "source": "huntdown/nxextract/nxextract-runtime-env.sh",
+      "target": "huntdown/nxextract/nxextract-runtime-env.sh"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXExtract UI 1.2.21 canonical aarch64 artifact",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "soname": null,
+      "source": "huntdown/nxextract/nxextract-ui",
+      "target": "huntdown/nxextract/nxextract-ui"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "third-party-linux",
+      "mode": "0644",
+      "needed": [],
+      "provenance": "declared private generation library",
+      "sha256": "ecaf5c399c670f4addaa2f9a1e2f524318fb039fb76d8059a6c1bbfeaafd4f31",
+      "soname": "libvulkan.so.1",
+      "source": "huntdown/video-compat/libvulkan.so.1",
+      "target": "huntdown/video-compat/libvulkan.so.1"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "04462f65ea4b72e67f1ae3e9cfd72ec348143a3a11a432daa21c4a52ac73c8b8",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/commit",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/commit"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "3b0cd13df04e3b88887e47ed4e74a6838753eeba41493b68ea3199cfde319c23",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/components.sha256",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/components.sha256"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "1f52fb4e6610bc88779a03425d6ee2738c64b53320976ae146998c1774ba2126",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/components.v2",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/components.v2"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0755",
+      "sha256": "3f2c30f3a3d43cd469c30b6bbc22c9a1dfadc841a9699b8e60b3bfab44880767",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/launcher/Huntdown.sh",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/launcher/Huntdown.sh"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "669252b73fe8c7bcdb118031e16220b06ebd876504807d4a94f946d3dabfacae",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/nxport.json",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/nxport.json"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "a1a7f85c0637ea3baa8fd104407c8c15de5cf7c6e365b216b25fc58b21f285f1",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/extractor.json",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/extractor.json"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxruntime-generation-linux",
+      "mode": "0755",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0"
+      ],
+      "provenance": "port build script; framework pinned by FRAMEWORK-PIN.json",
+      "sha256": "f519a7a4041d6583a00ab029842573fdb8b4d334e5f25fb9fd4150ae63de37b5",
+      "soname": null,
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/huntdown-nextos",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/huntdown-nextos"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract-runtime-env.sh",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract-runtime-env.sh"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxruntime-generation-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXExtract UI 1.2.21 canonical aarch64 artifact",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "soname": null,
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract-ui",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract-ui"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract.py",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract.py"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/run-extractor.sh",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/run-extractor.sh"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxruntime-generation-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXSplash 0.1.2 canonical aarch64 artifact",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "soname": null,
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxsplash-nextos",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxsplash-nextos"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxruntime-generation-linux",
+      "mode": "0644",
+      "needed": [],
+      "provenance": "declared private generation library",
+      "sha256": "ecaf5c399c670f4addaa2f9a1e2f524318fb039fb76d8059a6c1bbfeaafd4f31",
+      "soname": "libvulkan.so.1",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/video-compat/libvulkan.so.1",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/video-compat/libvulkan.so.1"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "aac4fb5944aa71482880d8838e4de375fd47c4c9a80b6c17043859aee6e20034",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/format",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/format"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "88768800de4bfb603458e0fa1bab72da9682f6c7c41bdad96598411750d8cff2",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/identity-runtime.v2",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/identity-runtime.v2"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/identity.json",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/identity.json"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "7d1b94ee0baaa5d576bade51d883332e1844802280ce9a54bfc59a3ee0074834",
+      "source": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/manifest.json",
+      "target": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/manifest.json"
+    }
+  ],
+  "nxextract": {
+    "minimum_version": "1.2.21",
+    "path": "huntdown/nxextract/nxextract.py",
+    "recipe_path": "huntdown/extractor.json",
+    "recipe_sha256": "a1a7f85c0637ea3baa8fd104407c8c15de5cf7c6e365b216b25fc58b21f285f1",
+    "runner_path": "huntdown/nxextract/run-extractor.sh",
+    "runner_sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0",
+    "runtime_env_path": "huntdown/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced",
+    "ui_path": "huntdown/nxextract/nxextract-ui",
+    "ui_sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+    "version": "1.2.21"
+  },
+  "package": {
+    "id": "huntdown",
+    "launcher": "Huntdown.sh",
+    "launcher_chain": [
+      "Huntdown.sh"
+    ],
+    "launcher_contract": {
+      "config_path": "huntdown/nxport.json",
+      "config_sha256": "669252b73fe8c7bcdb118031e16220b06ebd876504807d4a94f946d3dabfacae",
+      "generator": "nxbootstrap",
+      "version": "0.6.37"
+    },
+    "license": {
+      "file": "huntdown/LICENSE",
+      "source_url": "https://github.com/NextOs-Ports/huntdown-nextos",
+      "spdx_id": "GPL-3.0-only"
+    },
+    "port_dir": "huntdown",
+    "profile": "universal-portmaster",
+    "version": "1.0.7"
+  },
+  "portmaster_metadata": {
+    "gameinfo_xml": {
+      "path": "huntdown/gameinfo.xml",
+      "sha256": "f40cb8fb86258892305d74d768a868b6f2b03e3edb839569d28a173544cd2db1"
+    },
+    "images": [],
+    "port_json": {
+      "path": "huntdown/port.json",
+      "sha256": "bcf1af967ddedda20b1f8ce781f5ee26a95cbf5698184abcde8fed3f4f06f900"
+    }
+  },
+  "release": {
+    "compression": "deflated",
+    "max_glibc": "2.30",
+    "source_date_epoch": 1786492800
+  },
+  "schema_version": 2,
+  "source_root": "."
+}

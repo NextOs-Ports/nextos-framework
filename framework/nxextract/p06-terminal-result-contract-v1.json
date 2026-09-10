@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "milestone": "P06-NXExtract",
+  "component": {
+    "id": "nxextract",
+    "version": "1.3.0"
+  },
+  "scope": "terminal-result-and-compact-logging-with-immutable-presentation",
+  "implemented_requirements": [
+    {
+      "id": "OBS-001",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/docs/terminal-result-schema-v1.json",
+          "token": "org.nextos.nxextract.terminal-result"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "test_terminal_result_atomic_failure_preserves_previous_document"
+        }
+      ]
+    },
+    {
+      "id": "OBS-002",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "\"final_phase\": {"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "result[\"final_phase\"][\"id\"]"
+        }
+      ]
+    },
+    {
+      "id": "OBS-003",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "\"outcome\": outcome"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "result[\"outcome\"]"
+        }
+      ]
+    },
+    {
+      "id": "OBS-004",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "def stable_error_code(error):"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "TERMINAL ERROR NXE[0-9]{4}"
+        }
+      ]
+    },
+    {
+      "id": "OBS-005",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "\"recipe\": {"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "result[\"recipe\"][\"version\"]"
+        }
+      ]
+    },
+    {
+      "id": "OBS-006",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "\"package_id\": selection[\"package_id\"]"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "result[\"abi\"]"
+        }
+      ]
+    },
+    {
+      "id": "OBS-007",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "\"validated\": {"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "result[\"validated\"][\"bytes\"]"
+        }
+      ]
+    },
+    {
+      "id": "OBS-008",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "def _critical_payload_summary(recipe, items):"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "critical_payloads"
+        }
+      ]
+    },
+    {
+      "id": "OBS-009",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "def _terminal_selection(recipe, plan=None, marker=None):"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "self.assertNotIn(source.name, serialized)"
+        }
+      ]
+    },
+    {
+      "id": "OBS-010",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "DEFAULT_DETAIL_LOG = \"nxextract-detail.log\""
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "result[\"logs\"][\"detail\"]"
+        }
+      ]
+    },
+    {
+      "id": "OBS-011",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "def publish_terminal_result(path, payload):"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "simulated rename loss"
+        }
+      ]
+    },
+    {
+      "id": "OBS-013",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "class Progress:"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "test_progress_protocol_is_atomic_and_parseable"
+        }
+      ]
+    },
+    {
+      "id": "OBS-014",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "logger.detail(\n            \"extracted %s -> %s (%s)\""
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "self.assertNotIn(\"extracted lib/arm64-v8a/libgame.so\", compact_log)"
+        }
+      ]
+    },
+    {
+      "id": "OBS-015",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "--verbose-log"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "per-file verbose opt-in"
+        }
+      ]
+    },
+    {
+      "id": "OBS-016",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "if record[\"count\"] == 1:"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "self.assertEqual(compact_text.count(\"candidate miss\"), 1)"
+        }
+      ]
+    },
+    {
+      "id": "OBS-017",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "suppressed %d repeated %s miss(es)%s"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "suppressed 7 repeated candidate-selection miss(es)"
+        }
+      ]
+    },
+    {
+      "id": "OBS-018",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "Terminal cause is never compacted"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "self.assertIn(\"TERMINAL ERROR NXE3001\", compact_text)"
+        }
+      ]
+    },
+    {
+      "id": "OBS-019",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/docs/releases/1.2.10.md",
+          "token": "more than 100 times"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "self.assertLess(elapsed, 2.0)"
+        }
+      ]
+    },
+    {
+      "id": "OBS-020",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_visual_identity.sh",
+          "token": "EXPECTED_DRAW_SCREEN_SHA256=ea16719fa09d03e45dd0ea3ae8b97b992e41aefb43c8e4610c8c23dbf1aa4c91"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_visual_identity.sh",
+          "token": "NXExtract visual identity tests: PASS"
+        }
+      ]
+    },
+    {
+      "id": "OBS-041",
+      "implementation": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/nxextract.py",
+          "token": "def terminal_receipt(self):"
+        }
+      ],
+      "tests": [
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "{\"mode\": \"visible\", \"renderer\": \"sdl\", \"fallback_reason\": None}"
+        },
+        {
+          "path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py",
+          "token": "{\"mode\": \"visible\", \"renderer\": \"fbdev\", \"fallback_reason\": None}"
+        }
+      ]
+    }
+  ],
+  "deferred_requirements": [
+    {
+      "id": "OBS-012",
+      "owner": "nxbootstrap",
+      "reason": "launcher must strictly copy the completed result into log.txt"
+    },
+    {
+      "id": "OBS-021..040",
+      "owner": "nxbootstrap",
+      "reason": "cross-phase persistence and pre-log launcher evidence"
+    }
+  ],
+  "visual_identity": {
+    "draw_screen_sha256": "ea16719fa09d03e45dd0ea3ae8b97b992e41aefb43c8e4610c8c23dbf1aa4c91",
+    "golden_640x480_sha256": "f14db68ad6eceedec168b400d31749c4303f24368a4a5a9ef080ea2498e52a7f",
+    "golden_1280x720_sha256": "154fd7baa5b20d3d80ab10c99ee84cd42ff47921c1e1807e7ee0b680bb673f3c",
+    "ui_release_version": "1.2.16",
+    "ui_changed": false
+  }
+}

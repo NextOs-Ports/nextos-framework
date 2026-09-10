@@ -1,0 +1,150 @@
+{
+  "build": {
+    "architecture": "aarch64",
+    "builder_image": "python@sha256:57cd7c3a7a273101a6485ba99423ee568157882804b1124b4dd04266317710de",
+    "causal_receipt": {
+      "port_head": "720e6158e3973b38be1d277f12af94679786988e",
+      "prepared_source_tree": {
+        "files": 14356,
+        "sha256": "23faf1db97f9f7d546a62499f201472450f980d2341bd73953cfb721070c1477"
+      },
+      "sha256": "40307abc858bbbd7fcb091cfb4e344348198ec1e27fa3e7d9847654c54bfc15e"
+    },
+    "clean_build_count": 1,
+    "compiler": "Arm GNU Toolchain 10.3-2021.07 aarch64-none-linux-gnu",
+    "independent_fresh_input_tree_count": 1,
+    "network": "none",
+    "priority": "nice-10",
+    "reproducibility": "single frozen-input deterministic build",
+    "scons_wheel_sha256": "a4c3b434330e2d7d975002fd6783284ba348bf394db94c8f83fdc5bf69cdb8d7",
+    "source_date_epoch": 1771254831,
+    "sysroot": "Debian Buster AArch64, glibc 2.28",
+    "sysroot_archive_sha256": "484c85086c5e03067e633d98e1617cd5b6b21a60a596a7cdcf6e42524d363e04",
+    "toolchain_archive_sha256": "1e33d53dea59c8de823bbdfe0798280bdcd138636c7060da9d77a97ded095a84",
+    "workers": 2
+  },
+  "dotnet_runtime": {
+    "bytes": 85945096,
+    "excluded_optional_assets": [
+      {
+        "name": "libmscordbi.so",
+        "reason": "debugger-only library embeds RUNPATH=$ORIGIN and is outside the game execution closure",
+        "sha256": "872c6e58b3dbc4e8e862f131b61475fd25db5b9d85e26b984886422f297e4fed"
+      },
+      {
+        "name": "libcoreclrtraceptprovider.so",
+        "reason": "optional LTTng tracing provider depends on non-universal liblttng-ust.so.0",
+        "sha256": "48b2611d91ee9b9c97dd8794b210f435ee8bb37527d0126de2781e95de72606a"
+      }
+    ],
+    "files": 184,
+    "manifest_sha256": "9e4780bc91d6370adc82c1c50f298a52849a169cf70f07bd333d794345571c49",
+    "native_elf_count": 12,
+    "nupkg_sha256": "051bfc73f47f7d28bf9fb4cee616df71063ffc3da8861ec4f0645b0e73476d78",
+    "package": "Microsoft.NETCore.App.Runtime.linux-arm64",
+    "public_glibc_ceiling": "2.30",
+    "version": "10.0.3"
+  },
+  "outputs": {
+    "libEGL.so": {
+      "max_glibc": "GLIBC_2.17",
+      "sha256": "5918de39aebc29b1e3376fa534f3aecaa4c9d170e7ebf5029e3fbfa32807d632",
+      "size": 34544
+    },
+    "libGLESv2.so": {
+      "max_glibc": "GLIBC_2.17",
+      "sha256": "dba1fabb16fa1cadc3c14f028d6d5ff8c0129d15f3cc3645eab6087f99562d70",
+      "size": 99968
+    },
+    "tearscape-nextos": {
+      "max_glibc": "GLIBC_2.28",
+      "sha256": "3b5bceb99f03602574cd135cc82ebe03b87878a17291960591cf0d9fc0a5c00f",
+      "size": 73790768
+    }
+  },
+  "schema": "org.nextos.tearscape.build-provenance",
+  "schema_version": 1,
+  "source": {
+    "build_recipe": {
+      "path": "build_low_glibc.sh",
+      "sha256": "ad2560778f776eb8f91b4ff170d92fae27d55ffe9381ef43274ca83c4e3c1400"
+    },
+    "controller_profiles": {
+      "bundle": "controllers.nxb",
+      "coverage": "one physically measured GO-Super source in the invariant positional base (schema 4); the live CFW database governs every other pad; exact candidate admission required; no universal fallback claim",
+      "evidence_path": "evidence/controller-profile-source.json",
+      "evidence_sha256": "19fcfa0a30316a0812d3dcd9cb956f8f7720444d71cc619b228b930d67e57ec3",
+      "sha256": "f94bb577b0d7b2f9dcf8b551807eb400a8141e21c579f22ba07b8bfa0fac2fd8",
+      "source": "physical PortMaster gamecontrollerdb on AISLPC R36T/K36S",
+      "source_file_sha256": "4238023705e73ea94b468975d1d15f71cc8d63f8880b3cd205aebbe2a75f2a0f",
+      "source_line_number": 1110,
+      "source_line_sha256": "da0447deece5800c7c845652cb1a73893e706cbdb08601e33a2b74c5da3daa64"
+    },
+    "godot": {
+      "archive_sha256": "b29af30d344afa50e44773e5347bdd3ae3151527d871f7dcc373ba8f3b52f893",
+      "commit": "14d19694e0c88a3f9e82d899a0400f27a24c176e",
+      "version": "4.6.1-stable"
+    },
+    "helpers": [
+      {
+        "path": "recipes/audit_low_glibc.sh",
+        "sha256": "23abc92bf15ed6f8d4038f1fa8c696121cd57226d0c8ef3ddde8df9108a450c6"
+      },
+      {
+        "path": "recipes/compiler_wrapper.sh",
+        "sha256": "2547268b82419e9117f9c8c3eb8f9d15150710a59fed2d31f1e9265c73b3bc13"
+      },
+      {
+        "path": "recipes/gcc10_buster_compat.h",
+        "sha256": "8e8fa16d60bf2954013ffa9166269cc5adb2c8cff529c40f2d3a6888ca0d1e2b"
+      },
+      {
+        "path": "recipes/low_glibc_container.sh",
+        "sha256": "9b6a6843c4b5055beb49190935aef06a7cafc3d8dd4a43ba86c160e06da8f47b"
+      },
+      {
+        "path": "recipes/make_input_proof.py",
+        "sha256": "04e6f17707f2c6334e1ff29126d9d559832647fdd9262f4722815be4b645c6d8"
+      },
+      {
+        "path": "recipes/materialize_dotnet_runtime.py",
+        "sha256": "59c0521646d3a9d440ad814853edaa934e33ec91a0855a45b88372969365faaf"
+      },
+      {
+        "path": "recipes/test_runtime_contract.py",
+        "sha256": "bef842d5f8a5233818bca55ebcca870aafe462d7a5be6099f4256b22475aef8d"
+      },
+      {
+        "path": "recipes/vendor_sdl_3_2_30.sh",
+        "sha256": "3c5d9385331237f17c50d794eccd14e6ece9f6194ab9707281797c72d6a3845c"
+      }
+    ],
+    "nxgl": {
+      "owner_commit": "ba1da0e7b0482c4dbad76b7e36afe04de57fa5c3",
+      "version": "0.3.5"
+    },
+    "nxinput": {
+      "owner_commit": "ba1da0e7b0482c4dbad76b7e36afe04de57fa5c3",
+      "tag": "nxinput-v0.9.0",
+      "tag_object": "32ed6553e16bc4195baed988ea9a9d3849fd86b1",
+      "tag_object_sha256": "2accbb023971fa47c4e73d23ee2e46472572b857f94911cabca3d9cf814c95b2",
+      "version": "0.11.8"
+    },
+    "package_builder": {
+      "nxrelease_version": "0.4.9",
+      "path": "recipes/build_public_byo.py",
+      "release_framework_commit": "275a8fb47c2f2bf9a452734dec5c33ceb4bd549f",
+      "sha256": "1f50e519fc533d9dc8a443ad403e4af7ea186703e16ea5f71f029401e4fc1b59"
+    },
+    "port_source_tree": {
+      "files": 95,
+      "sha256": "c09cc0ac1015166ba55ff72c2b853f1d49fcc63ec96acde3f047ebe2f014f701"
+    },
+    "sdl": {
+      "archive_sha256": "7f80bce51b7179bab472e75b90ce8ac06b162b3da8e19feadecee5acea07dbfb",
+      "commit": "f5e5f6588921eed3d7d048ce43d9eb1ff0da0ffc",
+      "version": "3.2.30"
+    }
+  },
+  "status": "final"
+}

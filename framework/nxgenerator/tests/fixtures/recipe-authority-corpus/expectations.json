@@ -1,0 +1,23 @@
+{
+ "invalid-bom.json": "refuse",
+ "invalid-commit-missing.json": "refuse",
+ "invalid-commit-string.json": "refuse",
+ "invalid-duplicate-key.json": "refuse",
+ "invalid-extract-missing.json": "refuse",
+ "invalid-extract-object.json": "refuse",
+ "invalid-nan-typed-field.json": "refuse",
+ "invalid-root-array.json": "refuse",
+ "invalid-schema-2.json": "refuse",
+ "invalid-utf8.json": "refuse",
+ "invalid-validate-bool.json": "refuse",
+ "invalid-validate-null.json": "refuse",
+ "invalid-validate-number.json": "refuse",
+ "invalid-validate-object.json": "refuse",
+ "invalid-validate-string.json": "refuse",
+ "valid-minimal.json": "accept",
+ "valid-nan-unknown-field.json": "accept",
+ "valid-realistic-large.json": "accept",
+ "valid-unknown-fields.json": "accept",
+ "valid-validate-absent.json": "accept",
+ "valid-validate-empty.json": "accept"
+}

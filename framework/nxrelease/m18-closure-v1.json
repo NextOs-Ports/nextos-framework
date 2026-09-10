@@ -1,0 +1,502 @@
+{
+  "schema": "nxrelease-m18-closure-v1",
+  "schema_version": 1,
+  "milestone": "M18",
+  "status": "closed",
+  "scope": "deterministic public multi-device PortMaster ZIPs built from explicit redistributable inputs, including independently audited execution-role ABIs for NXExtract UI, splash, game and helpers",
+  "method": "Every M18 item is tied to implementation and an offline adversarial gate. The launcher, NXExtract UI, nxsplash helper, public payload and all Linux ELFs are pinned and independently reaudited. Passing M18 proves package integrity and policy compliance; it does not replace virgin installation and gameplay acceptance of the exact ZIP on target devices.",
+  "safety": {
+    "game_execution": false,
+    "guest_code_execution": false,
+    "device_access": false,
+    "network_access": false,
+    "existing_release_overwrite": false
+  },
+  "items": [
+    {
+      "id": "M18-001",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:47",
+        "framework/nxrelease/README.md:3"
+      ],
+      "guarantees": [
+        "stage copies only manifest-declared kinds and paths",
+        "implicit globs and unclassified ELFs fail"
+      ],
+      "residual_scope": [
+        "the manifest author remains responsible for selecting only files intended for public redistribution"
+      ],
+      "tests": [
+        "add an unknown kind and an ELF hidden below payload"
+      ]
+    },
+    {
+      "id": "M18-002",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:287",
+        "framework/nxrelease/nxrelease.py:379",
+        "framework/nxrelease/tests/test_nxrelease.sh:478"
+      ],
+      "guarantees": [
+        "absolute, parent-traversal and noncanonical paths are rejected",
+        "source, stage and ZIP symlinks are rejected before trust or extraction"
+      ],
+      "residual_scope": [
+        "publication paths still require a POSIX filesystem that supports the fail-closed atomic primitives"
+      ],
+      "tests": [
+        "exercise manifest traversal, source symlink, ZIP traversal and ZIP symlink entries"
+      ]
+    },
+    {
+      "id": "M18-003",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:343",
+        "framework/nxrelease/nxrelease.py:1176",
+        "framework/nxrelease/nxrelease.py:3106"
+      ],
+      "guarantees": [
+        "NFC plus case-fold keys reject portable-media collisions in stage, inventory and final ZIP",
+        "file-versus-directory collisions are rejected independently"
+      ],
+      "residual_scope": [
+        "the policy deliberately chooses a conservative portable-name subset rather than filesystem-specific behavior"
+      ],
+      "tests": [
+        "append composed and decomposed Unicode names to an otherwise valid ZIP"
+      ]
+    },
+    {
+      "id": "M18-004",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/README.md:91",
+        "framework/nxrelease/nxrelease.py:1770",
+        "framework/nxrelease/tests/test_nxrelease.sh:963"
+      ],
+      "guarantees": [
+        "the single-launcher to version-qualified nxbootstrap chain is exact, pinned and structurally parsed; its canonical compatibility copy is byte-identical and nxdeployment.json binds launcher, bootstrap and config",
+        "a secondary run.sh layer, a second top-level launcher, dead PortMaster tokens, backgrounding and unapproved exec targets fail"
+      ],
+      "residual_scope": [
+        "game-specific executable choice remains in the versioned nxbootstrap manifest, not in nxrelease defaults"
+      ],
+      "tests": [
+        "mutate deployment bytes and every launcher hop, inject run.sh and a second top-level launcher, and make a required PortMaster call unreachable"
+      ]
+    },
+    {
+      "id": "M18-005",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/schema/nxrelease-v2.schema.json:1",
+        "framework/nxrelease/nxrelease.py:750",
+        "framework/nxrelease/tests/test_nxrelease.sh:456"
+      ],
+      "guarantees": [
+        "schema v2 and the stricter runtime validator reject unknown or missing fields",
+        "legacy v1 is rejected instead of receiving unsafe defaults"
+      ],
+      "residual_scope": [
+        "schema evolution requires a new explicit version and migration, never silent reinterpretation"
+      ],
+      "tests": [
+        "feed legacy, unknown-field and capability-order manifests"
+      ]
+    },
+    {
+      "id": "M18-006",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:1322",
+        "framework/nxrelease/tests/test_nxrelease.sh:570",
+        "framework/nxrelease/README.md:40"
+      ],
+      "guarantees": [
+        "NXExtract 1.2.10 code, runner, runtime helper, separately versioned 1.2.9 architecture-selected low-GLIBC UI and recipe are all content-pinned",
+        "the canonical UI manifest, source hash, architecture row, ELF class and machine are revalidated together with the engine/UI version split, version floor, recipe schema, package-required flexible APK-container identity and active runner references"
+      ],
+      "residual_scope": [
+        "user-owned game data is extracted at runtime and never staged into the public ZIP"
+      ],
+      "tests": [
+        "mutate each NXExtract pin, remove/relabel the UI, cross-pin the ARMv7 UI into AArch64, remove the runtime helper, reject exact size or one APK identity, and preserve the real Angry Birds, Retro Highway and transformed ScourgeBringer recipe shapes"
+      ]
+    },
+    {
+      "id": "M18-007",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:1826",
+        "framework/nxrelease/README.md:102",
+        "framework/nxrelease/tests/test_nxrelease.sh:874"
+      ],
+      "guarantees": [
+        "public packages require a hash-pinned schema-v4 port.json and bilingual INSTALLATION.md at the canonical path",
+        "items, items_opt, runtime, title, architecture, glibc and image references must agree with the exact package bytes"
+      ],
+      "residual_scope": [
+        "gameinfo.xml and images remain optional; when declared, their bytes and references are strict"
+      ],
+      "tests": [
+        "remove portmaster metadata, port.json or INSTALLATION.md; mutate runtime/types/items/title/arch/glibc and either language section"
+      ]
+    },
+    {
+      "id": "M18-008",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:425",
+        "framework/nxrelease/nxrelease.py:474",
+        "framework/nxrelease/nxrelease.py:1950",
+        "framework/nxrelease/nxrelease.py:4063",
+        "framework/nxrelease/README.md:21",
+        "framework/nxrelease/tests/test_generator_root.py:425",
+        "framework/nxrelease/tests/test_nxextract_private_library.py:1",
+        "framework/nxrelease/tests/test_public_final.py:750"
+      ],
+      "guarantees": [
+        "every packaged ELF is classified, loadable and audited for ABI, segments, dynamic tags and symbol-version ceilings",
+        "generation-v2 store ELF mirrors use nxruntime-generation-linux, inherit the complete live Linux metadata, preserve authenticated private-library mode 0644 including a helper-only DSO under the active NXExtract tree, match the logical path, mode and SHA-256, and are audited without becoming duplicate dependency providers",
+        "DT_NEEDED closure requires one explicit provider per namespace and architecture"
+      ],
+      "residual_scope": [
+        "historical reference ELFs that fail M17 remain ineligible for M18 packaging"
+      ],
+      "tests": [
+        "exercise class, float ABI, interpreter, RPATH, GLIBC and dependency-provider failures",
+        "render project, ordinary and NXExtract-private libraries 0644, NXSplash and NXExtract UI live/store ELF pairs plus non-ELF controls, then reject wrong class and live/store path, both directions of mode drift, SHA-256 or metadata drift"
+      ]
+    },
+    {
+      "id": "M18-009",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/README.md:84",
+        "framework/nxrelease/nxrelease.py:798",
+        "framework/nxrelease/nxrelease.py:1272"
+      ],
+      "guarantees": [
+        "public packages require SPDX/source metadata tied to a pinned LICENSE, NOTICE or COPYING member",
+        "the final metadata revalidates the same license map"
+      ],
+      "residual_scope": [
+        "the gate validates the declared redistribution map; legal interpretation of third-party terms remains a release-owner responsibility"
+      ],
+      "tests": [
+        "remove package.license and point its file at a non-license payload"
+      ]
+    },
+    {
+      "id": "M18-010",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:47",
+        "framework/nxrelease/nxrelease.py:183",
+        "framework/nxrelease/tests/test_nxrelease.sh:837"
+      ],
+      "guarantees": [
+        "APK, APKS, XAPK, OBB, JAR and dex suffixes are forbidden",
+        "Android/BYO ELF is not an allowed release kind, cannot hide as payload and cannot be relabelled Linux while importing Bionic SONAMEs"
+      ],
+      "residual_scope": [
+        "M17 may inspect owner-provided Android ELFs outside the release; M18 never redistributes them"
+      ],
+      "tests": [
+        "attempt APK, OBB and dex payloads plus an android-upstream ELF"
+      ]
+    },
+    {
+      "id": "M18-011",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:183",
+        "framework/nxrelease/nxrelease.py:2041",
+        "framework/nxrelease/tests/test_nxrelease.sh:1060"
+      ],
+      "guarantees": [
+        "saves, temp, cache, logs, core dumps, bytecode and private config paths are excluded",
+        "the scan runs again on staged and archived bytes"
+      ],
+      "residual_scope": [
+        "runtime-created writable data belongs outside the immutable release inventory"
+      ],
+      "tests": [
+        "stage save, cache, log, core and temporary suffix/path fixtures"
+      ]
+    },
+    {
+      "id": "M18-012",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:162",
+        "framework/nxrelease/nxrelease.py:1397",
+        "framework/nxrelease/tests/test_nxrelease.sh:1120"
+      ],
+      "guarantees": [
+        "personal home paths, IPv4 literals, hostname assignments and credential literals are scanned from text and metadata",
+        "raw host data causes a hard failure"
+      ],
+      "residual_scope": [
+        "binary blobs with no text signature still depend on the strict allowlist, hashes and provenance"
+      ],
+      "tests": [
+        "inject a private path, address, hostname assignment and password literal"
+      ]
+    },
+    {
+      "id": "M18-013",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:170",
+        "framework/nxrelease/nxrelease.py:2046",
+        "framework/nxrelease/tests/test_nxrelease.sh:1116"
+      ],
+      "guarantees": [
+        "funding filenames and donation/sponsorship advocacy are rejected from public package bytes"
+      ],
+      "residual_scope": [
+        "license attribution remains allowed and is distinct from funding advocacy"
+      ],
+      "tests": [
+        "inject FUNDING.yml and donation text independently"
+      ]
+    },
+    {
+      "id": "M18-014",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/README.md:38",
+        "framework/nxrelease/nxrelease.py:2944",
+        "framework/nxrelease/nxrelease.py:2983"
+      ],
+      "guarantees": [
+        "ZIP timestamp, member order, compression, regular-file type and 0644 or 0755 modes are canonical",
+        "ZIP stores no variable owner identity"
+      ],
+      "residual_scope": [
+        "source filesystem ownership is intentionally discarded rather than reproduced"
+      ],
+      "tests": [
+        "inspect every ZipInfo timestamp, external mode and sorted member order"
+      ]
+    },
+    {
+      "id": "M18-015",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/tests/test_nxrelease.sh:498",
+        "framework/nxrelease/nxrelease.py:2944"
+      ],
+      "guarantees": [
+        "two builds from identical inputs produce byte-identical ZIPs and external checksums"
+      ],
+      "residual_scope": [
+        "changing any source, manifest pin or tool version intentionally produces new bytes"
+      ],
+      "tests": [
+        "compare two clean builds and an atomic bundle byte for byte"
+      ]
+    },
+    {
+      "id": "M18-016",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:3063",
+        "framework/nxrelease/nxrelease.py:3078",
+        "framework/nxrelease/README.md:284"
+      ],
+      "guarantees": [
+        "the produced ZIP is reopened and independently checks CRC, members, modes, strict metadata, manifest, SBOM, NXExtract and ELFs",
+        "build and verify invoke audit-portmaster-zip.py on the actual ZIP path, reject retired nxbootstrap.sh and audit every shell/shebang for external stat",
+        "verify with a previous archive additionally executes the real offline install, discovery, restart, update, uninstall and reinstall lifecycle",
+        "external SHA-256 is verified against final bytes"
+      ],
+      "residual_scope": [
+        "device installation is intentionally M22 acceptance, after final-byte verification"
+      ],
+      "tests": [
+        "tamper one payload byte without updating MANIFEST.sha256",
+        "repack metadata with BOM, duplicate key or NaN",
+        "capture the exact ZIP path handed to the independent auditor and exercise update over the previous ZIP, legacy bootstrap plus direct/indirect stat fixtures"
+      ]
+    },
+    {
+      "id": "M18-017",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:511",
+        "framework/nxrelease/tests/test_nxrelease.sh:214",
+        "framework/nxrelease/RECOVERY.md:82"
+      ],
+      "guarantees": [
+        "ELF audit is based on headers, program headers, dynamic data and version info rather than requiring section headers",
+        "a loadable sectionless ELF passes and is reaudited from final ZIP bytes"
+      ],
+      "residual_scope": [
+        "a malformed ELF still fails whenever GNU readelf cannot provide a required phase"
+      ],
+      "tests": [
+        "strip the section-header table from a real AArch64 fixture"
+      ]
+    },
+    {
+      "id": "M18-018",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/tests/test_nxrelease.sh:1124",
+        "framework/nxrelease/nxrelease.py:3072",
+        "framework/nxrelease/nxrelease.py:3108"
+      ],
+      "guarantees": [
+        "adversarial ZIP traversal, symlink, duplicate/collision, tamper and malformed metadata paths fail before publication"
+      ],
+      "residual_scope": [
+        "the test corpus is extensible; a newly discovered ZIP attack becomes a new permanent fixture"
+      ],
+      "tests": [
+        "run the offline hostile ZIP corpus on every nxrelease change"
+      ]
+    },
+    {
+      "id": "M18-019",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:2237",
+        "framework/nxrelease/nxrelease.py:2281",
+        "framework/nxrelease/README.md:290"
+      ],
+      "guarantees": [
+        "release emits external SHA-256, internal MANIFEST.sha256, full inventory, deterministic CycloneDX SBOM and input-manifest provenance",
+        "ELF records include hash, ABI, dependencies, ceiling and provenance"
+      ],
+      "residual_scope": [
+        "SBOM describes shipped bytes; owner-supplied runtime game data is deliberately absent"
+      ],
+      "tests": [
+        "cross-check SBOM coverage and hashes against the inventory and final ZIP"
+      ]
+    },
+    {
+      "id": "M18-020",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:2175",
+        "framework/nxrelease/tests/test_nxrelease.sh:1193",
+        "framework/nxrelease/RECOVERY.md:43"
+      ],
+      "guarantees": [
+        "exclusive per-destination locks, no-replace publication and inode-aware rollback prevent overwrite under races",
+        "bundle publishes ZIP and checksum through one directory rename"
+      ],
+      "residual_scope": [
+        "non-POSIX filesystems fail closed and must not be used as the build/publication destination"
+      ],
+      "tests": [
+        "race archive, checksum and bundle destinations with a competing owner"
+      ]
+    },
+    {
+      "id": "M18-021",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/README.md:276",
+        "framework/nxrelease/README.md:310",
+        "framework/nxrelease/tests/test_nxrelease.sh:1270"
+      ],
+      "guarantees": [
+        "existing ZIP, checksum, stage or bundle paths are never overwritten",
+        "source and input-manifest hashes force new bytes after changes"
+      ],
+      "residual_scope": [
+        "release naming/versioning remains a publisher decision, but every attempt must use a new destination"
+      ],
+      "tests": [
+        "attempt to rebuild over an existing ZIP and verify its hash remains unchanged"
+      ]
+    },
+    {
+      "id": "M18-022",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/tests/test_nxrelease.sh:18",
+        "framework/nxrelease/tests/test_nxrelease.sh:1124",
+        "framework/nxrelease/tests/test_nxrelease.sh:1379"
+      ],
+      "guarantees": [
+        "one offline suite covers positive build, deterministic rebuild, strict JSON, mandatory installation/metadata and all recorded adversarial classes",
+        "the full chain runs with stat absent from PATH and role-specific prepare, runner, runtime and extensionless helper gates reject external stat",
+        "every negative case must fail with the expected boundary"
+      ],
+      "residual_scope": [
+        "hardware behavior is not part of a host-side adversarial package audit"
+      ],
+      "tests": [
+        "run test_nxrelease.sh with all required local compilers and tools through its private PATH without stat"
+      ]
+    },
+    {
+      "id": "M18-023",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/RECOVERY.md:1",
+        "framework/nxrelease/RECOVERY.md:23",
+        "framework/nxrelease/RECOVERY.md:88"
+      ],
+      "guarantees": [
+        "recovery documents atomic stage, pair publication, bundle, independent re-audit and rollback by prior path/SHA",
+        "cleanup instructions identify only owned hidden temporary directories"
+      ],
+      "residual_scope": [
+        "operators must list and verify an orphan temporary directory before manual removal"
+      ],
+      "tests": [
+        "simulate interrupted stage, pair race and bundle race without deleting a competitor inode"
+      ]
+    },
+    {
+      "id": "M18-024",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/README.md:314",
+        "framework/nxrelease/tests/test_nxrelease.sh:1379",
+        "framework/nxrelease/m18-closure-v1.json:1"
+      ],
+      "guarantees": [
+        "the machine closure receipt covers all 25 plan items and the full offline release suite passes",
+        "M18 closure remains separate from exact-ZIP physical acceptance"
+      ],
+      "residual_scope": [
+        "publishing is authorized only after later milestones validate the exact new ZIP on declared devices"
+      ],
+      "tests": [
+        "run the M18 closure validator and nxrelease adversarial suite in the safe-gate matrix"
+      ]
+    },
+    {
+      "id": "M18-025",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxrelease/nxrelease.py:1695",
+        "framework/nxrelease/nxrelease.py:2143",
+        "framework/nxrelease/tests/test_nxrelease.sh:432",
+        "framework/nxrelease/tests/test_nxrelease.sh:840"
+      ],
+      "guarantees": [
+        "nxbootstrap 0.6.15 releases contain exactly one NXExtract 1.2.10 engine with the 1.2.9 UI selected from its canonical multiarch manifest plus exactly one architecture-matched nxsplash 0.1.2 classified as nxsplash-linux, both UI helpers mode 0755 and SHA-pinned",
+        "both helpers are audited as Linux ELFs under the same low-GLIBC, dependency, inventory, SBOM and final-archive gates as the game executable",
+        "launcher order is NXExtract/UI when needed, validated terminal result, payload validation, mandatory five-second splash on every launch, adapter/private libraries and only then native game lifecycle, with no removal switch"
+      ],
+      "residual_scope": [
+        "ports adopt the component explicitly and historical packages remain pinned to their prior nxrelease",
+        "physical visibility and handoff still require acceptance of the exact final ZIP on every declared family"
+      ],
+      "tests": [
+        "omit, relabel and alter the helper, mutate or reorder its launcher block, inspect its final ZIP mode, metadata and complete ELF audit"
+      ]
+    }
+  ]
+}

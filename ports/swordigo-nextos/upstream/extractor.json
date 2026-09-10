@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "id": "swordigo-nextos",
+  "version": "1.4.12-universal-1",
+  "title": "SWORDIGO",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 268435456,
+    "max_bundle_bytes": 536870912
+  },
+  "extract": [
+    {
+      "id": "android-assets",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": {
+        "type": "tree",
+        "min_files": 800,
+        "max_files": 1200,
+        "min_bytes": 50000000,
+        "max_bytes": 80000000,
+        "required_paths": [
+          "resources"
+        ]
+      }
+    },
+    {
+      "id": "android-music",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "res/*.mp3"
+        ],
+        "strip_prefix": "res/"
+      },
+      "destination": "res",
+      "validate": {
+        "type": "tree",
+        "min_files": 6,
+        "max_files": 24,
+        "min_bytes": 10000000,
+        "max_bytes": 30000000
+      }
+    },
+    {
+      "id": "android-arm64-library",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libswordigo.so"
+        ]
+      },
+      "destination": "libswordigo.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 4000000,
+        "max_size": 16000000
+      }
+    }
+  ],
+  "validate": [
+    {
+      "path": "libswordigo.so",
+      "type": "file",
+      "elf_machine": "{abi}"
+    },
+    {
+      "path": "assets/resources",
+      "type": "tree",
+      "min_files": 800
+    },
+    {
+      "path": "res",
+      "type": "tree",
+      "min_files": 6
+    }
+  ],
+  "commit": [
+    "libswordigo.so",
+    "assets",
+    "res"
+  ]
+}

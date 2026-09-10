@@ -1,0 +1,10 @@
+Streets of Rage 4 is property of Dotemu, Lizardcube, Guard Crush Games,
+SEGA and the applicable rightsholders.
+
+This package does not contain the Android APK, the game's managed assembly,
+Android middleware, Wwise runtime, fonts, runnable game assets, audio, video,
+saves or profiles. Its only visual excerpts are the cover, screenshot and
+setup placard used as frontend metadata; see preview-assets-notice.txt.
+First-run setup validates and installs files supplied from the user's legally
+obtained Android v1.4.5 ARM64 copy. No license to the game or its assets is
+granted by this compatibility package.

@@ -1,0 +1,11 @@
+PortMaster progressor notice
+============================
+
+`tools/progressor` is bundled only to show progress during first-run extraction.
+It comes from the community PortMaster extraction flow, reused from the
+"TMNT: Shredder's Revenge" PortMaster method.
+
+Credits to the PortMaster project and the original port authors.
+
+`gptokeyb` is not bundled in this package. If present, the launcher uses the
+copy supplied by the user's PortMaster/CFW installation.

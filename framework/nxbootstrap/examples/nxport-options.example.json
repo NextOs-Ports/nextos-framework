@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "id": "meu-port-armhf",
+  "title": "Meu Port ARMHF",
+  "launcher_name": "Meu Port ARMHF.sh",
+  "architecture": "armv7",
+  "executable": "bin/armv7/meu-port-loader",
+  "argument_mode": "game-dir-and-passthrough",
+  "home_mode": "preserve",
+  "nxextract": {
+    "mode": "auto",
+    "version": "1.3.0"
+  },
+  "required_files": [
+    "bin/armv7/meu-port-loader"
+  ],
+  "private_library_paths": [],
+  "prepare_script": "",
+  "required_capabilities": [
+    "host.portmaster",
+    "host.armhf-libs",
+    "graphics.gles2",
+    "input.controller-mapping"
+  ],
+  "enabled_quirks": [],
+  "runtime_report": "log-and-logo",
+  "options": [
+    {
+      "id": "shadows",
+      "label": "Sombras / Shadows",
+      "values": [
+        "auto",
+        "on",
+        "off"
+      ],
+      "default": "auto",
+      "environment": "MEUPORT_SHADOWS"
+    },
+    {
+      "id": "touch-cursor",
+      "label": "Cursor de toque / Touch cursor",
+      "values": [
+        "on",
+        "off"
+      ],
+      "default": "off",
+      "environment": "MEUPORT_TOUCH_CURSOR"
+    }
+  ]
+}

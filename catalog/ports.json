@@ -1,0 +1,630 @@
+{
+  "schema": 1,
+  "author": "NextOS",
+  "organization": "https://github.com/NextOs-Ports",
+  "baseline": "657fb65a23b5c3b20040e76307b27e6470b1d17c",
+  "private_review_only": true,
+  "repository_count": 41,
+  "title_count": 45,
+  "ports": [
+    {
+      "id": "actionsquad-nextos",
+      "games": [
+        "Door Kickers: Action Squad"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/actionsquad-nextos",
+      "source_commit": "842efc61a47192cd3ac4d3062dbe9c32e808c791",
+      "source_dir": "ports/actionsquad-nextos/upstream",
+      "manifest": "ports/actionsquad-nextos/SOURCE-MAP.json",
+      "source_file_count": 72,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "angrybirds-nextos",
+      "games": [
+        "Angry Birds Classic"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/angrybirds-nextos",
+      "source_commit": "74af40a86d09126e5e2c3b220102411c44407fd5",
+      "source_dir": "ports/angrybirds-nextos/upstream",
+      "manifest": "ports/angrybirds-nextos/SOURCE-MAP.json",
+      "source_file_count": 138,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "beachbuggy-nextos",
+      "games": [
+        "Beach Buggy Racing",
+        "Beach Buggy Racing 2"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/beachbuggy-nextos",
+      "source_commit": "2d6a2dc040711c801ba43ed3a407d2093e713fb6",
+      "source_dir": "ports/beachbuggy-nextos/upstream",
+      "manifest": "ports/beachbuggy-nextos/SOURCE-MAP.json",
+      "source_file_count": 80,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Root license detection null; GPLv3 text found in beachbuggy/LICENSE and bbracing2/LICENSE. Per-file review remains."
+    },
+    {
+      "id": "blossomtales-nextos",
+      "games": [
+        "Blossom Tales: The Sleeping King"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/blossomtales-nextos",
+      "source_commit": "03f1088305be779c3ba528ec6a69c7542068f6f7",
+      "source_dir": "ports/blossomtales-nextos/upstream",
+      "manifest": "ports/blossomtales-nextos/SOURCE-MAP.json",
+      "source_file_count": 176,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "bombchicken-gunbrick-nextos",
+      "games": [
+        "Bomb Chicken",
+        "Gunbrick Reloaded"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/bombchicken-gunbrick-nextos",
+      "source_commit": "53df6041da4ecc4905af5ecd24551034eea21175",
+      "source_dir": "ports/bombchicken-gunbrick-nextos/upstream",
+      "manifest": "ports/bombchicken-gunbrick-nextos/SOURCE-MAP.json",
+      "source_file_count": 99,
+      "omitted_selected_file_count": 3,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "castleofillusion-nextos",
+      "games": [
+        "Castle of Illusion"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/castleofillusion-nextos",
+      "source_commit": "bbe0f6bf038be7960903dad7abb3b34c5baf5a10",
+      "source_dir": "ports/castleofillusion-nextos/upstream",
+      "manifest": "ports/castleofillusion-nextos/SOURCE-MAP.json",
+      "source_file_count": 46,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "chrono-nextos",
+      "games": [
+        "Chrono Trigger"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/chrono-nextos",
+      "source_commit": "f0d465c5c1d4787865d052e412c114435b5cbf05",
+      "source_dir": "ports/chrono-nextos/upstream",
+      "manifest": "ports/chrono-nextos/SOURCE-MAP.json",
+      "source_file_count": 88,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "deadtrigger-nextos",
+      "games": [
+        "Dead Trigger"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/deadtrigger-nextos",
+      "source_commit": "8fe021e4188db177a074547473d7723e060748fe",
+      "source_dir": "ports/deadtrigger-nextos/upstream",
+      "manifest": "ports/deadtrigger-nextos/SOURCE-MAP.json",
+      "source_file_count": 44,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "ff4-nextos",
+      "games": [
+        "Final Fantasy IV (3D Remake)",
+        "Final Fantasy IV: The After Years"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/ff4-nextos",
+      "source_commit": "58806cdbee0a37709969559d154b025a222c6bd8",
+      "source_dir": "ports/ff4-nextos/upstream",
+      "manifest": "ports/ff4-nextos/SOURCE-MAP.json",
+      "source_file_count": 79,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Root license detection null; GPLv3 text found in ff4/LICENSE and ff4a/LICENSE. Per-file review remains."
+    },
+    {
+      "id": "forager-nextos",
+      "games": [
+        "Forager Nuclear"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/forager-nextos",
+      "source_commit": "89e5c7107889f6b19a705f006f9f492bb0eb80da",
+      "source_dir": "ports/forager-nextos/upstream",
+      "manifest": "ports/forager-nextos/SOURCE-MAP.json",
+      "source_file_count": 56,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "NOTICE.md explicitly identifies GPL version 2 only and gmloader-next origin. Do not merge code into GPLv3 components without compatibility resolution."
+    },
+    {
+      "id": "fp2-nextos",
+      "games": [
+        "Freedom Planet 2"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/fp2-nextos",
+      "source_commit": "f8caab9d946c39041fa5cc25cb52621590f82adc",
+      "source_dir": "ports/fp2-nextos/upstream",
+      "manifest": "ports/fp2-nextos/SOURCE-MAP.json",
+      "source_file_count": 227,
+      "omitted_selected_file_count": 2,
+      "status": "reference-review-pending",
+      "license_review": "GitHub detects MIT but NOTICE.md explicitly says loader/hooks/GLES are GPL-3.0-only, NXExtract/MIT plus embedded GPL module, splash MIT. Do not treat entire port as MIT."
+    },
+    {
+      "id": "geometrydash-nextos",
+      "games": [
+        "Geometry Dash",
+        "Geometry Dash SubZero"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/geometrydash-nextos",
+      "source_commit": "8fc62be4c2e19f204cc846ff6e979c78fe1bcbd7",
+      "source_dir": "ports/geometrydash-nextos/upstream",
+      "manifest": "ports/geometrydash-nextos/SOURCE-MAP.json",
+      "source_file_count": 83,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "goblinsword-ios-nextos",
+      "games": [
+        "Goblin Sword"
+      ],
+      "platform": "iOS",
+      "repository": "https://github.com/NextOs-Ports/goblinsword-ios-nextos",
+      "source_commit": "3a0a1a7935a09619347a9bf2d35558be8b3c5e1a",
+      "source_dir": "ports/goblinsword-ios-nextos/upstream",
+      "manifest": "ports/goblinsword-ios-nextos/SOURCE-MAP.json",
+      "source_file_count": 49,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "No root LICENSE in tree metadata; prototype with limited physical evidence according to README. Resolve ownership/license scope before copying; no full-gameplay claim."
+    },
+    {
+      "id": "hitmango-nextos",
+      "games": [
+        "Hitman GO"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/hitmango-nextos",
+      "source_commit": "3f735165348e17d4f9aa20f1d227a9b1ecb4efb8",
+      "source_dir": "ports/hitmango-nextos/upstream",
+      "manifest": "ports/hitmango-nextos/SOURCE-MAP.json",
+      "source_file_count": 81,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "horizonchase-nextos",
+      "games": [
+        "Horizon Chase"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/horizonchase-nextos",
+      "source_commit": "59d2d38dc496ae0a71726181d3ccc80923e4144d",
+      "source_dir": "ports/horizonchase-nextos/upstream",
+      "manifest": "ports/horizonchase-nextos/SOURCE-MAP.json",
+      "source_file_count": 88,
+      "omitted_selected_file_count": 2,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "huntdown-nextos",
+      "games": [
+        "Huntdown"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/huntdown-nextos",
+      "source_commit": "7eef080e69a66a09efc005bf3472035eef09248b",
+      "source_dir": "ports/huntdown-nextos/upstream",
+      "manifest": "ports/huntdown-nextos/SOURCE-MAP.json",
+      "source_file_count": 124,
+      "omitted_selected_file_count": 4,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "kotor-nextos",
+      "games": [
+        "Star Wars: Knights of the Old Republic"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/kotor-nextos",
+      "source_commit": "9d8dc0cdd3cf164a39f480200ab20a9a1117b91b",
+      "source_dir": "ports/kotor-nextos/upstream",
+      "manifest": "ports/kotor-nextos/SOURCE-MAP.json",
+      "source_file_count": 91,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "magicrampage-nextos",
+      "games": [
+        "Magic Rampage"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/magicrampage-nextos",
+      "source_commit": "852f6be8617699194ad96944c7f028a752ab5dad",
+      "source_dir": "ports/magicrampage-nextos/upstream",
+      "manifest": "ports/magicrampage-nextos/SOURCE-MAP.json",
+      "source_file_count": 40,
+      "omitted_selected_file_count": 3,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "merchantskies-nextos",
+      "games": [
+        "Merchant of the Skies"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/merchantskies-nextos",
+      "source_commit": "213a3d9875158164bb532ef031651a052ab8360e",
+      "source_dir": "ports/merchantskies-nextos/upstream",
+      "manifest": "ports/merchantskies-nextos/SOURCE-MAP.json",
+      "source_file_count": 74,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "namelesscat-nextos",
+      "games": [
+        "Nameless Cat"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/namelesscat-nextos",
+      "source_commit": "fb489c406495e30822d50c8250c76810845414d5",
+      "source_dir": "ports/namelesscat-nextos/upstream",
+      "manifest": "ports/namelesscat-nextos/SOURCE-MAP.json",
+      "source_file_count": 142,
+      "omitted_selected_file_count": 3,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "oceanhorn-nextos",
+      "games": [
+        "Oceanhorn: Chronos Dungeon"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/oceanhorn-nextos",
+      "source_commit": "7cb05cca86afbb4b8a6e76aa251c8f0f8397bc9e",
+      "source_dir": "ports/oceanhorn-nextos/upstream",
+      "manifest": "ports/oceanhorn-nextos/SOURCE-MAP.json",
+      "source_file_count": 61,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "offtheroad-nextos",
+      "games": [
+        "Off The Road"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/offtheroad-nextos",
+      "source_commit": "2bfb806d92c64edaf9f3383ab9edc55a37f97fcd",
+      "source_dir": "ports/offtheroad-nextos/upstream",
+      "manifest": "ports/offtheroad-nextos/SOURCE-MAP.json",
+      "source_file_count": 68,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "partyboard-nextos",
+      "games": [
+        "PartyBoard / Mario Party 4"
+      ],
+      "platform": "GameCube",
+      "repository": "https://github.com/NextOs-Ports/partyboard-nextos",
+      "source_commit": "6ac391d61fda260aadb0c8b1e5f77d2ae5f0d797",
+      "source_dir": "ports/partyboard-nextos/upstream",
+      "manifest": "ports/partyboard-nextos/SOURCE-MAP.json",
+      "source_file_count": 27,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "LICENSE grants MIT only for NextOS contributions; explicitly excludes unlicensed upstream PartyBoard and reconstructed game code. Whole-tree redistribution not cleared by this study."
+    },
+    {
+      "id": "partyhard-nextos",
+      "games": [
+        "Party Hard GO"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/partyhard-nextos",
+      "source_commit": "0a03b8483ac9c84d3be63c8dd898cf5acd305576",
+      "source_dir": "ports/partyhard-nextos/upstream",
+      "manifest": "ports/partyhard-nextos/SOURCE-MAP.json",
+      "source_file_count": 265,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "pikmin-nextos",
+      "games": [
+        "Pikmin"
+      ],
+      "platform": "GameCube",
+      "repository": "https://github.com/NextOs-Ports/pikmin-nextos",
+      "source_commit": "1e6af10318a73f4db8251c52241ad868583891d3",
+      "source_dir": "ports/pikmin-nextos/upstream",
+      "manifest": "ports/pikmin-nextos/SOURCE-MAP.json",
+      "source_file_count": 28,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "LICENSE grants MIT only for NextOS contributions; separately describes projectPiki CC0 and exclusions for reconstructed game code. Whole-tree redistribution not cleared by this study."
+    },
+    {
+      "id": "prizefighters2-nextos",
+      "games": [
+        "Prizefighters 2"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/prizefighters2-nextos",
+      "source_commit": "53371b37dc5d01e0a8c09d683536ee1c48f35d6c",
+      "source_dir": "ports/prizefighters2-nextos/upstream",
+      "manifest": "ports/prizefighters2-nextos/SOURCE-MAP.json",
+      "source_file_count": 174,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "rcrdx-nextos",
+      "games": [
+        "Retro City Rampage DX"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/rcrdx-nextos",
+      "source_commit": "7d79b145f9c271ac5bbf959fb254880482ac99a1",
+      "source_dir": "ports/rcrdx-nextos/upstream",
+      "manifest": "ports/rcrdx-nextos/SOURCE-MAP.json",
+      "source_file_count": 55,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "sallyface-nextos",
+      "games": [
+        "Sally Face"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/sallyface-nextos",
+      "source_commit": "39f3d3bd7fed4f160ae20af0f8824ab6b71b79bf",
+      "source_dir": "ports/sallyface-nextos/upstream",
+      "manifest": "ports/sallyface-nextos/SOURCE-MAP.json",
+      "source_file_count": 93,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "scourgebringer-nextos",
+      "games": [
+        "ScourgeBringer"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/scourgebringer-nextos",
+      "source_commit": "94bc81622e5261ce23a7f5fee314d441e7c320a1",
+      "source_dir": "ports/scourgebringer-nextos/upstream",
+      "manifest": "ports/scourgebringer-nextos/SOURCE-MAP.json",
+      "source_file_count": 72,
+      "omitted_selected_file_count": 2,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "skate3-nextos",
+      "games": [
+        "Skateboard Party 3"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/skate3-nextos",
+      "source_commit": "18621e90ce7458c3166aa50d5cc508a13e65ee84",
+      "source_dir": "ports/skate3-nextos/upstream",
+      "manifest": "ports/skate3-nextos/SOURCE-MAP.json",
+      "source_file_count": 21,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "sonic4ep2-nextos",
+      "games": [
+        "Sonic the Hedgehog 4: Episode II"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/sonic4ep2-nextos",
+      "source_commit": "52ec4bfbf51753ccdc0706a901c1412c4a5a61e5",
+      "source_dir": "ports/sonic4ep2-nextos/upstream",
+      "manifest": "ports/sonic4ep2-nextos/SOURCE-MAP.json",
+      "source_file_count": 85,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "sor4-nextos",
+      "games": [
+        "Streets of Rage 4"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/sor4-nextos",
+      "source_commit": "3c17968325ec40a3f910ca690ab0b4cab76ae950",
+      "source_dir": "ports/sor4-nextos/upstream",
+      "manifest": "ports/sor4-nextos/SOURCE-MAP.json",
+      "source_file_count": 127,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "stardewvalley-nextos",
+      "games": [
+        "Stardew Valley"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/stardewvalley-nextos",
+      "source_commit": "7ac80b7648dca62f33594becef74d6d4d89f3b36",
+      "source_dir": "ports/stardewvalley-nextos/upstream",
+      "manifest": "ports/stardewvalley-nextos/SOURCE-MAP.json",
+      "source_file_count": 55,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "summertimesaga-nextos",
+      "games": [
+        "Summertime Saga Preview"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/summertimesaga-nextos",
+      "source_commit": "bf5929bfdcdb03e17a27d053a91c36477b207032",
+      "source_dir": "ports/summertimesaga-nextos/upstream",
+      "manifest": "ports/summertimesaga-nextos/SOURCE-MAP.json",
+      "source_file_count": 251,
+      "omitted_selected_file_count": 6,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "suzycube-nextos",
+      "games": [
+        "Suzy Cube"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/suzycube-nextos",
+      "source_commit": "c3db13c749173e08d33d57839aca961d0a2ab319",
+      "source_dir": "ports/suzycube-nextos/upstream",
+      "manifest": "ports/suzycube-nextos/SOURCE-MAP.json",
+      "source_file_count": 56,
+      "omitted_selected_file_count": 2,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "swordigo-nextos",
+      "games": [
+        "Swordigo"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/swordigo-nextos",
+      "source_commit": "28b315f08652db71f35158ae3af454d470ae624f",
+      "source_dir": "ports/swordigo-nextos/upstream",
+      "manifest": "ports/swordigo-nextos/SOURCE-MAP.json",
+      "source_file_count": 63,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "tasm2-nextos",
+      "games": [
+        "The Amazing Spider-Man 2"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/tasm2-nextos",
+      "source_commit": "efcad10d4d525ed593d34a1463021a41a780e7f0",
+      "source_dir": "ports/tasm2-nextos/upstream",
+      "manifest": "ports/tasm2-nextos/SOURCE-MAP.json",
+      "source_file_count": 2668,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "tearscape-nextos",
+      "games": [
+        "Tearscape"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/tearscape-nextos",
+      "source_commit": "de162373a9e9d2e65880266b820a06971a9f87a3",
+      "source_dir": "ports/tearscape-nextos/upstream",
+      "manifest": "ports/tearscape-nextos/SOURCE-MAP.json",
+      "source_file_count": 152,
+      "omitted_selected_file_count": 1,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "terraria-nextos",
+      "games": [
+        "Terraria"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/terraria-nextos",
+      "source_commit": "e04f6fe7d3be9591e659f6ecd42355d1b5d2caf6",
+      "source_dir": "ports/terraria-nextos/upstream",
+      "manifest": "ports/terraria-nextos/SOURCE-MAP.json",
+      "source_file_count": 94,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "tightrope-nextos",
+      "games": [
+        "Tightrope Theatre"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/tightrope-nextos",
+      "source_commit": "75eb5da65994995e38057c758440faafd63d87e8",
+      "source_dir": "ports/tightrope-nextos/upstream",
+      "manifest": "ports/tightrope-nextos/SOURCE-MAP.json",
+      "source_file_count": 61,
+      "omitted_selected_file_count": 2,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    },
+    {
+      "id": "titansouls-nextos",
+      "games": [
+        "Titan Souls"
+      ],
+      "platform": "Android",
+      "repository": "https://github.com/NextOs-Ports/titansouls-nextos",
+      "source_commit": "b697a51fde1ba32ab6f8eb5c246e6eb88bc19be3",
+      "source_dir": "ports/titansouls-nextos/upstream",
+      "manifest": "ports/titansouls-nextos/SOURCE-MAP.json",
+      "source_file_count": 77,
+      "omitted_selected_file_count": 0,
+      "status": "reference-review-pending",
+      "license_review": "Preserve per-file licenses; complete publication review pending."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "extends": "contract-v1.json",
+  "upstream_source": "portmaster-gui-main-8f9ddc4",
+  "vendor_provenance": "vendor/PortMaster-GUI-8f9ddc4.json",
+  "metadata_schema": "schema/port-json-supported-v1.schema.json",
+  "required_cycles": [
+    "strict-json-and-schema",
+    "port_info_load-do_default",
+    "HarbourMaster-load_ports",
+    "install",
+    "discovery",
+    "update",
+    "uninstall",
+    "reinstall"
+  ],
+  "boundaries": {
+    "network": "blocked",
+    "temporary_root": "exclusive and deleted after the cycle",
+    "guest_execution": false,
+    "launcher_execution": false,
+    "archive_mutation": false,
+    "items_match": "byte-and-case-sensitive against the extracted ZIP",
+    "update_stale_members": "fatal",
+    "uninstall_external_data": "never included in the synthetic owned tree"
+  },
+  "required_negative_fixtures": [
+    "missing-runtime",
+    "wrong-runtime-type",
+    "duplicate-json-key",
+    "truncated-json",
+    "case-mismatched-item",
+    "missing-item",
+    "path-traversal",
+    "stale-file-after-update"
+  ]
+}

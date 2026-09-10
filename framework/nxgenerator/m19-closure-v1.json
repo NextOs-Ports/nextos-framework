@@ -1,0 +1,405 @@
+{
+  "schema": "nxgenerator-m19-closure-v1",
+  "schema_version": 1,
+  "milestone": "M19",
+  "status": "closed_for_generator_and_documentation",
+  "scope": "deterministic non-release project scaffolds, explicit opt-in materialization of port-owned implemented adapter contracts, mandatory execution-role-matched pre-runtime payloads and immutable framework build sources for ARMv7 and AArch64",
+  "method": "M19 generates invariant delivery files, selects exact NXExtract UI and NXSplash artifacts by their declared execution roles, emits explicit non-release placeholders by default, and materializes selected framework components from verified immutable Git objects before compilation. An explicit promotion copies a coherent adapter contract and claims supplied by the port; it does not execute a game, infer an adapter lifecycle or create physical evidence.",
+  "safety": {
+    "game_execution": false,
+    "guest_code_execution": false,
+    "device_access": false,
+    "network_access": false,
+    "physical_support_claimed": false,
+    "approved_port_modified": false,
+    "master_plan_modified": false
+  },
+  "items": [
+    {
+      "id": "M19-001",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/nxgenerator.py:323",
+        "framework/nxbootstrap/tools/generate-port.py:306"
+      ],
+      "guarantees": [
+        "the visible wrapper is rendered from the embedded canonical nxport manifest"
+      ],
+      "limitations": [
+        "the generated wrapper proves structure, not target runtime"
+      ],
+      "tests": [
+        "both example projects contain the expected launcher"
+      ]
+    },
+    {
+      "id": "M19-002",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxbootstrap/templates/launcher.sh.in:1",
+        "framework/nxgenerator/tests/test_nxgenerator.py:91"
+      ],
+      "guarantees": [
+        "the single visible launcher remains generated, declarative and directly loads nxbootstrap without a run.sh layer"
+      ],
+      "limitations": [
+        "engine preparation remains adapter-owned"
+      ],
+      "tests": [
+        "shell syntax and line-count gates run on both ABIs"
+      ]
+    },
+    {
+      "id": "M19-003",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/nxgenerator.py:408",
+        "framework/nxgenerator/nxgenerator.py:415"
+      ],
+      "guarantees": [
+        "nxbootstrap bytes, version and SHA-256 are frozen in each generation receipt"
+      ],
+      "limitations": [
+        "a later bootstrap change requires regenerating the scaffold"
+      ],
+      "tests": [
+        "vendored bootstrap is compared byte-for-byte with the canonical source"
+      ]
+    },
+    {
+      "id": "M19-004",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/nxgenerator.py:334",
+        "framework/nxgenerator/nxgenerator.py:421"
+      ],
+      "guarantees": [
+        "active NXExtract projects receive the complete pinned 1.2.18 engine, the separately pinned immutable 1.2.16 low-glibc UI selected by the extractor role (or the legacy game architecture) and exact recipe; container recipes cannot bind compatibility to one APK hash and may rely on strong internal SHA or structural anchors"
+      ],
+      "limitations": [
+        "the generator validates recipe shape but does not prove game-specific extraction"
+      ],
+      "tests": [
+        "all four runtime/UI files and the recipe are byte-compared; Angry Birds, Retro Highway and transformed-container ScourgeBringer policy snapshots remain accepted"
+      ]
+    },
+    {
+      "id": "M19-005",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/nxgenerator.py:349",
+        "framework/nxgenerator/tests/test_nxgenerator.py:130"
+      ],
+      "guarantees": [
+        "without an explicit promotion the adapter skeleton begins non-release with empty lifecycle, JNI, persistence and terminal contracts; promotion only materializes a coherent port-owned implemented contract"
+      ],
+      "limitations": [
+        "game-specific adapter implementation and physical evidence remain port-owned and are never inferred by the generator"
+      ],
+      "tests": [
+        "the gate preserves the default scaffold and proves deterministic promotion plus fail-closed schema, path, claim and contract mismatches"
+      ]
+    },
+    {
+      "id": "M19-006",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/nxgenerator.py:374",
+        "framework/nxgenerator/tests/test_nxgenerator.py:144"
+      ],
+      "guarantees": [
+        "PortMaster metadata v4 names the ZIP, launcher, port directory, ABI and glibc floor, omits attr.runtime only for a validated empty project list, preserves nonempty lists and is pinned to the real current and legacy parser contract"
+      ],
+      "limitations": [
+        "art, genres and release prose remain deliberate release inputs"
+      ],
+      "tests": [
+        "metadata is compared to the exact expected ARMHF and AArch64 objects; two generated ZIPs pass the pinned real HarbourMaster cycle; missing, null, scalar and duplicate runtime values fail"
+      ]
+    },
+    {
+      "id": "M19-007",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/nxgenerator.py:1836",
+        "framework/nxgenerator/tests/test_generation_runtime.py:201"
+      ],
+      "guarantees": [
+        "two clean generations have identical paths, modes and bytes, with every artifact ordered by its complete POSIX logical path"
+      ],
+      "limitations": [
+        "external compiler output is governed separately by M17"
+      ],
+      "tests": [
+        "both architecture examples are generated twice and snapshotted; prefix boundaries for hyphen, dot, slash, digit and case remain strictly lexical"
+      ]
+    },
+    {
+      "id": "M19-008",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/examples/nxproject-aarch64.example.json:1",
+        "framework/nxgenerator/examples/nxproject-armv7.example.json:1",
+        "framework/nxgenerator/examples/nxproject-mixed-armv7.example.json:1"
+      ],
+      "guarantees": [
+        "separate canonical examples cover AArch64, ARMv7/ARMHF and explicit AArch64-extractor plus ARMHF-splash/game mixed execution"
+      ],
+      "limitations": [
+        "examples contain no proprietary payload or engine behavior"
+      ],
+      "tests": [
+        "the same generator gate validates both examples"
+      ]
+    },
+    {
+      "id": "M19-009",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/templates/README.md.in:9",
+        "framework/nxgenerator/templates/README.md.in:66"
+      ],
+      "guarantees": [
+        "the public documentation skeleton contains English and Portuguese sections"
+      ],
+      "limitations": [
+        "a finished game must replace scaffold text with reviewed facts"
+      ],
+      "tests": [
+        "generated READMEs must contain both language structures"
+      ]
+    },
+    {
+      "id": "M19-010",
+      "status": "closed",
+      "evidence_refs": [
+        "ports/gtasa/README.md:1",
+        "framework/nxgenerator/README.md:51"
+      ],
+      "guarantees": [
+        "the template follows the approved GTASA presentation categories"
+      ],
+      "limitations": [
+        "GTASA technical values are never copied as project defaults"
+      ],
+      "tests": [
+        "section tokens are checked without importing game behavior"
+      ]
+    },
+    {
+      "id": "M19-011",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/templates/README.md.in:16",
+        "framework/nxgenerator/templates/README.md.in:22"
+      ],
+      "guarantees": [
+        "architecture and actually solved problems have dedicated sections"
+      ],
+      "limitations": [
+        "the scaffold refuses to invent solved problems"
+      ],
+      "tests": [
+        "English and Portuguese section pairs are mandatory"
+      ]
+    },
+    {
+      "id": "M19-012",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/templates/README.md.in:27",
+        "framework/nxgenerator/templates/README.md.in:58"
+      ],
+      "guarantees": [
+        "controls, data, build/run, source map and licenses are explicit"
+      ],
+      "limitations": [
+        "content remains project-owned and evidence-backed"
+      ],
+      "tests": [
+        "all presentation sections and local links are checked"
+      ]
+    },
+    {
+      "id": "M19-013",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/nxgenerator.py:109",
+        "framework/nxgenerator/tests/test_nxgenerator.py:172"
+      ],
+      "guarantees": [
+        "private address and personal-path literals are rejected or absent from generated public text"
+      ],
+      "limitations": [
+        "final human-authored prose must still pass nxrelease privacy scanning"
+      ],
+      "tests": [
+        "hostile title and generated README privacy regressions are exercised"
+      ]
+    },
+    {
+      "id": "M19-014",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/templates/README.md.in:49",
+        "framework/nxgenerator/nxgenerator.py:190"
+      ],
+      "guarantees": [
+        "Mali-450/GLES2 baseline is separate from an empty proven-support list"
+      ],
+      "limitations": [
+        "only later exact-ZIP device acceptance may populate support"
+      ],
+      "tests": [
+        "non-empty generated support declarations are rejected"
+      ]
+    },
+    {
+      "id": "M19-015",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/templates/README.md.in:54",
+        "framework/nxgenerator/templates/README.md.in:112"
+      ],
+      "guarantees": [
+        "correct opt-in quirks and incorrect global defaults are contrasted bilingually"
+      ],
+      "limitations": [
+        "no quirk is enabled by the generator"
+      ],
+      "tests": [
+        "nxport examples retain an empty enabled_quirks array"
+      ]
+    },
+    {
+      "id": "M19-016",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/templates/README.md.in:39",
+        "framework/nxgenerator/templates/README.md.in:96"
+      ],
+      "guarantees": [
+        "real PortMaster is the release path and direct bootstrap calls are development-only"
+      ],
+      "limitations": [
+        "host generation does not perform a PortMaster device acceptance"
+      ],
+      "tests": [
+        "the distinction is required in both language sections"
+      ]
+    },
+    {
+      "id": "M19-017",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/templates/README.md.in:52",
+        "publicando_ports/README.md:88"
+      ],
+      "guarantees": [
+        "support requires the same ZIP and SHA-256 across declared families"
+      ],
+      "limitations": [
+        "the generator receipt is not a device receipt"
+      ],
+      "tests": [
+        "same-artifact wording is part of the generated documentation gate"
+      ]
+    },
+    {
+      "id": "M19-018",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/README.md:1",
+        "framework/README.md:1",
+        "suportando_outros_devices/padrao-universal.md:1"
+      ],
+      "guarantees": [
+        "the live framework and public indexes route new work through nxgenerator"
+      ],
+      "limitations": [
+        "the archive master plan remains read-only"
+      ],
+      "tests": [
+        "canonical local links are resolved by the closure gate"
+      ]
+    },
+    {
+      "id": "M19-019",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/tests/test_nxgenerator.py:79",
+        "framework/nxgenerator/tests/test_nxgenerator.py:101"
+      ],
+      "guarantees": [
+        "generated documentation links and documented shell files are validated"
+      ],
+      "limitations": [
+        "external web targets are not contacted by offline gates"
+      ],
+      "tests": [
+        "local link existence and bash syntax are checked offline"
+      ]
+    },
+    {
+      "id": "M19-020",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/tests/test_m19_closure.py:1",
+        "framework/nxgenerator/m19-closure-v1.json:1"
+      ],
+      "guarantees": [
+        "the original twenty scaffold requirements are machine-accounted and fail closed"
+      ],
+      "limitations": [
+        "M19 closure does not imply a finished game adapter or physical release"
+      ],
+      "tests": [
+        "the dedicated closure gate validates schema, evidence and safety claims"
+      ]
+    },
+    {
+      "id": "M19-021",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/framework_pin.py:246",
+        "framework/nxgenerator/framework_pin.py:320",
+        "framework/nxgenerator/framework_pin.py:432",
+        "framework/nxgenerator/framework_pin.py:610",
+        "framework/nxgenerator/framework_pin.py:835",
+        "framework/nxgenerator/tests/test_framework_pin.py:473"
+      ],
+      "guarantees": [
+        "framework build inputs are materialized only from full immutable Git commits after commit, tree and blob identities, component VERSION and canonical tree SHA-256 are verified",
+        "component working trees, replace refs, inherited Git redirection, clean/smudge filters and lazy fetching cannot change pinned source bytes"
+      ],
+      "limitations": [
+        "ports adopt the build pin by opt-in and must compile exclusively from the published snapshot mounted read-only; historical release pins are not reinterpreted",
+        "NXExtract remains separately vendored and pinned, and physical game acceptance is outside this host gate"
+      ],
+      "tests": [
+        "synthetic commits, dirty checkout, corrupted objects, replace refs, Git environment redirection, filters, lazy fetch, path/umask/locale variance, symlink/gitlink/hardlink, nanosecond mtime, receipt tamper, limits, no-overwrite and a real previous-tag smoke are exercised"
+      ]
+    },
+    {
+      "id": "M19-022",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxgenerator/nxgenerator.py:180",
+        "framework/nxgenerator/nxgenerator.py:341",
+        "framework/nxgenerator/tests/test_nxgenerator.py:120",
+        "framework/nxgenerator/tests/test_nxgenerator.py:597"
+      ],
+      "guarantees": [
+        "every new ARMv7 or AArch64 scaffold contains exactly the immutable splash-role-matched nxsplash helper at mode 0755 and records its release manifest, source, artifact ABI and SHA-256",
+        "the generated launcher runs that helper after payload validation and before adapter hooks, private libraries and the native game process, with no per-port removal switch"
+      ],
+      "limitations": [
+        "existing ports remain byte-identical until an explicit migration pins this component",
+        "the scaffold gate proves helper identity and ordering but physical rendering remains a same-ZIP device acceptance requirement"
+      ],
+      "tests": [
+        "both architecture generations compare helper bytes and receipts exactly, while missing, altered, stripped and misordered splash fixtures fail closed"
+      ]
+    }
+  ]
+}

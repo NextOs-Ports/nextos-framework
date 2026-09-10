@@ -1,0 +1,560 @@
+{
+  "schema": "nextos-v5-matrix/1",
+  "schema_version": 1,
+  "frozen": "2026-09-03",
+  "source": "MISSAO-FABLE-V5-CONTROLES-UNIVERSAIS-DEFINITIVOS.md secao 9 (9.1 providers/ordens, 9.2 capabilities fisicas, 9.3 engines/pilotos, 9.4 displays/configuracoes owner)",
+  "why": "I2: o manifesto FINITO e COMPLETO da matriz. Antes disto a cobertura vivia em checkboxes de um documento de missao, onde um caso podia ficar em branco para sempre sem nada reclamar, e 'todos os devices' nao tinha uma lista fechada. Aqui cada caso tem exatamente um estado; PROVED e PARTIAL precisam nomear a evidencia, BLOCKED_DEVICE precisa nomear o hardware que falta E o kit que fecha, e UNPROVEN precisa nomear quem fecha. Nenhum item de software pode ficar sem dono. O digest e a contagem sao congelados: acrescentar ou remover caso e ato deliberado.",
+  "statuses": {
+    "PROVED": "coberto por gate/receipt citado na evidencia",
+    "PARTIAL": "parte coberta; o que falta esta em `missing` com dono",
+    "UNPROVEN": "software nao coberto; `owner` diz que fatia fecha",
+    "BLOCKED_DEVICE": "hardware ausente; `blocked_by` + `closes_with`",
+    "NOT_APPLICABLE": "fora do escopo por contrato, com motivo"
+  },
+  "frozen_count": 40,
+  "frozen_digest": "343c3cfaaaab24fb6f8ea2b64e7971146c9b00e99fb3ba924d8e311565c5ae77",
+  "counts": {
+    "BLOCKED_DEVICE": 3,
+    "PARTIAL": 18,
+    "PROVED": 17,
+    "UNPROVEN": 2
+  },
+  "cases": [
+    {
+      "id": "9.1.01",
+      "section": "9.1",
+      "case": "SDL2 upstream atual pinada, ordem high-first.",
+      "status": "PROVED",
+      "evidence": "host SDL2 2.32.70 e dArkOS 2.32.10 medidos pelo descriptor (nxinput_provider_linux); run-host-oracle/harness"
+    },
+    {
+      "id": "9.1.02",
+      "section": "9.1",
+      "case": "SDL2 2.0.10 legacy, inclusive pol\u00edtica de hats.",
+      "status": "PROVED",
+      "evidence": "dominio herdado da V4 (c6_domain_gate) + candidato do tradutor; test_v5_translate"
+    },
+    {
+      "id": "9.1.03",
+      "section": "9.1",
+      "case": "SDL2 Batocera/Knulli/RetroArch ascending real e pinada.",
+      "status": "PROVED",
+      "evidence": "tabela ascending-patched Knulli 8c4dc956 medida no aarch64 autorizado + patches pinados"
+    },
+    {
+      "id": "9.1.04",
+      "section": "9.1",
+      "case": "SDL2/muOS efetiva nos casos FP2 e Nameless Cat, cada execu\u00e7\u00e3o vinculada \u00e0 DSO mapeada/hash/Build ID/driver/tabela; s\u00f3 colapsar se todos os campos que selecionam c\u00f3digo forem id\u00eanticos, nunca pelo nome do CFW.",
+      "status": "PROVED",
+      "evidence": "DSO oficial muOS 2601.1 40d0616f medida no aarch64; sessao composta 21/21 nas duas fixtures (9cb8720)"
+    },
+    {
+      "id": "9.1.05",
+      "section": "9.1",
+      "case": "SDL2 do PortMaster versus SDL2 do firmware; provar qual foi realmente carregada.",
+      "status": "PROVED",
+      "evidence": "descriptor pelo objeto mapeado, path_class portmaster-lib/system-lib"
+    },
+    {
+      "id": "9.1.06",
+      "section": "9.1",
+      "case": "SDL2 do aparelho principal pinada por DSO/Build ID/tabela **se o preflight confirmar**",
+      "status": "PROVED",
+      "evidence": "preflight NextOS-Retro-Elite 4.9 + SDL 1ac99b5c pinada high-first; a copia 32-bit fica declarada UNPROVEN por falta de executor ARM32"
+    },
+    {
+      "id": "9.1.07",
+      "section": "9.1",
+      "case": "SDL2 evdev e SDL2 HIDAPI/hidraw, distinguindo backend por device na mesma DSO.",
+      "status": "BLOCKED_DEVICE",
+      "missing": "driver por device na mesma DSO nao medido",
+      "blocked_by": "a classe HIDAPI (DS4 054c:05c4) exige um report descriptor real que o hid-sony aceite; o montado a mao foi recusado",
+      "closes_with": "capturar /sys/class/hidraw/*/device/report_descriptor de um DS4 real e pinar (tools/nx-uhid-hidapi-pad.py ja monta o resto)",
+      "evidence": "nxinput 0.11.1 nxinput_provider_probe_device classifica o driver POR DEVICE (evdev/hidapi/virtual) e preenche o digest fisico; o caminho uhid foi provado no aparelho secundario com pad generico (hidraw0 + evdev, SDL abre, harness entrega A/B)"
+    },
+    {
+      "id": "9.1.08",
+      "section": "9.1",
+      "case": "SDL3 pinada, sem assumir que toda SDL3 futura mant\u00e9m a mesma ordem.",
+      "status": "UNPROVEN",
+      "evidence": "SDL3 3.5.0 pinada so por bytes (undeclared)",
+      "missing": "ordem da tabela SDL3 nao medida",
+      "owner": "M1a/nxinput (B8) ou onda futura"
+    },
+    {
+      "id": "9.1.09",
+      "section": "9.1",
+      "case": "SDL3 evdev e SDL3 HIDAPI/hidraw quando suportados pelo provider pinado.",
+      "status": "UNPROVEN",
+      "missing": "backends SDL3 evdev/HIDAPI nao exercitados",
+      "owner": "M1a/nxinput (B8)"
+    },
+    {
+      "id": "9.1.10",
+      "section": "9.1",
+      "case": "raw evdev/joydev/Godot direto quando o port n\u00e3o atravessa NXC6.",
+      "status": "PARTIAL",
+      "missing": "a rota crua num port que nao atravessa o NXC6, medida em execucao",
+      "owner": "M2 (Tearscape) / onda futura",
+      "evidence": "nxinput 0.11.1 nxinput_route_policy: UMA politica diante de todo setter, com Godot nativo como rota tipada direta e SDL3/PortMaster/ordinal-fix V3 marcados legados com opt-in explicito"
+    },
+    {
+      "id": "9.1.11",
+      "section": "9.1",
+      "case": "provider est\u00e1tico e provider desconhecido/degradado end-to-end. pela m\u00e1quina 1.4 (test_v5_decision) e store intacto (test_v5_seam); provider est\u00e1tico e degradado num port real = piloto",
+      "status": "PARTIAL",
+      "evidence": "provider desconhecido/degradado provado ponta a ponta: DSO NAO pinada leva a UNKNOWN e a costura entra em MODO STOCK (nunca muda o store, nunca deixa o pad mudo) \u2014 25 checks x 2 modos no host (run-unpinned-provider-oracle.sh) e 25/25 x 2 no aparelho secundario; provider estatico declarado pela fonte pinada (5.1)",
+      "missing": "o provider ESTATICO exercitado ponta a ponta num port real (Godot com SDL3 embutida)",
+      "owner": "M2 (Tearscape)"
+    },
+    {
+      "id": "9.2.01",
+      "section": "9.2",
+      "case": "H700 interno com e sem volume/media no node.",
+      "status": "PROVED",
+      "evidence": "fixtures com marcadores 0x72/0x73 (muOS) e sem marcadores (linha PortMaster Knulli)"
+    },
+    {
+      "id": "9.2.02",
+      "section": "9.2",
+      "case": "H700 interno do incidente Nameless Cat: GUID gen\u00e9rica, 17 bot\u00f5es, 4 eixos, 1 hat e dois volume markers; volume/power ficam reservados e n\u00e3o selecionam provider.",
+      "status": "PROVED",
+      "evidence": "fixture Nameless Cat 17 botoes/4 eixos/1 hat, volume reservado, provider por descriptor"
+    },
+    {
+      "id": "9.2.03",
+      "section": "9.2",
+      "case": "RK3326 interno.",
+      "status": "PROVED",
+      "evidence": "provider do dArkOS K36S (RK3326) medido"
+    },
+    {
+      "id": "9.2.04",
+      "section": "9.2",
+      "case": "USB HID e Bluetooth representativos, com `/dev/uhid`/gadget/report descriptor ou dispositivo f\u00edsico; uinput/evdev sozinho n\u00e3o fecha esse claim.",
+      "status": "BLOCKED_DEVICE",
+      "missing": "USB HID e Bluetooth representativos",
+      "blocked_by": "sem /dev/uhid, sem gadget e sem os pads fisicos correspondentes",
+      "closes_with": "kit externo + fixture de report descriptor por uhid"
+    },
+    {
+      "id": "9.2.05",
+      "section": "9.2",
+      "case": "Perfil `0810:0001` como fixture host de calibra\u00e7\u00e3o 5.5, com faixa 0..255/centro 128 e",
+      "status": "PROVED",
+      "evidence": "test_v5_axis_calib: faixa 0..255, centro 128, raw/calibrated/normalized (prova o MODELO, nao o aparelho)"
+    },
+    {
+      "id": "9.2.06",
+      "section": "9.2",
+      "case": "Caso f\u00edsico `0810:0001` correlacionado \u00e0 fixture por receipt independente.",
+      "status": "BLOCKED_DEVICE",
+      "missing": "receipt fisico do 0810:0001 correlacionado a fixture",
+      "blocked_by": "o pad fisico 0810:0001 nao esta na mesa",
+      "closes_with": "sessao com o pad real + receipt independente"
+    },
+    {
+      "id": "9.2.07",
+      "section": "9.2",
+      "case": "composite keyboard + pad.",
+      "status": "PARTIAL",
+      "missing": "um device composto REAL (teclado+pad no mesmo no) enumerado no aparelho",
+      "owner": "M3 / kit externo",
+      "evidence": "nxinput 0.11.1 nxinput_keyboard: teclado fisico e gamepad atravessam o MESMO router, uma press e uma release por acao, sem entrega dupla (test_v5_keyboard + chain_harness)"
+    },
+    {
+      "id": "9.2.08",
+      "section": "9.2",
+      "case": "D-pad via hat, bot\u00f5es e eixos.",
+      "status": "PROVED",
+      "evidence": "hat no harness; botoes e eixos em test_v5_axis_calib/test_v5_translate"
+    },
+    {
+      "id": "9.2.09",
+      "section": "9.2",
+      "case": "trigger via bot\u00e3o, half-axis e signed axis.",
+      "status": "PROVED",
+      "evidence": "harness trigger-botao->eixo + test_v5_axis_calib + half-axis no tradutor"
+    },
+    {
+      "id": "9.2.10",
+      "section": "9.2",
+      "case": "signed, unsigned 0..255, assim\u00e9trico, invertido e noisy center.",
+      "status": "PROVED",
+      "evidence": "test_v5_axis_calib: signed, unsigned 0..255, assimetrico, invertido, noisy center"
+    },
+    {
+      "id": "9.2.11",
+      "section": "9.2",
+      "case": "zero, um e dois sticks.",
+      "status": "PARTIAL",
+      "evidence": "zero e um stick no padset/harness; nxinput_padset_vector_norm normaliza uma vez (Sint16 -> [-1,1] com zero exato) com deadzone radial, e o piso de neutro do gesto vive no nxinput_gptk_live",
+      "missing": "dois sticks simultaneos com owners distintos",
+      "owner": "M1a/nxinput"
+    },
+    {
+      "id": "9.2.12",
+      "section": "9.2",
+      "case": "hat completo e incompleto.",
+      "status": "PROVED",
+      "evidence": "tradutor detecta pares de hat completos e incompletos"
+    },
+    {
+      "id": "9.2.13",
+      "section": "9.2",
+      "case": "GUID \u00fanica, GUID gen\u00e9rica compartilhada, dois pads same-GUID iguais e divergentes.",
+      "status": "PROVED",
+      "evidence": "harness com 2 clones same-GUID + test_v5_seam divergente"
+    },
+    {
+      "id": "9.2.14",
+      "section": "9.2",
+      "case": "1, 2 e mais de 4 pads; conex\u00e3o tardia, unplug held, reconnect e reuse de instance. parcial: test_v5_padset overflow + harness 2 pads/unplug; reconnect/reuse runtime pendentes",
+      "status": "PARTIAL",
+      "evidence": "test_v5_padset overflow + harness 2 pads/unplug; C5 fechado: reopen recusado, quarentena definitiva soltando holds, geracao de hotplug, open_checked, e o padset confere a instance aberta contra a admitida (corrida de indice)",
+      "missing": "mais de 4 pads e conexao tardia medidos num aparelho",
+      "owner": "M1a/nxinput (C5)"
+    },
+    {
+      "id": "9.2.15",
+      "section": "9.2",
+      "case": "layouts f\u00edsicos modern, retro/Nintendo e PlayStation normalizados para o mesmo padr\u00e3o parcial: registry/glyph packs preservam posi\u00e7\u00e3o; perfis f\u00edsicos reais ainda pendentes can\u00f4nico Xbox; glyph alternativo somente por opt-in.",
+      "status": "PARTIAL",
+      "evidence": "registry/glyph packs preservam posicao, Xbox e a linguagem do schema e nxinput_registry_glyph_for_sdl da glyph humano a um ordinal SDL (mutante numerico morto)",
+      "missing": "perfis fisicos modern/retro/PlayStation reais",
+      "owner": "M1a/nxinput (E9a)"
+    },
+    {
+      "id": "9.2.16",
+      "section": "9.2",
+      "case": "teclado-only e h\u00edbrido.",
+      "status": "PARTIAL",
+      "evidence": "nxinput 0.11.1 nxinput_keyboard: backend de EVENTO e de POLLING identicos, chord solta com o modificador, laco recusado no parser (cruzado entre secoes) e na fonte",
+      "missing": "um teclado fisico real e um port hibrido medidos",
+      "owner": "M3 / kit externo"
+    },
+    {
+      "id": "9.3.01",
+      "section": "9.3",
+      "case": "Unity/IL2CPP com SDL/padset \u2014 FP2.",
+      "status": "PARTIAL",
+      "evidence": "piloto 1.1.4 ELF 180504c3, validate PASS; dArkOS K36S 3/3 e NextOS Elite 3/3 com oraculo independente; lock fp2-candidate-lock.json",
+      "missing": "repin/revendor no framework da M1 e o prompt (achado E13: o hook mostra o NUMERO do ordinal dentro do icone)",
+      "owner": "M3"
+    },
+    {
+      "id": "9.3.02",
+      "section": "9.3",
+      "case": "Unity/IL2CPP com eixo cru/cursor/padset \u2014 Nameless Cat, incluindo o incidente RG40XX-H/muOS em que hat/eixos funcionam e bot\u00f5es/chord falham ap\u00f3s rewrite.",
+      "status": "PARTIAL",
+      "evidence": "piloto 1.2.8 ELF b33c127c; dArkOS 3/3 e Elite 3/3 depois de o clone uinput publicar o repouso; muOS por fixture 21/21",
+      "missing": "repin/revendor no framework da M1; muOS fisico",
+      "owner": "M3"
+    },
+    {
+      "id": "9.3.03",
+      "section": "9.3",
+      "case": "MonoGame/.NET Android \u2014 Blossom Tales.",
+      "status": "PARTIAL",
+      "evidence": "piloto 1.4.1 ELF eb030acf, present com content rect + touch pela inversa; dArkOS 3/3 e Elite 3/3",
+      "missing": "repin/revendor no framework da M1",
+      "owner": "M3"
+    },
+    {
+      "id": "9.3.04",
+      "section": "9.3",
+      "case": "Godot/InputMap \u2014 Tearscape.",
+      "status": "PARTIAL",
+      "evidence": "port migrado ao V5 (schema 4 posicional, um controllers.nxb, adapter-env selado + hook do dono, NEXTOS_SETTINGS/2, SDL3 estatica declarada); engine e0144edf provada no .137 (menu 70/70, gameplay 75/75, owner-remap 7/7)",
+      "missing": "harness de host do lock Godot vermelho e a policy de aspect ainda no jogo: consumir nxcompat_video",
+      "owner": "M2"
+    },
+    {
+      "id": "9.3.05",
+      "section": "9.3",
+      "case": "Harness SDL2 puro para separar defeito do jogo.",
+      "status": "PROVED",
+      "evidence": "tests/v5/harness_sdl2_provider.c"
+    },
+    {
+      "id": "9.3.06",
+      "section": "9.3",
+      "case": "Harness de sa\u00edda de teclado cobrindo evento e polling.",
+      "status": "PROVED",
+      "evidence": "nxinput 0.11.1: harness de teclado com os dois backends (evento e polling) entregando identicamente, no test_v5_keyboard e na cadeia completa (chain_harness)"
+    },
+    {
+      "id": "9.3.07",
+      "section": "9.3",
+      "case": "Adapter keyboard-only: interface Xbox -> teclas, com estado/evento e release provados.",
+      "status": "PARTIAL",
+      "missing": "um adapter keyboard-only exercitado num jogo real",
+      "owner": "M3",
+      "evidence": "interface Xbox -> teclas existe nos dois sentidos: entrada por nxinput_keyboard (estado, evento e release provados) e saida pelo gptk; prompts de teclado saem como key.<chord>"
+    },
+    {
+      "id": "9.3.08",
+      "section": "9.3",
+      "case": "Adapter touch-only: interface Xbox -> gesto/coordenada/callback touch real, sem mudar o vocabul\u00e1rio do owner nem roubar a rota nativa quando ela existir.",
+      "status": "PARTIAL",
+      "missing": "gesto/coordenada/callback de touch REAL, com viewport/aspect/rotation e cancel",
+      "owner": "piloto com superficie de toque",
+      "evidence": "rota touch TIPADA exercitada na cadeia completa (chain_harness/test_v5_chain) sem trocar o vocabulario do dono"
+    },
+    {
+      "id": "9.4.01",
+      "section": "9.4",
+      "case": "Drawable 640\u00d7480, 720\u00d7720, 1280\u00d7720 e 1920\u00d71080.",
+      "status": "PARTIAL",
+      "evidence": "nxcompat 0.5.1 test_video_owner: os quatro drawables resolvidos ATRAVES do framework (640x480, 720x720, 1280x720, 1920x1080) mais portrait 720x1280",
+      "missing": "content rect e barras MEDIDOS no painel real (readback NX-VIDEO-READBACK/1 no aparelho)",
+      "owner": "M2 (Tearscape) e M3 (Blossom)"
+    },
+    {
+      "id": "9.4.02",
+      "section": "9.4",
+      "case": "SDL/fbdev-DRM, SDL/Wayland portrait e surface com rotation/insets.",
+      "status": "PARTIAL",
+      "evidence": "portrait/surface rotacionada 720x1280 na geometria (test_video.c e test_video_owner.c)",
+      "missing": "SDL/fbdev-DRM e SDL/Wayland com rotation/insets medidos",
+      "owner": "M2/M3; Wayland sem aparelho na mesa"
+    },
+    {
+      "id": "9.4.03",
+      "section": "9.4",
+      "case": "Source 16:9 em painel 4:3, 1:1 e 16:9 sob `auto`, `preserve`, `stretch`, `crop` e `integer` quando suportado.",
+      "status": "PARTIAL",
+      "evidence": "test_video_owner: source 16:9 em painel 4:3, 1:1 e 16:9 sob auto/preserve/stretch, e test_video.c cobre crop e integer (com unsupported reportado)",
+      "missing": "as cinco policies aplicadas no present real de duas engines",
+      "owner": "M2/M3"
+    },
+    {
+      "id": "9.4.04",
+      "section": "9.4",
+      "case": "`port-env.sh`, `NEXTOSSETTINGS.txt` schema `/2` e um native config Godot owner: seed, edit, invalid, update `.new`, healing, rollback e readback efetivo.",
+      "status": "PARTIAL",
+      "evidence": "nxbootstrap 0.8.1 test-owner-e6a-real.sh: seed, edit, update com .new, .new atualizado no terceiro default e .new editado preservado, no launcher REAL; nxcompat 0.5.1: parser /2 com linha/motivo E a invalid_policy EXECUTADA (fail_closed / last_known_good so sob o mesmo contrato / package_default sem copiar sobre o dono, NX-SETTINGS-RECOVERY/1); reservadas e hook invalido em test-owner-runtime.sh",
+      "missing": "o native config Godot realmente consumido, o rollback e o readback do efeito solicitado no aparelho",
+      "owner": "M2"
+    },
+    {
+      "id": "9.4.05",
+      "section": "9.4",
+      "case": "Blossom present MonoGame e Tearscape ProjectSettings/InputMap sem confundir engines.",
+      "status": "PARTIAL",
+      "evidence": "Blossom present_policy.c ja consome nxcompat_video; a autoridade unica de aspect existe (nxcompat 0.5.1) e a traducao Godot esta especificada em docs/VIDEO-OWNER-V5.md",
+      "missing": "o Tearscape ainda carrega nx_aspect_policy.h proprio: trocar pela traducao de 5 linhas e provar",
+      "owner": "M2"
+    }
+  ],
+  "device_classes": {
+    "why": "\"Todos os devices\" precisa ser uma LISTA FECHADA, nao uma promessa. Cada classe abaixo diz o que esta MEDIDO, o que se espera depois da correcao do provider e COMO medir o que falta. UNMEASURED nunca e equivalencia presumida: a classe UNKNOWN e a unica certeza enquanto a DSO daquela imagem nao for auditada.",
+    "source": "MATRIZ-TODOS-OS-DEVICES.md (M1c, 03/09/2026)",
+    "statuses": [
+      "MEASURED",
+      "MEASURED_BY_DSO",
+      "MEASURED_BY_SOURCE",
+      "MEASURED_BYTES_ONLY",
+      "UNMEASURED",
+      "BLOCKED_DEVICE"
+    ],
+    "frozen_count": 15,
+    "classes": [
+      {
+        "id": "nextos-elite-4.9",
+        "cfw": "NextOS Retro/Elite 4.9 (linhagem EmuELEC)",
+        "sdl": "SDL2 fork 2.32.71",
+        "pin": "1ac99b5c",
+        "exports_byid": false,
+        "arch": "aarch64",
+        "status": "MEASURED",
+        "today": "PINNED_ELF; linhas externas traduzidas para evdev",
+        "expected_after_provider_fix": "traduzido; pad HID vira NOT_APPLICABLE com mapping nativo",
+        "how_to_measure": "descriptor in-process ja medido no aparelho autorizado",
+        "device_on_hand": true
+      },
+      {
+        "id": "nextos-elite-4.9-arm32",
+        "cfw": "NextOS Retro/Elite 4.9, copia 32-bit",
+        "sdl": "SDL2 fork (237757ce)",
+        "pin": "237757ce",
+        "exports_byid": null,
+        "arch": "arm32",
+        "status": "UNMEASURED",
+        "today": "UNKNOWN vira STOCK da SDL, nunca mudo (nxinput 0.11.1): provado com DSO nao pinada no host 25x2 e no aparelho secundario 25/25 x2; a tabela ordinal DESTA imagem continua nao medida",
+        "expected_after_provider_fix": "medir ById in-process quando houver executor ARM32",
+        "how_to_measure": "nx-provider-ordinal-probe num executor ARM32",
+        "device_on_hand": false
+      },
+      {
+        "id": "nextos-sdl3-3.5.0",
+        "cfw": "NextOS Retro/Elite 4.9 com SDL3",
+        "sdl": "SDL3 3.5.0",
+        "pin": "eceaf5f9 (undeclared)",
+        "exports_byid": false,
+        "arch": "aarch64",
+        "status": "MEASURED_BYTES_ONLY",
+        "today": "UNKNOWN: nenhuma linha chega ao setter",
+        "expected_after_provider_fix": "stock SDL3 + MEASURED_INPROCESS quando existir probe SDL3",
+        "how_to_measure": "probe SDL3 in-process no aparelho ja na mesa",
+        "device_on_hand": true
+      },
+      {
+        "id": "darkos-k36s",
+        "cfw": "dArkOS (K36S, RK3326)",
+        "sdl": "SDL2 2.32.10 upstream",
+        "pin": "4fd539cd",
+        "exports_byid": false,
+        "arch": "aarch64",
+        "status": "MEASURED",
+        "today": "PINNED_ELF traduzido; sessao ON_DEVICE PASS",
+        "expected_after_provider_fix": "traduzido; libSDL2 recompilada do CFW = stock, nunca mudo",
+        "how_to_measure": "descriptor in-process ja medido no aparelho",
+        "device_on_hand": true
+      },
+      {
+        "id": "knulli-cubexx",
+        "cfw": "Knulli (CubeXX / RG35XX, base Batocera)",
+        "sdl": "SDL2 2.30.12 patched",
+        "pin": "8c4dc956",
+        "exports_byid": true,
+        "arch": "aarch64",
+        "status": "MEASURED_BY_DSO",
+        "today": "EXPORTED_API: linha nativa BYTE_INTACT; 21/21 por fixture",
+        "expected_after_provider_fix": "inalterado, com receipt do provider gravado",
+        "how_to_measure": "kit externo K6 no aparelho real",
+        "device_on_hand": false
+      },
+      {
+        "id": "muos-2601-aarch64",
+        "cfw": "muOS 2601.x (H700: RG40XX-H / RG35XX)",
+        "sdl": "SDL2 2.28.5 patched",
+        "pin": "40d0616f",
+        "exports_byid": true,
+        "arch": "aarch64",
+        "status": "MEASURED_BY_DSO",
+        "today": "EXPORTED_API byte-intact 21/21 por fixture",
+        "expected_after_provider_fix": "idem; A/B modern x retro continua preferencia do dono",
+        "how_to_measure": "kit externo K7 no aparelho real",
+        "device_on_hand": false
+      },
+      {
+        "id": "muos-2601-arm32",
+        "cfw": "muOS 2601.x /usr/lib32",
+        "sdl": "SDL2 2.28.5 ARM32",
+        "pin": "4e95cde5 (undeclared)",
+        "exports_byid": null,
+        "arch": "arm32",
+        "status": "UNMEASURED",
+        "today": "UNKNOWN vira STOCK da SDL, nunca mudo (nxinput 0.11.1): provado com DSO nao pinada no host 25x2 e no aparelho secundario 25/25 x2; a tabela ordinal DESTA imagem continua nao medida",
+        "expected_after_provider_fix": "stock; ById medido in-process deve dar ascending",
+        "how_to_measure": "executor ARM32 ou o aparelho com o kit",
+        "device_on_hand": false
+      },
+      {
+        "id": "batocera-stock",
+        "cfw": "Batocera stock / REG",
+        "sdl": "SDL2 patched",
+        "pin": null,
+        "exports_byid": true,
+        "arch": "aarch64",
+        "status": "UNMEASURED",
+        "today": "UNKNOWN vira STOCK da SDL, nunca mudo (nxinput 0.11.1): provado com DSO nao pinada no host 25x2 e no aparelho secundario 25/25 x2; a tabela ordinal DESTA imagem continua nao medida",
+        "expected_after_provider_fix": "inalterado",
+        "how_to_measure": "auditar a libSDL2 da imagem oficial com nx-provider-ordinal-probe",
+        "device_on_hand": false
+      },
+      {
+        "id": "arkos",
+        "cfw": "ArkOS (R36S e afins)",
+        "sdl": "SDL2 do CFW, versao nao registrada",
+        "pin": null,
+        "exports_byid": null,
+        "arch": "aarch64 e arm32",
+        "status": "UNMEASURED",
+        "today": "UNKNOWN vira STOCK da SDL, nunca mudo (nxinput 0.11.1): provado com DSO nao pinada no host 25x2 e no aparelho secundario 25/25 x2; a tabela ordinal DESTA imagem continua nao medida",
+        "expected_after_provider_fix": "stock da SDL + MEASURED_INPROCESS",
+        "how_to_measure": "auditar a libSDL2 da imagem oficial",
+        "device_on_hand": false
+      },
+      {
+        "id": "rocknix-jelos",
+        "cfw": "ROCKNIX / JELOS (Panfrost, RP5 Wayland)",
+        "sdl": "nao registrada",
+        "pin": null,
+        "exports_byid": null,
+        "arch": "aarch64",
+        "status": "UNMEASURED",
+        "today": "UNKNOWN vira STOCK da SDL, nunca mudo (nxinput 0.11.1): provado com DSO nao pinada no host 25x2 e no aparelho secundario 25/25 x2; a tabela ordinal DESTA imagem continua nao medida",
+        "expected_after_provider_fix": "stock + MEASURED_INPROCESS",
+        "how_to_measure": "auditar a libSDL2 da imagem oficial; RP5 sem aparelho",
+        "device_on_hand": false
+      },
+      {
+        "id": "amberelec-trimui-spruce",
+        "cfw": "AmberELEC / TrimUI / spruceOS",
+        "sdl": "nao registrada",
+        "pin": null,
+        "exports_byid": null,
+        "arch": "aarch64",
+        "status": "UNMEASURED",
+        "today": "UNKNOWN vira STOCK da SDL, nunca mudo (nxinput 0.11.1): provado com DSO nao pinada no host 25x2 e no aparelho secundario 25/25 x2; a tabela ordinal DESTA imagem continua nao medida",
+        "expected_after_provider_fix": "stock + MEASURED_INPROCESS",
+        "how_to_measure": "auditar a libSDL2 de cada imagem oficial",
+        "device_on_hand": false
+      },
+      {
+        "id": "emuelec-puro",
+        "cfw": "EmuELEC puro (nao NextOS)",
+        "sdl": "SDL2 do EmuELEC",
+        "pin": null,
+        "exports_byid": null,
+        "arch": "aarch64",
+        "status": "UNMEASURED",
+        "today": "UNKNOWN vira STOCK da SDL, nunca mudo (nxinput 0.11.1): provado com DSO nao pinada no host 25x2 e no aparelho secundario 25/25 x2; a tabela ordinal DESTA imagem continua nao medida",
+        "expected_after_provider_fix": "stock",
+        "how_to_measure": "auditar a libSDL2 da imagem oficial",
+        "device_on_hand": false
+      },
+      {
+        "id": "hidapi-pads",
+        "cfw": "Pads HIDAPI/hidraw (BT, PS/Xbox/Switch USB) em qualquer CFW",
+        "sdl": "a do CFW",
+        "pin": null,
+        "exports_byid": null,
+        "arch": "qualquer",
+        "status": "BLOCKED_DEVICE",
+        "today": "EVIOCGBIT no devpath falha e a identidade e recusada",
+        "expected_after_provider_fix": "NOT_APPLICABLE com mapping nativo da SDL; claim HIDAPI so por /dev/uhid",
+        "how_to_measure": "/dev/uhid, gadget HID ou o pad fisico",
+        "device_on_hand": false
+      },
+      {
+        "id": "godot-static-sdl3",
+        "cfw": "Godot com SDL3 embutida (Tearscape) sobre provider ascending",
+        "sdl": "SDL3 3.2.30 estatica",
+        "pin": "fonte pinada (DECLARED_STATIC_SOURCE)",
+        "exports_byid": null,
+        "arch": "aarch64",
+        "status": "MEASURED_BY_SOURCE",
+        "today": "o seam Godot so conhece godot e sdl2-evdev: risco de importar ascending como high-first",
+        "expected_after_provider_fix": "dominio ascending no seam Godot, ou rota tipada direta",
+        "how_to_measure": "sessao num aparelho Knulli/muOS",
+        "device_on_hand": false
+      },
+      {
+        "id": "sdl2-plus-sdl3",
+        "cfw": "SDL2 e SDL3 no MESMO processo",
+        "sdl": "ambos",
+        "pin": null,
+        "exports_byid": null,
+        "arch": "qualquer",
+        "status": "MEASURED_BY_DSO",
+        "today": "nxinput_coexist sequencia a SDL_GAMECONTROLLERCONFIG por major com hint provider-local; sdl2-compat sobre SDL3 e detectado pelos BYTES como nucleo compartilhado, e o isolamento real foi provado no host com SDL2 classica 2.32.10 (tarball pinado) + SDL3: stores separados, simbolos por handle, um dono fisico",
+        "expected_after_provider_fix": "inalterado; fixture pinada cobre a regressao",
+        "how_to_measure": "fixture in-process; nao precisa de aparelho",
+        "device_on_hand": true
+      }
+    ]
+  }
+}

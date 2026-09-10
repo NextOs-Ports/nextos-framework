@@ -1,0 +1,96 @@
+{
+ "mapping_init_order": {
+  "note": "WHERE each major loads its built-in gamepad mapping database, relative to the joystick enumeration the C6 seam runs inside. This decides whether authority 4 (the runtime's own database) can answer at the announce boundary at all, so it is pinned and audited rather than observed once and assumed.",
+  "sdl2-2.28.5": {
+   "consequence": "authority 4 IS answerable when the seam runs",
+   "must_contain_in_order": [
+    "SDL_GameControllerInitMappings();",
+    "SDL_joystick_drivers[i]->Init()"
+   ],
+   "path": "src/joystick/SDL_joystick.c",
+   "sha256": "aeeceae176531e20190d5695d2bf17942361a548288f0df56e278cd27d83464b"
+  },
+  "sdl2-2.32.10": {
+   "consequence": "authority 4 IS answerable when the seam runs",
+   "must_contain_in_order": [
+    "SDL_GameControllerInitMappings();",
+    "SDL_joystick_drivers[i]->Init()"
+   ],
+   "path": "src/joystick/SDL_joystick.c",
+   "sha256": "f0fc796182edc9d4c80e0259d758f39a7038c344c2a8260b9d85974f6cf9fa39"
+  },
+  "sdl3-3.2.30": {
+   "consequence": "authority 4 is NOT answerable when the seam runs: the whole joystick subsystem, enumeration included, is initialised before the gamepad mapping database exists",
+   "must_contain_in_order": [
+    "SDL_InitOrIncrementSubsystem(SDL_INIT_JOYSTICK)",
+    "SDL_InitGamepads()"
+   ],
+   "path": "src/SDL.c",
+   "sha256": "03678bca32edfdecbf26abc752b03c929c08673468ccf04debfb93ef35ad6447"
+  }
+ },
+ "note": "The SDL sources C6 is pinned to. A file is authoritative only if it matches the sha256 here; a path handed in by the environment is never an authority. `role` says what each pin is FOR, because they are not all the same kind of evidence: three were built with the seam and executed, one is a source audit only and is labelled so.",
+ "schema": "org.nextos.c6.sdl-source-pins",
+ "schema_version": 1,
+ "sdl": {
+  "sdl2-2.0.10": {
+   "domain": "sdl2-legacy-evdev",
+   "license_path": "COPYING.txt",
+   "license_spdx": "Zlib",
+   "path": "src/joystick/linux/SDL_sysjoystick.c",
+   "role": "SOURCE_AUDIT_ONLY",
+   "sha256": "89df72eb6800cdc4f8f150fa6be6353c45ef146c7c765ac75deefe60c196dad3",
+   "skip_hats": 2,
+   "upstream": "https://github.com/libsdl-org/SDL",
+   "upstream_commit": "0e9560aea22818884921e5e5064953257bfe7fa7",
+   "upstream_tag": "release-2.0.10",
+   "version": "SDL 2.0.10",
+   "why": "The oldest pin C6 makes a claim about. It bounds the domain claim BELOW the oldest SDL2 that was actually built and run: it shows the evdev enumeration has not moved since 2.0.10. It was NOT built, NOT linked with the seam and NOT executed, and no behavioural result may be attributed to it. It is ALSO the pin that proves the domain is not eternal: its axis scan skips the entire ABS_HAT range unconditionally, where every later pin removes only the pairs it detected. That is a real ordinal difference on a pad with an unpaired ABS_HAT axis, so it is modelled as its own domain."
+  },
+  "sdl2-2.28.5": {
+   "domain": "sdl2-evdev",
+   "license_path": "LICENSE.txt",
+   "license_sha256": "9928507f684c1965d07f2b6ef4b4723d5efc2f6b4ab731f743a413c51c319927",
+   "license_spdx": "Zlib",
+   "path": "src/joystick/linux/SDL_sysjoystick.c",
+   "role": "MINIMUM_SUPPORTED_EXECUTED",
+   "sha256": "937963ce0ccd241c4b33bcb8b84bcb7546af2985972b7c1d71a90011a2e8a552",
+   "skip_hats": 1,
+   "upstream": "https://github.com/libsdl-org/SDL",
+   "upstream_commit": "15ead9a40d09a1eb9972215cceac2bf29c9b77f6",
+   "upstream_tag": "release-2.28.5",
+   "version": "SDL 2.28.5",
+   "why": "The MINIMUM SDL2 C6 supports and proves. Built with the seam linked in and executed by the real consumer."
+  },
+  "sdl2-2.32.10": {
+   "domain": "sdl2-evdev",
+   "license_path": "LICENSE.txt",
+   "license_sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127",
+   "license_spdx": "Zlib",
+   "path": "src/joystick/linux/SDL_sysjoystick.c",
+   "role": "CURRENT_EXECUTED",
+   "sha256": "62ee387eb3cca342a8081fdf7b875e9c5db120b94e91c6abefd88357e4829cda",
+   "skip_hats": 1,
+   "upstream": "https://github.com/libsdl-org/SDL",
+   "upstream_commit": "5d249570393f7a37e037abf22cd6012a4cc56a71",
+   "upstream_tag": "release-2.32.10",
+   "version": "SDL 2.32.10",
+   "why": "The current SDL2, and the one the authorized device really carries (its libSDL2-2.0.so.0 resolves to 2.32.10). Built with the seam and executed. Its sha256 is the same file C5B pinned for its own SDL2 domain audit, so the two categories agree by construction rather than by assertion."
+  },
+  "sdl3-3.2.30": {
+   "domain": "sdl3-evdev",
+   "license_path": "LICENSE.txt",
+   "license_sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127",
+   "license_spdx": "Zlib",
+   "path": "src/joystick/linux/SDL_sysjoystick.c",
+   "role": "PRIVATE_SDL3_EXECUTED",
+   "sha256": "1336500e21c7dfae9c7f8373684360d0b786ef3c90f912559ce388d11c3bc4ce",
+   "skip_hats": 1,
+   "upstream": "https://github.com/libsdl-org/SDL",
+   "upstream_commit": "f5e5f6588921eed3d7d048ce43d9eb1ff0da0ffc",
+   "upstream_tag": "release-3.2.30",
+   "version": "SDL 3.2.30",
+   "why": "The PRIVATE, pinned SDL3. A port never inherits a system SDL3; it pins one by version and hash, which is what this row is. Built with the seam and executed."
+  }
+ }
+}

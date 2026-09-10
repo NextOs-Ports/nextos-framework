@@ -1,0 +1,520 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/geometrydash-nextos",
+  "observed_commit": "8fc62be4c2e19f204cc846ff6e979c78fe1bcbd7",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Geometry Dash",
+    "Geometry Dash SubZero"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "97d49ab34259b8c01021d434f732382279e65184",
+      "sha256": "2d1f6e97ec8ceb2fbc65094ac0bee5d64728f9b0797b7588a7718085d325e5bc"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "0o644",
+      "upstream_blob": "23d958cda4e65cf37734ab243f77d5092d3a9944",
+      "sha256": "b81f466bb9dde4516075b334dc363d6aea8f3045f1d4678dbf687b453a023488"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "07e30dedc52d493f854678504f31713c69b9e582",
+      "sha256": "f5ba9e7f1679f6f11760f5ba9dfac3603cc173c22fda9763478668b651fcd048"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "781d8681ba3d642889f267eaba9f4bc790e8d2e4",
+      "sha256": "4ab6ebda1e096bd8a905f570a9bd8702b46cf22bf5056c3a47b800e8c051b383"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "45451087bfec34132f8dc712a41558056bb188dc",
+      "sha256": "982e15adeebbd8f5a16a78f81669d00ce74815ef86cc31e8d723e0f16ac612d2"
+    },
+    {
+      "path": "build_universal.sh",
+      "mode": "0o755",
+      "upstream_blob": "4074fec56dbbdc182d90d1a3b78f8f858e30f8f4",
+      "sha256": "32e18d37b74be2b1081cdbfa2823f805df32bccdd1ac6c0c648e368088783854"
+    },
+    {
+      "path": "games/gdsubzero/FRAMEWORK-PIN.json",
+      "mode": "0o644",
+      "upstream_blob": "28c26d2054bb1af1817d73b26fe7e5e9573ad515",
+      "sha256": "b720fde3eb4c18c0152df69c1463716ab11301df1065dd8720fba1daefa3fe56"
+    },
+    {
+      "path": "games/gdsubzero/Geometry Dash SubZero.sh",
+      "mode": "0o755",
+      "upstream_blob": "35acc0eb5d21c5c97e2182e23467f469d2c040b7",
+      "sha256": "2f6c6d806490db24ccea37f11f640765720535734c7ba81c8e327ef1281a722c"
+    },
+    {
+      "path": "games/gdsubzero/INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "07e30dedc52d493f854678504f31713c69b9e582",
+      "sha256": "f5ba9e7f1679f6f11760f5ba9dfac3603cc173c22fda9763478668b651fcd048"
+    },
+    {
+      "path": "games/gdsubzero/LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "games/gdsubzero/NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "781d8681ba3d642889f267eaba9f4bc790e8d2e4",
+      "sha256": "4ab6ebda1e096bd8a905f570a9bd8702b46cf22bf5056c3a47b800e8c051b383"
+    },
+    {
+      "path": "games/gdsubzero/README.md",
+      "mode": "0o644",
+      "upstream_blob": "45451087bfec34132f8dc712a41558056bb188dc",
+      "sha256": "982e15adeebbd8f5a16a78f81669d00ce74815ef86cc31e8d723e0f16ac612d2"
+    },
+    {
+      "path": "games/gdsubzero/build.sh",
+      "mode": "0o755",
+      "upstream_blob": "9f2e35d726d058bec7c5f4a4b5eb5e0b280ecf59",
+      "sha256": "25204b997b20167cdf9a87a82afe03b53ad99af63ed262bd307af63c74af3cc6"
+    },
+    {
+      "path": "games/gdsubzero/extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "867f5297534faae3b736c0f2c1db46273c50f17a",
+      "sha256": "39bd43aa4b11ef400f7aad91caf20adfb9d9cdf78007f95717425dda377b5cbd"
+    },
+    {
+      "path": "games/gdsubzero/gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "f3369a60cef4da999153058cf92bec2e45010687",
+      "sha256": "c55ef4f76fcfdaa1934789974a9a73672ca0eb92a87486d4f4b65ad915461be7"
+    },
+    {
+      "path": "games/gdsubzero/licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "games/gdsubzero/nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "963ed7cf3714d8edd6b4c2956526079af0bc9065",
+      "sha256": "4304275f30e076c76abdc0f280f0fdd5537f1ac700953ba1908e29a64d531919"
+    },
+    {
+      "path": "games/gdsubzero/nxextract/nxextract-runtime-env.sh",
+      "mode": "0o755",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "games/gdsubzero/nxextract/nxextract.py",
+      "mode": "0o755",
+      "upstream_blob": "aa14274b5c30e5b197cafa2f0dba30f4f77b256c",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "path": "games/gdsubzero/nxextract/run-extractor.sh",
+      "mode": "0o755",
+      "upstream_blob": "d092f8108f656ea27888fb2885b46726a3d217f2",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "path": "games/gdsubzero/nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "238eb817ead37ce485f85a212de393f1cfb1878d",
+      "sha256": "cf954361ae9e33d6768da0db83033100fb4c5f817dc41d9e978d71a4a9dbe3ce"
+    },
+    {
+      "path": "games/gdsubzero/nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "8e573dcf0ac09612a0dae8d3b8fc3da1e19e7de0",
+      "sha256": "462902bda46ccc851052582dee18ab6cb4a0c7adf44acabee54c0715898ade7e"
+    },
+    {
+      "path": "games/gdsubzero/nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "3bdcd8630c554bf55d20bb7ba90c0fe6a79b0120",
+      "sha256": "aa81f4fed375485663f3af8a4a0d6fbf4668ea9a96245ec292a20d7636a6b40d"
+    },
+    {
+      "path": "games/gdsubzero/package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "b318d1c76a1272519e764c007cc007d073c30997",
+      "sha256": "294e95cc479f22cfe74cef976cdc396636b208e93d6cc6e3610bfef1ee0af6ef"
+    },
+    {
+      "path": "games/gdsubzero/port.json",
+      "mode": "0o644",
+      "upstream_blob": "7639692e2171f70cacbaaa0f469b413df456f37e",
+      "sha256": "ec90a90d20926ac746706753492e0acd19a9ce3e8cbec9c045fd6aa3812792ce"
+    },
+    {
+      "path": "games/gdsubzero/src/bionic_shims.c",
+      "mode": "0o644",
+      "upstream_blob": "90db913b57b81e45fa1c2efb9b92a8e84b972028",
+      "sha256": "2e99235d33d964ea402f0caf54740e90ea2a6345e94499beccb38e62beab74f3"
+    },
+    {
+      "path": "games/gdsubzero/src/imports.c",
+      "mode": "0o644",
+      "upstream_blob": "f4711aab29c564cf363ef352b2794c1e39c1ff8c",
+      "sha256": "d599e601d6c7d9c4893af6897ec5e07d22fa1687236e76e1bf3e19ea3c6bbb6c"
+    },
+    {
+      "path": "games/gdsubzero/src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "0662544152cea2fddaf886e9cb4fc92298aeaadc",
+      "sha256": "10758bc75f5bd249f08634dd77fb7111ff8d278af0e25fd2587d9cec43a73e86"
+    },
+    {
+      "path": "games/gdsubzero/src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "c4d7267297bd25d48e301bedd260fa0852608db0",
+      "sha256": "d70d450f7cfe123948869c5b9f3f5a19bb24bcc288ba3a465ff19c280cb6c17d"
+    },
+    {
+      "path": "games/gdsubzero/src/step_guard.c",
+      "mode": "0o644",
+      "upstream_blob": "f4b8030b90ca7567cc8e58249345e98aa59818ce",
+      "sha256": "fc4a57b2f46a32d6108f8d7183251a6cad816065fcc355c9bd3b10633f7ed157"
+    },
+    {
+      "path": "games/gdsubzero/tools/make-game-apk.py",
+      "mode": "0o755",
+      "upstream_blob": "7ea1e28117b15b4679432b68704defdda6836548",
+      "sha256": "18b490506c4fef7ce97ec17fb4f72324f81649d00a3c5accf3f836368eaa78d8"
+    },
+    {
+      "path": "games/gdsubzero/tools/virtual-pad.py",
+      "mode": "0o644",
+      "upstream_blob": "80e326aee1502cf6d8e42f58e9c23a8d6b4e7484",
+      "sha256": "be64f34ed53cad77fc854051679aa4412d79c3f2b1a1f566acfa33cbd5079277"
+    },
+    {
+      "path": "games/gdsubzero/version.txt",
+      "mode": "0o644",
+      "upstream_blob": "21e8796a09d4f26935ffc4879147879a153f0193",
+      "sha256": "f5e5c9534532840fcd45bb002e69ed85c61dba2753450e26b448b7df1481e24d"
+    },
+    {
+      "path": "games/geometrydash/Geometry Dash.sh",
+      "mode": "0o755",
+      "upstream_blob": "b5c9cb8ff9cdeebb2a49da7c2687f3fa902ddffc",
+      "sha256": "ecbed6d4005fc0708745c8194bb9dd5d36c145d4e9d68b249c8ace7669c55c36"
+    },
+    {
+      "path": "games/geometrydash/extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "feda6eb763ec89157b885910be01776cd91c0e69",
+      "sha256": "56ef6b074862b02a6f2bc9a0e41ac87226c40ea315d0876d24eaaa39b89c8bc4"
+    },
+    {
+      "path": "games/geometrydash/run.sh",
+      "mode": "0o755",
+      "upstream_blob": "e39bd1ce42ae7c7a06a8bba6f284fc077749b497",
+      "sha256": "7408d101ae2f82d89996acc4f9d9b802358f53ed6e89aec5f1c25edf892a146f"
+    },
+    {
+      "path": "games/geometrydash/src/bionic_shims.c",
+      "mode": "0o644",
+      "upstream_blob": "398d1317bee0e5e20c27649b27686996005eaf5a",
+      "sha256": "afcbb0cbdd171dc155cd6b5fbc702401fc11853dcd3291c8834cd76c5127dd97"
+    },
+    {
+      "path": "games/geometrydash/src/imports.c",
+      "mode": "0o644",
+      "upstream_blob": "4b1b88ec8384dc0f287b10ad2c32a759af280b72",
+      "sha256": "42421df8fcd15abcb07bec0ac82c588b14185ad2198b5e30b7f11d09a2c4bfbd"
+    },
+    {
+      "path": "games/geometrydash/src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "0d2937ec741586b019a2aa3f3d5bc1f1de3d1a96",
+      "sha256": "9a1bec09cdacc109d0eac4aea4091b3797d0e66e9239d4bf00d1c19e8035f1d9"
+    },
+    {
+      "path": "games/geometrydash/src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "8413db028cba71f9969ae84fe0be56966c9bb820",
+      "sha256": "d82cd39274c61715280fe3a0062434c3dae64c30ac16289c47afdcd995008704"
+    },
+    {
+      "path": "games/geometrydash/src/save_redirect.c",
+      "mode": "0o644",
+      "upstream_blob": "b1843ce034a69f917ff1d4ab79a9cedc5a5af164",
+      "sha256": "afaf867e8d21f2c36667474c6df23cdd09e64cd0b8f85aa4df5358ea3ee3d4a9"
+    },
+    {
+      "path": "games/geometrydash/src/step_guard.c",
+      "mode": "0o644",
+      "upstream_blob": "56c468bc9609aa6f911c6580e68a1804fb5b0ffb",
+      "sha256": "106c7b9f561fb7ef3afc766e59e200f15760a6ce048ea07b76e60d20bae52aa1"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "nxextract-runtime-env.sh",
+      "mode": "0o755",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "1fc162d3af53d10f070291bcde15518979c8c20f",
+      "sha256": "1291215c0efb36fd18fe2854685de6058c0ed25f42ad794935f6fbdd1a1b6512"
+    },
+    {
+      "path": "nxextract.py",
+      "mode": "0o755",
+      "upstream_blob": "352097def7b353552eb4199572db5c2db60a2ce7",
+      "sha256": "dcf2dbd27facadf9110d18fd721b277b34ea1164bd1e77dfe69b2507939b4f08"
+    },
+    {
+      "path": "package/audit-allow.txt",
+      "mode": "0o644",
+      "upstream_blob": "9792c1009e6b785d2164c0cc0e2432d4ad7ea2f0",
+      "sha256": "75cf968a467f48f104f39af5ff94c616b1061ac39e2501894a45bb1adfbe408c"
+    },
+    {
+      "path": "package/audit-portability.sh",
+      "mode": "0o755",
+      "upstream_blob": "682bfac441aa7e23d80c9685c8ed5f6d89fe430d",
+      "sha256": "76803ee92cd5e1db0da15a108f572022954ccb0b5b301e1a1e0e6a10518c969e"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "da94b731fb88692db62694501bd14ba2bb156a62",
+      "sha256": "51e5bc2dc8c4f0b53f44fa76910b592271f200445afb7f8619b1a4df052a73b8"
+    },
+    {
+      "path": "run-extractor.sh",
+      "mode": "0o755",
+      "upstream_blob": "0173c4ac3d09fb43b59cdc2a093ec95678e316ce",
+      "sha256": "3c61f638a25f0ca9c5c5a94d33660886aaff17a18347c9e954afd4b0e9b3efba"
+    },
+    {
+      "path": "src/apk_asset.c",
+      "mode": "0o644",
+      "upstream_blob": "e5ae04c07fa4eea00af4903d11c54ae54d436121",
+      "sha256": "0fd2150bb0252e4dd28a9100eda39507feab5c6423826c82e8b97f885b0542ad"
+    },
+    {
+      "path": "src/egl_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "301a069c1be8d8c41c0007a7f2f42f63e251f926",
+      "sha256": "8fa3a5232ca954c8d9e10cbf0ffa4c0e01a8fc4dcee5def2ae8c27aee38e4eb9"
+    },
+    {
+      "path": "src/egl_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "363038b23e82e94507cd68d980e4759b540953d2",
+      "sha256": "bbd2836445e42b9c78eaeac10fe9f4eb56850651418cf1c23e66f214aee07079"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "a777dda52a4474dad225b435aec0cea333ccf553",
+      "sha256": "40eea03bd61477ecae568613f6da109db6deee7993addf3cf4dabdc8267d686d"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "28dc64f25fc63657f28e1756758776b1bf7b733a",
+      "sha256": "47d615b0b791dab91491840cb0e5dc7c12b9aac4cf6ab8cf7ed08b1911752929"
+    },
+    {
+      "path": "src/fmod_probe.c",
+      "mode": "0o644",
+      "upstream_blob": "bc71763c54a981dffc2dd55e9f4c1de09d3a70a5",
+      "sha256": "21b1279275865c127b0273ff82518d46771551fd2406bec67fda07b53c2b6cca"
+    },
+    {
+      "path": "src/gd_move.c",
+      "mode": "0o644",
+      "upstream_blob": "f7bc4d3deb86d3ab61f109ccdd7d2930cb5128cc",
+      "sha256": "847dc9d6d47a0d2a2b55516bf44d2fbf25b6559991a2685d9e78e1fba15d11c0"
+    },
+    {
+      "path": "src/gd_move.h",
+      "mode": "0o644",
+      "upstream_blob": "9d0e3bf6fdfb3fd8a0b7f3405731af739c551013",
+      "sha256": "212e5cef55cde2a7e4616cf18c98167d7277e226538d916afe189cf97701fd0c"
+    },
+    {
+      "path": "src/gd_platform.c",
+      "mode": "0o644",
+      "upstream_blob": "a806799ab3d2174dbb77a69f48842531880708b8",
+      "sha256": "154c74f69c9241e85828f187359170188763bc9cac4a21ddcd44907fb755ee6e"
+    },
+    {
+      "path": "src/gd_platform.h",
+      "mode": "0o644",
+      "upstream_blob": "53ede20ac3d5e7ee7cb36fa56d8ff53af0c50f01",
+      "sha256": "c2ab11f42e38a9aab187b8c527cd7391d57cdda5ed345e54aea2a53410d8b23e"
+    },
+    {
+      "path": "src/gl_state.c",
+      "mode": "0o644",
+      "upstream_blob": "3f7bb341b3310b0d9289eb4f4a5a61a9d77f51c9",
+      "sha256": "eff30c928cb9eae3762d9cd4cbad7f17c82f0c026da03fcf3054fbdf48c93057"
+    },
+    {
+      "path": "src/gl_state.h",
+      "mode": "0o644",
+      "upstream_blob": "ebf63065481cab478c29e222f8101de778d96523",
+      "sha256": "65eef12fb256d4dadb62d6eb8a61bfaddaec181b67d3e0d7f8fe75428371b0b9"
+    },
+    {
+      "path": "src/imports.gen.c",
+      "mode": "0o644",
+      "upstream_blob": "f9d9ec91c266f0768114139a5a79122ca6f0a32c",
+      "sha256": "4236fe017c9f88991d3080be017e12651586f096bb3bd893483b7fa0ebd9a824"
+    },
+    {
+      "path": "src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "5c542bebe058ab99de742b48fc22d729e73b7599",
+      "sha256": "ad753218e082a3a6a4a04a4c107b5ec4fd4f59ad6e5d38912314c018afa14cd8"
+    },
+    {
+      "path": "src/nx_frameprobe.c",
+      "mode": "0o644",
+      "upstream_blob": "ba9f903dc708e670fe880daf2268de0fe8de5e92",
+      "sha256": "ef7a05c48641acaaabc366003da4665f7202f9eed9575b8300499f02faa09031"
+    },
+    {
+      "path": "src/nx_frameprobe.h",
+      "mode": "0o644",
+      "upstream_blob": "691d68313a318b1b16dde8f15fc9f459fd0cc454",
+      "sha256": "95adcf01dacff905a6076b1ff913f86767410467a4f075e29e5ca2afbe3de932"
+    },
+    {
+      "path": "src/nx_jni.c",
+      "mode": "0o644",
+      "upstream_blob": "52452ec2107a619c3e18d8084d4a511f922b092b",
+      "sha256": "579330f1945f37f9cfe71ae64a6c2398bc50c782b9811d855ba94f4940352c1d"
+    },
+    {
+      "path": "src/nx_jni.h",
+      "mode": "0o644",
+      "upstream_blob": "d49a072d375f6518e479006f29ba59cab86b7ff7",
+      "sha256": "b18da0e267399abf51f541151b4f6f2bac278a624db98124986092dcd7390c7a"
+    },
+    {
+      "path": "src/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "4c22bfd4de2256670054a8ca69a0a4379589dcf8",
+      "sha256": "f5fb28213214a3318f741fab35317f1d31044105a56da8330921b15bc2ea9d7e"
+    },
+    {
+      "path": "src/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0c4373fe664ee432c21bfd8d7e879d4e51cf6cfb",
+      "sha256": "9ac9bd0bce36d082e3072d36c4d3f6110191d5f8e07ede64a06659be192ae147"
+    },
+    {
+      "path": "src/pad_evdev.c",
+      "mode": "0o644",
+      "upstream_blob": "84234ecf467dc09fbdfff383b3df10e6e1469e3f",
+      "sha256": "2c2a1cb110b063970d1adda81d409b75c6e3775675b76656f5f4f5d48ef9d330"
+    },
+    {
+      "path": "src/pad_evdev.h",
+      "mode": "0o644",
+      "upstream_blob": "e7357499171b065cc0a0ff89edb5c3244ac6b97b",
+      "sha256": "da2f19194773f1471410acf14690ef903356f81a969271d66f50e82a2fda49f6"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "05f90d500d9c544c25e3268eea46712438f7bef1",
+      "sha256": "db133962d154666f8124978bb46a6f758a46acb2604bca87d0f0968a2b2eb711"
+    },
+    {
+      "path": "src/setjmp_bridge.S",
+      "mode": "0o644",
+      "upstream_blob": "900c971282ea3e38bdde683a30ae02f5676f7a74",
+      "sha256": "eef14401f0a7cd4b0480ed9beaf66c7f72ec58f4474ffc27339a79731e8a5827"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "fa988d355385cfcb7fc21fb3005d556aa441e00c",
+      "sha256": "eef43d780e7d1e0ecf30c7ad9ea4ea34d22b1624788f7c0b6e3a05a59dae198b"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "1c0da3886454ede6578ff551c5e0574389b4040b",
+      "sha256": "912bddeaca0bfbd5c3791b294334cbfa57a059f4636e84fc07ee1e19e1933dec"
+    },
+    {
+      "path": "src/text_render.c",
+      "mode": "0o644",
+      "upstream_blob": "a928cea6afe4e092527fa841b3c294485f2ae0a9",
+      "sha256": "3341adcde7ad3d64a2456c630da8450913f6e7c8d1566d1e024b1548e7566f9d"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "132ea548df57ac9dfc8535f34eb2e036c7805b86",
+      "sha256": "04c69c73404b0217730c275cd57d029cd873ac22ca79c333223964db77f63346"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "c5a4b666b45b0e3035408398cda024fc28c1f18f",
+      "sha256": "3548455b929484e9ffad7aa3e029a64f0ff30fc204420f5f382e296e3039cc99"
+    },
+    {
+      "path": "tools/make-game-apk.py",
+      "mode": "0o755",
+      "upstream_blob": "7ea1e28117b15b4679432b68704defdda6836548",
+      "sha256": "18b490506c4fef7ce97ec17fb4f72324f81649d00a3c5accf3f836368eaa78d8"
+    },
+    {
+      "path": "tools/virtual-pad.py",
+      "mode": "0o644",
+      "upstream_blob": "80e326aee1502cf6d8e42f58e9c23a8d6b4e7484",
+      "sha256": "be64f34ed53cad77fc854051679aa4412d79c3f2b1a1f566acfa33cbd5079277"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "6d7de6e6abef13b18021a3591debc53ac00616d4",
+      "sha256": "9fd28642d3aca191e5c7fc2383cfd6fabb2aac8743f029dabb8989ac584e31bc"
+    }
+  ],
+  "omitted_selected_files": []
+}

@@ -1,0 +1,125 @@
+{
+  "catalog_claims_backed": [
+    "ABI-*-015-host-elf-class",
+    "ABI-*-016-host-machine",
+    "ABI-*-017-host-float-abi",
+    "ABI-*-018-host-pt-interp",
+    "ABI-*-019-host-glibc-ceiling",
+    "ABI-*-020-host-dependencies"
+  ],
+  "ceilings": {
+    "cxxabi_max": "1.3.11",
+    "glibc_max": "2.30",
+    "glibc_preferred": "2.17",
+    "glibcxx_max": "3.4.25"
+  },
+  "counts": {
+    "elves": 7,
+    "errors": 1,
+    "warnings": 9
+  },
+  "findings": [
+    {
+      "check": "soname-forbidden",
+      "level": "warn",
+      "message": "DT_NEEDED libEGL.so is forbidden: development symlink; devices ship libEGL.so.1 [waived: approved ARMHF reference physically validated on R36S/ArkOS, where libEGL.so and libGLESv2.so exist; the canonical SONAME is required for any new build]",
+      "path": "ports/asm2_127/asm2_127-universal",
+      "waived": true,
+      "waiver_reason": "approved ARMHF reference physically validated on R36S/ArkOS, where libEGL.so and libGLESv2.so exist; the canonical SONAME is required for any new build"
+    },
+    {
+      "check": "soname-forbidden",
+      "level": "warn",
+      "message": "DT_NEEDED libGLESv2.so is forbidden: development symlink; devices ship libGLESv2.so.2 [waived: approved ARMHF reference physically validated on R36S/ArkOS, where libEGL.so and libGLESv2.so exist; the canonical SONAME is required for any new build]",
+      "path": "ports/asm2_127/asm2_127-universal",
+      "waived": true,
+      "waiver_reason": "approved ARMHF reference physically validated on R36S/ArkOS, where libEGL.so and libGLESv2.so exist; the canonical SONAME is required for any new build"
+    },
+    {
+      "check": "glibc-preferred",
+      "level": "warn",
+      "message": "floor is GLIBC_2.27 (preferred 2.17); raised by: expf, logf, powf",
+      "path": "ports/asm2_127/asm2_127-universal"
+    },
+    {
+      "check": "sdl-assumed",
+      "level": "info",
+      "message": "2 SDL symbol(s) have no \\since annotation and are assumed to be SDL 2.0.0 baseline",
+      "path": "ports/asm2_127/asm2_127-universal"
+    },
+    {
+      "check": "sdl-floor",
+      "level": "warn",
+      "message": "imports SDL_GameControllerMappingForDeviceIndex (SDL 2.0.9) above the declared floor SDL 2.0.4 [waived: historical, delisted and explicitly non-universal artifact; kept only as a narrow AArch64 loader reference at GLIBC_2.17]",
+      "path": "ports/bully2/bully.glibc230",
+      "waived": true,
+      "waiver_reason": "historical, delisted and explicitly non-universal artifact; kept only as a narrow AArch64 loader reference at GLIBC_2.17"
+    },
+    {
+      "check": "sdl-assumed",
+      "level": "info",
+      "message": "2 SDL symbol(s) have no \\since annotation and are assumed to be SDL 2.0.0 baseline",
+      "path": "ports/bully2/bully.glibc230"
+    },
+    {
+      "check": "search-path",
+      "level": "error",
+      "message": "embeds RUNPATH=[$ORIGIN]; universal packages require none",
+      "path": "ports/horizonchase/horizonchase-universal"
+    },
+    {
+      "check": "glibc-preferred",
+      "level": "warn",
+      "message": "floor is GLIBC_2.27 (preferred 2.17); raised by: powf",
+      "path": "ports/horizonchase/horizonchase-universal"
+    },
+    {
+      "check": "sdl-assumed",
+      "level": "info",
+      "message": "1 SDL symbol(s) have no \\since annotation and are assumed to be SDL 2.0.0 baseline",
+      "path": "ports/horizonchase/horizonchase-universal"
+    },
+    {
+      "check": "glibc-preferred",
+      "level": "warn",
+      "message": "floor is GLIBC_2.27 (preferred 2.17); raised by: exp2f, expf, log2f, logf, powf",
+      "path": "ports/kotor/kotor-universal"
+    },
+    {
+      "check": "sdl-floor",
+      "level": "warn",
+      "message": "imports SDL_JoystickGetDeviceInstanceID (SDL 2.0.6) above the declared floor SDL 2.0.4 [waived: approved pad normaliser physically validated on R36S/ArkOS, whose SDL2 is newer than 2.0.6; the SDL floor still applies to any new port]",
+      "path": "ports/kotor/libkotor_input-universal.so",
+      "waived": true,
+      "waiver_reason": "approved pad normaliser physically validated on R36S/ArkOS, whose SDL2 is newer than 2.0.6; the SDL floor still applies to any new port"
+    },
+    {
+      "check": "sdl-assumed",
+      "level": "info",
+      "message": "1 SDL symbol(s) have no \\since annotation and are assumed to be SDL 2.0.0 baseline",
+      "path": "ports/kotor/libkotor_input-universal.so"
+    },
+    {
+      "check": "soname-forbidden",
+      "level": "warn",
+      "message": "DT_NEEDED libGLESv2.so is forbidden: development symlink; devices ship libGLESv2.so.2 [waived: approved AArch64 reference physically validated on Mali-450 and ArkOS with libGLESv2.so present]",
+      "path": "ports/sonic4/sonic4.arm64",
+      "waived": true,
+      "waiver_reason": "approved AArch64 reference physically validated on Mali-450 and ArkOS with libGLESv2.so present"
+    },
+    {
+      "check": "glibc-preferred",
+      "level": "warn",
+      "message": "floor is GLIBC_2.27 (preferred 2.17); raised by: powf",
+      "path": "ports/sonic4/sonic4.arm64"
+    }
+  ],
+  "inventory": [],
+  "policy_id": "nxabi-public-universal-v1",
+  "profile": "universal-low-glibc",
+  "schema_version": 1,
+  "tool": {
+    "name": "nxabi",
+    "version": "0.1.0"
+  }
+}

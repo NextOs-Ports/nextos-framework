@@ -1,0 +1,16 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.17",
+    "title": "Magic Rampage"
+  },
+  "items": [
+    "Magic Rampage.sh",
+    "magicrampage/"
+  ],
+  "items_opt": [],
+  "name": "magicrampage.zip",
+  "version": 4
+}

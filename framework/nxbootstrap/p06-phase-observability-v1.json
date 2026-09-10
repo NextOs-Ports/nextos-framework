@@ -1,0 +1,86 @@
+{
+  "schema": "org.nextos.nxbootstrap.p06-phase-observability",
+  "schema_version": 1,
+  "component": "nxbootstrap",
+  "version": "0.8.0",
+  "evidence_kind": "host-synthetic-and-pinned-visual-regression",
+  "device_claim": false,
+  "phase_result": {
+    "schema": "org.nextos.nxbootstrap.phase-result",
+    "schema_version": 1,
+    "path": "nxphase-result.json",
+    "publication": "exclusive-temporary-plus-rename",
+    "event_schema": "nx-event-v1",
+    "launcher_phases": [
+      "preflight",
+      "nxextract",
+      "nxsplash",
+      "runtime"
+    ],
+    "adapter_phases": [
+      "video-provider",
+      "first-frame"
+    ],
+    "adapter_policy": "explicit-observation-only-no-launcher-inference"
+  },
+  "reason_codes": {
+    "6190": "preflight-start",
+    "6191": "preflight-ok",
+    "6200": "nxextract-start",
+    "6201": "nxextract-ok",
+    "6202": "nxextract-integration-or-result-invalid",
+    "6203": "nxextract-process-error",
+    "6204": "nxsplash-start",
+    "6205": "nxsplash-ok",
+    "6206": "nxsplash-process-error",
+    "6207": "runtime-start",
+    "6208": "runtime-exit",
+    "6209": "nxextract-host-python-unusable",
+    "6210": "video-provider-observed",
+    "6211": "first-frame-observed"
+  },
+  "obs_requirements": {
+    "OBS-012": [
+      "framework/nxbootstrap/tools/generate-port.py",
+      "framework/nxbootstrap/tests/test-generator.sh",
+      "framework/nxbootstrap/tests/test-phase-observability.sh"
+    ],
+    "OBS-021..030": [
+      "framework/nxbootstrap/templates/launcher.sh.in",
+      "framework/nxbootstrap/schema/phase-result-v1.schema.json",
+      "framework/nxbootstrap/tests/test-phase-observability.sh"
+    ],
+    "OBS-031..040": [
+      "framework/nxbootstrap/templates/launcher.sh.in",
+      "framework/nxbootstrap/tests/test-launcher-behavior.sh",
+      "framework/nxbootstrap/tests/test-safety-static.sh"
+    ]
+  },
+  "cuts": [
+    "nxextract-start-to-error",
+    "nxextract-result-to-nxsplash",
+    "nxsplash-start-to-error",
+    "nxsplash-ok-to-runtime-start",
+    "runtime-start-to-video-provider",
+    "video-provider-to-first-frame",
+    "first-frame-to-runtime-exit"
+  ],
+  "visual_contract": {
+    "nxsplash_version": "0.1.2",
+    "nxsplash_aarch64_sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+    "nxextract_engine_version": "1.2.17",
+    "nxextract_ui_presentation_version": "1.2.16",
+    "nxextract_ui_aarch64_sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+    "authorized_visual_change": false,
+    "flow_change": false
+  },
+  "gate": {
+    "command": "bash framework/nxbootstrap/tests/run-isolated.sh",
+    "expected": [
+      "phase observability gate passed",
+      "launcher behavior gate passed",
+      "firmware matrix v2 process gate passed",
+      "nxobs P06 host gate: PASS"
+    ]
+  }
+}

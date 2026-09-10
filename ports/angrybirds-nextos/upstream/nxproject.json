@@ -1,0 +1,70 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "scaffold"
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor.json",
+  "nxport": {
+    "architecture": "armv7",
+    "argument_mode": "game-dir-and-passthrough",
+    "enabled_quirks": [],
+    "executable": "angrybirds-nextos",
+    "home_mode": "preserve",
+    "id": "angrybirds",
+    "launcher_name": "Angry Birds Classic.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.12"
+    },
+    "prepare_script": "",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "host.armhf-libs",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "graphics.egl-config",
+      "graphics.drawable",
+      "audio.output-open",
+      "input.controller-mapping"
+    ],
+    "required_files": [
+      "angrybirds-nextos",
+      "nxsplash-nextos",
+      "game.apk"
+    ],
+    "runtime_report": "log-and-logo",
+    "schema_version": 2,
+    "title": "Angry Birds Classic",
+    "language": {
+      "default": "auto",
+      "supported": [
+        "en",
+        "pt-br",
+        "pt",
+        "es",
+        "fr",
+        "de",
+        "it",
+        "ru",
+        "pl",
+        "ar",
+        "zh-cn",
+        "zh-tw"
+      ]
+    }
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.17"
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,467 @@
+#include <SDL2/SDL.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <dirent.h>
+#include <linux/input.h>
+#include <dlfcn.h>
+
+#include "platform.h"
+#include "so_util.h"
+#include "libyoyo.h"
+#include "configuration.h"
+
+/* [NextOS/forager] Chord de saida SELECT+START canonico do framework
+ * (nxinput_evdev_chord.h v2): SDL BACK+START por ESTADO em todo pad aberto (+ botao
+ * cru do joystick nos indices do mapping), sem hold longo; evdev cru so' como
+ * fallback quando NAO ha pad SDL. Historico: v1.0.0 lia BTN_SELECT/START literais
+ * (na familia H700 sao L2/R2 -> "L2+R2 sai"); v1.0.1/1.0.3 derivavam o codigo evdev
+ * do indice SDL com a tabela da SDL vanilla, mas os CFWs Batocera-like enumeram
+ * 0..KEY_MAX crescente -> o chord virou L3+L2 e "SELECT+START nao sai". */
+#define NXINPUT_EVDEV_CHORD_LOG(...) do { fprintf(stderr, __VA_ARGS__); fflush(stderr); } while (0)
+#define NXINPUT_EVDEV_CHORD_IMPLEMENTATION
+#include "vendor/nxinput_evdev_chord.h"
+
+int app_in_focus = 0;
+int mouse_has_warped = 0;
+
+typedef struct controller_t {
+    SDL_GameController *controller;
+    int which; //instance id
+    int slot;  //player slot
+} controller_t;
+
+static controller_t sdl_controllers[8] = {
+    {.controller = NULL, .which = -1, .slot = -1},
+    {.controller = NULL, .which = -1, .slot = -1},
+    {.controller = NULL, .which = -1, .slot = -1},
+    {.controller = NULL, .which = -1, .slot = -1},
+    {.controller = NULL, .which = -1, .slot = -1},
+    {.controller = NULL, .which = -1, .slot = -1},
+    {.controller = NULL, .which = -1, .slot = -1},
+    {.controller = NULL, .which = -1, .slot = -1}
+};
+
+static int get_free_controller_slot()
+{
+    for (int i = 0; i < ARRAY_SIZE(sdl_controllers); i++) {
+        if (sdl_controllers[i].controller == NULL) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+static int get_which_controller(int which)
+{
+    for (int i = 0; i < ARRAY_SIZE(sdl_controllers); i++) {
+        if (sdl_controllers[i].which == which) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+static int get_free_yoyogamepad_slot()
+{
+    for (int i = 0; i < ARRAY_SIZE(yoyo_gamepads); i++) {
+        if (!yoyo_gamepads[i].is_available) //not connected
+            return i;
+    }
+
+    return -1;
+}
+
+static void keyboard_set_key_raw(int key, int state)
+{
+    if (state)
+        *_IO_CurrentKey = key;
+    else if (!state && *_IO_CurrentKey == key)
+        *_IO_CurrentKey = -1;
+    _IO_KeyDown[key] = state;
+    _IO_KeyPressed[key] = state;
+    _IO_KeyReleased[key] = !state;
+}
+
+static int update_button(int new_state, int old_state)
+{
+    if (new_state == GAMEPAD_BUTTON_STATE_HELD) {
+        if (old_state == GAMEPAD_BUTTON_STATE_NEUTRAL)
+            return GAMEPAD_BUTTON_STATE_DOWN;
+        return GAMEPAD_BUTTON_STATE_HELD;
+    } else {
+        if (old_state == GAMEPAD_BUTTON_STATE_HELD)
+            return GAMEPAD_BUTTON_STATE_UP;
+        return GAMEPAD_BUTTON_STATE_NEUTRAL;
+    }
+}
+
+static int mouse_button_map(int btn)
+{
+    switch(btn) {
+        case SDL_BUTTON_LEFT: return 0;
+        case SDL_BUTTON_MIDDLE: return 2;
+        case SDL_BUTTON_RIGHT: return 1;
+        default: return 2;
+    }
+}
+
+static void keyboard_set_key(SDL_Keycode key, int state)
+{
+    if (key == SDLK_LSHIFT || key == SDLK_RSHIFT)
+        keyboard_set_key_raw(vk_shift, state);
+    if (key == SDLK_LALT || key == SDLK_RALT)
+        keyboard_set_key_raw(vk_alt, state);
+    if (key == SDLK_LCTRL || key == SDLK_RCTRL)
+        keyboard_set_key_raw(vk_control, state);
+
+    if (key >= SDLK_a && key <= SDLK_z) {
+        keyboard_set_key_raw(key + ('A' - 'a'), state);
+    }
+    if (key >= SDLK_0 && key <= SDLK_9) {
+        keyboard_set_key_raw(key, state);
+    }
+
+    switch (key)
+    {
+    case SDLK_RETURN:      keyboard_set_key_raw(vk_enter, state);       break;
+    case SDLK_ESCAPE:      keyboard_set_key_raw(vk_escape, state);      break;
+    case SDLK_SPACE:       keyboard_set_key_raw(vk_space, state);       break;
+    case SDLK_BACKSPACE:   keyboard_set_key_raw(vk_backspace, state);   break;
+    case SDLK_TAB:         keyboard_set_key_raw(vk_tab, state);         break;
+    case SDLK_PAUSE:       keyboard_set_key_raw(vk_pause, state);       break;
+    case SDLK_PRINTSCREEN: keyboard_set_key_raw(vk_printscreen, state); break;
+    case SDLK_LEFT:        keyboard_set_key_raw(vk_left, state);        break;
+    case SDLK_RIGHT:       keyboard_set_key_raw(vk_right, state);       break;
+    case SDLK_UP:          keyboard_set_key_raw(vk_up, state);          break;
+    case SDLK_DOWN:        keyboard_set_key_raw(vk_down, state);        break;
+    case SDLK_HOME:        keyboard_set_key_raw(vk_home, state);        break;
+    case SDLK_END:         keyboard_set_key_raw(vk_end, state);         break;
+    case SDLK_DELETE:      keyboard_set_key_raw(vk_delete, state);      break;
+    case SDLK_INSERT:      keyboard_set_key_raw(vk_insert, state);      break;
+    case SDLK_PAGEUP:      keyboard_set_key_raw(vk_pageup, state);      break;
+    case SDLK_PAGEDOWN:    keyboard_set_key_raw(vk_pagedown, state);    break;
+    case SDLK_F1:          keyboard_set_key_raw(vk_f1, state);          break;
+    case SDLK_F2:          keyboard_set_key_raw(vk_f2, state);          break;
+    case SDLK_F3:          keyboard_set_key_raw(vk_f3, state);          break;
+    case SDLK_F4:          keyboard_set_key_raw(vk_f4, state);          break;
+    case SDLK_F5:          keyboard_set_key_raw(vk_f5, state);          break;
+    case SDLK_F6:          keyboard_set_key_raw(vk_f6, state);          break;
+    case SDLK_F7:          keyboard_set_key_raw(vk_f7, state);          break;
+    case SDLK_F8:          keyboard_set_key_raw(vk_f8, state);          break;
+    case SDLK_F9:          keyboard_set_key_raw(vk_f9, state);          break;
+    case SDLK_F10:         keyboard_set_key_raw(vk_f10, state);         break;
+    case SDLK_F11:         keyboard_set_key_raw(vk_f11, state);         break;
+    case SDLK_F12:         keyboard_set_key_raw(vk_f12, state);         break;
+    case SDLK_KP_0:        keyboard_set_key_raw(vk_numpad0, state);     break;
+    case SDLK_KP_1:        keyboard_set_key_raw(vk_numpad1, state);     break;
+    case SDLK_KP_2:        keyboard_set_key_raw(vk_numpad2, state);     break;
+    case SDLK_KP_3:        keyboard_set_key_raw(vk_numpad3, state);     break;
+    case SDLK_KP_4:        keyboard_set_key_raw(vk_numpad4, state);     break;
+    case SDLK_KP_5:        keyboard_set_key_raw(vk_numpad5, state);     break;
+    case SDLK_KP_6:        keyboard_set_key_raw(vk_numpad6, state);     break;
+    case SDLK_KP_7:        keyboard_set_key_raw(vk_numpad7, state);     break;
+    case SDLK_KP_8:        keyboard_set_key_raw(vk_numpad8, state);     break;
+    case SDLK_KP_9:        keyboard_set_key_raw(vk_numpad9, state);     break;
+    case SDLK_KP_DIVIDE:   keyboard_set_key_raw(vk_divide, state);      break;
+    case SDLK_KP_MULTIPLY: keyboard_set_key_raw(vk_multiply, state);    break;
+    case SDLK_KP_MINUS:    keyboard_set_key_raw(vk_subtract, state);    break;
+    case SDLK_KP_PLUS:     keyboard_set_key_raw(vk_add, state);         break;
+    case SDLK_KP_DECIMAL:  keyboard_set_key_raw(vk_decimal, state);     break;
+    case SDLK_LSHIFT:      keyboard_set_key_raw(vk_lshift, state);      break;
+    case SDLK_LCTRL:       keyboard_set_key_raw(vk_lcontrol, state);    break;
+    case SDLK_LALT:        keyboard_set_key_raw(vk_lalt, state);        break;
+    case SDLK_RSHIFT:      keyboard_set_key_raw(vk_rshift, state);      break;
+    case SDLK_RCTRL:       keyboard_set_key_raw(vk_rcontrol, state);    break;
+    case SDLK_RALT:        keyboard_set_key_raw(vk_ralt, state);        break;
+    default:
+        break;
+    }
+}
+
+ABI_ATTR void RegisterAndroidKeyEvent(int state, int key)
+{
+    keyboard_set_key_raw(key, state ? 0 : 1);
+    printf("RegisterAndroidKeyEvent(%d, %d)\n", state, key);
+}
+
+// This hook disabled the majority of the input code, leaving this up to be implemented
+// in a per-platform basis. Check sdl2_media.c as an example.
+ABI_ATTR void IO_Start_Step_hook()
+{
+    if (g_MousePosX[0] < 0) g_MousePosX[0] = 0;
+    if (g_MousePosY[0] < 0) g_MousePosY[0] = 0;
+    if (g_MousePosX[0] > Graphics_DisplayWidth()) g_MousePosX[0] = Graphics_DisplayWidth();
+    if (g_MousePosY[0] > Graphics_DisplayHeight()) g_MousePosY[0] = Graphics_DisplayHeight();
+
+    *g_IOFrameCount = *g_IOFrameCount + 1;
+    GamepadUpdate();
+}
+
+void patch_input(so_module *mod)
+{
+    hook_symbol(mod, "_Z23RegisterAndroidKeyEventii", (uintptr_t)&RegisterAndroidKeyEvent, 1);
+    hook_symbol(mod, "_Z23RegisterAndroidKeyEventiiii", (uintptr_t)&RegisterAndroidKeyEvent, 1);
+    hook_symbol(mod, "_Z13IO_Start_Stepv", (uintptr_t)&IO_Start_Step_hook, 1);
+}
+
+/* [NextOS/forager] Saida SELECT+START (canonico do framework). Devolve 1 no
+ * frame em que o chord dispara. */
+static int nxquit_update(void)
+{
+    static int inited = 0;
+    SDL_GameController *pads[ARRAY_SIZE(sdl_controllers)];
+    if (!inited) { nx_evdev_chord_open(); inited = 1; }
+    for (int i = 0; i < ARRAY_SIZE(sdl_controllers); i++)
+        pads[i] = sdl_controllers[i].controller;
+    return nx_exit_chord_update(pads, ARRAY_SIZE(sdl_controllers));
+}
+
+static Uint32 prev_mouse_state = 0;
+int update_inputs(SDL_Window *win)
+{
+    app_in_focus = SDL_GetWindowFlags(win) & (SDL_WINDOW_MOUSE_FOCUS | SDL_WINDOW_INPUT_FOCUS);
+
+    memset(_IO_KeyPressed, 0, N_KEYS);
+    memset(_IO_KeyReleased, 0, N_KEYS);
+
+    *_IO_LastKey = *_IO_CurrentKey;
+    // Other events (keyboard, gamepad hotplug, etc)
+    SDL_Event ev;
+
+    // The events are buffered for a single frame, but we want their availability to be known at frame one.
+    // Fixes Death's Gambit
+    for (int i = 0; i < ARRAY_SIZE(yoyo_gamepads); i++) {
+        Gamepad *pad = &yoyo_gamepads[i];
+        if (pad->is_available != pad->was_available) {
+            pad->was_available = pad->is_available;
+            const char *ev = (pad->is_available) ? "gamepad discovered" : "gamepad lost";
+
+            // Send the async gamepad event
+            int dsMap = CreateDsMap(0);
+            dsMapAddString(dsMap, "event_type", strdup(ev));
+            dsMapAddInt(dsMap, "pad_index", i);
+            CreateAsynEventWithDSMap(dsMap, 0x4b);
+        }
+    }
+
+    int evs = 0;
+    while (SDL_PollEvent(&ev)) {
+        switch (ev.type) {
+        case SDL_CONTROLLERDEVICEADDED:
+            if(gmloader_config.disable_controller == 1){
+                printf("Controller %d ignored (disable_controller = True)\n", ev.cdevice.which);
+                break;
+            }
+
+            // For this event, ev.cdevice.which refers to the Active device index.
+            if (SDL_IsGameController(ev.cdevice.which)) {
+                int slot = get_free_controller_slot();
+                if (slot == -1) {
+                    warning("Controller skipped, too many controllers.\n");
+                    break;
+                }
+
+                controller_t *controller = &sdl_controllers[slot];
+                SDL_GameController * ptr = SDL_GameControllerOpen(ev.cdevice.which);
+                SDL_Joystick* joy = SDL_GameControllerGetJoystick(ptr);
+
+                controller->which = SDL_JoystickInstanceID(joy);
+                controller->controller = ptr;
+
+                controller->slot = get_free_yoyogamepad_slot();
+                if (controller->slot >= 0) {
+                    yoyo_gamepads[controller->slot].is_available = 1;
+                    warning("Controller '%s' assigned to player %d.\n",
+                        SDL_GameControllerName(controller->controller), controller->slot);
+                } else {
+                    warning("Controller '%s' assigned to none (no free slots).\n",
+                        SDL_GameControllerName(controller->controller));
+                }
+
+                /* [NextOS/forager] Relatorio do pad (regra da casa: sem isto, "SELECT+START
+                 * nao sai" e indistinguivel de "o pad nao tem SELECT"). GUID, mapping e o
+                 * bind de cada botao essencial do chord de saida. */
+                {
+                    SDL_Joystick *j = SDL_GameControllerGetJoystick(ptr);
+                    char gtxt[64] = {};
+                    SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(j), gtxt, sizeof(gtxt));
+                    char *map = SDL_GameControllerMapping(ptr);
+                    warning("[pad] guid=%s name='%s'\n", gtxt, SDL_JoystickName(j));
+                    warning("[pad] mapping=%s\n", map ? map : "(null)");
+                    SDL_free(map);
+                    static const SDL_GameControllerButton essentials[] = {
+                        SDL_CONTROLLER_BUTTON_BACK, SDL_CONTROLLER_BUTTON_START,
+                        SDL_CONTROLLER_BUTTON_LEFTSTICK, SDL_CONTROLLER_BUTTON_RIGHTSTICK,
+                    };
+                    for (unsigned bi = 0; bi < SDL_arraysize(essentials); bi++) {
+                        SDL_GameControllerButtonBind bind =
+                            SDL_GameControllerGetBindForButton(ptr, essentials[bi]);
+                        warning("[pad] botao %s: bindtype=%d valor=%d\n",
+                            SDL_GameControllerGetStringForButton(essentials[bi]),
+                            bind.bindType, bind.value.button);
+                    }
+                    /* Recibo completo do framework: mapping, binds, evdev keybits e
+                     * as duas tabelas indice->codigo (diagnostico sem device). */
+                    nx_exit_chord_log_controller(ptr, 1);
+                }
+            }
+            break;
+        case SDL_CONTROLLERDEVICEREMOVED: {
+            // For this event, ev.cdevice.which refers to the Joystick index.
+            int slot = get_which_controller(ev.cdevice.which);
+            if (slot < 0)
+                break;
+
+            controller_t *controller = &sdl_controllers[slot];
+            if (controller->slot >= 0) {
+                yoyo_gamepads[controller->slot].is_available = 0;
+                warning("Disconnected player %d controller (%d)!\n", controller->slot, slot);
+            } else {
+                warning("Disconnected unassigned controller (%d)!\n", slot);
+            }
+
+            SDL_GameControllerClose(controller->controller);
+            controller->controller = NULL;
+            controller->which = -1;
+            controller->slot = -1;
+            break;
+        }
+        case SDL_KEYDOWN:
+        case SDL_KEYUP:
+            if (ev.key.repeat == 1)
+                break;
+
+            keyboard_set_key(ev.key.keysym.sym, ev.key.state);
+            break;
+        case SDL_QUIT:
+            return 0;
+            break;
+        }
+    }
+
+    // Synchronize gamepad<->yoyogamepad states
+    SDL_GameControllerUpdate();
+
+    /* [NextOS/forager] Chord de saida SELECT+START (canonico do framework): sai
+     * pelo MESMO caminho do SDL_QUIT (return 0 -> main quebra o laco e desmonta). */
+    if (nxquit_update()) {
+        warning("SELECT+START: encerrando o port.\n");
+        return 0;
+    }
+    for (int i = 0; i < ARRAY_SIZE(sdl_controllers); i++) {
+        controller_t *controller = &sdl_controllers[i];
+        int slot = controller->slot;
+        if (slot < 0 || slot >= ARRAY_SIZE(yoyo_gamepads))
+            continue;
+
+        uint8_t new_states[16] = {};
+        int k = 0;
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_A);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_B);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_X);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_Y);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_LEFTSHOULDER);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER);
+        new_states[k++] = SDL_GameControllerGetAxis  (controller->controller, SDL_CONTROLLER_AXIS_TRIGGERLEFT) > 8000;
+        new_states[k++] = SDL_GameControllerGetAxis  (controller->controller, SDL_CONTROLLER_AXIS_TRIGGERRIGHT) > 8000;
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_BACK);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_START);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_LEFTSTICK);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_RIGHTSTICK);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_DPAD_UP);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT);
+        new_states[k++] = SDL_GameControllerGetButton(controller->controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
+
+        // Handle rumble
+        if (!gmloader_config.disable_rumble) {
+            const double MAX_RUMBLE_D = 65535.0;
+
+            double left = (double)yoyo_gamepads[slot].motors[0];
+            double right = (double)yoyo_gamepads[slot].motors[1];
+
+            // Apply scale
+            if (gmloader_config.rumble_scale > 0.0) {
+                double scale = gmloader_config.rumble_scale;
+                left *= scale;
+                right *= scale;
+
+                // Clamp to [0.0, 1.0]
+                if (left > 1.0) left = 1.0;
+                if (left < 0.0) left = 0.0;
+                if (right > 1.0) right = 1.0;
+                if (right < 0.0) right = 0.0;
+            }
+
+            uint16_t left_motor = (uint16_t)(left * MAX_RUMBLE_D);
+            uint16_t right_motor = (uint16_t)(right * MAX_RUMBLE_D);
+            int duration_ms = (left_motor || right_motor) ? 10000 : 0;
+
+            // SDL_GameControllerRumble only entered SDL in 2.0.9. Resolve it
+            // lazily so older PortMaster SDL 2.0.4 systems keep the complete
+            // input path and simply run without vibration.
+            typedef int (*controller_rumble_fn)(
+                SDL_GameController *, Uint16, Uint16, Uint32);
+            static controller_rumble_fn controller_rumble =
+                reinterpret_cast<controller_rumble_fn>(
+                    dlsym(RTLD_DEFAULT, "SDL_GameControllerRumble"));
+            if (controller_rumble != NULL) {
+                controller_rumble(
+                    controller->controller, left_motor, right_motor,
+                    (Uint32)duration_ms);
+            }
+        }
+
+        for (int j = 0; j < ARRAY_SIZE(yoyo_gamepads[slot].buttons); j++) {
+            // down -> held or up -> cleared
+            yoyo_gamepads[slot].buttons[j] = (double)update_button(new_states[j], (int)yoyo_gamepads[slot].buttons[j]);
+        }
+
+        k = 0;
+        if (gmloader_config.disable_joystick) {
+            yoyo_gamepads[slot].axis[k++] = 0.0;
+            yoyo_gamepads[slot].axis[k++] = 0.0;
+            yoyo_gamepads[slot].axis[k++] = 0.0;
+            yoyo_gamepads[slot].axis[k++] = 0.0;
+        } else {
+            yoyo_gamepads[slot].axis[k++] = ((double)SDL_GameControllerGetAxis(controller->controller, SDL_CONTROLLER_AXIS_LEFTX)) / 32767.0;
+            yoyo_gamepads[slot].axis[k++] = ((double)SDL_GameControllerGetAxis(controller->controller, SDL_CONTROLLER_AXIS_LEFTY)) / 32767.0;
+            yoyo_gamepads[slot].axis[k++] = ((double)SDL_GameControllerGetAxis(controller->controller, SDL_CONTROLLER_AXIS_RIGHTX)) / 32767.0;
+            yoyo_gamepads[slot].axis[k++] = ((double)SDL_GameControllerGetAxis(controller->controller, SDL_CONTROLLER_AXIS_RIGHTY)) / 32767.0;
+        }
+    }
+
+    // Mouse Code
+    int x, y;
+    Uint32 mouse_state = SDL_GetMouseState(&x, &y);
+
+    memset(_IO_ButtonDown, 0, N_BUTTONS);
+    memset(_IO_ButtonPressed, 0, N_BUTTONS);
+    memset(_IO_ButtonReleased, 0, N_BUTTONS);
+
+    if (mouse_has_warped == 1) {
+        mouse_has_warped = 0;
+        SDL_WarpMouseInWindow(win, g_MousePosX[0], g_MousePosY[0]);
+    }
+
+    g_MousePosX[0] = x;
+    g_MousePosY[0] = y;
+
+    #define IS_SET(state, mask) (((state) & (mask)) == (mask))
+    for (int i = 0; i < 3; i++) {
+        int id = mouse_button_map(i + SDL_BUTTON_LEFT);
+        Uint32 mask = (1 << i);
+        _IO_ButtonDown[id]     =  IS_SET(mouse_state, mask);
+        _IO_ButtonPressed[id]  =  IS_SET(mouse_state, mask) && !IS_SET(prev_mouse_state, mask);
+        _IO_ButtonReleased[id] = !IS_SET(mouse_state, mask) &&  IS_SET(prev_mouse_state, mask);
+    }
+
+    prev_mouse_state = mouse_state;
+
+    return 1;
+}

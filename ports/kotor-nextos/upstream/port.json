@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "name": "kotor.zip",
+  "items": [
+    "Star Wars KOTOR.sh",
+    "kotor/"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "Star Wars: Knights of the Old Republic",
+    "desc": "Star Wars: Knights of the Old Republic running natively through the NextOS ARMv7 so-loader. Bring your own original game data.",
+    "inst": "Install the ZIP through PortMaster, then place your original KOTOR data in ports/kotor/gamedata/ and launch once to extract.",
+    "genres": [
+      "rpg"
+    ],
+    "porter": [
+      "NextOS"
+    ],
+    "image": {},
+    "rtr": false,
+    "runtime": null,
+    "reqs": [],
+    "arch": [
+      "armhf",
+      "aarch64"
+    ],
+    "min_glibc": "2.28"
+  }
+}

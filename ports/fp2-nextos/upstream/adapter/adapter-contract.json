@@ -1,0 +1,271 @@
+{
+  "audio": {
+    "callbacks": [
+      "org.fmod.FMODAudioDevice.fmodProcess",
+      "SDL audio output"
+    ],
+    "format": "signed 16-bit stereo PCM at 24000 Hz"
+  },
+  "display": {
+    "policy": "game",
+    "remap_input": false
+  },
+  "egl_binding": {
+    "enabled": false,
+    "imports": []
+  },
+  "graphics": {
+    "adapter": "nxgl_graphics_contract_adapter",
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 5000,
+    "evidence_boundary": "post-first-present",
+    "profile": "es",
+    "required_devices": [
+      "mali-450",
+      "mali-g31"
+    ],
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "imports": [
+    "libmain.so",
+    "libunity.so",
+    "libil2cpp.so"
+  ],
+  "input": {
+    "actions": [
+      {
+        "id": "fp2.attack",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "fp2.cancel",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "fp2.confirm",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "fp2.guard",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "fp2.jump",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "fp2.move",
+        "kind": "vector",
+        "sinks": [
+          "adapter.input.android-motion"
+        ]
+      },
+      {
+        "id": "fp2.pause",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "fp2.special",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "fp2.attack",
+        "B": "fp2.jump",
+        "DOWN": "native",
+        "L1": "native",
+        "L2": "native",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "fp2.move",
+        "R1": "native",
+        "R2": "native",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "native",
+        "START": "fp2.pause",
+        "UP": "native",
+        "X": "fp2.special",
+        "Y": "fp2.guard"
+      },
+      "menu": {
+        "A": "fp2.confirm",
+        "B": "fp2.cancel",
+        "DOWN": "native",
+        "L1": "native",
+        "L2": "native",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "native",
+        "R1": "native",
+        "R2": "native",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "native",
+        "START": "fp2.pause",
+        "UP": "native",
+        "X": "native",
+        "Y": "native"
+      }
+    },
+    "mapping": null,
+    "mapping_authority": "sdl-portmaster-complete-first",
+    "runtime_contract": {
+      "context_initial": "unproven",
+      "delivery_ack": "required",
+      "schema": "nxinput-gptk-live/1",
+      "sink_coverage": "all-actions-before-activation",
+      "unproven_policy": "native-passthrough"
+    },
+    "runtime_mapping": "nxinput-gptk",
+    "touch": null
+  },
+  "input_sdl3_portmaster": {
+    "enabled": false,
+    "private_sdl3_sha256": ""
+  },
+  "jni": {
+    "callbacks": [
+      "UnityPlayer.nativeInjectEvent",
+      "org.fmod.FMODAudioDevice"
+    ],
+    "classes": [
+      "com/unity3d/player/NativeLoader",
+      "com/unity3d/player/UnityPlayer",
+      "com/unity3d/player/UnityPlayerForActivityOrService"
+    ],
+    "methods": [
+      "NativeLoader.load",
+      "UnityPlayer.initJni",
+      "nativeRecreateGfxState",
+      "nativeSendSurfaceChangedEvent",
+      "nativeFocusChanged",
+      "nativeResume",
+      "nativeRender",
+      "nativeDone"
+    ]
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "single-language",
+    "sinks": [],
+    "supported": [
+      "en"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "nxinput.gptk.preinit-load",
+      "module-map-relocate",
+      "libmain.init_array",
+      "libmain.JNI_OnLoad",
+      "NativeLoader.load(libunity.so)",
+      "libunity.init_array",
+      "libunity.JNI_OnLoad",
+      "UnityPlayer.initJni",
+      "nativeRecreateGfxState(surfaceCreated)",
+      "nativeRecreateGfxState(surfaceChanged)",
+      "nativeSendSurfaceChangedEvent",
+      "nativeFocusChanged(true)",
+      "nativeResume",
+      "nxinput.c6.admit-before-announce",
+      "nxinput.gptk.live-seal",
+      "nativeRender",
+      "nxgl.graphics.pre-present",
+      "nxgl.frame-proof.sample-before-present",
+      "SDL_GL_SwapWindow",
+      "nxgl.graphics.after-present",
+      "nativeFocusChanged(false)",
+      "nxgl.frame-proof.publish",
+      "nativeDone"
+    ],
+    "source_evidence": [
+      "src/main.c",
+      "src/nx_elf.c",
+      "src/jni.c",
+      "src/egl_sdl.c",
+      "src/fp2_graphics_contract.c",
+      "src/input.c",
+      "src/input_gptk.c"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "PlayerPrefs",
+      "local guest blob callbacks"
+    ],
+    "paths": [
+      "home/"
+    ]
+  },
+  "prohibitions": [
+    "do not skip or reorder the native Unity lifecycle",
+    "do not vendor or preload a private SDL",
+    "do not accept an APK only by whole-container SHA-256",
+    "do not expose the Android touch HUD during gameplay",
+    "do not treat audio or a live PID as video proof",
+    "do not exit on any chord other than SELECT+START",
+    "do not convert controller input into keyboard keys",
+    "do not open a raw joystick or read evdev ordinals"
+  ],
+  "quirks": [
+    "serialized Vulkan graphics API is transformed to GLES2 during extraction",
+    "game-specific SMOL-V/SPIR-V shaders are translated to ESSL100",
+    "touch controls are hidden through the guarded game visibility path",
+    "controls: NEXTOSCONTROLLERS.gptk V3 live in front of the Android KeyEvent/MotionEvent injection; semantic actions name the default FP2 gamepad binding, which the in-game Controls menu may still rebind"
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START (nxinput_exit_chord) requests the native lifecycle shutdown: nativeFocusChanged(false), nativePause, nativeDone",
+    "evidence": [
+      "src/input.c",
+      "src/main.c"
+    ]
+  },
+  "input_controller_profiles": {
+    "bundle": "controllers.nxb",
+    "enabled": true,
+    "face_layout_variants": {
+      "modern": {
+        "bundle": "controllers-modern.nxb",
+        "sha256": "bfce688bb383cf2d239193ea3c4b3ea57b8bb28b06f46955b71bc0561ada139b"
+      },
+      "retro": {
+        "bundle": "controllers-retro.nxb",
+        "sha256": "3429bb94a48930b8cc9abb768957815138c686fd2436aca6eadadb5b6a3359f0"
+      }
+    },
+    "sha256": "10feaf41cf8ee6203cf05c4202119e5bdba2dfb22db41e89ab31a5a9bd6eff13"
+  }
+}

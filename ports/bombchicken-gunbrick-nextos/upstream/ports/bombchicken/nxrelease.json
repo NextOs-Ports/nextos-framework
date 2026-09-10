@@ -1,0 +1,236 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "bombchicken",
+    "version": "1.1.7",
+    "profile": "universal-portmaster",
+    "launcher": "Bomb Chicken.sh",
+    "launcher_chain": [
+      "Bomb Chicken.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.8",
+      "config_path": "bombchicken/nxport.json",
+      "config_sha256": "d57714150f78338efc9e6310f5d0335210acb9e44b3c0cf93aab9921b62fe333"
+    },
+    "port_dir": "bombchicken",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/bombchicken-gunbrick-nextos",
+      "file": "bombchicken/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786233600,
+    "max_glibc": "2.30",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "bombchicken/nxextract/nxextract.py",
+    "version": "1.2.6",
+    "minimum_version": "1.2.6",
+    "sha256": "a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170",
+    "runner_path": "bombchicken/nxextract/run-extractor.sh",
+    "runner_sha256": "179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2",
+    "runtime_env_path": "bombchicken/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "recipe_path": "bombchicken/extractor.json",
+    "recipe_sha256": "add1a989f9db837c7ac591b95e257714ac508767381e58040e7edf2b17115bb5"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libgcc_s.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libz.so.1",
+      "provider": "firmware"
+    }
+  ],
+  "files": [
+    {
+      "source": "Bomb Chicken.sh",
+      "target": "Bomb Chicken.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "0314c85793fce8d65ab5855602891f6a307c6d2795374efc6a917e88815fff9a"
+    },
+    {
+      "source": "nxport.json",
+      "target": "bombchicken/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "d57714150f78338efc9e6310f5d0335210acb9e44b3c0cf93aab9921b62fe333"
+    },
+    {
+      "source": "build/bombchicken-nextos",
+      "target": "bombchicken/bombchicken-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build.sh; pinned offline Debian Buster image sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf; target sysroot used for headers only",
+      "sha256": "77c37956c9fcd16298d672949dc39958a2b755a7f387720c23ad8f131a4a1703",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "soname": null
+    },
+    {
+      "source": "README.md",
+      "target": "bombchicken/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "6dc11ceed42509fc50d63f5408ee2f3759116fc49c79020f6dff71659c7956e2"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "bombchicken/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "94490b369fcea6f98df4a0a091e147f4634214e8afe498bfab0cbd7a554a6b16"
+    },
+    {
+      "source": "NOTICE.md",
+      "target": "bombchicken/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "a7de2907c48ffe3e9e9732239a9ffebaaea4e941ddbde0dc7166deed9d69b061"
+    },
+    {
+      "source": "LICENSE",
+      "target": "bombchicken/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "source": "version.txt",
+      "target": "bombchicken/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "f2fb797db5b32c15ac4c67b2180b593bf46c768ba1d69971fecbef1d9afb1975"
+    },
+    {
+      "source": "gamedata/README.txt",
+      "target": "bombchicken/gamedata/README.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "1057c3d6b0f80a84e601b2273af39ca3b6f329784fbdc74f95a44da54f216a01"
+    },
+    {
+      "source": "extractor.json",
+      "target": "bombchicken/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "add1a989f9db837c7ac591b95e257714ac508767381e58040e7edf2b17115bb5"
+    },
+    {
+      "source": "nxextract-version.txt",
+      "target": "bombchicken/nxextract-version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "7c4e4c4d5df08df9e5c200db0f6cbeafca9e60f9e42f4b001c5b6f2dfd8bd03b"
+    },
+    {
+      "source": "nxextract/nxextract.py",
+      "target": "bombchicken/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170"
+    },
+    {
+      "source": "nxextract/run-extractor.sh",
+      "target": "bombchicken/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2"
+    },
+    {
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "bombchicken/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "nxextract/nxextract-ui",
+      "target": "bombchicken/nxextract/nxextract-ui",
+      "kind": "third-party-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "unmodified canonical NXExtract 1.2.6 UI; MIT; content-pinned low-glibc AArch64 build",
+      "sha256": "046afb583f5a211c946495e639409f81d9cfec706788eeccb7924b0e8e5a50b6",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "bombchicken/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "port.json",
+      "target": "bombchicken/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "3fdb4deb16e343ca4a7d361daa8d8ae175f9a00937a3abfdc26c59fa9ab94d57"
+    }
+  ],
+  "exceptions": [],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "bombchicken/port.json",
+      "sha256": "3fdb4deb16e343ca4a7d361daa8d8ae175f9a00937a3abfdc26c59fa9ab94d57"
+    },
+    "images": []
+  }
+}

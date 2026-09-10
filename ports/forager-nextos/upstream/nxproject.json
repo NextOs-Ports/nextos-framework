@@ -1,0 +1,70 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "scaffold"
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor.json",
+  "nxport": {
+    "architecture": "armv7",
+    "argument_mode": "none",
+    "enabled_quirks": [],
+    "executable": "forager-nextos",
+    "home_mode": "port",
+    "id": "nxforager",
+    "language": {
+      "default": "auto",
+      "supported": [
+        "pt-br",
+        "en",
+        "es",
+        "fr",
+        "de",
+        "ru",
+        "tr",
+        "th",
+        "ja",
+        "ko",
+        "zh-cn",
+        "zh-tw"
+      ]
+    },
+    "launcher_name": "Forager.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.10"
+    },
+    "prepare_script": "prepare.sh",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "host.armhf-libs",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "audio.output-open",
+      "input.controller-mapping",
+      "input.controller-api"
+    ],
+    "required_files": [
+      "forager-nextos",
+      "nxsplash-nextos",
+      "config.json",
+      "runtime/forager.port"
+    ],
+    "runtime_report": "log",
+    "schema_version": 2,
+    "title": "Forager Nuclear"
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.28"
+  },
+  "schema_version": 1
+}

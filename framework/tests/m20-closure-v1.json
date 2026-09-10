@@ -1,0 +1,179 @@
+{
+  "schema": "nxframework-m20-closure-v1",
+  "schema_version": 1,
+  "milestone": "M20",
+  "status": "closed_for_host_validation_infrastructure",
+  "scope": "offline automatic unit integration immutable-source adversarial logging and green-checkpoint gates",
+  "method": "M20 composes the existing sealed component gates, verifies immutable framework source materialization, adds M19/M20 accounting and permits a source checkpoint only after every earlier automatic gate is green. Hardware gates remain manual and unaddressed.",
+  "safety": {
+    "game_execution": false,
+    "external_guest_code_execution": false,
+    "device_access": false,
+    "network_access": false,
+    "hardware_ran": false,
+    "physical_advance_authorized": false,
+    "real_fat_mount_used": false
+  },
+  "items": [
+    {
+      "id": "M20-001",
+      "status": "closed",
+      "evidence_refs": ["framework/tests/test_infrastructure.py:450", "framework/tests/test-matrix-v1.json:1"],
+      "guarantees": ["shell, Python and JSON syntax are audited before heavier gates; CMake paths are configured by bounded component runners"],
+      "limitations": ["syntax success is not target runtime evidence"],
+      "tests": ["test-infrastructure is first in the canonical runner"]
+    },
+    {
+      "id": "M20-002",
+      "status": "closed",
+      "evidence_refs": ["framework/tests/run-safe-gates.sh:107", "framework/tests/test_infrastructure.py:190"],
+      "guarantees": ["git diff whitespace validation covers the live framework and public documentation scope"],
+      "limitations": ["untracked source hygiene is additionally enforced by test_infrastructure"],
+      "tests": ["diff-check is an automatic gate"]
+    },
+    {
+      "id": "M20-003",
+      "status": "closed",
+      "evidence_refs": ["framework/nxloader/tests/run-host.sh:25", "framework/nxloader/tests/run-host.sh:85"],
+      "guarantees": ["safe host parsers run under ASan/UBSan and a bounded synthetic fuzz corpus"],
+      "limitations": ["only host-safe parsers enter automatic fuzz execution"],
+      "tests": ["nxloader host reports compiler, sanitizer and fuzz coverage"]
+    },
+    {
+      "id": "M20-004",
+      "status": "closed",
+      "evidence_refs": ["framework/nxcompat/tests/run-host.sh:7", "framework/nxcompat/tests/run-host.sh:28"],
+      "guarantees": ["nxcompat policy, registry and fake SDL boundaries run in owned temporary trees"],
+      "limitations": ["real backends remain outside the host gate"],
+      "tests": ["GCC and Clang sanitizer builds are automatic"]
+    },
+    {
+      "id": "M20-005",
+      "status": "closed",
+      "evidence_refs": ["framework/nxgl/tests/run-m13-host.sh:7", "framework/nxgl/tests/run-m13-host.sh:35"],
+      "guarantees": ["nxgl context, present, metrics and diagnostics tests use sealed fake providers without opening a desktop"],
+      "limitations": ["physical GLES evidence remains a later hardware milestone"],
+      "tests": ["native video tests stay non-automatic"]
+    },
+    {
+      "id": "M20-006",
+      "status": "closed",
+      "evidence_refs": ["framework/nxcompat/tests/run-host.sh:87", "framework/nxinput/tests/test_m15_input_contract.py:1"],
+      "guarantees": ["pure input policy and fake nxcompat bridge tests run with native controller enumeration disabled"],
+      "limitations": ["physical controller tests remain hardware-class"] ,
+      "tests": ["nxinput static, bridge and M15 contract gates are automatic"]
+    },
+    {
+      "id": "M20-007",
+      "status": "closed",
+      "evidence_refs": ["framework/nxloader/tests/run-host.sh:23", "framework/nxloader/tests/test_nxloader.c:1"],
+      "guarantees": ["nxloader executes synthetic ELF, relocation, failure and fuzz fixtures only"],
+      "limitations": ["approved guest ELFs remain read-only evidence or isolated cross gates"],
+      "tests": ["host, ARMv7 cross and AArch64 cross gates are separate"]
+    },
+    {
+      "id": "M20-008",
+      "status": "closed",
+      "evidence_refs": ["suportando_outros_devices/extrator-universal/tests/test_runtime_env.sh:6", "framework/nxextract/tests/test_m07_audit.py:1"],
+      "guarantees": ["NXExtract regressions operate below owned temporary roots and the release set is pinned"],
+      "limitations": ["tests use synthetic archives and data"],
+      "tests": ["Python, runtime environment, audit and release gates are automatic"]
+    },
+    {
+      "id": "M20-009",
+      "status": "closed",
+      "evidence_refs": ["framework/nxrelease/tests/test_nxrelease.sh:10", "framework/nxrelease/tests/test_nxrelease.sh:491"],
+      "guarantees": ["nxrelease validate, stage, bundle and verify tests stay inside a temporary stage"],
+      "limitations": ["the fixture ZIP is not a game release"],
+      "tests": ["M18 closure and adversarial nxrelease suite are automatic"]
+    },
+    {
+      "id": "M20-010",
+      "status": "closed",
+      "evidence_refs": ["framework/nxbootstrap/tests/test-generator.sh:9", "framework/nxbootstrap/tests/test-manifest-contract.py:1"],
+      "guarantees": ["nxbootstrap manifest and generator tests use synthetic files and no guest process"],
+      "limitations": ["synthetic lifecycle execution is separately contained in the process-class gate"],
+      "tests": ["static safety runs before isolated lifecycle"]
+    },
+    {
+      "id": "M20-011",
+      "status": "closed",
+      "evidence_refs": ["framework/nxbootstrap/tests/run-isolated.sh:1", "framework/nxbootstrap/tests/private-pid-namespace.sh:1"],
+      "guarantees": ["the only automatic signal integration requires sealed user, PID and mount namespaces"],
+      "limitations": ["namespace unavailability fails closed or skips with explicit status"],
+      "tests": ["watchdog targets one owned child by PID and starttime"]
+    },
+    {
+      "id": "M20-012",
+      "status": "closed",
+      "evidence_refs": ["framework/nxbootstrap/tests/test-nxbootstrap.sh:127", "framework/nxbootstrap/tests/test-nxbootstrap.sh:805"],
+      "guarantees": ["phase failures preserve status and PortMaster finish/cleanup remain exactly-once"],
+      "limitations": ["engine-owned shutdown remains adapter-specific"],
+      "tests": ["success, early failure, interruption and repeated cleanup are covered"]
+    },
+    {
+      "id": "M20-013",
+      "status": "closed",
+      "evidence_refs": ["framework/nxbootstrap/tests/test-nxbootstrap.sh:449", "framework/nxrelease/tests/test_nxrelease.sh:1252"],
+      "guarantees": ["symlink, hardlink and deterministic TOCTOU attacks fail without publishing through the victim"],
+      "limitations": ["host filesystem primitives are required for release publication"],
+      "tests": ["launcher, runtime, stage, archive and checksum races are exercised"]
+    },
+    {
+      "id": "M20-014",
+      "status": "closed",
+      "evidence_refs": ["framework/nxbootstrap/tests/test-nxbootstrap.sh:703", "framework/nxrelease/tests/test_nxrelease.sh:1304"],
+      "guarantees": ["global per-port locks and no-replace release races are deterministic and fail closed"],
+      "limitations": ["automatic gates never search for or signal an unrelated instance"],
+      "tests": ["two port roots share a lock and competing publishers cannot overwrite"]
+    },
+    {
+      "id": "M20-015",
+      "status": "closed",
+      "evidence_refs": ["suportando_outros_devices/extrator-universal/tests/test_runtime_env.sh:117", "framework/nxbootstrap/tests/test-nxbootstrap.sh:142"],
+      "guarantees": ["lost executable bits are handled through explicit interpreters and locks stay off game-data filesystems"],
+      "limitations": ["the host gate simulates FAT/exFAT semantics and does not mount a real FAT volume"],
+      "tests": ["mode-less helpers and game-root lock rejection are covered"]
+    },
+    {
+      "id": "M20-016",
+      "status": "closed",
+      "evidence_refs": ["framework/nxabi/tools/nx-abi-gate.sh:1", "framework/nxrelease/nxrelease.py:1"],
+      "guarantees": ["every generated Linux ELF in release scope is inventoried and checked against the public glibc ceiling"],
+      "limitations": ["original Android BYO payloads are excluded from public packaging"],
+      "tests": ["fresh ARMHF/AArch64 fixtures and full nxrelease ELF closure are gated"]
+    },
+    {
+      "id": "M20-017",
+      "status": "closed",
+      "evidence_refs": ["framework/nxabi/tools/check-determinism.sh:1", "framework/nxrelease/tests/test_nxrelease.sh:520", "framework/nxgenerator/framework_pin.py:320", "framework/nxgenerator/tests/test_framework_pin.py:473"],
+      "guarantees": ["two clean ELF builds and two clean ZIP builds are byte-compared", "framework sources are selected by full commit and canonical component digest, reconstructed from cryptographically verified Git objects and revalidated before build use"],
+      "limitations": ["game-specific assets require their own release receipt", "ports migrate to immutable source snapshots explicitly and must mount the verified snapshot read-only for compilation"],
+      "tests": ["M17 determinism, M18 archive determinism and the nxgenerator immutable source gate are automatic"]
+    },
+    {
+      "id": "M20-018",
+      "status": "closed",
+      "evidence_refs": ["framework/tools/run-logged.sh:1", "framework/tests/test-tools.sh:39"],
+      "guarantees": ["each automatic command receives a durable redacted log, result and SHA-256 manifest"],
+      "limitations": ["ambient secrets are deliberately not captured"],
+      "tests": ["the tooling gate reopens and verifies each manifest format"]
+    },
+    {
+      "id": "M20-019",
+      "status": "closed",
+      "evidence_refs": ["framework/tests/capture-green-checkpoint.sh:1", "framework/tools/capture-checkpoint.sh:1"],
+      "guarantees": ["the canonical green set ends with one append-only source checkpoint outside the repository"],
+      "limitations": ["a failed earlier gate intentionally produces no green checkpoint"],
+      "tests": ["checkpoint restoration and no-replace behavior are covered by test-tools"]
+    },
+    {
+      "id": "M20-020",
+      "status": "closed",
+      "evidence_refs": ["framework/tests/run-safe-gates.sh:4", "framework/tests/test_m20_closure.py:157", "framework/tests/test-matrix-v1.json:1005"],
+      "guarantees": ["set -e stops before checkpoint on red and every hardware gate remains non-automatic"],
+      "limitations": ["physical work still requires explicit authorization and a separately green local run"],
+      "tests": ["M20 closure validates ordering, hardware classification and zero physical authority"]
+    }
+  ]
+}

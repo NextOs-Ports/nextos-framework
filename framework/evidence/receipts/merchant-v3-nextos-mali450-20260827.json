@@ -1,0 +1,210 @@
+{
+  "schema": "nx-v3-physical-receipt-v1",
+  "schema_version": 1,
+  "claim_id": "nextos-mali450-fbdev",
+  "evidence_level": "physical-full-scoped",
+  "evidence_index_ref": "receipts/merchant-v3-evidence-index-20260827.sha256",
+  "evidence_index_sha256": "574353701afa3c8ee9a83da117b56316dfc32f83875872c33697e4bcd251b523",
+  "evidence_path_prefix": "mali450",
+  "framework": {
+    "tested_commit": "699723e6e84ad7f50d16aeb98d94b6c9e3c9701b",
+    "tested_tag": "framework-v3-rc2-20260827",
+    "aggregate_release_tag": null,
+    "composition": "base-tag-plus-pinned-components",
+    "components_sha256": "9411d154b59d21c697f0de7c06d4cc6989b444cdce6bcff739650081e0d0536e",
+    "nxrelease_manifest_file_sha256": "13fb3270e442799246ca57fe9e68935604876173411074398b11de9339f10380",
+    "component_commits": {
+      "nxgenerator": "8d70b241722d2cec9ef78f9f68cb57cc91b38ae2",
+      "nxgl": "f721af2cc657b3cbd24e8f64b0b61cf8b03aa762"
+    }
+  },
+  "port": {
+    "id": "merchantskies",
+    "version": "1.0",
+    "commit": "09371aff9889e2efac111bd048db3c93b6690970"
+  },
+  "artifact": {
+    "zip_sha256": "341ddacde6384f76f16c233491d8735d25e5af5c72a81269414b85e9ba991700",
+    "zip_size": 390027,
+    "executable_member": "merchantskies/merchantskies-nextos",
+    "executable_sha256": "8cd5de6ae7c4508c56e98de4d08892f812658db617998b265cd442ab0d9f24fa",
+    "executable_build_id": "bc98d01198c65ddd32cd5e36e251086296552939",
+    "generation_id": "953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0"
+  },
+  "artifact_proofs": {
+    "candidate_manifest": {
+      "evidence_ref": "candidate/CANDIDATE.sha256",
+      "evidence_sha256": "5c6609c73b27d39b4d3b273ab6d4f89e426959bcd58d4586a82d88807b3bb5a4"
+    },
+    "freeze": {
+      "evidence_ref": "candidate/FREEZE.json",
+      "evidence_sha256": "031459b94436f754ca2ebf19254a2ef60b79d86bcd076e24c2838eb3614ae931"
+    }
+  },
+  "stack": {
+    "cfw": "NextOS-Retro-Elite-Edition",
+    "hardware_class": "Amlogic Mali-450 fbdev test class",
+    "renderer": "Mali-450 MP",
+    "graphics_api": "OpenGL ES 2.0",
+    "drawable": "1280x720"
+  },
+  "scenarios": {
+    "clean_data_extract": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/runtime-clean-launch.log",
+      "evidence_sha256": "228fffa6e5afa324b61b849f0c6b0a5806813caf4a3bd183256522e20adde842"
+    },
+    "nxextract_graphical": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/nxextract.png",
+      "evidence_sha256": "4bef01d1080a56d6a16645de9a4e377e9073a63b3bb3a7fe6be0150ce7be7062"
+    },
+    "nxsplash_five_seconds_runtime": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/nxsplash.timing",
+      "evidence_sha256": "f64ffecf574e70919df030f9c83174f35a05b667d72ee10905a6cebb95b17e5d"
+    },
+    "game_fonts_visible": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/game-menu.png",
+      "evidence_sha256": "86fbf573d9a1601d76b428c821cc5b3f19694112f553ed33993f7a85e8b152d2"
+    },
+    "graphics_and_single_channel": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/gptk-ab-final-run.log",
+      "evidence_sha256": "cffd697e821afa54888d1cec4cf8fdcd36a48a9c2b02fd573b6206944b9c26ba"
+    },
+    "audio_backend": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/gptk-ab-final-run.log",
+      "evidence_sha256": "cffd697e821afa54888d1cec4cf8fdcd36a48a9c2b02fd573b6206944b9c26ba"
+    },
+    "gptk_file_loaded_and_buttons_a_b_dispatched": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/gptk-ab-final-run.log",
+      "evidence_sha256": "cffd697e821afa54888d1cec4cf8fdcd36a48a9c2b02fd573b6206944b9c26ba"
+    },
+    "clean_exit_nxu0006": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/gptk-ab-final-run.log",
+      "evidence_sha256": "cffd697e821afa54888d1cec4cf8fdcd36a48a9c2b02fd573b6206944b9c26ba"
+    },
+    "single_instance": {
+      "passed": true,
+      "evidence_ref": "mali450-instance/verification.txt",
+      "evidence_sha256": "c3190b468b77649d2df82f676d48b484d33be3316c00bfa160b4738c55660a13"
+    },
+    "first_missing_health_receipt": {
+      "passed": true,
+      "evidence_ref": "mali450-rollback/fail-1.events.jsonl",
+      "evidence_sha256": "d386ef24b6de8330e6d2cf8955516903734bf62dba2c0e87841d66dba2919849"
+    },
+    "second_missing_health_receipt": {
+      "passed": true,
+      "evidence_ref": "mali450-rollback/fail-2.events.jsonl",
+      "evidence_sha256": "e19546cbe1e4a87822690cb52d1198fb9db0f080c7ce25c9ccb13561c134c0b0"
+    },
+    "third_missing_health_receipt": {
+      "passed": true,
+      "evidence_ref": "mali450-rollback/fail-3.events.jsonl",
+      "evidence_sha256": "8f793a91c9d5777d8a125efe70778d82252114a99d5bab49a1f995aca045e7d3"
+    },
+    "rollback_to_healthy_nxu0004": {
+      "passed": true,
+      "evidence_ref": "mali450-rollback/rollback.events.jsonl",
+      "evidence_sha256": "e532abae11534ba55bba42475904c0c937c2cd905a2ff6905412dc8bceb1ca6f"
+    },
+    "healthy_recovery_nxu0006": {
+      "passed": true,
+      "evidence_ref": "mali450-rollback/recovery-health.events.jsonl",
+      "evidence_sha256": "06a6c4e12a91c0b0a5d968669d75baab53200e635ebcca9a975bfca5abdbd09b"
+    },
+    "owner_state_preserved": {
+      "passed": true,
+      "evidence_ref": "mali450-physical/postrestore.txt",
+      "evidence_sha256": "9f4d49e0209b9e43acbb891705b7fbafa03ef1392cf74534b0c7ea571d61c842"
+    }
+  },
+  "claim_bindings": {
+    "clean data extraction with NXE0000 and graphical NXExtract SDL": [
+      "clean_data_extract",
+      "nxextract_graphical"
+    ],
+    "timed NXSplash runtime and game image": [
+      "nxsplash_five_seconds_runtime",
+      "game_fonts_visible"
+    ],
+    "Mali-450 GLES2 luminance-alpha single-channel": [
+      "graphics_and_single_channel"
+    ],
+    "audio backend, GPTK file load and A/B dispatch": [
+      "audio_backend",
+      "gptk_file_loaded_and_buttons_a_b_dispatched"
+    ],
+    "clean exit and NXU0006": [
+      "clean_exit_nxu0006"
+    ],
+    "single-instance refusal": [
+      "single_instance"
+    ],
+    "three missing health receipts followed by NXU0004 and NXU0006": [
+      "first_missing_health_receipt",
+      "second_missing_health_receipt",
+      "third_missing_health_receipt",
+      "rollback_to_healthy_nxu0004",
+      "healthy_recovery_nxu0006"
+    ],
+    "owner state restored outside the rollback subtest": [
+      "owner_state_preserved"
+    ]
+  },
+  "single_channel": {
+    "route": "luminance-alpha-dup",
+    "evidence_ref": "mali450-physical/gptk-ab-final-run.log",
+    "evidence_sha256": "cffd697e821afa54888d1cec4cf8fdcd36a48a9c2b02fd573b6206944b9c26ba"
+  },
+  "owner_state": {
+    "before_evidence": {
+      "evidence_ref": "mali450-physical/prestate.txt",
+      "evidence_sha256": "f411655119f9b3b6c2040cc4e0151a9967582fb782ca81605967cb288818e434"
+    },
+    "after_evidence": {
+      "evidence_ref": "mali450-physical/postrestore.txt",
+      "evidence_sha256": "9f4d49e0209b9e43acbb891705b7fbafa03ef1392cf74534b0c7ea571d61c842"
+    },
+    "compared": {
+      "home": {
+        "before_sha256": "eed3ccb0f3ff396464964d647af525be50f3935038f2124d78a9886cd23fd098",
+        "after_sha256": "eed3ccb0f3ff396464964d647af525be50f3935038f2124d78a9886cd23fd098"
+      },
+      "gamedata": {
+        "before_sha256": "dac5ef70aa9ac20f123f4e3d07a97f278bb1c5274b04c782839c7bba89e9f9f4",
+        "after_sha256": "dac5ef70aa9ac20f123f4e3d07a97f278bb1c5274b04c782839c7bba89e9f9f4"
+      },
+      "gptk": {
+        "before_sha256": "45725a36c6c2a9c54472d51a9630bb7e508001b3fdb320a8a69098b411ed8094",
+        "after_sha256": "45725a36c6c2a9c54472d51a9630bb7e508001b3fdb320a8a69098b411ed8094"
+      },
+      "settings": {
+        "before_sha256": "a1da8b2085fd40aa5548bfc49606a8257e4f8f9a6a282830702dbad21f77c98f",
+        "after_sha256": "a1da8b2085fd40aa5548bfc49606a8257e4f8f9a6a282830702dbad21f77c98f"
+      }
+    },
+    "byte_identical": true
+  },
+  "gaps": [
+    "EmulationStation estava mascarado; este receipt nao alega clique nem retorno pelo frontend",
+    "nao ha receipt de instalacao limpa do ZIP pelo PortMaster nesta classe",
+    "a captura da NXExtract prova renderer SDL visivel, mas nao possui comparacao golden por pixels",
+    "a captura da NXSplash ficou preta; log e timing provam execucao, nao a identidade visual por pixels",
+    "SELECT+START foi aprovado pelo operador fora do bundle selado; este receipt alega somente clean exit e NXU0006",
+    "o rollback foi induzido suprimindo o health receipt, nao por crash real do processo",
+    "o subteste de rollback nao selou saves, gamedata, GPTK e settings imediatamente antes e depois",
+    "o arquivo GPTK foi carregado e A/B foram despachados, mas nao houve troca real do perfil para inverter A e B",
+    "A/B foi observado, mas ausencia de duplo input nao recebeu uma sonda fisica isolada",
+    "nao ha receipt de diretorio .update vazio depois do teste",
+    "o build exato da imagem NextOS nao foi identificado no bundle"
+  ],
+  "private_manifest_sha256": "e6e8cf20bcb3a6aae3ccaf364364acdf06016be60b184692e2cf6fcfc5a2212e",
+  "sanitized": true
+}

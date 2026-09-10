@@ -1,0 +1,681 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "game-dir-and-passthrough",
+  "enabled_quirks": [],
+  "executable": "fp2-nextos",
+  "generation_runtime": [
+    {
+      "mode": "0755",
+      "path": "fp2-nextos",
+      "role": "executable",
+      "sha256": "b1181892e1600de041126b1ba21be415f35713ee56c9e129bb4afaef12f8495c"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/lib/aarch64/liblz4.so.1",
+      "role": "private-library",
+      "sha256": "a65c53e2e7015b636e4f212449eff2016b99736cdf5798fe2cf3672818b88b8b"
+    },
+    {
+      "mode": "0644",
+      "path": "port-env.sh",
+      "role": "runtime-hook",
+      "sha256": "056ee14ca7f27361b23fe5a022464523c5df01c106bf35199429ee67db5ff119"
+    },
+    {
+      "mode": "0644",
+      "path": "extractor.json",
+      "role": "nxextract-recipe",
+      "sha256": "77dc452590cac61c5c484389cad31f45a7d21e84d06d28678c792961406ae25e"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/nxextract.py",
+      "role": "nxextract-engine",
+      "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/run-extractor.sh",
+      "role": "nxextract-runner",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "role": "nxextract-runtime-env",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "nxextract/nxextract-ui",
+      "role": "nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0755",
+      "path": "nxextract/bin/fp2-smolv-cross-nextos",
+      "role": "nxextract-helper",
+      "sha256": "4f04aa2cd721dfd3fd23a5567f9ef821d1308a21d8b3fde2b7baaff678ad1267"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/exact_gles2.py",
+      "role": "nxextract-helper",
+      "sha256": "b47150a9aa4326212a07a9d7688c1428e14291d29a6cd81e1c448f7b4f12ed6f"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/prepare_fp2_data.py",
+      "role": "nxextract-helper",
+      "sha256": "9c845f44e052805493f511a98602e97c40973009282ea20015186227d44312ee"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/serialized_patch.py",
+      "role": "nxextract-helper",
+      "sha256": "f712acd9fe2c3267ff170d273e70a4c2eb4336d54270f75356990459d889d43a"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/shader_core.py",
+      "role": "nxextract-helper",
+      "sha256": "8417a2f20e3903ef600ecaafa3d8f231379fbd14f24a5e9e7d7029e7f136f96b"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "a4c543cf27b066bf8836276a6f70bc963c110f484a64836cbc8607629240eb61"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/ClassIDTypeToClassMap.py",
+      "role": "nxextract-helper",
+      "sha256": "fca4f8e2f2b62fc5065db69629baba1398a0f3f0fe25aed6eab826f2aeae938f"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/Object.py",
+      "role": "nxextract-helper",
+      "sha256": "b3f0c4f8e5b4db3aacdcaaa2f57c65272b4ac834f3a0beee357122c04b63ed4c"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/PPtr.py",
+      "role": "nxextract-helper",
+      "sha256": "221c795df92e9d338338944aa8049c53e553f0e232e11179a7d7d4ee6783f289"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/UnknownObject.py",
+      "role": "nxextract-helper",
+      "sha256": "875e5ddc8a7190bce675b3c2c0e2842d65ced9372759a61cc12452b067e49ba0"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "94dfe5f423f82a2cfa621f3a9f04295f79a951db368cb71c34df4bd8494ed6cf"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/generated.py",
+      "role": "nxextract-helper",
+      "sha256": "3ca5cded6e6bdc2ae1752fa7d59303d7b080789a8247a96907b5b22038308157"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/legacy_patch/Shader.py",
+      "role": "nxextract-helper",
+      "sha256": "2da3be0bd042bf9824650042352407f2df8b367655430879b6fdf239e8612dce"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/legacy_patch/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "51678183f46cf73309874f944d2c1d48598875059e5b0532f2295c6efac7ba2c"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/classes/math.py",
+      "role": "nxextract-helper",
+      "sha256": "c56f585e070261d823aa5b59ee2b67243526ba9c0351e5097cdf95db3adeba7b"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/config.py",
+      "role": "nxextract-helper",
+      "sha256": "f61b6631b066ef0d21feb4fb771170ca6eff0758e86968a6cb983a3b7457ee40"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/Audio.py",
+      "role": "nxextract-helper",
+      "sha256": "cff4a5aed2e9c0452a0ecf2c8b4651c7efa116b7fe3764513ef8c5f37693308f"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/BuildTarget.py",
+      "role": "nxextract-helper",
+      "sha256": "a2e54831f8cde23bb2516a45df856ced002d41da72f1d0fe7c4fbd39d97f8d99"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/BundleFile.py",
+      "role": "nxextract-helper",
+      "sha256": "c8b0baf57a8a34bd5890c42e87bd5ed6ad99960ae4a63f48c83099e085b32aa4"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/ClassIDType.py",
+      "role": "nxextract-helper",
+      "sha256": "dbde0ff24c1ad5fe11abdd19be2ef382cc246d912624a8ce8d91ad9dd288ac10"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/CommonString.py",
+      "role": "nxextract-helper",
+      "sha256": "41ff44c4c5a338e44117250737e1dcbc66cf52d92c2dd915320f57fb6e2140e5"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/ExtendableEnum.py",
+      "role": "nxextract-helper",
+      "sha256": "839da6a558b57a8b3cdc47fcb789d3b3a0f821fdd48a2172f348a2e57bfe5ad2"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/FileType.py",
+      "role": "nxextract-helper",
+      "sha256": "c6a5e4a55e068c9a8919487a5372f441023d47ab400be4892235a3320a2ee3f2"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/GfxPrimitiveType.py",
+      "role": "nxextract-helper",
+      "sha256": "1ea32e36d1057a998280f11043ccb60b89b3f2594477c965fe074fe2fc9e66f1"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/GraphicsFormat.py",
+      "role": "nxextract-helper",
+      "sha256": "120978287103acbcf2dc815f712957dd64616b409bfec15a2abbef5caeed467b"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/PassType.py",
+      "role": "nxextract-helper",
+      "sha256": "aa8f8307ac3242c0d6e6c6780e2c1c677e9b89999ec6ba2b84338a22e5c60074"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/SerializedPropertyType.py",
+      "role": "nxextract-helper",
+      "sha256": "448794bfdf5d2c9d376a54888daf88cd5288c82e5758116e2698b141458ed482"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/ShaderCompilerPlatform.py",
+      "role": "nxextract-helper",
+      "sha256": "c118593dee99440a5e3797511d98062adf6b07ae5b28951a9f53eaf0916e3bbb"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/ShaderGpuProgramType.py",
+      "role": "nxextract-helper",
+      "sha256": "deb222f00ec685e66a28028143364e348a872ed3816f605d07142111654aeeab"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/SpriteMeshType.py",
+      "role": "nxextract-helper",
+      "sha256": "577442f60354642eecd0a57fabd81776f34a6b9e9245665607e3882a861e8eed"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/SpritePackingMode.py",
+      "role": "nxextract-helper",
+      "sha256": "4897a1a5047d1bd5368c2ece378bdff352daa77881148198876632331e4d88bd"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/SpritePackingRotation.py",
+      "role": "nxextract-helper",
+      "sha256": "4f3684a2541d486b07e67f60c32d5621b71b9ca4f4a5fc67008fb0f28c0faf97"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/TextureDimension.py",
+      "role": "nxextract-helper",
+      "sha256": "22b4082805b36a134ba3af1edf74a1216e82c461b92618e9b6646e2f9e872e5f"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/TextureFormat.py",
+      "role": "nxextract-helper",
+      "sha256": "481d962a6cf841b926bad37e42976cded5c2a5f3514d119876922b0dbbb53b75"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/enums/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "f99eaa2a3248e8f668790b71ca172b0235f315ee8bc347419ff6a9352658575c"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/environment.py",
+      "role": "nxextract-helper",
+      "sha256": "57d5649da8ea62dca7a5c527cbc993375f8a96cd57ce866fd784995263f60ae7"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/exceptions.py",
+      "role": "nxextract-helper",
+      "sha256": "7b9a556598a18502a60c1140cdb72d436d4ca6b2815d63064ee91675f9ee7708"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/files/BundleFile.py",
+      "role": "nxextract-helper",
+      "sha256": "7aaa2ce223c3a2c49c899a4a4fca772934e8c737f63c225e373296ce685e8312"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/files/File.py",
+      "role": "nxextract-helper",
+      "sha256": "92a10d45456820228bbd4c9c0bdbf251722649058ac2306d59e4add70d331bf2"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/files/ObjectReader.py",
+      "role": "nxextract-helper",
+      "sha256": "16a8c79d29b6efdc5773805e958ccb60870812a54d8f26e2180bc78169fc2fbe"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/files/SerializedFile.py",
+      "role": "nxextract-helper",
+      "sha256": "32f5ad9e7463e6fb1c02d1c3ef3481ee2640b123533b96d9ad579ae946596b6b"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/files/WebFile.py",
+      "role": "nxextract-helper",
+      "sha256": "8625a5f25a6b0d2e389960bcc53ce87d79c62b68e53e880496d71b153858226d"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/files/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "9147b6bab0e95e2e37f4b7fe4695f50b07bf67cef61b06e3a6a0b6c1dbca90f2"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/helpers/ArchiveStorageManager.py",
+      "role": "nxextract-helper",
+      "sha256": "865b786226eb5080fa1b88ff36f51c90acb02d14d35d17a11de64aca63346083"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/helpers/CompressionHelper.py",
+      "role": "nxextract-helper",
+      "sha256": "f94b582d2edb79d674fd3bc0d02e0443ccea04fb0316b5c4addda321c66c7598"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/helpers/ImportHelper.py",
+      "role": "nxextract-helper",
+      "sha256": "626da76efa2382c5ffda6a19ba9c35b7714b43e7abe0395f593a27af85594bbd"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/helpers/Tpk.py",
+      "role": "nxextract-helper",
+      "sha256": "ce21c053ab6147e1cc57204246eace7a6fa9f02b514d14e0584c1febc84a7731"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/helpers/TypeTreeHelper.py",
+      "role": "nxextract-helper",
+      "sha256": "c74e27c74e9e879d047365e09734b78df541901d3e9a94cb468c620b75d57e34"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/helpers/TypeTreeNode.py",
+      "role": "nxextract-helper",
+      "sha256": "7c530e4aa5760c4ef6f01e95dc8ad02f0c49f937b840aef6231a95da03fe6ce0"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/helpers/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "9dc9b393488e931b54f5e6f648912da550dbe19a60b8e5428671cc5c48508c6a"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/math/Color.py",
+      "role": "nxextract-helper",
+      "sha256": "fb63285652e948e1e38d9e59b54fe5ef4441b46d60ed836281f39416d72b520c"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/math/Matrix4x4.py",
+      "role": "nxextract-helper",
+      "sha256": "147fed958d1da314f96f2cbb2ca678204cc91f97d7d234282ac85f4294c23547"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/math/Quaternion.py",
+      "role": "nxextract-helper",
+      "sha256": "3fb2393ea331444715e5032e1005f190e9bdbbda167ba57511153cc714c6e42b"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/math/Rectangle.py",
+      "role": "nxextract-helper",
+      "sha256": "8c4e3d6c54a80b27b5bde13dc6bc353e48a2e404c20cb06fd0d7960759bd5561"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/math/Vector2.py",
+      "role": "nxextract-helper",
+      "sha256": "baba436d06df939c30e752c09d8a9b1ad5c6d2cb955ca59d46ffa079fbd33c21"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/math/Vector3.py",
+      "role": "nxextract-helper",
+      "sha256": "d2ff60bf7d7e7b710098725b08f713e2409e2cf6256dcd63569b6800d86affaf"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/math/Vector4.py",
+      "role": "nxextract-helper",
+      "sha256": "7c03a216953b8e2ee8c512ec7647acaf37bb9d50b8058f74d7f693b402ce732f"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/math/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "8a0c5a9b9d1735e2ab7db2a91d7374d18568ea3ea5817df8aa7b7562367235c8"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/resources/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/streams/EndianBinaryReader.py",
+      "role": "nxextract-helper",
+      "sha256": "e96dd96f0d0b1795066a6d186ae97f06f8f9741f342e58f5a10d7351d3742ecd"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/streams/EndianBinaryWriter.py",
+      "role": "nxextract-helper",
+      "sha256": "982644f63a34058e9fc2752fe0d863312e8aaadca2e10069ba1a2da44f4cbf58"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/streams/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "3bbfed2bcff10f0ccce93d780f49e349b7621c1da7dcb90dce7b4d7655011607"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "5a55c937a20207463f1d9d259ae4d48226b492e49d9f6a7aedde0de9c6313593"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/_cmp.py",
+      "role": "nxextract-helper",
+      "sha256": "39066559d157ef8cf5f1a746114a78d0e8ea9b434dbb5165aa7bf6244f01da78"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/_compat.py",
+      "role": "nxextract-helper",
+      "sha256": "426472c628b6f79c1c41f6ae816ab1b88ba600fb0d436f91505f364193ea30ac"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/_config.py",
+      "role": "nxextract-helper",
+      "sha256": "cfcd55b7e19e4ffdad6b1b355d97e61f1f535a54b18cf6fa7991f52d31ac4b9e"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/_funcs.py",
+      "role": "nxextract-helper",
+      "sha256": "5414d414a2e496c9aac72b37a964932bf01cf59e2cd260095b0816f6703b2e59"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/_make.py",
+      "role": "nxextract-helper",
+      "sha256": "2e7572d9ed07ca0a2a699927842d7dcfb2663adeea1a401a75fd8b6605952562"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/_next_gen.py",
+      "role": "nxextract-helper",
+      "sha256": "6acd6fa22f2c88023fa363901bc608899be69f41bbf92dff8ffefbe2b9e867f8"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/_version_info.py",
+      "role": "nxextract-helper",
+      "sha256": "7b14aa6f76f913e7cc4ac819025130f5770ba448286cf391099a5c68482500ce"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/converters.py",
+      "role": "nxextract-helper",
+      "sha256": "2b2c39318d327e7511fd1c0dd55c9d7f412213efbe86d0f13a049cffe3582fa0"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/exceptions.py",
+      "role": "nxextract-helper",
+      "sha256": "1d116ae22c9b9afefe0dc670ca397a3357ae33661e2552bf845c6e6811809e02"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/filters.py",
+      "role": "nxextract-helper",
+      "sha256": "f6962f5ea760ea6b4bbca2086f9ea800b44ca0716741370608ee045d3735ab23"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/setters.py",
+      "role": "nxextract-helper",
+      "sha256": "a5b09943ea44e99c630ea65f59652150579f5eda5e908538a92fd80cc2cf439d"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attr/validators.py",
+      "role": "nxextract-helper",
+      "sha256": "2c65696e2360fca1b362b2940f924f899931f1331fca70d91a84282c934220ca"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attrs/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "f7fe706956c5b3bacbaad5d9ef7b4d0ebc617b3c99f1565e5f805bbd0dc4789c"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attrs/converters.py",
+      "role": "nxextract-helper",
+      "sha256": "f244258eb5707d24d1bbc20dc0493c488d1e1abce659fb6c4fbaccd04ab2a213"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attrs/exceptions.py",
+      "role": "nxextract-helper",
+      "sha256": "0020829a0d7dfaf0c56833d8f6f165d7df523d709030dfdb10db380c02e3ce6b"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attrs/filters.py",
+      "role": "nxextract-helper",
+      "sha256": "54e50c66e83db8453a754b80d1d1758c89d42b43cbddf2e03f45414b977e0831"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attrs/setters.py",
+      "role": "nxextract-helper",
+      "sha256": "78bd5889d6105774f687dfd2608652651d4501c1c66f54ee093cb41342efd925"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/attrs/validators.py",
+      "role": "nxextract-helper",
+      "sha256": "c5ccbac03e53b5391d086d5fe1759ba1c3d23b47da06393921f5497cfe92523d"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/lz4/__init__.py",
+      "role": "nxextract-helper",
+      "sha256": "a30af473cdfcb88ed175e7caa89a53d806f2d7d352e20d92d40bf8ac317fcc8d"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/lz4/block.py",
+      "role": "nxextract-helper",
+      "sha256": "57dd295be90028601f5af7e9b4abc9f2cc233996ed42d2ad2ed02c1718985903"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/fp2-preparation-policy.json",
+      "role": "nxextract-spec",
+      "sha256": "bcbaca7dab6ad863cfbb57fe9e00116e646f999fa8c1a48090a0ddec1b98517b"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/GCC-Runtime-Library-Exception-3.1.txt",
+      "role": "nxextract-spec",
+      "sha256": "28e85c5aa4af9b4f1dfe6b4817aa3eefb3eaaee7fd735045016f29ccf50276a1"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/GPL-3.0.txt",
+      "role": "nxextract-spec",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/LZ4-BSD-2-Clause.txt",
+      "role": "nxextract-spec",
+      "sha256": "2dfe2f2b8b93ca5d53f2af10104b5881c6b5648636fe746a81230da9cf807335"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/SMOL-V-MIT-or-Unlicense.txt",
+      "role": "nxextract-spec",
+      "sha256": "63ae998bb9eb68fb76d8a80eda7398edbd7eca3b130bd8fab90d334cdcca42a1"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/SPIRV-Cross-Apache-2.0.txt",
+      "role": "nxextract-spec",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/SPIRV-Headers.txt",
+      "role": "nxextract-spec",
+      "sha256": "44d710693a9f06706c60cab349ac68a5a6c30c0ec814d6e87a9bd85ba7b0d400"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/SPIRV-Tools-Apache-2.0.txt",
+      "role": "nxextract-spec",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/UnityPy-MIT.txt",
+      "role": "nxextract-spec",
+      "sha256": "d86f8e7dd654370bfe954deb63a8fc972a0eaea943880ba691ff540104bd4c8f"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/licenses/attrs-MIT.txt",
+      "role": "nxextract-spec",
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/specs/toolchain-provenance.json",
+      "role": "nxextract-spec",
+      "sha256": "f54c2fcb257ea4a263ca338939f19bff67d8672c99e159f6cc13490ea6289094"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/vendor/python/UnityPy/resources/uncompressed.tpk",
+      "role": "nxextract-spec",
+      "sha256": "5c69d22b4baf43d9ec2c011cff4f11ad6176dcf43e73ed901f18d0637bfc198d"
+    },
+    {
+      "mode": "0755",
+      "path": "nxsplash-nextos",
+      "role": "nxsplash",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    }
+  ],
+  "home_mode": "preserve",
+  "id": "fp2",
+  "language": {
+    "default": "en",
+    "supported": [
+      "en"
+    ]
+  },
+  "launcher_name": "Freedom Planet 2.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.3.0"
+  },
+  "prepare_script": "",
+  "private_library_paths": [
+    "nxextract/lib"
+  ],
+  "required_capabilities": [
+    "host.portmaster",
+    "host.aarch64-libs",
+    "graphics.window",
+    "graphics.gles2",
+    "graphics.egl",
+    "graphics.egl-config",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api",
+    "input.controller-connected"
+  ],
+  "required_files": [
+    "fp2-nextos",
+    "nxsplash-nextos",
+    "port-env.sh",
+    "lib/libmain.so",
+    "lib/libunity.so",
+    "lib/libil2cpp.so",
+    "assets/bin/Data/boot.config",
+    "assets/bin/Data/globalgamemanagers",
+    "assets/bin/Data/globalgamemanagers.assets.split0",
+    "assets/bin/Data/level0",
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+    "nxextract/bin/fp2-smolv-cross-nextos"
+  ],
+  "runtime_report": "log",
+  "schema_version": 3,
+  "sdl_provider": "system",
+  "title": "Freedom Planet 2",
+  "video_proof": "required"
+}

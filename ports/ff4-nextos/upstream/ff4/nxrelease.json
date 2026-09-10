@@ -1,0 +1,263 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "ff4",
+    "version": "1.0.4",
+    "profile": "universal-portmaster",
+    "launcher": "Final Fantasy IV 3D Remake.sh",
+    "launcher_chain": [
+      "Final Fantasy IV 3D Remake.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.30",
+      "config_path": "ff4/nxport.json",
+      "config_sha256": "ddf6e77571800eaf626539a2734ca6ae85ec0429708fe546ea4e169c69b5c32e"
+    },
+    "port_dir": "ff4",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "file": "ff4/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1787529600,
+    "max_glibc": "2.30",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "ff4/nxextract/nxextract.py",
+    "version": "1.2.18",
+    "minimum_version": "1.2.14",
+    "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f",
+    "runner_path": "ff4/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "ff4/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "ui_path": "ff4/nxextract/nxextract-ui",
+    "ui_sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+    "recipe_path": "ff4/extractor.json",
+    "recipe_sha256": "f63b496fd02b0fd0fa8c40d240024ad05f62424763470765fb57ce341341b60c"
+  },
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "ff4/port.json",
+      "sha256": "7ea396e14bb45eddf229618083a9d985c014a6112f575d1927ef008fef23820a"
+    },
+    "gameinfo_xml": {
+      "path": "ff4/gameinfo.xml",
+      "sha256": "a53095d5f639781f74159f9da9d59b8739417a8836ae3f82c7e944b236aac9d3"
+    },
+    "images": []
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libz.so.1",
+      "provider": "firmware"
+    }
+  ],
+  "files": [
+    {
+      "source": "Final Fantasy IV 3D Remake.sh",
+      "target": "Final Fantasy IV 3D Remake.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "90dd76fb08040ab68a3ebce2473be3cd8e60e982114d4accc62be81ca036e56e"
+    },
+    {
+      "source": "nxport.json",
+      "target": "ff4/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "ddf6e77571800eaf626539a2734ca6ae85ec0429708fe546ea4e169c69b5c32e"
+    },
+    {
+      "source": "nxproject.json",
+      "target": "ff4/nxproject.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "04b902478298b8cf8aeffaa1944e2747f68983512674e7ff2b5158744330797f"
+    },
+    {
+      "source": "ff4",
+      "target": "ff4/ff4",
+      "kind": "project-linux",
+      "mode": "0755",
+      "sha256": "2e203144f469a38747738a92524478af1851f674b235a251adaecfb0fb09b28c",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build_universal.sh; imagem offline Debian Buster sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf; SDK NextOS usado somente para headers; GLES1 resolvido em tempo de execucao por framework/nxgl (sem DT_NEEDED libGLESv1_CM)",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "soname": null
+    },
+    {
+      "source": "README.md",
+      "target": "ff4/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "b05125351911c4298d53301977ae48750a865fa9f7791f67cd1a1bfcabef3615"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "ff4/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "23f8fc2e8ab52e7ac9e1f41fb60d1a8a4e7426f7da5c485b7ebdb057589739a7"
+    },
+    {
+      "source": "LICENSE",
+      "target": "ff4/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "source": "NOTICE.md",
+      "target": "ff4/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "66cbfc4ab296e2de419b0e6073e0a98edf95457e006f7ba3187dd59171929611"
+    },
+    {
+      "source": "port.json",
+      "target": "ff4/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "7ea396e14bb45eddf229618083a9d985c014a6112f575d1927ef008fef23820a"
+    },
+    {
+      "source": "gameinfo.xml",
+      "target": "ff4/gameinfo.xml",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "a53095d5f639781f74159f9da9d59b8739417a8836ae3f82c7e944b236aac9d3"
+    },
+    {
+      "source": "nxsplash-nextos",
+      "target": "ff4/nxsplash-nextos",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "artefato pre-compilado do framework, vendorizado sem recompilar; ver framework/nxbootstrap e suportando_outros_devices/extrator-universal/ui/release",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "version.txt",
+      "target": "ff4/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "d1b77b88f4b9f675a900e4143ac768a21218623cfe1703ca43162388c3271bd6"
+    },
+    {
+      "source": "nxextract-version.txt",
+      "target": "ff4/nxextract-version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "1046822942b68dbf8a31e81e25f587c411ec42cfa7b13498b2df79723e8b248a"
+    },
+    {
+      "source": "gamedata/README.txt",
+      "target": "ff4/gamedata/README.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "3717e3f853d29b14d7d3a328f2126d1a4aac92c29daca8db167651cc72b402aa"
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "ff4/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "extractor.json",
+      "target": "ff4/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "f63b496fd02b0fd0fa8c40d240024ad05f62424763470765fb57ce341341b60c"
+    },
+    {
+      "source": "nxextract/nxextract.py",
+      "target": "ff4/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f"
+    },
+    {
+      "source": "nxextract/run-extractor.sh",
+      "target": "ff4/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "ff4/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "nxextract/nxextract-ui",
+      "target": "ff4/nxextract/nxextract-ui",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "artefato pre-compilado do framework, vendorizado sem recompilar; ver framework/nxbootstrap e suportando_outros_devices/extrator-universal/ui/release",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    }
+  ]
+}

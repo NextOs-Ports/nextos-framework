@@ -1,0 +1,498 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/beachbuggy-nextos",
+  "observed_commit": "2d6a2dc040711c801ba43ed3a407d2093e713fb6",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Beach Buggy Racing",
+    "Beach Buggy Racing 2"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": null,
+  "license_review": "Root license detection null; GPLv3 text found in beachbuggy/LICENSE and bbracing2/LICENSE. Per-file review remains.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "2defb4dad3e44fbd1830e13c4f590b1ed79c5487",
+      "sha256": "d3711a10be224b4af4ecfadf593f6f19e0b464547680a7217388854a7480d5a7"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "ed988da093e576fe96a3b63cdf689e00fc4db877",
+      "sha256": "6042b4c5bd45d195662a3fd39c90fb78d4b73b8aa96521a8d727b89bc5b4da7e"
+    },
+    {
+      "path": "bbracing2/Beach Buggy Racing 2.sh",
+      "mode": "0o755",
+      "upstream_blob": "2bc7371f7f59e117476f9dca69bbae4669d9d5a8",
+      "sha256": "b5dbbb01e14a3f8b928b543711ba4032d0d02f147613124221ddce11e3ce90cb"
+    },
+    {
+      "path": "bbracing2/GENERATION.json",
+      "mode": "0o644",
+      "upstream_blob": "a9305b5c287e726c5e910c77273787485fc22537",
+      "sha256": "10117a447fa93d63db874648ddbf9a6c152dcb943bdcf983ee634d2dec82ad59"
+    },
+    {
+      "path": "bbracing2/INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "a10040072be1ace813478498144291d0f92afc63",
+      "sha256": "621291851de4643a4fc2565953c1bb77363455507a8d92b818f4db8b263b95b3"
+    },
+    {
+      "path": "bbracing2/LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "f6cdd22a6c1fbc887e08a215cb4beb3c47048041",
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0"
+    },
+    {
+      "path": "bbracing2/README.md",
+      "mode": "0o644",
+      "upstream_blob": "b0746fe363963921040c7a36a5d00193a85df9d0",
+      "sha256": "16bb1fddbb4807843caf6a6988c76324070f5f5ce66e50d9fbc2a461a566a6c6"
+    },
+    {
+      "path": "bbracing2/THIRD-PARTY-NOTICES.md",
+      "mode": "0o644",
+      "upstream_blob": "0bd9627203779d570029bb6e701250e5b9d3149c",
+      "sha256": "75427b0a1dc95c826f30c154eaec76c9248ba61d149dd01da270597fba355d10"
+    },
+    {
+      "path": "bbracing2/build.sh",
+      "mode": "0o755",
+      "upstream_blob": "05e6548d721799bb1dde5b86f6914f6310a2ecb1",
+      "sha256": "caebf344314caff07f2f6afe68a221c80d958873d1ff381a968b8cfee0d5c9ae"
+    },
+    {
+      "path": "bbracing2/build_universal.sh",
+      "mode": "0o755",
+      "upstream_blob": "da9e382f5ea9f5c0648c99bf253ce06eebbb6fbc",
+      "sha256": "9ee9de8c4e39196f602a3f0a2eff169bef9fe724ae909e14dcebfd2c05330a18"
+    },
+    {
+      "path": "bbracing2/extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "f561efeb6b22dbb63b17b8f7e477c27f85bff03b",
+      "sha256": "344b3fd409fcdc28e1c02c8ae3e1ca4bf355e334d3a0b1f8f3dd961b9482cfbd"
+    },
+    {
+      "path": "bbracing2/gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "1f6aae80b307f9dfbc6316aa778b9380dae655d9",
+      "sha256": "b49574ac3346f2dc3df66877a1fbe4893599b7292b2a8aa09bfdc12cc6cabf35"
+    },
+    {
+      "path": "bbracing2/nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "591bdbcd6affb9685da99f1f8e94c74489d3c269",
+      "sha256": "1046822942b68dbf8a31e81e25f587c411ec42cfa7b13498b2df79723e8b248a"
+    },
+    {
+      "path": "bbracing2/nxextract/nxextract-runtime-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "bbracing2/nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "47762e424125e880382fc1a109d21d4d9da68e2d",
+      "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f"
+    },
+    {
+      "path": "bbracing2/nxextract/run-extractor.sh",
+      "mode": "0o644",
+      "upstream_blob": "d092f8108f656ea27888fb2885b46726a3d217f2",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "path": "bbracing2/nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "0681ef8bc40130b5f6d951ce903cbdb4ae4b0946",
+      "sha256": "20bf88aa4da96e0cc949cf9158adf41d564b11d88a23b21102c0d3b1530a840f"
+    },
+    {
+      "path": "bbracing2/nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "5198cd3e138e656c88dd5fa8d69373f61c8b1a74",
+      "sha256": "2853e4347af715213e4a8e2420617fa47c51a7acfc831f3c4e3bdc2cb12e67f5"
+    },
+    {
+      "path": "bbracing2/nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "a0f8290c0340c745b2f4e9696b92898c74c4e20f",
+      "sha256": "83f6912ac82d0312c36f1224fe50c61163c5c1a07b7e0dd994c7abddbca46c2a"
+    },
+    {
+      "path": "bbracing2/port.json",
+      "mode": "0o644",
+      "upstream_blob": "06af57a55bbe2a868809773f87d0a9129eb3f3ed",
+      "sha256": "50f5ccb75956c34218cf660cbde4838b0a42050cc098249f25fa7d0aed485571"
+    },
+    {
+      "path": "bbracing2/src/asset_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "c104fdb1bc93a0e6fd05e99983d5eed6c68d8a06",
+      "sha256": "bbbc407f4f84c31d508a48077347728276bdec25511300df5e3b7e52a2123623"
+    },
+    {
+      "path": "bbracing2/src/asset_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "137d08e3ab5227e1205cedb7772e5d52cee03c7a",
+      "sha256": "947b3aa3fc2d3f40247109de506aa7fc0ed3fdcdcc7a06a8eb749ffb4ba5493f"
+    },
+    {
+      "path": "bbracing2/src/bionic_shims.c",
+      "mode": "0o644",
+      "upstream_blob": "672919bb1742eafa64accdfe3458a615db02a337",
+      "sha256": "fc247b65d758e4f197a1539c6f0f64f5e84743bff1d424c84fd1db1de330c461"
+    },
+    {
+      "path": "bbracing2/src/bionic_shims.h",
+      "mode": "0o644",
+      "upstream_blob": "8be6d7f602318c73bd202acf442d1d5273f80648",
+      "sha256": "731402643919853e3b46e5e6360b3432b223b82415209d44caf1c9d1b3f9b941"
+    },
+    {
+      "path": "bbracing2/src/cursor_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "6aaf2c64c4b0731ade29be00ef72960a384a82c4",
+      "sha256": "05a156212894998f5e5c52959f98a7c16b4fcd1e4ae784fda1c9091c677a31d8"
+    },
+    {
+      "path": "bbracing2/src/cursor_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "7fa19e548b38243195ea5f3afb5a6c7074e5d018",
+      "sha256": "c1402ca4dc49233ed6e9236fd7b397e876205180b054ca74f8e63b201327e568"
+    },
+    {
+      "path": "bbracing2/src/egl_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "4eb8fa4cb1fdf9468ebf423599bd3973133b10e1",
+      "sha256": "2a4304241edfb2cc1110fd01e37638d00e09ec540a6644dca57f382654ba959a"
+    },
+    {
+      "path": "bbracing2/src/egl_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "52bffb35c6b9bdda802e26e102a8773c8abce237",
+      "sha256": "fc90b3da7035637faffcf6e1814b109f246cfafc11430ade221900ed3adc383d"
+    },
+    {
+      "path": "bbracing2/src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "c92ebd99cf91769dfa09599d0a7ba406952b6d99",
+      "sha256": "18e02ccf0fc09aaad863571ca428b8b71f3dd136740edb7adbf94cdc77266bff"
+    },
+    {
+      "path": "bbracing2/src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "7b4708ed00d56bec9c01129dbaa9a284a54fded6",
+      "sha256": "38e0bbb408f76af252b51dcdc6d2766050f4f230d081c7af3bcdb8666460573b"
+    },
+    {
+      "path": "bbracing2/src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "e53a8d4ee53faf0a40d76f6cc90d470dc269f85b",
+      "sha256": "b5fba3682c354fa36ee573551c30c80ff8f184a9e902e620a390c7f884f599bf"
+    },
+    {
+      "path": "bbracing2/src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "d8aaac0f98b2ea62501da15b9b83f0bfcf241148",
+      "sha256": "5dd6c4de820b1b24dc7a024b5997e0aa5e03b110da708a26cc1c62897a5851e9"
+    },
+    {
+      "path": "bbracing2/src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "7526e32cb08a30f053a55f05230cd23106c2c61b",
+      "sha256": "1d9ae125f3f11a6c8fe44b1b750c68b40ca6d26b34185ba856212922df1d2c1f"
+    },
+    {
+      "path": "bbracing2/src/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "ef7ac47de2be7cb1d7b2eb1083083bbd0067b490",
+      "sha256": "b1bb1d07c6957375f4a024362113e49e2764f2261287c58299fbff14d1f1466a"
+    },
+    {
+      "path": "bbracing2/src/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0fd6269db25875e28c09bee994cf32c9675cb406",
+      "sha256": "bb42149eabf81158ecb143ff24468c579fe724aeac7dcdd3404eedca58b8b586"
+    },
+    {
+      "path": "bbracing2/src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "585c01ade49c979932bb009fccf49a6b817e1d38",
+      "sha256": "734ddd66d508b220c938f9fc5414972a7acff22c959e13f4ce0bf5ea1a3c4f87"
+    },
+    {
+      "path": "bbracing2/src/pthread_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "f9ea8d776a04b6afc3c54d6d51df33948fd7eb07",
+      "sha256": "f038fb77953ccfaa719d746fd1207ac33fef48aa88b0f4561f7ad2eacb0f9b63"
+    },
+    {
+      "path": "bbracing2/src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "11eeefea2f4283df8f2066a8aa145f8202eb3498",
+      "sha256": "d8b432a2cff9cbaff0f72f73e72736204c359e952f3a82a77ace12659cd21424"
+    },
+    {
+      "path": "bbracing2/src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "1c0da3886454ede6578ff551c5e0574389b4040b",
+      "sha256": "912bddeaca0bfbd5c3791b294334cbfa57a059f4636e84fc07ee1e19e1933dec"
+    },
+    {
+      "path": "bbracing2/src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "ad3223f0c3afa8e6e26c593d4f66e889ccfc8fa5",
+      "sha256": "efd8d98ba70879945b66d15650fcdd94ed20fb5212292db4bd007c801648cecd"
+    },
+    {
+      "path": "bbracing2/src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "279e85f5722c4643273de4c7fb9cf96fcac4007f",
+      "sha256": "a4b1081152ccedba77671f3fcc5d1d0fd9f351089eb498072577daf3b87ecdb4"
+    },
+    {
+      "path": "bbracing2/version.txt",
+      "mode": "0o644",
+      "upstream_blob": "7dea76edb3dc51b6e5e8223e9f941a35c1e364d6",
+      "sha256": "44e161e4495cac2cf7858043e9e6418e9579f0ddcfae826f9a372622968ce066"
+    },
+    {
+      "path": "beachbuggy/Beach Buggy Racing.sh",
+      "mode": "0o755",
+      "upstream_blob": "9a218649e1001175cd059323863ed0b9e1670444",
+      "sha256": "65a298f0d882361b36f719afa16841b44edc88084e995240ad186f241cf744e9"
+    },
+    {
+      "path": "beachbuggy/GENERATION.json",
+      "mode": "0o644",
+      "upstream_blob": "6ff48644f02ca2a8956911b99d129e7622c917dc",
+      "sha256": "f2ec0cb541dd36ca2d5bf0f74b09c304d0fbb1539e06dc3caee476c3c7484730"
+    },
+    {
+      "path": "beachbuggy/INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "ec81202dea0b81168694e091d09d56e48caa2d54",
+      "sha256": "16a29abc9625f26863cbf95bef8b03c2fa51dc400c0674b036e5758f566f180d"
+    },
+    {
+      "path": "beachbuggy/LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "f6cdd22a6c1fbc887e08a215cb4beb3c47048041",
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0"
+    },
+    {
+      "path": "beachbuggy/README.md",
+      "mode": "0o644",
+      "upstream_blob": "663d13fabac9de272149fba39f22e58be604c1eb",
+      "sha256": "256c1681f8b5ddce6479a8543b96b995880fdc4c93642927477ebd7d064d90bb"
+    },
+    {
+      "path": "beachbuggy/THIRD-PARTY-NOTICES.md",
+      "mode": "0o644",
+      "upstream_blob": "cbd93b99e718e4441462976f730f53f71ad14665",
+      "sha256": "838731d1d8ef788a7a71fae0da60c23ce7d2a11225317955fe7f7cd15c087319"
+    },
+    {
+      "path": "beachbuggy/build.sh",
+      "mode": "0o755",
+      "upstream_blob": "809d5cae7aa89241afa723132c47294928b0ea0c",
+      "sha256": "c8d3d48560dabe4466096a20999cb650dd8b50186358e076f839caab8bf0f109"
+    },
+    {
+      "path": "beachbuggy/build_universal.sh",
+      "mode": "0o755",
+      "upstream_blob": "e61be8f56515dd5f530b160594f702404a58e7a7",
+      "sha256": "fd2d97a752e6dd1b5313563f016e5b08d13d1ea4bab6baf828ce27e73d91507a"
+    },
+    {
+      "path": "beachbuggy/extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "82cd61237583e8e624c6093c1a13019104b0d76b",
+      "sha256": "55f9040a2587f8b4e05a82545de47f8d30afd57860956c0b1171c5a70ff52b86"
+    },
+    {
+      "path": "beachbuggy/gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "515d2462d96b84fd8067841a25644fdcdc2c6f0e",
+      "sha256": "6639b8a64c402c1281fc79a3d87a32429a4cb718a56e396bebe35a33439fb59b"
+    },
+    {
+      "path": "beachbuggy/nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "591bdbcd6affb9685da99f1f8e94c74489d3c269",
+      "sha256": "1046822942b68dbf8a31e81e25f587c411ec42cfa7b13498b2df79723e8b248a"
+    },
+    {
+      "path": "beachbuggy/nxextract/nxextract-runtime-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "beachbuggy/nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "47762e424125e880382fc1a109d21d4d9da68e2d",
+      "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f"
+    },
+    {
+      "path": "beachbuggy/nxextract/run-extractor.sh",
+      "mode": "0o644",
+      "upstream_blob": "d092f8108f656ea27888fb2885b46726a3d217f2",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "path": "beachbuggy/nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "295426e78d5a89090dce7313596ba88681b93524",
+      "sha256": "8e061b99d5c6f9471c41808b042f7296f35838194819a6a955421856135c6224"
+    },
+    {
+      "path": "beachbuggy/nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "31ed97f74bc97682de9adac2c58171a9eb04b5fd",
+      "sha256": "ef84fdb87aefc1ff5ed5eddbde43cd32f8fac0db0971afdf37c5619272b2fd59"
+    },
+    {
+      "path": "beachbuggy/nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "a605517882ec64622185a6ec61e9df091a8bc01c",
+      "sha256": "9b9a436813a9c42457ddbfe0c261378bfea7a0b07efafce848282daf30799788"
+    },
+    {
+      "path": "beachbuggy/port.json",
+      "mode": "0o644",
+      "upstream_blob": "8735686944d45056602b5c5a848a54ac1e16b3ea",
+      "sha256": "29448da9bbabd94b3c4e5b43eb1c1bedc7508e57b0374ceed28935b099c13cf8"
+    },
+    {
+      "path": "beachbuggy/src/asset_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "c104fdb1bc93a0e6fd05e99983d5eed6c68d8a06",
+      "sha256": "bbbc407f4f84c31d508a48077347728276bdec25511300df5e3b7e52a2123623"
+    },
+    {
+      "path": "beachbuggy/src/asset_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "137d08e3ab5227e1205cedb7772e5d52cee03c7a",
+      "sha256": "947b3aa3fc2d3f40247109de506aa7fc0ed3fdcdcc7a06a8eb749ffb4ba5493f"
+    },
+    {
+      "path": "beachbuggy/src/bionic_shims.c",
+      "mode": "0o644",
+      "upstream_blob": "d3514ab19d4bd34d042f7f809b6fde12dc5dded8",
+      "sha256": "a29cb4a3af0c2ff2de5dd2732e33dba1d00781ace40d9a480952a43782c917ec"
+    },
+    {
+      "path": "beachbuggy/src/bionic_shims.h",
+      "mode": "0o644",
+      "upstream_blob": "4283200d0eccdb2f5df0f242e86dc24d606fbbb1",
+      "sha256": "208c8f08333d115d4eb6a94ce2fb6739003a753a2025fba1e4aab1b247e237dd"
+    },
+    {
+      "path": "beachbuggy/src/egl_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "4eb8fa4cb1fdf9468ebf423599bd3973133b10e1",
+      "sha256": "2a4304241edfb2cc1110fd01e37638d00e09ec540a6644dca57f382654ba959a"
+    },
+    {
+      "path": "beachbuggy/src/egl_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "52bffb35c6b9bdda802e26e102a8773c8abce237",
+      "sha256": "fc90b3da7035637faffcf6e1814b109f246cfafc11430ade221900ed3adc383d"
+    },
+    {
+      "path": "beachbuggy/src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "c92ebd99cf91769dfa09599d0a7ba406952b6d99",
+      "sha256": "18e02ccf0fc09aaad863571ca428b8b71f3dd136740edb7adbf94cdc77266bff"
+    },
+    {
+      "path": "beachbuggy/src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "7b4708ed00d56bec9c01129dbaa9a284a54fded6",
+      "sha256": "38e0bbb408f76af252b51dcdc6d2766050f4f230d081c7af3bcdb8666460573b"
+    },
+    {
+      "path": "beachbuggy/src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "4b9739f9970219bc38f8f49c8da49e9d733e18da",
+      "sha256": "451a5fb7c62f0729cc0a8435a53b2412b3cbf02dba5e03f5bcbb814173f5912e"
+    },
+    {
+      "path": "beachbuggy/src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "d8aaac0f98b2ea62501da15b9b83f0bfcf241148",
+      "sha256": "5dd6c4de820b1b24dc7a024b5997e0aa5e03b110da708a26cc1c62897a5851e9"
+    },
+    {
+      "path": "beachbuggy/src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "68f2c176719936277adbfa45fdb49f2b6199a60d",
+      "sha256": "c28deec50507908d0d77335279f150aeb36cee5fc82967b02357acf42014b1b3"
+    },
+    {
+      "path": "beachbuggy/src/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "ef7ac47de2be7cb1d7b2eb1083083bbd0067b490",
+      "sha256": "b1bb1d07c6957375f4a024362113e49e2764f2261287c58299fbff14d1f1466a"
+    },
+    {
+      "path": "beachbuggy/src/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0fd6269db25875e28c09bee994cf32c9675cb406",
+      "sha256": "bb42149eabf81158ecb143ff24468c579fe724aeac7dcdd3404eedca58b8b586"
+    },
+    {
+      "path": "beachbuggy/src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "585c01ade49c979932bb009fccf49a6b817e1d38",
+      "sha256": "734ddd66d508b220c938f9fc5414972a7acff22c959e13f4ce0bf5ea1a3c4f87"
+    },
+    {
+      "path": "beachbuggy/src/pthread_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "f9ea8d776a04b6afc3c54d6d51df33948fd7eb07",
+      "sha256": "f038fb77953ccfaa719d746fd1207ac33fef48aa88b0f4561f7ad2eacb0f9b63"
+    },
+    {
+      "path": "beachbuggy/src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "11eeefea2f4283df8f2066a8aa145f8202eb3498",
+      "sha256": "d8b432a2cff9cbaff0f72f73e72736204c359e952f3a82a77ace12659cd21424"
+    },
+    {
+      "path": "beachbuggy/src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "1c0da3886454ede6578ff551c5e0574389b4040b",
+      "sha256": "912bddeaca0bfbd5c3791b294334cbfa57a059f4636e84fc07ee1e19e1933dec"
+    },
+    {
+      "path": "beachbuggy/src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "ad3223f0c3afa8e6e26c593d4f66e889ccfc8fa5",
+      "sha256": "efd8d98ba70879945b66d15650fcdd94ed20fb5212292db4bd007c801648cecd"
+    },
+    {
+      "path": "beachbuggy/src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "279e85f5722c4643273de4c7fb9cf96fcac4007f",
+      "sha256": "a4b1081152ccedba77671f3fcc5d1d0fd9f351089eb498072577daf3b87ecdb4"
+    },
+    {
+      "path": "beachbuggy/version.txt",
+      "mode": "0o644",
+      "upstream_blob": "7dea76edb3dc51b6e5e8223e9f941a35c1e364d6",
+      "sha256": "44e161e4495cac2cf7858043e9e6418e9579f0ddcfae826f9a372622968ce066"
+    }
+  ],
+  "omitted_selected_files": []
+}

@@ -1,0 +1,6 @@
+# Excecoes auditadas do audit-portability.sh. Cada linha exige o contrato
+# descrito, nao a intencao dele.
+#
+#   supervised-child|caminho/relativo.sh|contrato de PID, trap e wait
+supervised-child|geometrydash/run.sh|o jogo roda em background para o launcher guardar o PID EXATO ($!), armar trap EXIT/INT/TERM que encaminha TERM ao filho e ficar em `wait` ate' ele morrer; o launcher nunca se desprende (sem setsid/nohup) e o SIGTERM entra no mesmo caminho de pausa/save/saida do SELECT+START
+supervised-child|gdsubzero/run.sh|idem: PID exato, trap EXIT/INT/TERM, wait em foreground e SIGTERM pelo caminho de pausa/save

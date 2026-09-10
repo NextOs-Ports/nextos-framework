@@ -1,0 +1,70 @@
+{
+    "capture": {
+        "captured_at_utc": "2026-08-31T07:19:35Z",
+        "device_model": "AISLPC R36T/K36S",
+        "operating_system": "Debian GNU/Linux 13",
+        "provider": "PortMaster",
+        "source_path": "/opt/system/Tools/PortMaster/gamecontrollerdb.txt"
+    },
+    "face_layout_variants": {
+        "modern": {
+            "bundle": "controllers-modern.nxb",
+            "dialect": "portmaster-joydev-legacy",
+            "expected_live_guid": "19004ca6010000000100000000010000",
+            "face_layout": "modern",
+            "guid": "19000000010000000100000000010000",
+            "name": "Deeplay-keys",
+            "normalizer": "nxinput_pm_normalize_source",
+            "normalizer_version": "0.10.2",
+            "projection_gate": "semantic domain proof against the measured event-node key set",
+            "source_byte_intact_in_bundle": true,
+            "source_file_sha256": "bcb4c8297d3fbdff96ee68006fcd21a8576a7ef99f604f974b29fc8dc17261a8",
+            "source_line_number": 5,
+            "source_line_sha256": "36d1be1df41422284c754b3512f9daa56ad67e6ddbdefe8e21d116548ea879f4",
+            "source_path": "framework/tests/fixtures/muos-2601.1/gamecontrollerdb-rg40xx-h-modern.txt",
+            "target_domain": "current-sdl-evdev"
+        },
+        "retro": {
+            "bundle": "controllers-retro.nxb",
+            "dialect": "portmaster-joydev-legacy",
+            "expected_live_guid": "19004ca6010000000100000000010000",
+            "face_layout": "retro",
+            "guid": "19000000010000000100000000010000",
+            "name": "Deeplay-keys",
+            "normalizer": "nxinput_pm_normalize_source",
+            "normalizer_version": "0.10.2",
+            "projection_gate": "semantic domain proof against the measured event-node key set",
+            "source_byte_intact_in_bundle": true,
+            "source_file_sha256": "c7732e14f1c78ba1e0c0f24601c15886f9b213b7e9439ee32439afb791cc4016",
+            "source_line_number": 5,
+            "source_line_sha256": "606b991e8e78431ef453e11c605b2f3dc1c5f1b02e8fe7896f6b9adf6b89d5d6",
+            "source_path": "framework/tests/fixtures/muos-2601.1/gamecontrollerdb-rg40xx-h-retro.txt",
+            "target_domain": "current-sdl-evdev"
+        }
+    },
+    "fallback_capture": {
+        "device_model": "RG40XX-H",
+        "firmware": "muOS 2601.1",
+        "hardware_ran_during_source_verification": false,
+        "source": "official-firmware-image",
+        "source_path": "framework/tests/fixtures/muos-2601.1"
+    },
+    "profile": {
+        "bundle": "controllers.nxb",
+        "dialect": "sdl2-gamecontrollerdb",
+        "guid": "190000004b4800000011000000010000",
+        "name": "GO-Super Gamepad",
+        "source_file_sha256": "4238023705e73ea94b468975d1d15f71cc8d63f8880b3cd205aebbe2a75f2a0f",
+        "source_line_number": 1110,
+        "source_line_sha256": "da0447deece5800c7c845652cb1a73893e706cbdb08601e33a2b74c5da3daa64"
+    },
+    "schema": "org.nextos.controller-profile-source",
+    "schema_version": 1,
+    "scope": {
+        "candidate_admission_required": true,
+        "claim": "one exact muOS ROM GUID as a USER-PREFERENCE pair of authenticated variants plus one physically captured controller database source in the invariant base",
+        "face_layout_is_user_preference": true,
+        "muos_rom_fallback_claimed": true,
+        "universal_fallback_claimed": false
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "nx-input-red-fixture",
+  "schema_version": 1,
+  "id": "portmaster-handheld-rewrite-contradicts-cfw-mapping",
+  "status": "red-finding; behavior deliberately UNCHANGED in C2",
+  "found_by": "V4-CONTROLLERS-03 / C2 (2026-08-29)",
+  "what": "nxinput_rewrite_portmaster_handheld_mapping (src/nxinput.c) rewrites a/b/x/y/guide AFTER the PortMaster/CFW mapping was loaded, whenever nxinput_has_portmaster_handheld_gap matches the 12-button handheld topology. The rewrite forces a:b1,b:b0,x:b3,y:b2 and guide->rightstick:b9.",
+  "why_red": "The C1 corpus captured the REAL PortMaster mapping chosen by control.txt/get_controls on the RK3326 GO-Super family: GUID 190000004b4800000011000000010000 with a:b1,b:b0,x:b2,y:b3 (x/y NOT swapped). The rewrite therefore contradicts the sovereign CFW/PortMaster mapping on x/y for any matching topology, and rewriting after load is exactly the pattern the controllers front exists to remove.",
+  "physical_input_bytes": {
+    "source": "C1 CAPTURA-FISICA-CADEIA (dArkOS GO-Super, get_controls real)",
+    "sdl_controllerconfig": "190000004b4800000011000000010000,GO-Super Gamepad,a:b1,b:b0,back:b12,dpdown:b9,dpleft:b10,dpright:b11,dpup:b8,guide:b16,leftshoulder:b4,leftstick:b14,lefttrigger:b6,leftx:a0,lefty:a1,rightshoulder:b5,rightstick:b15,righttrigger:b7,rightx:a2,righty:a3,start:b13,x:b2,y:b3,platform:Linux,"
+  },
+  "rewrite_output_fields": {
+    "a": "a:b1",
+    "b": "b:b0",
+    "x": "x:b3",
+    "y": "y:b2",
+    "guide": "rightstick:b9"
+  },
+  "resolution": "Categories 3 (sovereign mapping) and 5 decide the fix; C2 only makes the divergence observable via NXINPUT-LOAD/NXINPUT-BINDING receipts."
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Action Squad.sh</path>
+    <name>Door Kickers: Action Squad</name>
+    <desc>Door Kickers: Action Squad is a side-scrolling action game where SWAT operators breach rooms and take down criminals, level by level.</desc>
+    <developer>KillHouse Games</developer>
+    <publisher>KillHouse Games</publisher>
+    <genre>Action, Shooter</genre>
+  </game>
+</gameList>

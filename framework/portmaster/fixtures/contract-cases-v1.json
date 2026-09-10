@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "contract": "contract-v1.json",
+  "purpose": "Reproduce the PortMaster API and platform boundaries without using a game port as universal evidence",
+  "cases": [
+    {
+      "id": "official-funcs-v1",
+      "source_ids": [
+        "portmaster-funcs-v1-7bdefd3"
+      ],
+      "source_paths": [
+        "PortMaster/funcs.txt"
+      ],
+      "evidence_scope": "official-api-contract",
+      "universal_evidence": false,
+      "expected": {
+        "pm_funcs_version": 1,
+        "required_functions": [
+          "bind_directories",
+          "pm_finish"
+        ],
+        "optional_or_missing_functions": [
+          "bind_files",
+          "pm_message",
+          "pm_platform_helper"
+        ],
+        "rule": "probe every function before calling it"
+      }
+    },
+    {
+      "id": "official-funcs-v2",
+      "source_ids": [
+        "portmaster-funcs-v2-f47c3cf"
+      ],
+      "source_paths": [
+        "PortMaster/funcs.txt"
+      ],
+      "evidence_scope": "official-api-contract",
+      "universal_evidence": false,
+      "expected": {
+        "pm_funcs_version": 2,
+        "required_functions": [
+          "bind_directories",
+          "pm_message",
+          "pm_gptokeyb_finish",
+          "pm_finish"
+        ],
+        "optional_or_missing_functions": [
+          "bind_files",
+          "pm_platform_helper"
+        ],
+        "rule": "the version number is diagnostic, not a feature test"
+      }
+    },
+    {
+      "id": "official-funcs-v3",
+      "source_ids": [
+        "portmaster-funcs-v3-bfa72ee",
+        "portmaster-gui-main-8f9ddc4"
+      ],
+      "source_paths": [
+        "PortMaster/funcs.txt"
+      ],
+      "evidence_scope": "official-api-contract",
+      "universal_evidence": false,
+      "expected": {
+        "pm_funcs_version": 3,
+        "required_functions": [
+          "bind_directories",
+          "bind_files",
+          "pm_message",
+          "pm_platform_helper",
+          "pm_finish"
+        ],
+        "optional_or_missing_functions": [],
+        "rule": "pm_platform_helper remains a best-effort platform hint"
+      }
+    },
+    {
+      "id": "official-generic-arkos-family",
+      "source_ids": [
+        "portmaster-gui-main-8f9ddc4"
+      ],
+      "source_paths": [
+        "PortMaster/control.txt",
+        "PortMaster/device_info.txt",
+        "PortMaster/funcs.txt"
+      ],
+      "evidence_scope": "official-platform-integration",
+      "universal_evidence": false,
+      "expected": {
+        "candidate_roots": [
+          "/roms/tools/PortMaster",
+          "/roms2/tools/PortMaster"
+        ],
+        "controls_owner": "active PortMaster control.txt",
+        "sudo_owner": "ESUDO when published",
+        "backend_policy": "inherit and probe"
+      }
+    },
+    {
+      "id": "official-rocknix-helper",
+      "source_ids": [
+        "portmaster-gui-main-8f9ddc4"
+      ],
+      "source_paths": [
+        "PortMaster/control.txt",
+        "PortMaster/mod_ROCKNIX.txt"
+      ],
+      "evidence_scope": "official-platform-integration",
+      "universal_evidence": false,
+      "expected": {
+        "candidate_roots": [
+          "/opt/system/Tools/PortMaster",
+          "/storage/.config/PortMaster"
+        ],
+        "helper_argument": "real game executable",
+        "helper_failure": "log and continue",
+        "backend_policy": "do not translate the firmware name into a forced renderer"
+      }
+    },
+    {
+      "id": "official-muos-split-root",
+      "source_ids": [
+        "portmaster-gui-main-8f9ddc4"
+      ],
+      "source_paths": [
+        "PortMaster/muos/control.txt"
+      ],
+      "evidence_scope": "official-platform-integration",
+      "universal_evidence": false,
+      "expected": {
+        "candidate_roots": [
+          "/mnt/mmc/MUOS/PortMaster"
+        ],
+        "canonical_root_owner": "controlfolder published by control.txt",
+        "armhf_scanner_literal": "PORT_32BIT=Y",
+        "controls_owner": "muOS PortMaster control"
+      }
+    },
+    {
+      "id": "official-knulli-exfat",
+      "source_ids": [
+        "portmaster-gui-main-8f9ddc4"
+      ],
+      "source_paths": [
+        "PortMaster/knulli/control.txt",
+        "PortMaster/mod_knulli.txt",
+        "PortMaster/funcs.txt"
+      ],
+      "evidence_scope": "official-platform-integration",
+      "universal_evidence": false,
+      "expected": {
+        "candidate_roots": [
+          "/userdata/system/.local/share/PortMaster"
+        ],
+        "port_data_root": "/userdata/roms/ports",
+        "bind_policy": "use a bind helper only if the port needs it and the active funcs defines it",
+        "filesystem_policy": "do not assume executable bits, symlinks or flock on game data"
+      }
+    },
+    {
+      "id": "official-harbourmaster-install",
+      "source_ids": [
+        "portmaster-gui-main-8f9ddc4",
+        "portmaster-docs-current"
+      ],
+      "source_paths": [
+        "PortMaster/pylibs/harbourmaster/info.py",
+        "PortMaster/pylibs/harbourmaster/captain.py",
+        "PortMaster/pylibs/harbourmaster/harbour.py",
+        "PortMaster/pylibs/harbourmaster/platform.py"
+      ],
+      "evidence_scope": "official-api-contract",
+      "universal_evidence": false,
+      "expected": {
+        "port_json_version": 4,
+        "legacy_upgrade_versions": [
+          1,
+          2,
+          3
+        ],
+        "directory_marker": "trailing slash",
+        "split_root_rule": "top-level launchers go to scripts_dir and remaining members go to ports_dir",
+        "archive_security": "reject absolute paths and parent traversal"
+      }
+    },
+    {
+      "id": "nextos-portmaster-control-bridge",
+      "source_ids": [
+        "nextos-portmaster-2026.07.05-0600"
+      ],
+      "source_paths": [
+        "sources/control.txt",
+        "scripts/nextos-portmaster-sync"
+      ],
+      "evidence_scope": "local-firmware-integration",
+      "universal_evidence": false,
+      "expected": {
+        "scope": "NextOS integration only",
+        "controls_owner": "the installed NextOS PortMaster control bridge",
+        "frontend_policy": "the shim never starts or restarts a service",
+        "mutation_policy": "observe hashes before and after tests; never rewrite sibling launchers"
+      }
+    },
+    {
+      "id": "nextos-global-rewrite-negative",
+      "source_ids": [
+        "nextos-portmaster-2026.07.05-0600"
+      ],
+      "source_paths": [
+        "scripts/portmaster_compatibility.sh"
+      ],
+      "evidence_scope": "negative-only",
+      "universal_evidence": false,
+      "expected": {
+        "reuse_forbidden": true,
+        "rejected_behaviors": [
+          "rewrite every launcher",
+          "force SDL display providers by device name",
+          "delete libraries from arbitrary port directories"
+        ],
+        "replacement": "probe and adjust only the current process after measured failure"
+      }
+    }
+  ]
+}

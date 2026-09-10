@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "angrybirds",
+  "version": "8.0.3-8031-universal-1",
+  "title": "Angry Birds Classic 8.0.3",
+  "abi_order": [
+    "armeabi-v7a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.rovio.angrybirds"
+    ],
+    "max_files": 32,
+    "max_bundle_apks": 32,
+    "max_member_bytes": 536870912,
+    "max_bundle_bytes": 1073741824
+  },
+  "extract": [
+    {
+      "id": "owner-apk",
+      "source": {
+        "kind": "container"
+      },
+      "destination": "game.apk",
+      "validate": {
+        "type": "file",
+        "min_size": 103362175,
+        "max_size": 103772201,
+        "sha256": [
+          "0d533148bde4e2067f9138736dde22e49dcc6d7191d20d5061e2afb7dd35b75d",
+          "8cdea1ef39a2a5c3bad5ac27050b491dbdf68050754241390cf9f0d3d24979b8"
+        ],
+        "magic_hex": "504b0304"
+      }
+    }
+  ],
+  "hooks": [],
+  "validate": [
+    {
+      "path": "game.apk",
+      "type": "file",
+      "min_size": 103362175,
+      "max_size": 103772201,
+      "sha256": [
+        "0d533148bde4e2067f9138736dde22e49dcc6d7191d20d5061e2afb7dd35b75d",
+        "8cdea1ef39a2a5c3bad5ac27050b491dbdf68050754241390cf9f0d3d24979b8"
+      ],
+      "magic_hex": "504b0304"
+    }
+  ],
+  "commit": [
+    "game.apk"
+  ],
+  "marker": ".nxextract-angrybirds.json",
+  "space": {
+    "safety_bytes": 134217728
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

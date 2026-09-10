@@ -1,0 +1,73 @@
+#pragma once
+#include "jni.h"
+#include "jni_internals.h"
+
+class RunnerJNILib : public Object {
+public:
+    static Class clazz;
+    Class *_getClass() { return &clazz; }
+
+    static void        (*Startup)(JNIEnv *env, jclass clz, String *_apkPath, String *_saveFilesDir, String *_packageName, int _sleepMargin, char useAssetManager);
+    static int         (*CreateVersionDSMap)(JNIEnv *env, jclass clz, int sdkint, String *RELEASE, String *MODEL, String *DEVICE, String *MANUFACTURER, String *CPU_ABI, String *CPU_ABI2, String *BOOTLOADER, String *BOARD, String *version, String *region, String *versionName, jboolean physicalKeyboardAvailable);
+    static int         (*Process)(JNIEnv *env, jclass clz, int _width, int _height, float _accelX, float _accelY, float _accelZ, int _keypadStatus, int _orientation, float _refreshrate);
+    static void        (*TouchEvent)(JNIEnv *env, jclass clz, int _type, int _index, float _x, float _y);
+    static void        (*RenderSplash)(JNIEnv *env, jclass clz, String *_apkPath, String *_splashName, int  _screenWidth, int _screenHeight, int _texWidth, int _texHeight,int _pngWidth, int _pngHeight);
+    static void        (*Resume)(JNIEnv *env, jclass clz, int _param );
+    static void        (*Pause)(JNIEnv *env, jclass clz, int _param );
+    static void        (*KeyEvent)(JNIEnv *env, jclass clz, int _type, int _keycode, int _keychar, int _eventSource);
+    static void        (*SetKeyValue)(JNIEnv *env, jclass clz, int _type, int _val, String *_valjstring);
+    static String *    (*GetAppID)(JNIEnv *env, jclass clz, int _param );
+    static String *    (*GetSaveFileName)(JNIEnv *env, jclass clz, String *_fileName );
+    static jobjectArray(*ExpandCompressedFile)(JNIEnv *env, jclass clz, String *_destLocalPath, String *_compressedFileName );
+    static void        (*iCadeEventDispatch)(JNIEnv *env, jclass clz, int _button, char _down);
+    static void        (*registerGamepadConnected)(JNIEnv *env, jclass clz, int _deviceIndex, int _buttonCount, int _axisCount);
+    static int         (*initGLFuncs)(JNIEnv *env, jclass clz, int _usingGL2);
+    static char        (*canFlip)(JNIEnv *env, jclass clz);
+    static void        (*GCMPushResult)(JNIEnv *env, jclass clz, String *_dataString, int _type, char _bSuccess);
+    /* ... */
+
+    static jfloatArray GamepadAxesValues(JNIEnv *env, jclass clz, void *ins, jint deviceIndex, jstring test);
+    static void MoveTaskToBack(JNIEnv *env, jclass clz);
+    static int OsGetInfo(JNIEnv *env, jclass clz);
+    static void ClearGamepads(JNIEnv *env, jclass clz);
+    static void EnumerateGamepadDevices(JNIEnv *env, jclass clz);
+
+    /* [NextOS/forager] Diálogos assíncronos que o jogo pede pelo RunnerJNILib e
+     * que faltavam: sem o ShowQuestionAsync a confirmação de "apagar save" abria
+     * (invisivelmente) e travava o slot esperando a resposta. Aqui respondemos o
+     * evento async de dialog (ev_async_dialog=63): "sim" para a pergunta de
+     * apagar, "nao" para qualquer outra, e sempre disparamos o evento para o jogo
+     * nunca ficar preso. */
+    static void ShowQuestionAsync(JNIEnv *env, jclass clz, jstring message, jint dialogId);
+    static void ShowMessageAsync(JNIEnv *env, jclass clz, jstring message, jint dialogId);
+    static jint ShowQuestion(JNIEnv *env, jclass clz, jstring message);
+    static void ShowMessage(JNIEnv *env, jclass clz, jstring message);
+
+    /* [NextOS/forager] extensoes Java do Forager (ForagerLicensing, BlitworksCloudSave,
+     * GooglePlay*, Notch, GMLive...). Ver RunnerJNILib.cpp. */
+    static jobject CallExtensionFunction(JNIEnv *env, jclass clz, jstring className,
+                                         jstring methodName, jint argCount,
+                                         jdoubleArray dArgs, jobjectArray oArgs);
+
+    // Video functions
+    static void VideoOpen(JNIEnv *env, jclass clz, jstring path);
+    static void VideoClose(JNIEnv *env, jclass clz);
+    static jboolean VideoDraw(JNIEnv *env, jclass clz, jobject bytebuffer);
+    static void VideoPause(JNIEnv *env, jclass clz);
+    static void VideoResume(JNIEnv *env, jclass clz);
+    static void VideoEnableLoop(JNIEnv *env, jclass clz, jdouble loop);
+    static void VideoSeekTo(JNIEnv *env, jclass clz, jdouble time);
+    static void VideoSetVolume(JNIEnv *env, jclass clz, jdouble volume);
+    static double VideoStatus(JNIEnv *env, jclass clz);
+    static double VideoGetFormat(JNIEnv *env, jclass clz);
+    static double VideoGetStatus(JNIEnv *env, jclass clz);
+    static double VideoW(JNIEnv *env, jclass clz);
+    static double VideoH(JNIEnv *env, jclass clz);
+    static double VideoGetDuration(JNIEnv *env, jclass clz);
+    static double VideoGetPosition(JNIEnv *env, jclass clz);
+    static double VideoGetVolume(JNIEnv *env, jclass clz);
+    static double VideoIsLooping(JNIEnv *env, jclass clz);
+   
+
+    static double mGameSpeedControl;
+};

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameList>
+  <game>
+    <path>./Final Fantasy IV 3D Remake.sh</path>
+    <name>Final Fantasy IV 3D Remake</name>
+    <desc>The 2007 Nintendo DS 3D remake of Final Fantasy IV, running natively on handheld Linux. The port replaces the Android runtime with a native one, built from its own ELF loader, a JNI bridge, an ARC1 virtual file system for the encrypted OBB, OpenSL ES over SDL audio, and GLES1 resolved at run time.</desc>
+    <developer>Matrix Software</developer>
+    <publisher>Square Enix</publisher>
+    <genre>Role Playing Game</genre>
+    <players>1</players>
+  </game>
+</gameList>

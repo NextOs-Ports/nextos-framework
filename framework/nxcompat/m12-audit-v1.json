@@ -1,0 +1,988 @@
+{
+  "schema": "nxcompat-m12-master-audit-v1",
+  "schema_version": 1,
+  "milestone": "M12",
+  "scope": "capability-probe-transactional-plan-typed-receipts-and-sanitized-runtime-report",
+  "closure": {
+    "requirements_accounted": 20,
+    "completed_requirement_count": 20,
+    "deferred_requirement_count": 0,
+    "master_milestone_complete": true,
+    "host_gate_closed": true,
+    "physical_device_evidence": false,
+    "physical_followup_milestones": [
+      "M12A",
+      "M22"
+    ]
+  },
+  "execution_claims": {
+    "host_gate_scope": "deterministic host fixtures and sealed fake graphics, audio and input boundaries",
+    "graphics_evidence": "production bridge requires a current window, GLES context, real GL strings, current EGL display/context, queried EGL config and positive drawable; host proof uses a test-owned fake boundary only",
+    "audio_evidence": "production adapter requires a non-fake backend, nonzero opened output, valid obtained spec, close and verified cleanup; host proof uses a sealed injected SDL boundary only",
+    "input_evidence": "production receipt requires controller API state and hotplug requires both event-watch and rescan proof; host proof uses test-owned topology only",
+    "physical_device_evidence": false,
+    "real_gpu_or_display_opened": false,
+    "real_audio_device_opened": false,
+    "real_controller_enumerated": false,
+    "external_guest_code_executed": false,
+    "hardware_ran": false,
+    "device_access": false,
+    "network_access": false
+  },
+  "evidence_pins": [
+    {
+      "path": "framework/contracts/declarative-v1.json",
+      "sha256": "586ad707fe32b3e5aa75e5def26c2f61cc71f3c35307aee0bace2bd575ea661f",
+      "role": "framework-contract"
+    },
+    {
+      "path": "framework/tests/test-matrix-v1.json",
+      "sha256": "b1addf7f618fb30387e763d14c108f92c0713df4a2955a6d3b7b4faed7e9e649",
+      "role": "automatic-gate-matrix"
+    },
+    {
+      "path": "framework/tests/run-safe-gates.sh",
+      "sha256": "db9d5d6b046a07eff4b60e4b8c7a34d792b8ad5a383a85bd446a374b093d6078",
+      "role": "canonical-safe-runner"
+    },
+    {
+      "path": "framework/tests/test_infrastructure.py",
+      "sha256": "bc582e5f74da48f50cbd36438dede8cff7d3234b214c40c355983ace1349ea6e",
+      "role": "infrastructure-policy-gate"
+    },
+    {
+      "path": "framework/nxcompat/VERSION",
+      "sha256": "27ecff1fcdaf65ab46c1bb99c1072d6d134a0e8dd97dd95cfa88696b9ed453b2",
+      "role": "version"
+    },
+    {
+      "path": "framework/nxcompat/CMakeLists.txt",
+      "sha256": "821ab16db69a1a2b7ca107856dccb0d8a19f78749564f36f8c2f3a9475db16f4",
+      "role": "build-contract"
+    },
+    {
+      "path": "framework/nxcompat/README.md",
+      "sha256": "ad5424009f77cd986ff42e9a8cd5be16439acef4278e776101ac56c47eaa5143",
+      "role": "public-documentation"
+    },
+    {
+      "path": "framework/nxcompat/capabilities-v1.json",
+      "sha256": "98766e066733013f1069df84bcba0f554c6b3a07e3afed230d70246400c09fa6",
+      "role": "capability-source"
+    },
+    {
+      "path": "framework/nxcompat/include/nxcompat.h",
+      "sha256": "8f0a577eb23cf8124930c41e7331f573a4653431ef1763e588b381b94c8b0a6f",
+      "role": "public-api"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat.c",
+      "sha256": "83b69ceed63332013a4e440c4bf57ac404a0d1689ab25d5a13bacc5ac4777e74",
+      "role": "core-validation"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_internal.h",
+      "sha256": "54d32d7e227d6614f3d454b962253c5d9f9d9807ad44960a4b7d325ecf868d53",
+      "role": "core-internal-contract"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_backend.c",
+      "sha256": "34c7b0cfe7ee8443b206e833793baff530404d07bad9e3449279350afd46b9b1",
+      "role": "backend-transaction"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_graphics.c",
+      "sha256": "479772b7865cc5e222890bae708b1148c168e93d0b92d065c4b227dcf85d5ced",
+      "role": "legacy-graphics-report"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_plan.c",
+      "sha256": "73e3629e73034edf946028cea36191a46ad5ae5f6edcd4238f87e82af733e2af",
+      "role": "plan-transaction"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_probe.c",
+      "sha256": "fca9b4e9879853a00814bcdf8c87d5a595ca6c9ca88003b33d766fc483e1368e",
+      "role": "capability-probe"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_receipts.c",
+      "sha256": "e04de4fee9599c57adc0cb0c15eb57eafe4834e301b5491eb68b1a48c7d19d57",
+      "role": "typed-receipts"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_registry.c",
+      "sha256": "fe29d9e71037fd3ea00f3cea06c1c40d01b41571c969e26c045fe5dc3bd51dd0",
+      "role": "finite-registry"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_registry_internal.h",
+      "sha256": "6cc50236c85d6304a58f9b5d78bf8e8c4b2c05c6e3f573654504b4437261a0d7",
+      "role": "registry-state"
+    },
+    {
+      "path": "framework/nxcompat/src/nxcompat_report.c",
+      "sha256": "bd9e2e1492aa70329c3138a85cc75b4ecb3f0c925f1112c00cb1c282693c8059",
+      "role": "sanitized-report"
+    },
+    {
+      "path": "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.h",
+      "sha256": "d572db5a6671dff066a5d769066a50323f1ccfef0227f652eac2f80f32c21bc7",
+      "role": "sdl2-public-adapter"
+    },
+    {
+      "path": "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.c",
+      "sha256": "c0c9c7d7879e87e0aa1516b9e2b93db5742707e84e1a4129da91f2dc236d8559",
+      "role": "sdl2-ownership-boundary"
+    },
+    {
+      "path": "framework/nxcompat/tests/test_nxcompat.c",
+      "sha256": "28562720e9a2b82f49b17c09662cd136f69cfd10a66ec7cc1d2a3918a30a2606",
+      "role": "core-host-tests"
+    },
+    {
+      "path": "framework/nxcompat/tests/test_m12_probe.c",
+      "sha256": "dc620a468c444e61cac38d56d43687e466db998d35a6b5eb28f3a25e9d346c2f",
+      "role": "probe-fixtures"
+    },
+    {
+      "path": "framework/nxcompat/tests/test_nxcompat_registry.c",
+      "sha256": "b9c54a8ae2e83690cbd498118d9eec1e578bab1abd0894807d58b8bf462ac5b0",
+      "role": "registry-receipt-tests"
+    },
+    {
+      "path": "framework/nxcompat/tests/test_sdl2_adapter.c",
+      "sha256": "ec1247343963f58ccf85631a3ec9f0ecf4bbc0c7000b36b2b5a0091777c45724",
+      "role": "sealed-sdl-tests"
+    },
+    {
+      "path": "framework/nxcompat/tests/test_install_smoke.c",
+      "sha256": "1ad00e24960d5b1631f79ab75b781a6bfc0e4c0a15062ee037a6cc216de277a7",
+      "role": "installed-link-smoke"
+    },
+    {
+      "path": "framework/nxcompat/tests/run-host.sh",
+      "sha256": "cb6d84826efc2a721ab17cc0e6252191b493ca24f8cb2e8656dc8bf2c05c1aed",
+      "role": "hermetic-host-gate"
+    },
+    {
+      "path": "framework/nxgl/CMakeLists.txt",
+      "sha256": "303627b5c769d9cae260c08764cffcb47b19a584f8d927c15a53b02958cecd58",
+      "role": "graphics-build-contract"
+    },
+    {
+      "path": "framework/nxgl/README.md",
+      "sha256": "fe7f26ba4b566b1392a9d9be6a30bb49f4855b6b77506f59d392cf702676c80b",
+      "role": "graphics-boundary-documentation"
+    },
+    {
+      "path": "framework/nxgl/include/nxgl_nxcompat.h",
+      "sha256": "5fc6891da225ec8859ab255d4d0a38994978cc7f29bad89dcf7cb778c06fbdb5",
+      "role": "graphics-bridge-api"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_internal.h",
+      "sha256": "5556a43bee784e9ca16a37ccf3956aab5248405c6a907b8bad9ebbf0b2aeb584",
+      "role": "graphics-private-state"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_sdl2.c",
+      "sha256": "e0daed4a05c2c07269a23230d3041befa56b9fceb0f871f1f1228eda05fd2022",
+      "role": "graphics-environment-transaction"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_nxcompat.c",
+      "sha256": "2971cb98a7e72a66de35eacaf4e58805786e14cecafc4adc772fceab220008bd",
+      "role": "graphics-receipt-bridge"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_environment.c",
+      "sha256": "187edecf5c75c587dce2fb2de488e20e68f9ec1c43a9d73cbc766a76a7cd4fed",
+      "role": "sealed-graphics-environment-test"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_nxcompat.c",
+      "sha256": "a97b0c74cc49fed91bc37a18484135c11950de2ef84aefaf730728fabd36b178",
+      "role": "fake-graphics-bridge-test"
+    },
+    {
+      "path": "framework/nxinput/CMakeLists.txt",
+      "sha256": "53029df629825b65a7c9092e2d65bbde22ae4963e74c7cb4cac2d03a3d4f7589",
+      "role": "input-build-contract"
+    },
+    {
+      "path": "framework/nxinput/README.md",
+      "sha256": "6de007d694b62cae23cce4d15a80a532f6524ea5de03d2a73e3f6459099f9e6a",
+      "role": "input-boundary-documentation"
+    },
+    {
+      "path": "framework/nxinput/include/nxinput_nxcompat.h",
+      "sha256": "e57f6f79ebacaa05bd9825929aced03f0db4ecd71385fb92b74d8d9ae688c881",
+      "role": "input-bridge-api"
+    },
+    {
+      "path": "framework/nxinput/src/nxinput_nxcompat.c",
+      "sha256": "6cbfd89ac96fe232dc1a73233af943338142c7b32d7bf095510eecba7b3d09c3",
+      "role": "input-receipt-bridge"
+    },
+    {
+      "path": "framework/nxinput/tests/test_nxinput_nxcompat.c",
+      "sha256": "bf88ca7929bd5eddf35a0d0872a6ea6421530a76120effe19d6a391a5381f1f5",
+      "role": "fake-input-bridge-test"
+    },
+    {
+      "path": "framework/nxinput/tests/static_no_device_name_fallback.sh",
+      "sha256": "5b8c7a4f38401ae63e4783aa7b214553011f390e2b018c925c0c5914eb2a63ce",
+      "role": "input-name-policy-gate"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "M12-001",
+      "requirement": "congelar API de probe/plan/report",
+      "disposition": "verified",
+      "claim": "API 2 is current while API 1 numeric values, leading probe layout and legacy entry points remain accepted and canary-tested.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/include/nxcompat.h",
+          "tokens": [
+            "#define NXCOMPAT_API_VERSION_V1 1u",
+            "#define NXCOMPAT_API_VERSION_V2 2u",
+            "#define NXCOMPAT_PROBE_OPTIONS_V1_SIZE"
+          ]
+        },
+        {
+          "path": "framework/contracts/declarative-v1.json",
+          "tokens": [
+            "\"id\": \"nxcompat\"",
+            "\"current_version\": \"0.5.0\"",
+            "\"api_version\": 2"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_m12_probe.c",
+          "tokens": [
+            "NXCOMPAT_PROBE_OPTIONS_V1_SIZE",
+            "legacy.before",
+            "legacy.after"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M12-002",
+      "requirement": "detectar arquitetura/userland sem nome de aparelho",
+      "disposition": "verified_synthetic_only",
+      "claim": "Architecture and userland classification consume compile-time ISA, uname and strict ELF class/machine evidence; labels never promote architecture or capability.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_probe.c",
+          "tokens": [
+            "__ARM_ARCH >= 7",
+            "ELF e_machine only proves 32-bit ARM",
+            "NXCOMPAT_OBSERVATION_USERLAND_MACHINE",
+            "nxcompat_probe_generic_library_arches",
+            "not evidence by itself"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_m12_probe.c",
+          "tokens": [
+            "ELF32 cannot prove EM_AARCH64",
+            "host.device_model[0] == '\\0'"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat.c",
+          "tokens": [
+            "write_aarch64_shared_object",
+            "NXCOMPAT_CAP_AARCH64_LIBS",
+            "NXCOMPAT_CAP_I386_LIBS"
+          ]
+        }
+      ],
+      "limitations": [
+        "No physical userland was classified by this milestone ledger."
+      ]
+    },
+    {
+      "id": "M12-003",
+      "requirement": "detectar GLES/EGL por abertura e strings reais",
+      "disposition": "verified_boundary_only",
+      "claim": "The production nxgl bridge publishes only from a current context, real GL strings and current EGL objects; the automatic host evidence is a test-owned fake boundary and is not physical GPU evidence.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_nxcompat.c",
+          "tokens": [
+            "SDL_GL_GetCurrentContext() != sdl_context",
+            "NXCOMPAT_GRAPHICS_PROOF_GL_STRINGS_REAL",
+            "NXCOMPAT_GRAPHICS_PROOF_EGL_DISPLAY_CURRENT"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/src/nxcompat_receipts.c",
+          "tokens": [
+            "NXCOMPAT_REASON_GRAPHICS_GLES_OPENED",
+            "NXCOMPAT_REASON_GRAPHICS_EGL_OPENED"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_nxcompat.c",
+          "tokens": [
+            "fake_context",
+            "nxgl_nxcompat_publish_context"
+          ]
+        }
+      ],
+      "limitations": [
+        "No real GPU, EGL display or physical device was opened by the M12 host gate."
+      ]
+    },
+    {
+      "id": "M12-004",
+      "requirement": "detectar drawable/display stack por capacidade",
+      "disposition": "verified_boundary_only",
+      "claim": "Drawable evidence requires positive dimensions from an opened current graphics context; host coverage injects the boundary and does not claim a real display stack.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_nxcompat.c",
+          "tokens": [
+            "SDL_GL_GetDrawableSize",
+            "NXCOMPAT_GRAPHICS_PROOF_DRAWABLE_POSITIVE",
+            "NXCOMPAT_GRAPHICS_PROOF_EGL_CONFIG_QUERIED"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat_registry.c",
+          "tokens": [
+            "NXCOMPAT_CAPABILITY_GRAPHICS_DRAWABLE",
+            "NXCOMPAT_EVIDENCE_OPENED"
+          ]
+        }
+      ],
+      "limitations": [
+        "The host fixture is not evidence of a physical drawable or display server."
+      ]
+    },
+    {
+      "id": "M12-005",
+      "requirement": "detectar memória/limites sem perfis rígidos de modelo",
+      "disposition": "verified_synthetic_only",
+      "claim": "Effective memory is the conservative minimum of proven available memory, cgroup headroom and address-space headroom; incomplete finite limits fail closed.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_probe.c",
+          "tokens": [
+            "nxcompat_effective_min",
+            "cgroup_incomplete || rlimit_incomplete",
+            "NXCOMPAT_MEMORY_SOURCE_RLIMIT_AS"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_m12_probe.c",
+          "tokens": [
+            "test_default_cgroup_mounts_ancestors_and_hybrid",
+            "finite RLIMIT without VmSize",
+            "result.memory_effective_kib == 0u"
+          ]
+        }
+      ],
+      "limitations": [
+        "Memory edge cases are proven with hermetic observations and filesystem fixtures, not a device sample."
+      ]
+    },
+    {
+      "id": "M12-006",
+      "requirement": "detectar áudio por abertura real e rejeitar dummy/disk",
+      "disposition": "verified_boundary_only",
+      "claim": "Production requires a non-fake backend plus a nonzero opened output, obtained valid spec, close and cleanup; the host test uses an injected sealed SDL boundary and opens no real audio device.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.c",
+          "tokens": [
+            "nxcompat_sdl2_open_audio_device",
+            "nxcompat_sdl2_close_audio_device",
+            "NXCOMPAT_AUDIO_PROOF_DEVICE_OPENED"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.h",
+          "tokens": [
+            "nonzero device ID",
+            "verified cleanup"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_sdl2_adapter.c",
+          "tokens": [
+            "test_audio_fake_device_lifecycle",
+            "fake_audio.open_calls",
+            "fake_audio.close_calls"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/tests/run-host.sh",
+          "tokens": [
+            "SDL_AUDIODRIVER=dummy",
+            "sealed SDL test can reach a real audio device API"
+          ]
+        }
+      ],
+      "limitations": [
+        "No physical output, audibility or real audio driver was validated."
+      ]
+    },
+    {
+      "id": "M12-007",
+      "requirement": "detectar controles e hotplug por APIs disponíveis",
+      "disposition": "verified_boundary_only",
+      "claim": "Controller and topology receipts are typed; database material remains observed evidence, while an opened controller plus an explicit runtime or engine mapping source proves resolution; mapping evidence generations never move backward; hotplug becomes active only when both event-watch and rescan proofs exist. Host evidence is a test-owned topology without native controller enumeration.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_receipts.c",
+          "tokens": [
+            "NXCOMPAT_INPUT_PROOF_EVENT_WATCH_ACTIVE",
+            "NXCOMPAT_INPUT_PROOF_RESCAN_ACTIVE",
+            "NXCOMPAT_REASON_INPUT_HOTPLUG_ACTIVE",
+            "NXCOMPAT_REASON_INPUT_CONTROLLER_MAPPING_RESOLVED",
+            "NXCOMPAT_INPUT_MAPPING_RUNTIME",
+            "nxcompat_input_mapping_generation"
+          ]
+        },
+        {
+          "path": "framework/nxinput/src/nxinput_nxcompat.c",
+          "tokens": [
+            "nxinput_connected_count",
+            "NXCOMPAT_INPUT_PROOF_INITIAL_SCAN_DONE"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxinput/tests/test_nxinput_nxcompat.c",
+          "tokens": [
+            "nxinput_nxcompat_publish_context",
+            "INPUT_HOTPLUG",
+            "NXCOMPAT_EVIDENCE_OPENED",
+            "NXCOMPAT_REASON_INPUT_CONTROLLER_MAPPING_RESOLVED"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat_registry.c",
+          "tokens": [
+            "NXCOMPAT_INPUT_MAPPING_DATABASE",
+            "NXCOMPAT_EVIDENCE_OBSERVED",
+            "restored_probe_generation"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/tests/run-host.sh",
+          "tokens": [
+            "nxinput fake bridge can enumerate a native controller",
+            "hardware_ran=0"
+          ]
+        }
+      ],
+      "limitations": [
+        "No physical controller or physical hotplug event was observed."
+      ]
+    },
+    {
+      "id": "M12-008",
+      "requirement": "preservar hints herdados antes de fallback",
+      "disposition": "verified_host_only",
+      "claim": "Backend negotiation snapshots every declared inherited hint and attempts it before any controlled fallback.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_backend.c",
+          "tokens": [
+            "nxcompat_snapshot_environment",
+            "result->inherited_count = inherited_count",
+            "outcome = nxcompat_attempt_once"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat.c",
+          "tokens": [
+            "test_backend_negotiation",
+            "environment_equals"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_environment.c",
+          "tokens": [
+            "test_exact_video_environment_transaction",
+            "NXGL_VIDEO_ENV_VALUE_MAX + 1u"
+          ]
+        }
+      ],
+      "limitations": [
+        "Validated with process-local host environment fixtures."
+      ]
+    },
+    {
+      "id": "M12-009",
+      "requirement": "remover hint inválido só depois de falha registrada",
+      "disposition": "verified_host_only",
+      "claim": "The first failure and cleanup are recorded before inherited hints may be cleared, and every exit restores the snapshot or reports rollback failure.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_backend.c",
+          "tokens": [
+            "Only at this point may inherited hints be removed",
+            "nxcompat_clear_environment",
+            "nxcompat_restore_environment"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_with_video_environment_cleared",
+            "nxgl_restore_video_environment",
+            "callback-created-alias"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat.c",
+          "tokens": [
+            "result.hints_removed",
+            "result.env_restored"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_environment.c",
+          "tokens": [
+            "run_retry_case(\"inherited-video\", NULL, 0, 1",
+            "check_environment(video, alias)"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M12-010",
+      "requirement": "fazer apenas uma retry controlada",
+      "disposition": "verified_host_only",
+      "claim": "API 2 performs at most two total attempts: the inherited or normal attempt and exactly one normal autodetect retry; there is no discovery callback.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/include/nxcompat.h",
+          "tokens": [
+            "exactly one normal autodetect attempt",
+            "API v2 deliberately has no discover callback"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/src/nxcompat_backend.c",
+          "tokens": [
+            "outcome = nxcompat_attempt_once(options, result, &report)",
+            "result->hints_removed = 1"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat.c",
+          "tokens": [
+            "legacy_discover_calls == 0",
+            "result.attempt_count == 2"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M12-011",
+      "requirement": "manter vídeo e áudio independentes",
+      "disposition": "verified_host_only",
+      "claim": "Every negotiation has one explicit backend kind and independent hint names; audio failure is returned separately so the loader may continue muted.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.h",
+          "tokens": [
+            "loader can continue muted.",
+            "nxcompat_sdl2_negotiate_audio_v2"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.c",
+          "tokens": [
+            "SDL_INIT_AUDIO",
+            "SDL_INIT_VIDEO"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_sdl2_adapter.c",
+          "tokens": [
+            "NXCOMPAT_BACKEND_VIDEO",
+            "NXCOMPAT_BACKEND_AUDIO"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M12-012",
+      "requirement": "não promover capability por nome de CFW/device",
+      "disposition": "verified_static_only",
+      "claim": "The finite registry accepts typed evidence only; model and firmware labels are diagnostic fields and never capability policy inputs.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/include/nxcompat.h",
+          "tokens": [
+            "free-form strings can never create another capability",
+            "diagnostic/free-form reports never satisfy requirements"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/src/nxcompat_registry.c",
+          "tokens": [
+            "The table is deliberately positional",
+            "nxcompat_registry_seed_host"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxinput/tests/static_no_device_name_fallback.sh",
+          "tokens": [
+            "forbidden device/firmware token"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M12-013",
+      "requirement": "representar reason codes estáveis",
+      "disposition": "verified",
+      "claim": "Public numeric reason codes are explicit, append-only and validated as an exact frozen map by the M12 audit gate.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/include/nxcompat.h",
+          "tokens": [
+            "Numeric values are part of the public contract",
+            "NXCOMPAT_REASON_REPORT_SANITIZED = 550"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat_registry.c",
+          "tokens": [
+            "test_sanitized_runtime_report",
+            "NXCOMPAT_REASON_CAPABILITY_STALE"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M12-014",
+      "requirement": "gerar relatório para logo/log sem dado pessoal",
+      "disposition": "verified_synthetic_only",
+      "claim": "Runtime JSON contains finite capabilities and sanitized public labels while omitting paths, sockets, controller identities and raw extension text.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_report.c",
+          "tokens": [
+            "nxcompat_runtime_report_sanitize",
+            "[redacted]",
+            "NXCOMPAT_REASON_REPORT_SANITIZED"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/include/nxcompat.h",
+          "tokens": [
+            "Paths, sockets, controller identities",
+            "nxcompat_format_runtime_json"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat_registry.c",
+          "tokens": [
+            "test_sanitized_runtime_report",
+            "report.graphics.gl_extensions[0] == '\\0'"
+          ]
+        }
+      ],
+      "limitations": [
+        "Privacy adversarial inputs are synthetic; no physical-device label was collected."
+      ]
+    },
+    {
+      "id": "M12-015",
+      "requirement": "testar probes com fixtures sintéticas",
+      "disposition": "verified_synthetic_only",
+      "claim": "A hermetic API 2 provider and owned filesystem fixtures cover architecture, malformed observations, cgroup namespaces, hybrid hierarchies, limits and API 1 canaries.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_probe.c",
+          "tokens": [
+            "custom_provider",
+            "NXCOMPAT_PROVIDER_ABSENT",
+            "nxcompat_probe_root_valid"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_m12_probe.c",
+          "tokens": [
+            "test_hermetic_effective_memory",
+            "test_default_cgroup_namespace_relative_and_incomplete",
+            "test_api_v1_runtime_prefix"
+          ]
+        }
+      ],
+      "limitations": [
+        "The fixtures intentionally execute no guest and access no device or network."
+      ]
+    },
+    {
+      "id": "M12-016",
+      "requirement": "testar falhas parciais e rollback de backend",
+      "disposition": "verified_host_only",
+      "claim": "Fault-injected environment apply, cleanup and restore failures verify transactional rollback, stable reasons and byte-identical BUSY paths.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_plan.c",
+          "tokens": [
+            "NXCOMPAT_ACTION_V2_ROLLED_BACK",
+            "NXCOMPAT_REASON_ENV_ROLLBACK_FAILED",
+            "nxcompat_global_arbiter_try_acquire"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/src/nxcompat_backend.c",
+          "tokens": [
+            "NXCOMPAT_BACKEND_V2_ROLLBACK_FAILED",
+            "NXCOMPAT_REASON_ENV_RESTORE_FAILED"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat.c",
+          "tokens": [
+            "test_backend_negotiation",
+            "test_plan_v2"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M12-017",
+      "requirement": "integrar adaptador SDL2 sem tomar ownership indevido",
+      "disposition": "verified_boundary_only",
+      "claim": "The SDL adapter records entry ownership, releases only acquired subsystem flags and verifies the exact entry state after every attempt; sealed tests cannot reach real audio device APIs.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.c",
+          "tokens": [
+            "initialized_on_entry",
+            "owned_flags",
+            "ownership rollback did not restore entry state"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.h",
+          "tokens": [
+            "never releases a subsystem owned by the caller"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_clear_video_environment",
+            "nxgl_restore_video_environment",
+            "SDL_InitSubSystem(SDL_INIT_VIDEO)"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_sdl2_adapter.c",
+          "tokens": [
+            "test_audio_fake_device_lifecycle",
+            "test_video_ownership"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_environment.c",
+          "tokens": [
+            "callback_result",
+            "create_alias_in_callback",
+            "check_environment(video, alias)"
+          ]
+        }
+      ],
+      "limitations": [
+        "Ownership is proven at a sealed host boundary, not during a physical engine run."
+      ]
+    },
+    {
+      "id": "M12-018",
+      "requirement": "auditar concorrência/estado global",
+      "disposition": "verified_host_only",
+      "claim": "Probe, plan apply and backend mutation share a nonblocking process-global arbiter; registries remain caller-owned and publish receipts transactionally.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/src/nxcompat_probe.c",
+          "tokens": [
+            "nxcompat_global_arbiter_try_acquire",
+            "__sync_lock_test_and_set",
+            "nxcompat_global_arbiter_release"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/src/nxcompat_receipts.c",
+          "tokens": [
+            "nxcompat_registry staged",
+            "staged.generation++"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat.c",
+          "tokens": [
+            "arbiter_busy_in_attempt",
+            "status_ran_after_unlock"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat_registry.c",
+          "tokens": [
+            "test_registry_hostile_invariants_and_overflow",
+            "memcmp(snapshot, registry"
+          ]
+        }
+      ],
+      "limitations": [
+        "Concurrency is exercised on the host without guest threads or hardware callbacks."
+      ]
+    },
+    {
+      "id": "M12-019",
+      "requirement": "documentar capabilities opcionais vs baseline",
+      "disposition": "verified",
+      "claim": "The registry freezes observation, baseline-graphics, port-declared, optional-enhancement and optional-runtime roles, with no capability required by default.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/capabilities-v1.json",
+          "tokens": [
+            "\"default_required\": false",
+            "\"baseline-graphics\"",
+            "\"optional-enhancement\"",
+            "\"optional-runtime\""
+          ]
+        },
+        {
+          "path": "framework/nxcompat/README.md",
+          "tokens": [
+            "source of truth único",
+            "mesmos 31 IDs",
+            "formatos opcionais",
+            "cross-system usa a fase `READY`"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/test_nxcompat_registry.c",
+          "tokens": [
+            "NXCOMPAT_CAPABILITY_COUNT",
+            "input.hotplug"
+          ]
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "id": "M12-020",
+      "requirement": "fechar gate nxcompat",
+      "disposition": "verified_host_only",
+      "claim": "The automatic M12 closure combines strict static audit with GCC and Clang sanitizer host builds and sealed fake bridges; it executes no guest, hardware, device or network access and supplies no physical-device evidence.",
+      "implementation": [
+        {
+          "path": "framework/nxcompat/tests/run-host.sh",
+          "tokens": [
+            "Hermetic M12 host gate",
+            "NXGL_BUILD_NATIVE_TESTS=OFF",
+            "NXINPUT_BUILD_NATIVE_TESTS=OFF"
+          ]
+        },
+        {
+          "path": "framework/tests/test-matrix-v1.json",
+          "tokens": [
+            "\"id\": \"nxcompat-host\"",
+            "\"id\": \"nxcompat-m12-audit\""
+          ]
+        },
+        {
+          "path": "framework/tests/run-safe-gates.sh",
+          "tokens": [
+            "run_gate nxcompat-m12-audit",
+            "framework/nxcompat/tests/test_m12_audit.py"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxcompat/tests/run-host.sh",
+          "tokens": [
+            "test-nxgl-environment",
+            "readelf -d",
+            "guest_code_executed=0",
+            "hardware_ran=0",
+            "device_access=0",
+            "network_access=0"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/tests/test_install_smoke.c",
+          "tokens": [
+            "Link-only smoke",
+            "nxcompat_sdl2_negotiate_audio_v2",
+            "nxgl_nxcompat_publish_context",
+            "nxinput_nxcompat_publish_context"
+          ]
+        },
+        {
+          "path": "framework/tests/test_infrastructure.py",
+          "tokens": [
+            "def check_m12_host_gate(matrix):",
+            "installed consumer smoke must be link-only",
+            "SDL symbol barrier runs after nxcompat CTest"
+          ]
+        }
+      ],
+      "limitations": [
+        "Physical graphics, audio, controller and device validation remains explicitly outside this host-only M12 closure."
+      ]
+    }
+  ]
+}

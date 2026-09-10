@@ -1,0 +1,23 @@
+# Artefatos de build e de execucao — nunca versionados.
+.build/
+*-universal
+*.zip
+*.zip.sha256
+debug.log
+debug.prev.log
+nxextract.log
+userdata/
+__pycache__/
+*.pyc
+
+# Dado de jogo NUNCA entra no repositorio (regra do projeto).
+gamedata/*
+!gamedata/README.txt
+game.apk
+libcocos2dcpp.so
+libfmod.so
+/games/gdsubzero/.build/
+/games/gdsubzero/tmpbuild/
+/games/gdsubzero/dist/
+gdsubzero-universal
+geometrydash-universal

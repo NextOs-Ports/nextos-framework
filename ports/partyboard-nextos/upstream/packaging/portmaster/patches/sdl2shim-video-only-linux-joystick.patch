@@ -1,0 +1,29 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1111111..2222222 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -379,5 +379,6 @@ dep_option(SDL_KMSDRM              "Use KMS DRM video driver" ${UNIX_SYS} "SDL_
+ dep_option(SDL_KMSDRM_SHARED       "Dynamically load KMS DRM support" ON "SDL_KMSDRM;SDL_DEPS_SHARED" OFF)
+ set_option(SDL_SDL2_BACKEND        "Use SDL2-delegating video/audio backends" OFF)
++set_option(SDL_SDL2_BACKEND_JOYSTICK "Use SDL2-delegating joystick backend when SDL_SDL2_BACKEND is enabled" ON)
+ set(SDL_SPIRV_CROSS_DIR "" CACHE PATH "Path to SPIRV-Cross source for GLES GPU backend")
+ set_option(SDL_OFFSCREEN           "Use offscreen video driver" ON)
+ dep_option(SDL_DUMMYCAMERA         "Support the dummy camera driver" ON SDL_CAMERA OFF)
+@@ -391,7 +392,7 @@ dep_option(SDL_HIDAPI_JOYSTICK     "Use HIDAPI for low level joystick drivers"
+ # When using the SDL2 backend, force-disable HIDAPI joystick — our SDL2
+ # joystick driver delegates to SDL2's evdev path which handles all devices.
+ # HIDAPI claims devices at higher priority but can't parse generic HID reports.
+-if(SDL_SDL2_BACKEND)
++if(SDL_SDL2_BACKEND AND SDL_SDL2_BACKEND_JOYSTICK)
+   set(SDL_HIDAPI_JOYSTICK OFF CACHE BOOL "" FORCE)
+ endif()
+ dep_option(SDL_VIRTUAL_JOYSTICK    "Enable the virtual-joystick driver" ON SDL_HIDAPI OFF)
+@@ -2103,7 +2104,7 @@ if(SDL_JOYSTICK)
+     if(FREEBSD OR NETBSD OR OPENBSD OR BSDI)
+       CheckUSBHID()
+     endif()
+-    if(SDL_SDL2_BACKEND)
++    if(SDL_SDL2_BACKEND AND SDL_SDL2_BACKEND_JOYSTICK)
+       set(SDL_JOYSTICK_SDL2 1)
+       # Disable HIDAPI — our SDL2 driver delegates to SDL2's evdev path
+       # which handles all devices. HIDAPI would claim devices with higher

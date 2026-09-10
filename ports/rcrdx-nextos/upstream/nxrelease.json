@@ -1,0 +1,292 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "rcrdx",
+    "version": "1.0.0",
+    "profile": "universal-portmaster",
+    "launcher": "Retro City Rampage DX.sh",
+    "launcher_chain": [
+      "Retro City Rampage DX.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.16",
+      "config_path": "rcrdx/nxport.json",
+      "config_sha256": "f87ebf90ba1c300986b6594be69ce50860b8591539c6faebe4c001542a0730ee"
+    },
+    "port_dir": "rcrdx",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "file": "rcrdx/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786752000,
+    "max_glibc": "2.27",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "rcrdx/nxextract/nxextract.py",
+    "version": "1.2.10",
+    "minimum_version": "1.2.10",
+    "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5",
+    "runner_path": "rcrdx/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "rcrdx/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "ui_path": "rcrdx/nxextract/nxextract-ui",
+    "ui_sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+    "recipe_path": "rcrdx/extractor.json",
+    "recipe_sha256": "1eae8a2f19a9fed490583e5aef91e0d409d60018e8da20c0455b169de87c4261"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libEGL.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libGLESv2.so.2",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    }
+  ],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "rcrdx/port.json",
+      "sha256": "194ca5fdbd091880822d5f58062e77c75b7baa4d48706566183e20b99e103f8a"
+    },
+    "gameinfo_xml": {
+      "path": "rcrdx/gameinfo.xml",
+      "sha256": "5c3468c91b047928e1e2c39e78ca3969ffb1ecf1f63b283de9c44cceb8b495ea"
+    },
+    "images": []
+  },
+  "files": [
+    {
+      "source": "Retro City Rampage DX.sh",
+      "target": "Retro City Rampage DX.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "d0c1b0c91c633e9c5400f6a8b53e16701f21de38f94e23289407a04fc7644afb"
+    },
+    {
+      "source": "nxport.json",
+      "target": "rcrdx/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "f87ebf90ba1c300986b6594be69ce50860b8591539c6faebe4c001542a0730ee"
+    },
+    {
+      "source": "nxsplash-nextos",
+      "target": "rcrdx/nxsplash-nextos",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "NXSplash 0.1.2 canonical AArch64 release",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "rcrdx-nextos",
+      "target": "rcrdx/rcrdx-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "sha256": "a515525e728760c6b1e4578966026593c46b9c10a1b44d61a06566d1730d6a03",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build_universal.sh; pinned Debian Buster AArch64 builder sha256:58ce6f1271ae1c8a2006ff7d3e54e9874d839f573d8009c20154ad0f2fb0a225; API headers and static zlib from read-only NextOS sysroot",
+      "needed": [
+        "libEGL.so.1",
+        "libGLESv2.so.2",
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0"
+      ],
+      "soname": null
+    },
+    {
+      "source": "nxproject.json",
+      "target": "rcrdx/nxproject.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "a80a808dda9cce7421882099f08bd52b8971b512a04d07a65375338aa6bc579c"
+    },
+    {
+      "source": "extractor.json",
+      "target": "rcrdx/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "1eae8a2f19a9fed490583e5aef91e0d409d60018e8da20c0455b169de87c4261"
+    },
+    {
+      "source": "nxextract/nxextract.py",
+      "target": "rcrdx/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "source": "nxextract/run-extractor.sh",
+      "target": "rcrdx/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "rcrdx/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "nxextract/nxextract-ui",
+      "target": "rcrdx/nxextract/nxextract-ui",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "NXExtract 1.2.10 canonical graphical AArch64 UI",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "port.json",
+      "target": "rcrdx/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "194ca5fdbd091880822d5f58062e77c75b7baa4d48706566183e20b99e103f8a"
+    },
+    {
+      "source": "gameinfo.xml",
+      "target": "rcrdx/gameinfo.xml",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "5c3468c91b047928e1e2c39e78ca3969ffb1ecf1f63b283de9c44cceb8b495ea"
+    },
+    {
+      "source": "README.md",
+      "target": "rcrdx/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "1947d2dd2198cf3178001b0177cd8ade08563afbda8ea7cabd1aff023c2f2673"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "rcrdx/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "43f66268da9832fd4af6da32c1f0ac57977042b7c569f52a8c3daf1815c73237"
+    },
+    {
+      "source": "LICENSE",
+      "target": "rcrdx/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "source": "NOTICE.md",
+      "target": "rcrdx/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "575435c9f8735f89266fdb30037841cf913084d357cbf3200f914cc543b83867"
+    },
+    {
+      "source": "version.txt",
+      "target": "rcrdx/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+    },
+    {
+      "source": "GENERATION.json",
+      "target": "rcrdx/GENERATION.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "61b6414e7f1c5cf3f11832c09a0cadd4c1252f8dd6454c7bfa1cc01e947ca467"
+    },
+    {
+      "source": "adapter/adapter-contract.json",
+      "target": "rcrdx/adapter/adapter-contract.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "2c6b370bc3520fc55491129cc10e49f676684f6f0ca99c17c8421d64533cce8c"
+    },
+    {
+      "source": "gamedata/COLOQUE-O-APK-AQUI.txt",
+      "target": "rcrdx/gamedata/COLOQUE-O-APK-AQUI.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "115e209db79b43f64cdb09ba131d7ac9fc1beabb51f823beb323da8189fd6a82"
+    },
+    {
+      "source": "nxextract-version.txt",
+      "target": "rcrdx/nxextract-version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "4304275f30e076c76abdc0f280f0fdd5537f1ac700953ba1908e29a64d531919"
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "rcrdx/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "licenses/nxsplash-MIT.txt",
+      "target": "rcrdx/licenses/nxsplash-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    }
+  ],
+  "exceptions": []
+}

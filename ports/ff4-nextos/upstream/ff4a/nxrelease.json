@@ -1,0 +1,263 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "ff4a",
+    "version": "1.0.6",
+    "profile": "universal-portmaster",
+    "launcher": "Final Fantasy IV The After Years.sh",
+    "launcher_chain": [
+      "Final Fantasy IV The After Years.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.30",
+      "config_path": "ff4a/nxport.json",
+      "config_sha256": "0002684e0dfeb9bc05cab12fe33cb5619c4a1aef19ef2b2524ad9710a0792578"
+    },
+    "port_dir": "ff4a",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "file": "ff4a/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1787529600,
+    "max_glibc": "2.30",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "ff4a/nxextract/nxextract.py",
+    "version": "1.2.18",
+    "minimum_version": "1.2.14",
+    "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f",
+    "runner_path": "ff4a/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "ff4a/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "ui_path": "ff4a/nxextract/nxextract-ui",
+    "ui_sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+    "recipe_path": "ff4a/extractor.json",
+    "recipe_sha256": "ca90092745c3872b72ceab2dbb0d66d3d4de4cd68038e38772dc36c9150fbc04"
+  },
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "ff4a/port.json",
+      "sha256": "6cb10f3a6d53078bc9cc0dede8d2c1c8873f75fc6907fc2d4c51a0eee44d0032"
+    },
+    "gameinfo_xml": {
+      "path": "ff4a/gameinfo.xml",
+      "sha256": "7c05f372ea4aae9cf6ef9ba3fc03847c1b1883582a33a7b15950134964408a4c"
+    },
+    "images": []
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libz.so.1",
+      "provider": "firmware"
+    }
+  ],
+  "files": [
+    {
+      "source": "Final Fantasy IV The After Years.sh",
+      "target": "Final Fantasy IV The After Years.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "ab5c3d5e9ece4f4f9eb47aa7729787b5785b5ce66bb59fdec41c384a1128a20e"
+    },
+    {
+      "source": "nxport.json",
+      "target": "ff4a/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "0002684e0dfeb9bc05cab12fe33cb5619c4a1aef19ef2b2524ad9710a0792578"
+    },
+    {
+      "source": "nxproject.json",
+      "target": "ff4a/nxproject.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "87299c0a19eecc58889c2a6b6a38f9bb5bd52e92f624c3e47225b298c0af2053"
+    },
+    {
+      "source": "ff4a",
+      "target": "ff4a/ff4a",
+      "kind": "project-linux",
+      "mode": "0755",
+      "sha256": "a5088046b09270f7cb538e9a48f914221f02dec454f0a8678856526224f864f4",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build_universal.sh; imagem offline Debian Buster sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf; SDK NextOS usado somente para headers; GLES1 resolvido em tempo de execucao por framework/nxgl (sem DT_NEEDED libGLESv1_CM)",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "soname": null
+    },
+    {
+      "source": "README.md",
+      "target": "ff4a/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "c0f3130d3c7d833ed650a3d49e29b9fd7dad527985264d403a5d301ddb637d51"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "ff4a/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "654e9b53f1d8c7966715cb2583f3eea2ae4391f3f6fbd810305f87630f89f288"
+    },
+    {
+      "source": "LICENSE",
+      "target": "ff4a/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "source": "NOTICE.md",
+      "target": "ff4a/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "66cbfc4ab296e2de419b0e6073e0a98edf95457e006f7ba3187dd59171929611"
+    },
+    {
+      "source": "port.json",
+      "target": "ff4a/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "6cb10f3a6d53078bc9cc0dede8d2c1c8873f75fc6907fc2d4c51a0eee44d0032"
+    },
+    {
+      "source": "gameinfo.xml",
+      "target": "ff4a/gameinfo.xml",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "7c05f372ea4aae9cf6ef9ba3fc03847c1b1883582a33a7b15950134964408a4c"
+    },
+    {
+      "source": "nxsplash-nextos",
+      "target": "ff4a/nxsplash-nextos",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "artefato pre-compilado do framework, vendorizado sem recompilar; ver framework/nxbootstrap e suportando_outros_devices/extrator-universal/ui/release",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "version.txt",
+      "target": "ff4a/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "51c18dc8694861beb47a67894e61044864214435389f6d3a274704d9566ff96c"
+    },
+    {
+      "source": "nxextract-version.txt",
+      "target": "ff4a/nxextract-version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "1046822942b68dbf8a31e81e25f587c411ec42cfa7b13498b2df79723e8b248a"
+    },
+    {
+      "source": "gamedata/README.txt",
+      "target": "ff4a/gamedata/README.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "3717e3f853d29b14d7d3a328f2126d1a4aac92c29daca8db167651cc72b402aa"
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "ff4a/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "extractor.json",
+      "target": "ff4a/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "ca90092745c3872b72ceab2dbb0d66d3d4de4cd68038e38772dc36c9150fbc04"
+    },
+    {
+      "source": "nxextract/nxextract.py",
+      "target": "ff4a/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f"
+    },
+    {
+      "source": "nxextract/run-extractor.sh",
+      "target": "ff4a/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "ff4a/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "nxextract/nxextract-ui",
+      "target": "ff4a/nxextract/nxextract-ui",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "artefato pre-compilado do framework, vendorizado sem recompilar; ver framework/nxbootstrap e suportando_outros_devices/extrator-universal/ui/release",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    }
+  ]
+}

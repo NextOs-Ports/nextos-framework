@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Chrono Trigger.sh</path>
+    <name>Chrono Trigger</name>
+    <desc>Chrono Trigger: the classic time-travelling JRPG, run natively from the owner's Android release.</desc>
+    <developer>Square Enix</developer>
+    <publisher>Square Enix</publisher>
+    <genre>RPG</genre>
+  </game>
+</gameList>

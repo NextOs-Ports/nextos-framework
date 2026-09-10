@@ -1,0 +1,367 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "controls": {
+    "actions": [
+      {
+        "id": "menu.accept",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "menu.back",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.attack",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.use_item",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.use_tool",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.open_menu",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.select_previous",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.select_next",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "player.open_journal",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "system.back",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      },
+      {
+        "id": "system.pause",
+        "kind": "button",
+        "sinks": [
+          "adapter.input.android-keyevent"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "player.attack",
+        "B": "player.use_item",
+        "DOWN": "native",
+        "L1": "player.select_previous",
+        "L2": "native",
+        "L3": "player.open_journal",
+        "LEFT": "native",
+        "LEFT_STICK": "native",
+        "R1": "player.select_next",
+        "R2": "native",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "system.back",
+        "START": "system.pause",
+        "UP": "native",
+        "X": "player.use_tool",
+        "Y": "player.open_menu"
+      },
+      "menu": {
+        "A": "menu.accept",
+        "B": "menu.back",
+        "DOWN": "native",
+        "L1": "native",
+        "L2": "native",
+        "L3": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "native",
+        "R1": "native",
+        "R2": "native",
+        "R3": "native",
+        "RIGHT": "native",
+        "RIGHT_STICK": "native",
+        "SELECT": "native",
+        "START": "native",
+        "UP": "native",
+        "X": "native",
+        "Y": "native"
+      }
+    },
+    "controller_profiles": {
+      "bundle": "controllers.nxb",
+      "enabled": true,
+      "sha256": "10feaf41cf8ee6203cf05c4202119e5bdba2dfb22db41e89ab31a5a9bd6eff13"
+    },
+    "proof": {
+      "clones": 2,
+      "navigation": {
+        "gameplay": [
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 4000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 4000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 6000
+          },
+          {
+            "timeout_s": 120,
+            "wait_log": "context=gameplay source=state:playing"
+          },
+          {
+            "sleep_ms": 3000
+          }
+        ],
+        "menu": [
+          {
+            "timeout_s": 900,
+            "wait_log": "\\[bt/gptk\\] context=menu source=state:menu"
+          },
+          {
+            "sleep_ms": 6000
+          }
+        ]
+      },
+      "owner_remap": {
+        "context": "gameplay",
+        "move_to": "R2",
+        "null": "A"
+      },
+      "quit_guard": {
+        "context": "menu",
+        "control": "A"
+      }
+    },
+    "runtime_mapping": "nxinput-gptk",
+    "schema": 4
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "authored"
+  },
+  "graphics": {
+    "api": "gles",
+    "drawable_ready_timeout_ms": 15000,
+    "profile": "es",
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "native-menu",
+    "sinks": [
+      "engine.locale"
+    ],
+    "supported": [
+      "en"
+    ]
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "none",
+    "enabled_quirks": [],
+    "executable": "blossomtales-nextos",
+    "generation_runtime": [
+      {
+        "mode": "0755",
+        "path": "blossomtales-nextos",
+        "role": "executable",
+        "sha256": "148a00ebba44b683ab13146df865574a7f961d292cfab329cf0a75ae44161f74"
+      },
+      {
+        "mode": "0644",
+        "path": "adapter-env.sh",
+        "role": "runtime-hook",
+        "sha256": "05847c5e985ba0f93d75ffb26452d663126b313d58de174f57de43b3e2155574"
+      },
+      {
+        "mode": "0644",
+        "path": "extractor.json",
+        "role": "nxextract-recipe",
+        "sha256": "c5fffb63197a6715f4dd53c0e2c14dd316500e1c92871f7db63101d32a5576e4"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract.py",
+        "role": "nxextract-engine",
+        "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/run-extractor.sh",
+        "role": "nxextract-runner",
+        "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract-runtime-env.sh",
+        "role": "nxextract-runtime-env",
+        "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+      },
+      {
+        "mode": "0755",
+        "path": "nxextract/nxextract-ui",
+        "role": "nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      }
+    ],
+    "home_mode": "port",
+    "id": "blossomtales",
+    "launcher_name": "Blossom Tales.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.3.0"
+    },
+    "owner_runtime": "1",
+    "prepare_script": "",
+    "private_library_paths": [
+      "libs"
+    ],
+    "required_capabilities": [
+      "host.portmaster",
+      "host.aarch64-libs",
+      "graphics.gles2",
+      "graphics.egl",
+      "graphics.drawable",
+      "audio.output-open",
+      "input.controller-mapping",
+      "input.controller-api",
+      "input.controller-connected"
+    ],
+    "required_files": [
+      "adapter-env.sh",
+      "blossomtales-nextos"
+    ],
+    "runtime_report": "log-and-logo",
+    "schema_version": 3,
+    "title": "Blossom Tales",
+    "video_proof": "required"
+  },
+  "owner_runtime": {
+    "hook_seed": "defaults-src/port-env.sh"
+  },
+  "package_payload": [
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "INSTALLATION.md",
+      "sha256": "eea07ba1aa26875b9ff81da34580913ada34cb433944469b16e02a6d14dff848"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "NOTICE.md",
+      "sha256": "281e888edc268e8eea674126001fe173a8f1ce8417e319d487757ffd8e6808ad"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "README.md",
+      "sha256": "ec7da99b0cf2116c481d6d34ab76360790c3170ed71c6f4912930009e0127538"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "SBOM.md",
+      "sha256": "82dcb931c6658f15ebac8b455149f347e4fb5d13b8b90d174c8c67705754a99a"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "controllers.nxb",
+      "sha256": "10feaf41cf8ee6203cf05c4202119e5bdba2dfb22db41e89ab31a5a9bd6eff13"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "version.txt",
+      "sha256": "f43a0292c674542a2d676a0f4f588a7ffbe1cbac25090df344b12ff1279f7820"
+    }
+  ],
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.27",
+    "runtime": []
+  },
+  "promotion": {
+    "adapter_contract": "adapter/adapter-contract.json",
+    "claims": {
+      "adapter_lifecycle_implemented": true,
+      "physical_support_proven": false,
+      "release_ready": true
+    }
+  },
+  "runtime_root": ".",
+  "schema_version": 3,
+  "video": {
+    "aspect": "stretch",
+    "aspect_policies": [
+      "auto",
+      "engine",
+      "preserve",
+      "stretch"
+    ],
+    "authority": "nextos",
+    "auto_algorithm": "epsilon",
+    "filter": "engine",
+    "invalid_policy": "package_default",
+    "output_size": "display"
+  }
+}

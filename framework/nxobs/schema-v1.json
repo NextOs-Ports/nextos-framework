@@ -1,0 +1,74 @@
+{
+  "schema": "nx-observability-schema-v1",
+  "schema_version": 1,
+  "event_schema": "nx-event-v1",
+  "bundle_schema": "nx-support-bundle-v1",
+  "crash_schema": "nx-crash-v1",
+  "maximum_input_bytes": 8388608,
+  "maximum_line_bytes": 65536,
+  "maximum_events": 2048,
+  "maximum_crash_receipts": 8,
+  "sources": [
+    "bootstrap",
+    "extractor",
+    "loader",
+    "graphics",
+    "audio",
+    "input",
+    "lifecycle",
+    "diagnostic"
+  ],
+  "statuses": [
+    "begin",
+    "ok",
+    "failed",
+    "observed",
+    "skipped"
+  ],
+  "privacy": {
+    "raw_logs_in_bundle": false,
+    "absolute_paths": false,
+    "network_addresses": false,
+    "hostnames": false,
+    "credentials": false,
+    "save_data": false
+  },
+  "credential_redaction": {
+    "mode": "fail-closed",
+    "structured_classes": [
+      "authorization",
+      "api-key",
+      "x-authentication",
+      "cookie",
+      "set-cookie",
+      "token",
+      "key",
+      "session",
+      "auth"
+    ],
+    "embedded_syntax": [
+      "bearer",
+      "header",
+      "json",
+      "query"
+    ],
+    "text_markers": [
+      "redacted-authorization",
+      "redacted-cookie",
+      "redacted-credential",
+      "redacted-query"
+    ],
+    "raw_value_retained": false
+  },
+  "events_file_schema": "nx-event-jsonl-v1",
+  "events_file_name": "events.jsonl",
+  "reason_code_families": {
+    "NXU": "update/generations",
+    "NXA": "apk-compatibility",
+    "NXG": "graphics",
+    "NXI": "input",
+    "NXO": "observability",
+    "NXR": "runtime/lifecycle",
+    "NXE": "legacy nxextract terminal codes"
+  }
+}

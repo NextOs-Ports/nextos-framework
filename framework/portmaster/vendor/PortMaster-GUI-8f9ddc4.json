@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/PortsMaster/PortMaster-GUI",
+  "commit": "8f9ddc4b0f75dfe61eb370bd3d1b4ec9d5ef6967",
+  "commit_date_utc": "2026-07-28T12:10:17Z",
+  "license": "MIT",
+  "license_path": "PortMaster-GUI-8f9ddc4/LICENSE",
+  "file_manifest": "PortMaster-GUI-8f9ddc4.sha256",
+  "file_manifest_sha256": "4216c13d20633289e19eaf0be512f7df09cd1f0216892a620eeeccb8e13370c2",
+  "additional_licenses": [
+    {
+      "component": "charset-normalizer",
+      "version": "3.0.1",
+      "license": "MIT",
+      "path": "LICENSE-charset-normalizer-3.0.1.txt",
+      "source": "https://github.com/jawah/charset_normalizer/blob/3.0.1/LICENSE"
+    }
+  ],
+  "scope": [
+    "the unmodified HarbourMaster package",
+    "the official CLI bootstrap that defines its process globals",
+    "only the bundled Python dependencies needed by the offline parser/install cycle",
+    "upstream and bundled-dependency license texts"
+  ],
+  "network_policy": "offline and socket-blocked during every framework gate",
+  "execution_policy": "parse and install package data in a temporary root; never execute a packaged launcher or ELF"
+}

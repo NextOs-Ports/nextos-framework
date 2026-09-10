@@ -1,0 +1,62 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "scaffold"
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "game-dir-and-passthrough",
+    "enabled_quirks": [],
+    "executable": "chrono-nextos",
+    "home_mode": "port",
+    "id": "chrono",
+    "language": {
+      "default": "en",
+      "supported": [
+        "en"
+      ]
+    },
+    "launcher_name": "Chrono Trigger.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.10"
+    },
+    "prepare_script": "",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "graphics.egl-config",
+      "graphics.drawable",
+      "input.controller-mapping",
+      "input.controller-api"
+    ],
+    "required_files": [
+      "chrono-nextos",
+      "nxsplash-nextos",
+      "libchrono.so",
+      "libc++_shared.so",
+      "assets/resources.bin",
+      "assets/001.dat",
+      "assets/Shaders/example_Simple.vsh"
+    ],
+    "runtime_report": "log-and-logo",
+    "schema_version": 2,
+    "title": "Chrono Trigger"
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.27"
+  },
+  "schema_version": 1
+}

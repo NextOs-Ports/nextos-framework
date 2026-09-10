@@ -1,0 +1,78 @@
+{
+  "audio": {
+    "callbacks": [
+      "SDLActivity.audioInit",
+      "SDLActivity.audioWriteShortBuffer",
+      "SDLActivity.audioWriteByteBuffer"
+    ],
+    "format": "game-selected AudioTrack format bridged to queued system SDL audio"
+  },
+  "imports": [
+    "bionic compatibility table",
+    "Android NDK window and looper surface",
+    "EGL/GLES2 provider"
+  ],
+  "input": {
+    "mapping": "system SDL GameController mapped to the guest SDL Android gamepad entry points",
+    "touch": "not used"
+  },
+  "jni": {
+    "callbacks": [
+      "SDLActivity native surface, resize, resume, pause and quit",
+      "Retro City Rampage DX language, social and cloud stubs"
+    ],
+    "classes": [
+      "org/libsdl/app/SDLActivity",
+      "com/vblank/RCRDX/Activity"
+    ],
+    "methods": [
+      "JNI_OnLoad",
+      "nativeInit"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "DT_INIT_ARRAY",
+      "JNI_OnLoad",
+      "onNativeSurfaceChanged",
+      "onNativeResize",
+      "nativeInit",
+      "SDL_Android_Init",
+      "SDL_SetMainReady",
+      "SDL_main"
+    ],
+    "source_evidence": [
+      "adapter source and measured Mali-450 lifecycle",
+      "native Android SDLActivity ordering"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "game-owned profile save and reload"
+    ],
+    "paths": [
+      "gamedata/profile.rsv",
+      "home"
+    ]
+  },
+  "prohibitions": [
+    "do not skip or reorder the native lifecycle",
+    "do not force SDL video or audio backends",
+    "do not distribute owner game data"
+  ],
+  "quirks": [
+    "adapter-owned AudioTrack return convention",
+    "adapter-owned embedded-SDL audio environment isolation",
+    "adapter-owned same-thread KMSDRM context ownership"
+  ],
+  "release_ready": false,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_mali_verified_arkos_candidate",
+  "terminal": {
+    "action": "SELECT+START requests nativePause then nativeQuit",
+    "evidence": [
+      "Mali-450 physical gameplay, save/reload and status-0 exit"
+    ]
+  }
+}

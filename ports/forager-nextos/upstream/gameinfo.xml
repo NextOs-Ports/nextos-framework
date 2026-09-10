@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Forager.sh</path>
+    <name>Forager</name>
+    <desc>Forager: open-world exploration, crafting and base-building, run natively from the owner's copy.</desc>
+    <developer>HopFrog</developer>
+    <publisher>Humble Games</publisher>
+    <genre>Adventure, Sandbox</genre>
+  </game>
+</gameList>

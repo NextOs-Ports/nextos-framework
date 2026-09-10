@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Huntdown"
+  },
+  "items": [
+    "Huntdown.sh",
+    "huntdown/"
+  ],
+  "items_opt": [],
+  "name": "huntdown.zip",
+  "version": 4
+}

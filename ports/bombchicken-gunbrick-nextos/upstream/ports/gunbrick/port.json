@@ -1,0 +1,16 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "title": "Gunbrick Reloaded"
+  },
+  "items": [
+    "Gunbrick.sh",
+    "gunbrick/"
+  ],
+  "items_opt": [],
+  "name": "gunbrick.zip",
+  "version": 4
+}

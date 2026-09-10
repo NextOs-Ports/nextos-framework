@@ -1,0 +1,295 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "controls": {
+    "actions": [
+      {
+        "id": "menu.navigate",
+        "kind": "vector",
+        "sinks": [
+          "engine.ui.navigate"
+        ]
+      },
+      {
+        "id": "menu.accept",
+        "kind": "button",
+        "sinks": [
+          "engine.ui.accept"
+        ]
+      },
+      {
+        "id": "menu.back",
+        "kind": "button",
+        "sinks": [
+          "engine.ui.cancel"
+        ]
+      },
+      {
+        "id": "player.move",
+        "kind": "vector",
+        "sinks": [
+          "engine.game.move"
+        ]
+      },
+      {
+        "id": "player.jump",
+        "kind": "button",
+        "sinks": [
+          "engine.game.jump"
+        ]
+      },
+      {
+        "id": "player.interact",
+        "kind": "button",
+        "sinks": [
+          "engine.game.interact"
+        ]
+      },
+      {
+        "id": "player.fire",
+        "kind": "button",
+        "sinks": [
+          "engine.game.fire"
+        ]
+      },
+      {
+        "id": "player.throw",
+        "kind": "button",
+        "sinks": [
+          "engine.game.throw"
+        ]
+      },
+      {
+        "id": "player.dash",
+        "kind": "button",
+        "sinks": [
+          "engine.game.dash"
+        ]
+      },
+      {
+        "id": "system.pause",
+        "kind": "button",
+        "sinks": [
+          "engine.game.pause"
+        ]
+      },
+      {
+        "id": "system.quit",
+        "kind": "button",
+        "sinks": [
+          "adapter.system.quit"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "player.jump",
+        "B": "player.interact",
+        "LEFT_STICK": "player.move",
+        "R1": "player.fire",
+        "R2": "player.dash",
+        "R3": "player.dash",
+        "SELECT": "system.quit",
+        "START": "system.pause",
+        "X": "player.fire",
+        "Y": "player.throw"
+      },
+      "menu": {
+        "A": "menu.accept",
+        "B": "menu.back",
+        "LEFT_STICK": "menu.navigate",
+        "START": "system.pause"
+      }
+    }
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "authored"
+  },
+  "language_access": {
+    "fallback": "",
+    "mode": "none",
+    "sinks": [],
+    "supported": []
+  },
+  "license": {
+    "source": "licenses/GPL-3.0.txt",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "game-dir-and-passthrough",
+    "enabled_quirks": [],
+    "executable": "huntdown-nextos",
+    "generation_runtime": [
+      {
+        "mode": "0755",
+        "path": "huntdown-nextos",
+        "role": "executable",
+        "sha256": "f519a7a4041d6583a00ab029842573fdb8b4d334e5f25fb9fd4150ae63de37b5"
+      },
+      {
+        "mode": "0644",
+        "path": "video-compat/libvulkan.so.1",
+        "role": "private-library",
+        "sha256": "ecaf5c399c670f4addaa2f9a1e2f524318fb039fb76d8059a6c1bbfeaafd4f31"
+      },
+      {
+        "mode": "0644",
+        "path": "extractor.json",
+        "role": "nxextract-recipe",
+        "sha256": "a1a7f85c0637ea3baa8fd104407c8c15de5cf7c6e365b216b25fc58b21f285f1"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract.py",
+        "role": "nxextract-engine",
+        "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/run-extractor.sh",
+        "role": "nxextract-runner",
+        "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract-runtime-env.sh",
+        "role": "nxextract-runtime-env",
+        "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+      },
+      {
+        "mode": "0755",
+        "path": "nxextract/nxextract-ui",
+        "role": "nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      },
+      {
+        "mode": "0755",
+        "path": "nxsplash-nextos",
+        "role": "nxsplash",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      }
+    ],
+    "home_mode": "port",
+    "id": "huntdown",
+    "launcher_name": "Huntdown.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.21"
+    },
+    "prepare_script": "",
+    "private_library_paths": [
+      "video-compat"
+    ],
+    "required_capabilities": [
+      "host.portmaster",
+      "host.aarch64-libs",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "audio.output-open",
+      "input.controller-mapping"
+    ],
+    "required_files": [
+      "huntdown-nextos",
+      "video-compat/libvulkan.so.1",
+      "libmain.so",
+      "libunity.so",
+      "libil2cpp.so",
+      "UnityDataAssetPack.apk",
+      "bin/Data/data.unity3d",
+      "bin/Data/Managed/Metadata/global-metadata.dat",
+      "video/CoffeeIntro.mp4",
+      "video/EasyTriggerVignette.mp4"
+    ],
+    "runtime_report": "log",
+    "schema_version": 3,
+    "title": "Huntdown"
+  },
+  "package_payload": [
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "FRAMEWORK-PIN.json",
+      "sha256": "f73f0e87038fb0adc2ed06b38dff9c13078b31d57f5cb710a060dd9a3f83635d"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "INSTALLATION.md",
+      "sha256": "60f4b64a0a629a70ebc76df0deab2293bb6957a889bce7fcd9bc5b01733ac18a"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "NOTICE.md",
+      "sha256": "fd1e452aeee08a7863e27a46440192f6cf365d01c89612450cc4683156051b29"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "README.md",
+      "sha256": "3473945a92a6f3f4031d9696843bb2687f0e2cf3033ee3335c2acc6a50c273e6"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/Apache-2.0.txt",
+      "sha256": "494accc32e50eb523a0e384d0ae6d4b702db867a89d6971216760e92b240ee12"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/GPL-3.0.txt",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/Producdevity-MIT.txt",
+      "sha256": "5adbdfa7a83930751bf8ebdca604b926d800da20595b4d984bfc1ec1bbaa3fe1"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/Unlicense.txt",
+      "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "tools/build_unity_asset_pack.py",
+      "sha256": "b0ea25db5d5f53d174f6cc6a614ca7eb89f0f226502f55c2d7b5adbddee7edf7"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "tools/validate_huntdown_data.py",
+      "sha256": "92ef42be496c7945e08c77ce38579dddf4720f3c9e1db7630b171255f35341ce"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "version.txt",
+      "sha256": "6d6b9230dd8b8aac527f8929b7c2fc1fa0365deccca856216de979d6f5c6a6fe"
+    }
+  ],
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.27",
+    "runtime": []
+  },
+  "promotion": {
+    "adapter_contract": "adapter/adapter-contract.json",
+    "claims": {
+      "adapter_lifecycle_implemented": true,
+      "physical_support_proven": true,
+      "release_ready": true
+    }
+  },
+  "runtime_root": ".",
+  "schema_version": 3
+}

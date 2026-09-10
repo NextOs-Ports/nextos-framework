@@ -1,0 +1,28 @@
+{
+  "contract": {
+    "api": "gles",
+    "profile": "es",
+    "shader_dialect": "essl100",
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "game_elf": {
+    "architecture": "aarch64",
+    "build_id": "0d71eeb6a3ead7db0d489cfbe574f3b96014a7f4",
+    "sha256": "5258d644cbb023b137719901fa84acf8a8ae3da01c573b52a7a31255245628dd"
+  },
+  "measured_static_facts": {
+    "context_request_source": "src/main.c: SDL_GL_CONTEXT_PROFILE_ES and major=2/minor=0",
+    "dynamic_undefined_gl_import_count": 77,
+    "dynamic_undefined_gl_imports_are_gles2_core": true,
+    "provider_may_return_a_higher_compatible_gles_version": true
+  },
+  "required_game_symbols": [
+    "_ZN4bgfx5gles214rendererCreateEv",
+    "_ZN4bgfx5gles29GlContext6createEjj",
+    "_ZN10cSingletonI6cMultiE10mSingletonE",
+    "_ZN6cMulti14getLocalPlayerEv"
+  ],
+  "schema": "offtheroad-graphics-contract-static-v1",
+  "schema_version": 1
+}

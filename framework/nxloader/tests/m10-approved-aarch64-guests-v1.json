@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "spdx_license": "GPL-3.0-or-later",
+  "milestone": "M10",
+  "scope": "hash-pinned-local-read-only-aarch64-reference-gate",
+  "required_abi": {
+    "elf_class": 2,
+    "elf_data": 1,
+    "elf_version": 1,
+    "osabi": 0,
+    "abi_version": 0,
+    "elf_type": 3,
+    "machine": 183,
+    "flags": 0
+  },
+  "safety": {
+    "inspector_modes": [
+      "--relocate",
+      "--exports"
+    ],
+    "resolve": false,
+    "finalize": false,
+    "guest_initializers_executed": false,
+    "guest_jni_onload_executed": false,
+    "device_access": false,
+    "guest_files_copied": false
+  },
+  "guests": [
+    {
+      "id": "bully2-libgame",
+      "argument": "bully2",
+      "sha256": "345f6411bebbd2310b2cb5d2a271341847a054c2b7f6d5ffba8030cd53140d76",
+      "size": 19252456,
+      "load_segment_flags": [5, 6, 6],
+      "dynamic_symbol_count": 50356,
+      "registry_exports": {
+        "eligible": 49938,
+        "added": 49938,
+        "equivalent": 0,
+        "replaced_lower_priority": 0,
+        "ignored_lower_priority": 0,
+        "collisions": 0
+      },
+      "relocations": {
+        "R_AARCH64_ABS64": 42596,
+        "R_AARCH64_GLOB_DAT": 7844,
+        "R_AARCH64_JUMP_SLOT": 12466,
+        "R_AARCH64_RELATIVE": 12127
+      },
+      "init_array_entries": 506,
+      "init_array_relocations": {
+        "R_AARCH64_RELATIVE": 506
+      },
+      "needed": [
+        "libandroid.so",
+        "liblog.so",
+        "libEGL.so",
+        "libGLESv3.so",
+        "libVendor_mpg123.so",
+        "libopenal.so",
+        "libm.so",
+        "libc++_shared.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "id": "sonic4ep2-libfox",
+      "argument": "sonic4",
+      "sha256": "ca07163ad1e92d767016d43048a2c13eede7b9d6217ed4f032ca4d6d8e342a1a",
+      "size": 12220336,
+      "load_segment_flags": [5, 6],
+      "dynamic_symbol_count": 29153,
+      "registry_exports": {
+        "eligible": 28776,
+        "added": 28776,
+        "equivalent": 0,
+        "replaced_lower_priority": 0,
+        "ignored_lower_priority": 0,
+        "collisions": 0
+      },
+      "relocations": {
+        "R_AARCH64_ABS64": 18517,
+        "R_AARCH64_GLOB_DAT": 3172,
+        "R_AARCH64_JUMP_SLOT": 10303,
+        "R_AARCH64_RELATIVE": 22970
+      },
+      "init_array_entries": 46,
+      "init_array_relocations": {
+        "R_AARCH64_ABS64": 1,
+        "R_AARCH64_RELATIVE": 45
+      },
+      "needed": [
+        "liblog.so",
+        "libGLESv2.so",
+        "libz.so",
+        "libEGL.so",
+        "libandroid.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ]
+    },
+    {
+      "id": "horizonchase-libunity",
+      "argument": "horizon_unity",
+      "sha256": "7c46972d06b6b85f953bf61b477fdbf5bf22f7be55b57e4b54b4403f05478359",
+      "size": 25023704,
+      "load_segment_flags": [4, 5, 6, 6],
+      "dynamic_symbol_count": 646,
+      "registry_exports": {
+        "eligible": 222,
+        "added": 222,
+        "equivalent": 0,
+        "replaced_lower_priority": 0,
+        "ignored_lower_priority": 0,
+        "collisions": 0
+      },
+      "relocations": {
+        "R_AARCH64_ABS64": 50,
+        "R_AARCH64_GLOB_DAT": 43,
+        "R_AARCH64_JUMP_SLOT": 500,
+        "R_AARCH64_RELATIVE": 54114
+      },
+      "init_array_entries": 433,
+      "init_array_relocations": {
+        "R_AARCH64_RELATIVE": 433
+      },
+      "needed": [
+        "libandroid.so",
+        "liblog.so",
+        "libz.so",
+        "libEGL.so",
+        "libmediandk.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "id": "horizonchase-libil2cpp",
+      "argument": "horizon_il2cpp",
+      "sha256": "acf414c77853aa0e7f8d8963f307f65f3d156c8d6d806661b738df3385e48cdc",
+      "size": 47587688,
+      "load_segment_flags": [4, 5, 6, 6],
+      "dynamic_symbol_count": 2658,
+      "registry_exports": {
+        "eligible": 2369,
+        "added": 2369,
+        "equivalent": 0,
+        "replaced_lower_priority": 0,
+        "ignored_lower_priority": 0,
+        "collisions": 0
+      },
+      "relocations": {
+        "R_AARCH64_ABS64": 1631,
+        "R_AARCH64_GLOB_DAT": 152,
+        "R_AARCH64_JUMP_SLOT": 566,
+        "R_AARCH64_RELATIVE": 303401
+      },
+      "init_array_entries": 24,
+      "init_array_relocations": {
+        "R_AARCH64_RELATIVE": 24
+      },
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "id": "horizonchase-libmain",
+      "argument": "horizon_main",
+      "sha256": "a2dfe24e0170af0ae90b13630fc6d4e788be2c5216b4bddb17a6e0ca3c4c5af8",
+      "size": 6728,
+      "load_segment_flags": [4, 5, 6, 6],
+      "dynamic_symbol_count": 13,
+      "registry_exports": {
+        "eligible": 1,
+        "added": 1,
+        "equivalent": 0,
+        "replaced_lower_priority": 0,
+        "ignored_lower_priority": 0,
+        "collisions": 0
+      },
+      "relocations": {
+        "R_AARCH64_JUMP_SLOT": 11,
+        "R_AARCH64_RELATIVE": 9
+      },
+      "init_array_entries": 0,
+      "init_array_relocations": {},
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Suzy Cube"
+  },
+  "items": [
+    "Suzy Cube.sh",
+    "suzycube/"
+  ],
+  "items_opt": [],
+  "name": "suzycube.zip",
+  "version": 4
+}

@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Retro City Rampage DX"
+  },
+  "items": [
+    "Retro City Rampage DX.sh",
+    "rcrdx/"
+  ],
+  "items_opt": [],
+  "name": "rcrdx.zip",
+  "version": 4
+}

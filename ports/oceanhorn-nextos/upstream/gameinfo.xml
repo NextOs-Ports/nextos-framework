@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Oceanhorn Chronos Dungeon.sh</path>
+    <name>Oceanhorn Chronos Dungeon</name>
+    <desc>Oceanhorn: Chronos Dungeon is a pixel-art dungeon crawler for up to four players, from Cornfox and Bros.</desc>
+    <developer>Cornfox and Bros.</developer>
+    <publisher>FDG Entertainment</publisher>
+    <genre>Action, Dungeon Crawler</genre>
+  </game>
+</gameList>

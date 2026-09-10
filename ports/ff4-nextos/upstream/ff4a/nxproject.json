@@ -1,0 +1,57 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "documentation": {
+    "proven_support": [
+      "nextos-mali450",
+      "darkosre"
+    ],
+    "status": "device-proven"
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "ports/ff4a/extractor.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "none",
+    "enabled_quirks": [],
+    "executable": "ff4a",
+    "home_mode": "port",
+    "id": "ff4a",
+    "launcher_name": "Final Fantasy IV The After Years.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.14"
+    },
+    "prepare_script": "",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "graphics.window",
+      "graphics.egl",
+      "graphics.egl-config",
+      "graphics.drawable",
+      "audio.output-open",
+      "input.controller-mapping",
+      "input.controller-api",
+      "graphics.gles1"
+    ],
+    "required_files": [
+      "ff4a",
+      "nxsplash-nextos",
+      "libff4a.so",
+      "data/main.obb"
+    ],
+    "runtime_report": "log",
+    "schema_version": 2,
+    "title": "Final Fantasy IV The After Years"
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.17"
+  },
+  "schema_version": 1
+}

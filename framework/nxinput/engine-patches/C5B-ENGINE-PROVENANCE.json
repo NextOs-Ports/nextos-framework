@@ -1,0 +1,336 @@
+{
+ "compiler": "gcc (GCC) 16.2.1 20260810",
+ "engines": {
+  "godot3": {
+   "added_source_sha256": {
+    "nxc5b/nxc5b_glue.cpp": "991e1255761e2abeeb6bab9e82d44f9ea1f57ae31be86addddf3c29eb4c4ec41",
+    "nxc5b/nxc5b_glue.h": "62a5b1b49faf76cc054cac24992cebc433879ffc033359e8e503d14d8f399e67"
+   },
+   "binary": "bin/godot_server.x11.opt.tools.64",
+   "binary_bytes": 744983288,
+   "binary_sha256": "f9904c7e220243558fa7c7b49a47d8c97e0953691e73822d54eb8021f3120b85",
+   "build_command": "nice -n 10 scons -j2 platform=server target=release_debug tools=yes module_raycast_enabled=no",
+   "checkout_method": "git archive 6c814135b69d4e703956bacc2073b4b179ff5a00 | tar -x  (the extraction is not a git repository; the pristine bytes are pinned by the blob OIDs below)",
+   "framework_sources_vendored_verbatim": {
+    "nxc5b/nxinput_godot.c": {
+     "framework_path": "src/nxinput_godot.c",
+     "sha256": "73c62672402adb3604672890f43e31af32ebfc32e9e8ebb78fdb1db066e68a7a"
+    },
+    "nxc5b/nxinput_godot.h": {
+     "framework_path": "include/nxinput_godot.h",
+     "sha256": "d543fad6c01d5f5625f180a7f9370d6f79bc963d5cc4c776e16b3fd1ea094d36"
+    },
+    "nxc5b/nxinput_godot_seam.c": {
+     "framework_path": "src/nxinput_godot_seam.c",
+     "sha256": "b1632e5c1c1a6a68ee65bf286a67a91d2d5265add04bfa1f1ade6a1b42f3e133"
+    },
+    "nxc5b/nxinput_godot_seam.h": {
+     "framework_path": "include/nxinput_godot_seam.h",
+     "sha256": "6c81ea66758ea276429c1e45e55282a7ce917d42fc1038cb214dfca212ce97da"
+    }
+   },
+   "license": "MIT",
+   "license_path": "LICENSE.txt",
+   "license_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+   "license_spdx": "MIT",
+   "link_evidence": {
+    "NXC5B-SEAM_format_string_occurrences_in_binary": 2,
+    "binary_symbol_table": "present",
+    "runtime_proof": "the seam receipts in the attempt's evidence directory carry this binary's own pid and tid",
+    "seam_symbols_in_binary": [
+     "_GLOBAL__sub_I__Z27nxc5b_admit_before_announceP12InputDefaultiiPKcS2_S2_",
+     "_Z27nxc5b_admit_before_announceP12InputDefaultiiPKcS2_S2_",
+     "_Z27nxc5b_admit_before_announceP12InputDefaultiiPKcS2_S2_.cold",
+     "nxinput_godot_seam_admit",
+     "nxinput_godot_seam_result_name"
+    ],
+    "translation_units_linked": {
+     "main/input_default.x11.opt.tools.64.o": {
+      "defined_text_symbols": [
+       "_ZN12InputDefault10SpeedTrack5resetEv",
+       "_ZN12InputDefault10SpeedTrack6updateERK7Vector2",
+       "_ZN12InputDefault10SpeedTrackC1Ev",
+       "_ZN12InputDefault10SpeedTrackC2Ev",
+       "_ZN12InputDefault10joy_buttonEiib",
+       "_ZN12InputDefault10joy_buttonEiib.cold",
+       "_ZN12InputDefault11_axis_eventEiif",
+       "_ZN12InputDefault11_axis_eventEiif.cold",
+       "_ZN12InputDefault11set_gravityERK7Vector3",
+       "_ZN12InputDefault11set_gravityERK7Vector3.cold",
+       "_ZN12InputDefault12action_pressERK10StringNamef",
+       "_ZN12InputDefault12get_joy_nameEi"
+      ],
+      "sha256": "6e413312a8ac4da55025cc84b10f122bae2fd7adef91792080661fdd50552db6"
+     },
+     "nxc5b/nxc5b_glue.x11.opt.tools.64.o": {
+      "defined_text_symbols": [
+       "_GLOBAL__sub_I__Z27nxc5b_admit_before_announceP12InputDefaultiiPKcS2_S2_",
+       "_Z27nxc5b_admit_before_announceP12InputDefaultiiPKcS2_S2_",
+       "_Z27nxc5b_admit_before_announceP12InputDefaultiiPKcS2_S2_.cold",
+       "_ZN12_GLOBAL__N_1L10op_receiptEPvPKc",
+       "_ZN12_GLOBAL__N_1L10op_receiptEPvPKc.cold",
+       "_ZN12_GLOBAL__N_1L11op_readbackEPvii",
+       "_ZN12_GLOBAL__N_1L14op_add_mappingEPvPKc",
+       "_ZN12_GLOBAL__N_1L14op_add_mappingEPvPKc.cold",
+       "_ZN12_GLOBAL__N_1L14op_has_mappingEPvi",
+       "_ZN12_GLOBAL__N_1L6op_nowEPv",
+       "_ZN12_GLOBAL__N_1L6op_pidEPv",
+       "_ZN12_GLOBAL__N_1L6op_tidEPv"
+      ],
+      "sha256": "d744f20461662289ebc195ecde5f9fc0bae5e7917b07d4d8a669a49a25a06a4b"
+     },
+     "nxc5b/nxinput_godot.x11.opt.tools.64.o": {
+      "defined_text_symbols": [
+       "collect.constprop.0",
+       "nxinput_godot_axis_code",
+       "nxinput_godot_axis_ordinal",
+       "nxinput_godot_button_code",
+       "nxinput_godot_button_ordinal",
+       "nxinput_godot_caps_init",
+       "nxinput_godot_caps_set_absinfo",
+       "nxinput_godot_domain_name",
+       "nxinput_godot_engine_name",
+       "nxinput_godot_evidence_init",
+       "nxinput_godot_evidence_line",
+       "nxinput_godot_origin_declare"
+      ],
+      "sha256": "19237ca32d374caf5d8b3d3872cf19c3625dfaaeac73b686a14f2cfaf7d9e116"
+     },
+     "nxc5b/nxinput_godot_seam.x11.opt.tools.64.o": {
+      "defined_text_symbols": [
+       "emit",
+       "nxinput_godot_seam_admit",
+       "nxinput_godot_seam_result_name",
+       "sha_block"
+      ],
+      "sha256": "d48ed8a68f4288476b8c9019d85afa11ff43f070f63989ca5313f46d9327bc74"
+     },
+     "platform/server/os_server.x11.opt.tools.64.o": {
+      "defined_text_symbols": [
+       "_ZN11LocalVectorI3RIDjLb0EE6resizeEj.part.0",
+       "_ZN3SetIP8RID_Data10ComparatorIS1_E16DefaultAllocatorE13_cleanup_treeEPNS5_7ElementE.part.0",
+       "_ZN3SetIP8RID_Data10ComparatorIS1_E16DefaultAllocatorE6insertERKS1_.isra.0",
+       "_ZN7CowDataI4AABBE6_unrefEPv.isra.0",
+       "_ZN7CowDataIwE6_unrefEPv.isra.0",
+       "_ZN9OS_Server10initializeERKN2OS9VideoModeEii",
+       "_ZN9OS_Server10initializeERKN2OS9VideoModeEii.cold",
+       "_ZN9OS_Server13set_main_loopEP8MainLoop",
+       "_ZN9OS_Server14set_mouse_grabEb",
+       "_ZN9OS_Server14set_mouse_showEb",
+       "_ZN9OS_Server14set_video_modeERKN2OS9VideoModeEi",
+       "_ZN9OS_Server15get_power_stateEv"
+      ],
+      "sha256": "fdd84e482f0c606a9d4788a80e30871255e027f13ae40d0d76e2c288510955f4"
+     },
+     "platform/x11/joypad_linux.x11.opt.tools.64.o": {
+      "defined_text_symbols": [
+       "_ZN11JoypadLinux11open_joypadEPKc",
+       "_ZN11JoypadLinux11open_joypadEPKc.cold",
+       "_ZN11JoypadLinux12close_joypadEPKc",
+       "_ZN11JoypadLinux12close_joypadEPKc.cold",
+       "_ZN11JoypadLinux12close_joypadERNS_6JoypadEi",
+       "_ZN11JoypadLinux12close_joypadERNS_6JoypadEi.cold",
+       "_ZN11JoypadLinux13close_joypadsEv",
+       "_ZN11JoypadLinux13close_joypadsEv.cold",
+       "_ZN11JoypadLinux15monitor_joypadsEv",
+       "_ZN11JoypadLinux15monitor_joypadsEv.cold",
+       "_ZN11JoypadLinux15process_joypadsEv",
+       "_ZN11JoypadLinux15process_joypadsEv.cold"
+      ],
+      "sha256": "0afdccfbb79a6bda50825bf3e61a5bcd2d21284cd29b69e58d241b26150501dc"
+     }
+    }
+   },
+   "link_method": "symbol-table",
+   "modules_disabled_and_why": {
+    "raycast/embree": "incompatible with the host GCC; not on the input path"
+   },
+   "patched_source_sha256": {
+    "main/input_default.cpp": "4906af3e3ecfa6768fba3bd1de71ff5ff95f9d38fada949b2f846f8dd37d88df",
+    "main/input_default.h": "433a55241fbeaf85107346271edefd367decf20afeebba70736775f28bd2dbd3",
+    "platform/server/SCsub": "f47a3d45dfeeb5b1a7706624edac9230d067915667b6d5f1c01f22f47333b79c",
+    "platform/server/os_server.cpp": "b43832373eef47726b638a37ebffdbe9b52438ff4902f7d870df6a531a499f26",
+    "platform/server/os_server.h": "3716d2c9363530dcc87bfd00d3c625dfbc15376bee3a1c4ab3ed9b2d3fc9b7ba",
+    "platform/x11/SCsub": "789a95085ae27e81fe7dc6c188d485935541cd1da8ee26ea20cb0ea13d9e2272",
+    "platform/x11/joypad_linux.cpp": "addb914e22d3be5e270b18eaa4edabdead4e6b4b036e2d222aa1339b92a1e7df"
+   },
+   "pristine_blob_oids": {
+    "main/input_default.cpp": "8a0635c5f44ceb93790494b2614f258d999be22c",
+    "main/input_default.h": "00905ac19db498fa8ba012a63ccd8a5f360f601e",
+    "platform/server/SCsub": "38981ad162e5e639b91f17972d8823ac9cbf17a4",
+    "platform/server/os_server.cpp": "0a947479149e5656bd252c07d1fccf17492b38f1",
+    "platform/server/os_server.h": "b393ed325ee35a8de8abb395aecabe5e26a818bb",
+    "platform/x11/SCsub": "eacea1c5555f94a20c0083f68ee13d95cfbeb047",
+    "platform/x11/joypad_linux.cpp": "1abaff6e0ff7112943b9ca0ca0c89612feb75ad1"
+   },
+   "seam_patch": "engine-patches/godot3-nxc5b-seam.patch",
+   "seam_patch_sha256": "52757be11e3c640da2dc267f2810ee086078a39bdb71efa9f97a00c9859e7b27",
+   "upstream": "https://github.com/godotengine/godot",
+   "upstream_commit": "6c814135b69d4e703956bacc2073b4b179ff5a00",
+   "upstream_tag": "3.5.3-stable",
+   "version": "3.5.3-stable"
+  },
+  "godot4": {
+   "added_source_sha256": {
+    "nxc5b/nxc5b_glue.cpp": "1147f036d494a29819f7f26e0f97e75665ad56248194a021e9a8dc0059f5687b",
+    "nxc5b/nxc5b_glue.h": "17f1c889b4cfe1eb33a19b1ba0e72d339fb824daa5d956bd6c8469afce3608cc"
+   },
+   "binary": "bin/godot.linuxbsd.editor.x86_64",
+   "binary_bytes": 114015432,
+   "binary_sha256": "94647f1aa974efaa71730d12c65867cd5b43c41058901940e1e68f9f02b19790",
+   "build_command": "nice -n 10 scons -j2 platform=linuxbsd target=editor vulkan=no module_raycast_enabled=no CXXFLAGS=\"-include cstdint\"",
+   "checkout_method": "git archive 15073afe3856abd2aa1622492fe50026c7d63dc1 | tar -x  (the extraction is not a git repository; the pristine bytes are pinned by the blob OIDs below)",
+   "framework_sources_vendored_verbatim": {
+    "nxc5b/nxinput_godot.c": {
+     "framework_path": "src/nxinput_godot.c",
+     "sha256": "73c62672402adb3604672890f43e31af32ebfc32e9e8ebb78fdb1db066e68a7a"
+    },
+    "nxc5b/nxinput_godot.h": {
+     "framework_path": "include/nxinput_godot.h",
+     "sha256": "d543fad6c01d5f5625f180a7f9370d6f79bc963d5cc4c776e16b3fd1ea094d36"
+    },
+    "nxc5b/nxinput_godot_seam.c": {
+     "framework_path": "src/nxinput_godot_seam.c",
+     "sha256": "b1632e5c1c1a6a68ee65bf286a67a91d2d5265add04bfa1f1ade6a1b42f3e133"
+    },
+    "nxc5b/nxinput_godot_seam.h": {
+     "framework_path": "include/nxinput_godot_seam.h",
+     "sha256": "6c81ea66758ea276429c1e45e55282a7ce917d42fc1038cb214dfca212ce97da"
+    }
+   },
+   "license": "MIT",
+   "license_path": "LICENSE.txt",
+   "license_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+   "license_spdx": "MIT",
+   "link_evidence": {
+    "NXC5B-SEAM_format_string_occurrences_in_binary": 2,
+    "binary_symbol_table": "stripped by the pinned build command (no .symtab); the link is proven by the object files, the seam's format string in .rodata and the runtime receipts",
+    "runtime_proof": "the seam receipts in the attempt's evidence directory carry this binary's own pid and tid",
+    "seam_symbols_in_binary": [],
+    "translation_units_linked": {
+     "core/input/input.linuxbsd.editor.x86_64.o": {
+      "defined_text_symbols": [
+       "_Z24__constant_get_enum_nameIN5Input11CursorShapeEE10StringNameT_RK6String.isra.0",
+       "_ZN11LocalVectorIfjLb0ELb0EE6resizeEj.part.0",
+       "_ZN5Input10joy_buttonEi9JoyButtonb",
+       "_ZN5Input10joy_buttonEi9JoyButtonb.cold",
+       "_ZN5Input10warp_mouseERK7Vector2",
+       "_ZN5Input11_axis_eventEi7JoyAxisf",
+       "_ZN5Input11set_gravityERK7Vector3",
+       "_ZN5Input11set_gravityERK7Vector3.cold",
+       "_ZN5Input12action_pressERK10StringNamef",
+       "_ZN5Input12get_joy_nameEi",
+       "_ZN5Input12get_joy_nameEi.cold",
+       "_ZN5Input12is_joy_knownEi"
+      ],
+      "sha256": "5b7ef3a460f47e5b26214a3266a7dd850ece0d4938d31f6f494f785fe83fd41a"
+     },
+     "nxc5b/nxc5b_glue.linuxbsd.editor.x86_64.o": {
+      "defined_text_symbols": [
+       "_GLOBAL__sub_I__Z31nxc5b_install_headless_dispatchP5Input",
+       "_Z27nxc5b_admit_before_announceP5InputiiPKcS2_S2_",
+       "_Z31nxc5b_install_headless_dispatchP5Input",
+       "_ZN12_GLOBAL__N_1L10op_receiptEPvPKc",
+       "_ZN12_GLOBAL__N_1L11op_readbackEPvii",
+       "_ZN12_GLOBAL__N_1L14op_add_mappingEPvPKc",
+       "_ZN12_GLOBAL__N_1L14op_has_mappingEPvi",
+       "_ZN12_GLOBAL__N_1L29nxc5b_dispatch_headless_inputERK3RefI10InputEventE",
+       "_ZN12_GLOBAL__N_1L6op_nowEPv",
+       "_ZN12_GLOBAL__N_1L6op_pidEPv",
+       "_ZN12_GLOBAL__N_1L6op_tidEPv"
+      ],
+      "sha256": "b30a2fb325d736b9aba068e1196c230aa99a108ff7829cc4932fb87fa83d9c7e"
+     },
+     "nxc5b/nxinput_godot.linuxbsd.editor.x86_64.o": {
+      "defined_text_symbols": [
+       "collect.constprop.0",
+       "nxinput_godot_axis_code",
+       "nxinput_godot_axis_ordinal",
+       "nxinput_godot_button_code",
+       "nxinput_godot_button_ordinal",
+       "nxinput_godot_caps_init",
+       "nxinput_godot_caps_set_absinfo",
+       "nxinput_godot_domain_name",
+       "nxinput_godot_engine_name",
+       "nxinput_godot_evidence_init",
+       "nxinput_godot_evidence_line",
+       "nxinput_godot_origin_declare"
+      ],
+      "sha256": "760b1886a6cad659115cf255ee0e4c4b238a93a66b293b97acc3bf26084aa289"
+     },
+     "nxc5b/nxinput_godot_seam.linuxbsd.editor.x86_64.o": {
+      "defined_text_symbols": [
+       "emit",
+       "nxinput_godot_seam_admit",
+       "nxinput_godot_seam_result_name",
+       "sha_block"
+      ],
+      "sha256": "80bada16fece465e07db5780a89e5ccbe4e8f0047feabab4f017c3f9fd52d950"
+     },
+     "platform/linuxbsd/joypad_linux.linuxbsd.editor.x86_64.o": {
+      "defined_text_symbols": [
+       "_ZN11JoypadLinux11open_joypadEPKc",
+       "_ZN11JoypadLinux11open_joypadEPKc.cold",
+       "_ZN11JoypadLinux12close_joypadEPKc",
+       "_ZN11JoypadLinux12close_joypadEPKc.cold",
+       "_ZN11JoypadLinux12close_joypadERNS_6JoypadEi",
+       "_ZN11JoypadLinux13close_joypadsEv",
+       "_ZN11JoypadLinux13close_joypadsEv.cold",
+       "_ZN11JoypadLinux15monitor_joypadsEP4udev",
+       "_ZN11JoypadLinux15monitor_joypadsEv",
+       "_ZN11JoypadLinux15process_joypadsEv",
+       "_ZN11JoypadLinux15process_joypadsEv.cold",
+       "_ZN11JoypadLinux17enumerate_joypadsEP4udev"
+      ],
+      "sha256": "40ab0332b220508565525bd19bc92c0317eb8e5e9d80fe73208f8358584e7197"
+     },
+     "platform/linuxbsd/os_linuxbsd.linuxbsd.editor.x86_64.o": {
+      "defined_text_symbols": [
+       "_ZN11OS_LinuxBSD10initializeEv",
+       "_ZN11OS_LinuxBSD10shell_openE6String",
+       "_ZN11OS_LinuxBSD13move_to_trashERK6String",
+       "_ZN11OS_LinuxBSD13set_main_loopEP8MainLoop",
+       "_ZN11OS_LinuxBSD16delete_main_loopEv",
+       "_ZN11OS_LinuxBSD18initialize_joypadsEv",
+       "_ZN11OS_LinuxBSD21disable_crash_handlerEv",
+       "_ZN11OS_LinuxBSD26get_system_ca_certificatesEv",
+       "_ZN11OS_LinuxBSD31_check_internal_feature_supportERK6String",
+       "_ZN11OS_LinuxBSD3runEv",
+       "_ZN11OS_LinuxBSD5alertERK6StringS2_",
+       "_ZN11OS_LinuxBSD8finalizeEv"
+      ],
+      "sha256": "eb34e39b1d7b672cb0a6b565793dfabc701094d5de0c5129c68c36dd5d7e740c"
+     }
+    }
+   },
+   "link_method": "receipt-string(stripped-binary)",
+   "modules_disabled_and_why": {
+    "raycast/embree": "incompatible with the host GCC; not on the input path",
+    "vulkan/glslang": "needs <cstdint> on GCC 13+; not on the input path"
+   },
+   "patched_source_sha256": {
+    "core/input/input.cpp": "3b0803226c0be0f2bdf42a661627b5b29a187ce901ae1950a47c55ff0d61f061",
+    "core/input/input.h": "617226ce2e4d4173d830229e8b68cd9704addc14d4e788b78f110d9f5aa02c3e",
+    "platform/linuxbsd/SCsub": "a3f75a61752ff76352cbea5039d9076e3cd8f8ed93aae283db943bc2387fc071",
+    "platform/linuxbsd/joypad_linux.cpp": "d1f107ede0240e11f19ea2878cbd00c459365c9275e9d2d444c39a42840ab7eb",
+    "platform/linuxbsd/os_linuxbsd.cpp": "884cd5767982807f60c207c52502d3e2fde93d2cb88680ca6d3ea7108a4aa86b"
+   },
+   "pristine_blob_oids": {
+    "core/input/input.cpp": "55953c5ac74e4d4a5c9096199a902fb4907ce37c",
+    "core/input/input.h": "dd613c4877df2b464d48c95cf8f9294489c328a8",
+    "platform/linuxbsd/SCsub": "4dd74ff9d09ffd40f5ec37222838126a8f28bbdd",
+    "platform/linuxbsd/joypad_linux.cpp": "827c56778555736e1c32014bf515fd4a14d8a134",
+    "platform/linuxbsd/os_linuxbsd.cpp": "caa02a108bed16a4d502c41405cd644f6e953e95"
+   },
+   "seam_patch": "engine-patches/godot4-nxc5b-seam.patch",
+   "seam_patch_sha256": "75b53c579888dc62ffc72a3594ab12fb0e54c57a4d9e187572d7d7fcb60d4f67",
+   "upstream": "https://github.com/godotengine/godot",
+   "upstream_commit": "15073afe3856abd2aa1622492fe50026c7d63dc1",
+   "upstream_tag": "4.2.2-stable",
+   "version": "4.2.2-stable"
+  }
+ },
+ "note": "Chain source -> licence -> patch -> binary -> execution for the engines the C5B seam was linked into. Reproduce: check out <upstream_commit>, copy the framework sources listed in framework_sources_vendored_verbatim into nxc5b/, apply <seam_patch>, build with <build_command>. A path handed in by the environment is never an authority: c5b_provenance_gate.py must match these hashes.",
+ "schema": "org.nextos.c5b.engine-provenance",
+ "schema_version": 2
+}

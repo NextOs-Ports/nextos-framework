@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "id": "actionsquad",
+  "version": "1.2.4-aarch64-1",
+  "title": "DOOR KICKERS: ACTION SQUAD",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.khg.actionsquad"
+    ],
+    "max_files": 32,
+    "max_bundle_apks": 16,
+    "max_member_bytes": 536870912,
+    "max_bundle_bytes": 1073741824
+  },
+  "extract": [
+    {
+      "id": "android-native-entrypoint",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libAndroidEntryPoint.so"
+        ]
+      },
+      "destination": "libAndroidEntryPoint.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 4654112,
+        "sha256": "d97e40f99e788ea13097e54e4726d5becd3788e93cae90a698ddb5fbaa773f41"
+      }
+    },
+    {
+      "id": "android-game-assets",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/all/**"
+        ],
+        "strip_prefix": "assets/all/"
+      },
+      "destination": "assets/all",
+      "validate": {
+        "type": "tree",
+        "exact_files": 831,
+        "exact_bytes": 103830815,
+        "required_paths": [
+          "media/fonts/NotoSans-Medium.ttf",
+          "media/levels/missions/01_01_slow_starters.dkas",
+          "media/texts/strings.xml",
+          "media/texts/strings_ptbr.xml"
+        ],
+        "tree_fingerprint": "c9abc099c98f3f22de4241a59717f932237b1dbdbebd1912b9c9c6b5e7b425e9"
+      }
+    }
+  ],
+  "hooks": [],
+  "validate": [
+    {
+      "path": "libAndroidEntryPoint.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 4654112,
+      "sha256": "d97e40f99e788ea13097e54e4726d5becd3788e93cae90a698ddb5fbaa773f41"
+    },
+    {
+      "path": "assets/all",
+      "type": "tree",
+      "exact_files": 831,
+      "exact_bytes": 103830815,
+      "required_paths": [
+        "media/fonts/NotoSans-Medium.ttf",
+        "media/levels/missions/01_01_slow_starters.dkas",
+        "media/texts/strings.xml",
+        "media/texts/strings_ptbr.xml"
+      ],
+      "tree_fingerprint": "c9abc099c98f3f22de4241a59717f932237b1dbdbebd1912b9c9c6b5e7b425e9"
+    }
+  ],
+  "commit": [
+    "libAndroidEntryPoint.so",
+    "assets/all"
+  ],
+  "marker": ".nxextract-actionsquad.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Chrono Trigger"
+  },
+  "items": [
+    "Chrono Trigger.sh",
+    "chrono/"
+  ],
+  "items_opt": [],
+  "name": "chrono.zip",
+  "version": 4
+}

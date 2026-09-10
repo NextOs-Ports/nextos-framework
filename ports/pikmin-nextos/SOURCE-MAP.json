@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/pikmin-nextos",
+  "observed_commit": "1e6af10318a73f4db8251c52241ad868583891d3",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Pikmin"
+  ],
+  "platform": "GameCube",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "other",
+    "name": "Other",
+    "nickname": ""
+  },
+  "license_review": "LICENSE grants MIT only for NextOS contributions; separately describes projectPiki CC0 and exclusions for reconstructed game code. Whole-tree redistribution not cleared by this study.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "2ff8d3616ca3e8e061cda6c51cbb72897b1981ff",
+      "sha256": "1838a2e1aa72745234a44394f91d6b89a0a6a9b9c2f1997b8bde10fd81296caa"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "3116529578d88aaac2acc6437af5469e7ab60e31",
+      "sha256": "11b8d4e95ec7a895fe2e58313aa4c9df953a2e19fc6c0fb082631f5d7ca9994a"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "d15ad2ee23cab15c3b38c1d3190c1652db4d7452",
+      "sha256": "873d75aec770a2a9d7b78947bd68e4910df3ab136521e902239048e4d88eb3ae"
+    },
+    {
+      "path": "configure-nextos.sh",
+      "mode": "0o755",
+      "upstream_blob": "2f74843206f23fff01475b9c0af659035e4d3306",
+      "sha256": "49bfbd0b4d9029d4bd550650a3e93b121b667429679c0b09413cc48a259dde51"
+    },
+    {
+      "path": "include/port/audio_sink.h",
+      "mode": "0o644",
+      "upstream_blob": "c5bd07b035ba5e3e55fd210004a1a582e6a6852b",
+      "sha256": "7e4c7f7a3fd1d6f9bec5c8e16ed0d4ff19f08717a5a65e95291b45989e247b66"
+    },
+    {
+      "path": "include/port/byteswap.hpp",
+      "mode": "0o644",
+      "upstream_blob": "e8d5d23db0a88e4576505aafe0454ff8f5baebc4",
+      "sha256": "b8fb8e9ebdee625a91aed5d4537ced794c482a02b44f3e9c91bee68f5bbc925a"
+    },
+    {
+      "path": "include/port/endian_compat.h",
+      "mode": "0o644",
+      "upstream_blob": "7722f3822875a7db5602e2fcd786a1a64b78b4a2",
+      "sha256": "054741d1e2bcfdb635071b4c08d5e1b87c3fbc01f0b570298b8028c9f41ba5d7"
+    },
+    {
+      "path": "include/port/jaudio_bank_host.h",
+      "mode": "0o644",
+      "upstream_blob": "cb2337321373f28f4a263e17f09433add359ed51",
+      "sha256": "0d793d6d433f3b71900d5916843e40ebe982a056e3f79eb234f99154d8975a37"
+    },
+    {
+      "path": "include/port/jaudio_host.h",
+      "mode": "0o644",
+      "upstream_blob": "b83fcc0e18fedd0816539d26a12cc19ae6da03fd",
+      "sha256": "92bbbac7e6ca87b1b68435d147311da82e67e1010f21bcc8cba563d32056795c"
+    },
+    {
+      "path": "include/port/jaudio_state.h",
+      "mode": "0o644",
+      "upstream_blob": "7705ff69cf86e4f0d50e88806457ec92c3775c02",
+      "sha256": "d14e7dd5e17db734a313a872ce67a0056e9a8c8fd650f856a72ac4954f458a50"
+    },
+    {
+      "path": "include/port/os_port.h",
+      "mode": "0o644",
+      "upstream_blob": "6991f683f3e4ba2ae05a7feea9d73328bab03400",
+      "sha256": "63840e176ec62f95c31fde47c4e85a07a8bcbfc2724061e7114d3daecc77086f"
+    },
+    {
+      "path": "packaging/Pikmin.sh",
+      "mode": "0o644",
+      "upstream_blob": "dfff47996ceafb1f971fedd9f32550886fe7cdb5",
+      "sha256": "c2bc069f88d08f63e2aaaa274f8595a6e6a3c0f12af615b195393ea94bc01c32"
+    },
+    {
+      "path": "packaging/gamecontrollerdb.txt",
+      "mode": "0o644",
+      "upstream_blob": "06904f367ba56201d49ea77c244f642a96975f34",
+      "sha256": "0e20a3e47b0b09d1629dfd9607eea5aad104cc3d5636d4788ebd16354dfb3899"
+    },
+    {
+      "path": "src/port/audio_sink.cpp",
+      "mode": "0o644",
+      "upstream_blob": "cfce17084b4ecec4706f5e15ee3966c49e3534d6",
+      "sha256": "1368c2521e9fe6ede8916557a10e5debdf748ed294c9df50f8d1f1293556b906"
+    },
+    {
+      "path": "src/port/byteswap.cpp",
+      "mode": "0o644",
+      "upstream_blob": "b22d4446c3c5dbde096d7637cab4138496cae8f3",
+      "sha256": "815fc1832844b6cfd847b31e7aa7dfb6fdbd3de25847fffe445b2bde9b8c0c85"
+    },
+    {
+      "path": "src/port/debug_input.c",
+      "mode": "0o644",
+      "upstream_blob": "4613dc0350f57b04855ea34fa3f59e20d59e5feb",
+      "sha256": "b9dba0ced0581d6006afc4cf59e8d3c9cf4f31dd4c5d13a9c316f065d7f2e8a7"
+    },
+    {
+      "path": "src/port/entry.cpp",
+      "mode": "0o644",
+      "upstream_blob": "8d29403c65c316a3881ffe7cccb6bff5f6a4faf4",
+      "sha256": "1792282ed6217c2cc9f1851f21d84a7486fd36dff4fff2e7232a711e72bdee82"
+    },
+    {
+      "path": "src/port/frame.cpp",
+      "mode": "0o644",
+      "upstream_blob": "f961b7b256ac301e83e96bf4112e3c056606e750",
+      "sha256": "8ba8db378ca4faedf302822c920da65c3b2612c344707e8d0ad1c721a62b8998"
+    },
+    {
+      "path": "src/port/hvqm_port.cpp",
+      "mode": "0o644",
+      "upstream_blob": "28e405c4e96eb73efccf10c422478016ab62d19c",
+      "sha256": "957d010248878d9fa2835a548b39ec38437e46fe411b3687524104d12433c948"
+    },
+    {
+      "path": "src/port/jaudio_bank_host.cpp",
+      "mode": "0o644",
+      "upstream_blob": "af18edd50f4c958dc40287fc9c8ff2e157458856",
+      "sha256": "7ff055d296872535df6e47cf1fdc8d111b5c7deb9ce3bb61f6b7f71545fceff0"
+    },
+    {
+      "path": "src/port/jaudio_host.cpp",
+      "mode": "0o644",
+      "upstream_blob": "d33f55aef1bb62d5594aecd22413620a27821626",
+      "sha256": "664972b24c5bf29a7b05b5e49e2e86207f379369ec279f5493236d5d785aedc5"
+    },
+    {
+      "path": "src/port/jaudio_stub.c",
+      "mode": "0o644",
+      "upstream_blob": "f18fca17c520c18c4ddeb5b2eca1c6d5237be054",
+      "sha256": "e3a56574a9ebde708b502c0234ea7df9d76fc77c9256bd3af9e59603783d9881"
+    },
+    {
+      "path": "src/port/os_thread.c",
+      "mode": "0o644",
+      "upstream_blob": "70a1047730e2bd4b881f0bbb1eec848a35738851",
+      "sha256": "c9af7e19bd67a61e15932f9b2d93261b7db70ad2c30fa6972445af21b0bc4fa2"
+    },
+    {
+      "path": "src/port/portmain.cpp",
+      "mode": "0o644",
+      "upstream_blob": "e21c668c0d26572e9e8418c0d276ccf2cc367e76",
+      "sha256": "9da26d80c1bafa8cb51273c0fd1a80f82bf25d32bc1f0bd15a83b9fa4d083f3b"
+    },
+    {
+      "path": "src/port/ppc_intrin.c",
+      "mode": "0o644",
+      "upstream_blob": "c942e69b6e02ef748067b1c4c56f07271552484b",
+      "sha256": "a57bbbf3d4c44aa5dbf27024391f30e32bfc6cac10e3230a983858d63e170594"
+    },
+    {
+      "path": "src/port/stubs.c",
+      "mode": "0o644",
+      "upstream_blob": "07b4ef88f4e3df9b6e766e9842f45a4d548e3cf3",
+      "sha256": "35c8cb9b7f6edcb8f8103a8dc35fc4182d4d2ff3c62f1b81ab11450aa84b58b2"
+    },
+    {
+      "path": "src/port/vi_port.c",
+      "mode": "0o644",
+      "upstream_blob": "b6efb777b217155eda022e0946439aed1dd5f83a",
+      "sha256": "c50a713fd459477349fcd1568b9c1a46dd320e71e0e9f05b7eb5a61aab16d774"
+    },
+    {
+      "path": "src/port/watchdog.c",
+      "mode": "0o644",
+      "upstream_blob": "adc372b6f5f2c1b100fb93f4cb010c1ece823fbe",
+      "sha256": "0f68b46cabe30234fafdd4464b2ad639adda1be3038e0cd41c742fe67942cc79"
+    }
+  ],
+  "omitted_selected_files": []
+}

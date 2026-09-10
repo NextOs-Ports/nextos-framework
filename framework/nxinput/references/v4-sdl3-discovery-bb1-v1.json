@@ -1,0 +1,38 @@
+{
+  "schema": "nxinput-v4-sdl3-discovery-reference/1",
+  "status": "positive-physical-reference",
+  "source": {
+    "port_id": "beachbuggy",
+    "port_version": "1.0.6",
+    "commit": "5d965512550c29c2c47a7fb69341fe75349e08fb",
+    "artifact_sha256": "e8368c6bca921032b7476cbd247d42f2fdd2ff8b4bfd0213a12d6a97b71e86b3",
+    "acceptance": "controls-functional-on-physical-muos-device"
+  },
+  "private_sdl3": {
+    "sha256": "82445879f4e44084ffcf81266eacec7b02f82b7e29376b7ed8a559bf2aa9c173",
+    "build_id": "fe21c660206f0866956a3277f3362195e2321973",
+    "source_commit": "4751e3794d28fe26b6ce9c2fa6b45a7ce6ec50fd",
+    "max_glibc": "2.27",
+    "linux_evdev": true,
+    "libudev": "dynamic",
+    "libudev_dt_needed": false
+  },
+  "adoption_contract": {
+    "opt_in": true,
+    "port_pins_own_sdl3": true,
+    "discovery_receipt_required": true,
+    "linux_evdev_required": true,
+    "dynamic_udev_required": true,
+    "libudev_dt_needed_forbidden": true,
+    "discovery_before_classification_required": true,
+    "preinit_environment_staging_required": true,
+    "effective_mapping_readback_required": true,
+    "guest_native_flow_preserved": true,
+    "physical_acceptance_not_inherited": true
+  },
+  "framework_scope": {
+    "state": "host-candidate-partial",
+    "bundles_sdl3": false,
+    "heterogeneous_mapping_selection": false
+  }
+}

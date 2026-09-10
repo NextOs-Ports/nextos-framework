@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.invalid/schema/nxrelease-historical-authority-v1.schema.json",
+  "title": "NXRelease historical quarantine authority v1",
+  "description": "External read-only authority for authenticating one exact legacy archive in a clearly named quarantine. It never makes the archive publication-eligible.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "mode",
+    "quarantine",
+    "archive_sha256",
+    "metadata_tool_version",
+    "nxbootstrap_version"
+  ],
+  "properties": {
+    "schema": {"const": "nxrelease-historical-authority-v1"},
+    "schema_version": {"const": 1},
+    "mode": {"const": "historical-read-only"},
+    "quarantine": {"const": true},
+    "archive_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "metadata_tool_version": {
+      "enum": [
+        "0.2.40", "0.2.41", "0.2.42", "0.2.43",
+        "0.3.0", "0.3.1", "0.3.2", "0.3.3", "0.3.4", "0.3.5",
+        "0.3.6", "0.3.7", "0.3.8", "0.3.9", "0.3.10", "0.3.11",
+        "0.3.12", "0.3.13", "0.3.14", "0.3.15", "0.3.16", "0.3.17",
+        "0.3.18", "0.3.19", "0.3.20"
+      ]
+    },
+    "nxbootstrap_version": {
+      "type": "string",
+      "pattern": "^[0-9]+(?:[.][0-9]+)+$"
+    }
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "source_manifest": "upstream-sources-v1.json",
+  "principle": "detect first, correct second, never force by default",
+  "launcher_contract": {
+    "initialization_order": [
+      "declare_port_abi",
+      "discover_control_txt",
+      "source_control_txt",
+      "accept_canonical_controlfolder",
+      "source_sanitized_platform_mod_if_present",
+      "call_get_controls_if_present",
+      "reassert_framework_traps",
+      "validate_elf_and_dynamic_linker",
+      "prepare_host_library_paths",
+      "call_pm_platform_helper_once",
+      "close_portmaster_dialog_if_pipe_live",
+      "run_owner_data_extractor",
+      "run_declared_prepare_phase",
+      "validate_required_files",
+      "prepare_declared_private_library_paths",
+      "launch_one_direct_child",
+      "wait_for_direct_child",
+      "call_pm_finish_once",
+      "return_game_status"
+    ],
+    "minimum_visible_wrapper": [
+      "Bash",
+      "PORTMASTER signature",
+      "literal PORT_32BIT=Y before discovery only for ARMHF",
+      "relative port-directory discovery",
+      "single small launcher (Limbo shape): control.txt chain, get_controls, GAMEDIR from $directory, durable log.txt, single-instance flock on the binary, foreground game with signal forwarding and re-wait for the child's true exit status, console reset, pm_finish exactly once",
+      "durable early error log when discovery or data extraction fails",
+      "no bash runtime library and no deployment receipt in generated output",
+      "no secondary public run.sh layer"
+    ],
+    "must_not_contain": [
+      "game or device quirk tables",
+      "forced Mesa or graphics driver",
+      "forced SDL video or audio backend",
+      "frontend service administration",
+      "host-wide process enumeration or signaling"
+    ]
+  },
+  "portmaster_discovery": {
+    "strategy": "probe regular control.txt files by capability and allow control.txt to publish the canonical root",
+    "known_roots": [
+      "/PortMaster",
+      "/opt/system/Tools/PortMaster",
+      "/opt/tools/PortMaster",
+      "/storage/.config/PortMaster",
+      "/var/data/PortMaster",
+      "/roms/tools/PortMaster",
+      "/roms2/tools/PortMaster",
+      "/roms/ports/PortMaster",
+      "/roms2/ports/PortMaster",
+      "/storage/roms/ports/PortMaster",
+      "/userdata/roms/ports/PortMaster",
+      "/userdata/system/.local/share/PortMaster",
+      "/mnt/mmc/MUOS/PortMaster",
+      "/mnt/SDCARD/Apps/PortMaster/PortMaster",
+      "/mnt/sdcard/Roms/.portmaster/PortMaster",
+      "/mnt/sdcard/MIYOO_EX/PortMaster"
+    ],
+    "dynamic_roots": [
+      "game directory sibling PortMaster",
+      "XDG_DATA_HOME/PortMaster",
+      "HOME RetroDECK data/PortMaster"
+    ],
+    "discovery_only_unverified": {
+      "MIYOO_EX": "candidate root only; no fixture or runtime evidence; unsupported/unverified",
+      "RetroDECK": "candidate environment root only; no fixture or runtime evidence; unsupported/unverified"
+    },
+    "selection_must_not_depend_on": [
+      "hard-coded device name",
+      "game title",
+      "GPU marketing name"
+    ]
+  },
+  "api": {
+    "control_txt": {
+      "version_field": null,
+      "status": "required for real PortMaster execution, optional only for isolated diagnostics",
+      "trusted_scope": "firmware integration code",
+      "may_publish": [
+        "controlfolder",
+        "directory",
+        "ESUDO",
+        "CUR_TTY",
+        "CFW_NAME",
+        "DEVICE_ARCH",
+        "SDL_GAMECONTROLLERCONFIG_FILE",
+        "ANALOGSTICKS",
+        "ANALOG_STICKS",
+        "GPTOKEYB",
+        "GPTOKEYB2"
+      ]
+    },
+    "funcs_txt": {
+      "version_field": "PM_FUNCS_VERSION",
+      "compatibility_rule": "probe each function; the numeric version is diagnostic and is not a feature substitute",
+      "versions": [
+        {
+          "version": 1,
+          "baseline_functions": ["bind_directories", "pm_finish"],
+          "not_guaranteed": ["bind_files", "pm_message", "pm_platform_helper"]
+        },
+        {
+          "version": 2,
+          "baseline_functions": ["bind_directories", "pm_message", "pm_gptokeyb_finish", "pm_finish"],
+          "not_guaranteed": ["bind_files", "pm_platform_helper"]
+        },
+        {
+          "version": 3,
+          "baseline_functions": ["bind_directories", "bind_files", "pm_message", "pm_platform_helper", "pm_finish"],
+          "not_guaranteed": []
+        }
+      ]
+    },
+    "platform_mod": {
+      "pattern": "mod_${CFW_NAME}.txt",
+      "order": "after control.txt and before get_controls",
+      "constraints": [
+        "CFW_NAME contains only ASCII letters, digits, period, underscore or hyphen",
+        "the file stays under the selected controlfolder",
+        "the file is regular and not a symlink",
+        "absence is normal and causes no fallback forcing"
+      ]
+    },
+    "get_controls": {
+      "call_count": 1,
+      "input_owner": "PortMaster control.txt",
+      "mapping_precedence": [
+        "mapping generated or selected by the active control.txt",
+        "sdl_controllerconfig exported by get_controls",
+        "existing SDL_GAMECONTROLLERCONFIG_FILE selected by the firmware"
+      ],
+      "integrated_stick_hint": {
+        "published_names": ["ANALOGSTICKS", "ANALOG_STICKS"],
+        "accepted_values": [0, 1, 2],
+        "exported_name": "NXINPUT_ANALOG_STICKS_HINT",
+        "scope": "host-wide diagnostic for the integrated controller, never per-pad truth",
+        "invalid_or_absent_policy": "leave the exported hint unset",
+        "activation_policy": "never create bindings or enable D-pad fallback automatically"
+      },
+      "empty_mapping_policy": "log it and do not invent VID/PID mappings",
+      "failure_policy": "log a warning and preserve the firmware environment"
+    },
+    "pm_platform_helper": {
+      "required_argument": "real executable path that will own the display",
+      "call_count_max": 1,
+      "order": "after host paths and before any extractor/setup UI or game launch",
+      "semantics": "platform hint only; it does not execute the game",
+      "failure_policy": "best effort, log status and continue"
+    },
+    "dialog_handoff": {
+      "capability_signal": "a live non-symlink FIFO published as PM_PIPE by PortMaster",
+      "order": "after pm_platform_helper and before any extractor/setup UI or game launch",
+      "success_postcondition": "PortMasterDialogExit returns zero and the exact PM_PIPE path no longer exists",
+      "failure_policy": "fail closed with a durable runtime error when PM_PIPE is not a live non-symlink FIFO, the close API is absent, returns nonzero or leaves PM_PIPE active",
+      "scope": "close only the exact PortMaster-owned dialog; never scan or signal ambient processes"
+    },
+    "pm_finish": {
+      "call_count": 1,
+      "paths": ["success", "game error", "bootstrap error", "HUP", "INT", "TERM"],
+      "semantics": "PortMaster-owned cleanup; the framework does not duplicate it",
+      "failure_policy": "log status without replacing the game status"
+    }
+  },
+  "architecture": {
+    "armv7": {
+      "portmaster_arch": "armhf",
+      "visible_scanner_literal": "PORT_32BIT=\"Y\"",
+      "dynamic_linker": "/lib/ld-linux-armhf.so.3",
+      "library_conventions": ["libs.armhf", "/usr/lib32", "/lib32", "arm-linux-gnueabihf"],
+      "port_32bit_semantics": "declares an already-32-bit port to static launch scanners and platform mods; it neither proves nor converts ELF ABI"
+    },
+    "aarch64": {
+      "portmaster_arch": "aarch64",
+      "dynamic_linker": "/lib/ld-linux-aarch64.so.1",
+      "library_conventions": ["libs.aarch64", "aarch64-linux-gnu"]
+    },
+    "release_rule": "ARMHF and AArch64 use separate ELF artifacts under one source/API contract"
+  },
+  "libraries": {
+    "host_phase": [
+      "PortMaster libs and architecture-specific libs",
+      "firmware architecture paths",
+      "inherited non-port paths",
+      "generic system paths"
+    ],
+    "game_phase": [
+      "declared port-private paths",
+      "PortMaster libs and architecture-specific libs",
+      "firmware architecture paths",
+      "inherited non-port paths",
+      "generic system paths"
+    ],
+    "private_provider_policy": "bundle only dependencies proven missing; reject private EGL, GL, GLES, GBM, DRM, Mali and Mesa providers",
+    "forbidden_bundles": [
+      "libc",
+      "libpthread",
+      "librt",
+      "system libSDL2",
+      "libEGL",
+      "libGLES",
+      "libGL",
+      "libOpenGL",
+      "libgbm",
+      "libdrm",
+      "libmali",
+      "Mesa drivers"
+    ]
+  },
+  "environment": {
+    "inherit_without_default_override": [
+      "SDL_VIDEODRIVER",
+      "SDL_AUDIODRIVER",
+      "SDL_VIDEO_GL_DRIVER",
+      "SDL_VIDEO_EGL_DRIVER",
+      "DISPLAY",
+      "WAYLAND_DISPLAY",
+      "XDG_RUNTIME_DIR",
+      "PULSE_SERVER",
+      "ALSA_CONFIG_PATH"
+    ],
+    "backend_rule": "a backend is activated only after a runtime capability probe proves it is required",
+    "device_info_rule": "CFW_NAME and DEVICE_NAME are logged facts, never sufficient conditions for a compatibility fix"
+  },
+  "package_installation": {
+    "current_port_json_version": 4,
+    "accepted_legacy_versions": [1, 2, 3],
+    "required_layout": [
+      "port.json",
+      "README.md",
+      "screenshot image",
+      "gameinfo.xml",
+      "one top-level launcher .sh",
+      "one port data directory",
+      "licenses directory"
+    ],
+    "items_semantics": "required top-level ownership entries; a trailing slash identifies a directory",
+    "items_opt_semantics": "optional ownership entries installed and permission-fixed only when present",
+    "split_root_semantics": "HarbourMaster moves top-level .sh launchers to scripts_dir and all other members to ports_dir",
+    "overlay_update_semantics": "an update may leave an older same-name file in place; the 0.6.0 launcher is self-contained (no sourced runtime library), so overlay staleness reduces to the launcher file itself, which records its generator version in its header and first log line",
+    "security": [
+      "reject absolute ZIP members",
+      "reject parent traversal",
+      "normalize top-level metadata into the first port directory",
+      "repair executable permissions after extraction"
+    ],
+    "owner_data": "PortMaster installs the package; NXExtract validates and prepares user-owned game data during launch, in foreground and before the game"
+  },
+  "filesystem_portability": {
+    "facts": [
+      "FAT and exFAT may not preserve Unix executable bits, ownership, symlinks or advisory-lock behavior",
+      "ZIP extraction and firmware installers can normalize permissions differently",
+      "a firmware label does not prove the filesystem mounted for a particular port"
+    ],
+    "launcher_rules": [
+      "invoke vendored shell helpers explicitly through bash when an executable bit is not required",
+      "keep instance locks in an owned runtime or private tmp directory, never beside game data",
+      "use PortMaster bind_files or bind_directories only when the port needs them and the active funcs.txt actually defines them",
+      "treat a missing optional bind capability as a logged compatibility result, not permission to invent a host-wide workaround"
+    ],
+    "forbidden_assumptions": [
+      "chmod on the game-data filesystem will persist",
+      "symlink creation is supported",
+      "flock exists or behaves like util-linux",
+      "all saves should be redirected merely because one CFW commonly uses exFAT"
+    ]
+  },
+  "frontend_and_signals": {
+    "frontend_return": "exit the launcher after pm_finish and let the existing frontend supervisor resume",
+    "forbidden_framework_actions": [
+      "start, stop, restart, enable, disable or mask a frontend service",
+      "kill a frontend or desktop process",
+      "log out, lock, suspend, reboot or power off the host",
+      "create a detached game with setsid"
+    ],
+    "signal_scope": "only the exact direct child PID created by the bootstrap, revalidated with proc starttime",
+    "multiple_instance_policy": "fail closed on the per-port lock; never scan and kill ambient matching processes"
+  },
+  "platform_observations": [
+    {
+      "id": "arkos-family",
+      "facts": ["PortMaster commonly lives under /roms/tools", "ports live under /roms/ports", "sudo may be supplied through ESUDO"],
+      "universal_evidence": false
+    },
+    {
+      "id": "rocknix-jelos-uos-family",
+      "facts": ["control may be under /opt/system/Tools or /storage/.config", "ROCKNIX may use a Sway fullscreen helper", "32-bit mods may publish PipeWire plugin paths"],
+      "universal_evidence": false
+    },
+    {
+      "id": "muos",
+      "facts": ["canonical controlfolder is /mnt/mmc/MUOS/PortMaster", "scripts and port data can be split across mmc or sdcard", "controller mapping is generated by the active muOS control"],
+      "universal_evidence": false
+    },
+    {
+      "id": "knulli-batocera-reglinux",
+      "facts": ["PortMaster data may be in XDG_DATA_HOME", "ports use /userdata/roms/ports", "save redirection may require bind helpers on exFAT"],
+      "universal_evidence": false
+    },
+    {
+      "id": "trimui-and-miyoo-discovery",
+      "facts": ["TrimUI control roots and script roots are platform-specific", "ZIP extraction may not preserve executable bits", "PortMaster supplies platform-specific controls", "MIYOO_EX is a discovery-only candidate with no fixture/runtime evidence and remains unsupported/unverified"],
+      "universal_evidence": false
+    },
+    {
+      "id": "retrodeck-discovery",
+      "facts": ["RetroDECK may publish a Flatpak data root", "the candidate has no fixture/runtime evidence and remains unsupported/unverified"],
+      "universal_evidence": false
+    },
+    {
+      "id": "nextos-mali450",
+      "facts": ["PortMaster data uses /storage/roms/ports and launchers can use /storage/roms/ports_scripts", "the current integration aliases NextOS to EmuELEC and supplies its own controller bridge", "a legacy global compatibility hook is negative evidence and must not be copied into the shim"],
+      "universal_evidence": false
+    }
+  ],
+  "prohibited_generalizations": [
+    "Pikmin, PartyBoard or any GTA port proves universal compatibility",
+    "one working Mali-450 port proves all Mali-450 devices",
+    "one Panfrost port proves proprietary Mali behavior",
+    "a firmware name proves a backend is usable",
+    "a WIP or abandoned port is a positive source"
+  ]
+}

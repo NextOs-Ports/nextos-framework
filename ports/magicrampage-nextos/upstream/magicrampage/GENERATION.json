@@ -1,0 +1,112 @@
+{
+  "artifacts": [
+    {
+      "mode": "0755",
+      "path": "Magic Rampage.sh",
+      "sha256": "0ebf6730a579c2c4929cdc68fff8c3be9b8575192ff764778f57409b4282b476"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/LICENSE",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/README.md",
+      "sha256": "f3529393573a648f2c1e6b6c79649a78a49204e7a0180e6e9ce83823ab39e984"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/adapter/adapter-contract.json",
+      "sha256": "dbd60853647966ce94c7df14edcd43d40faa1467ee4efbcaa13d973fa664a4a2"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/extractor.json",
+      "sha256": "f6ba35d482551c383ad6a99241e5d4bbf740b232e858c175ba9ee9476561dcf2"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "magicrampage/nxextract/nxextract-ui",
+      "sha256": "b4daf1bdffe4f1623752742bc6b796f93a203f8e4cba4c39f62dfcfd37cc2d72"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/nxextract/nxextract.py",
+      "sha256": "e6dac6e116eb0f4431a2585e3ec5ff5785a660fbf5e54f6047fdef13cbe5f3e8"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/nxextract/run-extractor.sh",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/nxport.json",
+      "sha256": "55a231ff050416b51de4286c506534bd37a2a0bdf653bc2b7bdb116692685811"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/nxproject.json",
+      "sha256": "34034b3999fb67b63998a010f1ecad8ab143b15f5ad3f8901cea569a157f41c0"
+    },
+    {
+      "mode": "0755",
+      "path": "magicrampage/nxsplash-nextos",
+      "sha256": "4ccfc3ce1222be4b93577ba104742ed3a0df3cf6b5c5e9b334771f25f0988bf4"
+    },
+    {
+      "mode": "0644",
+      "path": "magicrampage/port.json",
+      "sha256": "d1e085c96ec8b697595a5c1284a421ae9e83096208d1388c256f61da1c6b20b7"
+    }
+  ],
+  "claims": {
+    "adapter_lifecycle_implemented": false,
+    "deterministic_scaffold": true,
+    "physical_support_proven": false,
+    "release_ready": false
+  },
+  "generator": {
+    "name": "nxgenerator",
+    "version": "0.2.6"
+  },
+  "project_manifest_sha256": "34034b3999fb67b63998a010f1ecad8ab143b15f5ad3f8901cea569a157f41c0",
+  "schema": "nxgenerator-receipt-v1",
+  "schema_version": 1,
+  "source_pins": {
+    "nxbootstrap": {
+      "source_files": {
+        "templates/launcher.sh.in": "a3be9b12d048d3111487e9fa0295f3a7e13671258ea92c8db9b0c17ce01035f2",
+        "tools/generate-port.py": "e096b996ad36e5d09c952432322f669a8671434df3f1f40cbe990882d60f71b5"
+      },
+      "version": "0.6.12"
+    },
+    "nxextract": {
+      "files": {
+        "nxextract-runtime-env.sh": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+        "nxextract-ui": "b4daf1bdffe4f1623752742bc6b796f93a203f8e4cba4c39f62dfcfd37cc2d72",
+        "nxextract.py": "e6dac6e116eb0f4431a2585e3ec5ff5785a660fbf5e54f6047fdef13cbe5f3e8",
+        "run-extractor.sh": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+      },
+      "recipe_sha256": "f6ba35d482551c383ad6a99241e5d4bbf740b232e858c175ba9ee9476561dcf2",
+      "version": "1.2.7"
+    },
+    "nxsplash": {
+      "artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "release/aarch64/nxsplash-nextos",
+        "sha256": "4ccfc3ce1222be4b93577ba104742ed3a0df3cf6b5c5e9b334771f25f0988bf4"
+      },
+      "release_manifest_sha256": "7ad49da9415b452f2cd9e240fbede0646842dcb3d531c77b926994d2f3197927",
+      "source_sha256": "a75a22e790a7b849cd7ef91bae4e327ac782124dc5f2b4d6e3c110f42c2d33a2",
+      "version": "0.1.1"
+    }
+  }
+}

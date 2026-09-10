@@ -1,0 +1,306 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "hitmango",
+    "version": "1.2.2",
+    "profile": "universal-portmaster",
+    "launcher": "Hitman GO.sh",
+    "launcher_chain": [
+      "Hitman GO.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.16",
+      "config_path": "hitmango/nxport.json",
+      "config_sha256": "7fac30cd5672897e3caa82bf8a8d8afa045ef32bab6f395eaad57712f751bd0e"
+    },
+    "port_dir": "hitmango",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/hitmango-nextos",
+      "file": "hitmango/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786752000,
+    "max_glibc": "2.27",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "hitmango/nxextract/nxextract.py",
+    "version": "1.2.10",
+    "minimum_version": "1.2.10",
+    "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5",
+    "runner_path": "hitmango/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "hitmango/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "ui_path": "hitmango/nxextract/nxextract-ui",
+    "ui_sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+    "recipe_path": "hitmango/extractor.json",
+    "recipe_sha256": "bf19171367b35bc9dbe59ca6682ae18e6fb62c216706c9b5322da857d76c1a61"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libgcc_s.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libz.so.1",
+      "provider": "firmware"
+    }
+  ],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "hitmango/port.json",
+      "sha256": "b8003989a9696e76670c521a917bec24a89bccfe67baadf88eca3e41297c9f04"
+    },
+    "images": [],
+    "gameinfo_xml": {
+      "path": "hitmango/gameinfo.xml",
+      "sha256": "60b34716d0621ab431ecf2cd37a3aa027353903bc84c3b7175f08f10fecd90eb"
+    }
+  },
+  "files": [
+    {
+      "source": "Hitman GO.sh",
+      "target": "Hitman GO.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "523cade5c35dab1300a06dd720b9366d5116ed84754244638638eba418c2c8c7"
+    },
+    {
+      "source": "hitmango/nxport.json",
+      "target": "hitmango/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "7fac30cd5672897e3caa82bf8a8d8afa045ef32bab6f395eaad57712f751bd0e"
+    },
+    {
+      "source": "hitmango/nxsplash-nextos",
+      "target": "hitmango/nxsplash-nextos",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "nxsplash-v0.1.2 immutable AArch64 release",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "build/hitmango-nextos",
+      "target": "hitmango/bin/aarch64/hitmango-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "sha256": "abd57c0319854e7248823de8c643575c96e4c71e2164b28f628a28ec151613a9",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build_universal.sh; playfetch-builder:buster image sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf; Debian Buster AArch64 cross-toolchain",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "soname": null
+    },
+    {
+      "source": "hitmango/nxproject.json",
+      "target": "hitmango/nxproject.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "d51c383cbe69b2c58d70d58bb3a6ff787561519190964e7e39c781c42b544c01"
+    },
+    {
+      "source": "hitmango/port-env.sh",
+      "target": "hitmango/port-env.sh",
+      "kind": "script",
+      "mode": "0644",
+      "sha256": "619f691e04e483eb08c6054a62d917be41372ec351e179af333f4c1924961113"
+    },
+    {
+      "source": "hitmango/extractor.json",
+      "target": "hitmango/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "bf19171367b35bc9dbe59ca6682ae18e6fb62c216706c9b5322da857d76c1a61"
+    },
+    {
+      "source": "hitmango/nxextract/nxextract.py",
+      "target": "hitmango/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "source": "hitmango/nxextract/run-extractor.sh",
+      "target": "hitmango/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "source": "hitmango/nxextract/nxextract-runtime-env.sh",
+      "target": "hitmango/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "hitmango/nxextract/nxextract-ui",
+      "target": "hitmango/nxextract/nxextract-ui",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "NXExtract 1.2.9 canonical graphical AArch64 UI",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "hitmango/port.json",
+      "target": "hitmango/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "b8003989a9696e76670c521a917bec24a89bccfe67baadf88eca3e41297c9f04"
+    },
+    {
+      "source": "hitmango/README.md",
+      "target": "hitmango/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "bd6f7f4515a8af833ab15056393518223e4c796ecc19fde31ba7b9b15aa37d87"
+    },
+    {
+      "source": "hitmango/INSTALLATION.md",
+      "target": "hitmango/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "51db13d534a319ac11e16f1f14eefdddc29c9cd19d7c7f7fdaa8ab8fdf84c566"
+    },
+    {
+      "source": "hitmango/CHANGELOG.md",
+      "target": "hitmango/CHANGELOG.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "740df5536619d654c15af6579b223400fc346587d296e7735e035fa14eabfdfa"
+    },
+    {
+      "source": "hitmango/LICENSE",
+      "target": "hitmango/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "source": "hitmango/NOTICE.md",
+      "target": "hitmango/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "77d78aee1406a0f631ac92500c54a6e8a9859b59caceb3a9d36499bdff4e54fe"
+    },
+    {
+      "source": "hitmango/version.txt",
+      "target": "hitmango/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "c62a5cc61ac4525935753f5ec284c0a052a4b1da4b3a3580dce2b7d77a2154ae"
+    },
+    {
+      "source": "hitmango/FRAMEWORK-PIN.json",
+      "target": "hitmango/FRAMEWORK-PIN.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "04d9121491049568fbde70ce24800cf845973158e651ee0362bd9e0834ce3533"
+    },
+    {
+      "source": "hitmango/GENERATION.json",
+      "target": "hitmango/GENERATION.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "f7636e2c61d3e86d9e0fb6ecf4f22942d3edab0a8d9cc0033660bc46cafbd025"
+    },
+    {
+      "source": "hitmango/adapter/adapter-contract.json",
+      "target": "hitmango/adapter/adapter-contract.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "dbd60853647966ce94c7df14edcd43d40faa1467ee4efbcaa13d973fa664a4a2"
+    },
+    {
+      "source": "hitmango/gamedata/README.txt",
+      "target": "hitmango/gamedata/README.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "9eaa194128239771e905f537fdc79a92d17c174060dfc7e2cd433e959eb172f8"
+    },
+    {
+      "source": "hitmango/licenses/NXExtract-MIT.txt",
+      "target": "hitmango/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "hitmango/licenses/NXSplash-MIT.txt",
+      "target": "hitmango/licenses/NXSplash-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "60b34716d0621ab431ecf2cd37a3aa027353903bc84c3b7175f08f10fecd90eb",
+      "source": "hitmango/gameinfo.xml",
+      "target": "hitmango/gameinfo.xml"
+    }
+  ],
+  "exceptions": []
+}

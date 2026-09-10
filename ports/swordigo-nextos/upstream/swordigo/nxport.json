@@ -1,0 +1,41 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "game-dir-and-passthrough",
+  "enabled_quirks": [
+    "adapter.gl-provider-coherent-sdl-reexec",
+    "adapter.gl-provider-reexec-preload",
+    "adapter.gl-provider-probe-init-reexec",
+    "game.swordigo.present-alpha-one",
+    "game.swordigo.fullscreen-desktop",
+    "game.swordigo.present-finish"
+  ],
+  "executable": "swordigo-nextos",
+  "home_mode": "port",
+  "id": "swordigo",
+  "launcher_name": "Swordigo.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.10"
+  },
+  "prepare_script": "",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "graphics.window",
+    "graphics.egl",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api"
+  ],
+  "required_files": [
+    "swordigo-nextos",
+    "nxsplash-nextos",
+    "libswordigo.so",
+    "res/7c.mp3",
+    "alsoft.conf"
+  ],
+  "runtime_report": "log-and-logo",
+  "schema_version": 2,
+  "title": "Swordigo"
+}

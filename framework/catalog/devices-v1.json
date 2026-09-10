@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "registry_version": "1.0.0",
+  "meaning": "Machine-readable snapshot of the physical device families used for planning and evidence bookkeeping. Every row is a set of observed facts; a family name is NEVER a sufficient condition for a runtime fix (portmaster contract device_info_rule). Runtime behavior must gate on capabilities the probe actually observed.",
+  "axes": ["gpu-display-ownership", "firmware-arch-libc", "audio", "input"],
+  "evidence_levels": [
+    "physical-full",
+    "community-confirmed",
+    "fix-published-retest-pending",
+    "design-compatible",
+    "untested"
+  ],
+  "families": [
+    {
+      "id": "nextos-mali450-fbdev",
+      "firmware": "NextOS Retro/Elite (EmuELEC lineage)",
+      "arch": "aarch64 userland, armhf world available",
+      "gpu": "ARM Mali-450 (Utgard blob)",
+      "display": "fbdev, SDL video driver 'mali', raw EGL present path",
+      "gles_ceiling": "2.0",
+      "resolution_facts": ["fb0/mode", "fb0/virtual_size double-buffer pan"],
+      "audio": "PipeWire/Pulse session or bare ALSA depending on image",
+      "evidence": "physical-full",
+      "evidence_ports": ["stardew", "horizonchase", "asm2_127", "kotor"]
+    },
+    {
+      "id": "r36s-arkos-g31-kmsdrm",
+      "firmware": "ArkOS (Ubuntu 18.04 lineage, glibc <= 2.27/2.30)",
+      "arch": "aarch64 userland with 32-bit Mali blob world in /usr/local/lib/arm-linux-gnueabihf",
+      "gpu": "ARM Mali-G31 (Bifrost blob)",
+      "display": "KMSDRM, SDL owns context and page-flip",
+      "gles_ceiling": "3.x (blob)",
+      "resolution_facts": ["640x480 panel", "drm connector modes"],
+      "audio": "bare ALSA",
+      "evidence": "physical-full",
+      "evidence_ports": ["stardew", "horizonchase", "sor4", "asm2_127", "kotor"]
+    },
+    {
+      "id": "nextos-x5-g310-kmsdrm",
+      "firmware": "NextOS X5/X5M image",
+      "arch": "aarch64 plus i386/Box32 route",
+      "gpu": "ARM Mali-G310 (Valhall)",
+      "display": "KMSDRM 1080p",
+      "gles_ceiling": "3.x",
+      "resolution_facts": ["drm connector modes"],
+      "audio": "Pulse or ALSA depending on image; OpenAL there may only list alsa,null",
+      "evidence": "physical-full",
+      "evidence_ports": ["horizonchase", "asm2_127"]
+    },
+    {
+      "id": "rg40xx-muos",
+      "firmware": "muOS",
+      "arch": "aarch64 userland, 32-bit world under /usr/lib32",
+      "gpu": "Mali (Allwinner H700 class)",
+      "display": "firmware SDL/EGL/GLES",
+      "gles_ceiling": "3.x",
+      "resolution_facts": ["drm connector modes", "fb0/mode"],
+      "audio": "ALSA with ARMHF module needs for 32-bit processes",
+      "evidence": "community-confirmed",
+      "evidence_ports": ["stardew", "asm2_127"]
+    },
+    {
+      "id": "rgds-rocknix-panfrost-wayland",
+      "firmware": "ROCKNIX (JELOS lineage)",
+      "arch": "aarch64",
+      "gpu": "Mali-G31 via Mesa Panfrost",
+      "display": "Wayland; Mesa can hand back desktop GL if ES is not forced",
+      "gles_ceiling": "3.1 (Mesa)",
+      "resolution_facts": ["wayland drawable is the authority", "drm connector modes"],
+      "audio": "inherited Pulse hint may point at a dead server; ALSA works",
+      "evidence": "fix-published-retest-pending",
+      "evidence_ports": ["asm2_127", "stardew"]
+    },
+    {
+      "id": "knulli-batocera-amberelec-trimui",
+      "firmware": "Knulli / Batocera / AmberELEC / TrimUI and related",
+      "arch": "aarch64 (varies)",
+      "gpu": "varies",
+      "display": "capability-designed routes only",
+      "gles_ceiling": "unknown until measured",
+      "resolution_facts": ["probe ladder"],
+      "audio": "varies; HOME .asoundrc redirect proven for volume keys",
+      "evidence": "design-compatible",
+      "evidence_ports": []
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gameList>
+  <game>
+    <path>./The Amazing Spider-Man 2.sh</path>
+    <name>The Amazing Spider-Man 2</name>
+    <desc>Port BYO-data das versoes Android 1.2.7d/1.2.8d por clean-room so-loader. Rotas ARMHF nativas para NextOS e PortMaster, mais rota AArch64 especifica do X5M por Box32. Saves persistentes e preparo transacional dos dados legais do usuario pelo NXExtract. Arquivos executaveis do jogo nao inclusos.</desc>
+    <image>./asm2_127/screenshot.png</image>
+    <developer>Gameloft</developer>
+    <publisher>Gameloft</publisher>
+    <genre>Acao / Aventura</genre>
+  </game>
+</gameList>

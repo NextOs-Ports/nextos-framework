@@ -1,0 +1,32 @@
+# Owner-supplied game data and writable runtime state
+/gamedata/*
+!/gamedata/README.txt
+/runtime/
+/data/
+/.nxextract/
+/.nxextract-forager.json
+*.apk
+*.apkm
+*.apks
+*.xapk
+*.obb
+
+# Local release output and diagnostics
+/package/dist/
+*.zip
+*.zip.sha256
+*.tar
+*.tar.gz
+*.log
+*.raw
+*.rgba
+*.tombstone
+__pycache__/
+*.py[cod]
+
+# The audited loader and NXExtract UI are intentional release inputs.
+!/forager-nextos
+!/nxextract/nxextract-ui
+/.build/
+/tmpbuild/
+/dist/

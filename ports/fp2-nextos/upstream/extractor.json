@@ -1,0 +1,303 @@
+{
+  "schema": 1,
+  "id": "fp2",
+  "version": "1",
+  "title": "Freedom Planet 2",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata"
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.GalaxyTrail.FP2"
+    ]
+  },
+  "reference_build": {
+    "game_version": "1.2.8",
+    "version_code": 1,
+    "container_size": 268381928,
+    "container_sha256": "4a7ad45335ecefd813f4e0c6abce132d1cd781ff97d1325ebc66c7cb80ed4986",
+    "note": "Documentation-only identity of the physically tested owner copy; never an acceptance predicate."
+  },
+  "compatibility": {
+    "package_families": [
+      "com.GalaxyTrail.FP2"
+    ],
+    "abis": [
+      "arm64-v8a"
+    ],
+    "required_members": [
+      "assets/AVConfig.json",
+      "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "assets/bin/Data/boot.config",
+      "assets/bin/Data/globalgamemanagers",
+      "assets/bin/Data/globalgamemanagers.assets.split0",
+      "assets/bin/Data/globalgamemanagers.assets.split1",
+      "assets/bin/Data/level0",
+      {
+        "member": "lib/arm64-v8a/libil2cpp.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      },
+      {
+        "member": "lib/arm64-v8a/libmain.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      },
+      {
+        "member": "lib/arm64-v8a/libunity.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      }
+    ],
+    "payload_contracts": [
+      "Unity IL2CPP player data with serialized split assets",
+      "Owner shaders are derived offline from the packaged SMOL-V and SPIR-V payload into ESSL100"
+    ],
+    "required_symbols_or_interfaces": [
+      "AArch64 ELF machine for libmain.so, libunity.so and libil2cpp.so",
+      "Unity BuildSettings and serialized Shader objects consumed by the preparation hook"
+    ]
+  },
+  "extract": [
+    {
+      "id": "unity-data",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/bin/**"
+        ],
+        "scopes": [
+          "apk",
+          "bundle"
+        ],
+        "strip_prefix": "assets/bin/"
+      },
+      "destination": "assets/bin",
+      "source_validate": {
+        "type": "tree",
+        "exact_files": 1145,
+        "exact_bytes": 931406238,
+        "tree_fingerprint": "68802777945e42fa2905bfb12675323d21f786012c16fd3ee8938a64b815918a",
+        "required_paths": [
+          "Data/Managed/Metadata/global-metadata.dat",
+          "Data/boot.config",
+          "Data/globalgamemanagers",
+          "Data/globalgamemanagers.assets.split0",
+          "Data/globalgamemanagers.assets.split1",
+          "Data/level0"
+        ]
+      },
+      "output_validate": {
+        "type": "tree",
+        "exact_files": 1146,
+        "exact_bytes": 931862642,
+        "tree_fingerprint": "7f9927195f1ccca752fb2c1764d47a3276cc8c4b710d6bc7b63d2c361df48b10",
+        "required_paths": [
+          "Data/Managed/Metadata/global-metadata.dat",
+          "Data/boot.config",
+          "Data/globalgamemanagers",
+          "Data/globalgamemanagers.assets.split0",
+          "Data/globalgamemanagers.assets.split1",
+          "Data/level0",
+          "Data/sharedassets18.assets.split17"
+        ]
+      }
+    },
+    {
+      "id": "android-video-config-validation-input",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/AVConfig.json"
+        ],
+        "scopes": [
+          "apk",
+          "bundle"
+        ]
+      },
+      "destination": "assets/AVConfig.json",
+      "required": false,
+      "source_validate": {
+        "type": "file",
+        "size": 176220,
+        "sha256": "301935ee6ea4053a2c18ee04d325dd3cf733e1a8810e36f01d439e255924a520"
+      },
+      "output_validate": {
+        "type": "file",
+        "size": 176220,
+        "sha256": "301935ee6ea4053a2c18ee04d325dd3cf733e1a8810e36f01d439e255924a520"
+      }
+    },
+    {
+      "id": "libil2cpp-arm64",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libil2cpp.so"
+        ],
+        "scopes": [
+          "apk",
+          "bundle"
+        ]
+      },
+      "destination": "lib/libil2cpp.so",
+      "source_validate": {
+        "type": "file",
+        "size": 22824344,
+        "sha256": "f373c5507f073b358d5f4fa7acdfcaab3e7a07c2ca0c85e42532816dc5002bf4",
+        "elf_machine": "{abi}"
+      },
+      "output_validate": {
+        "type": "file",
+        "size": 22824344,
+        "sha256": "f373c5507f073b358d5f4fa7acdfcaab3e7a07c2ca0c85e42532816dc5002bf4",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "libmain-arm64",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmain.so"
+        ],
+        "scopes": [
+          "apk",
+          "bundle"
+        ]
+      },
+      "destination": "lib/libmain.so",
+      "source_validate": {
+        "type": "file",
+        "size": 6144,
+        "sha256": "a2936f885499c4af4923b40277d0f1c8a5c4dc7c11945e91384d7887c6c17624",
+        "elf_machine": "{abi}"
+      },
+      "output_validate": {
+        "type": "file",
+        "size": 6144,
+        "sha256": "a2936f885499c4af4923b40277d0f1c8a5c4dc7c11945e91384d7887c6c17624",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "libunity-arm64",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libunity.so"
+        ],
+        "scopes": [
+          "apk",
+          "bundle"
+        ]
+      },
+      "destination": "lib/libunity.so",
+      "source_validate": {
+        "type": "file",
+        "size": 20086992,
+        "sha256": "56aeb87858b60cd102f3a0dce8a219c7ea414c37393000e45f87beb7fb052479",
+        "elf_machine": "{abi}"
+      },
+      "output_validate": {
+        "type": "file",
+        "size": 20086992,
+        "sha256": "56aeb87858b60cd102f3a0dce8a219c7ea414c37393000e45f87beb7fb052479",
+        "elf_machine": "{abi}"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "prepare-fp2-data",
+      "argv": [
+        "python3",
+        "{game_dir}/nxextract/prepare_fp2_data.py",
+        "--stage",
+        "{stage}",
+        "--game-dir",
+        "{game_dir}"
+      ],
+      "cwd": "{game_dir}",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "transactional": false,
+      "limits": {
+        "wall_seconds": 1800,
+        "cpu_seconds": 1800,
+        "memory_bytes": 805306368,
+        "fsize_bytes": 2147483648,
+        "output_bytes": 4194304
+      },
+      "checkpoint": [
+        {
+          "path": ".fp2-data.json",
+          "type": "file",
+          "size": 342,
+          "sha256": "4b8b95fde490422b5d494427bca7e45cb1c29f61c9c5cfa2de116186831e4ad2"
+        },
+        {
+          "path": "assets/bin",
+          "type": "tree",
+          "exact_files": 1146,
+          "exact_bytes": 931862642,
+          "tree_fingerprint": "7f9927195f1ccca752fb2c1764d47a3276cc8c4b710d6bc7b63d2c361df48b10",
+          "required_paths": [
+            "Data/globalgamemanagers",
+            "Data/sharedassets18.assets.split17"
+          ]
+        },
+        {
+          "path": "lib",
+          "type": "tree",
+          "exact_files": 3,
+          "exact_bytes": 42917480,
+          "tree_fingerprint": "e1facbb48d329fab3bf0e86689d2c7b1434741c355535bea484eafc9a9793ff5",
+          "required_paths": [
+            "libil2cpp.so",
+            "libmain.so",
+            "libunity.so"
+          ]
+        }
+      ],
+      "contract": {
+        "schema": "org.nextos.apk-compat.hook-contract",
+        "schema_version": 1,
+        "hook_id": "prepare-fp2-data",
+        "inputs": [
+          "assets",
+          "lib"
+        ],
+        "predicates": [
+          {
+            "class": "compatibility",
+            "checks": "NXExtract authenticates the package family, ARM64 ABI, critical internal payloads and complete Unity source tree before hook execution"
+          }
+        ],
+        "patch_profiles": [],
+        "fallback": "nxextract-authenticated-symbolic-translation-v1",
+        "error_codes": [
+          "FP2-PREPARE-01"
+        ]
+      }
+    }
+  ],
+  "commit": [
+    "assets",
+    "lib"
+  ],
+  "marker": ".nxextract-fp2.json",
+  "space": {
+    "safety_bytes": 536870912
+  },
+  "log": "nxextract.log",
+  "detail_log": "nxextract-detail.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

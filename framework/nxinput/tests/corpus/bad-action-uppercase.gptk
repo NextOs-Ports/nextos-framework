@@ -1,0 +1,5 @@
+format = NEXTOS_CONTROLLERS/1
+[menu]
+A = UI.Confirm
+[gameplay]
+A = player.jump

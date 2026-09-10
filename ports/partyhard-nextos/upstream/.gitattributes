@@ -1,0 +1,6 @@
+*.nxb binary
+partyhard-nextos binary
+nxsplash-nextos binary
+nxextract-ui binary
+*.so binary
+*.so.* binary

@@ -1,0 +1,63 @@
+# @TITLE@ — installation / instalação
+
+This file belongs to a generated, non-release scaffold. Before publication,
+replace the owner-data placeholders below with the exact tested game identity
+and let NXRelease pin these bytes in the final archive.
+
+Este arquivo pertence a um scaffold gerado e ainda não publicável. Antes da
+publicação, substitua os campos de dados do proprietário abaixo pela identidade
+exata do jogo testado e deixe o NXRelease fixar estes bytes no pacote final.
+
+## English
+
+Install the final PortMaster ZIP with the PortMaster application. The archive
+must install exactly this layout:
+
+```text
+ports/@LAUNCHER_NAME@
+ports/@PORT_ID@/
+```
+
+Required owner data for the finished port:
+
+- game name and tested version: **REQUIRED BEFORE RELEASE**;
+- package ID, when Android data is used: **REQUIRED BEFORE RELEASE**;
+- accepted ABI: **@ARCHITECTURE@**;
+- reference container size and SHA-256: **REQUIRED BEFORE RELEASE**.
+
+The reference container hash identifies the tested copy; it must never be the
+only compatibility condition. The extraction recipe must also validate the
+package, version contract, ABI, structure and critical internal payloads. Do not
+publish the original container filename or any download source.
+
+@OWNER_DATA_BLOCK_EN@After copying the lawful owner data to the game-data directory documented by
+the finished port, launch `@LAUNCHER_NAME@` from the frontend. A finished port
+must document the exact destination, first-run extraction flow, expected space,
+logs, update procedure and uninstall/preserved-save behavior here.
+
+## Português
+
+Instale o ZIP final pelo aplicativo PortMaster. O pacote deve instalar
+exatamente esta estrutura:
+
+```text
+ports/@LAUNCHER_NAME@
+ports/@PORT_ID@/
+```
+
+Dados do proprietário obrigatórios no port concluído:
+
+- nome e versão testada do jogo: **OBRIGATÓRIO ANTES DA RELEASE**;
+- package ID, quando forem usados dados Android: **OBRIGATÓRIO ANTES DA RELEASE**;
+- ABI aceita: **@ARCHITECTURE@**;
+- tamanho e SHA-256 do container de referência: **OBRIGATÓRIO ANTES DA RELEASE**.
+
+O hash integral identifica somente a cópia testada e nunca pode ser a única
+condição de compatibilidade. A receita também deve validar package, contrato de
+versão, ABI, estrutura e payloads internos críticos. Não publique o nome
+original do container nem qualquer origem de download.
+
+@OWNER_DATA_BLOCK_PT@Depois de copiar os dados legais do proprietário para o diretório descrito pelo
+port concluído, abra `@LAUNCHER_NAME@` no frontend. O port final deve registrar
+aqui o destino exato, a extração do primeiro boot, o espaço necessário, os logs,
+o procedimento de atualização e o comportamento de remoção/preservação de saves.

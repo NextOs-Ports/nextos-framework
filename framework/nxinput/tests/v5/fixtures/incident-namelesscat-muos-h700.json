@@ -1,0 +1,37 @@
+{
+  "fixture": "nxinput-incident-fixture/1",
+  "id": "namelesscat-1.2.7-rg40xxh-muos-20260902",
+  "class": "FIELD_INCIDENT / sanitized",
+  "initial_status": "UNPROVEN_PROVIDER_DOMAIN",
+  "summary": "Nameless Cat 1.2.7 on muOS (RG40XX-H): install/video OK, GPTK owner loaded (9 sinks, contexts menu then gameplay), D-pad and left stick move, no other button answers, SELECT+START dead (device had to be rebooted). Receipt: NXC6-DOMAIN ... rewritten=1 rewritten_bindings=15 ... volume_markers=2 result=rewritten; NXC6-SEAM ... source=env-get-controls ... matching=2 ... source_domain=joydev-legacy target_domain=sdl2-evdev; controller: Deeplay-keys ... a:b0,b:b1,x:b3,y:b2,...back:b6,start:b7 (POST-rewrite output, never an input fixture).",
+  "device": {
+    "family": "allwinner-h700-gpio-keys",
+    "guid_zero_crc": "19000000010000000100000000010000",
+    "capabilities_field": {"buttons": 17, "axes": 4, "hats": 1, "volume_markers": 2},
+    "ev_key_codes": ["0x11", "0x72", "0x73", "0x130", "0x131", "0x132", "0x133", "0x134", "0x135", "0x136", "0x137", "0x138", "0x139", "0x13a", "0x13b", "0x13c"],
+    "ev_key_note": "Field reported 17 buttons; the DTS-proved set is 0x72/0x73/0x130..0x13c (15) plus one low key before 0x72 (muOS binds volumedown=b1). The 17th code is unknown and NOT fabricated; it cannot change ordinals b0..b15 unless it precedes 0x13c, which the muOS line (a=b3, rightstick=b15) excludes.",
+    "ev_abs_codes": ["0x00", "0x01", "0x02", "0x03", "0x10", "0x11"],
+    "hats": 1
+  },
+  "physical_table": {
+    "trust_root": "vendor DTS gpio-keys (framework-v4 tests/test_evdev_chord_map.c lines 3-9)",
+    "position_to_ev_key": {"face.south": "0x130", "face.east": "0x131", "face.west": "0x132", "face.north": "0x133", "l1": "0x134", "r1": "0x135", "select": "0x136", "start": "0x137", "guide": "0x138", "l3": "0x139", "l2": "0x13a", "r2": "0x13b", "r3": "0x13c", "volume.down": "0x72", "volume.up": "0x73"}
+  },
+  "source": {
+    "authority": "env-get-controls (muOS control.txt get_controls)",
+    "matching": 2,
+    "provenance": "two byte-identical official muOS lines for the GUID (Deeplay-keys and muOS-Keys names) as pinned in framework-v4 ports/fp2/controllers-retro.nxb lines 13-14; the POST-rewrite readback a:b0,b:b1,x:b3,y:b2 is only consistent with the RETRO variant (a:b3,b:b4,x:b6,y:b5) as input",
+    "domain_claimed": "sdl2-ascending-patched (muOS SDL2 with the RetroArch patch set) -- UNPROVEN until the muOS DSO is pinned",
+    "mapping": "19000000010000000100000000010000,Deeplay-keys,a:b3,b:b4,x:b6,y:b5,leftshoulder:b7,rightshoulder:b8,lefttrigger:b13,righttrigger:b14,guide:b11,start:b10,back:b9,dpup:h0.1,dpleft:h0.8,dpright:h0.2,dpdown:h0.4,volumedown:b1,volumeup:b2,leftx:a0,lefty:a1,leftstick:b12,rightx:a2,righty:a3,rightstick:b15,platform:Linux,\n19000000010000000100000000010000,muOS-Keys,a:b3,b:b4,x:b6,y:b5,leftshoulder:b7,rightshoulder:b8,lefttrigger:b13,righttrigger:b14,guide:b11,start:b10,back:b9,dpup:h0.1,dpleft:h0.8,dpright:h0.2,dpdown:h0.4,volumedown:b1,volumeup:b2,leftx:a0,lefty:a1,leftstick:b12,rightx:a2,righty:a3,rightstick:b15,platform:Linux,",
+    "gptk_owner_sha256": "ab73f5f99e3d97569620cfad2d87bb7bc47607f251b741355b5b4b4cd1bdfe1a",
+    "map_fnv1a64_post_rewrite": "057a87f8774e6730",
+    "map_bytes_post_rewrite": 314
+  },
+  "engine": "unity-il2cpp/nxinput-padset",
+  "observed": "dpad+left-stick movement; expected face actions absent; chord absent",
+  "v4_behaviour": {
+    "target_presumed": "sdl2-evdev",
+    "asymmetry_explained": "hats and axes keep their numbering in both domains on this pad (no ABS code >= ABS_MISC); only button ordinals shift by the three low keys, so movement survives while faces/back/start land on other physical keys",
+    "effect_on_ascending_provider": {"a": "0x11", "b": "0x72 VOLUMEDOWN", "x": "0x130 (physical A)", "y": "0x73 VOLUMEUP", "leftshoulder": "0x131", "rightshoulder": "0x132", "back": "0x133 (physical Y)", "start": "0x134 (physical L1)", "leftstick": "0x136 (physical SELECT)", "lefttrigger": "0x137 (physical START)"}
+  }
+}

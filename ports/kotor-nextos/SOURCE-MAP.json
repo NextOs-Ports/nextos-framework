@@ -1,0 +1,572 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/kotor-nextos",
+  "observed_commit": "9d8dc0cdd3cf164a39f480200ab20a9a1117b91b",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Star Wars: Knights of the Old Republic"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "8f17a16a37131cb9a8b7fc4c289e0f99806f38e0",
+      "sha256": "1819ac1106d12347ab62fbae14ff7d0be29f689e5d5cf6cd1ddc1a8cf09e4afd"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "0o644",
+      "upstream_blob": "e8960e6499fccb0019117d5b2a295632414aed42",
+      "sha256": "2b84ccd7b9681f722eb09ab3e4b37cd158e1b650c7ff58898f8791c92d43bd23"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "7800c5af9701587d698b1b42936e9d90a020bf3d",
+      "sha256": "6b9fba2fb8a079d69308d785238e1753cd4a835146fa52cb5208989f7de9a9a9"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "360215074a914dabe5f04d23c02757dd91affa25",
+      "sha256": "382977af8289aecd82f72517f2c94b2c9e03b85c589348e27b00ef634fc2a7fd"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "3d538602a01ee164bacfdf99958b56e4f4cff9f2",
+      "sha256": "357183c9a945d4a31a72ca8d310b3b38728841fc603d2a23328b91c451479298"
+    },
+    {
+      "path": "Star Wars KOTOR.sh",
+      "mode": "0o755",
+      "upstream_blob": "270e3aecd9af4ee3ad710a79677e77046a97ca28",
+      "sha256": "ff74eb1f8f5b3738afac15528de3cdb44cc592a8ce353f5636e9e3089d0a2561"
+    },
+    {
+      "path": "build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "129e5d05d5e56ec903cb27dde1975e7f544a3563",
+      "sha256": "81802425877e0e592167fc11c1553b47f8d22dc960a8dc0854889cbd6e3ff869"
+    },
+    {
+      "path": "build_universal.sh",
+      "mode": "0o755",
+      "upstream_blob": "36df2f9b48b9c395a11175e608fb751d21d86109",
+      "sha256": "526d840f88e9443017c682410799d39948780837d0bb6a203a7084c8525fba10"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "08f2cd12c13f226af7386adfa919902b0e476d7f",
+      "sha256": "e34903d0af67a30e4713facf2ab1e33d7242da25995b616d8089973bf50194c6"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "c8a6fe2e8e949fe1a89b84d0b17f77750d200f60",
+      "sha256": "09b045a274c3bd13b49c5dde2ae7c36b5f8aaadb160bc3ee289e4a812fe8c091"
+    },
+    {
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "mode": "0o755",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract/nxextract.py",
+      "mode": "0o755",
+      "upstream_blob": "ae6bbb348d7894974047718a58429dccaa090532",
+      "sha256": "a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170"
+    },
+    {
+      "path": "nxextract/run-extractor.sh",
+      "mode": "0o755",
+      "upstream_blob": "f67deba5f4f4cb9335b52b9e5f6696b11c31c206",
+      "sha256": "179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "9a52809c114346777904498da5bda3ca97fa2a41",
+      "sha256": "eca7a4cdc56a15b9c66e18e0189321af4645cd8830548c7c55748a7fb304072d"
+    },
+    {
+      "path": "nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "64f3544d9a9ec0c771914a1cfb05321fe3a3a019",
+      "sha256": "01c92856b4b941d946d9c608f05b4b2815e0f386e66049c271602175aca2b48f"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "755a45bef0538cd99740666cd761c95dfe043e5a",
+      "sha256": "a29c4779f17b79a96efe34a4bffce36c38cfde2c6cb4db3b4938222eac6b4602"
+    },
+    {
+      "path": "port-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "e2d2d15ab4d184bb7640b4d33e6604fd61dce73f",
+      "sha256": "0494e2c96726622daf4694f1e335d98aaafa8043e6f4067fced2ada5460e4444"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "a5dfc40dee0e3150951ad9709cbc763b157ce395",
+      "sha256": "cc835e8bbe18936a94e8c3417f0276c56eb36c61a6a1901aea9c1b2a3c0416cf"
+    },
+    {
+      "path": "references/v1.1.0-multi-device-acceptance.json",
+      "mode": "0o644",
+      "upstream_blob": "9f1f18911e536b576da7b4ec56bf2b258c32322e",
+      "sha256": "8fbbd44e20825733f2defd3e7762b57f26cdebb99a67a8d7fca3f742e65b1a71"
+    },
+    {
+      "path": "src/config.h",
+      "mode": "0o644",
+      "upstream_blob": "cf3c2d8145473a756837dadf17cb1703abeee30e",
+      "sha256": "ce773250d2177fa8290bc9044b7427990859f94caaf36816d5ce1b478023411c"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "b96f1e21c4b7757e3bc3f67b49ce8a7fa261e617",
+      "sha256": "19d165a699a0045e694a37190c1c8d72663adedf224c33e7e707c739d0f7e84c"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "47aeab8313a9ee97c4f7800c4585ed7cc68ab811",
+      "sha256": "9ade099d138ec1607b705a18a8be311b809026b16fda6ec2076dbd2a9e5b8803"
+    },
+    {
+      "path": "src/imports.c",
+      "mode": "0o644",
+      "upstream_blob": "80d20bf12e59b0aaaf61c60a06c6edbc491851ce",
+      "sha256": "430cd647402fa72b0b074e110c2ed45b8450d4d6062d97e6129477c1c773fdcf"
+    },
+    {
+      "path": "src/jni_fake.c",
+      "mode": "0o644",
+      "upstream_blob": "fc4a97110d91e5e2b57bb74fd6ed4f4525d667da",
+      "sha256": "91e8dfe111c7cc79e124df89341fb5c895013bdd53792516c398f666307bbabf"
+    },
+    {
+      "path": "src/jni_fake.h",
+      "mode": "0o644",
+      "upstream_blob": "0ed19a811db4c5a4c1fec832d55d7d155305f09b",
+      "sha256": "1763c884ba85d1fa0fdf26c03d2d6aab53937f03bb7947a4925f1a809f660643"
+    },
+    {
+      "path": "src/kotor_framework.c",
+      "mode": "0o644",
+      "upstream_blob": "2c268ecfc0843f638671ec18c1c78d5f4cf99d07",
+      "sha256": "567c884c11da5e5fdf851cd0d6253fe7f9487f4053eb7f2aefb4220ed988c236"
+    },
+    {
+      "path": "src/kotor_framework.h",
+      "mode": "0o644",
+      "upstream_blob": "fe6cd73a9b59cde0b3f33def345149b32aa11197",
+      "sha256": "d041bb5ebafa4885243dc5f0f7aa9c58edac577c69456b3425024c7e52f9f2b5"
+    },
+    {
+      "path": "src/kotor_input.c",
+      "mode": "0o644",
+      "upstream_blob": "cd717a4ff607e195c2b0b6cae9bbb7ee3976da6d",
+      "sha256": "81a0e2ad29ed2bdad90e6bbb45823eb189cf0805bce7cccb4558fcaede8277b6"
+    },
+    {
+      "path": "src/kotor_language.c",
+      "mode": "0o644",
+      "upstream_blob": "e63e52436b671dfb9654dba90bfaf7b2ead9dcc9",
+      "sha256": "75758189c2270ab1b4b86a356cf61d38f510b4d55e9cb2b08d28e81b5b2e816e"
+    },
+    {
+      "path": "src/kotor_language.h",
+      "mode": "0o644",
+      "upstream_blob": "bde24bcbdf1af86a5f3551fbf603bf888cab63c2",
+      "sha256": "e3f03e1fd8166d02c8eca795817f15392eb1fcfa12ea9a00d4b2a589148e04fe"
+    },
+    {
+      "path": "src/libc_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "67df412ab43283a15e91b1416d3c22d68b274248",
+      "sha256": "13098d1c58b12e4d6acfe6ed7cf6416b430f899205087cb43a43688cefc235ce"
+    },
+    {
+      "path": "src/libc_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "63508d59d1e1fcb3ce8bf704f4c2697c7d735c7c",
+      "sha256": "7ef785a43820031be48d60644a983c902751fc7c7502fe7398733d4d44767ca8"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "edff61a1f8e1af18406d0954b1a46d543665f237",
+      "sha256": "900c051e9eabae28b9eede6cde1781547234725ebf1966e955c3eb81fe5c93f6"
+    },
+    {
+      "path": "src/minimp3.h",
+      "mode": "0o644",
+      "upstream_blob": "3220ae1a85b858a95af5766155ada91304344465",
+      "sha256": "5fb296a790734772b65a5514438cc06d14f24e539c13475ff2a7f737681c82c0"
+    },
+    {
+      "path": "src/minimp3_ex.h",
+      "mode": "0o644",
+      "upstream_blob": "2871705df3e79ad8f659217ec14e9731b2fb42fd",
+      "sha256": "bb001301b8666ea7a45ae057b62b17074483213b0d410555d97cc4d076e110df"
+    },
+    {
+      "path": "src/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "9b4cef229cf9f4c7fe6886b860d625f15bf0dfff",
+      "sha256": "de5dc551b5a693e04c1c7ca3c8f9174376f8fb1b8bef2aa1edfee2d7343bcc85"
+    },
+    {
+      "path": "src/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "1cf3a7bdb98ecfda0d9de8308f3d0ae034fa2fb3",
+      "sha256": "54690b4f6aba4c71672495727d95c5d68513b2f4b12516d6e920872eff826995"
+    },
+    {
+      "path": "src/pthr.c",
+      "mode": "0o644",
+      "upstream_blob": "7270416e74b2b035964a1130cff6a107b6907e61",
+      "sha256": "7d9bd48b3174dd99ca0725079ddcc1c1185d1b70ed04266068b79dc9946c51e5"
+    },
+    {
+      "path": "src/pthr.h",
+      "mode": "0o644",
+      "upstream_blob": "5d4be054cf4f6cf7ba69bb9e6e49c06819198b63",
+      "sha256": "d9b21bceb1e9aee9915ebc8768ea04867971e64a536c7e8f8e8fce853f5e84d6"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "3cd77175176d49cb84ad37dce0b87938eb6e5aed",
+      "sha256": "0bb729a6e7785460e4b8ed97cb4e40827e1638cdaf8c59cd66a1879f902f8187"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "aa64aadf458a0e1f66ed882190b30f877e4fbdc1",
+      "sha256": "0f8a71017714a370f6d2604a6d4b94a9eb36a0344a6b30a35f2c8c394d0a9863"
+    },
+    {
+      "path": "src/softfp_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "877e2057dce63a9554b12c4022dc9c7246996aa9",
+      "sha256": "1b04ed508484bbd93c279aed130bb225a197c3efaf66f618903133972c077e43"
+    },
+    {
+      "path": "src/softfp_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "cd17a5b252039886147381664a7fd033a1e5d765",
+      "sha256": "81b1049faf9be759a1483d59c40de695b441fed6c558b412eea392b80bbcbe6f"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "653986ed0c1867b3362b444a81dff91ffca2c33c",
+      "sha256": "19371beea57313f12b570da5b67708a8bc9f6da5651419001639a1392dca798f"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "4cd2edb1af0b339bbd5499e2d9d5fb438a86f319",
+      "sha256": "47217692d4504efc9b4e293fd8ce37f36aee018fd626599f332757070b220ff7"
+    },
+    {
+      "path": "tests/run-host.sh",
+      "mode": "0o755",
+      "upstream_blob": "c58027c57e13a8bde3fffcb6273049a0c5fb37cd",
+      "sha256": "f4a83b50d3fb27ba0826eb7ae0e265588b1a70328a19ed18257b5a92c609f7d9"
+    },
+    {
+      "path": "tests/test-language.sh",
+      "mode": "0o755",
+      "upstream_blob": "8501e9bb0c1ce74b59479b1779c6c381c33c6bd3",
+      "sha256": "db96502b19516484e5e44149fe5f09e922b238a68f8c3a8c24d80aa190cae076"
+    },
+    {
+      "path": "tests/test_language.c",
+      "mode": "0o644",
+      "upstream_blob": "d5f2db9b4c6aa6d9a616c30af03005b5379e097c",
+      "sha256": "250ef490d5f00a82f521286f337c8d67a589e08586b08697dc30fe1e401265af"
+    },
+    {
+      "path": "vendor/nxandroid/include/nxandroid.h",
+      "mode": "0o644",
+      "upstream_blob": "fc887697f11345c126d6b0252f10f9f646f6103f",
+      "sha256": "ca2869aefe0fd3aadf1e301c53c38c778d9ee4bf20fd68561b8566bce81b95f2"
+    },
+    {
+      "path": "vendor/nxandroid/src/nxandroid.c",
+      "mode": "0o644",
+      "upstream_blob": "19fa1d01d781d005bc191e7a92722302c43d1f54",
+      "sha256": "738dba82bda470b9cbf3feebbb3301acb194998da6ec531b13e5368164a5bfad"
+    },
+    {
+      "path": "vendor/nxandroid/src/nxandroid_imports.c",
+      "mode": "0o644",
+      "upstream_blob": "7115e083f97b2687f8f25a04a5c886ea212d7635",
+      "sha256": "3561e86d7c70d9e88601c156c813ef9f2035e85f40ed63e2b8b5e018427797f6"
+    },
+    {
+      "path": "vendor/nxaudio/include/nxaudio.h",
+      "mode": "0o644",
+      "upstream_blob": "329d158a84ffac3d00413e443244347dd147d7ec",
+      "sha256": "7ccfaeb1801970ad8cb19ad4101c24d37756939ae0889424758ba17dedcee7e8"
+    },
+    {
+      "path": "vendor/nxaudio/src/nxaudio.c",
+      "mode": "0o644",
+      "upstream_blob": "171c0838f415e60ad7172b2e1a6babc6527fe97f",
+      "sha256": "251f72b086452600a355427e3f7ee1ddb8718f0d92b4b348a91d00f902a9cba8"
+    },
+    {
+      "path": "vendor/nxcompat/include/nxcompat.h",
+      "mode": "0o644",
+      "upstream_blob": "a0fdff69e022459f62c6864e69c9006e221f76ae",
+      "sha256": "e233156945833ebd6163bf719aa21eb474bf25c894818dc02ab8eb6101dd2646"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat.c",
+      "mode": "0o644",
+      "upstream_blob": "34d784bd615838e85a93a85ba42e39f6f5fd0a29",
+      "sha256": "11423371fc5bc31c56c17d6b20826d048aacaef7f0a68603cebd7df632b0bc63"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_backend.c",
+      "mode": "0o644",
+      "upstream_blob": "dd3e78dead6446867ea534fe345f045304c19171",
+      "sha256": "34c7b0cfe7ee8443b206e833793baff530404d07bad9e3449279350afd46b9b1"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_graphics.c",
+      "mode": "0o644",
+      "upstream_blob": "a3eb08830deae8da9ce5a9efdcc2abfa569cd3c6",
+      "sha256": "479772b7865cc5e222890bae708b1148c168e93d0b92d065c4b227dcf85d5ced"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_internal.h",
+      "mode": "0o644",
+      "upstream_blob": "62a33441aa0a1225c8b92e032fee61f42e0ac57f",
+      "sha256": "89f679c74e681db79d6c278864298d8109ebcfa2ff5ad4d1aa6ee5854b58a497"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_plan.c",
+      "mode": "0o644",
+      "upstream_blob": "007cd1663c37a07072aae9c8371b84cdcb2b2b76",
+      "sha256": "73e3629e73034edf946028cea36191a46ad5ae5f6edcd4238f87e82af733e2af"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_probe.c",
+      "mode": "0o644",
+      "upstream_blob": "48eee833a043d615e7a4522b720527c63f071d8e",
+      "sha256": "19c9a028ac6f96db4eb14829d1af3f9799cd27f60d3b64f19c9fd7f8991edd5d"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_receipts.c",
+      "mode": "0o644",
+      "upstream_blob": "3b0fd56c505e3ad5e1d28150afab26c33d6e9802",
+      "sha256": "44cda0391837cc5d80abe141b1b8ae5816699eb762ee5580b9f2937030fdcc3a"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_registry.c",
+      "mode": "0o644",
+      "upstream_blob": "4c8e93fc859e720a9e4f474d50fb0cfad13105ea",
+      "sha256": "a4e137bb741999fdf0bfb1db02101f78bade86ec98cc1bd67532c7d98dd5a23c"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_registry_internal.h",
+      "mode": "0o644",
+      "upstream_blob": "0e2718ba44fdeaa6bd5d88d58037aa34619d3238",
+      "sha256": "6cc50236c85d6304a58f9b5d78bf8e8c4b2c05c6e3f573654504b4437261a0d7"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_report.c",
+      "mode": "0o644",
+      "upstream_blob": "ba8730e1b767cd8ce891cb66f93c1658da561cf5",
+      "sha256": "bd9e2e1492aa70329c3138a85cc75b4ecb3f0c925f1112c00cb1c282693c8059"
+    },
+    {
+      "path": "vendor/nxgl/include/nxgl.h",
+      "mode": "0o644",
+      "upstream_blob": "65e900388e82173519b2a63c65a569b88c898fc3",
+      "sha256": "0bf9df65761371f8f7be02570077e516515433b33fe332fda22d23c250687ade"
+    },
+    {
+      "path": "vendor/nxgl/include/nxgl_nxcompat.h",
+      "mode": "0o644",
+      "upstream_blob": "40d17f3e518a9318dd3124269041caa8c836ca0e",
+      "sha256": "5fc6891da225ec8859ab255d4d0a38994978cc7f29bad89dcf7cb778c06fbdb5"
+    },
+    {
+      "path": "vendor/nxgl/src/nxgl_diagnostics.c",
+      "mode": "0o644",
+      "upstream_blob": "8a46e9ca9c91c05d605a067b281745f6f39a3904",
+      "sha256": "c44b529ff03bb9945ebb28421c8b8c31a23aedaf7aaec76ef13d7eb9d8ded9a5"
+    },
+    {
+      "path": "vendor/nxgl/src/nxgl_internal.h",
+      "mode": "0o644",
+      "upstream_blob": "d075c1d932cb08dd1218ffca6f419f8cfb3c75be",
+      "sha256": "dcd17d25b7cec9983b6bc6e9eb23e584bcd8c62e72c8959d2043c402b61a9d38"
+    },
+    {
+      "path": "vendor/nxgl/src/nxgl_logic.c",
+      "mode": "0o644",
+      "upstream_blob": "a80f5bffa4843a60778b089fb59ea122edb16dd7",
+      "sha256": "b487cb4ba40d7df721c7f73996151e8da9b4ac25a3e65ef64cdd4e8033a52a6a"
+    },
+    {
+      "path": "vendor/nxgl/src/nxgl_metrics.c",
+      "mode": "0o644",
+      "upstream_blob": "aebfe9a4ad24f44626cc5fc003220cfd74deea86",
+      "sha256": "cacec008e5efe6fd961ae58b97fb1dc9861d6d15ead9ade3c3be93b99cfc28a4"
+    },
+    {
+      "path": "vendor/nxgl/src/nxgl_nxcompat.c",
+      "mode": "0o644",
+      "upstream_blob": "731c8742fafc93b8a629b5fe21623b2d0dcecf9e",
+      "sha256": "e8b9252da74d9557e089fcfe781e88d590aa5091c19f5cc9ee37da074d88cc0b"
+    },
+    {
+      "path": "vendor/nxgl/src/nxgl_present.c",
+      "mode": "0o644",
+      "upstream_blob": "581bb0b549c97702434b01b743fd8a4e2cb6b999",
+      "sha256": "bd4ebcfd4d8f8afc816b5c062a03d0f9991b0684ca9ab41996706cc8bbc4ab8b"
+    },
+    {
+      "path": "vendor/nxgl/src/nxgl_sdl2.c",
+      "mode": "0o644",
+      "upstream_blob": "3dac28280d3a726b46bf618c9c810529e0c527c7",
+      "sha256": "2a86329fc5e2b835d517878f082801ab6f37396c35b2b03d63899e1b7ce40df6"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput.h",
+      "mode": "0o644",
+      "upstream_blob": "2b782070848a34a83094e59f1f6d4351830e27c2",
+      "sha256": "04cc410b112d1458db3a02eef20be1f213d95bcd884045ead1fd44cca71ad99a"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_nxcompat.h",
+      "mode": "0o644",
+      "upstream_blob": "32b479e93850936b79ecbbbb98c7bcf7541b7b1c",
+      "sha256": "e57f6f79ebacaa05bd9825929aced03f0db4ecd71385fb92b74d8d9ae688c881"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput.c",
+      "mode": "0o644",
+      "upstream_blob": "edacf261f15329dc8f9754a2bef6a25bba379524",
+      "sha256": "bdd77feeec49fbaaae72ce2aee023fc8d8a34fbf5c0021a7b7037b53c8183442"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_core.c",
+      "mode": "0o644",
+      "upstream_blob": "85413cd8ffe74d6a78b6bda8056b7d134a328abe",
+      "sha256": "25f12eeb6ea9642e4a54ae6a3c5187f947353f56af74d456dcb6bedc979ab454"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_core.h",
+      "mode": "0o644",
+      "upstream_blob": "c80c3ff15b0a9a13d4c15f52221212ea7d1308ab",
+      "sha256": "05ea980865e40baf4a3d1040bc1213215dd988f0813bc72a31a78f64957407cf"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_nxcompat.c",
+      "mode": "0o644",
+      "upstream_blob": "34fbdccca1048df45c30576756dfa15d49e7f19e",
+      "sha256": "6cbfd89ac96fe232dc1a73233af943338142c7b32d7bf095510eecba7b3d09c3"
+    },
+    {
+      "path": "vendor/nxloader/include/nxloader.h",
+      "mode": "0o644",
+      "upstream_blob": "4b4b6448120c5dde0d1866d8a0f5d3495662b9c3",
+      "sha256": "23596484cbc471a090f09fd7a85a1ff810adcf6ba12266dc36044c7afefcb68b"
+    },
+    {
+      "path": "vendor/nxloader/include/nxloader_softfp.h",
+      "mode": "0o644",
+      "upstream_blob": "7e3e907581dfa09c7c82aea192c1968f806b2a0a",
+      "sha256": "2924c893d1f84704b1b107dc4f8e5e38cb48e06b2edb8d26a10845d3e1cacd84"
+    },
+    {
+      "path": "vendor/nxloader/src/nxloader.c",
+      "mode": "0o644",
+      "upstream_blob": "adac523e29974339ef3a5c124bc14cbb71b277b1",
+      "sha256": "3cb36af4f96624a166a287ba7630f39e55a0994b241cdd6ccfeacb88c85c4e83"
+    },
+    {
+      "path": "vendor/nxloader/src/nxloader_elf32.c",
+      "mode": "0o644",
+      "upstream_blob": "56fa7f3d3732c5eb706325d2e182d103fde74c4f",
+      "sha256": "bc9cd1ad926b4451bcdef0ef751e272bbb6eefd51651e1cdf18ca1c1f5488589"
+    },
+    {
+      "path": "vendor/nxloader/src/nxloader_elf64.c",
+      "mode": "0o644",
+      "upstream_blob": "f4a6810c231fbd968684d1e8cd4a4dfbdc15ff14",
+      "sha256": "11777d7ffe2fb614280cbd916da3e473e9fcda4907f89c93fac80f6a6d2294a3"
+    },
+    {
+      "path": "vendor/nxloader/src/nxloader_hooks.c",
+      "mode": "0o644",
+      "upstream_blob": "148f4a8393b930ffb81b5e900babea9359dbd18c",
+      "sha256": "e59f65c6c826c44eb7ed4dfb82a783101322457e3af865ba444223a2ea6f8891"
+    },
+    {
+      "path": "vendor/nxloader/src/nxloader_internal.h",
+      "mode": "0o644",
+      "upstream_blob": "6fb2b9f192ed01abdcab87e9c7beedb4c4c45cb2",
+      "sha256": "263d846805362c4f9686c9925353a9932d1c83546846f80fb6e59c7465b5107c"
+    },
+    {
+      "path": "vendor/nxloader/src/nxloader_protect.c",
+      "mode": "0o644",
+      "upstream_blob": "49f4e5ca80f1cc2ea13f3217417c960eaec2f5c5",
+      "sha256": "595da67a9263bb32d6f49b9774cfaad7d1f7d7c445f7960112cf55a5397d785d"
+    },
+    {
+      "path": "vendor/nxloader/src/nxloader_registry.c",
+      "mode": "0o644",
+      "upstream_blob": "7e6efca00f65a325bb38852bc9bdac753b12bab5",
+      "sha256": "706b3c4957792b98358f71303e47786428aba7fc42675ee8cc13434a4ff107d5"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "2bf1ca5f549c1a54d2aff9891bea88c940d7d4e6",
+      "sha256": "f2fb797db5b32c15ac4c67b2180b593bf46c768ba1d69971fecbef1d9afb1975"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "a549640f5793321d95b932c423e0bb998244fad8dad81cc9141ac4484a3803ac",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "release-candidate-awaiting-physical-approval",
+  "framework_commit": "32f2ab1d34f4c3c79e3af41c3349b9badf6433e5",
+  "components": {
+    "nxbootstrap": {
+      "version": "0.6.21",
+      "commit": "32f2ab1d34f4c3c79e3af41c3349b9badf6433e5"
+    },
+    "nxsplash": {
+      "version": "0.1.2",
+      "commit": "32f2ab1d34f4c3c79e3af41c3349b9badf6433e5",
+      "architecture": "aarch64",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    "nxgenerator": {
+      "version": "0.2.10",
+      "commit": "32f2ab1d34f4c3c79e3af41c3349b9badf6433e5"
+    },
+    "nxrelease": {
+      "version": "0.2.19",
+      "commit": "32f2ab1d34f4c3c79e3af41c3349b9badf6433e5"
+    },
+    "nxextract": {
+      "version": "1.2.10",
+      "commit": "32f2ab1d34f4c3c79e3af41c3349b9badf6433e5",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5",
+      "ui_sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56"
+    }
+  },
+  "nxport_sha256": "3084493c04011d821be6483e7fe81cf5713930e8a292b19ace4d935710359cc5"
+}

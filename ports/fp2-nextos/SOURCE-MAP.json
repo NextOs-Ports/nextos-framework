@@ -1,0 +1,1392 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/fp2-nextos",
+  "observed_commit": "f8caab9d946c39041fa5cc25cb52621590f82adc",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Freedom Planet 2"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "mit",
+    "name": "MIT License",
+    "nickname": ""
+  },
+  "license_review": "GitHub detects MIT but NOTICE.md explicitly says loader/hooks/GLES are GPL-3.0-only, NXExtract/MIT plus embedded GPL module, splash MIT. Do not treat entire port as MIT.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": "FRAMEWORK-PIN.json",
+      "mode": "0o644",
+      "upstream_blob": "36d37111fd229817f53b8086db3a1d87a81b455f",
+      "sha256": "475bb04f2a277126d186b375989f50af8d65282b975a69fa20060ac8c95aa16c"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "22b707da6707dceefe5e53ddc0124c272565cbc4",
+      "sha256": "5e87fb7f8f17b67bd3c4c5fc7d7f1ef1fa00e8d75799af23a4fe34a4bda7c017"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "88d95eddbdbf223bf48dbd1bfd503676d73579b4",
+      "sha256": "6e0ddfc46eb98993bfcc770670237f88118da8fc0dc4d6704b1aebc6a998e777"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "25d5c2749dc86a4b4c6b25b58eda7f91050bb4cf",
+      "sha256": "84f454839d81a9d925f4d167c3f3518f84c0e79b6363a4fe6deeb59227a78dab"
+    },
+    {
+      "path": "RELEASE-METADATA.json",
+      "mode": "0o644",
+      "upstream_blob": "c98842bdacd7f843f7d5903a243fbe8cb11dc107",
+      "sha256": "c33e50e2ea35e21a750c0746b40bd46857135d00c6e7b7e30b94f30ce312310b"
+    },
+    {
+      "path": "adapter/adapter-contract.json",
+      "mode": "0o644",
+      "upstream_blob": "65a6f1cc8fbc6322f045e918f4db3bc2bc4e7eea",
+      "sha256": "2431aeb4b9b33600840fb8fc5080ab8ccd85aa1c8b6f171b08e0c873c1d791b0"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "83b42e38c5c3da7e93191d9c0ff629a91890ca66",
+      "sha256": "77dc452590cac61c5c484389cad31f45a7d21e84d06d28678c792961406ae25e"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "f0bb29e76388856b273698ae6064b0380ce5e5d2",
+      "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663"
+    },
+    {
+      "path": "nxextract/dev/generate_policy.py",
+      "mode": "0o644",
+      "upstream_blob": "d5de04995083a06ed9775d85108274562e9a82cf",
+      "sha256": "b508db748a9a7429c294b4e2fa10b8da723ac6e99e33d7d35b1d5f37e92ae8c2"
+    },
+    {
+      "path": "nxextract/exact_gles2.py",
+      "mode": "0o644",
+      "upstream_blob": "a84487d366024b3995bdb7d4308f4fa5de34b26a",
+      "sha256": "b47150a9aa4326212a07a9d7688c1428e14291d29a6cd81e1c448f7b4f12ed6f"
+    },
+    {
+      "path": "nxextract/fp2-preparation-policy.json",
+      "mode": "0o644",
+      "upstream_blob": "349ffc1a0d29bdbc479f9ad138831d5e4443cc12",
+      "sha256": "bcbaca7dab6ad863cfbb57fe9e00116e646f999fa8c1a48090a0ddec1b98517b"
+    },
+    {
+      "path": "nxextract/licenses/GCC-Runtime-Library-Exception-3.1.txt",
+      "mode": "0o644",
+      "upstream_blob": "e86f7fb58a4656330ebdfab5e75d72f86f5e9af9",
+      "sha256": "28e85c5aa4af9b4f1dfe6b4817aa3eefb3eaaee7fd735045016f29ccf50276a1"
+    },
+    {
+      "path": "nxextract/licenses/GPL-3.0.txt",
+      "mode": "0o644",
+      "upstream_blob": "9fce650b2eec7aacd488a746c1ad556a8dcadd05",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "path": "nxextract/licenses/LZ4-BSD-2-Clause.txt",
+      "mode": "0o644",
+      "upstream_blob": "d8c82af7fa25c3f1ff3f69ebe8d07d61d520caed",
+      "sha256": "2dfe2f2b8b93ca5d53f2af10104b5881c6b5648636fe746a81230da9cf807335"
+    },
+    {
+      "path": "nxextract/licenses/SMOL-V-MIT-or-Unlicense.txt",
+      "mode": "0o644",
+      "upstream_blob": "2f1ebd9ecda503b608cd51ee1ca832e49d4d8bda",
+      "sha256": "63ae998bb9eb68fb76d8a80eda7398edbd7eca3b130bd8fab90d334cdcca42a1"
+    },
+    {
+      "path": "nxextract/licenses/SPIRV-Cross-Apache-2.0.txt",
+      "mode": "0o644",
+      "upstream_blob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "nxextract/licenses/SPIRV-Headers.txt",
+      "mode": "0o644",
+      "upstream_blob": "845537e25558a8764abcc1da6af9b15cd7ec89f1",
+      "sha256": "44d710693a9f06706c60cab349ac68a5a6c30c0ec814d6e87a9bd85ba7b0d400"
+    },
+    {
+      "path": "nxextract/licenses/SPIRV-Tools-Apache-2.0.txt",
+      "mode": "0o644",
+      "upstream_blob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "nxextract/licenses/UnityPy-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "6bc7be1f70f9465a2d3b3ed29f1ff34b0c58aa38",
+      "sha256": "d86f8e7dd654370bfe954deb63a8fc972a0eaea943880ba691ff540104bd4c8f"
+    },
+    {
+      "path": "nxextract/licenses/attrs-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "2bd6453d255e19b973f19b128596a8b6dd65b2c3",
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+    },
+    {
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "bfa72406776d8b63083893d1cec11facc925e0df",
+      "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+    },
+    {
+      "path": "nxextract/prepare_fp2_data.py",
+      "mode": "0o644",
+      "upstream_blob": "27ff0dc8ebcc7b559f13d566a7412adba261f254",
+      "sha256": "9c845f44e052805493f511a98602e97c40973009282ea20015186227d44312ee"
+    },
+    {
+      "path": "nxextract/run-extractor.sh",
+      "mode": "0o644",
+      "upstream_blob": "72cc36a5b45a40ef4286937ea9615fcdb1a61801",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "path": "nxextract/serialized_patch.py",
+      "mode": "0o644",
+      "upstream_blob": "fdef0e8c6dba8f9f3d75cba2d8c7312adfe34692",
+      "sha256": "f712acd9fe2c3267ff170d273e70a4c2eb4336d54270f75356990459d889d43a"
+    },
+    {
+      "path": "nxextract/shader_core.py",
+      "mode": "0o644",
+      "upstream_blob": "7b32101910ce61cba9ed653f89c6e6a9818a96e4",
+      "sha256": "8417a2f20e3903ef600ecaafa3d8f231379fbd14f24a5e9e7d7029e7f136f96b"
+    },
+    {
+      "path": "nxextract/specs/toolchain-provenance.json",
+      "mode": "0o644",
+      "upstream_blob": "e03e34ebab592148406055aa722aa9244594525a",
+      "sha256": "f54c2fcb257ea4a263ca338939f19bff67d8672c99e159f6cc13490ea6289094"
+    },
+    {
+      "path": "nxextract/tests/test_prepare_fp2_data.py",
+      "mode": "0o644",
+      "upstream_blob": "9888251463e6a6bc4f53241f0059f1148494e39d",
+      "sha256": "a8f8e23f88092738c7b27df811806ab409ca8e90e74b7789a64b90e36f4c2648"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "b8be30ff2151f8b89454b9501b71d1af39f03867",
+      "sha256": "a4c543cf27b066bf8836276a6f70bc963c110f484a64836cbc8607629240eb61"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/ClassIDTypeToClassMap.py",
+      "mode": "0o644",
+      "upstream_blob": "39759d19c3e792a83f9e5d4f15dfc5ca7e0d8695",
+      "sha256": "fca4f8e2f2b62fc5065db69629baba1398a0f3f0fe25aed6eab826f2aeae938f"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/Object.py",
+      "mode": "0o644",
+      "upstream_blob": "0fa91efbb5218bb51167feaad8d65cb1c8d0477e",
+      "sha256": "b3f0c4f8e5b4db3aacdcaaa2f57c65272b4ac834f3a0beee357122c04b63ed4c"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/PPtr.py",
+      "mode": "0o644",
+      "upstream_blob": "1459583f7cf135c3f6b14ad4e55f85a2f05328ce",
+      "sha256": "221c795df92e9d338338944aa8049c53e553f0e232e11179a7d7d4ee6783f289"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/UnknownObject.py",
+      "mode": "0o644",
+      "upstream_blob": "b6a3caa43392acb8fd1d55e39590e520b5953c8f",
+      "sha256": "875e5ddc8a7190bce675b3c2c0e2842d65ced9372759a61cc12452b067e49ba0"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "ec2efb29d1577d49c6779d338dbe9d4442d3319d",
+      "sha256": "94dfe5f423f82a2cfa621f3a9f04295f79a951db368cb71c34df4bd8494ed6cf"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/generated.py",
+      "mode": "0o644",
+      "upstream_blob": "721b1846a7c1b497c27625d10af4e34f5e21063a",
+      "sha256": "3ca5cded6e6bdc2ae1752fa7d59303d7b080789a8247a96907b5b22038308157"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/legacy_patch/Shader.py",
+      "mode": "0o644",
+      "upstream_blob": "23b051b7c034e9ebb9282385c309f2299f897fc3",
+      "sha256": "2da3be0bd042bf9824650042352407f2df8b367655430879b6fdf239e8612dce"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/legacy_patch/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "f2f0a9e260f684e6ce211c6629031a44f5436f20",
+      "sha256": "51678183f46cf73309874f944d2c1d48598875059e5b0532f2295c6efac7ba2c"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/classes/math.py",
+      "mode": "0o644",
+      "upstream_blob": "3a69b1b266a398ad2b7a6d1acfe3f2c813bea209",
+      "sha256": "c56f585e070261d823aa5b59ee2b67243526ba9c0351e5097cdf95db3adeba7b"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/config.py",
+      "mode": "0o644",
+      "upstream_blob": "98c5660b548a97a048e75efe37c7ef5808ab2a0e",
+      "sha256": "f61b6631b066ef0d21feb4fb771170ca6eff0758e86968a6cb983a3b7457ee40"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/Audio.py",
+      "mode": "0o644",
+      "upstream_blob": "e97655829c3bd069886258014e55b715cb180a59",
+      "sha256": "cff4a5aed2e9c0452a0ecf2c8b4651c7efa116b7fe3764513ef8c5f37693308f"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/BuildTarget.py",
+      "mode": "0o644",
+      "upstream_blob": "d3e092cdde4d2cc60dfbcfde3efe20819547b862",
+      "sha256": "a2e54831f8cde23bb2516a45df856ced002d41da72f1d0fe7c4fbd39d97f8d99"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/BundleFile.py",
+      "mode": "0o644",
+      "upstream_blob": "d72fdb1625b9e24217e18cefd5cb6ceee31de086",
+      "sha256": "c8b0baf57a8a34bd5890c42e87bd5ed6ad99960ae4a63f48c83099e085b32aa4"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/ClassIDType.py",
+      "mode": "0o644",
+      "upstream_blob": "9168fb8da3e18b2d9115877b527f18d4c9d16b18",
+      "sha256": "dbde0ff24c1ad5fe11abdd19be2ef382cc246d912624a8ce8d91ad9dd288ac10"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/CommonString.py",
+      "mode": "0o644",
+      "upstream_blob": "0491b6607eddca61bc22f1a2b996fa03a4800d24",
+      "sha256": "41ff44c4c5a338e44117250737e1dcbc66cf52d92c2dd915320f57fb6e2140e5"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/ExtendableEnum.py",
+      "mode": "0o644",
+      "upstream_blob": "3e061cf4fcb4a3c884f7bed19b79babd1b59fce0",
+      "sha256": "839da6a558b57a8b3cdc47fcb789d3b3a0f821fdd48a2172f348a2e57bfe5ad2"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/FileType.py",
+      "mode": "0o644",
+      "upstream_blob": "adfb2c96522119de77388b38ad8f76eae7031779",
+      "sha256": "c6a5e4a55e068c9a8919487a5372f441023d47ab400be4892235a3320a2ee3f2"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/GfxPrimitiveType.py",
+      "mode": "0o644",
+      "upstream_blob": "591a7a34ae23f291af3278c11644d6dcdd67ff06",
+      "sha256": "1ea32e36d1057a998280f11043ccb60b89b3f2594477c965fe074fe2fc9e66f1"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/GraphicsFormat.py",
+      "mode": "0o644",
+      "upstream_blob": "07bb568c6a03bd1def94b56352d8bdc40778a63d",
+      "sha256": "120978287103acbcf2dc815f712957dd64616b409bfec15a2abbef5caeed467b"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/PassType.py",
+      "mode": "0o644",
+      "upstream_blob": "1b2d1c2e4e722e93f288bf0c5780e27cd1e4d34c",
+      "sha256": "aa8f8307ac3242c0d6e6c6780e2c1c677e9b89999ec6ba2b84338a22e5c60074"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/SerializedPropertyType.py",
+      "mode": "0o644",
+      "upstream_blob": "de7325b871b0770a510aaf327c92ac01938b0bb6",
+      "sha256": "448794bfdf5d2c9d376a54888daf88cd5288c82e5758116e2698b141458ed482"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/ShaderCompilerPlatform.py",
+      "mode": "0o644",
+      "upstream_blob": "f1d075679bee58d5b1d7e5e75de0f81ee1a6da30",
+      "sha256": "c118593dee99440a5e3797511d98062adf6b07ae5b28951a9f53eaf0916e3bbb"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/ShaderGpuProgramType.py",
+      "mode": "0o644",
+      "upstream_blob": "170bf307c52bfcce544ea21b8613fe8b5012ab73",
+      "sha256": "deb222f00ec685e66a28028143364e348a872ed3816f605d07142111654aeeab"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/SpriteMeshType.py",
+      "mode": "0o644",
+      "upstream_blob": "75c282c43a727077b3e6424ef237d151b559195a",
+      "sha256": "577442f60354642eecd0a57fabd81776f34a6b9e9245665607e3882a861e8eed"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/SpritePackingMode.py",
+      "mode": "0o644",
+      "upstream_blob": "e640576e64a9ab54fc1d9e289b4fc4421101a928",
+      "sha256": "4897a1a5047d1bd5368c2ece378bdff352daa77881148198876632331e4d88bd"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/SpritePackingRotation.py",
+      "mode": "0o644",
+      "upstream_blob": "1a361de14fda8b8bfa1886e7890956999c8eab46",
+      "sha256": "4f3684a2541d486b07e67f60c32d5621b71b9ca4f4a5fc67008fb0f28c0faf97"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/TextureDimension.py",
+      "mode": "0o644",
+      "upstream_blob": "044e26262cdc7beed1f34cfdd6ed7184ac8d9c1c",
+      "sha256": "22b4082805b36a134ba3af1edf74a1216e82c461b92618e9b6646e2f9e872e5f"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/TextureFormat.py",
+      "mode": "0o644",
+      "upstream_blob": "68d5dc9928b0a9edd09e1b20bfeedc12b1b45883",
+      "sha256": "481d962a6cf841b926bad37e42976cded5c2a5f3514d119876922b0dbbb53b75"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/enums/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "678d633e1f20ca118cb62809d0a19a0499d730c8",
+      "sha256": "f99eaa2a3248e8f668790b71ca172b0235f315ee8bc347419ff6a9352658575c"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/environment.py",
+      "mode": "0o644",
+      "upstream_blob": "d7d70a776da539d712510c92f1ee742db5c4d320",
+      "sha256": "57d5649da8ea62dca7a5c527cbc993375f8a96cd57ce866fd784995263f60ae7"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/exceptions.py",
+      "mode": "0o644",
+      "upstream_blob": "86bd144d0c53f5eb7176832c642afbd0e36c1535",
+      "sha256": "7b9a556598a18502a60c1140cdb72d436d4ca6b2815d63064ee91675f9ee7708"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/files/BundleFile.py",
+      "mode": "0o644",
+      "upstream_blob": "61855e92703f60a8acc40a5fb323f4c976e7fa3c",
+      "sha256": "7aaa2ce223c3a2c49c899a4a4fca772934e8c737f63c225e373296ce685e8312"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/files/File.py",
+      "mode": "0o644",
+      "upstream_blob": "3ede9dee16f5f99b2cc4eb2c15cedfff23056ff4",
+      "sha256": "92a10d45456820228bbd4c9c0bdbf251722649058ac2306d59e4add70d331bf2"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/files/ObjectReader.py",
+      "mode": "0o644",
+      "upstream_blob": "99d00f5457aec81f7d931e769c990c5de2b29760",
+      "sha256": "16a8c79d29b6efdc5773805e958ccb60870812a54d8f26e2180bc78169fc2fbe"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/files/SerializedFile.py",
+      "mode": "0o644",
+      "upstream_blob": "cb91714176babb4966a8803d7ea04ba9e8f8e49e",
+      "sha256": "32f5ad9e7463e6fb1c02d1c3ef3481ee2640b123533b96d9ad579ae946596b6b"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/files/WebFile.py",
+      "mode": "0o644",
+      "upstream_blob": "6355962d3bd96c699e6a0a76fbcc5d99c2cbd8df",
+      "sha256": "8625a5f25a6b0d2e389960bcc53ce87d79c62b68e53e880496d71b153858226d"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/files/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "06aecc69fd87b7f2437c78aedeecf4d389c7c851",
+      "sha256": "9147b6bab0e95e2e37f4b7fe4695f50b07bf67cef61b06e3a6a0b6c1dbca90f2"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/helpers/ArchiveStorageManager.py",
+      "mode": "0o644",
+      "upstream_blob": "7b5014ea5591767c9dce741a3d6f0678a1656d88",
+      "sha256": "865b786226eb5080fa1b88ff36f51c90acb02d14d35d17a11de64aca63346083"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/helpers/CompressionHelper.py",
+      "mode": "0o644",
+      "upstream_blob": "d69a42de68366a885263190dbe560afa2e679d76",
+      "sha256": "f94b582d2edb79d674fd3bc0d02e0443ccea04fb0316b5c4addda321c66c7598"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/helpers/ImportHelper.py",
+      "mode": "0o644",
+      "upstream_blob": "0d50675e08c36b6b92ba3b4152d3d48ff1c74b06",
+      "sha256": "626da76efa2382c5ffda6a19ba9c35b7714b43e7abe0395f593a27af85594bbd"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/helpers/Tpk.py",
+      "mode": "0o644",
+      "upstream_blob": "94cc5a8c70338907fdaaea809edfe3ad75d4b1d0",
+      "sha256": "ce21c053ab6147e1cc57204246eace7a6fa9f02b514d14e0584c1febc84a7731"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/helpers/TypeTreeHelper.py",
+      "mode": "0o644",
+      "upstream_blob": "1c4e38a064262c74f4677b99d49185846c12882b",
+      "sha256": "c74e27c74e9e879d047365e09734b78df541901d3e9a94cb468c620b75d57e34"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/helpers/TypeTreeNode.py",
+      "mode": "0o644",
+      "upstream_blob": "d32aac9013e68f975e4aba0a7038fab997a883bc",
+      "sha256": "7c530e4aa5760c4ef6f01e95dc8ad02f0c49f937b840aef6231a95da03fe6ce0"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/helpers/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "4663d1f5aef695c658d435ea21c28730eb1a4a6c",
+      "sha256": "9dc9b393488e931b54f5e6f648912da550dbe19a60b8e5428671cc5c48508c6a"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/math/Color.py",
+      "mode": "0o644",
+      "upstream_blob": "d8cb29a72effe77c77053cb5ac4cd0e37b90a901",
+      "sha256": "fb63285652e948e1e38d9e59b54fe5ef4441b46d60ed836281f39416d72b520c"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/math/Matrix4x4.py",
+      "mode": "0o644",
+      "upstream_blob": "58a1a90270c11284cb861d5a5c0710d6a91e7810",
+      "sha256": "147fed958d1da314f96f2cbb2ca678204cc91f97d7d234282ac85f4294c23547"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/math/Quaternion.py",
+      "mode": "0o644",
+      "upstream_blob": "6c27afecff1f3a531bbc4ac777150c5ebbf06fa4",
+      "sha256": "3fb2393ea331444715e5032e1005f190e9bdbbda167ba57511153cc714c6e42b"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/math/Rectangle.py",
+      "mode": "0o644",
+      "upstream_blob": "a198ec43447f7b05a313e7a1da07e3f7e133047b",
+      "sha256": "8c4e3d6c54a80b27b5bde13dc6bc353e48a2e404c20cb06fd0d7960759bd5561"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/math/Vector2.py",
+      "mode": "0o644",
+      "upstream_blob": "07a74645b52761c341b46307efc2eb77c665e7ee",
+      "sha256": "baba436d06df939c30e752c09d8a9b1ad5c6d2cb955ca59d46ffa079fbd33c21"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/math/Vector3.py",
+      "mode": "0o644",
+      "upstream_blob": "a5bc1a96661a33fa12820bf9a21f0e8aa1222adc",
+      "sha256": "d2ff60bf7d7e7b710098725b08f713e2409e2cf6256dcd63569b6800d86affaf"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/math/Vector4.py",
+      "mode": "0o644",
+      "upstream_blob": "c3a762f2fb923d17006e5e7bb182bb2f257e13b1",
+      "sha256": "7c03a216953b8e2ee8c512ec7647acaf37bb9d50b8058f74d7f693b402ce732f"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/math/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "6f6e76938de82608a3214d5e6c1e664262e08a21",
+      "sha256": "8a0c5a9b9d1735e2ab7db2a91d7374d18568ea3ea5817df8aa7b7562367235c8"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/resources/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/streams/EndianBinaryReader.py",
+      "mode": "0o644",
+      "upstream_blob": "3ca702be5a4e5d8e378fd48ae663fe0824d8d4e3",
+      "sha256": "e96dd96f0d0b1795066a6d186ae97f06f8f9741f342e58f5a10d7351d3742ecd"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/streams/EndianBinaryWriter.py",
+      "mode": "0o644",
+      "upstream_blob": "ffea1eafb84299929b75af69bb0866791a5ba25f",
+      "sha256": "982644f63a34058e9fc2752fe0d863312e8aaadca2e10069ba1a2da44f4cbf58"
+    },
+    {
+      "path": "nxextract/vendor/python/UnityPy/streams/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "0b713c1ef6a139c73cf596b71eb4fa7e5bff5509",
+      "sha256": "3bbfed2bcff10f0ccce93d780f49e349b7621c1da7dcb90dce7b4d7655011607"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "9226258a2d58777f1d5536c5695bbf1b4a635991",
+      "sha256": "5a55c937a20207463f1d9d259ae4d48226b492e49d9f6a7aedde0de9c6313593"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/_cmp.py",
+      "mode": "0o644",
+      "upstream_blob": "a4a35e08fc9d9b078a11edc3236d7e27027cd28e",
+      "sha256": "39066559d157ef8cf5f1a746114a78d0e8ea9b434dbb5165aa7bf6244f01da78"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/_compat.py",
+      "mode": "0o644",
+      "upstream_blob": "46b05ca453773da7f2972f023c4a4f447b44e824",
+      "sha256": "426472c628b6f79c1c41f6ae816ab1b88ba600fb0d436f91505f364193ea30ac"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/_config.py",
+      "mode": "0o644",
+      "upstream_blob": "9c245b1461abd5dc5143f69bc74c75ae50fabdc5",
+      "sha256": "cfcd55b7e19e4ffdad6b1b355d97e61f1f535a54b18cf6fa7991f52d31ac4b9e"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/_funcs.py",
+      "mode": "0o644",
+      "upstream_blob": "a888991d98fdac72abb6e5ce8ac6d620a8f0e54b",
+      "sha256": "5414d414a2e496c9aac72b37a964932bf01cf59e2cd260095b0816f6703b2e59"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/_make.py",
+      "mode": "0o644",
+      "upstream_blob": "10b4eca779621c819060c4564379fa2c098c36d5",
+      "sha256": "2e7572d9ed07ca0a2a699927842d7dcfb2663adeea1a401a75fd8b6605952562"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/_next_gen.py",
+      "mode": "0o644",
+      "upstream_blob": "1fb9f259b53b851336c3135f06cfa377ab3240d7",
+      "sha256": "6acd6fa22f2c88023fa363901bc608899be69f41bbf92dff8ffefbe2b9e867f8"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/_version_info.py",
+      "mode": "0o644",
+      "upstream_blob": "51a1312f9759f21063caea779a62882d7f7c86ae",
+      "sha256": "7b14aa6f76f913e7cc4ac819025130f5770ba448286cf391099a5c68482500ce"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/converters.py",
+      "mode": "0o644",
+      "upstream_blob": "2bf4c902a66faeeda4cbae89d75f063df99c5039",
+      "sha256": "2b2c39318d327e7511fd1c0dd55c9d7f412213efbe86d0f13a049cffe3582fa0"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/exceptions.py",
+      "mode": "0o644",
+      "upstream_blob": "3b7abb8154108aa1d0ae52fa9ee8e489f05b5563",
+      "sha256": "1d116ae22c9b9afefe0dc670ca397a3357ae33661e2552bf845c6e6811809e02"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/filters.py",
+      "mode": "0o644",
+      "upstream_blob": "a1e40c98db853aa375ab0b24559e0559f91e6152",
+      "sha256": "f6962f5ea760ea6b4bbca2086f9ea800b44ca0716741370608ee045d3735ab23"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/setters.py",
+      "mode": "0o644",
+      "upstream_blob": "12ed6750df35b96e2ccde24a9752dca22929188d",
+      "sha256": "a5b09943ea44e99c630ea65f59652150579f5eda5e908538a92fd80cc2cf439d"
+    },
+    {
+      "path": "nxextract/vendor/python/attr/validators.py",
+      "mode": "0o644",
+      "upstream_blob": "34d6b761d37857e876a7d0fd1970a758f8f71981",
+      "sha256": "2c65696e2360fca1b362b2940f924f899931f1331fca70d91a84282c934220ca"
+    },
+    {
+      "path": "nxextract/vendor/python/attrs/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "0c2481561a93a912503754396782e987fcdd9629",
+      "sha256": "f7fe706956c5b3bacbaad5d9ef7b4d0ebc617b3c99f1565e5f805bbd0dc4789c"
+    },
+    {
+      "path": "nxextract/vendor/python/attrs/converters.py",
+      "mode": "0o644",
+      "upstream_blob": "7821f6c02cca81277d1ecc87b6bdafad886d8b70",
+      "sha256": "f244258eb5707d24d1bbc20dc0493c488d1e1abce659fb6c4fbaccd04ab2a213"
+    },
+    {
+      "path": "nxextract/vendor/python/attrs/exceptions.py",
+      "mode": "0o644",
+      "upstream_blob": "3323f9d2112c54b203763d45b455bd5abbe020f6",
+      "sha256": "0020829a0d7dfaf0c56833d8f6f165d7df523d709030dfdb10db380c02e3ce6b"
+    },
+    {
+      "path": "nxextract/vendor/python/attrs/filters.py",
+      "mode": "0o644",
+      "upstream_blob": "3080f48398e5ed8d3428ca3efeb7500633b0cb0f",
+      "sha256": "54e50c66e83db8453a754b80d1d1758c89d42b43cbddf2e03f45414b977e0831"
+    },
+    {
+      "path": "nxextract/vendor/python/attrs/setters.py",
+      "mode": "0o644",
+      "upstream_blob": "f3d73bb793dd49c138950961f41943bb26c57fde",
+      "sha256": "78bd5889d6105774f687dfd2608652651d4501c1c66f54ee093cb41342efd925"
+    },
+    {
+      "path": "nxextract/vendor/python/attrs/validators.py",
+      "mode": "0o644",
+      "upstream_blob": "037e124f29f32d37c1642d159bf828de44f7c349",
+      "sha256": "c5ccbac03e53b5391d086d5fe1759ba1c3d23b47da06393921f5497cfe92523d"
+    },
+    {
+      "path": "nxextract/vendor/python/lz4/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "dd576d47850ffc446326a13c4319e1715588ef65",
+      "sha256": "a30af473cdfcb88ed175e7caa89a53d806f2d7d352e20d92d40bf8ac317fcc8d"
+    },
+    {
+      "path": "nxextract/vendor/python/lz4/block.py",
+      "mode": "0o644",
+      "upstream_blob": "01910cb81251b2660a3c418c5c1747bf4ee05f0b",
+      "sha256": "57dd295be90028601f5af7e9b4abc9f2cc233996ed42d2ad2ed02c1718985903"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "ebc165e386a4b8361b3f51e205fd8f85e4ac2e2c",
+      "sha256": "d5797adc36ef403f8749509dedc14b8555bfe2994980c290df2087e27c7c4137"
+    },
+    {
+      "path": "nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "097b352e24156145c869d4c982ef7eda7cb87e03",
+      "sha256": "33943d3dc5ebc9573701938488818fefbdfb79fb83930496f15582ba9d58b29f"
+    },
+    {
+      "path": "package/port-env-universal.sh",
+      "mode": "0o644",
+      "upstream_blob": "98eb545848113e771b7fa5b128149b0b69821bfb",
+      "sha256": "056ee14ca7f27361b23fe5a022464523c5df01c106bf35199429ee67db5ff119"
+    },
+    {
+      "path": "port-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "27ee254ad2dda08f4e90c60c0acddd17a71b33c2",
+      "sha256": "9e130e8f56f2a90848976b180cf88c442d5eb4b241fc7bfda9abc107cf37d0e7"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "c2cbaea841d25a4245c45515cc4fa77c4d09c5ec",
+      "sha256": "55e193a0740d44e7136e79f4a8e7d477a7b1c58f0d5a00943eb62eef18ac6378"
+    },
+    {
+      "path": "src/aaudio_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "eb32f75998a62e1d9167b3da81f94ae0f38e6f6e",
+      "sha256": "0e2af4f85b1f032318d6007e46bd996854399c52133c295e62d6de1ce09847d6"
+    },
+    {
+      "path": "src/aaudio_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0b917a829f8b331d0f6d0cf853f16c611adc9aa7",
+      "sha256": "1cb0d63cdf99a111bb37742b7eb800b981d07eab6116b86939c7c81484bd4703"
+    },
+    {
+      "path": "src/android.c",
+      "mode": "0o644",
+      "upstream_blob": "364f2e943985e20e38b636ceb7346c08a0059355",
+      "sha256": "2ded007e8370f4309411b1225fafa9130177c08c4d908c1a6f259ad438a61250"
+    },
+    {
+      "path": "src/astc_decode.c",
+      "mode": "0o644",
+      "upstream_blob": "6910006f2b8402f0730db6e3b3a15576d46efe39",
+      "sha256": "6576ed0d19a0d49be8b9813a3e591f2256547987e9ef659c67111d9ff2508e37"
+    },
+    {
+      "path": "src/astc_decode.h",
+      "mode": "0o644",
+      "upstream_blob": "6dae9d142452de145b9f010e3ea883706b5d32b8",
+      "sha256": "3a38244876e1b4cbad798201b1ca53454aa5b6ea67a846662277e774aaa4faa2"
+    },
+    {
+      "path": "src/audio.c",
+      "mode": "0o644",
+      "upstream_blob": "4572497f6071c79f595b88e4b1b431cf98455062",
+      "sha256": "be9ff51af3a5705c6da529c1405d44070d302c5a24d022666219b42d683112bf"
+    },
+    {
+      "path": "src/bench_probes.c",
+      "mode": "0o644",
+      "upstream_blob": "cceecb262cc04c1494a8d19a15903b075369624e",
+      "sha256": "182728790fdfeaeaa0f30e53ef6e4022c2e363523ef0fb4c9e93d8922c0f4568"
+    },
+    {
+      "path": "src/bench_probes.h",
+      "mode": "0o644",
+      "upstream_blob": "e655bd8a2bf78707999b034f542ff025ec4b9912",
+      "sha256": "6a6403155cb524a95d907d7b756536a6ccf4919c05f7ab593f690ca39c70766c"
+    },
+    {
+      "path": "src/bionic.c",
+      "mode": "0o644",
+      "upstream_blob": "303246030f9c368c781c84141771329dea47eb0e",
+      "sha256": "9a9ed01814056a262cc5db8b4717628d11d0818a70ef2f5423b440c1b2c4b57c"
+    },
+    {
+      "path": "src/contract.c",
+      "mode": "0o644",
+      "upstream_blob": "4717e13833345172f329acf24d187063cdce1c18",
+      "sha256": "c5914c95e388f2391b2680fe2ece1007b4ccfbb3d86d0be91d9d99e7c6ad2254"
+    },
+    {
+      "path": "src/contract.h",
+      "mode": "0o644",
+      "upstream_blob": "41456ae7812c31a1ba8708ec6d5873563e380a26",
+      "sha256": "0fe7f5b82d66b4420195c0ca67acc1df0fceb674dc3e1c81156f4c0166ea0896"
+    },
+    {
+      "path": "src/diagnostics.c",
+      "mode": "0o644",
+      "upstream_blob": "af7f1732b988fe6273dae7cd134e6caf8f2c8829",
+      "sha256": "ac976bad214bb172652987a3e7ff93ed77651a7b68c9006ce04d7b4dbde1ef04"
+    },
+    {
+      "path": "src/egl.c",
+      "mode": "0o644",
+      "upstream_blob": "ea99c74831bec6b310c9ee1ad4f245349225dc9f",
+      "sha256": "fa6f49e94de129b1f56b2dc3909bb74fa162503a97c3a1ef6595ff798ed5cc91"
+    },
+    {
+      "path": "src/egl_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "dc93667cca2c988d52903735834d898cb277ed06",
+      "sha256": "40da82d8e2a8979f81c26e04f39fe4c1fe64e68f55547628806a8cff30579ff4"
+    },
+    {
+      "path": "src/egl_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "4f67ea01e35cae97d5869a52e034509417f7db21",
+      "sha256": "29ed1faa85bee5057845d3be3056f82d5c13a320c017cfd6860c3327f837a141"
+    },
+    {
+      "path": "src/etc1.c",
+      "mode": "0o644",
+      "upstream_blob": "0da1942206efe4523c03e1c9203b736877fdd32e",
+      "sha256": "608fe37e4d29e92d75de7aef45c46e55eaf1712193db8798a57861c5569f9990"
+    },
+    {
+      "path": "src/etc1.h",
+      "mode": "0o644",
+      "upstream_blob": "d6e72187c43b6a4f6d9eccf13266798627d51768",
+      "sha256": "037f78d4e636c239eb4e92a51089f229ebae698c09fbee1d878eeb94a19e9ac5"
+    },
+    {
+      "path": "src/etc2_decode.c",
+      "mode": "0o644",
+      "upstream_blob": "985e68ebaed74f1be2a5be8d7cda744b5460ae51",
+      "sha256": "5bbda76184b258939d7fa03bb6c0902a677863342a393c9acede7886eb3a2903"
+    },
+    {
+      "path": "src/etc2_decode.h",
+      "mode": "0o644",
+      "upstream_blob": "89f724e20a520573447243b44123743da7fc92b8",
+      "sha256": "2d2965b945114bad0c34cd2f6c1cf1102390d0d45d1ffb262c2b0badf6e14204"
+    },
+    {
+      "path": "src/fp2_graphics_contract.c",
+      "mode": "0o644",
+      "upstream_blob": "c9a235eb74e1e476ce88ca5b082a96ca56f87aab",
+      "sha256": "eb7c61aa045711331c31ea7478cdb94aacff5f09384ef352dd5f0967711dad6d"
+    },
+    {
+      "path": "src/fp2_graphics_contract.h",
+      "mode": "0o644",
+      "upstream_blob": "85526bfbed49c7d5763278cea31f43bcbbe622a6",
+      "sha256": "94408e3c35afd416d9e659bfe9d5191a3e8387f44dfa05a3b433aadae98b551d"
+    },
+    {
+      "path": "src/gb.h",
+      "mode": "0o644",
+      "upstream_blob": "6cd0a79e84a0232d9356c956a2b59ae3992fb819",
+      "sha256": "0eca8c8d082e6f6895886ca316418cac142932a3ece8311ed130692447bc6511"
+    },
+    {
+      "path": "src/gles3.c",
+      "mode": "0o644",
+      "upstream_blob": "174d22c07eab76a5f6c7a50ec7b2410897ec69cc",
+      "sha256": "69ffd62844f939bf8e5a8aed534c2407151c2b35e45cdba8108b57499136766e"
+    },
+    {
+      "path": "src/il2.c",
+      "mode": "0o644",
+      "upstream_blob": "858845bd7b6a678838148a45b98d19cc9ad2c009",
+      "sha256": "cac33d9f79526c514bf11d6710decec2fef7d1ee8494ef25f9893ebe7e591e9b"
+    },
+    {
+      "path": "src/il2.h",
+      "mode": "0o644",
+      "upstream_blob": "29617bb3dc5debeff57c46de4a9a9010930dfcf2",
+      "sha256": "d5fe25547cb81da235bbf88fb80d84f55f24654aed554d5215b2170fa6bb929d"
+    },
+    {
+      "path": "src/input.c",
+      "mode": "0o644",
+      "upstream_blob": "d8a92040b72c10e10c20a6b67990bc69f4e010b9",
+      "sha256": "5e853b6f3fac64be81ad9665b39c671afef43d1f1fc1ea19f0580dd60fc42821"
+    },
+    {
+      "path": "src/input_gptk.c",
+      "mode": "0o644",
+      "upstream_blob": "dcb138c17a5d181d981f6c80c1a07581c96a65df",
+      "sha256": "57f5dbc0c524ee551d6680bd5504873615f810eab4d903f72394aa2da59cdfa8"
+    },
+    {
+      "path": "src/input_gptk.h",
+      "mode": "0o644",
+      "upstream_blob": "7bd857e7551c97a8e6281e46d55d9d12b4a9514e",
+      "sha256": "4a15bbc4c5657a3458aedd57d3df6e1366c929de4342e9c256ce4d14f50f57de"
+    },
+    {
+      "path": "src/jni.c",
+      "mode": "0o644",
+      "upstream_blob": "fd89fb1a0a2a1587ea331490907b57c646e9817b",
+      "sha256": "6fd9e26ea34368a26d0d1cdff99dcf747ded53e867164cbd6a281238575d7b3c"
+    },
+    {
+      "path": "src/jni_slots.h",
+      "mode": "0o644",
+      "upstream_blob": "40d148559b541c988c68d018c4e735d015eb1e1f",
+      "sha256": "06e7bae43ad041d8e8738c6222b5bc152b182cac5219881c5a9280bd46860417"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "d262fd3b320d7acd8066aa3ca3957bdd87473b39",
+      "sha256": "f76500aadab751ba5c3161613cb3026a43fdb740a3838d1af03c769b6e0ca81a"
+    },
+    {
+      "path": "src/mediandk_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "193242a0a879d4750b133c406ea9e6a79e664a29",
+      "sha256": "ca8bde0d249179dd0a328d346caa9cfc6b075046573d3019d5ef46c23766ecff"
+    },
+    {
+      "path": "src/mediandk_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "e7da1250ca788fe1c28fe7049da6be16406a5cbe",
+      "sha256": "1db517108a37f12359e43210493348751bdade8c1a8e4862ec410d4fa158f587"
+    },
+    {
+      "path": "src/mobile_controls.c",
+      "mode": "0o644",
+      "upstream_blob": "76d77700c60fde158fafcc4a63f097d41ff1f95e",
+      "sha256": "81a36251fb827ce09c170d76abfd363ab022dbef4e21d02919974be90d0ca10c"
+    },
+    {
+      "path": "src/nx_elf.c",
+      "mode": "0o644",
+      "upstream_blob": "dc8ad0f58a3f21716bc3d358c3450283453816ad",
+      "sha256": "46589c3cd51d376ef643d4df2d1326e801ff6923cdb4b0e5017472076cfc8833"
+    },
+    {
+      "path": "src/nx_elf.h",
+      "mode": "0o644",
+      "upstream_blob": "66f7975750bdf7e894f2e2bc5c4e487c0ead4ac4",
+      "sha256": "c168c679c0686dd133da3b3f12603ef8fed9e2f35bb53c9ba6ca84f607568549"
+    },
+    {
+      "path": "src/nx_symver.h",
+      "mode": "0o644",
+      "upstream_blob": "28670ae726e2cf765a74ddebe81fa99d830e0d2c",
+      "sha256": "864b85aeee679ca0c75e1f5a1fba620d386f47ae11da5b82310273a389d57989"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.c",
+      "mode": "0o644",
+      "upstream_blob": "f2af4e2ba766cf392b46e269818261dcd5fbf5c9",
+      "sha256": "dfe93dfbe0c3c3474bd9f230638481e3a803585907faab5c970214c242deee5b"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.h",
+      "mode": "0o644",
+      "upstream_blob": "448942b997a047e00c710b62bf8d0b68427f1b97",
+      "sha256": "c6267cab34e34483a4d9b348da64ccf00704c2472ff9e0ad8010e0d060e6c8b7"
+    },
+    {
+      "path": "src/nxgl_graphics_contract.c",
+      "mode": "0o644",
+      "upstream_blob": "74298a92d93c8515a87e2dc141abb38eb92592d4",
+      "sha256": "0a3c8c20e12610fdf5cc99d559f3480c20743ea111549046781f8b625341f3c2"
+    },
+    {
+      "path": "src/nxgl_graphics_contract.h",
+      "mode": "0o644",
+      "upstream_blob": "c95e597b4a88c205c768f9a8fc29bb2aac1101eb",
+      "sha256": "1d003949a5286c963b3296068c971599bba38a1f710fd1baa6283c150dda1a19"
+    },
+    {
+      "path": "src/nxgl_graphics_contract_adapter.c",
+      "mode": "0o644",
+      "upstream_blob": "db390b9e219fccb99a5bce1f3132c5144f79c7b1",
+      "sha256": "57542e25ea3a17e9b1e9ce7b3a29f23841fc32fbb7e2e57014465bb674102467"
+    },
+    {
+      "path": "src/nxgl_graphics_contract_adapter.h",
+      "mode": "0o644",
+      "upstream_blob": "c580b2326f24644228a7a9bfe11ba49c39421cb3",
+      "sha256": "0b9edf65b41deb77829bb455056ac83ddbfb44edf57d8f098f433a149e7d58e5"
+    },
+    {
+      "path": "src/nxgl_graphics_present_gate.c",
+      "mode": "0o644",
+      "upstream_blob": "38c805a73bd13fbe2b599d823204382bb7bc69ee",
+      "sha256": "6ed2bf6253adc7bec9ae90463fd30019543418d70dbdc19250a6db48cfd8add7"
+    },
+    {
+      "path": "src/nxgl_graphics_present_gate.h",
+      "mode": "0o644",
+      "upstream_blob": "943d750186a728a236b430b7ce063653636feb18",
+      "sha256": "9728ee8b8bea6ee3ef9bc292aa80cfacd59f7b45f93464c8f21aae288be9b364"
+    },
+    {
+      "path": "src/probe.c",
+      "mode": "0o644",
+      "upstream_blob": "a03e5924e04e26151b0f1cafd5e6b176bdf1fddf",
+      "sha256": "9f76adb676ba825fb039ad98e665d26fc2a28e756eed2fc92af050fac2089279"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "6ecc52c0ad27b632b11f12be4da9fb6414440de1",
+      "sha256": "bcdccec21dafe35ac2b2e5e1308e9dfe5cf59b362dca214a3a6790e4d964fc02"
+    },
+    {
+      "path": "src/texture_convert.c",
+      "mode": "0o644",
+      "upstream_blob": "307351ccb1bd59b1f0417bf50c891790c284b26d",
+      "sha256": "a07a103e3cdd217af99aa4e1a2aac6a4b48857dc3892c0ea1db1fdd5a4235b1a"
+    },
+    {
+      "path": "src/texture_convert.h",
+      "mode": "0o644",
+      "upstream_blob": "f198afa30f295a1c8cd32afc9b612399fe66968b",
+      "sha256": "762251bf797409f96f55fe77af276eee727eef00f6177458f2fff13826c6bbcc"
+    },
+    {
+      "path": "src/unity6_shader.c",
+      "mode": "0o644",
+      "upstream_blob": "d32d8244a00a379b1bf1baaa00079bc171d55a9e",
+      "sha256": "a24f7478015a24cbfe5ade49f1de4749d7bfccfa09424379919ae6dfab92364d"
+    },
+    {
+      "path": "src/unity6_shader.h",
+      "mode": "0o644",
+      "upstream_blob": "de318bb3f17df352426d8f2c531132d8378ba550",
+      "sha256": "79e22cc2125a9f11e1a0affa0551ab4550b8ce8f88a04822f31cb350f641481e"
+    },
+    {
+      "path": "src/video_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "96ee0b0321af1f479f9ccef3aaa3032504ad3ac0",
+      "sha256": "a4c0a57c614d98d72c8db8c140c7f9b39d60c2f8bf5b94d460a625f48926740a"
+    },
+    {
+      "path": "tests/gptk-live/run-host.sh",
+      "mode": "0o755",
+      "upstream_blob": "261970afcec70c0947514119c726e4da0d28309f",
+      "sha256": "2604420d9627e8e3b73b60a211240c1632fe6c7baf990f92926b3870eaac75ac"
+    },
+    {
+      "path": "tests/gptk-live/test_gptk_live.c",
+      "mode": "0o644",
+      "upstream_blob": "83d420c7fb9082cdcc6c6998c8c52925289affc0",
+      "sha256": "4dfeae10cfad903586e739a4660084e61eb4ba79a75e2b5052f6734a3164fce7"
+    },
+    {
+      "path": "tests/input-lifecycle/run-host.sh",
+      "mode": "0o755",
+      "upstream_blob": "ed01250abce35812d6be274c3b99558f4dd2fbe2",
+      "sha256": "6404b3512d43eb2fd66a2e3e2d0837573f4a8adda2212187f2da1c9ed050803e"
+    },
+    {
+      "path": "tests/test-frame-proof-partial.sh",
+      "mode": "0o755",
+      "upstream_blob": "e2ee5556588d1021c4c320ff382c5b95fafe2fc9",
+      "sha256": "178cc72dc0c82562c0df8bc08f013b3378804acdc223e41f0168c36a03ad245c"
+    },
+    {
+      "path": "tests/test-pthread-bridge-sem.sh",
+      "mode": "0o755",
+      "upstream_blob": "b7b75a5de4452d97eda36c76e7366692e5e80a94",
+      "sha256": "9ba1fa8c9cfcdcfcaa39b0a2a327a4ff2c639b9d99ba6166d3a42f40d27f20d0"
+    },
+    {
+      "path": "tests/test_contract_env.c",
+      "mode": "0o644",
+      "upstream_blob": "f7efef88059a42279076ac8adfccd4939d5f05be",
+      "sha256": "7fc77d9581a8506cf5da44a4890dc5230c707a6f8aaf20165df02749c0a9b048"
+    },
+    {
+      "path": "tests/test_frame_proof_partial.c",
+      "mode": "0o644",
+      "upstream_blob": "2ec940f890cbfba8828b98590710e788caecfd9f",
+      "sha256": "e6fd67381c2687c3b257318d65210251e27d9ad941e6ef88b6a2c2746b30c896"
+    },
+    {
+      "path": "tests/test_pthread_bridge_sem.c",
+      "mode": "0o644",
+      "upstream_blob": "578ae617ce900d9b0a6da109c2195474e24f755e",
+      "sha256": "97741469d8ab4aec651d59da39da27f2a303beff3edee2775e5103d587918c24"
+    },
+    {
+      "path": "tools/audit_exact_gles2.py",
+      "mode": "0o755",
+      "upstream_blob": "4ad4a79b91d4335d1f15b2c24080c50f52c85298",
+      "sha256": "3e31c3bf031fb52741541e8208c3ff52f5b1f63ca0ac9d0293ac1ac8fc677e3e"
+    },
+    {
+      "path": "tools/build_exact_shader_tool.sh",
+      "mode": "0o755",
+      "upstream_blob": "aaeadae3c28495dd29695d784e23353007267419",
+      "sha256": "bb647b16ee33ae2d69665b90388c5c2540771f0086dfee080f48cff8c7577e1b"
+    },
+    {
+      "path": "tools/convert_textures.py",
+      "mode": "0o755",
+      "upstream_blob": "b70423da250ce3f8f1efdb669ae098f338eef722",
+      "sha256": "8e8b81df8462e7b4ef6b6578d03bc87ece82dcbef657fe8afdd9e20e5ce2fc3e"
+    },
+    {
+      "path": "tools/gles2_gen.py",
+      "mode": "0o644",
+      "upstream_blob": "9ba71b93e39353bd940bda60e67e2f2f5d01a227",
+      "sha256": "af74a44ddaead92e72da1892b84d6b2cfebed244d787ed24bc3a9c10bb28a924"
+    },
+    {
+      "path": "tools/inject_exact_gles2.py",
+      "mode": "0o755",
+      "upstream_blob": "877a7ae0b12b12fcf2b18e35a8bed9188db6c998",
+      "sha256": "296c2d4f828e2b6bef055af18192e72b58cc27ebb7bf94153f36468956be536b"
+    },
+    {
+      "path": "tools/inject_gles2.py",
+      "mode": "0o755",
+      "upstream_blob": "7542c863b75d3f17369e2f43d7e09d6cfa6e203c",
+      "sha256": "24acb9b39945d73b67698da790a5d8794d237a15a20c4d19fddb29bd205b7e2f"
+    },
+    {
+      "path": "tools/patch_graphics_api.py",
+      "mode": "0o755",
+      "upstream_blob": "feb07c1d1606e07336b52db440ba853af2038262",
+      "sha256": "ed4a0028d39fb0c4f9c9693ac5794a9d2a8bd8af5648031dada3e3f798df1a24"
+    },
+    {
+      "path": "tools/serialized_patch.py",
+      "mode": "0o644",
+      "upstream_blob": "fdef0e8c6dba8f9f3d75cba2d8c7312adfe34692",
+      "sha256": "f712acd9fe2c3267ff170d273e70a4c2eb4336d54270f75356990459d889d43a"
+    },
+    {
+      "path": "tools/unity_smolv_cross.cpp",
+      "mode": "0o644",
+      "upstream_blob": "369b2ffb801849fd249a53ce58d24fdeb0b50b26",
+      "sha256": "9d369a24e97f7cd903e67348a32d425cb7f4cb88b549b13cd1728db26bbd700e"
+    },
+    {
+      "path": "vendor/nxinput/PINS.json",
+      "mode": "0o644",
+      "upstream_blob": "fc67eed2984c9f4ff9fd5b923213c6867d6a3823",
+      "sha256": "a48836d6712dd76206a2088e43e4c1b52bade887360be7111b379bde350fad94"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxc6_glue.c",
+      "mode": "0o644",
+      "upstream_blob": "ee9379551c8165ac7bfd64ba15165730595bd56b",
+      "sha256": "2b18de720ed127433fdacbd68e590cf075e14d443253d28ac1df10ed672db742"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxc6_glue.h",
+      "mode": "0o644",
+      "upstream_blob": "3149904dda0891f0da315ba7e08a506142db26d8",
+      "sha256": "c3234135eecc9d5d63ad370061ed23c3d5dabb872b6cb0401d9096327a555c0d"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxinput_padset.c",
+      "mode": "0o644",
+      "upstream_blob": "d6e4e47c3b59f37d9640ef1ce0833a79dcf75b91",
+      "sha256": "5821bfce76696fefa07fe0454b916920735cc127ea6bc1f5eca2e636483baf5e"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxinput_padset.h",
+      "mode": "0o644",
+      "upstream_blob": "bd05c4ef94b031c145e10f217fede6dd04ff6b85",
+      "sha256": "49e75575e044b1240268ec0c85fd02910a553b2da9f98c835f7e322025f808ab"
+    },
+    {
+      "path": "vendor/nxinput/engine-patches/C6-SDL-PROVENANCE.json",
+      "mode": "0o644",
+      "upstream_blob": "5ee60ef2045d38141d14a7b40448f1034b49c081",
+      "sha256": "22c7243582c5393314ccee4f7f06cb283785bc051b562a76db4b61d7a60e1294"
+    },
+    {
+      "path": "vendor/nxinput/engine-patches/sdl2-2.32.10-nxc6-seam.patch",
+      "mode": "0o644",
+      "upstream_blob": "081eacfb628056e91fc3f776627fe2f4efed0294",
+      "sha256": "39470691346a124b774b112351c2cd9fba1d4f4a49664bb0dfc031edebc54e6e"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput.h",
+      "mode": "0o644",
+      "upstream_blob": "42fd9ed2929e8745736bf54edcca5d64e83799fa",
+      "sha256": "7244bcd6d6ea4c7c77c34f6ac1506bbeb9bc5a2e8ae943c55a93f9675484527b"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_authority.h",
+      "mode": "0o644",
+      "upstream_blob": "55f5ec85b021d866f3a3e40f07637a16f3ec3c71",
+      "sha256": "4715b4f4d791e12346d91162e3700a57af68fc7c897d6528630f63d509f1f714"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_evdev_chord.h",
+      "mode": "0o644",
+      "upstream_blob": "e27fab98787442738346cfa1de4dcb2c160df35d",
+      "sha256": "beddb47ea37be5c700fbb96d687b8fc871275ec27edb6880bf4a89f02a12c60a"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_exit_chord.h",
+      "mode": "0o644",
+      "upstream_blob": "d9cdc9db540fabbd82765aea75be9cf2e8aff628",
+      "sha256": "597aba07ef7f7bde241d7c409155b219fc804b862b01b307da16e1e2763c3708"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_godot.h",
+      "mode": "0o644",
+      "upstream_blob": "4d373d8d7d6066436789892158a6002a5bee5746",
+      "sha256": "d543fad6c01d5f5625f180a7f9370d6f79bc963d5cc4c776e16b3fd1ea094d36"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_godot_consumer.h",
+      "mode": "0o644",
+      "upstream_blob": "ae72a3ddb5f80f2d521ea639c1b941bcd40bd6fd",
+      "sha256": "9522a8c882a52e603c3f5b590ae86f69ef0a0d9d58bc214a93a6b1cc85135895"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_godot_runtime.h",
+      "mode": "0o644",
+      "upstream_blob": "4a12cd228583e2334de7438d0732c9ab95473326",
+      "sha256": "920823ab7288c21f6336553bb45e6835e0855a66062334cd5da27cb05a0286b9"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_godot_seam.h",
+      "mode": "0o644",
+      "upstream_blob": "a3035012adc3decd21fb77b3934750dd4466ea2f",
+      "sha256": "6c81ea66758ea276429c1e45e55282a7ce917d42fc1038cb214dfca212ce97da"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk.h",
+      "mode": "0o644",
+      "upstream_blob": "ed82695ab0942bf232c0cf7729412775f094951c",
+      "sha256": "e97c6bbae4c591e0af7afa4db7ffb968135f35f606736f5ad7cbaffac51eb665"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_live.h",
+      "mode": "0o644",
+      "upstream_blob": "45c34a31cd44322f1d6be31a49f6a09ffd2afd44",
+      "sha256": "2cad42aae11cceee8f8783b5caa37218ff99c6bec87013cc286dd3930ea33ec4"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_loader.h",
+      "mode": "0o644",
+      "upstream_blob": "8c6e3331ce8d02fed8a8684546820801a53cdbf7",
+      "sha256": "11b35a23d00c5921984b584e10d580bb220764a44b66dfde03acc26525a67555"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_motion.h",
+      "mode": "0o644",
+      "upstream_blob": "1580cc78c9f593b31f979b69a6a960c697563885",
+      "sha256": "084cc5fe2da3848bb516e4671c6ffe958fee2cd7aa27adf6b15cd7b97c8226e2"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_preinit.h",
+      "mode": "0o644",
+      "upstream_blob": "723d4a69d0d19bc2c6e40040ff2f500cc3ecea6a",
+      "sha256": "57beec0ea03ae8f85140c783e2096f4fa5fb94fd879e9af980ac7f97faa6e9e0"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_upgrade.h",
+      "mode": "0o644",
+      "upstream_blob": "2125f6b9f0036d7c99518092ac0ecc8106544ec8",
+      "sha256": "651d76c97fb7a0273e4734e4d9806ea2fad8f6e9705155760a7810c3920583a1"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_livedb.h",
+      "mode": "0o644",
+      "upstream_blob": "6eec3fa22382fc3e7526065c6d24d664e5737b72",
+      "sha256": "0f72d7024bf027f9f516750a0184e56a0a3a1e20a56b9587fc37274f8acbe530"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_nxcompat.h",
+      "mode": "0o644",
+      "upstream_blob": "32b479e93850936b79ecbbbb98c7bcf7541b7b1c",
+      "sha256": "e57f6f79ebacaa05bd9825929aced03f0db4ecd71385fb92b74d8d9ae688c881"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_observe.h",
+      "mode": "0o644",
+      "upstream_blob": "ae8ac5a3453cb428db3c18496fcef8d7bfc91819",
+      "sha256": "fd1785f80f2b29ede8d1a4c5262a6abd36705224e2be8aefd4b551aa58bb87d8"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_pad_ordinal_fix.h",
+      "mode": "0o644",
+      "upstream_blob": "f4ae9828a6fd3fcbb003f170dd69104f257c97a2",
+      "sha256": "3976530903697641b09b7e2b212a961427941f46fc296e5ba4540adf63b99e37"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_portmaster.h",
+      "mode": "0o644",
+      "upstream_blob": "9abd59c59bc2b8ed6cb115f4ec370e7174964944",
+      "sha256": "d9a8bc31b5a8d509d4d3e58d20222cb9761e0180a43370298e6eb0adc04ce5f3"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "eabe9f0808c2819f153f5065bd800d0110c03061",
+      "sha256": "bfd269b0b9ea222b8988802472ae8d63d83ed74cc0c60ba3eebceaf19cd1debf"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sdl3_portmaster.h",
+      "mode": "0o644",
+      "upstream_blob": "6fccecd41995c546c7f98703e899e4c7c3f58a95",
+      "sha256": "ee565ea9967189597944c68475b9cefd2b8d16b72ac8305dd1ff1d8c41ac9c5d"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sdl_seam.h",
+      "mode": "0o644",
+      "upstream_blob": "30e6a8c4097fc5ee8d93ac9c98d7f4a954c1b3f6",
+      "sha256": "7e520014542705946f1e8227c74df365207e9298b24b3944b99c463c4087ca7a"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sovereign.h",
+      "mode": "0o644",
+      "upstream_blob": "48e23e91d303581042b7db54f6b0099862d6e75b",
+      "sha256": "b07b83acabe61732ed88a486ae51453ae79741e1d1a96f60964e0ef9f5462167"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_touch_sequence.h",
+      "mode": "0o644",
+      "upstream_blob": "923337003437d2abc1006abab161c0aabf879403",
+      "sha256": "5d3720746158320338976c96ab4b763952adc781b397c2130b8ba5cb967f9bbb"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_authority.c",
+      "mode": "0o644",
+      "upstream_blob": "12a92eb3b9511583096ea2eb1ba8c2ecd38942d0",
+      "sha256": "74abae2b89e94d390f1f2735935409bc275043d12d0291ff02a8deebe7aaf9d5"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_authority_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "b127a428e274e32f2bf9204f381290bd34f8f056",
+      "sha256": "5b7e722c7d87cb71666f9d75276e9d7ba8f1f58bc51016a3de1fb7b52268e3c4"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_authority_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "e82ad445b98e51b13b73dbe2d85fba12a3cad3f1",
+      "sha256": "d37a22eb3cd72caf7f8d0667b738a7770effc903eb892c9d8a2899c1d83ea6ca"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_exit_chord.c",
+      "mode": "0o644",
+      "upstream_blob": "23e3359889434b387bdb21c603a5acaa43dd2faa",
+      "sha256": "4684a1c42e85119add0574989f697489a8b20f0430b67116f7e06d381a8bea10"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_godot.c",
+      "mode": "0o644",
+      "upstream_blob": "8b292d8fabfdf4d9ca08aa50a0143a0145155153",
+      "sha256": "73c62672402adb3604672890f43e31af32ebfc32e9e8ebb78fdb1db066e68a7a"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk.c",
+      "mode": "0o644",
+      "upstream_blob": "def3ba1e7cf78fc4f50082eb2f4b7a590bc8d2a8",
+      "sha256": "38f182499f47ea2f2ec0ef6bd553e30439c74a127c4319be495cf9fb5fdf7a63"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk_live.c",
+      "mode": "0o644",
+      "upstream_blob": "e60b5f9aa67ec169640a56380287d71d6087d05a",
+      "sha256": "284e0b26e1799ca89345e329adbed7e29c06979a73d77504d000c63ba24a0c9e"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk_loader.c",
+      "mode": "0o644",
+      "upstream_blob": "f6dc2c021ea20ffc0dfc2c815dc83e1b67703a83",
+      "sha256": "8c42a75c8b98fe7ca0a04cc30a2b54ef1ac9429b4143be0675869c457147d030"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk_motion.c",
+      "mode": "0o644",
+      "upstream_blob": "9c7aef305582bd57176afb11aeb1d4a25e12fe6e",
+      "sha256": "f4db0aecc17c77eb36e6556fc61ab83a7e56efa8a90bf5f63890674fa9b39cac"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk_preinit.c",
+      "mode": "0o644",
+      "upstream_blob": "7e87c1979edfb0b0c6fd134b341a4b63e3c08459",
+      "sha256": "dbf46d48385ff8eb19310d73d523287a717c651075ddb0f3868c10dd3a41a7e6"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_livedb.c",
+      "mode": "0o644",
+      "upstream_blob": "45dfd1f60ee9e13ffc3634bac7756ee3d2c9211f",
+      "sha256": "05b6a3febc8753c467f176323debf0a35a575618360d17bf134acb0fa351b73a"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_portmaster.c",
+      "mode": "0o644",
+      "upstream_blob": "8c4bdacfd6be209cf9ce1525eddc07e36a9867c8",
+      "sha256": "6e6e677595413072d712ad43318dcf52ac5e4d0cace791a73afb02749236fa05"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "ee0d4f0e24aaf16ab731f0a5ce73617ec02ffc5d",
+      "sha256": "5adadc572818ad5d2173beafb52dbf9ca227edc3c7e658289ef6a9a63180b2a9"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_sdl_seam.c",
+      "mode": "0o644",
+      "upstream_blob": "862c9f94b1ba2b81524ae487590198cf33da036e",
+      "sha256": "eddbc89e778f8f62e91e5d71f2db7632b0e49e4fcc9b56f0844f0a12b046734d"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_sovereign.c",
+      "mode": "0o644",
+      "upstream_blob": "bee3ca01ac661bc5a0cc2d75161f61b6f23b29ce",
+      "sha256": "10edcbf9573a26bfd7ed72a2f06c4a2a538f57efcaa08c20ed994e976d4dd67d"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "781dcb07cd802a4e98079e3f56fc38f7b092c7a0",
+      "sha256": "5dae0c0a5ed3cdaa78704e25bb38d72c31018311e933283d06ed4f93360bfc6c"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "4d2a8eefdf2a9783512a35da4dc7676a66404b6f3826a8af9aad038722da6823",
+      "reason": "privacy-review-required; upstream unchanged"
+    },
+    {
+      "path_sha256": "e56367a3589d58459392cc37da3b4abf0f3ea130c8467187e30545f55b2aee5e",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Merchant of the Skies.sh</path>
+    <name>Merchant of the Skies</name>
+    <desc>Merchant of the Skies is a relaxed trading and exploration game: captain an airship, trade goods between sky islands and build your own trade empire.</desc>
+    <developer>Coldwild Games</developer>
+    <publisher>Coldwild Games</publisher>
+    <genre>Simulation, Trading, Adventure</genre>
+  </game>
+</gameList>

@@ -1,0 +1,493 @@
+{
+  "schema": 1,
+  "id": "huntdown-nextos",
+  "version": "200023-200036-universal-3",
+  "title": "HUNTDOWN",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.coffeestain.huntdown"
+    ],
+    "extensions": [
+      ".apk",
+      ".apkm",
+      ".apks",
+      ".xapk",
+      ".zip"
+    ],
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 2147483648,
+    "max_bundle_bytes": 4294967296
+  },
+  "extract": [
+    {
+      "id": "engine-libunity",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libunity.so"
+        ]
+      },
+      "destination": "libunity.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "sha256": [
+          "2a6aa8d90610bbac3538b086850eb84acba3b020626bddc00534a245e1d01bd9",
+          "79a13ca3264dca9860b1a3ee102283be1c92c763ba7d39d47925fabb230f6da7"
+        ],
+        "min_size": 10000000,
+        "max_size": 26000000
+      }
+    },
+    {
+      "id": "engine-libil2cpp",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libil2cpp.so"
+        ]
+      },
+      "destination": "libil2cpp.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "sha256": [
+          "3bb99370ba0cf9a71c497b2cba71f05ddc8450eb1d840f94917a858aeed1deeb",
+          "8321ed0232885e442da2cd2cde300ed971b2054141679e282bc23c54cdc02678"
+        ],
+        "min_size": 32000000,
+        "max_size": 78000000
+      }
+    },
+    {
+      "id": "engine-libmain",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmain.so"
+        ]
+      },
+      "destination": "libmain.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "sha256": [
+          "e09058a09e39ee5602fa16a6facf33730db64e126dfbc8979844739706653c16",
+          "f5625847150f5718a851ac8297bd4a9d7675b7d3c8b6bf482b2efef1b3ff49f0"
+        ],
+        "min_size": 3000,
+        "max_size": 40000
+      }
+    },
+    {
+      "id": "unity-bin",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/bin/**"
+        ],
+        "strip_prefix": "assets/bin/"
+      },
+      "destination": "bin",
+      "validate": {
+        "type": "tree",
+        "min_files": 8,
+        "max_files": 64,
+        "min_bytes": 150000000,
+        "max_bytes": 400000000,
+        "required_paths": [
+          "Data/data.unity3d",
+          "Data/datapack.unity3d",
+          "Data/resources.resource",
+          "Data/Managed/Metadata/global-metadata.dat"
+        ]
+      }
+    },
+    {
+      "id": "authored-video",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/video/**"
+        ],
+        "strip_prefix": "assets/video/"
+      },
+      "destination": "video",
+      "validate": {
+        "type": "tree",
+        "min_files": 2,
+        "max_files": 8,
+        "min_bytes": 4000000,
+        "max_bytes": 24000000,
+        "required_paths": [
+          "CoffeeIntro.mp4",
+          "EasyTriggerVignette.mp4"
+        ]
+      }
+    },
+    {
+      "id": "audio-banks",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/audio/**"
+        ],
+        "strip_prefix": "assets/audio/"
+      },
+      "destination": "audio",
+      "validate": {
+        "type": "tree",
+        "min_files": 200,
+        "max_files": 900,
+        "min_bytes": 100000000,
+        "max_bytes": 300000000
+      }
+    },
+    {
+      "id": "levels",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/levels/**"
+        ],
+        "strip_prefix": "assets/levels/"
+      },
+      "destination": "levels",
+      "validate": {
+        "type": "tree",
+        "min_files": 20,
+        "max_files": 200,
+        "min_bytes": 3000000,
+        "max_bytes": 20000000
+      }
+    },
+    {
+      "id": "area1",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/area1/**"
+        ],
+        "strip_prefix": "assets/area1/"
+      },
+      "destination": "area1",
+      "validate": {
+        "type": "tree",
+        "min_files": 4,
+        "max_files": 32,
+        "min_bytes": 60000,
+        "max_bytes": 4000000
+      }
+    },
+    {
+      "id": "area2",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/area2/**"
+        ],
+        "strip_prefix": "assets/area2/"
+      },
+      "destination": "area2",
+      "validate": {
+        "type": "tree",
+        "min_files": 3,
+        "max_files": 32,
+        "min_bytes": 30000,
+        "max_bytes": 4000000
+      }
+    },
+    {
+      "id": "area3",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/area3/**"
+        ],
+        "strip_prefix": "assets/area3/"
+      },
+      "destination": "area3",
+      "validate": {
+        "type": "tree",
+        "min_files": 3,
+        "max_files": 32,
+        "min_bytes": 30000,
+        "max_bytes": 4000000
+      }
+    },
+    {
+      "id": "area4",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/area4/**"
+        ],
+        "strip_prefix": "assets/area4/"
+      },
+      "destination": "area4",
+      "validate": {
+        "type": "tree",
+        "min_files": 4,
+        "max_files": 32,
+        "min_bytes": 60000,
+        "max_bytes": 4000000
+      }
+    },
+    {
+      "id": "gfx",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/gfx/**"
+        ],
+        "strip_prefix": "assets/gfx/"
+      },
+      "destination": "gfx",
+      "validate": {
+        "type": "tree",
+        "min_files": 1,
+        "max_files": 32,
+        "min_bytes": 8000,
+        "max_bytes": 4000000
+      }
+    },
+    {
+      "id": "murdoch-bundle",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/murdoch"
+        ]
+      },
+      "destination": "murdoch",
+      "validate": {
+        "type": "file",
+        "min_size": 8000,
+        "max_size": 2000000
+      }
+    },
+    {
+      "id": "murdoch-manifest",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/murdoch.manifest"
+        ]
+      },
+      "destination": "murdoch.manifest",
+      "validate": {
+        "type": "file",
+        "min_size": 100,
+        "max_size": 65536
+      }
+    },
+    {
+      "id": "streaming-assets",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/StreamingAssets"
+        ]
+      },
+      "destination": "StreamingAssets",
+      "validate": {
+        "type": "file",
+        "min_size": 1000,
+        "max_size": 4000000
+      }
+    },
+    {
+      "id": "streaming-assets-manifest",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/StreamingAssets.manifest"
+        ]
+      },
+      "destination": "StreamingAssets.manifest",
+      "validate": {
+        "type": "file",
+        "min_size": 1000,
+        "max_size": 1000000
+      }
+    },
+    {
+      "id": "save-icon",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/SaveIcon.png"
+        ]
+      },
+      "destination": "SaveIcon.png",
+      "validate": {
+        "type": "file",
+        "magic_hex": "89504e47",
+        "magic_offset": 0,
+        "min_size": 1000,
+        "max_size": 4000000
+      }
+    },
+    {
+      "id": "unity-services-config",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/UnityServicesProjectConfiguration.json"
+        ],
+        "required": false
+      },
+      "required": false,
+      "destination": "UnityServicesProjectConfiguration.json",
+      "validate": {
+        "type": "file",
+        "min_size": 10,
+        "max_size": 262144
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "unity-asset-pack",
+      "argv": [
+        "python3",
+        "{game_dir}/tools/build_unity_asset_pack.py",
+        "{stage}/bin/Data/datapack.unity3d",
+        "{stage}/UnityDataAssetPack.apk"
+      ],
+      "cwd": "{stage}",
+      "checkpoint": [
+        {
+          "path": "UnityDataAssetPack.apk",
+          "type": "file",
+          "magic_hex": "504b0304",
+          "magic_offset": 0,
+          "min_size": 20000000,
+          "max_size": 300000000
+        }
+      ]
+    },
+    {
+      "id": "validate-technical-contract",
+      "argv": [
+        "python3",
+        "{game_dir}/tools/validate_huntdown_data.py",
+        "--stage",
+        "{stage}",
+        "--write-marker"
+      ],
+      "cwd": "{game_dir}",
+      "checkpoint": [
+        {
+          "path": ".huntdown-build.json",
+          "type": "file",
+          "magic_ascii": "{",
+          "min_size": 150,
+          "max_size": 2048
+        }
+      ]
+    }
+  ],
+  "validate": [
+    {
+      "path": ".huntdown-build.json",
+      "type": "file",
+      "magic_ascii": "{",
+      "min_size": 150,
+      "max_size": 2048
+    },
+    {
+      "path": "libunity.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "min_size": 10000000,
+      "max_size": 26000000
+    },
+    {
+      "path": "libil2cpp.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "min_size": 32000000,
+      "max_size": 78000000
+    },
+    {
+      "path": "libmain.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "min_size": 3000,
+      "max_size": 40000
+    },
+    {
+      "path": "UnityDataAssetPack.apk",
+      "type": "file",
+      "magic_hex": "504b0304",
+      "magic_offset": 0,
+      "min_size": 20000000,
+      "max_size": 300000000
+    },
+    {
+      "path": "bin",
+      "type": "tree",
+      "min_files": 8,
+      "max_files": 64,
+      "required_paths": [
+        "Data/data.unity3d",
+        "Data/datapack.unity3d",
+        "Data/Managed/Metadata/global-metadata.dat"
+      ]
+    },
+    {
+      "path": "video",
+      "type": "tree",
+      "min_files": 2,
+      "max_files": 8,
+      "required_paths": [
+        "CoffeeIntro.mp4",
+        "EasyTriggerVignette.mp4"
+      ]
+    },
+    {
+      "path": "audio",
+      "type": "tree",
+      "min_files": 200,
+      "max_files": 900
+    }
+  ],
+  "commit": [
+    ".huntdown-build.json",
+    "libunity.so",
+    "libil2cpp.so",
+    "libmain.so",
+    "UnityDataAssetPack.apk",
+    "bin",
+    "video",
+    "audio",
+    "levels",
+    "area1",
+    "area2",
+    "area3",
+    "area4",
+    "gfx",
+    "murdoch",
+    "murdoch.manifest",
+    "StreamingAssets",
+    "StreamingAssets.manifest",
+    "SaveIcon.png",
+    "UnityServicesProjectConfiguration.json"
+  ],
+  "marker": ".huntdown-data.json",
+  "space": {
+    "safety_bytes": 536870912
+  },
+  "log": "nxextract.log"
+}

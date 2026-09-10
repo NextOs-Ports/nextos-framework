@@ -1,0 +1,138 @@
+{
+ "receipt": "nx-host-oracle-v5/1",
+ "class": "PROVED_STOCK_UNDER_UNKNOWN_PROVIDER",
+ "mode": "stock:sdl2-evdev legacy-stage",
+ "fixture": "incident-fp2-1.1.3-muos-rg40xx-h",
+ "fixture_sha256": "26548d604a89d1b96b51049f18609229e7bb3122046beba2ca908146da7d4c8b",
+ "provider": "NXC6-PROVIDER api=sdl2 version=2.32.10 soname=libSDL2-2.0.so.0 path_class=other sha256=d3b29f57bde0960ec0fb1cc80440707510e0ac607271b67d4618d3b97a0736c3 build_id=fafa5c9e7d32d68702b5ab77925d7e564a110bdb sha_bound=1 static=0 bytable=0 method=unknown domain=undeclared pin=- driver=unknown confidence=0 provider_generation=1 measured=0 measurement_conflict=0 measured_ambiguous=0 compat_over_sdl3=0",
+ "domain_lines": [],
+ "verdicts": [
+  {
+   "check": "two clones admitted and opened",
+   "result": "PASS",
+   "detail": "2 OPEN lines"
+  },
+  {
+   "check": "provider receipt emitted once per generation",
+   "result": "PASS",
+   "detail": "NXC6-PROVIDER api=sdl2 version=2.32.10 soname=libSDL2-2.0.so.0 path_class=other sha256=d3b29f57bde0960ec0fb1cc80440707510e0ac607271b67d4618d3b97a0736c3 build_id"
+  },
+  {
+   "check": "NXC6-PROVIDER line lands in the durable NXC6_RECEIPT file (review finding 3)",
+   "result": "PASS",
+   "detail": "5 receipt lines"
+  },
+  {
+   "check": "provider is UNKNOWN to the framework (unpinned bytes)",
+   "result": "PASS",
+   "detail": "d3b29f57bde0960e"
+  },
+  {
+   "check": "pad ADMITTED in stock mode (never mute): source=stock-passthrough, nothing translated",
+   "result": "PASS",
+   "detail": "NXC6-SEAM seq=1 t_ns=140648197056998 pid=69084 tid=69084 sdl=sdl2 instance=1 guid=19006401010000000100000000010000 stage=announce result=admit source=stock-passthrough decision=DO_NOT_MUTATE_STORE pas"
+  },
+  {
+   "check": "legacy blind staging + unknown provider: the CFW's own env line was reinstated",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "no NXC6-DOMAIN translation attempted under an unknown provider",
+   "result": "PASS",
+   "detail": "0 domain lines"
+  },
+  {
+   "check": "position face.south -> stock semantic 'None' (non-controller): no standard delivery",
+   "result": "PASS",
+   "detail": "delivered=[]"
+  },
+  {
+   "check": "position face.east -> stock semantic 'volumedown' (non-controller): no standard delivery",
+   "result": "PASS",
+   "detail": "delivered=[]"
+  },
+  {
+   "check": "position face.west -> stock semantic 'volumeup' (non-controller): no standard delivery",
+   "result": "PASS",
+   "detail": "delivered=[]"
+  },
+  {
+   "check": "position face.north -> CFW semantic 'a' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['a']"
+  },
+  {
+   "check": "position l1 -> CFW semantic 'b' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['b']"
+  },
+  {
+   "check": "position r1 -> CFW semantic 'y' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['y']"
+  },
+  {
+   "check": "position select -> CFW semantic 'x' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['x']"
+  },
+  {
+   "check": "position start -> CFW semantic 'leftshoulder' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['leftshoulder']"
+  },
+  {
+   "check": "position l2 -> CFW semantic 'start' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['start']"
+  },
+  {
+   "check": "position r2 -> CFW semantic 'guide' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['guide']"
+  },
+  {
+   "check": "position l3 -> CFW semantic 'back' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['back']"
+  },
+  {
+   "check": "position r3 -> CFW semantic 'leftstick' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['leftstick']"
+  },
+  {
+   "check": "position guide -> CFW semantic 'rightshoulder' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['rightshoulder']"
+  },
+  {
+   "check": "chord positions resolved from the reading numbering",
+   "result": "PASS",
+   "detail": "select=l3 start=l2"
+  },
+  {
+   "check": "SELECT+START same instance -> CHORD once",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "SELECT pad0 + START pad1 -> no CHORD",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "L2+R2 -> no CHORD",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "unplug clone 1 -> REMOVED + forget",
+   "result": "PASS",
+   "detail": ""
+  }
+ ],
+ "harness_exit": 0,
+ "fails": 0
+}

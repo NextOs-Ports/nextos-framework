@@ -1,0 +1,22 @@
+# Binario compilado e dados do jogo NUNCA entram no repo (regra #14b).
+/.build/
+/build/
+/stage/
+/verify/
+/titansouls
+/titansouls-nextos
+/nxextract/
+/Titan Souls.sh
+*.apk
+*.apkm
+*.apks
+*.xapk
+*.obb
+*.so
+*.zip
+*.log
+/lib/
+/assets/
+/sdcard/
+/files/
+/gamedata/

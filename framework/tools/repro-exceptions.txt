@@ -1,0 +1,12 @@
+# nx-repro-build reproducibility exceptions (framework V3, front V3-REPRO-01)
+#
+# One relative output path per line (relative to the per-worktree output root,
+# e.g. "aarch64/nxexample-aarch64/GENERATION.json").  Blank lines and lines
+# starting with '#' are ignored.
+#
+# An entry here means: this exact generated file is ALLOWED to differ between
+# the two clean-worktree builds.  Every entry MUST carry, in a comment right
+# above it, (1) a written justification of WHY the divergence is inherent and
+# (2) how semantic equivalence of the divergent copies was verified.  An empty
+# file is the expected healthy state: the generator is byte-reproducible and
+# nothing is excused.

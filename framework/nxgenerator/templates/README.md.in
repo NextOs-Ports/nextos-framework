@@ -1,0 +1,134 @@
+# @TITLE@ — PortMaster project scaffold
+
+**Language / Idioma:** [English](#english) · [Português](#português)
+
+> Status: generated scaffold, not release-ready. No gameplay, device support,
+> adapter lifecycle, save path or shutdown behavior is claimed here.
+
+## English
+
+### Overview and status
+
+`@PORT_ID@` is an `@ARCHITECTURE@` (`@PORTMASTER_ARCH@` in PortMaster metadata)
+project scaffold. Replace every project-specific placeholder only with evidence from
+the target game and its approved references before publishing.
+
+### Architecture
+
+The generated delivery path is one visible launcher → pinned `nxbootstrap`. After legal
+game data is ready, the mandatory architecture-matched `nxsplash-nextos` displays the
+fixed five-second bilingual startup screen and exits before any private game library or
+native lifecycle starts. The launcher contains the generated declarative configuration
+and calls `nxbootstrap_main`. The loader must link the common framework modules, while
+JNI, lifecycle, audio, input translation, persistence and terminal behavior remain in
+the game adapter.
+
+### Solved problems
+
+Document only problems actually reproduced and fixed. Record the observed cause, the
+narrow fix and the regression test; never present an engine workaround as a global rule.
+
+### Controls
+
+Document the native controls, PortMaster mapping precedence, hotplug/focus behavior and
+any proven menu-only pointer. Do not assign a cursor or exit callback by default.
+
+### Game data
+
+Document legal bring-your-own-data inputs and the exact NXExtract recipe. Proprietary
+Android packages, native libraries and user saves do not belong in a public project ZIP.
+
+### Build and run
+
+Use the single generated launcher through real PortMaster for release validation.
+Calling the bootstrap library directly is development-only and does not prove
+PortMaster integration.
+
+### Source map
+
+- [`nxport.json`](nxport.json): declarative launcher contract.
+- [`nxsplash-nextos`](nxsplash-nextos): mandatory architecture-matched pre-runtime
+  startup-screen helper.
+- [`adapter/adapter-contract.json`](adapter/adapter-contract.json): deliberately empty,
+  non-release adapter boundary.
+- [`GENERATION.json`](GENERATION.json): generator, input and content pins.
+
+### Baseline and proven support
+
+Mali-450/GLES2 is the compatibility baseline, not a support claim. List physical support
+only after the same ZIP and SHA-256 pass the declared device families.
+
+### Quirks
+
+A correct quirk is opt-in, fingerprinted, narrow and tested. Global texture wrap,
+alpha-one, shader replacement, forced backend or shortened lifecycle are incorrect
+defaults without game-specific proof.
+
+### Licenses
+
+Generated framework scaffold: `@LICENSE_SPDX@`. Document every additional source and
+redistributed dependency before release; see [`LICENSE`](LICENSE).
+
+## Português
+
+### Visão geral e estado
+
+`@PORT_ID@` é um esqueleto `@ARCHITECTURE@` (`@PORTMASTER_ARCH@` nos metadados
+PortMaster). Substitua cada informação específica somente com evidência do jogo alvo e
+das referências aprovadas antes de publicar.
+
+### Arquitetura
+
+O fluxo gerado é um launcher visível → `nxbootstrap` pinado. Depois que os dados legais
+do jogo estão prontos, o `nxsplash-nextos` obrigatório da arquitetura mostra por cinco
+segundos a tela inicial bilíngue e encerra antes de qualquer biblioteca privada ou
+lifecycle nativo do jogo. O launcher contém a configuração declarativa gerada e chama
+`nxbootstrap_main`. O loader deve ligar os módulos comuns, enquanto JNI, lifecycle,
+áudio, tradução de input, persistência e saída continuam no adapter do jogo.
+
+### Problemas resolvidos
+
+Documente apenas problemas realmente reproduzidos e corrigidos. Registre causa observada,
+correção estreita e regressão; nunca apresente workaround de engine como regra global.
+
+### Controles
+
+Documente controles nativos, precedência do mapping PortMaster, hotplug/focus e qualquer
+ponteiro comprovado somente em menu. Não invente cursor ou callback de saída.
+
+### Dados do jogo
+
+Documente entradas legais fornecidas pelo dono e a receita NXExtract exata. Pacotes e
+bibliotecas Android proprietários, além de saves do usuário, não entram no ZIP público.
+
+### Compilar e executar
+
+Valide a release pelo launcher único no PortMaster real. Chamar a biblioteca de
+bootstrap diretamente serve somente ao desenvolvimento e não comprova integração
+PortMaster.
+
+### Mapa de fontes
+
+- [`nxport.json`](nxport.json): contrato declarativo do launcher.
+- [`nxsplash-nextos`](nxsplash-nextos): helper pré-runtime obrigatório da arquitetura
+  para a tela inicial.
+- [`adapter/adapter-contract.json`](adapter/adapter-contract.json): fronteira vazia e
+  deliberadamente não publicável do adapter.
+- [`GENERATION.json`](GENERATION.json): pins do gerador, entrada e conteúdo.
+
+### Baseline e suporte comprovado
+
+Mali-450/GLES2 é o baseline de compatibilidade, não uma alegação de suporte. Declare
+suporte físico somente depois que o mesmo ZIP público exato e seu SHA-256 passarem nas famílias
+de aparelhos anunciadas.
+
+### Quirks
+
+Um quirk correto é opt-in, fingerprintado, estreito e testado. Texture wrap global,
+alpha-one, troca de shader, backend forçado ou lifecycle encurtado são defaults incorretos
+sem prova específica do jogo.
+
+### Licenças
+
+Esqueleto gerado do framework: `@LICENSE_SPDX@`. Documente todas as fontes e dependências
+redistribuídas antes da release; veja [`LICENSE`](LICENSE).

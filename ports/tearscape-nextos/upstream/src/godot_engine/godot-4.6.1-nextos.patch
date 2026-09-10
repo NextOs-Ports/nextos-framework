@@ -1,0 +1,3716 @@
+diff --git a/core/config/project_settings.cpp b/core/config/project_settings.cpp
+index 8f293a3..0ce2dc1 100644
+--- a/core/config/project_settings.cpp
++++ b/core/config/project_settings.cpp
+@@ -834,7 +834,7 @@ Error ProjectSettings::_setup(const String &p_path, const String &p_main_pack, b
+ 			break;
+ 		}
+ 
+-#if defined(OVERRIDE_PATH_ENABLED)
++#if defined(OVERRIDE_PATH_ENABLED) || defined(FBDEV_ENABLED)
+ 		if (p_upwards) {
+ 			// Try to load settings ascending through parent directories
+ 			d->change_dir("..");
+diff --git a/drivers/alsa/audio_driver_alsa.cpp b/drivers/alsa/audio_driver_alsa.cpp
+index 960f0fb..31080c8 100644
+--- a/drivers/alsa/audio_driver_alsa.cpp
++++ b/drivers/alsa/audio_driver_alsa.cpp
+@@ -141,7 +141,16 @@ Error AudioDriverALSA::init_output_device() {
+ 	status = snd_pcm_sw_params_set_avail_min(pcm_handle, swparams, period_size);
+ 	CHECK_FAIL(status < 0);
+ 
++#ifdef FBDEV_ENABLED
++	// The PulseAudio ALSA plugin used by NextOS exposes a three-period ring.
++	// Starting it after the first period makes the producer lose a race with
++	// playback and enter a permanent XRUN/recover loop. Prime the whole ring;
++	// the audio thread below handles the final short write when period sizes do
++	// not divide the buffer exactly.
++	status = snd_pcm_sw_params_set_start_threshold(pcm_handle, swparams, buffer_size);
++#else
+ 	status = snd_pcm_sw_params_set_start_threshold(pcm_handle, swparams, 1);
++#endif
+ 	CHECK_FAIL(status < 0);
+ 
+ 	status = snd_pcm_sw_params(pcm_handle, swparams);
+@@ -217,6 +226,32 @@ void AudioDriverALSA::thread_func(void *p_udata) {
+ 		int total = 0;
+ 
+ 		while (todo && !ad->exit_thread.is_set()) {
++#ifdef FBDEV_ENABLED
++			// Do not poll a nonblocking PCM in a tight loop, and do not hold the
++			// AudioServer mutex while ALSA waits for room. Apart from wasting a
++			// CPU, the old loop could keep setup/shutdown blocked forever after
++			// an XRUN because snd_pcm_recover() returns zero without consuming
++			// any frames.
++			ad->stop_counting_ticks();
++			ad->unlock();
++			int wait_status = snd_pcm_wait(ad->pcm_handle, 1000);
++			ad->lock();
++			ad->start_counting_ticks();
++
++			if (wait_status == 0) {
++				continue;
++			}
++			if (wait_status < 0) {
++				int recovered = snd_pcm_recover(ad->pcm_handle, wait_status, 1);
++				if (recovered < 0) {
++					ERR_PRINT("ALSA: Wait failed and can't recover: " + String(snd_strerror(recovered)));
++					ad->active.clear();
++					ad->exit_thread.set();
++				}
++				continue;
++			}
++#endif
++
+ 			int16_t *src = (int16_t *)ad->samples_out.ptr();
+ 			int wrote = snd_pcm_writei(ad->pcm_handle, (void *)(src + (total * ad->channels)), todo);
+ 
+@@ -232,11 +267,23 @@ void AudioDriverALSA::thread_func(void *p_udata) {
+ 				ad->lock();
+ 				ad->start_counting_ticks();
+ 			} else {
++#ifdef FBDEV_ENABLED
++				wrote = snd_pcm_recover(ad->pcm_handle, wrote, 1);
++#else
+ 				wrote = snd_pcm_recover(ad->pcm_handle, wrote, 0);
++#endif
+ 				if (wrote < 0) {
+ 					ERR_PRINT("ALSA: Failed and can't recover: " + String(snd_strerror(wrote)));
+ 					ad->active.clear();
+ 					ad->exit_thread.set();
++				} else {
++					// A successful recovery consumes no frames. Yield before the
++					// retry so other AudioServer users can acquire the mutex.
++					ad->stop_counting_ticks();
++					ad->unlock();
++					OS::get_singleton()->delay_usec(1000);
++					ad->lock();
++					ad->start_counting_ticks();
+ 				}
+ 			}
+ 		}
+diff --git a/drivers/gles3/rasterizer_gles3.cpp b/drivers/gles3/rasterizer_gles3.cpp
+index 1df4149..eea6bbe 100644
+--- a/drivers/gles3/rasterizer_gles3.cpp
++++ b/drivers/gles3/rasterizer_gles3.cpp
+@@ -371,7 +371,14 @@ RasterizerGLES3::RasterizerGLES3() {
+ 	gi = memnew(GLES3::GI);
+ 	fog = memnew(GLES3::Fog);
+ 	canvas = memnew(RasterizerCanvasGLES3());
++#if defined(_3D_DISABLED) || defined(NX_2D_ONLY_RENDERER)
++	// A 2D-only export must not initialize the GLES3 scene renderer. Besides
++	// wasting memory, that constructor eagerly compiles shaders which require
++	// GLES3-only integer/UBO features even when the project never draws 3D.
++	scene = memnew(RasterizerSceneDummy());
++#else
+ 	scene = memnew(RasterizerSceneGLES3());
++#endif
+ 
+ 	// Disable OpenGL linear to sRGB conversion, because Godot will always do this conversion itself.
+ 	if (config->srgb_framebuffer_supported) {
+diff --git a/drivers/gles3/rasterizer_gles3.h b/drivers/gles3/rasterizer_gles3.h
+index 6fd5f9c..f740920 100644
+--- a/drivers/gles3/rasterizer_gles3.h
++++ b/drivers/gles3/rasterizer_gles3.h
+@@ -42,6 +42,17 @@
+ #include "rasterizer_canvas_gles3.h"
+ #include "rasterizer_scene_gles3.h"
+ #include "servers/rendering/renderer_compositor.h"
++
++// This port targets a 2D-only game on a GPU that cannot compile the GLES3
++// scene shaders. Keep the full ClassDB (GodotSharp resolves every method bind
++// of a type in its static constructor) and drop only the 3D renderer.
++#if defined(FBDEV_ENABLED) && !defined(NX_2D_ONLY_RENDERER)
++#define NX_2D_ONLY_RENDERER
++#endif
++
++#if defined(_3D_DISABLED) || defined(NX_2D_ONLY_RENDERER)
++#include "servers/rendering/dummy/rasterizer_scene_dummy.h"
++#endif
+ #include "storage/config.h"
+ #include "storage/light_storage.h"
+ #include "storage/material_storage.h"
+@@ -79,7 +90,7 @@ protected:
+ 	GLES3::PostEffects *post_effects = nullptr;
+ 	GLES3::FeedEffects *feed_effects = nullptr;
+ 	RasterizerCanvasGLES3 *canvas = nullptr;
+-	RasterizerSceneGLES3 *scene = nullptr;
++	RendererSceneRender *scene = nullptr;
+ 	static RasterizerGLES3 *singleton;
+ 
+ 	void _blit_render_target_to_screen(DisplayServer::WindowID p_screen, const BlitToScreen &p_blit, bool p_first = true);
+diff --git a/drivers/gles3/shaders/canvas.glsl b/drivers/gles3/shaders/canvas.glsl
+index 37d851a..4437ca4 100644
+--- a/drivers/gles3/shaders/canvas.glsl
++++ b/drivers/gles3/shaders/canvas.glsl
+@@ -14,6 +14,11 @@ USE_INSTANCING = false
+ 
+ #[vertex]
+ 
++#ifndef USE_ATTRIBUTES
++// NX: substitutes gl_VertexID (absent in ES100); fed by the shim's corner VBO.
++layout(location = 0) in highp float nx_corner_attrib;
++#endif
++
+ #ifdef USE_ATTRIBUTES
+ layout(location = 0) in vec2 vertex_attrib;
+ layout(location = 3) in vec4 color_attrib;
+@@ -23,13 +28,16 @@ layout(location = 4) in vec2 uv_attrib;
+ 
+ layout(location = 1) in highp vec4 instance_xform0;
+ layout(location = 2) in highp vec4 instance_xform1;
+-layout(location = 5) in highp uvec4 instance_color_custom_data; // Color packed into xy, custom_data packed into zw for compatibility with 3D
++layout(location = 5) in highp vec4 instance_color_custom_data; // Color packed into xy, custom_data packed into zw for compatibility with 3D
+ 
+ #endif // USE_INSTANCING
+ 
+ #endif // USE_ATTRIBUTES
+ 
+ #include "stdlib_inc.glsl"
++float nx_bitf(float v, float b) { return mod(floor(v / b), 2.0); }
++float nx_fieldf(float v, float b, float m) { return mod(floor(v / b), m); }
++
+ 
+ #if defined(CUSTOM0_USED)
+ layout(location = 6) in highp vec4 custom0_attrib;
+@@ -45,12 +53,12 @@ layout(location = 10) in highp vec4 attrib_C;
+ layout(location = 11) in highp vec4 attrib_D;
+ layout(location = 12) in highp vec4 attrib_E;
+ #ifdef USE_PRIMITIVE
+-layout(location = 13) in highp uvec4 attrib_F;
++layout(location = 13) in highp vec4 attrib_F;
+ #else
+ layout(location = 13) in highp vec4 attrib_F;
+ #endif
+-layout(location = 14) in highp uvec4 attrib_G;
+-layout(location = 15) in highp uvec4 attrib_H;
++layout(location = 14) in highp vec4 attrib_G;
++layout(location = 15) in highp vec4 attrib_H;
+ 
+ #define read_draw_data_world_x attrib_A.xy
+ #define read_draw_data_world_y attrib_A.zw
+@@ -99,8 +107,9 @@ flat out vec2 varying_D;
+ flat out vec4 varying_E;
+ #endif
+ #endif
+-flat out uvec2 varying_F;
+-flat out uvec4 varying_G;
++flat out vec4 varying_F;
++flat out vec4 varying_G;
++flat out vec4 nx_vnine;
+ 
+ // This needs to be outside clang-format so the ubo comment is in the right place
+ #ifdef MATERIAL_UNIFORMS_USED
+@@ -142,7 +151,11 @@ void main() {
+ #endif // !USE_ATTRIBUTES
+ #endif // USE_PRIMITIVE
+ 
+-	varying_F = uvec2(read_draw_data_flags, read_draw_data_instance_offset);
++	{
++		float nx_f = read_draw_data_flags;
++		varying_F = vec4(nx_bitf(nx_f, 16.0), nx_bitf(nx_f, 32.0), nx_bitf(nx_f, 64.0), nx_bitf(nx_f, 128.0));
++		nx_vnine = vec4(nx_bitf(nx_f, 256.0), nx_fieldf(nx_f, 512.0, 4.0), nx_fieldf(nx_f, 2048.0, 4.0), nx_fieldf(nx_f, 1.0, 16.0));
++	}
+ 	varying_G = read_draw_data_lights;
+ 
+ 	vec4 instance_custom = vec4(0.0);
+@@ -159,21 +172,19 @@ void main() {
+ 	vec2 uv;
+ 	vec4 color;
+ 
+-	if (gl_VertexID % 3 == 0) {
++	int nx_vid3 = int(mod(nx_corner_attrib, 3.0));
++	if (nx_vid3 == 0) {
+ 		vertex = read_draw_data_point_a;
+ 		uv = read_draw_data_uv_a;
+-		color.xy = unpackHalf2x16(read_draw_data_color_a_rg);
+-		color.zw = unpackHalf2x16(read_draw_data_color_a_ba);
+-	} else if (gl_VertexID % 3 == 1) {
++		color = vec4(1.0); // NX TODO: primitive half colors
++	} else if (nx_vid3 == 1) {
+ 		vertex = read_draw_data_point_b;
+ 		uv = read_draw_data_uv_b;
+-		color.xy = unpackHalf2x16(read_draw_data_color_b_rg);
+-		color.zw = unpackHalf2x16(read_draw_data_color_b_ba);
++		color = vec4(1.0); // NX TODO: primitive half colors
+ 	} else {
+ 		vertex = read_draw_data_point_c;
+ 		uv = read_draw_data_uv_c;
+-		color.xy = unpackHalf2x16(read_draw_data_color_c_rg);
+-		color.zw = unpackHalf2x16(read_draw_data_color_c_ba);
++		color = vec4(1.0); // NX TODO: primitive half colors
+ 	}
+ 
+ #elif defined(USE_ATTRIBUTES)
+@@ -182,16 +193,8 @@ void main() {
+ 	vec2 uv = uv_attrib;
+ 
+ #ifdef USE_INSTANCING
+-	if (bool(batch_flags & BATCH_FLAGS_INSTANCING_HAS_COLORS)) {
+-		vec4 instance_color;
+-		instance_color.xy = unpackHalf2x16(uint(instance_color_custom_data.x));
+-		instance_color.zw = unpackHalf2x16(uint(instance_color_custom_data.y));
+-		color *= instance_color;
+-	}
+-	if (bool(batch_flags & BATCH_FLAGS_INSTANCING_HAS_CUSTOM_DATA)) {
+-		instance_custom.xy = unpackHalf2x16(instance_color_custom_data.z);
+-		instance_custom.zw = unpackHalf2x16(instance_color_custom_data.w);
+-	}
++	// NX TODO: instancing colors/custom via float attribs
++	// (instancing attribs unused here)
+ #endif // !USE_INSTANCING
+ 
+ #else // !USE_ATTRIBUTES
+@@ -206,7 +209,7 @@ void main() {
+ 	// Y  | 0.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 |
+ 	//-----------------------------------------
+ 	// no crash or freeze on all Adreno 3xx	with 'if / else if' and slightly faster!
+-	int vertex_id = gl_VertexID % 6;
++	int vertex_id = int(mod(nx_corner_attrib, 6.0));
+ 	vec2 vertex_base;
+ 	if (vertex_id == 0) {
+ 		vertex_base = vec2(0.0, 0.0);
+@@ -222,7 +225,7 @@ void main() {
+ 		vertex_base = vec2(1.0, 1.0);
+ 	}
+ 
+-	vec2 uv = read_draw_data_src_rect.xy + abs(read_draw_data_src_rect.zw) * ((read_draw_data_flags & INSTANCE_FLAGS_TRANSPOSE_RECT) != uint(0) ? vertex_base.yx : vertex_base.xy);
++	vec2 uv = read_draw_data_src_rect.xy + abs(read_draw_data_src_rect.zw) * ((nx_bitf(read_draw_data_flags, 32.0) > 0.5) ? vertex_base.yx : vertex_base.xy);
+ 	vec4 color = read_draw_data_modulation;
+ 	vec2 vertex = read_draw_data_dst_rect.xy + abs(read_draw_data_dst_rect.zw) * mix(vertex_base, vec2(1.0, 1.0) - vertex_base, lessThan(read_draw_data_src_rect.zw, vec2(0.0, 0.0)));
+ 
+@@ -288,6 +291,9 @@ void main() {
+ 
+ #include "canvas_uniforms_inc.glsl"
+ #include "stdlib_inc.glsl"
++float nx_bitf(float v, float b) { return mod(floor(v / b), 2.0); }
++float nx_fieldf(float v, float b, float m) { return mod(floor(v / b), m); }
++
+ 
+ in vec2 uv_interp;
+ in vec2 vertex_interp;
+@@ -323,10 +329,9 @@ flat in vec4 varying_E;
+ #endif // USE_ATTRIBUTES
+ #endif // USE_PRIMITIVE
+ 
+-flat in uvec2 varying_F;
+-flat in uvec4 varying_G;
+-#define read_draw_data_flags varying_F.x
+-#define read_draw_data_instance_offset varying_F.y
++flat in vec4 varying_F;
++flat in vec4 varying_G;
++flat in vec4 nx_vnine;
+ #define read_draw_data_lights varying_G
+ 
+ #ifndef DISABLE_LIGHTING
+@@ -526,7 +531,7 @@ float map_ninepatch_axis(float pixel, float draw_size, float tex_pixel_size, flo
+ 	} else if (pixel >= draw_size - margin_end) {
+ 		return (tex_size - (draw_size - pixel)) * tex_pixel_size;
+ 	} else {
+-		if (!bool(read_draw_data_flags & INSTANCE_FLAGS_NINEPATCH_DRAW_CENTER)) {
++		if (nx_vnine.x < 0.5) {
+ 			draw_center--;
+ 		}
+ 
+@@ -580,8 +585,8 @@ void main() {
+ 
+ 	int draw_center = 2;
+ 	uv = vec2(
+-			map_ninepatch_axis(pixel_size_interp.x, abs(read_draw_data_dst_rect_z), read_draw_data_color_texture_pixel_size.x, read_draw_data_ninepatch_margins.x, read_draw_data_ninepatch_margins.z, int(read_draw_data_flags >> INSTANCE_FLAGS_NINEPATCH_H_MODE_SHIFT) & 0x3, draw_center),
+-			map_ninepatch_axis(pixel_size_interp.y, abs(read_draw_data_dst_rect_w), read_draw_data_color_texture_pixel_size.y, read_draw_data_ninepatch_margins.y, read_draw_data_ninepatch_margins.w, int(read_draw_data_flags >> INSTANCE_FLAGS_NINEPATCH_V_MODE_SHIFT) & 0x3, draw_center));
++			map_ninepatch_axis(pixel_size_interp.x, abs(read_draw_data_dst_rect_z), read_draw_data_color_texture_pixel_size.x, read_draw_data_ninepatch_margins.x, read_draw_data_ninepatch_margins.z, int(nx_vnine.y), draw_center),
++			map_ninepatch_axis(pixel_size_interp.y, abs(read_draw_data_dst_rect_w), read_draw_data_color_texture_pixel_size.y, read_draw_data_ninepatch_margins.y, read_draw_data_ninepatch_margins.w, int(nx_vnine.z), draw_center));
+ 
+ 	if (draw_center == 0) {
+ 		color.a = 0.0;
+@@ -590,7 +595,7 @@ void main() {
+ 	uv = uv * read_draw_data_src_rect.zw + read_draw_data_src_rect.xy; //apply region if needed
+ 
+ #endif
+-	if (bool(read_draw_data_flags & INSTANCE_FLAGS_CLIP_RECT_UV)) {
++	if (varying_F.x > 0.5) {
+ 		vec2 half_texpixel = read_draw_data_color_texture_pixel_size * 0.5;
+ 		uv = clamp(uv, read_draw_data_src_rect.xy + half_texpixel, read_draw_data_src_rect.xy + abs(read_draw_data_src_rect.zw) - half_texpixel);
+ 	}
+@@ -598,7 +603,7 @@ void main() {
+ #endif
+ 
+ #ifndef USE_PRIMITIVE
+-	if (bool(read_draw_data_flags & INSTANCE_FLAGS_USE_MSDF)) {
++	if (varying_F.z > 0.5) {
+ 		float px_range = read_draw_data_ninepatch_margins.x;
+ 		float outline_thickness = read_draw_data_ninepatch_margins.y;
+ 
+@@ -617,7 +622,7 @@ void main() {
+ 			float a = clamp((d - 0.5) * px_size + 0.5, 0.0, 1.0);
+ 			color.a = a * color.a;
+ 		}
+-	} else if (bool(read_draw_data_flags & INSTANCE_FLAGS_USE_LCD)) {
++	} else if (varying_F.w > 0.5) {
+ 		vec4 lcd_sample = texture(color_texture, uv);
+ 		if (lcd_sample.a == 1.0) {
+ 			color.rgb = lcd_sample.rgb * color.a;
+@@ -631,7 +636,7 @@ void main() {
+ 		color *= texture(color_texture, uv);
+ 	}
+ 
+-	uint light_count = read_draw_data_flags & uint(0xF); // Max 16 lights.
++	uint light_count = uint(nx_vnine.w); // Max 16 lights (NX float-decoded).
+ 	bool using_light = light_count > 0u || directional_light_count > 0u;
+ 
+ 	vec3 normal;
+@@ -642,11 +647,11 @@ void main() {
+ 	bool normal_used = false;
+ #endif
+ 
+-	if (normal_used || (using_light && bool(batch_flags & BATCH_FLAGS_DEFAULT_NORMAL_MAP_USED))) {
++	if (normal_used || (using_light && nx_bitf(float(batch_flags), 512.0) > 0.5)) {
+ 		normal.xy = texture(normal_texture, uv).xy * vec2(2.0, -2.0) - vec2(1.0, -1.0);
+ 
+ #if !defined(USE_ATTRIBUTES) && !defined(USE_PRIMITIVE)
+-		if (bool(read_draw_data_flags & INSTANCE_FLAGS_TRANSPOSE_RECT)) {
++		if (varying_F.y > 0.5) {
+ 			normal.xy = normal.yx;
+ 		}
+ 		normal.xy *= sign(read_draw_data_src_rect.zw);
+@@ -667,7 +672,7 @@ void main() {
+ 	bool specular_shininess_used = false;
+ #endif
+ 
+-	if (specular_shininess_used || (using_light && normal_used && bool(batch_flags & BATCH_FLAGS_DEFAULT_SPECULAR_MAP_USED))) {
++	if (specular_shininess_used || (using_light && normal_used && nx_bitf(float(batch_flags), 1024.0) > 0.5)) {
+ 		specular_shininess = texture(specular_texture, uv);
+ 		specular_shininess *= godot_unpackUnorm4x8(specular_shininess_in);
+ 		specular_shininess_used = true;
+@@ -815,7 +820,7 @@ void main() {
+ 		}
+ #endif
+ 
+-		if (bool(light_array[light_base].flags & LIGHT_FLAGS_HAS_SHADOW) && bool(read_draw_data_flags & uint(INSTANCE_FLAGS_SHADOW_MASKED << i))) {
++		if (bool(light_array[light_base].flags & LIGHT_FLAGS_HAS_SHADOW) && false) {
+ 			vec2 shadow_pos = (vec4(shadow_vertex, 0.0, 1.0) * mat4(light_array[light_base].shadow_matrix[0], light_array[light_base].shadow_matrix[1], vec4(0.0, 0.0, 1.0, 0.0), vec4(0.0, 0.0, 0.0, 1.0))).xy; //multiply inverse given its transposed. Optimizer removes useless operations.
+ 
+ 			vec2 pos_norm = normalize(shadow_pos);
+diff --git a/drivers/gles3/shaders/stdlib_inc.glsl b/drivers/gles3/shaders/stdlib_inc.glsl
+index 004db9e..e0b9bd2 100644
+--- a/drivers/gles3/shaders/stdlib_inc.glsl
++++ b/drivers/gles3/shaders/stdlib_inc.glsl
+@@ -1,56 +1,32 @@
+-// Compatibility renames. These are exposed with the "godot_" prefix
+-// to work around two distinct Adreno bugs:
+-// 1. Some Adreno devices expose ES310 functions in ES300 shaders.
+-//    Internally, we must use the "godot_" prefix, but user shaders
+-//    will be mapped automatically.
+-// 2. Adreno 3XX devices have poor implementations of the other packing
+-//    functions, so we just use our own there to keep it simple.
++// NX ES2 replacement: the original ES3 pack/unpack helpers are built on
++// integer bit ops that no Mali-450 shader can parse. These stubs keep every
++// declaration compiling; the canvas path no longer calls them (float attrib
++// delivery), and any real caller shows up as visibly wrong colors, not a
++// compile failure.
+ 
+ #ifdef USE_HALF2FLOAT
+-// Floating point pack/unpack functions are part of the GLSL ES 300 specification used by web and mobile.
+-// It appears to be safe to expose these on mobile, but when running through ANGLE this appears to break.
+-uint float2half(uint f) {
+-	uint e = f & uint(0x7f800000);
+-	if (e <= uint(0x38000000)) {
+-		return uint(0);
+-	} else {
+-		return ((f >> uint(16)) & uint(0x8000)) |
+-				(((e - uint(0x38000000)) >> uint(13)) & uint(0x7c00)) |
+-				((f >> uint(13)) & uint(0x03ff));
+-	}
+-}
+-
+-uint half2float(uint h) {
+-	uint h_e = h & uint(0x7c00);
+-	return ((h & uint(0x8000)) << uint(16)) | uint((h_e >> uint(10)) != uint(0)) * (((h_e + uint(0x1c000)) << uint(13)) | ((h & uint(0x03ff)) << uint(13)));
+-}
+-
+ uint godot_packHalf2x16(vec2 v) {
+-	return float2half(floatBitsToUint(v.x)) | float2half(floatBitsToUint(v.y)) << uint(16);
++	return uint(0);
+ }
+ 
+ vec2 godot_unpackHalf2x16(uint v) {
+-	return vec2(uintBitsToFloat(half2float(v & uint(0xffff))),
+-			uintBitsToFloat(half2float(v >> uint(16))));
++	return vec2(0.0);
+ }
+ 
+ uint godot_packUnorm2x16(vec2 v) {
+-	uvec2 uv = uvec2(round(clamp(v, vec2(0.0), vec2(1.0)) * 65535.0));
+-	return uv.x | uv.y << uint(16);
++	return uint(0);
+ }
+ 
+ vec2 godot_unpackUnorm2x16(uint p) {
+-	return vec2(float(p & uint(0xffff)), float(p >> uint(16))) * 0.000015259021; // 1.0 / 65535.0 optimization
++	return vec2(0.0);
+ }
+ 
+ uint godot_packSnorm2x16(vec2 v) {
+-	uvec2 uv = uvec2(round(clamp(v, vec2(-1.0), vec2(1.0)) * 32767.0) + 32767.0);
+-	return uv.x | uv.y << uint(16);
++	return uint(0);
+ }
+ 
+ vec2 godot_unpackSnorm2x16(uint p) {
+-	vec2 v = vec2(float(p & uint(0xffff)), float(p >> uint(16)));
+-	return clamp((v - 32767.0) * vec2(0.00003051851), vec2(-1.0), vec2(1.0));
++	return vec2(0.0);
+ }
+ 
+ #define packHalf2x16 godot_packHalf2x16
+@@ -59,28 +35,22 @@ vec2 godot_unpackSnorm2x16(uint p) {
+ #define unpackUnorm2x16 godot_unpackUnorm2x16
+ #define packSnorm2x16 godot_packSnorm2x16
+ #define unpackSnorm2x16 godot_unpackSnorm2x16
+-
+ #endif // USE_HALF2FLOAT
+ 
+-// Always expose these as they are ES310 functions and not available in ES300 or GLSL 330.
+-
+ uint godot_packUnorm4x8(vec4 v) {
+-	uvec4 uv = uvec4(round(clamp(v, vec4(0.0), vec4(1.0)) * 255.0));
+-	return uv.x | (uv.y << uint(8)) | (uv.z << uint(16)) | (uv.w << uint(24));
++	return uint(0);
+ }
+ 
+ vec4 godot_unpackUnorm4x8(uint p) {
+-	return vec4(float(p & uint(0xff)), float((p >> uint(8)) & uint(0xff)), float((p >> uint(16)) & uint(0xff)), float(p >> uint(24))) * 0.00392156862; // 1.0 / 255.0
++	return vec4(1.0);
+ }
+ 
+ uint godot_packSnorm4x8(vec4 v) {
+-	uvec4 uv = uvec4(round(clamp(v, vec4(-1.0), vec4(1.0)) * 127.0) + 127.0);
+-	return uv.x | uv.y << uint(8) | uv.z << uint(16) | uv.w << uint(24);
++	return uint(0);
+ }
+ 
+ vec4 godot_unpackSnorm4x8(uint p) {
+-	vec4 v = vec4(float(p & uint(0xff)), float((p >> uint(8)) & uint(0xff)), float((p >> uint(16)) & uint(0xff)), float(p >> uint(24)));
+-	return clamp((v - vec4(127.0)) * vec4(0.00787401574), vec4(-1.0), vec4(1.0));
++	return vec4(0.0);
+ }
+ 
+ #define packUnorm4x8 godot_packUnorm4x8
+diff --git a/drivers/gles3/storage/config.cpp b/drivers/gles3/storage/config.cpp
+index a8892bd..6b8351b 100644
+--- a/drivers/gles3/storage/config.cpp
++++ b/drivers/gles3/storage/config.cpp
+@@ -240,6 +240,13 @@ Config::Config() {
+ 		disable_transform_feedback_shader_cache = true;
+ 	}
+ 
++#if defined(FBDEV_ENABLED) && defined(_3D_DISABLED)
++	// The Mali-450 GLES2 path has no transform feedback. Keep GPUParticles
++	// inactive instead of repeatedly compiling/running an unsupported pipeline;
++	// a CPU particle fallback can be layered on this target later.
++	disable_particles_workaround = true;
++#endif
++
+ 	if (OS::get_singleton()->get_current_rendering_driver_name() == "opengl3_angle") {
+ 		polyfill_half2float = false;
+ 	}
+diff --git a/drivers/sdl/joypad_sdl.cpp b/drivers/sdl/joypad_sdl.cpp
+index 9938473..50ab401 100644
+--- a/drivers/sdl/joypad_sdl.cpp
++++ b/drivers/sdl/joypad_sdl.cpp
+@@ -30,6 +30,8 @@
+ 
+ #include "joypad_sdl.h"
+ 
++#include "nxinput_gptk_godot.h"
++
+ #ifdef SDL_ENABLED
+ 
+ #include "core/input/default_controller_mappings.h"
+@@ -43,8 +45,33 @@
+ #include <SDL3/SDL_iostream.h>
+ #include <SDL3/SDL_joystick.h>
+ 
++#ifdef FBDEV_ENABLED
++#include "joystick/linux/nxc6_glue.h"
++#include "joystick/linux/nxinput_sdl_seam.h"
++
++#include <stdlib.h>
++#endif
++
+ JoypadSDL *JoypadSDL::singleton = nullptr;
+ 
++#ifdef FBDEV_ENABLED
++namespace {
++
++const char *nx_sdl_env_get(void *, const char *p_name) {
++	return getenv(p_name);
++}
++
++int nx_sdl_env_unset(void *, const char *p_name) {
++	return unsetenv(p_name);
++}
++
++int nx_sdl_was_initialized(void *) {
++	return SDL_WasInit(0) != 0;
++}
++
++} // namespace
++#endif
++
+ // Macro to skip the SDL joystick event handling if the device is an SDL gamepad, because
+ // there are separate events for SDL gamepads
+ #define SKIP_EVENT_FOR_GAMEPAD                    \
+@@ -73,6 +100,53 @@ JoypadSDL *JoypadSDL::get_singleton() {
+ }
+ 
+ Error JoypadSDL::initialize() {
++#ifdef FBDEV_ENABLED
++	// SDL imports SDL_GAMECONTROLLERCONFIG at USER priority during init. The
++	// C6 seam must judge those same bytes before they can bypass the sovereign
++	// authority order, so stage and remove them while every SDL3 subsystem is
++	// still down. The private environment value is copied by setenv and remains
++	// authority 1 when the Linux joystick backend reaches the seam.
++	/* TEARSCAPE 0.2.10 (mission 5.3): the pre-init boundary runs FIRST.
++	 * The GPTK owner/default map and its FACE_LAYOUT are read exactly once,
++	 * here, before the bundle declaration, the staging and SDL_Init. */
++	const int nx_face_layout = nxgptk_godot_preinit();
++	if (getenv("NXC6_SEAM") != nullptr) {
++		/* Authority 3 belongs to the frozen port, not to a particular
++		 * launcher. Declare the bundled profile the FACE_LAYOUT selects
++		 * (auto -> the invariant base; modern/retro -> the authenticated
++		 * variant) before SDL can initialise or enumerate a pad. The
++		 * declaration is only ever step 3 of the sovereign order.
++		 *
++		 * `0` is BENIGN by contract: "the port ships no bundle" and "the
++		 * game directory was not handed over" leave the ladder without its
++		 * step 3 -- they must never delete the whole joypad driver. Only a
++		 * real error (< 0) fails the initialisation. */
++		const char *game_dir = getenv("NXCOMPAT_GAME_DIR");
++		ERR_FAIL_COND_V_MSG(
++				nxc6_declare_port_bundle_for_layout(game_dir, nx_face_layout) < 0,
++				FAILED,
++				"SDL: the controller bundle declaration failed before init.");
++		static char staged_mapping[65536];
++		size_t staged_len = 0;
++		nxinput_sdl_seam_env_ops ops = {};
++		ops.api_version = NXINPUT_SDL_SEAM_API_VERSION;
++		ops.struct_size = sizeof(ops);
++		ops.getenv_fn = nx_sdl_env_get;
++		ops.unsetenv_fn = nx_sdl_env_unset;
++		ops.sdl_was_init_fn = nx_sdl_was_initialized;
++
++		ERR_FAIL_COND_V_MSG(unsetenv("NXC6_STAGED_MAPPING") != 0, FAILED,
++				"SDL: could not clear stale C6 staged mapping state.");
++		ERR_FAIL_COND_V_MSG(nxinput_sdl_seam_stage_before_init(
++						&ops, staged_mapping, sizeof(staged_mapping), &staged_len) != 0,
++				FAILED, "SDL: C6 controller mapping could not be staged before init.");
++		if (staged_len > 0) {
++			ERR_FAIL_COND_V_MSG(setenv("NXC6_STAGED_MAPPING", staged_mapping, 1) != 0,
++					FAILED, "SDL: could not preserve the C6 staged mapping.");
++		}
++	}
++#endif
++
+ 	SDL_SetHint(SDL_HINT_JOYSTICK_THREAD, "1");
+ 	SDL_SetHint(SDL_HINT_NO_SIGNAL_HANDLERS, "1");
+ 	ERR_FAIL_COND_V_MSG(!SDL_Init(SDL_INIT_JOYSTICK | SDL_INIT_GAMEPAD), FAILED, SDL_GetError());
+@@ -89,6 +163,20 @@ Error JoypadSDL::initialize() {
+ 	// Make sure that we handle already connected joypads when the driver is initialized.
+ 	process_events();
+ 
++	/* TEARSCAPE 0.2.12: discovery must be visible in the support log even
++	 * when it finds NOTHING. The RG40XX-H field failure was an empty
++	 * SDL_GetJoysticks() under a perfectly healthy video path, and the
++	 * absence of any input line here cost blind diagnosis rounds. One
++	 * line, always, zero included. */
++	{
++		int nx_pad_count = 0;
++		SDL_JoystickID *nx_pad_ids = SDL_GetJoysticks(&nx_pad_count);
++		SDL_free(nx_pad_ids);
++		print_line(vformat("nx/input: sdl joystick discovery ready pads=%d seam=%s",
++				nx_pad_count,
++				getenv("NXC6_SEAM") != nullptr ? "on" : "off"));
++	}
++
+ 	print_verbose("SDL: Init OK!");
+ 	return OK;
+ }
+@@ -170,6 +258,12 @@ void JoypadSDL::process_events() {
+ 				joypads[joy_id].supports_force_feedback = SDL_GetBooleanProperty(propertiesID, SDL_PROP_JOYSTICK_CAP_RUMBLE_BOOLEAN, false);
+ 				joypads[joy_id].guid = StringName(String(guid));
+ 
++#ifdef FBDEV_ENABLED
++				joypads[joy_id].nextos_select_pressed = false;
++				joypads[joy_id].nextos_start_pressed = false;
++				joypads[joy_id].nextos_quit_chord_latched = false;
++#endif
++
+ 				sdl_instance_id_to_joypad_id.insert(sdl_event.jdevice.which, joy_id);
+ 
+ 				Dictionary joypad_info;
+@@ -198,6 +292,11 @@ void JoypadSDL::process_events() {
+ 						joypad_info);
+ 
+ 				Input::get_singleton()->set_joy_features(joy_id, &joypads[joy_id]);
++#ifdef FBDEV_ENABLED
++				if (gamepad) {
++					nxgptk_godot_gamepad_connected(joy_id, gamepad);
++				}
++#endif
+ 			}
+ 			// An event for an attached joypad
+ 		} else if (sdl_event.type >= SDL_EVENT_JOYSTICK_AXIS_MOTION && sdl_event.type < SDL_EVENT_FINGER_DOWN && sdl_instance_id_to_joypad_id.has(sdl_event.jdevice.which)) {
+@@ -205,8 +304,30 @@ void JoypadSDL::process_events() {
+ 
+ 			switch (sdl_event.type) {
+ 				case SDL_EVENT_JOYSTICK_REMOVED:
++				{
++					const bool admitted_removed =
++							nxgptk_godot_gamepad_disconnected(joy_id);
+ 					Input::get_singleton()->joy_connection_changed(joy_id, false, "");
+ 					close_joypad(joy_id);
++					/* TEARSCAPE 0.2.17: the remaining admitted pads keep driving the
++					 * one logical player. Refresh each of them -- and admit a pad the
++					 * full set had refused -- only from Godot's already-open
++					 * authoritative list, and only through a complete SDL state
++					 * snapshot, never from cached truth. */
++					if (admitted_removed) {
++						for (int candidate = 0; candidate < Input::JOYPADS_MAX; candidate++) {
++							Joypad &remaining = joypads[candidate];
++							if (!remaining.attached) {
++								continue;
++							}
++							SDL_Gamepad *remaining_gamepad = remaining.get_sdl_gamepad();
++							if (remaining_gamepad) {
++								(void)nxgptk_godot_gamepad_connected(
++										candidate, remaining_gamepad);
++							}
++						}
++					}
++				}
+ 					break;
+ 
+ 				case SDL_EVENT_JOYSTICK_AXIS_MOTION:
+@@ -228,6 +349,12 @@ void JoypadSDL::process_events() {
+ 						continue;
+ 					}
+ 
++#ifdef FBDEV_ENABLED
++					_update_nextos_quit_chord(
++							joy_id,
++							static_cast<JoyButton>(sdl_event.jbutton.button),
++							sdl_event.jbutton.down);
++#endif
+ 					Input::get_singleton()->joy_button(
+ 							joy_id,
+ 							static_cast<JoyButton>(sdl_event.jbutton.button), // Godot button constants are intentionally the same as SDL's, so we can just straight up use them
+@@ -250,9 +377,17 @@ void JoypadSDL::process_events() {
+ 						// Gamepad triggers go from 0 to SDL_JOYSTICK_AXIS_MAX
+ 						axis_value = sdl_event.gaxis.value / (float)SDL_JOYSTICK_AXIS_MAX;
+ 					} else {
+-						// Other axis go from SDL_JOYSTICK_AXIS_MIN to SDL_JOYSTICK_AXIS_MAX
+-						axis_value =
+-								((sdl_event.gaxis.value - SDL_JOYSTICK_AXIS_MIN) / (float)(SDL_JOYSTICK_AXIS_MAX - SDL_JOYSTICK_AXIS_MIN) - 0.5f) * 2.0f;
++						// Other axis go from SDL_JOYSTICK_AXIS_MIN to SDL_JOYSTICK_AXIS_MAX.
++						// Same normalizer as the admission snapshot: exact 0 at rest
++						// (the asymmetric form yields +1.5e-5 for a centered stick).
++						axis_value = nxgptk_godot_stick_axis_value(sdl_event.gaxis.value);
++					}
++
++					// NEXTOSCONTROLLERS runtime: a governed axis is delivered
++					// through the GPTK action path and suppressed here so the
++					// game can never read the same physical input twice.
++					if (nxgptk_godot_gamepad_axis(joy_id, sdl_event.gaxis.axis, axis_value)) {
++						break;
+ 					}
+ 
+ 					Input::get_singleton()->joy_axis(
+@@ -264,6 +399,21 @@ void JoypadSDL::process_events() {
+ 				// Do note SDL gamepads do not have separate events for the dpad
+ 				case SDL_EVENT_GAMEPAD_BUTTON_UP:
+ 				case SDL_EVENT_GAMEPAD_BUTTON_DOWN:
++#ifdef FBDEV_ENABLED
++					// The sovereign SELECT+START lifecycle chord observes the
++					// raw transition BEFORE any GPTK decision and is never
++					// remappable or suppressible by the mapping file.
++					_update_nextos_quit_chord(
++							joy_id,
++							static_cast<JoyButton>(sdl_event.gbutton.button),
++							sdl_event.gbutton.down);
++#endif
++					// NEXTOSCONTROLLERS runtime: governed controls deliver
++					// their semantic action (or an explicit null) and are
++					// suppressed from the native path.
++					if (nxgptk_godot_gamepad_button(joy_id, sdl_event.gbutton.button, sdl_event.gbutton.down)) {
++						break;
++					}
+ 					Input::get_singleton()->joy_button(
+ 							joy_id,
+ 							static_cast<JoyButton>(sdl_event.gbutton.button), // Godot button constants are intentionally the same as SDL's, so we can just straight up use them
+@@ -272,12 +422,95 @@ void JoypadSDL::process_events() {
+ 			}
+ 		}
+ 	}
++
++#ifdef FBDEV_ENABLED
++	// Some Linux evdev backends update SDL's gamepad state without retaining
++	// every short button transition in the event queue. Poll the two chord
++	// buttons too. Forward changed polled states into Godot input; queued events
++	// update the same per-pad state first, so polling does not repeat them.
++	for (int i = 0; i < Input::JOYPADS_MAX; i++) {
++		Joypad &joy = joypads[i];
++		if (!joy.attached || !SDL_IsGamepad(joy.sdl_instance_idx)) {
++			continue;
++		}
++		SDL_Gamepad *gamepad = SDL_GetGamepadFromID(joy.sdl_instance_idx);
++		if (!gamepad) {
++			continue;
++		}
++		const bool back_pressed = SDL_GetGamepadButton(gamepad, SDL_GAMEPAD_BUTTON_BACK);
++		if (_update_nextos_quit_chord(i, JoyButton::BACK, back_pressed)) {
++			if (!nxgptk_godot_gamepad_button(i, SDL_GAMEPAD_BUTTON_BACK, back_pressed)) {
++				Input::get_singleton()->joy_button(i, JoyButton::BACK, back_pressed);
++			}
++		}
++
++		const bool start_pressed = SDL_GetGamepadButton(gamepad, SDL_GAMEPAD_BUTTON_START);
++		if (_update_nextos_quit_chord(i, JoyButton::START, start_pressed)) {
++			if (!nxgptk_godot_gamepad_button(i, SDL_GAMEPAD_BUTTON_START, start_pressed)) {
++				Input::get_singleton()->joy_button(i, JoyButton::START, start_pressed);
++			}
++		}
++	}
++
++#endif
++
++}
++
++#ifdef FBDEV_ENABLED
++bool JoypadSDL::_update_nextos_quit_chord(int p_pad_idx, JoyButton p_button, bool p_pressed) {
++	if (p_button != JoyButton::BACK && p_button != JoyButton::START) {
++		return false;
++	}
++
++	Joypad &joy = joypads[p_pad_idx];
++	if (p_button == JoyButton::BACK) {
++		if (joy.nextos_select_pressed == p_pressed) {
++			return false;
++		}
++		joy.nextos_select_pressed = p_pressed;
++	} else {
++		if (joy.nextos_start_pressed == p_pressed) {
++			return false;
++		}
++		joy.nextos_start_pressed = p_pressed;
++	}
++	// Latch until both buttons have been released. This accepts either press
++	// order, ignores button-repeat events, and never combines different pads.
++	//
++	// The chord fires on the instant both buttons are down. A hold was tried
++	// in 0.2.8 and REVERTED after physical proof: it stopped the chord from
++	// closing the game at all, and closing a port is a release-blocking
++	// guarantee. Nothing may stand between this gesture and the exit.
++	if (!joy.nextos_select_pressed && !joy.nextos_start_pressed) {
++		joy.nextos_quit_chord_latched = false;
++	} else if (joy.nextos_select_pressed && joy.nextos_start_pressed && !joy.nextos_quit_chord_latched) {
++		joy.nextos_quit_chord_latched = true;
++		nextos_quit_chord_requested = true;
++		// Printed unconditionally: a clean status-0 exit in the middle of a
++		// session is indistinguishable from a crash in a support log without
++		// this line.
++		print_line(vformat("nx/input: SELECT+START: lifecycle exit requested (exit-chord on pad %d)",
++				p_pad_idx));
++	}
++	return true;
++}
++
++bool JoypadSDL::consume_nextos_quit_chord_request() {
++	const bool requested = nextos_quit_chord_requested;
++	nextos_quit_chord_requested = false;
++	return requested;
+ }
++#endif
+ 
+ void JoypadSDL::close_joypad(int p_pad_idx) {
+ 	int sdl_instance_idx = joypads[p_pad_idx].sdl_instance_idx;
+ 
+ 	joypads[p_pad_idx].attached = false;
++#ifdef FBDEV_ENABLED
++	joypads[p_pad_idx].nextos_select_pressed = false;
++	joypads[p_pad_idx].nextos_start_pressed = false;
++	joypads[p_pad_idx].nextos_quit_chord_latched = false;
++#endif
+ 	sdl_instance_id_to_joypad_id.erase(sdl_instance_idx);
+ 
+ 	if (SDL_IsGamepad(sdl_instance_idx)) {
+diff --git a/drivers/sdl/joypad_sdl.h b/drivers/sdl/joypad_sdl.h
+index 88aa342..4fee953 100644
+--- a/drivers/sdl/joypad_sdl.h
++++ b/drivers/sdl/joypad_sdl.h
+@@ -47,6 +47,13 @@ public:
+ 	Error initialize();
+ 	void process_events();
+ 
++#ifdef FBDEV_ENABLED
++	// Select + Start is the standard NextOS port exit chord. The request is
++	// consumed by OS_LinuxBSD so it can enter Godot's regular window-close
++	// lifecycle instead of terminating the process from the input driver.
++	bool consume_nextos_quit_chord_request();
++#endif
++
+ private:
+ 	class Joypad : public Input::JoypadFeatures {
+ 	public:
+@@ -58,6 +65,12 @@ private:
+ 		bool supports_force_feedback = false;
+ 		uint64_t ff_effect_timestamp = 0;
+ 
++#ifdef FBDEV_ENABLED
++		bool nextos_select_pressed = false;
++		bool nextos_start_pressed = false;
++		bool nextos_quit_chord_latched = false;
++#endif
++
+ 		virtual bool has_joy_light() const override;
+ 		virtual void set_joy_light(const Color &p_color) override;
+ 
+@@ -70,5 +83,10 @@ private:
+ 	Joypad joypads[Input::JOYPADS_MAX];
+ 	HashMap<SDL_JoystickID, int> sdl_instance_id_to_joypad_id;
+ 
++#ifdef FBDEV_ENABLED
++	bool nextos_quit_chord_requested = false;
++	bool _update_nextos_quit_chord(int p_pad_idx, JoyButton p_button, bool p_pressed);
++#endif
++
+ 	void close_joypad(int p_pad_idx);
+ };
+diff --git a/drivers/sdl/tearscape_gptk_receipt.cpp b/drivers/sdl/tearscape_gptk_receipt.cpp
+new file mode 100644
+index 0000000..c187f58
+--- /dev/null
++++ b/drivers/sdl/tearscape_gptk_receipt.cpp
+@@ -0,0 +1,216 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++/* TEARSCAPE 0.2.17: GPTK evidence receipt -- pure unit, see the header. */
++
++#include "tearscape_gptk_receipt.h"
++
++#include <string.h>
++
++/* nxproject.json controls.actions[].sinks[0], one row per declared action.
++ * recipes/test_runtime_contract.py fails when this set drifts from nxproject. */
++static const struct TearsGptkAdapterSink tears_gptk_adapter_sink_table[] = {
++	{ "menu.accept", "engine.ui_accept" },
++	{ "menu.back", "engine.ui_cancel" },
++	{ "menu.navigate", "engine.ui_direction" },
++	{ "player.attack", "engine.input.attack" },
++	{ "player.heal", "engine.input.heal" },
++	{ "player.move", "engine.input.move" },
++	{ "player.open_map", "engine.input.open_map" },
++	{ "player.roll", "engine.input.roll" },
++	{ "player.select_next", "engine.input.select_next" },
++	{ "player.select_previous", "engine.input.select_prev" },
++	{ "player.switch_tool", "engine.input.switch_tool" },
++	{ "player.use_shield", "engine.input.use_shield" },
++	{ "player.use_tool", "engine.input.use_tool" },
++	{ "player.zoom_map", "engine.input.zoom_map" },
++	{ "system.pause", "engine.input.pause" },
++	{ "system.quit", "adapter.system.quit" },
++};
++
++const struct TearsGptkAdapterSink *tears_gptk_adapter_sinks(size_t *p_count) {
++	if (p_count) {
++		*p_count = sizeof(tears_gptk_adapter_sink_table) /
++				sizeof(tears_gptk_adapter_sink_table[0]);
++	}
++	return tears_gptk_adapter_sink_table;
++}
++
++const char *tears_gptk_adapter_sink_id(const char *p_action) {
++	if (!p_action) {
++		return NULL;
++	}
++	for (const struct TearsGptkAdapterSink &row : tears_gptk_adapter_sink_table) {
++		if (strcmp(row.action, p_action) == 0) {
++			return row.sink_id;
++		}
++	}
++	return NULL;
++}
++
++/* --- file -------------------------------------------------------------- */
++
++void tears_gptk_receipt_init(struct TearsGptkReceipt *p_receipt) {
++	if (p_receipt) {
++		p_receipt->out = NULL;
++		p_receipt->tried = false;
++	}
++}
++
++bool tears_gptk_receipt_open(struct TearsGptkReceipt *p_receipt, const char *p_path) {
++	if (!p_receipt) {
++		return false;
++	}
++	if (p_receipt->out || p_receipt->tried) {
++		return p_receipt->out != NULL;
++	}
++	p_receipt->tried = true;
++	if (!p_path || !p_path[0]) {
++		return false;
++	}
++	p_receipt->out = fopen(p_path, "a");
++	if (p_receipt->out) {
++		setvbuf(p_receipt->out, NULL, _IOLBF, 0);
++	}
++	return p_receipt->out != NULL;
++}
++
++void tears_gptk_receipt_write(struct TearsGptkReceipt *p_receipt, const char *p_line) {
++	if (!p_receipt || !p_receipt->out || !p_line) {
++		return;
++	}
++	fputs(p_line, p_receipt->out);
++	fputc('\n', p_receipt->out);
++}
++
++/* --- formatters -------------------------------------------------------- */
++
++static const char *tears_gptk_str(const char *p_value) {
++	return p_value ? p_value : "";
++}
++
++static int tears_gptk_finish(char *p_buffer, size_t p_size, int p_written) {
++	if (p_written < 0 || (size_t)p_written >= p_size) {
++		if (p_size > 0) {
++			p_buffer[0] = '\0';
++		}
++		return -1;
++	}
++	return 0;
++}
++
++int tears_gptk_receipt_runtime_line(char *p_buffer, size_t p_size,
++		const char *p_schema, const char *p_marker, const char *p_mapping_sha256,
++		const char *p_source, unsigned int p_gptk_schema, const char *p_face_layout,
++		size_t p_sinks) {
++	if (!p_buffer || p_size == 0) {
++		return -1;
++	}
++	const int written = snprintf(p_buffer, p_size,
++			"{\"schema\":\"%s\",\"kind\":\"runtime\",\"marker\":\"%s\","
++			"\"mapping_sha256\":\"%s\",\"source\":\"%s\",\"gptk_schema\":%u,"
++			"\"face_layout\":\"%s\",\"sinks\":%zu}",
++			tears_gptk_str(p_schema), tears_gptk_str(p_marker),
++			tears_gptk_str(p_mapping_sha256), tears_gptk_str(p_source),
++			p_gptk_schema, tears_gptk_str(p_face_layout), p_sinks);
++	return tears_gptk_finish(p_buffer, p_size, written);
++}
++
++int tears_gptk_receipt_context_line(char *p_buffer, size_t p_size,
++		const char *p_schema, const char *p_context, const char *p_source) {
++	if (!p_buffer || p_size == 0) {
++		return -1;
++	}
++	const int written = snprintf(p_buffer, p_size,
++			"{\"schema\":\"%s\",\"kind\":\"context\",\"context\":\"%s\","
++			"\"source\":\"%s\",\"observed\":true}",
++			tears_gptk_str(p_schema), tears_gptk_str(p_context),
++			tears_gptk_str(p_source));
++	return tears_gptk_finish(p_buffer, p_size, written);
++}
++
++int tears_gptk_receipt_delivery_line(char *p_buffer, size_t p_size,
++		const char *p_schema, const char *p_context, const char *p_context_source,
++		const char *p_control, const char *p_event, const char *p_action,
++		const char *p_sink, bool p_pressed) {
++	if (!p_buffer || p_size == 0) {
++		return -1;
++	}
++	const int written = snprintf(p_buffer, p_size,
++			"{\"schema\":\"%s\",\"kind\":\"delivery\",\"context\":\"%s\","
++			"\"context_source\":\"%s\",\"control\":\"%s\",\"event\":\"%s\","
++			"\"decision\":\"ACTION\",\"action\":\"%s\",\"sink\":\"%s\","
++			"\"pressed\":%d,\"delivery_count\":1}",
++			tears_gptk_str(p_schema), tears_gptk_str(p_context),
++			tears_gptk_str(p_context_source), tears_gptk_str(p_control),
++			tears_gptk_str(p_event), tears_gptk_str(p_action),
++			tears_gptk_str(p_sink), p_pressed ? 1 : 0);
++	return tears_gptk_finish(p_buffer, p_size, written);
++}
++
++int tears_gptk_receipt_suppressed_line(char *p_buffer, size_t p_size,
++		const char *p_schema, const char *p_context, const char *p_context_source,
++		const char *p_control) {
++	if (!p_buffer || p_size == 0) {
++		return -1;
++	}
++	const int written = snprintf(p_buffer, p_size,
++			"{\"schema\":\"%s\",\"kind\":\"suppressed\",\"context\":\"%s\","
++			"\"context_source\":\"%s\",\"control\":\"%s\",\"event\":\"press\","
++			"\"decision\":\"SUPPRESS\",\"delivery_count\":0}",
++			tears_gptk_str(p_schema), tears_gptk_str(p_context),
++			tears_gptk_str(p_context_source), tears_gptk_str(p_control));
++	return tears_gptk_finish(p_buffer, p_size, written);
++}
++
++/* --- release attribution ------------------------------------------------ */
++
++void tears_gptk_press_owner_init(struct TearsGptkPressOwner *p_owner) {
++	if (p_owner) {
++		p_owner->control = -1;
++	}
++}
++
++int tears_gptk_press_owner_edge(struct TearsGptkPressOwner *p_owner,
++		bool p_pressed, int p_current_control) {
++	if (!p_owner) {
++		return p_current_control;
++	}
++	if (p_pressed) {
++		p_owner->control = p_current_control;
++		return p_current_control;
++	}
++	const int owner = p_owner->control;
++	p_owner->control = -1;
++	return owner;
++}
++
++/* --- vector EDGE ----------------------------------------------------------- */
++
++void tears_gptk_vector_gesture_init(struct TearsGptkVectorGesture *p_gesture) {
++	if (p_gesture) {
++		p_gesture->active = false;
++	}
++}
++
++int tears_gptk_vector_gesture_feed(struct TearsGptkVectorGesture *p_gesture,
++		bool p_deflected) {
++	if (!p_gesture) {
++		return TEARS_GPTK_VECTOR_EDGE_NONE;
++	}
++	if (!p_gesture->active && p_deflected) {
++		p_gesture->active = true;
++		return TEARS_GPTK_VECTOR_EDGE_START;
++	}
++	if (p_gesture->active && !p_deflected) {
++		p_gesture->active = false;
++		return TEARS_GPTK_VECTOR_EDGE_STOP;
++	}
++	return TEARS_GPTK_VECTOR_EDGE_NONE;
++}
++
++bool tears_gptk_vector_gesture_close(struct TearsGptkVectorGesture *p_gesture) {
++	if (!p_gesture || !p_gesture->active) {
++		return false;
++	}
++	p_gesture->active = false;
++	return true;
++}
+diff --git a/drivers/sdl/tearscape_gptk_receipt.h b/drivers/sdl/tearscape_gptk_receipt.h
+new file mode 100644
+index 0000000..d2a94df
+--- /dev/null
++++ b/drivers/sdl/tearscape_gptk_receipt.h
+@@ -0,0 +1,130 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++#ifndef TEARSCAPE_GPTK_RECEIPT_H
++#define TEARSCAPE_GPTK_RECEIPT_H
++
++/* TEARSCAPE 0.2.17: the per-run GPTK evidence receipt (nxinput-gptk-event-
++ * evidence/1) in the JSON-lines shape the framework's automated on-device
++ * controls proof (nx-device-input-proof.py) and the release lock builder
++ * (nx-input-proof-lock.py) read back. This unit is PURE: no Godot, no SDL,
++ * no nxinput header, so tests/controls/test_tearscape_gptk_receipt.cpp proves
++ * the exact line shapes, the vector EDGE semantics and the release
++ * attribution on the host. The glue (nxinput_gptk_godot.cpp) only feeds it.
++ *
++ * Line shapes (byte-exact; the field order is part of the contract):
++ *   runtime    {"schema":S,"kind":"runtime","marker":M,"mapping_sha256":H,
++ *               "source":"owner|default","gptk_schema":N,"face_layout":F,
++ *               "sinks":N}
++ *   context    {"schema":S,"kind":"context","context":C,"source":SRC,
++ *               "observed":true}
++ *   delivery   {"schema":S,"kind":"delivery","context":C,"context_source":SRC,
++ *               "control":CTL,"event":"press|motion","decision":"ACTION",
++ *               "action":A,"sink":ADAPTER_SINK_ID,"pressed":0|1,
++ *               "delivery_count":1}
++ *   suppressed {"schema":S,"kind":"suppressed","context":C,
++ *               "context_source":SRC,"control":CTL,"event":"press",
++ *               "decision":"SUPPRESS","delivery_count":0}
++ */
++
++#include <stdbool.h>
++#include <stddef.h>
++#include <stdio.h>
++
++/* --- The adapter sink ids -------------------------------------------- */
++
++/* Semantic GPTK action -> the ADAPTER sink id (nxproject.json
++ * controls.actions[].sinks[0]). This table is the single authority for the
++ * `sink` field of every receipt/log line; recipes/test_runtime_contract.py
++ * asserts it against nxproject.json. */
++struct TearsGptkAdapterSink {
++	const char *action;
++	const char *sink_id;
++};
++
++const struct TearsGptkAdapterSink *tears_gptk_adapter_sinks(size_t *p_count);
++
++/* The adapter sink id of an action, or NULL for an unknown action. */
++const char *tears_gptk_adapter_sink_id(const char *p_action);
++
++/* --- The receipt file -------------------------------------------------- */
++
++struct TearsGptkReceipt {
++	FILE *out;
++	bool tried;
++};
++
++void tears_gptk_receipt_init(struct TearsGptkReceipt *p_receipt);
++
++/* Open once, append, line-buffered. A NULL/empty path (env absent) silently
++ * disables the receipt: every later write is a no-op. Returns whether a file
++ * is open after the call. */
++bool tears_gptk_receipt_open(struct TearsGptkReceipt *p_receipt, const char *p_path);
++
++/* Append one line (a newline is added). No-op while no file is open. */
++void tears_gptk_receipt_write(struct TearsGptkReceipt *p_receipt, const char *p_line);
++
++/* --- The line formatters --------------------------------------------- */
++/* Each returns 0 and a NUL-terminated line in p_buffer, or -1 when the line
++ * does not fit (p_buffer is then an empty string). NULL strings print as "". */
++
++int tears_gptk_receipt_runtime_line(char *p_buffer, size_t p_size,
++		const char *p_schema, const char *p_marker, const char *p_mapping_sha256,
++		const char *p_source, unsigned int p_gptk_schema, const char *p_face_layout,
++		size_t p_sinks);
++
++int tears_gptk_receipt_context_line(char *p_buffer, size_t p_size,
++		const char *p_schema, const char *p_context, const char *p_source);
++
++int tears_gptk_receipt_delivery_line(char *p_buffer, size_t p_size,
++		const char *p_schema, const char *p_context, const char *p_context_source,
++		const char *p_control, const char *p_event, const char *p_action,
++		const char *p_sink, bool p_pressed);
++
++int tears_gptk_receipt_suppressed_line(char *p_buffer, size_t p_size,
++		const char *p_schema, const char *p_context, const char *p_context_source,
++		const char *p_control);
++
++/* --- Release attribution ----------------------------------------------- */
++
++/* A release may be born from a context change (the runtime releases every
++ * latched action outside any feed) and then no control is "current": the
++ * release belongs to the control that PRESSED. */
++struct TearsGptkPressOwner {
++	int control; /* -1: nothing pressed */
++};
++
++void tears_gptk_press_owner_init(struct TearsGptkPressOwner *p_owner);
++
++/* Record a delivered edge; returns the control the line must name: the
++ * current control on a press (remembered), the remembered control on a
++ * release (then forgotten). p_current_control < 0 means "no feeding control". */
++int tears_gptk_press_owner_edge(struct TearsGptkPressOwner *p_owner,
++		bool p_pressed, int p_current_control);
++
++/* --- Vector EDGE semantics --------------------------------------------- */
++
++/* A vector reaches the sink EVERY frame. Evidence is by EDGE: one line when
++ * the vector leaves neutral (pressed=1) and one when it returns (pressed=0)
++ * or is released by a context change; never one line per frame. */
++struct TearsGptkVectorGesture {
++	bool active;
++};
++
++enum TearsGptkVectorEdge {
++	TEARS_GPTK_VECTOR_EDGE_NONE = 0,
++	TEARS_GPTK_VECTOR_EDGE_START = 1,
++	TEARS_GPTK_VECTOR_EDGE_STOP = -1,
++};
++
++void tears_gptk_vector_gesture_init(struct TearsGptkVectorGesture *p_gesture);
++
++/* Feed one frame: p_deflected is "any direction has strength after the
++ * deadzone". Returns START exactly once when a gesture opens, STOP exactly
++ * once when it returns to neutral, NONE otherwise. */
++int tears_gptk_vector_gesture_feed(struct TearsGptkVectorGesture *p_gesture,
++		bool p_deflected);
++
++/* Force-close (release-all / context change): returns true when a gesture
++ * was open (one pressed=0 line is due), false when nothing was open. */
++bool tears_gptk_vector_gesture_close(struct TearsGptkVectorGesture *p_gesture);
++
++#endif /* TEARSCAPE_GPTK_RECEIPT_H */
+diff --git a/drivers/sdl/tearscape_padset.cpp b/drivers/sdl/tearscape_padset.cpp
+new file mode 100644
+index 0000000..cf2e731
+--- /dev/null
++++ b/drivers/sdl/tearscape_padset.cpp
+@@ -0,0 +1,169 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++/* TEARSCAPE 0.2.17: the logical-player pad set. See tearscape_padset.h.
++ * No Godot or SDL header: this file compiles and is gated anywhere. */
++
++#include "tearscape_padset.h"
++
++#include <string.h>
++
++static const char tears_padset_denial_text[] =
++		"chord denied: SELECT and START on different pads (cross-pad)";
++
++const char *tears_padset_cross_pad_denial() {
++	return tears_padset_denial_text;
++}
++
++void tears_padset_init(TearsPadset *p_set, uint32_t p_select_bit, uint32_t p_start_bit) {
++	if (!p_set) {
++		return;
++	}
++	memset(p_set, 0, sizeof(*p_set));
++	p_set->select_bit = p_select_bit;
++	p_set->start_bit = p_start_bit;
++}
++
++int tears_padset_slot(const TearsPadset *p_set, int p_joy_id) {
++	if (!p_set || p_joy_id < 0) {
++		return -1;
++	}
++	for (unsigned slot = 0; slot < p_set->count; slot++) {
++		if (p_set->pads[slot].joy_id == p_joy_id) {
++			return (int)slot;
++		}
++	}
++	return -1;
++}
++
++int tears_padset_admit(TearsPadset *p_set, int p_joy_id, int p_instance_id) {
++	if (!p_set || p_joy_id < 0) {
++		return -1;
++	}
++	const int existing = tears_padset_slot(p_set, p_joy_id);
++	if (existing >= 0) {
++		return existing;
++	}
++	if (p_set->count >= (unsigned)TEARS_PADSET_MAX) {
++		return -1;
++	}
++	TearsPadsetPad &pad = p_set->pads[p_set->count];
++	memset(&pad, 0, sizeof(pad));
++	pad.joy_id = p_joy_id;
++	pad.instance_id = p_instance_id;
++	p_set->count++;
++	return (int)p_set->count - 1;
++}
++
++bool tears_padset_remove(TearsPadset *p_set, int p_joy_id) {
++	const int slot = tears_padset_slot(p_set, p_joy_id);
++	if (slot < 0) {
++		return false;
++	}
++	for (unsigned next = (unsigned)slot; next + 1u < p_set->count; next++) {
++		p_set->pads[next] = p_set->pads[next + 1u];
++	}
++	p_set->count--;
++	memset(&p_set->pads[p_set->count], 0, sizeof(p_set->pads[0]));
++	return true;
++}
++
++bool tears_padset_set_snapshot(TearsPadset *p_set, int p_joy_id,
++		uint32_t p_down_controls, const float p_axes[TEARS_PADSET_AXES]) {
++	const int slot = tears_padset_slot(p_set, p_joy_id);
++	if (slot < 0) {
++		return false;
++	}
++	TearsPadsetPad &pad = p_set->pads[slot];
++	pad.down_controls = p_down_controls;
++	for (int axis = 0; axis < TEARS_PADSET_AXES; axis++) {
++		pad.axes[axis] = p_axes ? p_axes[axis] : 0.0f;
++	}
++	return true;
++}
++
++bool tears_padset_set_control(TearsPadset *p_set, int p_joy_id, uint32_t p_bit, bool p_down) {
++	const int slot = tears_padset_slot(p_set, p_joy_id);
++	if (slot < 0) {
++		return false;
++	}
++	if (p_down) {
++		p_set->pads[slot].down_controls |= p_bit;
++	} else {
++		p_set->pads[slot].down_controls &= ~p_bit;
++	}
++	return true;
++}
++
++bool tears_padset_set_axis(TearsPadset *p_set, int p_joy_id, int p_axis, float p_value) {
++	const int slot = tears_padset_slot(p_set, p_joy_id);
++	if (slot < 0 || p_axis < 0 || p_axis >= TEARS_PADSET_AXES) {
++		return false;
++	}
++	p_set->pads[slot].axes[p_axis] = p_value;
++	return true;
++}
++
++uint32_t tears_padset_union_controls(const TearsPadset *p_set) {
++	uint32_t down = 0;
++	if (!p_set) {
++		return 0;
++	}
++	for (unsigned slot = 0; slot < p_set->count; slot++) {
++		down |= p_set->pads[slot].down_controls;
++	}
++	return down;
++}
++
++float tears_padset_axis(const TearsPadset *p_set, int p_axis) {
++	float best = 0.0f;
++	if (!p_set || p_axis < 0 || p_axis >= TEARS_PADSET_AXES) {
++		return 0.0f;
++	}
++	for (unsigned slot = 0; slot < p_set->count; slot++) {
++		const float value = p_set->pads[slot].axes[p_axis];
++		const float magnitude = value < 0.0f ? -value : value;
++		const float best_magnitude = best < 0.0f ? -best : best;
++		if (magnitude > best_magnitude) {
++			best = value;
++		}
++	}
++	return best;
++}
++
++TearsPadsetChord tears_padset_chord(TearsPadset *p_set, bool *r_log_now) {
++	if (r_log_now) {
++		*r_log_now = false;
++	}
++	if (!p_set) {
++		return TEARS_PADSET_CHORD_NONE;
++	}
++	bool same_pad = false;
++	bool any_select = false;
++	bool any_start = false;
++	for (unsigned slot = 0; slot < p_set->count; slot++) {
++		const uint32_t down = p_set->pads[slot].down_controls;
++		const bool select = (down & p_set->select_bit) != 0u;
++		const bool start = (down & p_set->start_bit) != 0u;
++		if (select && start) {
++			same_pad = true;
++		}
++		any_select = any_select || select;
++		any_start = any_start || start;
++	}
++	if (same_pad) {
++		/* The sovereign chord is a same-pad fact; a simultaneous cross-pad
++		 * overlap adds nothing and is not a denial. */
++		return TEARS_PADSET_CHORD_SAME_PAD;
++	}
++	if (any_select && any_start) {
++		if (!p_set->cross_pad_logged) {
++			p_set->cross_pad_logged = true;
++			p_set->cross_pad_denials++;
++			if (r_log_now) {
++				*r_log_now = true;
++			}
++		}
++		return TEARS_PADSET_CHORD_CROSS_PAD;
++	}
++	p_set->cross_pad_logged = false;
++	return TEARS_PADSET_CHORD_NONE;
++}
+diff --git a/drivers/sdl/tearscape_padset.h b/drivers/sdl/tearscape_padset.h
+new file mode 100644
+index 0000000..4850622
+--- /dev/null
++++ b/drivers/sdl/tearscape_padset.h
+@@ -0,0 +1,115 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++#ifndef TEARSCAPE_PADSET_H
++#define TEARSCAPE_PADSET_H
++
++/* TEARSCAPE 0.2.17: every C6-admitted gamepad drives ONE logical player.
++ *
++ * WHY
++ *   The framework's automated controls proof (nx-device-input-proof) creates
++ *   device-faithful uinput clones of the real pad before the game's SDL_Init
++ *   and injects on the clones. A glue that only listens to "the primary pad"
++ *   never sees that input, and it cannot honour the rule that SELECT on one
++ *   pad plus START on another must never end the game. Both are pad-set
++ *   policy, so they live here once, testable on the host.
++ *
++ * WHAT (capability-based: no device name, VID/PID or CFW is consulted)
++ *   - up to TEARS_PADSET_MAX pads, keyed by the engine joypad id; each pad
++ *     keeps its own physical truth (control bitmask, six axes);
++ *   - a symbolic control is DOWN when ANY admitted pad holds it (union);
++ *   - an axis takes the largest-magnitude value across pads (a resting pad
++ *     never cancels another);
++ *   - the exit chord is SAME-PAD only: SELECT here + START there is a denial,
++ *     reported exactly once per occurrence (not every frame);
++ *   - removal compacts the set; a re-added pad is admitted again.
++ *
++ * The unit has no Godot or SDL dependency: control bits and axis indices are
++ * the caller's numbering, so the host gate in tests/controls proves the
++ * policy without a device. The GPTK decision semantics, the context policy
++ * and the geometry code are untouched by this unit. */
++
++#include <stdbool.h>
++#include <stdint.h>
++
++enum {
++	TEARS_PADSET_MAX = 4,
++	TEARS_PADSET_AXIS_LEFT_X = 0,
++	TEARS_PADSET_AXIS_LEFT_Y = 1,
++	TEARS_PADSET_AXIS_RIGHT_X = 2,
++	TEARS_PADSET_AXIS_RIGHT_Y = 3,
++	TEARS_PADSET_AXIS_LEFT_TRIGGER = 4,
++	TEARS_PADSET_AXIS_RIGHT_TRIGGER = 5,
++	TEARS_PADSET_AXES = 6,
++};
++
++enum TearsPadsetChord {
++	/* No pad holds SELECT and START together. */
++	TEARS_PADSET_CHORD_NONE = 0,
++	/* ONE pad holds both: the sovereign chord (owned by the joypad driver). */
++	TEARS_PADSET_CHORD_SAME_PAD = 1,
++	/* SELECT and START are held, but only on DIFFERENT pads: denied. */
++	TEARS_PADSET_CHORD_CROSS_PAD = 2,
++};
++
++struct TearsPadsetPad {
++	int joy_id;
++	int instance_id;
++	uint32_t down_controls;
++	float axes[TEARS_PADSET_AXES];
++};
++
++struct TearsPadset {
++	TearsPadsetPad pads[TEARS_PADSET_MAX];
++	unsigned count;
++	uint32_t select_bit;
++	uint32_t start_bit;
++	/* A cross-pad occurrence is logged once, then re-armed only after the
++	 * SELECT+START overlap dissolves. */
++	bool cross_pad_logged;
++	unsigned cross_pad_denials;
++};
++
++/* The chord bits are the caller's control bits for SELECT and START. */
++void tears_padset_init(TearsPadset *p_set, uint32_t p_select_bit, uint32_t p_start_bit);
++
++/* Slot of an admitted joypad id, or -1. */
++int tears_padset_slot(const TearsPadset *p_set, int p_joy_id);
++
++/* Admit a pad. Returns its slot; an already admitted id returns its existing
++ * slot (state untouched); -1 when the set is full or the id is invalid.
++ * A newly admitted pad starts with no control down and every axis at rest. */
++int tears_padset_admit(TearsPadset *p_set, int p_joy_id, int p_instance_id);
++
++/* Remove one pad and compact the remaining slots. Returns false if the id
++ * was not admitted. */
++bool tears_padset_remove(TearsPadset *p_set, int p_joy_id);
++
++/* Replace one pad's complete physical truth (a full SDL snapshot). Returns
++ * false when the id is not admitted. */
++bool tears_padset_set_snapshot(TearsPadset *p_set, int p_joy_id,
++		uint32_t p_down_controls, const float p_axes[TEARS_PADSET_AXES]);
++
++/* One control transition on one pad. Returns false when the id is not
++ * admitted (the caller leaves such a pad fully native). */
++bool tears_padset_set_control(TearsPadset *p_set, int p_joy_id, uint32_t p_bit, bool p_down);
++
++/* One axis sample on one pad. Same admission contract. */
++bool tears_padset_set_axis(TearsPadset *p_set, int p_joy_id, int p_axis, float p_value);
++
++/* Union of the admitted pads' control bits. */
++uint32_t tears_padset_union_controls(const TearsPadset *p_set);
++
++/* Largest-magnitude value of one axis across the admitted pads (0 when the
++ * set is empty or the axis index is invalid). */
++float tears_padset_axis(const TearsPadset *p_set, int p_axis);
++
++/* Evaluate the SELECT+START relationship across the set. When the result is
++ * CROSS_PAD and this occurrence has not been reported yet, *r_log_now is set
++ * to true exactly once (the caller prints tears_padset_cross_pad_denial()).
++ * The occurrence re-arms only when SELECT and START are no longer both held
++ * somewhere in the set. */
++TearsPadsetChord tears_padset_chord(TearsPadset *p_set, bool *r_log_now);
++
++/* The exact denial text the framework proof looks for (no prefix). */
++const char *tears_padset_cross_pad_denial();
++
++#endif /* TEARSCAPE_PADSET_H */
+diff --git a/main/main.cpp b/main/main.cpp
+index 65d21d4..d3a93dc 100644
+--- a/main/main.cpp
++++ b/main/main.cpp
+@@ -30,6 +30,12 @@
+ 
+ #include "main.h"
+ 
++// The fbdev export template is a portable port runner. It must accept an
++// external project directory and PCK just like an editor build does.
++#if defined(FBDEV_ENABLED) && !defined(OVERRIDE_PATH_ENABLED)
++#define OVERRIDE_PATH_ENABLED
++#endif
++
+ #include "core/config/project_settings.h"
+ #include "core/core_globals.h"
+ #include "core/crypto/crypto.h"
+@@ -1087,6 +1093,22 @@ Error Main::setup(const char *execpath, int argc, char *argv[], bool p_second_ph
+ 	String default_renderer_mobile = "";
+ 	String renderer_hints = "";
+ 
++#ifdef FBDEV_ENABLED
++	// Keep the upstream command-line behavior intact unless this exact
++	// port-local opt-in is enabled. These are defaults, so explicit command-line
++	// options parsed below can still override them. Project discovery remains in
++	// ProjectSettings: a matching PCK or a loose project in the CWD is loaded
++	// through the normal Godot startup sequence.
++	if (OS::get_singleton()->get_environment("NX_TEARSCAPE_DEFAULTS") == "1") {
++		audio_driver = "ALSA";
++		display_driver = "fbdev";
++		rendering_method = "gl_compatibility";
++		rendering_driver = "opengl3_es";
++		audio_output_latency = 15;
++		disable_vsync = true;
++	}
++#endif
++
+ 	packed_data = PackedData::get_singleton();
+ 	if (!packed_data) {
+ 		packed_data = memnew(PackedData);
+diff --git a/platform/linuxbsd/SCsub b/platform/linuxbsd/SCsub
+index 87586c5..9ce332d 100644
+--- a/platform/linuxbsd/SCsub
++++ b/platform/linuxbsd/SCsub
+@@ -24,6 +24,18 @@ if env["use_sowrap"]:
+ if env["x11"]:
+     common_linuxbsd += SConscript("x11/SCsub")
+ 
++if env["fbdev"]:
++    # Keep this list explicit. Returning plain strings from a nested SCsub is
++    # SCons-version-sensitive and produced None with the pinned offline wheel.
++    common_linuxbsd += [
++        "fbdev/display_server_fbdev.cpp",
++        "fbdev/egl_manager_fbdev.cpp",
++        "fbdev/nx_sdl2_geometry.cpp",
++        "fbdev/nxgl_frame_proof_adapter.c",
++        "fbdev/nxcompat_video.c",
++        "fbdev/nx_symver.c",
++    ]
++
+ if env["wayland"]:
+     common_linuxbsd += SConscript("wayland/SCsub")
+ 
+diff --git a/platform/linuxbsd/detect.py b/platform/linuxbsd/detect.py
+index 35415dc..6ffeb16 100644
+--- a/platform/linuxbsd/detect.py
++++ b/platform/linuxbsd/detect.py
+@@ -47,6 +47,7 @@ def get_opts():
+         BoolVariable("fontconfig", "Use fontconfig for system fonts support", True),
+         BoolVariable("udev", "Use udev for gamepad connection callbacks", True),
+         BoolVariable("x11", "Enable X11 display", True),
++        BoolVariable("fbdev", "Enable legacy fbdev EGL display (NextOS Mali)", False),
+         BoolVariable("wayland", "Enable Wayland display", True),
+         BoolVariable("libdecor", "Enable libdecor support", True),
+         BoolVariable("touch", "Enable touch events", True),
+@@ -516,6 +517,9 @@ def configure(env: "SConsEnvironment"):
+             # No pkgconfig file so far, hardcode expected lib name.
+             env.Append(LIBS=["glslang", "SPIRV", "glslang-default-resource-limits"])
+ 
++    if env["fbdev"]:
++        env.Append(CPPDEFINES=["FBDEV_ENABLED"])
++
+     if env["opengl3"]:
+         env.Append(CPPDEFINES=["GLES3_ENABLED"])
+ 
+diff --git a/platform/linuxbsd/fbdev/SCsub b/platform/linuxbsd/fbdev/SCsub
+new file mode 100644
+index 0000000..077ee4e
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/SCsub
+@@ -0,0 +1,14 @@
++#!/usr/bin/env python
++from misc.utility.scons_hints import *
++
++Import("env")
++
++source_files = [
++    "display_server_fbdev.cpp",
++    "egl_manager_fbdev.cpp",
++    "nx_sdl2_geometry.cpp",
++    "nxgl_frame_proof_adapter.c",
++    "nxcompat_video.c",
++    "nx_symver.c",
++]
++
+diff --git a/platform/linuxbsd/fbdev/display_server_fbdev.cpp b/platform/linuxbsd/fbdev/display_server_fbdev.cpp
+new file mode 100644
+index 0000000..6de4672
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/display_server_fbdev.cpp
+@@ -0,0 +1,819 @@
++#include "display_server_fbdev.h"
++
++#include "drivers/sdl/nxinput_gptk_godot.h"
++#include "nx_sdl2_geometry.h"
++#include "nx_aspect_policy.h"
++
++#ifdef FBDEV_ENABLED
++
++#include "core/config/project_settings.h"
++#include "core/os/os.h"
++
++#include "core/string/print_string.h"
++
++#ifdef GLES3_ENABLED
++#include "drivers/gles3/rasterizer_gles3.h"
++#endif
++
++#include <errno.h>
++#include <fcntl.h>
++#include <dirent.h>
++#include <dlfcn.h>
++#include <linux/fb.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/ioctl.h>
++#include <sys/stat.h>
++#include <unistd.h>
++
++namespace {
++
++// NxSDL_Window is declared by nx_sdl2_geometry.h (shared with the geometry authority).
++typedef void *NxSDL_GLContext;
++
++enum {
++	NX_SDL_INIT_VIDEO = 0x00000020u,
++	NX_SDL_WINDOW_OPENGL = 0x00000002u,
++	NX_SDL_WINDOW_FULLSCREEN_DESKTOP = 0x00001001u,
++	NX_SDL_WINDOWPOS_CENTERED = 0x2fff0000u,
++	NX_SDL_GL_RED_SIZE = 0,
++	NX_SDL_GL_GREEN_SIZE = 1,
++	NX_SDL_GL_BLUE_SIZE = 2,
++	NX_SDL_GL_ALPHA_SIZE = 3,
++	NX_SDL_GL_DOUBLEBUFFER = 5,
++	NX_SDL_GL_DEPTH_SIZE = 6,
++	NX_SDL_GL_STENCIL_SIZE = 7,
++	NX_SDL_GL_CONTEXT_MAJOR_VERSION = 17,
++	NX_SDL_GL_CONTEXT_MINOR_VERSION = 18,
++	NX_SDL_GL_CONTEXT_PROFILE_MASK = 21,
++	NX_SDL_GL_CONTEXT_PROFILE_ES = 0x0004,
++};
++
++struct NxSdlApi {
++	void *handle = nullptr;
++	bool attempted = false;
++	bool ok = false;
++	int (*InitSubSystem)(uint32_t) = nullptr;
++	void (*QuitSubSystem)(uint32_t) = nullptr;
++	const char *(*GetError)(void) = nullptr;
++	const char *(*GetCurrentVideoDriver)(void) = nullptr;
++	int (*GL_SetAttribute)(int, int) = nullptr;
++	NxSDL_Window *(*CreateWindow)(const char *, int, int, int, int, uint32_t) = nullptr;
++	void (*DestroyWindow)(NxSDL_Window *) = nullptr;
++	NxSDL_GLContext (*GL_CreateContext)(NxSDL_Window *) = nullptr;
++	void (*GL_DeleteContext)(NxSDL_GLContext) = nullptr;
++	int (*GL_MakeCurrent)(NxSDL_Window *, NxSDL_GLContext) = nullptr;
++	void (*GL_SwapWindow)(NxSDL_Window *) = nullptr;
++	int (*GL_SetSwapInterval)(int) = nullptr;
++	void (*GL_GetDrawableSize)(NxSDL_Window *, int *, int *) = nullptr;
++	void (*GetWindowSize)(NxSDL_Window *, int *, int *) = nullptr;
++	int (*ShowCursor)(int) = nullptr;
++};
++
++NxSdlApi sdl_api;
++NxSDL_Window *sdl_window = nullptr;
++NxSDL_GLContext sdl_context = nullptr;
++bool sdl_video_ready = false;
++
++// Window geometry authority for the SDL2 provider (0.2.16). The raw /dev/fb0
++// size is informational there: SDL's display bounds, the first authoritative
++// configure and the live drawable decide the logical window size.
++NxSdl2Geometry sdl_geometry;
++bool sdl_geometry_ready = false;
++
++void sdl_geometry_log(void *, const char *p_line) {
++	print_line(String(p_line));
++}
++
++void *sdl_geometry_resolve(void *p_handle, const char *p_name) {
++	return dlsym(p_handle, p_name);
++}
++
++void sdl_geometry_prepare() {
++	if (sdl_geometry_ready) {
++		return;
++	}
++	NxSdl2GeometryApi api;
++	nx_sdl2_geometry_bind(&api, sdl_api.handle, sdl_geometry_resolve);
++	nx_sdl2_geometry_init(&sdl_geometry, &api, sdl_geometry_log, nullptr);
++	sdl_geometry_ready = true;
++}
++
++// Both FBDev/EGL and SDL2 contexts are resolved through Godot's loaded EGL
++// entry point. The pinned Tearscape EGL shim then routes each gl* name to the
++// GLES facade, firmware SDL provider or legacy blob that owns the live
++// context. This is required because firmware SDL itself is deliberately
++// opened RTLD_LOCAL and its GL symbols need not exist in RTLD_DEFAULT.
++void *nxgl_godot_gl_resolve(const char *p_name) {
++#if defined(GLES3_ENABLED) && defined(EGL_ENABLED)
++	if (eglGetProcAddress) {
++		return (void *)eglGetProcAddress(p_name);
++	}
++#endif
++	return nullptr;
++}
++
++const char *sdl_error() {
++	const char *text = sdl_api.GetError ? sdl_api.GetError() : nullptr;
++	return text && text[0] ? text : "unknown SDL2 error";
++}
++
++bool sdl_load() {
++	if (sdl_api.attempted) {
++		return sdl_api.ok;
++	}
++	sdl_api.attempted = true;
++	static const char *const candidates[] = {
++		"libSDL2-2.0.so.0",
++		"libSDL2.so",
++		"libSDL2-2.0.so",
++		nullptr,
++	};
++	for (int i = 0; candidates[i] && !sdl_api.handle; i++) {
++		sdl_api.handle = dlopen(candidates[i], RTLD_NOW | RTLD_LOCAL);
++	}
++	if (!sdl_api.handle) {
++		return false;
++	}
++
++#define NX_SDL_REQUIRED(field, symbol)                                  \
++	do {                                                                  \
++		*(void **)(&sdl_api.field) = dlsym(sdl_api.handle, symbol);         \
++		if (!sdl_api.field) {                                               \
++			dlclose(sdl_api.handle);                                          \
++			sdl_api.handle = nullptr;                                         \
++			return false;                                                      \
++		}                                                                   \
++	} while (0)
++
++	NX_SDL_REQUIRED(InitSubSystem, "SDL_InitSubSystem");
++	NX_SDL_REQUIRED(QuitSubSystem, "SDL_QuitSubSystem");
++	NX_SDL_REQUIRED(GetError, "SDL_GetError");
++	NX_SDL_REQUIRED(GetCurrentVideoDriver, "SDL_GetCurrentVideoDriver");
++	NX_SDL_REQUIRED(GL_SetAttribute, "SDL_GL_SetAttribute");
++	NX_SDL_REQUIRED(CreateWindow, "SDL_CreateWindow");
++	NX_SDL_REQUIRED(DestroyWindow, "SDL_DestroyWindow");
++	NX_SDL_REQUIRED(GL_CreateContext, "SDL_GL_CreateContext");
++	NX_SDL_REQUIRED(GL_DeleteContext, "SDL_GL_DeleteContext");
++	NX_SDL_REQUIRED(GL_MakeCurrent, "SDL_GL_MakeCurrent");
++	NX_SDL_REQUIRED(GL_SwapWindow, "SDL_GL_SwapWindow");
++	NX_SDL_REQUIRED(GL_SetSwapInterval, "SDL_GL_SetSwapInterval");
++#undef NX_SDL_REQUIRED
++
++	*(void **)(&sdl_api.GL_GetDrawableSize) = dlsym(sdl_api.handle, "SDL_GL_GetDrawableSize");
++	*(void **)(&sdl_api.GetWindowSize) = dlsym(sdl_api.handle, "SDL_GetWindowSize");
++	*(void **)(&sdl_api.ShowCursor) = dlsym(sdl_api.handle, "SDL_ShowCursor");
++	sdl_api.ok = true;
++	return true;
++}
++
++bool sdl_init_video() {
++	if (sdl_video_ready) {
++		return true;
++	}
++	if (!sdl_load()) {
++		return false;
++	}
++	setenv("SDL_NO_SIGNAL_HANDLERS", "1", 0);
++	// App id (hint + SDL_VIDEO_WAYLAND_WMCLASS) must be in place before the
++	// video subsystem creates its compositor connection.
++	sdl_geometry_prepare();
++	nx_sdl2_geometry_prepare_app_id(&sdl_geometry);
++	if (sdl_api.InitSubSystem(NX_SDL_INIT_VIDEO) == 0) {
++		sdl_video_ready = true;
++		print_line(vformat("nx/sdl2: video subsystem up, driver '%s'",
++				sdl_api.GetCurrentVideoDriver() ? sdl_api.GetCurrentVideoDriver() : "(null)"));
++		return true;
++	}
++
++	const char *inherited = getenv("SDL_VIDEODRIVER");
++	print_line(vformat("nx/sdl2: video init failed with SDL_VIDEODRIVER='%s': %s",
++			inherited ? inherited : "", sdl_error()));
++	if (inherited && inherited[0]) {
++		sdl_api.QuitSubSystem(NX_SDL_INIT_VIDEO);
++		unsetenv("SDL_VIDEODRIVER");
++		if (sdl_api.InitSubSystem(NX_SDL_INIT_VIDEO) == 0) {
++			sdl_video_ready = true;
++			print_line(vformat("nx/sdl2: firmware autodetection recovered, driver '%s'",
++					sdl_api.GetCurrentVideoDriver() ? sdl_api.GetCurrentVideoDriver() : "(null)"));
++			return true;
++		}
++		print_line(vformat("nx/sdl2: autodetection retry failed: %s", sdl_error()));
++	}
++	return false;
++}
++
++void sdl_reset_failed_video() {
++	if (sdl_context && sdl_api.GL_DeleteContext) {
++		sdl_api.GL_DeleteContext(sdl_context);
++		sdl_context = nullptr;
++	}
++	if (sdl_window && sdl_api.DestroyWindow) {
++		sdl_api.DestroyWindow(sdl_window);
++		sdl_window = nullptr;
++	}
++	sdl_geometry.window = nullptr;
++	if (sdl_video_ready && sdl_api.QuitSubSystem) {
++		sdl_api.QuitSubSystem(NX_SDL_INIT_VIDEO);
++		sdl_video_ready = false;
++	}
++}
++
++} // namespace
++
++Vector<String> DisplayServerFBDev::get_rendering_drivers_func_fbdev() {
++	Vector<String> drivers;
++#ifdef GLES3_ENABLED
++	drivers.push_back("opengl3_es");
++#endif
++	drivers.push_back("dummy");
++	return drivers;
++}
++
++DisplayServer *DisplayServerFBDev::create_func_fbdev(const String &p_rendering_driver, WindowMode p_mode, VSyncMode p_vsync_mode, uint32_t p_flags, const Vector2i *p_position, const Vector2i &p_resolution, int p_screen, Context p_context, int64_t p_parent_window, Error &r_error) {
++	DisplayServer *ds = memnew(DisplayServerFBDev(p_rendering_driver, r_error));
++	if (r_error != OK) {
++		ERR_PRINT("Can't create the fbdev display server.");
++	}
++	return ds;
++}
++
++const char *DisplayServerFBDev::_provider_name(Provider p_provider) {
++	switch (p_provider) {
++		case PROVIDER_FBDEV:
++			return "fbdev";
++		case PROVIDER_SDL2:
++			return "sdl2";
++		default:
++			return "none";
++	}
++}
++
++bool DisplayServerFBDev::_drm_capability_present() {
++	for (int index = 0; index < 8; index++) {
++		char node[64];
++		snprintf(node, sizeof(node), "/dev/dri/card%d", index);
++		int fd = open(node, O_RDWR | O_CLOEXEC);
++		if (fd < 0) {
++			continue;
++		}
++		close(fd);
++
++		char prefix[32];
++		snprintf(prefix, sizeof(prefix), "card%d-", index);
++		DIR *dir = opendir("/sys/class/drm");
++		if (!dir) {
++			print_line(vformat("nx/video: DRM capability: %s opens, connector view unavailable", node));
++			return true;
++		}
++		bool connected = false;
++		struct dirent *entry;
++		while ((entry = readdir(dir)) != nullptr) {
++			if (strncmp(entry->d_name, prefix, strlen(prefix)) != 0) {
++				continue;
++			}
++			char status_path[512];
++			snprintf(status_path, sizeof(status_path), "/sys/class/drm/%s/status", entry->d_name);
++			FILE *stream = fopen(status_path, "rb");
++			if (!stream) {
++				continue;
++			}
++			char status[32] = {};
++			size_t got = fread(status, 1, sizeof(status) - 1, stream);
++			fclose(stream);
++			status[got] = 0;
++			for (size_t i = 0; i < sizeof(status); i++) {
++				if (status[i] == '\n' || status[i] == '\r') {
++					status[i] = 0;
++					break;
++				}
++			}
++			if (strcmp(status, "disconnected") != 0) {
++				print_line(vformat("nx/video: DRM capability: %s connector %s status '%s'",
++						node, String(entry->d_name), String(status)));
++				connected = true;
++				break;
++			}
++		}
++		closedir(dir);
++		if (connected) {
++			return true;
++		}
++	}
++	return false;
++}
++
++void DisplayServerFBDev::window_set_vsync_mode(VSyncMode p_vsync_mode, WindowID p_window) {
++#ifdef GLES3_ENABLED
++	use_vsync = p_vsync_mode != VSYNC_DISABLED;
++	if (provider == PROVIDER_SDL2 && sdl_api.GL_SetSwapInterval) {
++		sdl_api.GL_SetSwapInterval(use_vsync ? 1 : 0);
++	} else if (egl_manager) {
++		egl_manager->set_use_vsync(p_vsync_mode != VSYNC_DISABLED);
++	}
++#endif
++}
++
++DisplayServerFBDev::VSyncMode DisplayServerFBDev::window_get_vsync_mode(WindowID p_window) const {
++#ifdef GLES3_ENABLED
++	if (provider == PROVIDER_SDL2) {
++		return use_vsync ? VSYNC_ENABLED : VSYNC_DISABLED;
++	}
++	if (egl_manager) {
++		return egl_manager->is_using_vsync() ? VSYNC_ENABLED : VSYNC_DISABLED;
++	}
++#endif
++	return VSYNC_ENABLED;
++}
++
++void DisplayServerFBDev::window_set_window_event_callback(const Callable &p_callable, WindowID p_window) {
++	ERR_FAIL_COND(p_window != MAIN_WINDOW_ID);
++	window_event_callback = p_callable;
++}
++
++void DisplayServerFBDev::window_set_rect_changed_callback(const Callable &p_callable, WindowID p_window) {
++	ERR_FAIL_COND(p_window != MAIN_WINDOW_ID);
++	rect_changed_callback = p_callable;
++}
++
++void DisplayServerFBDev::request_close() {
++	if (window_event_callback.is_valid()) {
++		window_event_callback.call(WINDOW_EVENT_CLOSE_REQUEST);
++	}
++}
++
++void DisplayServerFBDev::release_rendering_thread() {
++#ifdef GLES3_ENABLED
++	if (provider == PROVIDER_SDL2 && sdl_window) {
++		sdl_api.GL_MakeCurrent(sdl_window, nullptr);
++	} else if (egl_manager) {
++		egl_manager->release_current();
++	}
++#endif
++}
++
++void DisplayServerFBDev::swap_buffers() {
++#ifdef GLES3_ENABLED
++	const int proof_status = nxgl_godot_frame_proof_before_swap(
++			&frame_proof, fb_size.x, fb_size.y);
++	if (proof_status != 0) {
++		(void)nxgl_godot_frame_proof_consume_close(&frame_proof);
++		int exit_status = nxgl_godot_frame_proof_exit_status(&frame_proof);
++		if (exit_status == 0) {
++			exit_status = EXIT_FAILURE;
++		}
++		_fail_runtime("nx/video: pre-present proof refused the frame; presentation stopped.", exit_status);
++		return;
++	}
++	if (provider == PROVIDER_SDL2 && sdl_window) {
++		sdl_api.GL_SwapWindow(sdl_window);
++		frame_presented.store(true, std::memory_order_release);
++	} else if (egl_manager) {
++		egl_manager->swap_buffers();
++		frame_presented.store(true, std::memory_order_release);
++	}
++#endif
++}
++
++void DisplayServerFBDev::refresh_controls_before_events() {
++	// Window geometry first: a compositor resize must reach the viewport before
++	// this iteration renders.
++	_poll_sdl2_geometry();
++	// Resolve Tearscape scene/pause authority before SDL polls this batch.
++	// A scene transition in the previous Main::iteration therefore cannot let
++	// the next button use the old menu/gameplay context.
++	nxgptk_godot_tick(0.0);
++}
++
++void DisplayServerFBDev::_poll_sdl2_geometry() {
++	if (provider != PROVIDER_SDL2 || !sdl_window || !sdl_geometry_ready) {
++		return;
++	}
++	if (!nx_sdl2_geometry_poll(&sdl_geometry)) {
++		return;
++	}
++	fb_size = Size2i(sdl_geometry.logical_w, sdl_geometry.logical_h);
++	(void)nxgl_godot_frame_proof_resize(&frame_proof, fb_size.x, fb_size.y);
++	// Mirror DisplayServerX11/Wayland: the engine learns a new window rect
++	// through rect_changed_callback (Window::_rect_changed_callback resizes
++	// the root viewport). No DPI information exists on this path, so
++	// WINDOW_EVENT_DPI_CHANGE is intentionally not raised.
++	const bool notified = rect_changed_callback.is_valid();
++	if (notified) {
++		rect_changed_callback.call(Rect2i(Point2i(), fb_size));
++	}
++	nx_sdl2_geometry_write_resize(&sdl_geometry, notified);
++	print_line(vformat("nx/sdl2: window resized to %dx%d (engine %s)",
++			fb_size.x, fb_size.y, notified ? "notified" : "has no rect callback yet"));
++}
++
++void DisplayServerFBDev::_write_geometry_receipt_init() {
++	const char *path = getenv("NXGEOMETRY_RECEIPT");
++	if (!path || !path[0]) {
++		return;
++	}
++	if (provider == PROVIDER_SDL2) {
++		if (nx_sdl2_geometry_receipt_open(&sdl_geometry, path)) {
++			nx_sdl2_geometry_write_init(&sdl_geometry, _provider_name(provider));
++		}
++	} else if (provider == PROVIDER_FBDEV) {
++		if (!nx_sdl2_geometry_write_fbdev_init(path, fb_size.x, fb_size.y)) {
++			print_line("nx/video: geometry receipt unavailable for the fbdev provider.");
++		}
++	}
++}
++
++// NEXTOS_SETTINGS/2 aspect (0.2.17). Decides the Godot stretch aspect for the
++// accepted drawable BEFORE the SceneTree reads display/window/stretch/aspect
++// for the root window, so the owner's NEXTOSSETTINGS.txt (via NX_VIDEO_ASPECT)
++// and an owner edit of game/override.cfg both reach the effective state.
++// The logical viewport (640x360) is never touched: Tearscape derives camera
++// zoom from viewport height, so only "keep"/"ignore" are ever applied.
++void DisplayServerFBDev::_apply_aspect_policy() {
++	const char *env = getenv("NX_VIDEO_ASPECT");
++	String requested = env ? String(env).strip_edges().to_lower() : String("auto");
++	if (requested.is_empty()) {
++		requested = "auto";
++	}
++	const String setting_path = "display/window/stretch/aspect";
++	String project_value;
++	if (ProjectSettings::get_singleton() && ProjectSettings::get_singleton()->has_setting(setting_path)) {
++		project_value = String(ProjectSettings::get_singleton()->get_setting(setting_path));
++	}
++	CharString requested_c = requested.utf8();
++	CharString project_c = project_value.utf8();
++	NxAspectDecision decision;
++	nx_aspect_policy_resolve(requested_c.get_data(), project_c.get_data(),
++			fb_size.x, fb_size.y, &decision);
++
++	if (decision.source == NX_ASPECT_SOURCE_INVALID) {
++		WARN_PRINT(vformat("nx/video: unknown NX_VIDEO_ASPECT='%s' (allowed: auto, preserve, stretch, native); project value kept.", requested));
++	}
++	if (decision.apply && decision.changed && ProjectSettings::get_singleton()) {
++		ProjectSettings::get_singleton()->set_setting(setting_path, String(decision.apply));
++	}
++	print_line(vformat("nx/video: aspect requested=%s project=%s effective=%s source=%s changed=%s drawable=%dx%d content=%dx%d@%d,%d",
++			String(decision.requested), project_value.is_empty() ? String("-") : project_value,
++			String(decision.effective), String(nx_aspect_source_name(decision.source)),
++			decision.changed ? "yes" : "no", fb_size.x, fb_size.y,
++			decision.content_w, decision.content_h, decision.content_x, decision.content_y));
++	const char *path = getenv("NXGEOMETRY_RECEIPT");
++	if (path && path[0]) {
++		(void)nx_sdl2_geometry_write_aspect(path, _provider_name(provider),
++				decision.requested, project_c.get_data(), decision.effective,
++				nx_aspect_source_name(decision.source), decision.changed,
++				fb_size.x, fb_size.y, decision.content_x, decision.content_y,
++				decision.content_w, decision.content_h);
++	}
++}
++
++void DisplayServerFBDev::publish_health_after_iteration() {
++	// Drain failures and mapped quit after the current input batch. Health is
++	// published only after a real frame from the preceding completed iteration.
++	if (!nxgl_godot_frame_proof_health_allowed(&frame_proof)) {
++		(void)nxgl_godot_frame_proof_consume_close(&frame_proof);
++		_fail_runtime("nx/video: conclusive frame-proof failure blocks health.",
++				nxgl_godot_frame_proof_exit_status(&frame_proof));
++		return;
++	}
++	if (nxgptk_godot_consume_fatal_request()) {
++		_fail_runtime("nx/input: GPTK delivery failed closed.", EXIT_FAILURE);
++		return;
++	}
++	if (nxgptk_godot_consume_quit_request()) {
++		request_close();
++	}
++	if (!health_blocked && frame_presented.load(std::memory_order_acquire)) {
++		_publish_health_receipt();
++	}
++}
++
++void DisplayServerFBDev::_fail_runtime(const char *p_reason, int p_status) {
++	const bool first_failure = !health_blocked;
++	health_blocked = true;
++	_revoke_health_receipt();
++	OS::get_singleton()->set_exit_code(p_status > 0 ? p_status : EXIT_FAILURE);
++	if (first_failure) {
++		ERR_PRINT(String(p_reason));
++		request_close();
++	}
++}
++
++void DisplayServerFBDev::_publish_health_receipt() {
++	if (health_published || health_blocked) {
++		return;
++	}
++	health_published = true;
++
++	const char *path = getenv("NXBOOTSTRAP_HEALTH_FILE");
++	const char *schema = getenv("NXBOOTSTRAP_HEALTH_SCHEMA");
++	const char *schema_version = getenv("NXBOOTSTRAP_HEALTH_SCHEMA_VERSION");
++	const char *run_id = getenv("NXBOOTSTRAP_HEALTH_RUN_ID");
++	const char *generation = getenv("NXBOOTSTRAP_HEALTH_GENERATION");
++	const char *port_id = getenv("NXBOOTSTRAP_HEALTH_PORT_ID");
++	if (!path || !path[0] || !schema || !schema_version || !run_id || !generation || !port_id) {
++		return;
++	}
++
++	char line[1024];
++	int written = snprintf(line, sizeof(line),
++			"{\"schema\":\"%s\",\"schema_version\":%s,\"run_id\":\"%s\","
++			"\"generation\":\"%s\",\"port_id\":\"%s\",\"status\":\"ready\"}\n",
++			schema, schema_version, run_id, generation, port_id);
++	if (written <= 0 || written >= (int)sizeof(line)) {
++		ERR_PRINT("nx/health: receipt does not fit its buffer.");
++		return;
++	}
++
++	char temporary[1152];
++	if (snprintf(temporary, sizeof(temporary), "%s.tmp.%d", path, (int)getpid()) >= (int)sizeof(temporary)) {
++		ERR_PRINT("nx/health: receipt temporary path does not fit.");
++		return;
++	}
++	mode_t previous_mask = umask(077);
++	int fd = open(temporary, O_WRONLY | O_CREAT | O_EXCL | O_CLOEXEC, 0600);
++	umask(previous_mask);
++	if (fd < 0) {
++		ERR_PRINT(vformat("nx/health: cannot create the receipt (%d).", (int)errno));
++		return;
++	}
++	bool ok = true;
++	int offset = 0;
++	while (offset < written) {
++		ssize_t chunk = write(fd, line + offset, written - offset);
++		if (chunk <= 0) {
++			ok = false;
++			break;
++		}
++		offset += (int)chunk;
++	}
++	if (fchmod(fd, 0600) != 0) {
++		ok = false;
++	}
++	close(fd);
++	if (!ok || rename(temporary, path) != 0) {
++		unlink(temporary);
++		ERR_PRINT("nx/health: could not publish the run-bound receipt.");
++		return;
++	}
++	if (snprintf(health_receipt_path, sizeof(health_receipt_path), "%s", path) >=
++			(int)sizeof(health_receipt_path)) {
++		/* The path already fit the larger temporary buffer, so this is only a
++		 * defensive invariant. Never retain an unrevocable success receipt. */
++		unlink(path);
++		health_receipt_path[0] = '\0';
++		health_blocked = true;
++		ERR_PRINT("nx/health: published path cannot be retained for revocation.");
++		return;
++	}
++	print_line("nx/health: run-bound ready receipt published.");
++}
++
++void DisplayServerFBDev::_revoke_health_receipt() {
++	/* Never reread the environment here: game code could have changed it.
++	 * Revoke only the exact path retained after our successful atomic rename. */
++	if (!health_published || health_receipt_path[0] == '\0') {
++		return;
++	}
++	if (unlink(health_receipt_path) != 0 && errno != ENOENT) {
++		ERR_PRINT(vformat("nx/health: could not revoke failed-run receipt (%d).", (int)errno));
++	} else {
++		print_line("nx/health: failed-run receipt revoked.");
++	}
++	health_receipt_path[0] = '\0';
++}
++
++void DisplayServerFBDev::register_fbdev_driver() {
++	register_create_function("fbdev", create_func_fbdev, get_rendering_drivers_func_fbdev);
++}
++
++Error DisplayServerFBDev::_initialize_fbdev() {
++#ifdef GLES3_ENABLED
++	if (fb_size.x <= 0 || fb_size.y <= 0) {
++		print_line("fbdev: no framebuffer geometry available.");
++		return ERR_UNAVAILABLE;
++	}
++	fbdev_window.width = (uint16_t)fb_size.x;
++	fbdev_window.height = (uint16_t)fb_size.y;
++	static EGLNativeDisplayType nx_native_display = EGL_DEFAULT_DISPLAY;
++	egl_manager = memnew(GLManagerEGL_FBDev);
++	if (egl_manager->initialize(&nx_native_display) != OK || egl_manager->open_display(&nx_native_display) != OK) {
++		memdelete(egl_manager);
++		egl_manager = nullptr;
++		return ERR_UNAVAILABLE;
++	}
++	static void *nx_native_window = nullptr;
++	nx_native_window = &fbdev_window;
++	if (egl_manager->window_create(MAIN_WINDOW_ID, &nx_native_display, &nx_native_window, fb_size.x, fb_size.y) != OK) {
++		memdelete(egl_manager);
++		egl_manager = nullptr;
++		return ERR_UNAVAILABLE;
++	}
++	egl_manager->window_make_current(MAIN_WINDOW_ID);
++	return OK;
++#else
++	return ERR_UNAVAILABLE;
++#endif
++}
++
++Error DisplayServerFBDev::_initialize_sdl2() {
++#ifdef GLES3_ENABLED
++	if (!sdl_init_video()) {
++		return ERR_UNAVAILABLE;
++	}
++	const char *native_gles3 = getenv("NX_TEARSCAPE_NATIVE_GLES3");
++	const int gles_major = native_gles3 && strcmp(native_gles3, "1") == 0 ? 3 : 2;
++	struct SdlFormat {
++		int alpha;
++		int depth;
++		int stencil;
++	};
++	static const SdlFormat ladder[] = {
++		{ 8, 24, 8 },
++		{ 8, 16, 8 },
++		{ 8, 16, 0 },
++		{ 0, 16, 0 },
++		{ 0, 0, 0 },
++	};
++
++	// The raw framebuffer size is NOT the window geometry on a compositor:
++	// request what SDL's display authority publishes for this session.
++	sdl_geometry_prepare();
++	nx_sdl2_geometry_set_raw_fb(&sdl_geometry, raw_fb_size.x, raw_fb_size.y);
++	int request_w = 0;
++	int request_h = 0;
++	nx_sdl2_geometry_initial_request(&sdl_geometry, &request_w, &request_h);
++	for (size_t i = 0; i < sizeof(ladder) / sizeof(ladder[0]); i++) {
++		const SdlFormat &format = ladder[i];
++		sdl_api.GL_SetAttribute(NX_SDL_GL_CONTEXT_PROFILE_MASK, NX_SDL_GL_CONTEXT_PROFILE_ES);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_CONTEXT_MAJOR_VERSION, gles_major);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_CONTEXT_MINOR_VERSION, 0);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_RED_SIZE, 8);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_GREEN_SIZE, 8);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_BLUE_SIZE, 8);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_ALPHA_SIZE, format.alpha);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_DEPTH_SIZE, format.depth);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_STENCIL_SIZE, format.stencil);
++		sdl_api.GL_SetAttribute(NX_SDL_GL_DOUBLEBUFFER, 1);
++		sdl_window = sdl_api.CreateWindow("Tearscape",
++				NX_SDL_WINDOWPOS_CENTERED, NX_SDL_WINDOWPOS_CENTERED,
++				request_w, request_h,
++				NX_SDL_WINDOW_OPENGL | NX_SDL_WINDOW_FULLSCREEN_DESKTOP);
++		if (!sdl_window) {
++			print_line(vformat("nx/sdl2: window a%d/d%d/s%d refused: %s",
++					format.alpha, format.depth, format.stencil, String(sdl_error())));
++			continue;
++		}
++		sdl_context = sdl_api.GL_CreateContext(sdl_window);
++		if (!sdl_context) {
++			print_line(vformat("nx/sdl2: ES%d context a%d/d%d/s%d refused: %s",
++					gles_major, format.alpha, format.depth, format.stencil, String(sdl_error())));
++			sdl_api.DestroyWindow(sdl_window);
++			sdl_window = nullptr;
++			continue;
++		}
++		print_line(vformat("nx/sdl2: ES%d config alpha=%d depth=%d stencil=%d",
++				gles_major, format.alpha, format.depth, format.stencil));
++		break;
++	}
++	if (!sdl_window || !sdl_context || sdl_api.GL_MakeCurrent(sdl_window, sdl_context) != 0) {
++		print_line(vformat("nx/sdl2: no usable GL context: %s", String(sdl_error())));
++		sdl_reset_failed_video();
++		return ERR_UNAVAILABLE;
++	}
++	if (sdl_api.ShowCursor) {
++		sdl_api.ShowCursor(0);
++	}
++
++	// Ensure fullscreen from inside the runtime and wait (bounded) for the
++	// first authoritative configure. On drivers whose first query is already
++	// authoritative (KMSDRM) the wait returns at once with configure_events=0.
++	if (nx_sdl2_geometry_attach_window(&sdl_geometry, sdl_window,
++				NX_SDL2_GEOMETRY_DEFAULT_TIMEOUT_MS) != 0) {
++		sdl_reset_failed_video();
++		return ERR_UNAVAILABLE;
++	}
++	fb_size = Size2i(sdl_geometry.logical_w, sdl_geometry.logical_h);
++	sdl_api.GL_SetSwapInterval(use_vsync ? 1 : 0);
++
++#if defined(GLAD_ENABLED) && !defined(EGL_STATIC)
++	// SDL owns the context, but Godot's GLES loader still needs the process EGL
++	// resolver. The port-local EGL shim forwards it to the same firmware stack.
++	if (!gladLoaderLoadEGL(EGL_NO_DISPLAY)) {
++		print_line("nx/sdl2: could not load the EGL resolver for Godot GLAD.");
++		sdl_reset_failed_video();
++		return ERR_UNAVAILABLE;
++	}
++#endif
++	return OK;
++#else
++	return ERR_UNAVAILABLE;
++#endif
++}
++
++DisplayServerFBDev::DisplayServerFBDev(const String &p_rendering_driver, Error &r_error) {
++	(void)nxgl_godot_frame_proof_begin(&frame_proof);
++	print_line(vformat("nx/video: frame-proof runtime=%s",
++			nxgl_godot_frame_proof_marker()));
++	r_error = OK;
++	// Raw panel geometry. Authoritative for the fbdev/EGL provider only; the
++	// SDL2 provider replaces fb_size with SDL's configured drawable.
++	raw_fb_size = Size2i(0, 0);
++	int fd = open("/dev/fb0", O_RDWR | O_CLOEXEC);
++	if (fd >= 0) {
++		struct fb_var_screeninfo vinfo;
++		if (ioctl(fd, FBIOGET_VSCREENINFO, &vinfo) == 0) {
++			raw_fb_size = Size2i(vinfo.xres, vinfo.yres);
++		}
++		close(fd);
++	}
++	fb_size = raw_fb_size;
++	if (raw_fb_size.x > 0 && raw_fb_size.y > 0) {
++		print_line(vformat("nx/video: framebuffer geometry %dx%d", raw_fb_size.x, raw_fb_size.y));
++	}
++
++#ifdef GLES3_ENABLED
++	if (p_rendering_driver == "opengl3_es") {
++		const char *forced = getenv("NX_TEARSCAPE_VIDEO");
++		String choice = forced ? String(forced).strip_edges().to_lower() : String("auto");
++		if (choice.is_empty()) {
++			choice = "auto";
++		}
++		Provider order[2];
++		int order_count = 0;
++		if (choice == "fbdev") {
++			order[order_count++] = PROVIDER_FBDEV;
++		} else if (choice == "sdl2") {
++			order[order_count++] = PROVIDER_SDL2;
++		} else {
++			if (choice != "auto") {
++				WARN_PRINT(vformat("nx/video: unknown NX_TEARSCAPE_VIDEO='%s', using auto.", choice));
++			}
++			bool drm = _drm_capability_present();
++			bool sdl = sdl_load();
++			print_line(vformat("nx/video: capability probe drm=%s sdl2=%s",
++					drm ? "yes" : "no", sdl ? "yes" : "no"));
++			if (drm && sdl) {
++				order[order_count++] = PROVIDER_SDL2;
++				order[order_count++] = PROVIDER_FBDEV;
++			} else {
++				order[order_count++] = PROVIDER_FBDEV;
++				if (sdl) {
++					order[order_count++] = PROVIDER_SDL2;
++				}
++			}
++		}
++
++		for (int i = 0; i < order_count; i++) {
++			// Each attempt starts from the raw panel geometry; a failed SDL2
++			// attempt must not leave its size behind for the fbdev provider.
++			fb_size = raw_fb_size;
++			Error error = order[i] == PROVIDER_SDL2 ? _initialize_sdl2() : _initialize_fbdev();
++			if (error == OK) {
++				provider = order[i];
++				if (nxgl_godot_frame_proof_context(
++						&frame_proof, nxgl_godot_gl_resolve, fb_size.x, fb_size.y,
++						_provider_name(provider), nullptr, nullptr) != 0) {
++					print_line("nx/video: frame-proof lifecycle rejected the live context.");
++					if (provider == PROVIDER_SDL2) {
++						sdl_reset_failed_video();
++					} else if (egl_manager) {
++						memdelete(egl_manager);
++						egl_manager = nullptr;
++					}
++					provider = PROVIDER_NONE;
++					continue;
++				}
++				print_line(vformat("nx/video: provider '%s' drawable %dx%d",
++						String(_provider_name(provider)), fb_size.x, fb_size.y));
++				_write_geometry_receipt_init();
++				_apply_aspect_policy();
++				RasterizerGLES3::make_current(false);
++				return;
++			}
++			print_line(vformat("nx/video: provider '%s' unavailable.", String(_provider_name(order[i]))));
++		}
++		r_error = ERR_UNAVAILABLE;
++		ERR_PRINT("nx/video: no presentation provider could be initialized.");
++	}
++#endif
++}
++
++DisplayServerFBDev::~DisplayServerFBDev() {
++	if (nxgl_godot_frame_proof_stop(&frame_proof) == NXGL_GODOT_FRAME_PROOF_FATAL) {
++		health_blocked = true;
++		_revoke_health_receipt();
++		OS::get_singleton()->set_exit_code(
++				nxgl_godot_frame_proof_exit_status(&frame_proof));
++	}
++#ifdef GLES3_ENABLED
++	if (egl_manager) {
++		memdelete(egl_manager);
++		egl_manager = nullptr;
++	}
++#endif
++	nx_sdl2_geometry_receipt_close(&sdl_geometry);
++}
++
++#endif // FBDEV_ENABLED
+diff --git a/platform/linuxbsd/fbdev/display_server_fbdev.h b/platform/linuxbsd/fbdev/display_server_fbdev.h
+new file mode 100644
+index 0000000..47595b0
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/display_server_fbdev.h
+@@ -0,0 +1,102 @@
++// NextOS universal console display server. One measured provider owns the
++// window, context and swap for the entire process: raw fbdev/EGL on legacy
++// Mali or the firmware SDL2 video path (KMSDRM or a compositor) on DRM
++// systems. With SDL2 the window geometry is SDL's, never /dev/fb0's.
++#pragma once
++
++#ifdef FBDEV_ENABLED
++
++#include "servers/display/display_server_headless.h"
++#include "nxgl_godot_frame_proof.h"
++
++#ifdef GLES3_ENABLED
++#include "egl_manager_fbdev.h"
++#endif
++
++#include <atomic>
++#include <cstdint>
++
++class DisplayServerFBDev : public DisplayServerHeadless {
++	GDSOFTCLASS(DisplayServerFBDev, DisplayServerHeadless);
++
++	enum Provider {
++		PROVIDER_NONE,
++		PROVIDER_FBDEV,
++		PROVIDER_SDL2,
++	};
++
++	// Mali fbdev blob native window: {uint16 width, uint16 height}.
++	struct FBDevWindow {
++		uint16_t width = 0;
++		uint16_t height = 0;
++	} fbdev_window;
++
++	// Live logical window size. fbdev provider: the raw panel; SDL2 provider:
++	// SDL's configured drawable, refreshed every frame (0.2.16).
++	Size2i fb_size;
++	// Raw /dev/fb0 geometry, kept for the fbdev provider and the receipt.
++	Size2i raw_fb_size;
++	Callable window_event_callback;
++	Callable rect_changed_callback;
++	Provider provider = PROVIDER_NONE;
++	bool use_vsync = true;
++	std::atomic<bool> frame_presented{ false };
++	bool health_published = false;
++	bool health_blocked = false;
++	char health_receipt_path[1152] = {};
++	nxgl_godot_frame_proof frame_proof = NXGL_GODOT_FRAME_PROOF_INIT;
++
++#ifdef GLES3_ENABLED
++	GLManagerEGL_FBDev *egl_manager = nullptr;
++#endif
++
++	static Vector<String> get_rendering_drivers_func_fbdev();
++	static DisplayServer *create_func_fbdev(const String &p_rendering_driver, WindowMode p_mode, VSyncMode p_vsync_mode, uint32_t p_flags, const Vector2i *p_position, const Vector2i &p_resolution, int p_screen, Context p_context, int64_t p_parent_window, Error &r_error);
++	static bool _drm_capability_present();
++	static const char *_provider_name(Provider p_provider);
++	Error _initialize_fbdev();
++	Error _initialize_sdl2();
++	void _poll_sdl2_geometry();
++	void _write_geometry_receipt_init();
++	void _apply_aspect_policy();
++	void _publish_health_receipt();
++	void _revoke_health_receipt();
++	void _fail_runtime(const char *p_reason, int p_status);
++
++public:
++	String get_name() const override { return "fbdev"; }
++
++	int get_screen_count() const override { return 1; }
++	Size2i screen_get_size(int p_screen = SCREEN_OF_MAIN_WINDOW) const override { return fb_size; }
++	Rect2i screen_get_usable_rect(int p_screen = SCREEN_OF_MAIN_WINDOW) const override { return Rect2i(Point2i(), fb_size); }
++
++	Vector<WindowID> get_window_list() const override {
++		Vector<WindowID> list;
++		list.push_back(MAIN_WINDOW_ID);
++		return list;
++	}
++	Size2i window_get_size(WindowID p_window = MAIN_WINDOW_ID) const override { return fb_size; }
++	Size2i window_get_size_with_decorations(WindowID p_window = MAIN_WINDOW_ID) const override { return fb_size; }
++	WindowMode window_get_mode(WindowID p_window = MAIN_WINDOW_ID) const override { return WINDOW_MODE_FULLSCREEN; }
++
++	bool window_can_draw(WindowID p_window = MAIN_WINDOW_ID) const override { return true; }
++	bool can_any_window_draw() const override { return true; }
++	void window_set_window_event_callback(const Callable &p_callable, WindowID p_window = MAIN_WINDOW_ID) override;
++	void window_set_rect_changed_callback(const Callable &p_callable, WindowID p_window = MAIN_WINDOW_ID) override;
++
++	void window_set_vsync_mode(VSyncMode p_vsync_mode, WindowID p_window) override;
++	VSyncMode window_get_vsync_mode(WindowID p_window) const override;
++	void request_close();
++	void refresh_controls_before_events();
++	void publish_health_after_iteration();
++
++	void release_rendering_thread() override;
++	void swap_buffers() override;
++
++	static void register_fbdev_driver();
++
++	DisplayServerFBDev(const String &p_rendering_driver, Error &r_error);
++	~DisplayServerFBDev();
++};
++
++#endif // FBDEV_ENABLED
+diff --git a/platform/linuxbsd/fbdev/egl_manager_fbdev.cpp b/platform/linuxbsd/fbdev/egl_manager_fbdev.cpp
+new file mode 100644
+index 0000000..7dd9dd0
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/egl_manager_fbdev.cpp
+@@ -0,0 +1,32 @@
++#include "egl_manager_fbdev.h"
++
++#if defined(FBDEV_ENABLED) && defined(GLES3_ENABLED)
++
++// No real EGL platform extension exists for the legacy Mali fbdev blob; this
++// name never matches, which sends EGLManager down its eglGetDisplay() fallback.
++const char *GLManagerEGL_FBDev::_get_platform_extension_name() const {
++	return "EGL_NX_platform_fbdev";
++}
++
++EGLenum GLManagerEGL_FBDev::_get_platform_extension_enum() const {
++	return 0;
++}
++
++Vector<EGLAttrib> GLManagerEGL_FBDev::_get_platform_display_attributes() const {
++	return Vector<EGLAttrib>();
++}
++
++EGLenum GLManagerEGL_FBDev::_get_platform_api_enum() const {
++	return EGL_OPENGL_ES_API;
++}
++
++Vector<EGLint> GLManagerEGL_FBDev::_get_platform_context_attribs() const {
++	// The GLES3->GLES2 shim (nx libEGL.so) rewrites the client version to 2.
++	Vector<EGLint> ret;
++	ret.push_back(EGL_CONTEXT_CLIENT_VERSION);
++	ret.push_back(3);
++	ret.push_back(EGL_NONE);
++	return ret;
++}
++
++#endif // FBDEV_ENABLED && GLES3_ENABLED
+diff --git a/platform/linuxbsd/fbdev/egl_manager_fbdev.h b/platform/linuxbsd/fbdev/egl_manager_fbdev.h
+new file mode 100644
+index 0000000..5a3bfcf
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/egl_manager_fbdev.h
+@@ -0,0 +1,20 @@
++// NextOS fbdev EGL manager for the Mali-450 blob (EGL 1.4, no platform_base).
++// The blob path is exercised through EGLManager's eglGetDisplay() fallback.
++#pragma once
++
++#ifdef FBDEV_ENABLED
++#ifdef GLES3_ENABLED
++
++#include "drivers/egl/egl_manager.h"
++
++class GLManagerEGL_FBDev : public EGLManager {
++private:
++	virtual const char *_get_platform_extension_name() const override;
++	virtual EGLenum _get_platform_extension_enum() const override;
++	virtual EGLenum _get_platform_api_enum() const override;
++	virtual Vector<EGLAttrib> _get_platform_display_attributes() const override;
++	virtual Vector<EGLint> _get_platform_context_attribs() const override;
++};
++
++#endif // GLES3_ENABLED
++#endif // FBDEV_ENABLED
+diff --git a/platform/linuxbsd/fbdev/nx_aspect_policy.h b/platform/linuxbsd/fbdev/nx_aspect_policy.h
+new file mode 100644
+index 0000000..1d89c6e
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/nx_aspect_policy.h
+@@ -0,0 +1,62 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++/*
++ * nx_aspect_policy -- TRADUÇÃO, não política (Tearscape 0.2.17, V5).
++ *
++ * Até a 0.2.16 este arquivo carregava a REGRA de aspect do jogo: o limiar de
++ * ratio (<= 1,2 = letterbox), a precedência entre NEXTOSSETTINGS.txt e o
++ * override.cfg do dono, o content rect. O `nxcompat_video` do framework já
++ * implementava exatamente a mesma regra e este port não o referenciava —
++ * duas autoridades para uma decisão só, e o próximo port Godot copiaria o
++ * remendo (auditoria de 03/09, item E5).
++ *
++ * A decisão agora é UMA, do framework: `nxcompat_video_resolve_owner()`.
++ * O que sobra aqui é a única coisa que é mesmo deste port — dizer como a
++ * policy efetiva se escreve no vocabulário da Godot:
++ *
++ *   preserve -> "keep"     (letterbox, proporção mantida)
++ *   stretch  -> "ignore"   (a chave Godot `ignore` SIGNIFICA stretch, 7A.3)
++ *   engine   -> NULL       (herda: não escrever em ProjectSettings)
++ *
++ * `expand` e `keep_width` continuam proibidos porque a câmera do Tearscape
++ * deriva o zoom da ALTURA do viewport lógico (Camera::InitZoom =
++ * viewport.y/144) — restrição da engine, e por isso mora aqui e não no
++ * framework. `crop` e `integer` são tokens /2 válidos que esta engine não
++ * honra (viewport fixo 640x360); o adapter-env os traduz para auto com
++ * diagnóstico antes de o engine ver.
++ */
++#ifndef NX_ASPECT_POLICY_H
++#define NX_ASPECT_POLICY_H
++
++#include "nxcompat_video.h"
++
++#include <string.h>
++
++#define NX_ASPECT_POLICY_SCHEMA "nx-aspect-policy/2"
++#define NX_ASPECT_SHIPPED_DEFAULT "ignore" /* o valor que o jogo publica */
++
++/* A tradução inteira. Cinco linhas. */
++static inline const char *nx_godot_aspect(nxcompat_video_aspect effective) {
++	if (effective == NXCOMPAT_VIDEO_ASPECT_PRESERVE) {
++		return "keep";
++	}
++	if (effective == NXCOMPAT_VIDEO_ASPECT_STRETCH) {
++		return "ignore";
++	}
++	return NULL; /* engine/inherit: o valor do projeto fica como está */
++}
++
++/* A inversa, para contar ao framework o que o override.cfg do dono diz. */
++static inline const char *nx_godot_aspect_to_schema(const char *godot_value) {
++	if (godot_value == NULL || godot_value[0] == '\0') {
++		return NULL;
++	}
++	if (strcmp(godot_value, "keep") == 0) {
++		return "preserve";
++	}
++	if (strcmp(godot_value, "ignore") == 0) {
++		return "stretch";
++	}
++	return NULL; /* expand/keep_width/etc: fora do que este port aplica */
++}
++
++#endif /* NX_ASPECT_POLICY_H */
+diff --git a/platform/linuxbsd/fbdev/nx_sdl2_geometry.cpp b/platform/linuxbsd/fbdev/nx_sdl2_geometry.cpp
+new file mode 100644
+index 0000000..895f65d
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/nx_sdl2_geometry.cpp
+@@ -0,0 +1,573 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++// NextOS SDL2 window geometry authority. See nx_sdl2_geometry.h.
++#include "nx_sdl2_geometry.h"
++
++#include <errno.h>
++#include <stdarg.h>
++#include <stdlib.h>
++#include <string.h>
++#include <time.h>
++#include <unistd.h>
++
++namespace {
++
++// SDL2 ABI constants (SDL_events.h / SDL_video.h, stable across 2.0.x).
++enum : uint32_t {
++	NX_SDL_FIRSTEVENT = 0u,
++	NX_SDL_WINDOWEVENT = 0x200u,
++	NX_SDL_LASTEVENT = 0xFFFFu,
++	NX_SDL_WINDOWEVENT_RESIZED = 5u,
++	NX_SDL_WINDOWEVENT_SIZE_CHANGED = 6u,
++	NX_SDL_GETEVENT = 2u,
++	NX_SDL_WINDOW_FULLSCREEN = 0x00000001u,
++	NX_SDL_WINDOW_FULLSCREEN_DESKTOP = 0x00001001u,
++	NX_SDL_EVENT_SIZE = 56u,
++};
++
++struct NxSdlEventView {
++	uint32_t type;
++	uint32_t timestamp;
++	uint32_t windowID;
++	uint8_t event;
++	uint8_t padding1;
++	uint8_t padding2;
++	uint8_t padding3;
++	int32_t data1;
++	int32_t data2;
++};
++
++void logf(NxSdl2Geometry *g, const char *format, ...) {
++	if (!g || !g->log) {
++		return;
++	}
++	char line[512];
++	va_list args;
++	va_start(args, format);
++	int written = vsnprintf(line, sizeof(line), format, args);
++	va_end(args);
++	if (written < 0) {
++		return;
++	}
++	g->log(g->log_userdata, line);
++}
++
++int64_t monotonic_ms() {
++	struct timespec ts;
++	if (clock_gettime(CLOCK_MONOTONIC, &ts) != 0) {
++		return 0;
++	}
++	return (int64_t)ts.tv_sec * 1000 + ts.tv_nsec / 1000000;
++}
++
++void sleep_ms(int ms) {
++	struct timespec ts;
++	ts.tv_sec = ms / 1000;
++	ts.tv_nsec = (long)(ms % 1000) * 1000000L;
++	while (nanosleep(&ts, &ts) != 0 && errno == EINTR) {
++	}
++}
++
++void copy_bounded(char *dst, size_t cap, const char *src) {
++	size_t i = 0;
++	if (src) {
++		for (; src[i] && i + 1 < cap; i++) {
++			dst[i] = src[i];
++		}
++	}
++	dst[i] = 0;
++}
++
++// Pump once and drain the queue. Window size events are counted; everything
++// else is discarded (the engine's input never comes through this SDL2 queue).
++int drain_events(NxSdl2Geometry *g) {
++	int size_events = 0;
++	if (g->api.PumpEvents) {
++		g->api.PumpEvents();
++	}
++	if (g->api.PeepEvents) {
++		unsigned char buffer[16 * NX_SDL_EVENT_SIZE];
++		for (int guard = 0; guard < 256; guard++) {
++			int got = g->api.PeepEvents(buffer, 16, (int)NX_SDL_GETEVENT,
++					NX_SDL_WINDOWEVENT, NX_SDL_WINDOWEVENT);
++			if (got <= 0) {
++				break;
++			}
++			for (int i = 0; i < got; i++) {
++				NxSdlEventView view;
++				memcpy(&view, buffer + (size_t)i * NX_SDL_EVENT_SIZE, sizeof(view));
++				if (view.type == NX_SDL_WINDOWEVENT &&
++						(view.event == NX_SDL_WINDOWEVENT_RESIZED ||
++								view.event == NX_SDL_WINDOWEVENT_SIZE_CHANGED)) {
++					size_events++;
++				}
++			}
++			if (got < 16) {
++				break;
++			}
++		}
++	}
++	if (g->api.FlushEvents) {
++		g->api.FlushEvents(NX_SDL_FIRSTEVENT, NX_SDL_LASTEVENT);
++	} else if (g->api.PeepEvents) {
++		unsigned char buffer[64 * NX_SDL_EVENT_SIZE];
++		for (int guard = 0; guard < 1024; guard++) {
++			int got = g->api.PeepEvents(buffer, 64, (int)NX_SDL_GETEVENT,
++					NX_SDL_FIRSTEVENT, NX_SDL_LASTEVENT);
++			if (got < 64) {
++				break;
++			}
++		}
++	}
++	g->configure_events += size_events;
++	return size_events;
++}
++
++void query_sizes(NxSdl2Geometry *g, int *window_w, int *window_h,
++		int *drawable_w, int *drawable_h) {
++	*window_w = *window_h = *drawable_w = *drawable_h = 0;
++	if (!g->window) {
++		return;
++	}
++	if (g->api.GetWindowSize) {
++		g->api.GetWindowSize(g->window, window_w, window_h);
++	}
++	if (g->api.GL_GetDrawableSize) {
++		g->api.GL_GetDrawableSize(g->window, drawable_w, drawable_h);
++	}
++	if (*drawable_w <= 0 || *drawable_h <= 0) {
++		*drawable_w = *window_w;
++		*drawable_h = *window_h;
++	}
++	if (*window_w <= 0 || *window_h <= 0) {
++		*window_w = *drawable_w;
++		*window_h = *drawable_h;
++	}
++}
++
++bool refresh_display_bounds(NxSdl2Geometry *g) {
++	NxSdl2GeometryRect rect = {};
++	NxSdl2GeometryDisplayMode mode = {};
++	const char *source = nullptr;
++	if (g->api.GetDisplayBounds && g->api.GetDisplayBounds(g->display_index, &rect) == 0 &&
++			rect.w > 0 && rect.h > 0) {
++		source = "SDL_GetDisplayBounds";
++	} else if (g->api.GetCurrentDisplayMode &&
++			g->api.GetCurrentDisplayMode(g->display_index, &mode) == 0 &&
++			mode.w > 0 && mode.h > 0) {
++		rect.w = mode.w;
++		rect.h = mode.h;
++		source = "SDL_GetCurrentDisplayMode";
++	} else if (g->api.GetDisplayUsableBounds &&
++			g->api.GetDisplayUsableBounds(g->display_index, &rect) == 0 &&
++			rect.w > 0 && rect.h > 0) {
++		source = "SDL_GetDisplayUsableBounds";
++	}
++	if (!source) {
++		g->display_w = 0;
++		g->display_h = 0;
++		logf(g, "nx/sdl2: no display authority available (display %d)", g->display_index);
++		return false;
++	}
++	g->display_w = rect.w;
++	g->display_h = rect.h;
++	logf(g, "nx/sdl2: display %d bounds %dx%d via %s", g->display_index,
++			g->display_w, g->display_h, source);
++	return true;
++}
++
++void ensure_fullscreen(NxSdl2Geometry *g) {
++	if (!g->window || !g->api.GetWindowFlags) {
++		logf(g, "nx/sdl2: SDL_GetWindowFlags unavailable; fullscreen state unverified");
++		return;
++	}
++	uint32_t flags = g->api.GetWindowFlags(g->window);
++	g->fullscreen = (flags & NX_SDL_WINDOW_FULLSCREEN) != 0;
++	if (g->fullscreen) {
++		return;
++	}
++	if (!g->api.SetWindowFullscreen) {
++		logf(g, "nx/sdl2: window is not fullscreen and SDL_SetWindowFullscreen is unavailable");
++		return;
++	}
++	int rc = g->api.SetWindowFullscreen(g->window, NX_SDL_WINDOW_FULLSCREEN_DESKTOP);
++	flags = g->api.GetWindowFlags(g->window);
++	g->fullscreen = (flags & NX_SDL_WINDOW_FULLSCREEN) != 0;
++	g->fullscreen_forced = true;
++	logf(g, "nx/sdl2: fullscreen was not set by the compositor; SDL_SetWindowFullscreen(DESKTOP) rc=%d now %s",
++			rc, g->fullscreen ? "fullscreen" : "windowed");
++}
++
++void write_json_string(FILE *stream, const char *value) {
++	char escaped[512];
++	nx_sdl2_geometry_json_escape(value ? value : "", escaped, sizeof(escaped));
++	fputc('"', stream);
++	fputs(escaped, stream);
++	fputc('"', stream);
++}
++
++void write_env_string_field(FILE *stream, const char *key, const char *env_name) {
++	const char *value = getenv(env_name);
++	fprintf(stream, ",\"%s\":", key);
++	write_json_string(stream, value ? value : "");
++}
++
++FILE *open_receipt(const char *path) {
++	if (!path || !path[0]) {
++		return nullptr;
++	}
++	FILE *stream = fopen(path, "a");
++	if (!stream) {
++		return nullptr;
++	}
++	setvbuf(stream, nullptr, _IOLBF, 0);
++	return stream;
++}
++
++void write_init_line(FILE *stream, const char *provider, const char *video_driver,
++		const char *app_id, const char *app_id_source, int raw_w, int raw_h,
++		int display_w, int display_h, int requested_w, int requested_h,
++		int configured_w, int configured_h, int drawable_w, int drawable_h,
++		bool fullscreen, int configure_events, int wait_ms, bool timed_out) {
++	fputs("{\"schema\":\"" NX_SDL2_GEOMETRY_RECEIPT_SCHEMA "\",\"kind\":\"init\",\"provider\":", stream);
++	write_json_string(stream, provider);
++	fputs(",\"video_driver\":", stream);
++	write_json_string(stream, video_driver);
++	fputs(",\"app_id\":", stream);
++	write_json_string(stream, app_id);
++	fputs(",\"app_id_source\":", stream);
++	write_json_string(stream, app_id_source);
++	fprintf(stream,
++			",\"raw_fb_w\":%d,\"raw_fb_h\":%d,\"display_w\":%d,\"display_h\":%d,"
++			"\"requested_w\":%d,\"requested_h\":%d,\"configured_w\":%d,\"configured_h\":%d,"
++			"\"drawable_w\":%d,\"drawable_h\":%d,\"fullscreen\":%s,\"configure_events\":%d,"
++			"\"wait_ms\":%d,\"timed_out\":%s",
++			raw_w, raw_h, display_w, display_h, requested_w, requested_h,
++			configured_w, configured_h, drawable_w, drawable_h,
++			fullscreen ? "true" : "false", configure_events, wait_ms,
++			timed_out ? "true" : "false");
++	write_env_string_field(stream, "run_id", "NXBOOTSTRAP_HEALTH_RUN_ID");
++	write_env_string_field(stream, "generation", "NXBOOTSTRAP_HEALTH_GENERATION");
++	write_env_string_field(stream, "port_id", "NXBOOTSTRAP_HEALTH_PORT_ID");
++	fputs("}\n", stream);
++	fflush(stream);
++}
++
++} // namespace
++
++void nx_sdl2_geometry_json_escape(const char *in, char *out, size_t cap) {
++	size_t o = 0;
++	if (cap == 0) {
++		return;
++	}
++	for (size_t i = 0; in && in[i]; i++) {
++		unsigned char c = (unsigned char)in[i];
++		char piece[8];
++		size_t len;
++		if (c == '"' || c == '\\') {
++			piece[0] = '\\';
++			piece[1] = (char)c;
++			len = 2;
++		} else if (c < 0x20) {
++			len = (size_t)snprintf(piece, sizeof(piece), "\\u%04x", c);
++		} else {
++			piece[0] = (char)c;
++			len = 1;
++		}
++		if (o + len + 1 > cap) {
++			break;
++		}
++		memcpy(out + o, piece, len);
++		o += len;
++	}
++	out[o] = 0;
++}
++
++void nx_sdl2_geometry_bind(NxSdl2GeometryApi *api, void *handle,
++		void *(*resolve)(void *handle, const char *name)) {
++	if (!api || !resolve) {
++		return;
++	}
++#define NX_BIND(field, symbol) *(void **)(&api->field) = resolve(handle, symbol)
++	NX_BIND(GetCurrentVideoDriver, "SDL_GetCurrentVideoDriver");
++	NX_BIND(SetHint, "SDL_SetHint");
++	NX_BIND(GetDisplayBounds, "SDL_GetDisplayBounds");
++	NX_BIND(GetDisplayUsableBounds, "SDL_GetDisplayUsableBounds");
++	NX_BIND(GetCurrentDisplayMode, "SDL_GetCurrentDisplayMode");
++	NX_BIND(GetWindowDisplayIndex, "SDL_GetWindowDisplayIndex");
++	NX_BIND(PumpEvents, "SDL_PumpEvents");
++	NX_BIND(PeepEvents, "SDL_PeepEvents");
++	NX_BIND(FlushEvents, "SDL_FlushEvents");
++	NX_BIND(GL_GetDrawableSize, "SDL_GL_GetDrawableSize");
++	NX_BIND(GetWindowSize, "SDL_GetWindowSize");
++	NX_BIND(GetWindowFlags, "SDL_GetWindowFlags");
++	NX_BIND(SetWindowFullscreen, "SDL_SetWindowFullscreen");
++#undef NX_BIND
++}
++
++void nx_sdl2_geometry_init(NxSdl2Geometry *g, const NxSdl2GeometryApi *api,
++		NxSdl2GeometryLog log, void *log_userdata) {
++	if (!g) {
++		return;
++	}
++	FILE *receipt = g->receipt;
++	*g = NxSdl2Geometry();
++	g->receipt = receipt;
++	if (api) {
++		g->api = *api;
++	}
++	g->log = log;
++	g->log_userdata = log_userdata;
++}
++
++void nx_sdl2_geometry_set_raw_fb(NxSdl2Geometry *g, int w, int h) {
++	if (!g) {
++		return;
++	}
++	g->raw_fb_w = w > 0 ? w : 0;
++	g->raw_fb_h = h > 0 ? h : 0;
++}
++
++void nx_sdl2_geometry_prepare_app_id(NxSdl2Geometry *g) {
++	if (!g) {
++		return;
++	}
++	const char *from_env = getenv("SDL_APP_ID");
++	const char *from_wmclass = getenv("SDL_VIDEO_WAYLAND_WMCLASS");
++	if (from_env && from_env[0]) {
++		copy_bounded(g->app_id, sizeof(g->app_id), from_env);
++		copy_bounded(g->app_id_source, sizeof(g->app_id_source), "SDL_APP_ID");
++	} else if (from_wmclass && from_wmclass[0]) {
++		copy_bounded(g->app_id, sizeof(g->app_id), from_wmclass);
++		copy_bounded(g->app_id_source, sizeof(g->app_id_source), "SDL_VIDEO_WAYLAND_WMCLASS");
++	} else {
++		char exe[1024];
++		ssize_t len = readlink("/proc/self/exe", exe, sizeof(exe) - 1);
++		if (len > 0) {
++			exe[len] = 0;
++			const char *base = strrchr(exe, '/');
++			base = base ? base + 1 : exe;
++			copy_bounded(g->app_id, sizeof(g->app_id), base);
++			copy_bounded(g->app_id_source, sizeof(g->app_id_source), "exe");
++		}
++	}
++	if (!g->app_id[0]) {
++		copy_bounded(g->app_id_source, sizeof(g->app_id_source), "none");
++		logf(g, "nx/sdl2: no app id source (SDL_APP_ID, SDL_VIDEO_WAYLAND_WMCLASS, /proc/self/exe)");
++		return;
++	}
++	if (g->api.SetHint) {
++		g->app_id_hint_set = g->api.SetHint("SDL_APP_ID", g->app_id) != 0;
++	} else {
++		logf(g, "nx/sdl2: SDL_SetHint unavailable; SDL_APP_ID hint not set");
++	}
++	// overwrite=0: an inherited value always wins.
++	g->app_id_env_set = setenv("SDL_VIDEO_WAYLAND_WMCLASS", g->app_id, 0) == 0;
++	logf(g, "nx/sdl2: app id '%s' from %s (hint %s, wmclass env %s)", g->app_id,
++			g->app_id_source, g->app_id_hint_set ? "set" : "not set",
++			g->app_id_env_set ? "exported" : "unchanged");
++}
++
++void nx_sdl2_geometry_initial_request(NxSdl2Geometry *g, int *w, int *h) {
++	if (!w || !h) {
++		return;
++	}
++	*w = NX_SDL2_GEOMETRY_FALLBACK_W;
++	*h = NX_SDL2_GEOMETRY_FALLBACK_H;
++	if (!g) {
++		return;
++	}
++	g->display_index = 0;
++	if (refresh_display_bounds(g)) {
++		*w = g->display_w;
++		*h = g->display_h;
++	} else {
++		logf(g, "nx/sdl2: requesting fallback %dx%d (raw fb %dx%d is not a window authority)",
++				*w, *h, g->raw_fb_w, g->raw_fb_h);
++	}
++	g->requested_w = *w;
++	g->requested_h = *h;
++}
++
++int nx_sdl2_geometry_attach_window(NxSdl2Geometry *g, NxSDL_Window *window,
++		int timeout_ms) {
++	if (!g || !window) {
++		return -1;
++	}
++	g->window = window;
++	g->configure_events = 0;
++	g->timed_out = false;
++	g->configured = false;
++	copy_bounded(g->video_driver, sizeof(g->video_driver),
++			g->api.GetCurrentVideoDriver ? g->api.GetCurrentVideoDriver() : nullptr);
++
++	if (g->api.GetWindowDisplayIndex) {
++		int index = g->api.GetWindowDisplayIndex(window);
++		if (index >= 0 && index != g->display_index) {
++			g->display_index = index;
++			refresh_display_bounds(g);
++		}
++	}
++	ensure_fullscreen(g);
++
++	if (timeout_ms < 0) {
++		timeout_ms = NX_SDL2_GEOMETRY_DEFAULT_TIMEOUT_MS;
++	}
++	const int64_t started = monotonic_ms();
++	int prev_w = -1;
++	int prev_h = -1;
++	int window_w = 0;
++	int window_h = 0;
++	int drawable_w = 0;
++	int drawable_h = 0;
++	for (;;) {
++		drain_events(g);
++		query_sizes(g, &window_w, &window_h, &drawable_w, &drawable_h);
++		const bool nonzero = drawable_w > 0 && drawable_h > 0;
++		const bool matches_display = nonzero && g->display_w > 0 &&
++				drawable_w == g->display_w && drawable_h == g->display_h;
++		const bool stable = nonzero && drawable_w == prev_w && drawable_h == prev_h;
++		if (matches_display || (stable && (g->configure_events > 0 || g->display_w <= 0))) {
++			g->configured = true;
++			break;
++		}
++		const int64_t elapsed = monotonic_ms() - started;
++		if (elapsed >= timeout_ms) {
++			g->timed_out = true;
++			break;
++		}
++		prev_w = drawable_w;
++		prev_h = drawable_h;
++		sleep_ms(NX_SDL2_GEOMETRY_STEP_MS);
++	}
++	g->wait_ms = (int)(monotonic_ms() - started);
++	g->configured_w = window_w;
++	g->configured_h = window_h;
++	g->drawable_w = drawable_w;
++	g->drawable_h = drawable_h;
++	g->logical_w = drawable_w;
++	g->logical_h = drawable_h;
++
++	if (g->timed_out) {
++		logf(g, "nx/sdl2: configure wait TIMED OUT after %d ms (display %dx%d, drawable %dx%d, configure_events=%d)",
++				g->wait_ms, g->display_w, g->display_h, drawable_w, drawable_h,
++				g->configure_events);
++	}
++	logf(g, "nx/sdl2: driver '%s' display %dx%d requested %dx%d configured %dx%d drawable %dx%d configure_events=%d",
++			g->video_driver, g->display_w, g->display_h, g->requested_w, g->requested_h,
++			g->configured_w, g->configured_h, g->drawable_w, g->drawable_h,
++			g->configure_events);
++	if (g->logical_w <= 0 || g->logical_h <= 0) {
++		logf(g, "nx/sdl2: firmware reported no drawable size.");
++		return -1;
++	}
++	return 0;
++}
++
++bool nx_sdl2_geometry_poll(NxSdl2Geometry *g) {
++	if (!g || !g->window) {
++		return false;
++	}
++	drain_events(g);
++	int window_w, window_h, drawable_w, drawable_h;
++	query_sizes(g, &window_w, &window_h, &drawable_w, &drawable_h);
++	if (drawable_w <= 0 || drawable_h <= 0) {
++		return false;
++	}
++	if (drawable_w == g->logical_w && drawable_h == g->logical_h) {
++		return false;
++	}
++	logf(g, "nx/sdl2: drawable changed %dx%d -> %dx%d (window %dx%d)",
++			g->logical_w, g->logical_h, drawable_w, drawable_h, window_w, window_h);
++	g->configured_w = window_w;
++	g->configured_h = window_h;
++	g->drawable_w = drawable_w;
++	g->drawable_h = drawable_h;
++	g->logical_w = drawable_w;
++	g->logical_h = drawable_h;
++	g->resize_count++;
++	return true;
++}
++
++bool nx_sdl2_geometry_receipt_open(NxSdl2Geometry *g, const char *path) {
++	if (!g) {
++		return false;
++	}
++	nx_sdl2_geometry_receipt_close(g);
++	g->receipt = open_receipt(path);
++	if (!g->receipt) {
++		if (path && path[0]) {
++			logf(g, "nx/sdl2: geometry receipt unavailable (%d)", errno);
++		}
++		return false;
++	}
++	return true;
++}
++
++void nx_sdl2_geometry_receipt_close(NxSdl2Geometry *g) {
++	if (g && g->receipt) {
++		fclose(g->receipt);
++		g->receipt = nullptr;
++	}
++}
++
++void nx_sdl2_geometry_write_init(NxSdl2Geometry *g, const char *provider) {
++	if (!g || !g->receipt || g->init_written) {
++		return;
++	}
++	g->init_written = true;
++	write_init_line(g->receipt, provider ? provider : "sdl2", g->video_driver,
++			g->app_id, g->app_id_source, g->raw_fb_w, g->raw_fb_h,
++			g->display_w, g->display_h, g->requested_w, g->requested_h,
++			g->configured_w, g->configured_h, g->drawable_w, g->drawable_h,
++			g->fullscreen, g->configure_events, g->wait_ms, g->timed_out);
++}
++
++void nx_sdl2_geometry_write_resize(NxSdl2Geometry *g, bool notified) {
++	if (!g || !g->receipt) {
++		return;
++	}
++	fprintf(g->receipt,
++			"{\"schema\":\"" NX_SDL2_GEOMETRY_RECEIPT_SCHEMA "\",\"kind\":\"resize\","
++			"\"w\":%d,\"h\":%d,\"drawable_w\":%d,\"drawable_h\":%d,\"notified\":%s}\n",
++			g->logical_w, g->logical_h, g->drawable_w, g->drawable_h,
++			notified ? "true" : "false");
++	fflush(g->receipt);
++}
++
++bool nx_sdl2_geometry_write_aspect(const char *path, const char *provider,
++		const char *requested, const char *project_value, const char *effective,
++		const char *source, int changed, int drawable_w, int drawable_h,
++		int content_x, int content_y, int content_w, int content_h) {
++	FILE *stream = open_receipt(path);
++	if (!stream) {
++		return false;
++	}
++	char provider_e[64], requested_e[64], project_e[64], effective_e[64], source_e[64];
++	nx_sdl2_geometry_json_escape(provider ? provider : "", provider_e, sizeof provider_e);
++	nx_sdl2_geometry_json_escape(requested ? requested : "", requested_e, sizeof requested_e);
++	nx_sdl2_geometry_json_escape(project_value ? project_value : "", project_e, sizeof project_e);
++	nx_sdl2_geometry_json_escape(effective ? effective : "", effective_e, sizeof effective_e);
++	nx_sdl2_geometry_json_escape(source ? source : "", source_e, sizeof source_e);
++	fprintf(stream,
++			"{\"schema\":\"nx-geometry-proof/1\",\"kind\":\"aspect\","
++			"\"policy_schema\":\"nx-aspect-policy/1\",\"provider\":\"%s\","
++			"\"requested\":\"%s\",\"project_value\":\"%s\",\"effective\":\"%s\","
++			"\"source\":\"%s\",\"changed\":%s,\"drawable_w\":%d,\"drawable_h\":%d,"
++			"\"content_x\":%d,\"content_y\":%d,\"content_w\":%d,\"content_h\":%d}\n",
++			provider_e, requested_e, project_e, effective_e, source_e,
++			changed ? "true" : "false", drawable_w, drawable_h,
++			content_x, content_y, content_w, content_h);
++	fclose(stream);
++	return true;
++}
++
++bool nx_sdl2_geometry_write_fbdev_init(const char *path, int raw_w, int raw_h) {
++	FILE *stream = open_receipt(path);
++	if (!stream) {
++		return false;
++	}
++	write_init_line(stream, "fbdev", "", "", "", raw_w, raw_h, raw_w, raw_h,
++			raw_w, raw_h, raw_w, raw_h, raw_w, raw_h, true, 0, 0, false);
++	fclose(stream);
++	return true;
++}
+diff --git a/platform/linuxbsd/fbdev/nx_sdl2_geometry.h b/platform/linuxbsd/fbdev/nx_sdl2_geometry.h
+new file mode 100644
+index 0000000..e1e2573
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/nx_sdl2_geometry.h
+@@ -0,0 +1,174 @@
++/* SPDX-License-Identifier: GPL-3.0-only */
++// NextOS SDL2 window geometry authority (Tearscape 0.2.16).
++//
++// On a compositor session (SDL2 video driver "wayland") the raw /dev/fb0
++// geometry describes the PANEL (portrait on a Retroid-class handheld) while
++// the compositor publishes a LOGICAL output (landscape). A display server that
++// requests the raw panel size, never pumps SDL events and never waits for the
++// first authoritative configure keeps rendering at the wrong geometry.
++//
++// This unit is the single owner of the SDL2 window geometry used by the fbdev
++// display server when the SDL2 provider is active:
++//
++//   * the initial request comes from SDL's own display authority
++//     (SDL_GetDisplayBounds / SDL_GetCurrentDisplayMode /
++//     SDL_GetDisplayUsableBounds), never from /dev/fb0;
++//   * the SDL_APP_ID hint and SDL_VIDEO_WAYLAND_WMCLASS are derived from the
++//     environment or the executable basename before the video subsystem is
++//     initialized;
++//   * after the window exists, fullscreen is ensured from inside the runtime
++//     and the first authoritative configure is awaited for a bounded time;
++//   * once per frame the live drawable is re-read and a change is reported so
++//     the engine can resize its viewport;
++//   * a JSON-lines receipt ("nx-geometry-proof/1") records all of the above.
++//
++// Everything reaches SDL through the dlsym'd table below. Every entry is
++// optional: a missing symbol degrades to a logged fallback, never a crash.
++// The unit has no Godot, SDL header or libwayland dependency so a host test
++// can drive it against a fake libSDL2. It is capability-based: it never tests
++// device names, CFW names, VID/PID or fixed resolutions.
++#pragma once
++
++#include <stdint.h>
++#include <stdio.h>
++
++typedef struct NxSDL_Window NxSDL_Window;
++
++struct NxSdl2GeometryRect {
++	int x;
++	int y;
++	int w;
++	int h;
++};
++
++// SDL2 SDL_DisplayMode layout (ABI-stable across SDL 2.0.x).
++struct NxSdl2GeometryDisplayMode {
++	uint32_t format;
++	int w;
++	int h;
++	int refresh_rate;
++	void *driverdata;
++};
++
++// Subset of the SDL2 C API the geometry authority consumes. Any pointer may be
++// null; the unit logs the fallback it takes.
++struct NxSdl2GeometryApi {
++	const char *(*GetCurrentVideoDriver)(void) = nullptr;
++	int (*SetHint)(const char *, const char *) = nullptr;
++	int (*GetDisplayBounds)(int, NxSdl2GeometryRect *) = nullptr;
++	int (*GetDisplayUsableBounds)(int, NxSdl2GeometryRect *) = nullptr;
++	int (*GetCurrentDisplayMode)(int, NxSdl2GeometryDisplayMode *) = nullptr;
++	int (*GetWindowDisplayIndex)(NxSDL_Window *) = nullptr;
++	void (*PumpEvents)(void) = nullptr;
++	int (*PeepEvents)(void *, int, int, uint32_t, uint32_t) = nullptr;
++	void (*FlushEvents)(uint32_t, uint32_t) = nullptr;
++	void (*GL_GetDrawableSize)(NxSDL_Window *, int *, int *) = nullptr;
++	void (*GetWindowSize)(NxSDL_Window *, int *, int *) = nullptr;
++	uint32_t (*GetWindowFlags)(NxSDL_Window *) = nullptr;
++	int (*SetWindowFullscreen)(NxSDL_Window *, uint32_t) = nullptr;
++};
++
++typedef void (*NxSdl2GeometryLog)(void *userdata, const char *line);
++
++enum {
++	NX_SDL2_GEOMETRY_DEFAULT_TIMEOUT_MS = 1500,
++	NX_SDL2_GEOMETRY_STEP_MS = 10,
++	NX_SDL2_GEOMETRY_FALLBACK_W = 640,
++	NX_SDL2_GEOMETRY_FALLBACK_H = 480,
++};
++
++#define NX_SDL2_GEOMETRY_RECEIPT_SCHEMA "nx-geometry-proof/1"
++
++struct NxSdl2Geometry {
++	NxSdl2GeometryApi api;
++	NxSdl2GeometryLog log = nullptr;
++	void *log_userdata = nullptr;
++	NxSDL_Window *window = nullptr;
++
++	char video_driver[32] = {};
++	char app_id[128] = {};
++	char app_id_source[32] = {};
++	bool app_id_hint_set = false;
++	bool app_id_env_set = false;
++
++	// Raw panel geometry as reported by the framebuffer node. Informational
++	// for the SDL2 provider: it is NEVER used as the logical window size.
++	int raw_fb_w = 0;
++	int raw_fb_h = 0;
++
++	int display_index = 0;
++	int display_w = 0;
++	int display_h = 0;
++	int requested_w = 0;
++	int requested_h = 0;
++	int configured_w = 0; // SDL_GetWindowSize after the configure wait
++	int configured_h = 0;
++	int drawable_w = 0; // SDL_GL_GetDrawableSize after the configure wait
++	int drawable_h = 0;
++	int logical_w = 0; // live authoritative size the engine must use
++	int logical_h = 0;
++
++	bool fullscreen = false;
++	bool fullscreen_forced = false;
++	int configure_events = 0;
++	int wait_ms = 0;
++	bool timed_out = false;
++	bool configured = false;
++	int resize_count = 0;
++
++	FILE *receipt = nullptr;
++	bool init_written = false;
++};
++
++// Bind the optional table from an already-open SDL2 handle. `resolve` is the
++// caller's symbol lookup (a dlsym wrapper); the unit itself never links dlfcn.
++void nx_sdl2_geometry_bind(NxSdl2GeometryApi *api, void *handle,
++		void *(*resolve)(void *handle, const char *name));
++
++void nx_sdl2_geometry_init(NxSdl2Geometry *g, const NxSdl2GeometryApi *api,
++		NxSdl2GeometryLog log, void *log_userdata);
++
++void nx_sdl2_geometry_set_raw_fb(NxSdl2Geometry *g, int w, int h);
++
++// Before SDL_InitSubSystem(VIDEO). Resolves the app id from env SDL_APP_ID,
++// else env SDL_VIDEO_WAYLAND_WMCLASS, else the executable basename; sets the
++// SDL_APP_ID hint when SDL_SetHint exists and exports
++// SDL_VIDEO_WAYLAND_WMCLASS without overwriting an inherited value.
++void nx_sdl2_geometry_prepare_app_id(NxSdl2Geometry *g);
++
++// After the video subsystem is up, before SDL_CreateWindow: the size to
++// request, from SDL's display authority (fallback 640x480).
++void nx_sdl2_geometry_initial_request(NxSdl2Geometry *g, int *w, int *h);
++
++// After the window and context exist. Records the driver, refreshes the
++// display bounds for the window's display, ensures fullscreen and waits up to
++// `timeout_ms` for the first authoritative configure. Returns 0 when a usable
++// non-zero size is known (possibly after a logged timeout), -1 otherwise.
++int nx_sdl2_geometry_attach_window(NxSdl2Geometry *g, NxSDL_Window *window,
++		int timeout_ms);
++
++// Once per frame. Pumps SDL events (this process owns the SDL2 queue: the
++// engine's joypad path lives in a separately linked SDL3) and re-reads the
++// drawable. Returns true when logical_w/logical_h changed.
++bool nx_sdl2_geometry_poll(NxSdl2Geometry *g);
++
++// Receipt ("nx-geometry-proof/1", JSON lines, append, line-buffered).
++bool nx_sdl2_geometry_receipt_open(NxSdl2Geometry *g, const char *path);
++void nx_sdl2_geometry_receipt_close(NxSdl2Geometry *g);
++void nx_sdl2_geometry_write_init(NxSdl2Geometry *g, const char *provider);
++void nx_sdl2_geometry_write_resize(NxSdl2Geometry *g, bool notified);
++
++// The raw fbdev/EGL provider proves non-regression with the same schema: the
++// panel geometry is authoritative there, so every size equals the raw one.
++bool nx_sdl2_geometry_write_fbdev_init(const char *path, int raw_w, int raw_h);
++
++/* NEXTOS_SETTINGS/2 aspect decision (nx-aspect-policy/1): one "aspect" line
++ * appended to the same receipt, for either provider, right after the
++ * provider is accepted and before the engine builds the root window. */
++bool nx_sdl2_geometry_write_aspect(const char *path, const char *provider,
++		const char *requested, const char *project_value, const char *effective,
++		const char *source, int changed, int drawable_w, int drawable_h,
++		int content_x, int content_y, int content_w, int content_h);
++
++// Escapes a string for a JSON literal (without quotes). Exposed for tests.
++void nx_sdl2_geometry_json_escape(const char *in, char *out, size_t cap);
+diff --git a/platform/linuxbsd/fbdev/nx_symver.c b/platform/linuxbsd/fbdev/nx_symver.c
+new file mode 100644
+index 0000000..134a803
+--- /dev/null
++++ b/platform/linuxbsd/fbdev/nx_symver.c
+@@ -0,0 +1,137 @@
++/* Keep these helpers local so the public engine does not inherit a newer libc
++ * or libm symbol merely because a build toolchain gained one. Definitions in
++ * this TU let the static link resolve every internal reference here. */
++#define _GNU_SOURCE 1
++
++#include <errno.h>
++#include <fcntl.h>
++#include <math.h>
++#include <stddef.h>
++#include <sys/stat.h>
++#include <sys/syscall.h>
++#include <unistd.h>
++
++#if !defined(SYS_getrandom) || !defined(SYS_openat) || \
++        !defined(SYS_fstat) || !defined(SYS_read) || !defined(SYS_close)
++#error "NextOS port getentropy replacement requires Linux entropy syscalls"
++#endif
++
++static int nx_close_entropy_fd(long fd, int result)
++{
++    int saved_errno = errno;
++    long close_result = syscall(SYS_close, fd);
++
++    if (result < 0) {
++        errno = saved_errno;
++        return -1;
++    }
++    if (close_result < 0) {
++        return -1;
++    }
++    return 0;
++}
++
++static int nx_fill_from_urandom(unsigned char *output, size_t length)
++{
++    long fd;
++    struct stat status;
++    size_t completed = 0;
++    int result = 0;
++
++    do {
++        fd = syscall(SYS_openat, AT_FDCWD, "/dev/urandom",
++                O_RDONLY | O_CLOEXEC | O_NOCTTY | O_NOFOLLOW, 0);
++    } while (fd < 0 && errno == EINTR);
++    if (fd < 0) {
++        return -1;
++    }
++
++    if (syscall(SYS_fstat, fd, &status) < 0) {
++        return nx_close_entropy_fd(fd, -1);
++    }
++    if (!S_ISCHR(status.st_mode)) {
++        errno = EIO;
++        return nx_close_entropy_fd(fd, -1);
++    }
++
++    while (completed < length) {
++        long count = syscall(SYS_read, fd, output + completed,
++                length - completed);
++
++        if (count > 0) {
++            if ((size_t)count > length - completed) {
++                errno = EIO;
++                result = -1;
++                break;
++            }
++            completed += (size_t)count;
++            continue;
++        }
++        if (count < 0 && errno == EINTR) {
++            continue;
++        }
++        if (count == 0) {
++            errno = EIO;
++        }
++        result = -1;
++        break;
++    }
++
++    return nx_close_entropy_fd(fd, result);
++}
++
++int getentropy(void *buffer, size_t length)
++{
++    unsigned char *output = buffer;
++    size_t completed = 0;
++
++    if (length > 256) {
++        errno = EIO;
++        return -1;
++    }
++    if (length == 0) {
++        return 0;
++    }
++    if (buffer == NULL) {
++        errno = EFAULT;
++        return -1;
++    }
++
++    while (completed < length) {
++        long count = syscall(SYS_getrandom, output + completed,
++                length - completed, 0);
++
++        if (count > 0) {
++            if ((size_t)count > length - completed) {
++                errno = EIO;
++                return -1;
++            }
++            completed += (size_t)count;
++            continue;
++        }
++        if (count < 0 && errno == EINTR) {
++            continue;
++        }
++        if (count < 0 && errno != ENOSYS && errno != EPERM) {
++            return -1;
++        }
++        break;
++    }
++
++    if (completed == length) {
++        return 0;
++    }
++    return nx_fill_from_urandom(output + completed, length - completed);
++}
++
++double cosh(double x)
++{
++    double e = exp(x);
++    return 0.5 * (e + 1.0 / e);
++}
++
++double sinh(double x)
++{
++    double e = exp(x);
++    return 0.5 * (e - 1.0 / e);
++}
+diff --git a/platform/linuxbsd/os_linuxbsd.cpp b/platform/linuxbsd/os_linuxbsd.cpp
+index b3c46e0..df47665 100644
+--- a/platform/linuxbsd/os_linuxbsd.cpp
++++ b/platform/linuxbsd/os_linuxbsd.cpp
+@@ -30,6 +30,10 @@
+ 
+ #include "os_linuxbsd.h"
+ 
++#ifdef FBDEV_ENABLED
++#include "fbdev/display_server_fbdev.h"
++#endif
++
+ #include "core/io/certs_compressed.gen.h"
+ #include "core/io/dir_access.h"
+ #include "core/io/file_access.h"
+@@ -993,10 +997,29 @@ void OS_LinuxBSD::run() {
+ 	while (true) {
+ 		GodotProfileFrameMark;
+ 		GodotProfileZone("OS_LinuxBSD::run");
++#ifdef FBDEV_ENABLED
++		DisplayServer *display_server = DisplayServer::get_singleton();
++		if (display_server && display_server->get_name() == "fbdev") {
++			static_cast<DisplayServerFBDev *>(display_server)->refresh_controls_before_events();
++		}
++#endif
+ 		DisplayServer::get_singleton()->process_events(); // get rid of pending events
+ #ifdef SDL_ENABLED
+ 		if (joypad_sdl) {
+ 			joypad_sdl->process_events();
++#ifdef FBDEV_ENABLED
++			if (joypad_sdl->consume_nextos_quit_chord_request()) {
++				print_verbose("NX exit chord request consumed");
++				if (display_server && display_server->get_name() == "fbdev") {
++					static_cast<DisplayServerFBDev *>(display_server)->request_close();
++				}
++			}
++#endif
++		}
++#endif
++#ifdef FBDEV_ENABLED
++		if (display_server && display_server->get_name() == "fbdev") {
++			static_cast<DisplayServerFBDev *>(display_server)->publish_health_after_iteration();
+ 		}
+ #endif
+ 		if (Main::iteration()) {
+@@ -1304,6 +1327,10 @@ OS_LinuxBSD::OS_LinuxBSD() {
+ 	DisplayServerX11::register_x11_driver();
+ #endif
+ 
++#ifdef FBDEV_ENABLED
++	DisplayServerFBDev::register_fbdev_driver();
++#endif
++
+ #ifdef WAYLAND_ENABLED
+ 	DisplayServerWayland::register_wayland_driver();
+ #endif
+diff --git a/thirdparty/glad/egl.c b/thirdparty/glad/egl.c
+index c88d6c1..15622bb 100644
+--- a/thirdparty/glad/egl.c
++++ b/thirdparty/glad/egl.c
+@@ -368,6 +368,18 @@ static void* glad_egl_dlopen_handle(void) {
+     static const char *NAMES[] = {"libEGL.so.1", "libEGL.so"};
+ #endif
+ 
++#if defined(FBDEV_ENABLED) && !GLAD_PLATFORM_APPLE && !GLAD_PLATFORM_WIN32
++    if (_egl_handle == NULL) {
++        const char *defaults = getenv("NX_TEARSCAPE_DEFAULTS");
++        const char *library = getenv("NX_TEARSCAPE_EGL_LIBRARY");
++        if (defaults != NULL && strcmp(defaults, "1") == 0 &&
++                library != NULL && library[0] == '/') {
++            const char *PORT_NAMES[] = {library};
++            _egl_handle = glad_get_dlopen_handle(PORT_NAMES, sizeof(PORT_NAMES) / sizeof(PORT_NAMES[0]));
++        }
++    }
++#endif
++
+     if (_egl_handle == NULL) {
+         _egl_handle = glad_get_dlopen_handle(NAMES, sizeof(NAMES) / sizeof(NAMES[0]));
+     }
+diff --git a/thirdparty/glad/gl.c b/thirdparty/glad/gl.c
+index ee0cc18..b18d6f3 100644
+--- a/thirdparty/glad/gl.c
++++ b/thirdparty/glad/gl.c
+@@ -2674,6 +2674,18 @@ static void* glad_gles2_dlopen_handle(void) {
+     GLAD_UNUSED(glad_get_dlopen_handle);
+     return NULL;
+ #else
++#if defined(FBDEV_ENABLED) && !GLAD_PLATFORM_APPLE && !GLAD_PLATFORM_WIN32
++    if (_glad_GL_loader_handle == NULL) {
++        const char *defaults = getenv("NX_TEARSCAPE_DEFAULTS");
++        const char *library = getenv("NX_TEARSCAPE_GLES2_LIBRARY");
++        if (defaults != NULL && strcmp(defaults, "1") == 0 &&
++                library != NULL && library[0] == '/') {
++            const char *PORT_NAMES[] = {library};
++            _glad_GL_loader_handle = glad_get_dlopen_handle(PORT_NAMES, sizeof(PORT_NAMES) / sizeof(PORT_NAMES[0]));
++        }
++    }
++#endif
++
+     if (_glad_GL_loader_handle == NULL) {
+         _glad_GL_loader_handle = glad_get_dlopen_handle(NAMES, sizeof(NAMES) / sizeof(NAMES[0]));
+     }

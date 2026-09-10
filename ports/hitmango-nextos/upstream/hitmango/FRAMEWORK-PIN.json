@@ -1,0 +1,22 @@
+{
+  "schema": "nextos-framework-pin-v1",
+  "snapshot": {
+    "tag": "nxrelease-v0.2.12",
+    "commit": "f7b6dcabcf290b9b4579d78f0bc8f5373c9ebc1e"
+  },
+  "components": {
+    "nxgenerator": {"version": "0.2.8", "tag": "nxgenerator-v0.2.8", "archive_sha256": "d1ba44be7250d9ea9438794b4eb118639434b6c914c722a8feb42c28f96b24be"},
+    "nxbootstrap": {"version": "0.6.14", "tag": "nxbootstrap-v0.6.14", "archive_sha256": "7b20de50b5b633e8d6235730d539ab4ab5848bf118cd58d0e93a31f43023a4b1"},
+    "nxsplash": {"version": "0.1.2", "tag": "nxsplash-v0.1.2", "archive_sha256": "06cca38c70b3b8e5e216773dbd7629c470792d13c1db6ec10ffe409d82bbc284"},
+    "nxextract": {"version": "1.2.9", "tag": "nxextract-v1.2.9", "archive_sha256": "57e7cb368754250f5782f8f0f80fef15aba9ff6b57f4dcf1f260de55d7deff92"},
+    "nxloader": {"version": "0.7.2", "tag": "nxloader-v0.7.2", "archive_sha256": "f26bfd750d104f0ee806f20c0f98b7db9c8ae45b1de28a72ebcb91c6c81354fa"},
+    "nxcompat": {"version": "0.2.1", "tag": "nxgl-v0.2.6", "archive_sha256": "3cd352b2a05810ac953d756a564ae0308dd8d2b2bd2e22441635eb7654c50558"},
+    "nxgl": {"version": "0.2.6", "tag": "nxgl-v0.2.6", "archive_sha256": "29c8310b30312c5a0c7427794a1aca1803a1e1951740bfdbd78d3af6d21c9033"},
+    "nxaudio": {"version": "0.2.0", "tag": "nxgl-v0.2.6", "archive_sha256": "3eb6f1b11ad5e6da099922f81aaefead6dd8997b4e1544c7f99921f411364d07"},
+    "nxinput": {"version": "0.3.1", "tag": "nxgl-v0.2.6", "archive_sha256": "8e6c964a04d8f62fb3c66c3d49c8b577501caabf2b4bb6da98502b949fd6e3f3"},
+    "nxandroid": {"version": "0.2.1", "tag": "nxandroid-v0.2.1", "archive_sha256": "f98572b2c2c882ec9a8d2c1a701b78592783555664400e3abd70e3827011fc27"},
+    "nxabi": {"version": "0.1.0", "tag": "nxgl-v0.2.6", "archive_sha256": "d8a8f59c8bd00fb7155456ef53df15261d1a0b4f19f8c703177f0506205dffc0"},
+    "nxrelease": {"version": "0.2.12", "tag": "nxrelease-v0.2.12", "archive_sha256": "d3a3069d169bc95ee21b5f91aeacc8f3d6864ead7954aa8a4221a4eb6c0febf7"},
+    "nxobs": {"version": "0.1.0", "tag": "nxgl-v0.2.6", "archive_sha256": "33be5d43fe1f97b076367f42c9ac6f768283382bac5ed23256dc42650be0d7e0"}
+  }
+}

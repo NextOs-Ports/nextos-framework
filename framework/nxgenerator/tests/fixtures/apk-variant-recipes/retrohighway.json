@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "retrohighway",
+  "version": "1.2.8-1",
+  "title": "RETRO HIGHWAY",
+  "abi_order": ["arm64-v8a"],
+  "input": {
+    "packages": ["com.nicolaigd.retrohighway"]
+  },
+  "extract": [
+    {
+      "id": "android-package",
+      "source": {"kind": "container"},
+      "destination": "runtime/retrohighway.apk",
+      "validate": {
+        "type": "file",
+        "min_size": 30000000,
+        "max_size": 209715200,
+        "magic_hex": "504b0304"
+      }
+    },
+    {
+      "id": "gamemaker-runner",
+      "source": {
+        "kind": "entry",
+        "patterns": ["lib/{abi}/libyoyo.so"]
+      },
+      "destination": "runtime/libyoyo.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 19645792,
+        "sha256": "f1287d2ac834e3d401d2840fd46c1088517e6b54baeda6c5d064693165b273d3"
+      }
+    }
+  ]
+}

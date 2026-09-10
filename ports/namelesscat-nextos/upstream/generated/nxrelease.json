@@ -1,0 +1,517 @@
+{
+  "dependencies": [
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "portmaster",
+      "soname": "libSDL2-2.0.so.0"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libc.so.6"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libdl.so.2"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "firmware",
+      "soname": "libgcc_s.so.1"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libm.so.6"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libpthread.so.0"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "firmware",
+      "soname": "libz.so.1"
+    }
+  ],
+  "exceptions": [],
+  "files": [
+    {
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "471999dec69300b042b3588abae73c10ee78df717795e24b27dc55ff17d100b7",
+      "source": "Nameless Cat.sh",
+      "target": "Nameless Cat.sh"
+    },
+    {
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "39e79bdbdc91c139a4cae5971714d1922ca978b883b0f0b8a437c69b87fd40e9",
+      "source": "namelesscat/nxport.json",
+      "target": "namelesscat/nxport.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "95099116520821734cc0997c107d905b102c21b45bcb95a0e12ac9aaeade2779",
+      "source": "namelesscat/nxproject.json",
+      "target": "namelesscat/nxproject.json"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "project-linux",
+      "mode": "0755",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "provenance": "port build script; framework pinned by FRAMEWORK-PIN.json",
+      "sha256": "b8c8be2d0ebada4e3709acd4adec782c130c7b9cf56578bc9f9eed31265d46a8",
+      "soname": null,
+      "source": "namelesscat/namelesscat-nextos",
+      "target": "namelesscat/namelesscat-nextos"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "7872f6c275579f072921f58bd44c482fadd231a2237d9975c836c98bb5e2354e",
+      "source": "namelesscat/README.md",
+      "target": "namelesscat/README.md"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "ca96664a64b0358bd4fb9051ee8daa098de4911d9e25f94ae746edd3a46bc7f4",
+      "source": "namelesscat/INSTALLATION.md",
+      "target": "namelesscat/INSTALLATION.md"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a",
+      "source": "namelesscat/LICENSE",
+      "target": "namelesscat/LICENSE"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "80f77c48ea5b738343283a62cda791d21ea2e8528d7121be2d448c1b6a98f5d9",
+      "source": "namelesscat/port.json",
+      "target": "namelesscat/port.json"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "ff545b7832ff522473da8129e4d898bac317adfe67d4cfa5bbd1e9d245b5d651",
+      "source": "namelesscat/gameinfo.xml",
+      "target": "namelesscat/gameinfo.xml"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXSplash 0.1.2 canonical aarch64 artifact",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "soname": null,
+      "source": "namelesscat/nxsplash-nextos",
+      "target": "namelesscat/nxsplash-nextos"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "085c36289f958b597e0c96de42d0d6c1d65254d22c5eea6a1ebb3ede7b200f36",
+      "source": "namelesscat/GENERATION.json",
+      "target": "namelesscat/GENERATION.json"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "10fb29a3437dc11cee988a35afd233bc9f7ce5f0e5cca2d966b59d1ab6fb8061",
+      "source": "namelesscat/NOTICE.md",
+      "target": "namelesscat/NOTICE.md"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "d9e8e8429c6a7d0b965e4fac26a5efff7103f055faa98cceb5bd4731fd24603a",
+      "source": "namelesscat/version.txt",
+      "target": "namelesscat/version.txt"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "da5fd90e09be1d6bb6b411b1c24b49f2640b0fdd0d4c80953fa90c6a97cd0458",
+      "source": "namelesscat/port-env.sh",
+      "target": "namelesscat/port-env.sh"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "ab73f5f99e3d97569620cfad2d87bb7bc47607f251b741355b5b4b4cd1bdfe1a",
+      "source": "namelesscat/defaults/NEXTOSCONTROLLERS.gptk",
+      "target": "namelesscat/defaults/NEXTOSCONTROLLERS.gptk"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "a1e9438fc352e432b7fd441f518cf8478fc6fc52a0add6104189c2c51fbfe03b",
+      "source": "namelesscat/defaults/NEXTOSSETTINGS.txt",
+      "target": "namelesscat/defaults/NEXTOSSETTINGS.txt"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "348f908207fce4069171d0cb5b8522da33eec729cfa17759da55e64fc3073531",
+      "source": "namelesscat/adapter/adapter-contract.json",
+      "target": "namelesscat/adapter/adapter-contract.json"
+    },
+    {
+      "kind": "nxruntime-seed",
+      "mode": "0644",
+      "sha256": "553c9e462252191e683b4aaae7bab47e8bb606e5007207be3e66fb30a87006d3",
+      "source": "namelesscat/nxruntime-27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef.nxb",
+      "target": "namelesscat/nxruntime-27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef.nxb"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "dc5b47738a50ea3b2d7bd23af4ab3ba1fba02086636dc6a2b0de720dafa7a05f",
+      "source": "namelesscat/gamedata/README.txt",
+      "target": "namelesscat/gamedata/README.txt"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788",
+      "source": "namelesscat/licenses/NXExtract-MIT.txt",
+      "target": "namelesscat/licenses/NXExtract-MIT.txt"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127",
+      "source": "namelesscat/licenses/SDL2-zlib.txt",
+      "target": "namelesscat/licenses/SDL2-zlib.txt"
+    },
+    {
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "b2b8122cde0ade9f949ac6e8557f76fd3287cf40ffbecd6260c379ffba149f3a",
+      "source": "namelesscat/extractor.json",
+      "target": "namelesscat/extractor.json"
+    },
+    {
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7",
+      "source": "namelesscat/nxextract/nxextract.py",
+      "target": "namelesscat/nxextract/nxextract.py"
+    },
+    {
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0",
+      "source": "namelesscat/nxextract/run-extractor.sh",
+      "target": "namelesscat/nxextract/run-extractor.sh"
+    },
+    {
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+      "source": "namelesscat/nxextract/nxextract-runtime-env.sh",
+      "target": "namelesscat/nxextract/nxextract-runtime-env.sh"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXExtract UI 1.3.0 canonical aarch64 artifact",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "soname": null,
+      "source": "namelesscat/nxextract/nxextract-ui",
+      "target": "namelesscat/nxextract/nxextract-ui"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663",
+      "source": "namelesscat/nxextract-version.txt",
+      "target": "namelesscat/nxextract-version.txt"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "939139ce7fde0c2bef4d3a062cddf3186b2ecb4eb5d4965b69a512f620cc9af9",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/commit",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/commit"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "b028a16660e19150c8140877f20ec155c36c50032926ed44082b1a7f8daf9644",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/components.sha256",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/components.sha256"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "2d888135c16c839e1f8d9013c98de05ed1686eee5014fa89362fd288989b96ae",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/components.v2",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/components.v2"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0755",
+      "sha256": "471999dec69300b042b3588abae73c10ee78df717795e24b27dc55ff17d100b7",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/launcher/Nameless Cat.sh",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/launcher/Nameless Cat.sh"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "39e79bdbdc91c139a4cae5971714d1922ca978b883b0f0b8a437c69b87fd40e9",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/nxport.json",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/nxport.json"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "b2b8122cde0ade9f949ac6e8557f76fd3287cf40ffbecd6260c379ffba149f3a",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/extractor.json",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/extractor.json"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxruntime-generation-linux",
+      "mode": "0755",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "provenance": "port build script; framework pinned by FRAMEWORK-PIN.json",
+      "sha256": "b8c8be2d0ebada4e3709acd4adec782c130c7b9cf56578bc9f9eed31265d46a8",
+      "soname": null,
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/namelesscat-nextos",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/namelesscat-nextos"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract-runtime-env.sh",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract-runtime-env.sh"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxruntime-generation-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXExtract UI 1.3.0 canonical aarch64 artifact",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "soname": null,
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract-ui",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract-ui"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract.py",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/nxextract.py"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/run-extractor.sh",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxextract/run-extractor.sh"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxruntime-generation-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXSplash 0.1.2 canonical aarch64 artifact",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "soname": null,
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxsplash-nextos",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/nxsplash-nextos"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "da5fd90e09be1d6bb6b411b1c24b49f2640b0fdd0d4c80953fa90c6a97cd0458",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/port-env.sh",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/files/runtime/port-env.sh"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "aac4fb5944aa71482880d8838e4de375fd47c4c9a80b6c17043859aee6e20034",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/format",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/format"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "ca48bdc1b540a2e2cce44ed54da0ee8fd086591f27da0fc896bfa18d30e84254",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/identity-runtime.v2",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/identity-runtime.v2"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/identity.json",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/identity.json"
+    },
+    {
+      "kind": "nxruntime-generation",
+      "mode": "0644",
+      "sha256": "fc230b521e5629fda7f02d814db4323f557c65d39e601e1d15a4e9f3fb745d02",
+      "source": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/manifest.json",
+      "target": "namelesscat/.nxruntime/generations/27e8958c05ff381e789718cd131877957fb37d5ed01a19ee24eb50e151b5c1ef/manifest.json"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08",
+      "source": "namelesscat/NXSPLASH-LICENSE",
+      "target": "namelesscat/NXSPLASH-LICENSE"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "bfce688bb383cf2d239193ea3c4b3ea57b8bb28b06f46955b71bc0561ada139b",
+      "source": "namelesscat/controllers-modern.nxb",
+      "target": "namelesscat/controllers-modern.nxb"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "3429bb94a48930b8cc9abb768957815138c686fd2436aca6eadadb5b6a3359f0",
+      "source": "namelesscat/controllers-retro.nxb",
+      "target": "namelesscat/controllers-retro.nxb"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "83e8023699486dee627245305026837b25c30549ced63744975916fdc32fb64b",
+      "source": "namelesscat/controllers.nxb",
+      "target": "namelesscat/controllers.nxb"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "a44f55825d599db08f5c1b108580bdd17f0593becf85fbf12050764c911c28c8",
+      "source": "namelesscat/vendor/nxgl/PINS.json",
+      "target": "namelesscat/vendor/nxgl/PINS.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "26fbec425666d21ca151829bf130329081cf7289596c6f8e758baa5648b68998",
+      "source": "namelesscat/vendor/nxinput/PINS.json",
+      "target": "namelesscat/vendor/nxinput/PINS.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "22c7243582c5393314ccee4f7f06cb283785bc051b562a76db4b61d7a60e1294",
+      "source": "namelesscat/vendor/nxinput/engine-patches/C6-SDL-PROVENANCE.json",
+      "target": "namelesscat/vendor/nxinput/engine-patches/C6-SDL-PROVENANCE.json"
+    }
+  ],
+  "nxextract": {
+    "minimum_version": "1.3.0",
+    "path": "namelesscat/nxextract/nxextract.py",
+    "recipe_path": "namelesscat/extractor.json",
+    "recipe_sha256": "b2b8122cde0ade9f949ac6e8557f76fd3287cf40ffbecd6260c379ffba149f3a",
+    "runner_path": "namelesscat/nxextract/run-extractor.sh",
+    "runner_sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0",
+    "runtime_env_path": "namelesscat/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7",
+    "ui_path": "namelesscat/nxextract/nxextract-ui",
+    "ui_sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+    "version": "1.3.0"
+  },
+  "package": {
+    "id": "namelesscat",
+    "launcher": "Nameless Cat.sh",
+    "launcher_chain": [
+      "Nameless Cat.sh"
+    ],
+    "launcher_contract": {
+      "config_path": "namelesscat/nxport.json",
+      "config_sha256": "39e79bdbdc91c139a4cae5971714d1922ca978b883b0f0b8a437c69b87fd40e9",
+      "generator": "nxbootstrap",
+      "version": "0.7.8"
+    },
+    "license": {
+      "file": "namelesscat/LICENSE",
+      "source_url": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "spdx_id": "GPL-3.0-only"
+    },
+    "port_dir": "namelesscat",
+    "profile": "universal-portmaster",
+    "version": "1.2.7"
+  },
+  "portmaster_metadata": {
+    "gameinfo_xml": {
+      "path": "namelesscat/gameinfo.xml",
+      "sha256": "ff545b7832ff522473da8129e4d898bac317adfe67d4cfa5bbd1e9d245b5d651"
+    },
+    "images": [],
+    "port_json": {
+      "path": "namelesscat/port.json",
+      "sha256": "80f77c48ea5b738343283a62cda791d21ea2e8528d7121be2d448c1b6a98f5d9"
+    }
+  },
+  "release": {
+    "compression": "deflated",
+    "max_glibc": "2.30",
+    "source_date_epoch": 1786492800
+  },
+  "schema_version": 2,
+  "source_root": "."
+}

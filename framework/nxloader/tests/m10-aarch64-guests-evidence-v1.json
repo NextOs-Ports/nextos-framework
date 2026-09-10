@@ -1,0 +1,818 @@
+{
+  "completed_utc": "2026-08-29T08:38:23Z",
+  "created_utc": "2026-08-29T08:38:22Z",
+  "expected_manifest_sha256": "e6a46cb0f142a4ab6eb681295bccbdfd9b57f6bd6c4d95ee61338428db33ff13",
+  "guests": [
+    {
+      "abi": {
+        "abi_version": 0,
+        "elf_class": 2,
+        "elf_data": 1,
+        "elf_type": 3,
+        "elf_version": 1,
+        "flags": 0,
+        "machine": 183,
+        "osabi": 0
+      },
+      "dynamic_symbol_count": 50356,
+      "id": "bully2-libgame",
+      "init_array_entries": 506,
+      "init_array_relocations": {
+        "R_AARCH64_RELATIVE": 506
+      },
+      "inspector": {
+        "elapsed_ns": 31577527,
+        "finalize_executed": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 55356,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--relocate",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "10",
+          "relocations": "75033",
+          "segments": "3",
+          "symbols": "50356"
+        },
+        "resolve_executed": 0,
+        "status": "PASS",
+        "stderr_bytes": 210,
+        "stderr_sha256": "73b2cc190d6e47e8c18549edbe97d5e751d5ee5c77e25e970b9762f417c4c481",
+        "stderr_truncated": false,
+        "stdout_bytes": 383,
+        "stdout_sha256": "6873b452e0bff0d6a3d11d3ec72ec18c3ab692096340b57d941b95b3b59bdff8",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "needed": [
+        "libandroid.so",
+        "liblog.so",
+        "libEGL.so",
+        "libGLESv3.so",
+        "libVendor_mpg123.so",
+        "libopenal.so",
+        "libm.so",
+        "libc++_shared.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "prohibitions": {
+        "packed_or_relr": 0,
+        "pt_interp": 0,
+        "pt_tls": 0,
+        "textrel": 0,
+        "tls_or_ifunc_symbols": 0,
+        "writable_executable_segments": 0
+      },
+      "pt_load_count": 3,
+      "pt_load_flags": [
+        5,
+        6,
+        6
+      ],
+      "registry": {
+        "added": 49938,
+        "device_access": 0,
+        "elapsed_ns": 55426571,
+        "eligible": 49938,
+        "equivalent": 0,
+        "finalize_executed": 0,
+        "guest_files_copied": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 55356,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--exports",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "registry_add_module_executed": 1,
+        "registry_create_executed": 1,
+        "relocate_executed": 1,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "10",
+          "relocations": "75033",
+          "segments": "3",
+          "symbols": "50356"
+        },
+        "reported_exports": {
+          "added": 49938,
+          "equivalent": 0
+        },
+        "resolve_executed": 0,
+        "static_inventory": {
+          "added": 49938,
+          "collisions": 0,
+          "eligible": 49938,
+          "equivalent": 0,
+          "ignored_lower_priority": 0,
+          "replaced_lower_priority": 0
+        },
+        "status": "PASS",
+        "stderr_bytes": 210,
+        "stderr_sha256": "73b2cc190d6e47e8c18549edbe97d5e751d5ee5c77e25e970b9762f417c4c481",
+        "stderr_truncated": false,
+        "stdout_bytes": 424,
+        "stdout_sha256": "99a2ff6a4be5f997bd5bb65cb7743d0e292a8c2b7fc1d22fdbfb4e28c03b8704",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "registry_exports": {
+        "added": 49938,
+        "collisions": 0,
+        "eligible": 49938,
+        "equivalent": 0,
+        "ignored_lower_priority": 0,
+        "replaced_lower_priority": 0
+      },
+      "relocation_count": 75033,
+      "relocations": {
+        "R_AARCH64_ABS64": 42596,
+        "R_AARCH64_GLOB_DAT": 7844,
+        "R_AARCH64_JUMP_SLOT": 12466,
+        "R_AARCH64_RELATIVE": 12127
+      },
+      "sha256": "345f6411bebbd2310b2cb5d2a271341847a054c2b7f6d5ffba8030cd53140d76",
+      "size": 19252456,
+      "static_validation": "PASS",
+      "static_validation_elapsed_ns": 150561856,
+      "total_elapsed_ns": 260365737
+    },
+    {
+      "abi": {
+        "abi_version": 0,
+        "elf_class": 2,
+        "elf_data": 1,
+        "elf_type": 3,
+        "elf_version": 1,
+        "flags": 0,
+        "machine": 183,
+        "osabi": 0
+      },
+      "dynamic_symbol_count": 29153,
+      "id": "sonic4ep2-libfox",
+      "init_array_entries": 46,
+      "init_array_relocations": {
+        "R_AARCH64_ABS64": 1,
+        "R_AARCH64_RELATIVE": 45
+      },
+      "inspector": {
+        "elapsed_ns": 20195540,
+        "finalize_executed": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 55356,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--relocate",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "8",
+          "relocations": "54962",
+          "segments": "2",
+          "symbols": "29153"
+        },
+        "resolve_executed": 0,
+        "status": "PASS",
+        "stderr_bytes": 233,
+        "stderr_sha256": "5eefddc6b2b8d468ae51bb3770cd763d438682bf6498381a0ab4eed43a0ed8df",
+        "stderr_truncated": false,
+        "stdout_bytes": 319,
+        "stdout_sha256": "4faafb00fa7d652f45272ae06226dfdd33bb1f269d7b67b63332f8ea34e15748",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "needed": [
+        "liblog.so",
+        "libGLESv2.so",
+        "libz.so",
+        "libEGL.so",
+        "libandroid.so",
+        "libdl.so",
+        "libc.so",
+        "libm.so"
+      ],
+      "prohibitions": {
+        "packed_or_relr": 0,
+        "pt_interp": 0,
+        "pt_tls": 0,
+        "textrel": 0,
+        "tls_or_ifunc_symbols": 0,
+        "writable_executable_segments": 0
+      },
+      "pt_load_count": 2,
+      "pt_load_flags": [
+        5,
+        6
+      ],
+      "registry": {
+        "added": 28776,
+        "device_access": 0,
+        "elapsed_ns": 33666493,
+        "eligible": 28776,
+        "equivalent": 0,
+        "finalize_executed": 0,
+        "guest_files_copied": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 55356,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--exports",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "registry_add_module_executed": 1,
+        "registry_create_executed": 1,
+        "relocate_executed": 1,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "8",
+          "relocations": "54962",
+          "segments": "2",
+          "symbols": "29153"
+        },
+        "reported_exports": {
+          "added": 28776,
+          "equivalent": 0
+        },
+        "resolve_executed": 0,
+        "static_inventory": {
+          "added": 28776,
+          "collisions": 0,
+          "eligible": 28776,
+          "equivalent": 0,
+          "ignored_lower_priority": 0,
+          "replaced_lower_priority": 0
+        },
+        "status": "PASS",
+        "stderr_bytes": 233,
+        "stderr_sha256": "5eefddc6b2b8d468ae51bb3770cd763d438682bf6498381a0ab4eed43a0ed8df",
+        "stderr_truncated": false,
+        "stdout_bytes": 360,
+        "stdout_sha256": "f073d793ddcc28e724997cec909b6c13859b6e2b43ff029df0a4b6989350a5a1",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "registry_exports": {
+        "added": 28776,
+        "collisions": 0,
+        "eligible": 28776,
+        "equivalent": 0,
+        "ignored_lower_priority": 0,
+        "replaced_lower_priority": 0
+      },
+      "relocation_count": 54962,
+      "relocations": {
+        "R_AARCH64_ABS64": 18517,
+        "R_AARCH64_GLOB_DAT": 3172,
+        "R_AARCH64_JUMP_SLOT": 10303,
+        "R_AARCH64_RELATIVE": 22970
+      },
+      "sha256": "ca07163ad1e92d767016d43048a2c13eede7b9d6217ed4f032ca4d6d8e342a1a",
+      "size": 12220336,
+      "static_validation": "PASS",
+      "static_validation_elapsed_ns": 95070997,
+      "total_elapsed_ns": 164695050
+    },
+    {
+      "abi": {
+        "abi_version": 0,
+        "elf_class": 2,
+        "elf_data": 1,
+        "elf_type": 3,
+        "elf_version": 1,
+        "flags": 0,
+        "machine": 183,
+        "osabi": 0
+      },
+      "dynamic_symbol_count": 646,
+      "id": "horizonchase-libunity",
+      "init_array_entries": 433,
+      "init_array_relocations": {
+        "R_AARCH64_RELATIVE": 433
+      },
+      "inspector": {
+        "elapsed_ns": 31220293,
+        "finalize_executed": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 55356,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--relocate",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "8",
+          "relocations": "54707",
+          "segments": "4",
+          "symbols": "646"
+        },
+        "resolve_executed": 0,
+        "status": "PASS",
+        "stderr_bytes": 226,
+        "stderr_sha256": "e11118e4a19a35f9cc3bc07e362b8c19f8f6e30a493c25b3ed56e62c9609a3f7",
+        "stderr_truncated": false,
+        "stdout_bytes": 321,
+        "stdout_sha256": "7fb73fbe0b99870a06a381a52ab9c89ceab9a2df6b2649cd01943297546be5de",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "needed": [
+        "libandroid.so",
+        "liblog.so",
+        "libz.so",
+        "libEGL.so",
+        "libmediandk.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "prohibitions": {
+        "packed_or_relr": 0,
+        "pt_interp": 0,
+        "pt_tls": 0,
+        "textrel": 0,
+        "tls_or_ifunc_symbols": 0,
+        "writable_executable_segments": 0
+      },
+      "pt_load_count": 4,
+      "pt_load_flags": [
+        4,
+        5,
+        6,
+        6
+      ],
+      "registry": {
+        "added": 222,
+        "device_access": 0,
+        "elapsed_ns": 28294976,
+        "eligible": 222,
+        "equivalent": 0,
+        "finalize_executed": 0,
+        "guest_files_copied": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 55356,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--exports",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "registry_add_module_executed": 1,
+        "registry_create_executed": 1,
+        "relocate_executed": 1,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "8",
+          "relocations": "54707",
+          "segments": "4",
+          "symbols": "646"
+        },
+        "reported_exports": {
+          "added": 222,
+          "equivalent": 0
+        },
+        "resolve_executed": 0,
+        "static_inventory": {
+          "added": 222,
+          "collisions": 0,
+          "eligible": 222,
+          "equivalent": 0,
+          "ignored_lower_priority": 0,
+          "replaced_lower_priority": 0
+        },
+        "status": "PASS",
+        "stderr_bytes": 226,
+        "stderr_sha256": "e11118e4a19a35f9cc3bc07e362b8c19f8f6e30a493c25b3ed56e62c9609a3f7",
+        "stderr_truncated": false,
+        "stdout_bytes": 360,
+        "stdout_sha256": "ff12c20cb2e38770b7f7aa6b59827cbc362c55a0d2365018462e56e007a0d63c",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "registry_exports": {
+        "added": 222,
+        "collisions": 0,
+        "eligible": 222,
+        "equivalent": 0,
+        "ignored_lower_priority": 0,
+        "replaced_lower_priority": 0
+      },
+      "relocation_count": 54707,
+      "relocations": {
+        "R_AARCH64_ABS64": 50,
+        "R_AARCH64_GLOB_DAT": 43,
+        "R_AARCH64_JUMP_SLOT": 500,
+        "R_AARCH64_RELATIVE": 54114
+      },
+      "sha256": "7c46972d06b6b85f953bf61b477fdbf5bf22f7be55b57e4b54b4403f05478359",
+      "size": 25023704,
+      "static_validation": "PASS",
+      "static_validation_elapsed_ns": 52132231,
+      "total_elapsed_ns": 139142276
+    },
+    {
+      "abi": {
+        "abi_version": 0,
+        "elf_class": 2,
+        "elf_data": 1,
+        "elf_type": 3,
+        "elf_version": 1,
+        "flags": 0,
+        "machine": 183,
+        "osabi": 0
+      },
+      "dynamic_symbol_count": 2658,
+      "id": "horizonchase-libil2cpp",
+      "init_array_entries": 24,
+      "init_array_relocations": {
+        "R_AARCH64_RELATIVE": 24
+      },
+      "inspector": {
+        "elapsed_ns": 100489495,
+        "finalize_executed": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 94592,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--relocate",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "4",
+          "relocations": "305750",
+          "segments": "4",
+          "symbols": "2658"
+        },
+        "resolve_executed": 0,
+        "status": "PASS",
+        "stderr_bytes": 229,
+        "stderr_sha256": "1fefb949194cf2be4532ea25461e7e1c9fbd4c3907438d285c1871b57f8b69a8",
+        "stderr_truncated": false,
+        "stdout_bytes": 237,
+        "stdout_sha256": "4dced3ea51cb88b56133e1f136d490ace7128176d64aa6bc3872496c4c54bede",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "prohibitions": {
+        "packed_or_relr": 0,
+        "pt_interp": 0,
+        "pt_tls": 0,
+        "textrel": 0,
+        "tls_or_ifunc_symbols": 0,
+        "writable_executable_segments": 0
+      },
+      "pt_load_count": 4,
+      "pt_load_flags": [
+        4,
+        5,
+        6,
+        6
+      ],
+      "registry": {
+        "added": 2369,
+        "device_access": 0,
+        "elapsed_ns": 92561509,
+        "eligible": 2369,
+        "equivalent": 0,
+        "finalize_executed": 0,
+        "guest_files_copied": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 94828,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--exports",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "registry_add_module_executed": 1,
+        "registry_create_executed": 1,
+        "relocate_executed": 1,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "4",
+          "relocations": "305750",
+          "segments": "4",
+          "symbols": "2658"
+        },
+        "reported_exports": {
+          "added": 2369,
+          "equivalent": 0
+        },
+        "resolve_executed": 0,
+        "static_inventory": {
+          "added": 2369,
+          "collisions": 0,
+          "eligible": 2369,
+          "equivalent": 0,
+          "ignored_lower_priority": 0,
+          "replaced_lower_priority": 0
+        },
+        "status": "PASS",
+        "stderr_bytes": 229,
+        "stderr_sha256": "1fefb949194cf2be4532ea25461e7e1c9fbd4c3907438d285c1871b57f8b69a8",
+        "stderr_truncated": false,
+        "stdout_bytes": 277,
+        "stdout_sha256": "cc290910c885df11941045026a36c46112c4e18f495a426910f0ffc38286b5e1",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "registry_exports": {
+        "added": 2369,
+        "collisions": 0,
+        "eligible": 2369,
+        "equivalent": 0,
+        "ignored_lower_priority": 0,
+        "replaced_lower_priority": 0
+      },
+      "relocation_count": 305750,
+      "relocations": {
+        "R_AARCH64_ABS64": 1631,
+        "R_AARCH64_GLOB_DAT": 152,
+        "R_AARCH64_JUMP_SLOT": 566,
+        "R_AARCH64_RELATIVE": 303401
+      },
+      "sha256": "acf414c77853aa0e7f8d8963f307f65f3d156c8d6d806661b738df3385e48cdc",
+      "size": 47587688,
+      "static_validation": "PASS",
+      "static_validation_elapsed_ns": 256209328,
+      "total_elapsed_ns": 505743431
+    },
+    {
+      "abi": {
+        "abi_version": 0,
+        "elf_class": 2,
+        "elf_data": 1,
+        "elf_type": 3,
+        "elf_version": 1,
+        "flags": 0,
+        "machine": 183,
+        "osabi": 0
+      },
+      "dynamic_symbol_count": 13,
+      "id": "horizonchase-libmain",
+      "init_array_entries": 0,
+      "init_array_relocations": {},
+      "inspector": {
+        "elapsed_ns": 768689,
+        "finalize_executed": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 89480,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--relocate",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "4",
+          "relocations": "20",
+          "segments": "4",
+          "symbols": "13"
+        },
+        "resolve_executed": 0,
+        "status": "PASS",
+        "stderr_bytes": 218,
+        "stderr_sha256": "042502d08203143f5dadd33a7f33047e4f7f80ae347f1bc701900c3366a9a8b0",
+        "stderr_truncated": false,
+        "stdout_bytes": 226,
+        "stdout_sha256": "612d709b7e12c3f58ff8322577c6889e5c7e53dc03323f6abb7717c34b4adb68",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ],
+      "prohibitions": {
+        "packed_or_relr": 0,
+        "pt_interp": 0,
+        "pt_tls": 0,
+        "textrel": 0,
+        "tls_or_ifunc_symbols": 0,
+        "writable_executable_segments": 0
+      },
+      "pt_load_count": 4,
+      "pt_load_flags": [
+        4,
+        5,
+        6,
+        6
+      ],
+      "registry": {
+        "added": 1,
+        "device_access": 0,
+        "elapsed_ns": 724930,
+        "eligible": 1,
+        "equivalent": 0,
+        "finalize_executed": 0,
+        "guest_files_copied": 0,
+        "guest_initializers_executed": 0,
+        "guest_jni_onload_executed": 0,
+        "max_rss_kib": 89480,
+        "max_rss_source": "wait4-ru_maxrss",
+        "mode": "--exports",
+        "output_limit_bytes_per_stream": 262144,
+        "output_limit_exceeded": false,
+        "registry_add_module_executed": 1,
+        "registry_create_executed": 1,
+        "relocate_executed": 1,
+        "reported": {
+          "arch": "AArch64/ELF64",
+          "arm_float_abi": "not-applicable",
+          "flags": "0x0",
+          "needed": "4",
+          "relocations": "20",
+          "segments": "4",
+          "symbols": "13"
+        },
+        "reported_exports": {
+          "added": 1,
+          "equivalent": 0
+        },
+        "resolve_executed": 0,
+        "static_inventory": {
+          "added": 1,
+          "collisions": 0,
+          "eligible": 1,
+          "equivalent": 0,
+          "ignored_lower_priority": 0,
+          "replaced_lower_priority": 0
+        },
+        "status": "PASS",
+        "stderr_bytes": 218,
+        "stderr_sha256": "042502d08203143f5dadd33a7f33047e4f7f80ae347f1bc701900c3366a9a8b0",
+        "stderr_truncated": false,
+        "stdout_bytes": 263,
+        "stdout_sha256": "87f18bd4ca7e0847ec1e9b5b534bf1bdf1dbae649f9d0a0007e7fc5fa5327a8d",
+        "stdout_truncated": false,
+        "termination_signal": null,
+        "timed_out": false,
+        "timeout_seconds": 120.0
+      },
+      "registry_exports": {
+        "added": 1,
+        "collisions": 0,
+        "eligible": 1,
+        "equivalent": 0,
+        "ignored_lower_priority": 0,
+        "replaced_lower_priority": 0
+      },
+      "relocation_count": 20,
+      "relocations": {
+        "R_AARCH64_JUMP_SLOT": 11,
+        "R_AARCH64_RELATIVE": 9
+      },
+      "sha256": "a2dfe24e0170af0ae90b13630fc6d4e788be2c5216b4bddb17a6e0ca3c4c5af8",
+      "size": 6728,
+      "static_validation": "PASS",
+      "static_validation_elapsed_ns": 173874,
+      "total_elapsed_ns": 3827617
+    }
+  ],
+  "inspector": {
+    "exports_supported": true,
+    "output_limit_bytes_per_stream": 262144,
+    "preflight_elapsed_ns": 2003360,
+    "preflight_max_rss_kib": 25988,
+    "preflight_max_rss_source": "wait4-ru_maxrss",
+    "preflight_output_limit_exceeded": false,
+    "preflight_stderr_bytes": 68,
+    "preflight_stdout_bytes": 0,
+    "preflight_termination_signal": null,
+    "preflight_timed_out": false,
+    "relocate_supported": true,
+    "sha256": "429986130ba71a51930a1e5aa5b98da353fbf10c1d831ea770e1f8a5bd068423",
+    "source_snapshot_sha256": "05518af3c8463f6fd19db5141a96f84cf17809e7f3be55fd327f21c62948e8fc",
+    "timeout_seconds": 120.0
+  },
+  "limits": {
+    "output_limit_bytes_per_stream": 262144,
+    "term_grace_seconds": 2.0,
+    "timeout_seconds": 120.0
+  },
+  "milestone": "M10",
+  "safety": {
+    "device_access": 0,
+    "finalize_executed": 0,
+    "guest_files_copied": 0,
+    "guest_initializers_executed": 0,
+    "guest_jni_onload_executed": 0,
+    "resolve_executed": 0
+  },
+  "schema_version": 1,
+  "scope": "hash-pinned-local-read-only-aarch64-reference-gate",
+  "source_snapshot": {
+    "algorithm": "sha256-domain-u32be-path-u64be-content-v1",
+    "file_count": 11,
+    "files": [
+      {
+        "path": "VERSION",
+        "sha256": "a66780da23103beaf12432b418508966b31a2a3a787f9468a5b6cdaa8667c1ef",
+        "size": 6
+      },
+      {
+        "path": "CMakeLists.txt",
+        "sha256": "05226cbca6d36fb8414033fc640b239fd803195166529e6a75d4e9f9fbc1c65f",
+        "size": 8866
+      },
+      {
+        "path": "include/nxloader.h",
+        "sha256": "38bc84d192a5282957d7642bb19066161bbb4d2718b9af06eb7865f4e470312e",
+        "size": 16483
+      },
+      {
+        "path": "src/nxloader_internal.h",
+        "sha256": "612ffa662d8fda5779a00fb1a22dcbf47f3e8c20fa8d08cfdcbf498c87d3d014",
+        "size": 10895
+      },
+      {
+        "path": "src/nxloader.c",
+        "sha256": "42cff98204f7d691ff2ed5ec65577d0e63e1a14d2791379140040ed33b6052a6",
+        "size": 54753
+      },
+      {
+        "path": "src/nxloader_elf32.c",
+        "sha256": "ed685859200c6a404d9c3b97da876e46f715a47dce77678ebd60984c38929f7f",
+        "size": 70756
+      },
+      {
+        "path": "src/nxloader_elf64.c",
+        "sha256": "9e840e9079de36c8f995cca1797bd81ff0dfbdf0ebabac5c250c84e4891ccef1",
+        "size": 51675
+      },
+      {
+        "path": "src/nxloader_hooks.c",
+        "sha256": "2076fe49fdbcb70a60ecdea1368834ab985d7865ac171a585b3a46f14486018e",
+        "size": 9278
+      },
+      {
+        "path": "src/nxloader_protect.c",
+        "sha256": "595da67a9263bb32d6f49b9774cfaad7d1f7d7c445f7960112cf55a5397d785d",
+        "size": 4879
+      },
+      {
+        "path": "src/nxloader_registry.c",
+        "sha256": "706b3c4957792b98358f71303e47786428aba7fc42675ee8cc13434a4ff107d5",
+        "size": 11386
+      },
+      {
+        "path": "tools/nxloader_inspect.c",
+        "sha256": "a5603c54aff38a6617c13293a1e43eddc9d3f74525ef2fbbecd88addc32e9f3c",
+        "size": 3246
+      }
+    ],
+    "ordered": true,
+    "schema_version": 1,
+    "sha256": "05518af3c8463f6fd19db5141a96f84cf17809e7f3be55fd327f21c62948e8fc"
+  },
+  "status": "PASS",
+  "total_elapsed_ns": 1084162997
+}

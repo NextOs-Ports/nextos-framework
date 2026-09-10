@@ -1,0 +1,9 @@
+build/
+.build/
+*.o
+*.zip
+*.sha256
+gamedata/*
+!gamedata/README.txt
+log.txt
+nxextract.log

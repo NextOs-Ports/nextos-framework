@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "milestone": "M11",
+  "scope": "defensive-reentrancy-initializer-preflight-and-explicit-jni-onload",
+  "physical_device_evidence": false,
+  "guest_initializers_executed": false,
+  "guest_jni_onload_executed": false,
+  "requirements": [
+    {
+      "id": "M11-NXL-001",
+      "implementation": [
+        {"path": "framework/nxloader/VERSION", "token": "0.8.0"},
+        {"path": "framework/nxloader/include/nxloader.h", "token": "#define NXLOADER_API_VERSION_MINOR 3u"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "CHECK(NXLOADER_EREENTRANT == -15)"}
+      ]
+    },
+    {
+      "id": "M11-NXL-002",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader_internal.h", "token": "uint8_t callback_violation;"},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "nxloader_module_callback_guard"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "m11_probe_same_module_reentrancy"}
+      ]
+    },
+    {
+      "id": "M11-NXL-003",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader.c", "token": "module->config.log(module->config.userdata, level, buffer);"},
+        {"path": "framework/nxloader/src/nxloader_elf64.c", "token": "if (log_result != NXLOADER_OK)"},
+        {"path": "framework/nxloader/src/nxloader_elf32.c", "token": "if (log_result != NXLOADER_OK)"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "m11-error-log-reentrant"}
+      ]
+    },
+    {
+      "id": "M11-NXL-004",
+      "implementation": [
+        {"path": "framework/nxloader/include/nxloader.h", "token": "The violation is sticky until that callback returns"},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "module->state == NXLOADER_STATE_INITIALIZING"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "nxloader_module_destroy(context->self);"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "observed_other_info_result"}
+      ]
+    },
+    {
+      "id": "M11-NXL-005",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader.c", "token": "nxloader_resolution_report local_report;"},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "result != NXLOADER_EREENTRANT"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "memcmp(&report, &before, sizeof(report)) == 0"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "m11-reloc-reentrant"}
+      ]
+    },
+    {
+      "id": "M11-NXL-006",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader_elf32.c", "token": "nxloader_initializer_plan32"},
+        {"path": "framework/nxloader/src/nxloader_elf64.c", "token": "nxloader_initializer_plan64"},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "NXLOADER_STATE_INITIALIZED"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "m11-initializer-late-reject"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "context.initializer_indexes[0] == SIZE_MAX"}
+      ]
+    },
+    {
+      "id": "M11-NXL-007",
+      "implementation": [
+        {"path": "framework/nxloader/include/nxloader.h", "token": "NXLOADER_JNI_ONLOAD_OPTIONAL"},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "nxloader_find_export_elf64(module, \"JNI_OnLoad\""},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "module->state = NXLOADER_STATE_JNI_LOADING;"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_m11_jni_onload_option_validation"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "context.jni_alias_calls == 0"}
+      ]
+    },
+    {
+      "id": "M11-NXL-008",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader_registry.c", "token": "module->state != NXLOADER_STATE_READY"},
+        {"path": "framework/nxloader/README.md", "token": "INITIALIZING` e `JNI_LOADING` impedem novas mutações"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "NXLOADER_STATE_READY"}
+      ]
+    },
+    {
+      "id": "M11-NXL-009",
+      "implementation": [
+        {"path": "framework/nxloader/include/nxloader.h", "token": "must outlive the registry and all"},
+        {"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "consumidores → registry → providers"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "Nenhum constructor ou `JNI_OnLoad` real foi executado"}
+      ]
+    },
+    {
+      "id": "M11-NXL-010",
+      "implementation": [
+        {"path": "framework/nxloader/README.md", "token": "As regressões M11 exercitam os quatro callbacks host"},
+        {"path": "framework/nxloader/m11-audit-v1.json", "token": "\"guest_jni_onload_executed\": false"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/run-host.sh", "token": "guest_initializers_executed=0 guest_jni_onload_executed=0"},
+        {"path": "framework/nxloader/tests/test_m11_audit.py", "token": "nxloader M11 subgate passed"}
+      ]
+    }
+  ]
+}

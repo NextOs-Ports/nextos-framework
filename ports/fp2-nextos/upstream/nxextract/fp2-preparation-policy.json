@@ -1,0 +1,124 @@
+{
+  "expected_stats": {
+    "exact_entries": 548,
+    "files": 30,
+    "installed_records": 2736,
+    "omitted_records": 1986,
+    "shader_objects": 80,
+    "skipped_entries": 411,
+    "tasks_accepted": 411,
+    "tasks_seen": 702,
+    "tasks_skipped": 291
+  },
+  "format": 2,
+  "logical_outputs": [
+    {
+      "path": "assets/bin/Data/0000000000000000f000000000000000"
+    },
+    {
+      "path": "assets/bin/Data/03991bf04fa531c4eb6f0307b16ec6ed"
+    },
+    {
+      "path": "assets/bin/Data/077f818c15b362944b975245ca8bc63f"
+    },
+    {
+      "path": "assets/bin/Data/1c4ffa27353d4734d8c088c4c192a1ff"
+    },
+    {
+      "path": "assets/bin/Data/304b9c511d3500946ab454dd5ad77f0f"
+    },
+    {
+      "path": "assets/bin/Data/3f07518b9d1733d4d9f99f65cdc434c8"
+    },
+    {
+      "path": "assets/bin/Data/56c1ad9e70f88f244bc8639970f6a141"
+    },
+    {
+      "path": "assets/bin/Data/597c832af79199c4fad3de20f8f40b05"
+    },
+    {
+      "path": "assets/bin/Data/685e0aac9be9f0547bbf9c8fceb835a3"
+    },
+    {
+      "path": "assets/bin/Data/8e7ad1aca7fb87542b55d2f6f6e56796"
+    },
+    {
+      "path": "assets/bin/Data/9a5af06da6adc9941b02b7c7bb6cbb25"
+    },
+    {
+      "path": "assets/bin/Data/Resources/unity_builtin_extra"
+    },
+    {
+      "path": "assets/bin/Data/d6b7e0fc4e3b76a42950503935859215"
+    },
+    {
+      "path": "assets/bin/Data/d89c0985cdcb8cc4cba7a6a0a5435190"
+    },
+    {
+      "path": "assets/bin/Data/df096ba6875490447985709255653e53"
+    },
+    {
+      "path": "assets/bin/Data/f4787eb01f6cdd04dbf108341a731328"
+    },
+    {
+      "path": "assets/bin/Data/globalgamemanagers"
+    },
+    {
+      "path": "assets/bin/Data/globalgamemanagers.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets0.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets1.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets12.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets18.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets22.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets26.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets32.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets34.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets4.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets60.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets61.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets78.assets"
+    },
+    {
+      "path": "assets/bin/Data/sharedassets8.assets"
+    }
+  ],
+  "lz4": {
+    "path": "nxextract/lib/aarch64/liblz4.so.1"
+  },
+  "package": "com.GalaxyTrail.FP2",
+  "preparation": "fp2-vulkan-to-exact-gles2-v1",
+  "task_decisions": {
+    "contract": "first-seen-unique-source-metadata-v1",
+    "omit_token": "O",
+    "repeat": "reuse-first-decision-and-cache-key",
+    "sequence": "TTTTTTTTTTOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTOOOOOOOOTTTTTTTTTTTTTTTTTTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOTTTTOOOOOOOOTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTOOOOOOTTTTTTTTTTTTTTTTTTTTTTTTOOTOTTTTTTTTTTTTTTTTTTTTTTTTOOTTOOOOTTTTTOOTTOOOOOOOOOOOOOOOOTTTOTTTTTTTTTTOOOOTTTTOOOOOOOOTTTTTTTTTTOOOOTTTTOOOOOOOOTTTTTTTOTTOOOTTTTTTTTTTTTTTTTTOTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTOOTOTTTTTTTOOOOTTTTTTOOTOTTTTTOOOOOOOOTTTTTTTTTTOOTOTTTTTOOOOOOOOTTTTTTTOOTOTTOOTOTTTTTOOOOOOOOTTTTTOOOOOOOOTTTTOOOOOOOOTTOOTTOOTOTTTTTOOOOOOOOTTTOOOOTTTTTTTTOOOOTTOOTTTTOOOOTTOOTTTTTTTTTTOOOOOOOOOOOOOOOOTTTTTTTTTTOOOOOOOOOOOOOOOOOOOOOOOOTTTTOOOOTTOOTTTTTTTTTTOOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTOTTTOTTTOTTTOTTTOTTTOTTTOTTTOTTTOTTTTOTT",
+    "translate_token": "T"
+  },
+  "translator": {
+    "path": "nxextract/bin/fp2-smolv-cross-nextos"
+  }
+}

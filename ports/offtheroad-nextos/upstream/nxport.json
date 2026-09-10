@@ -1,0 +1,86 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "none",
+  "enabled_quirks": [],
+  "executable": "offtheroad-nextos",
+  "generation_runtime": [
+    {
+      "mode": "0755",
+      "path": "offtheroad-nextos",
+      "role": "executable",
+      "sha256": "1bfb4185bdbd7795344262b4df41ad08d287d4d4bb59705239531ebe2f11e28e"
+    },
+    {
+      "mode": "0644",
+      "path": "extractor.json",
+      "role": "nxextract-recipe",
+      "sha256": "a654cc1dc8468bcadf825909581f625ecc3f0a9e842c12bc44ee62e7d53264e4"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/nxextract.py",
+      "role": "nxextract-engine",
+      "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/run-extractor.sh",
+      "role": "nxextract-runner",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0644",
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "role": "nxextract-runtime-env",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "nxextract/nxextract-ui",
+      "role": "nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0755",
+      "path": "nxsplash-nextos",
+      "role": "nxsplash",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    }
+  ],
+  "home_mode": "port",
+  "id": "offtheroad",
+  "language": {
+    "default": "en",
+    "supported": [
+      "en"
+    ]
+  },
+  "launcher_name": "Off The Road.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.21"
+  },
+  "prepare_script": "",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "graphics.window",
+    "graphics.gles2",
+    "graphics.egl",
+    "graphics.egl-config",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api",
+    "audio.embedded-openal"
+  ],
+  "required_files": [
+    "offtheroad-nextos",
+    "nxsplash-nextos",
+    "lib/libgame.so",
+    "lib/libc++_shared.so"
+  ],
+  "runtime_report": "log",
+  "schema_version": 3,
+  "title": "Off The Road"
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 3,
+  "extends": "contract-v2.json",
+  "upstream_source": "portmaster-gui-main-8f9ddc4",
+  "legacy_upstream_source": "portmaster-gui-2024.03.10-0841-7471d54",
+  "metadata_schema": "schema/port-json-supported-v2.schema.json",
+  "runtime_compatibility": {
+    "empty_project_runtime": "omit attr.runtime from version 4 metadata",
+    "modern_parser_default": [],
+    "legacy_parser_default": null,
+    "nonempty_runtime_policy": "unchanged; this contract does not add a legacy multi-runtime claim"
+  },
+  "required_positive_fixtures": [
+    "runtime-absent-v4-modern-cycle",
+    "runtime-absent-v4-legacy-parser"
+  ],
+  "required_negative_fixtures": [
+    "runtime-empty-array-legacy-installer"
+  ],
+  "boundaries": {
+    "metadata_version": 4,
+    "project_runtime_declaration": "still required and validated before generation",
+    "runtime_omission": "only when the validated project runtime array is empty",
+    "legacy_source": "official immutable tag and exact source hashes",
+    "physical_result": "required before claiming a firmware family"
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "schema": 1,
+  "id": "namelesscat",
+  "version": "1",
+  "title": "Nameless Cat",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.kotobagames.namelesscat"
+    ]
+  },
+  "reference_build": {
+    "game_version": "1.15.2",
+    "version_code": 174,
+    "container_size": 58624109,
+    "container_sha256": "6ac626dcbacd03bc7c4b45c81aad7c1dcfb0a577c5c2a9d3517f80fe44f7035e",
+    "note": "Nameless Cat 1.15.2 (com.kotobagames.namelesscat, arm64-v8a): base APK identity above; the arm64-v8a split tested alongside is 29784129 bytes, SHA-256 7fe33cb12296c77f011c86ab49e0bbcf1f0be3768e3ed5a858beac5d89947d53. Documentation only, never an extraction allowlist."
+  },
+  "extract": [
+    {
+      "id": "engine-main",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmain.so"
+        ]
+      },
+      "destination": "lib/libmain.so",
+      "validate": {
+        "type": "file",
+        "size": 6696,
+        "sha256": "1aa3ef824c78cc5ba84f27ac38313790f33ab40125673174a6eff438558a5a89",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "engine-unity",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libunity.so"
+        ]
+      },
+      "destination": "lib/libunity.so",
+      "validate": {
+        "type": "file",
+        "size": 21811072,
+        "sha256": "5fddbd4643f20f2da8e84834b667301918f6e54fa14818b8eff14700d4334406",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "engine-il2cpp",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libil2cpp.so"
+        ]
+      },
+      "destination": "lib/libil2cpp.so",
+      "validate": {
+        "type": "file",
+        "size": 65198392,
+        "sha256": "306e891651415862c88bbca9891b1020b46000639c84b13b8d11539bf2ac128b",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "data-managed-resources-system-data-dll-resources-dat",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/Managed/Resources/System.Data.dll-resources.dat"
+        ]
+      },
+      "destination": "assets/bin/Data/Managed/Resources/System.Data.dll-resources.dat",
+      "validate": {
+        "type": "file",
+        "size": 93718,
+        "sha256": "98a7950ec6de3242c2e190dfa630188dfa32511a125542b94baa952d1c757d49"
+      }
+    },
+    {
+      "id": "data-managed-resources-system-drawing-dll-resources-dat",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/Managed/Resources/System.Drawing.dll-resources.dat"
+        ]
+      },
+      "destination": "assets/bin/Data/Managed/Resources/System.Drawing.dll-resources.dat",
+      "validate": {
+        "type": "file",
+        "size": 25453,
+        "sha256": "7c33aa707bc3fdc83991b81a97d6fc622b140762a767300f08f616c2c0a91255"
+      }
+    },
+    {
+      "id": "data-managed-resources-mscorlib-dll-resources-dat",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/Managed/Resources/mscorlib.dll-resources.dat"
+        ]
+      },
+      "destination": "assets/bin/Data/Managed/Resources/mscorlib.dll-resources.dat",
+      "validate": {
+        "type": "file",
+        "size": 337563,
+        "sha256": "c5baa176a5b72cd545266340e42102d393a5e43d38c95796bc828918bb95277f"
+      }
+    },
+    {
+      "id": "data-resources-unity-default-resources",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/Resources/unity default resources"
+        ]
+      },
+      "destination": "assets/bin/Data/Resources/unity default resources",
+      "validate": {
+        "type": "file",
+        "size": 3783412,
+        "sha256": "cfb4cac3b4736020009b996d684fde274b3cb107f4f4313df9a9b2f71f5fc6fa"
+      }
+    },
+    {
+      "id": "data-runtimeinitializeonloads-json",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/RuntimeInitializeOnLoads.json"
+        ]
+      },
+      "destination": "assets/bin/Data/RuntimeInitializeOnLoads.json",
+      "validate": {
+        "type": "file",
+        "size": 9841,
+        "sha256": "4ca4cfd1d821ae76e703972a7322ca274eeee7cf60ef331a27648bece928fc4e"
+      }
+    },
+    {
+      "id": "data-scriptingassemblies-json",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/ScriptingAssemblies.json"
+        ]
+      },
+      "destination": "assets/bin/Data/ScriptingAssemblies.json",
+      "validate": {
+        "type": "file",
+        "size": 5929,
+        "sha256": "4fe4836437e0b794713721a7d5dcfd7b22dd9d9440851d9e19d184da1cf50c66"
+      }
+    },
+    {
+      "id": "data-boot-config",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/boot.config"
+        ]
+      },
+      "destination": "assets/bin/Data/boot.config",
+      "validate": {
+        "type": "file",
+        "size": 219,
+        "sha256": "7e2820e6d3eb85b2a3c1c314778981ce9b3c9d467295ed473bbf1f9a19f2925f"
+      }
+    },
+    {
+      "id": "data-data-unity3d",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/data.unity3d"
+        ]
+      },
+      "destination": "assets/bin/Data/data.unity3d",
+      "validate": {
+        "type": "file",
+        "size": 9687224,
+        "sha256": "c43690d5f33d068f471834adf90528efe299b23020d2d3c074267f051c7462ef"
+      }
+    },
+    {
+      "id": "data-managed-metadata-global-metadata-dat",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/Managed/Metadata/global-metadata.dat"
+        ]
+      },
+      "destination": "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "validate": {
+        "type": "file",
+        "size": 8860412,
+        "sha256": "fc3437acff63c8a6618e30ea71f755e65cbd32e54b6ad68c40d2a623d5978f5a"
+      }
+    },
+    {
+      "id": "data-sharedassets0-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets0.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets0.resource",
+      "validate": {
+        "type": "file",
+        "size": 8275456,
+        "sha256": "5952d676184d557e4b30a0c85c7336a66e03e3ec43ab7a4a35f4ea78e20aab09"
+      }
+    },
+    {
+      "id": "data-sharedassets10-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets10.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets10.resource",
+      "validate": {
+        "type": "file",
+        "size": 7968,
+        "sha256": "e0285ec37b6087b5ece1b930a5956ee2d313d68848a19c7106107575631e0dd5"
+      }
+    },
+    {
+      "id": "data-sharedassets13-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets13.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets13.resource",
+      "validate": {
+        "type": "file",
+        "size": 242880,
+        "sha256": "25af14deca1206070c4a37dfb5f1b088a35d07bec85d825e39e8e3981e77739c"
+      }
+    },
+    {
+      "id": "data-sharedassets16-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets16.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets16.resource",
+      "validate": {
+        "type": "file",
+        "size": 262464,
+        "sha256": "3264c03188027e13fb4890f4721b84f118cdf8cfdf1f89103d4b00d08f0ebfd5"
+      }
+    },
+    {
+      "id": "data-sharedassets24-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets24.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets24.resource",
+      "validate": {
+        "type": "file",
+        "size": 8128,
+        "sha256": "a9797a4ae2d6818174078d7be171545feb5506a9ac1709a83bc3700f9c15b0e6"
+      }
+    },
+    {
+      "id": "data-sharedassets31-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets31.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets31.resource",
+      "validate": {
+        "type": "file",
+        "size": 193088,
+        "sha256": "dadbade4b2e5520f6b865104470f9dafa9a6dbd637e92ff5091c8565fba992f5"
+      }
+    },
+    {
+      "id": "data-sharedassets32-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets32.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets32.resource",
+      "validate": {
+        "type": "file",
+        "size": 7520,
+        "sha256": "492454ad01d8aba78c2a39403e14679de7b5bddbde200014e5f09015f6d14f63"
+      }
+    },
+    {
+      "id": "data-sharedassets46-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets46.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets46.resource",
+      "validate": {
+        "type": "file",
+        "size": 25952,
+        "sha256": "68e28d85010eeeb1cc24e1a8c3a6f020aff80337bb0e5bef346f8234ac7a9d19"
+      }
+    },
+    {
+      "id": "data-sharedassets47-resource",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/sharedassets47.resource"
+        ]
+      },
+      "destination": "assets/bin/Data/sharedassets47.resource",
+      "validate": {
+        "type": "file",
+        "size": 492000,
+        "sha256": "29c06138391386bbbd5db49bc5a246414d38b7d2abdd0b6405759fc116322c65"
+      }
+    },
+    {
+      "id": "data-unity_app_guid",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/bin/Data/unity_app_guid"
+        ]
+      },
+      "destination": "assets/bin/Data/unity_app_guid",
+      "validate": {
+        "type": "file",
+        "size": 36,
+        "sha256": "8f8295cb8fdc94e843dc8c053c56939d363025fdbb1e600910805e9ab0df8e91"
+      }
+    }
+  ],
+  "validate": [
+    {
+      "path": "lib/libil2cpp.so",
+      "type": "file",
+      "elf_machine": "{abi}"
+    },
+    {
+      "path": "lib/libmain.so",
+      "type": "file",
+      "elf_machine": "{abi}"
+    },
+    {
+      "path": "lib/libunity.so",
+      "type": "file",
+      "elf_machine": "{abi}"
+    },
+    {
+      "path": "assets/bin/Data/data.unity3d",
+      "type": "file",
+      "size": 9687224
+    }
+  ],
+  "commit": [
+    "lib",
+    "assets"
+  ],
+  "marker": ".nxextract-namelesscat.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

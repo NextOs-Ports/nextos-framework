@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "milestone": "M07",
+  "scope": "local-filesystem-runtime-and-attested-ui-fallback",
+  "release_device_evidence": false,
+  "requirements": [
+    {
+      "id": "M07-001",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "NXEXTRACT_VERSION = "}],
+      "tests": [{"path": "suportando_outros_devices/tools/check-nxextract-pin.sh", "token": "CANONICAL_VERSION="}]
+    },
+    {
+      "id": "M07-002",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/run-extractor.sh", "token": "exec bash \"$RUNTIME_HELPER\" bash \"$SCRIPT_DIR/run-extractor.sh\" \"$@\""}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_runtime_env.sh", "token": "the non-executable helper bypassed the isolated child scope"}]
+    },
+    {
+      "id": "M07-003",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "published payload remains valid; cleanup will retry on the next run"}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_backup_cleanup_failure_after_marker_is_nonfatal"}]
+    },
+    {
+      "id": "M07-004",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "kept transaction journal so published cleanup can retry"}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_journal_cleanup_failure_after_marker_is_nonfatal"}]
+    },
+    {
+      "id": "M07-005",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "def _finalize_published_transaction"}],
+      "tests": [
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_stage_cleanup_failure_after_marker_is_nonfatal"},
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_undeletable_source_cache_does_not_fail_a_committed_install"}
+      ]
+    },
+    {
+      "id": "M07-006",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/VERSION", "token": "1."}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/docs/releases/1.2.7.md", "token": "# NXExtract 1.2.7"}]
+    },
+    {
+      "id": "M07-007",
+      "implementation": [
+        {"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "TRANSACTION_FORMAT_VERSION = 2"},
+        {"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "def durable_rename"}
+      ],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_every_transaction_boundary_recovers_after_power_loss"}]
+    },
+    {
+      "id": "M07-008",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "def payload_metadata_seal"}],
+      "tests": [
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_fast_marker_requires_schema_and_payload_metadata_seal"},
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_recovery_rolls_back_when_matching_marker_payload_is_corrupt"}
+      ]
+    },
+    {
+      "id": "M07-009",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "non-portable ZIP path collision"}],
+      "tests": [
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_unselected_special_zip_member_is_rejected"},
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_recipe_inside_symlinked_parent_is_rejected_before_reading_it"}
+      ]
+    },
+    {
+      "id": "M07-010",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "def _candidate_containers"}],
+      "tests": [
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_container_picks_the_base_apk_inside_a_bundle"},
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_different_packages_are_never_merged"},
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_two_different_matching_bundles_are_ambiguous"}
+      ]
+    },
+    {
+      "id": "M07-011",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/tools/check-release.sh", "token": "source release contains APK/OBB/ZIP payload data"}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "the legal source must be preserved"}]
+    },
+    {
+      "id": "M07-012",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "APK bundle expansion"}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_bundle_space_preflight_counts_only_valid_cached_apks"}]
+    },
+    {
+      "id": "M07-013",
+      "implementation": [
+        {"path": "suportando_outros_devices/extrator-universal/ui/nxextract_ui.c", "token": "SDL_RENDERER_SOFTWARE"},
+        {"path": "suportando_outros_devices/extrator-universal/ui/nxextract_ui.c", "token": "active_console_path"},
+        {"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "mandatory setup UI graphical renderer confirmed"}
+      ],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/docs/DEVICE-COMPATIBILITY.md", "token": "b4daf1bdffe4f1623752742bc6b796f93a203f8e4cba4c39f62dfcfd37cc2d72"}]
+    },
+    {
+      "id": "M07-014",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/tools/check-glibc.sh", "token": "GLIBC GATE FAILED"}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_elf_gate.sh", "token": "NXExtract ELF gate regression tests passed"}]
+    },
+    {
+      "id": "M07-015",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract-runtime-env.sh", "token": "game-private libraries out of"}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_runtime_env.sh", "token": "an outside alias back into game-private data leaked"}]
+    },
+    {
+      "id": "M07-016",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/nxextract.py", "token": "payload transaction rolled back; staged work was preserved"}],
+      "tests": [
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_every_transaction_boundary_recovers_after_power_loss"},
+        {"path": "suportando_outros_devices/extrator-universal/tests/test_nxextract.py", "token": "test_valid_staged_file_is_resumed_without_rewrite"}
+      ]
+    },
+    {
+      "id": "M07-017",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/tools/check-release.sh", "token": "require_release_file"}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_pin_gate.sh", "token": "a hard-linked recipe was accepted"}]
+    },
+    {
+      "id": "M07-018",
+      "implementation": [{"path": "suportando_outros_devices/tools/check-nxextract-pin.sh", "token": "same_file_hash"}],
+      "tests": [{"path": "suportando_outros_devices/extrator-universal/tests/test_pin_gate.sh", "token": "a mixed-version runner was accepted"}]
+    },
+    {
+      "id": "M07-019",
+      "implementation": [{"path": "suportando_outros_devices/tools/check-nxextract-pin.sh", "token": "HISTORICAL_FLOOR=1.2.2"}],
+      "tests": [{"path": "suportando_outros_devices/nxextract-integracao.md", "token": "piso aceito para auditar ports históricos"}]
+    },
+    {
+      "id": "M07-020",
+      "implementation": [{"path": "suportando_outros_devices/extrator-universal/tools/check-release.sh", "token": "NXExtract release checks passed"}],
+      "tests": [{"path": "framework/nxextract/tests/test_m07_audit.py", "token": "M07 audit gate passed"}]
+    }
+  ]
+}

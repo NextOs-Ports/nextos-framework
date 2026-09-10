@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "id": "suzycube-nextos",
+  "version": "v1",
+  "title": "SUZY CUBE",
+  "abi_order": ["arm64-v8a"],
+  "input": {
+    "search_dirs": ["gamedata", "."],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": ["com.noodlecake.suzycube"],
+    "max_files": 64,
+    "max_bundle_apks": 32,
+    "max_member_bytes": 536870912,
+    "max_bundle_bytes": 1073741824
+  },
+  "extract": [
+    {
+      "id": "android-native-loader",
+      "source": { "kind": "entry", "patterns": ["lib/{abi}/libmain.so"] },
+      "destination": "lib/libmain.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 3000,
+        "max_size": 64000
+      }
+    },
+    {
+      "id": "android-unity-player",
+      "source": { "kind": "entry", "patterns": ["lib/{abi}/libunity.so"] },
+      "destination": "lib/libunity.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 8000000,
+        "max_size": 33554432
+      }
+    },
+    {
+      "id": "android-il2cpp-runtime",
+      "source": { "kind": "entry", "patterns": ["lib/{abi}/libil2cpp.so"] },
+      "destination": "lib/libil2cpp.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 8000000,
+        "max_size": 100663296
+      }
+    },
+    {
+      "id": "unity-data-apk",
+      "source": {
+        "kind": "entries",
+        "patterns": ["assets/bin/Data/**"],
+        "strip_prefix": "assets/bin/Data/"
+      },
+      "destination": "assets/bin/Data",
+      "comment": "Esta regra e validada DUAS vezes: no plano, vendo so a arvore do APK (33 arquivos), e de novo depois do hook de merge, vendo a arvore fundida com o OBB (223 arquivos / 446 MB medidos no APK 1.0.13). A faixa cobre os dois momentos. Fica em faixa + required_paths de proposito: distribuicoes diferentes do jogo repartem os mesmos dados entre APK e OBB de formas distintas, e cravar exact_files reprovaria um APK legitimo. Quem sela a arvore final e o bloco validate[] no fim da receita.",
+      "validate": {
+        "type": "tree",
+        "min_files": 20,
+        "max_files": 800,
+        "required_paths": [
+          "boot.config",
+          "globalgamemanagers",
+          "level0",
+          "Managed/Metadata/global-metadata.dat"
+        ]
+      }
+    },
+    {
+      "id": "obb-embedded-in-apk",
+      "required": false,
+      "source": { "kind": "entry", "patterns": ["assets/sc.txt"] },
+      "destination": "assets/.nxpayload/sc.zip",
+      "validate": {
+        "type": "file",
+        "magic_hex": "504b0304",
+        "magic_offset": 0,
+        "min_size": 60000000
+      }
+    },
+    {
+      "id": "obb-standalone",
+      "required": false,
+      "source": {
+        "kind": "entry_or_file",
+        "patterns": [
+          "main.*.com.noodlecake.suzycube.obb",
+          "*.com.noodlecake.suzycube.obb",
+          "main.obb"
+        ]
+      },
+      "destination": "assets/.nxpayload/main.obb",
+      "validate": {
+        "type": "file",
+        "magic_hex": "504b0304",
+        "magic_offset": 0,
+        "min_size": 60000000
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "suzycube-merge-data",
+      "argv": [
+        "python3",
+        "{game_dir}/nxextract/merge-suzycube-data.py",
+        "{stage}"
+      ],
+      "cwd": "{stage}",
+      "checkpoint": [
+        {
+          "path": "assets/bin/Data/globalgamemanagers.assets",
+          "type": "file",
+          "min_size": 6000000
+        },
+        {
+          "path": "assets/bin/Data/sharedassets0.assets",
+          "type": "file",
+          "min_size": 6000000
+        }
+      ]
+    }
+  ],
+  "validate": [
+    {
+      "path": "assets/bin/Data",
+      "type": "tree",
+      "min_files": 150,
+      "required_paths": [
+        "boot.config",
+        "globalgamemanagers",
+        "globalgamemanagers.assets",
+        "sharedassets0.assets",
+        "level0",
+        "Managed/Metadata/global-metadata.dat"
+      ]
+    },
+    { "path": "lib/libmain.so", "type": "file", "elf_machine": "arm64-v8a" },
+    { "path": "lib/libunity.so", "type": "file", "elf_machine": "arm64-v8a" },
+    { "path": "lib/libil2cpp.so", "type": "file", "elf_machine": "arm64-v8a" }
+  ],
+  "commit": ["assets", "lib"],
+  "marker": ".nxextract-suzycube.json",
+  "space": { "safety_bytes": 1073741824 },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

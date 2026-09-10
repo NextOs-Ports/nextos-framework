@@ -1,0 +1,41 @@
+{
+  "artifacts": {
+    "aarch64": {
+      "glibc_max": "2.17",
+      "mode": "0755",
+      "path": "ui/release/aarch64/nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "size": 44144
+    },
+    "armv7": {
+      "glibc_max": "2.7",
+      "mode": "0755",
+      "path": "ui/release/armv7/nxextract-ui",
+      "sha256": "e846c5cbf0d17ec6aed2fd70066649b2283cdbbfb092d9c1dde59c50bc443860",
+      "size": 37812
+    },
+    "i386": {
+      "glibc_max": "2.7",
+      "mode": "0755",
+      "path": "ui/release/i386/nxextract-ui",
+      "sha256": "1bd67035d0fabba8fc57132e7ee83541db217c26974566c2764a3715ca248e72",
+      "size": 35772
+    },
+    "x86_64": {
+      "glibc_max": "2.14",
+      "mode": "0755",
+      "path": "ui/release/x86_64/nxextract-ui",
+      "sha256": "909c41c5dba4d3f0f4237c3db7ff149f477ae2f5f49a36fb9a3ba48ac35fec95",
+      "size": 46328
+    }
+  },
+  "component": "nxextract-ui",
+  "schema_version": 1,
+  "source_sha256": "00266e1efeabe2716911ff9c431191944162bb550ebf3674a6d88ef62a194bf0",
+  "toolchain": {
+    "archive_sha256": "70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00",
+    "name": "zig",
+    "version": "0.16.0"
+  },
+  "version": "1.2.16"
+}

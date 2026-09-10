@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.local/schema/nxproject-v2.schema.json",
+  "title": "NXGenerator project manifest v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "nxport",
+    "nxextract_recipe",
+    "adapter",
+    "portmaster",
+    "license",
+    "documentation"
+  ],
+  "properties": {
+    "schema_version": {"const": 2},
+    "nxport": {
+      "type": "object",
+      "description": "Canonical nxport schema v2 object; execution_roles and the closed sdl_provider=system/video_proof=required contracts are optional opt-ins validated by the pinned nxbootstrap generator."
+    },
+    "nxextract_recipe": {
+      "oneOf": [
+        {"type": "string", "minLength": 1},
+        {"type": "null"}
+      ]
+    },
+    "adapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skeleton"],
+      "properties": {"skeleton": {"const": "contract-only"}}
+    },
+    "portmaster": {
+      "type": "object",
+      "description": "PortMaster metadata input. nxgenerator derives canonical gameinfo.xml path/name from nxport.launcher_name and nxport.title without another host-side file.",
+      "additionalProperties": false,
+      "required": ["metadata_version", "min_glibc", "runtime"],
+      "properties": {
+        "metadata_version": {"const": 4},
+        "min_glibc": {
+          "type": "string",
+          "pattern": "^[0-9]+(?:[.][0-9]+)+$"
+        },
+        "runtime": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 512}
+        }
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spdx_id", "source"],
+      "properties": {
+        "spdx_id": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1}
+      }
+    },
+    "documentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "proven_support"],
+      "properties": {
+        "status": {"const": "scaffold"},
+        "proven_support": {"type": "array", "maxItems": 0}
+      }
+    }
+  }
+}

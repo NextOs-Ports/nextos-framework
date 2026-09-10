@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/rcrdx-nextos",
+  "observed_commit": "7d79b145f9c271ac5bbf959fb254880482ac99a1",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Retro City Rampage DX"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "3b320661b291ccc9e4d9648573e0eb151018a6da",
+      "sha256": "2c84887f2bb5b7e9e141729dd8efeb4e974efc588c73ac17fa5fd112c9a94fa5"
+    },
+    {
+      "path": "GENERATION.json",
+      "mode": "0o644",
+      "upstream_blob": "c50a6ae41a2d66bf6d170fc86a25bf3d3f53c875",
+      "sha256": "61b6414e7f1c5cf3f11832c09a0cadd4c1252f8dd6454c7bfa1cc01e947ca467"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "235cb8562e33760befa8c7a19cb39bd2bc0324ce",
+      "sha256": "43f66268da9832fd4af6da32c1f0ac57977042b7c569f52a8c3daf1815c73237"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "9fce650b2eec7aacd488a746c1ad556a8dcadd05",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "0691839d8d498c0fe250b03985a97bba5d9197f8",
+      "sha256": "575435c9f8735f89266fdb30037841cf913084d357cbf3200f914cc543b83867"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "4813770ee84098e1d2dbde2d12d593be8098c303",
+      "sha256": "1947d2dd2198cf3178001b0177cd8ade08563afbda8ea7cabd1aff023c2f2673"
+    },
+    {
+      "path": "Retro City Rampage DX.sh",
+      "mode": "0o755",
+      "upstream_blob": "0f88aaa1ae4eed41817b2baa8694478f93007887",
+      "sha256": "d0c1b0c91c633e9c5400f6a8b53e16701f21de38f94e23289407a04fc7644afb"
+    },
+    {
+      "path": "adapter/adapter-contract.json",
+      "mode": "0o644",
+      "upstream_blob": "45b5a8731d015558faea934947163471b3984a6c",
+      "sha256": "2c6b370bc3520fc55491129cc10e49f676684f6f0ca99c17c8421d64533cce8c"
+    },
+    {
+      "path": "alsoft.conf",
+      "mode": "0o644",
+      "upstream_blob": "4c4fcbebdcca60ee0d1d174564ba03a448984786",
+      "sha256": "12dfd503f1524432273a26db12c4fb9c26bcf22efeee791094555bde6696f075"
+    },
+    {
+      "path": "build.sh",
+      "mode": "0o755",
+      "upstream_blob": "29a764bf6ddec1f8b99291644064c439f30e3a43",
+      "sha256": "50544cf089d5fdd7995b4dc4725cdb0d8d001c75006f5f149440aef4d48fa991"
+    },
+    {
+      "path": "build_universal.sh",
+      "mode": "0o755",
+      "upstream_blob": "a742e6194adf3cf83ad05192192e217fb9e9fbc4",
+      "sha256": "5aec9c84b9df414df14d831634e6d01bf45628c56a806873c4b66a4692c83115"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "0f0e19563206f23fe081cd4443f7cab3c65b4093",
+      "sha256": "1eae8a2f19a9fed490583e5aef91e0d409d60018e8da20c0455b169de87c4261"
+    },
+    {
+      "path": "gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "7391d931ae7b6ae28170be86cb3481dd1ad0b638",
+      "sha256": "5c3468c91b047928e1e2c39e78ca3969ffb1ecf1f63b283de9c44cceb8b495ea"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "licenses/nxsplash-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "0f7e58e3385946596c883aeb554de08321bcb90f",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "963ed7cf3714d8edd6b4c2956526079af0bc9065",
+      "sha256": "4304275f30e076c76abdc0f280f0fdd5537f1ac700953ba1908e29a64d531919"
+    },
+    {
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "aa14274b5c30e5b197cafa2f0dba30f4f77b256c",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "path": "nxextract/run-extractor.sh",
+      "mode": "0o644",
+      "upstream_blob": "d092f8108f656ea27888fb2885b46726a3d217f2",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "bd4378a76426effc24373d73057fbbe53870e758",
+      "sha256": "f87ebf90ba1c300986b6594be69ce50860b8591539c6faebe4c001542a0730ee"
+    },
+    {
+      "path": "nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "a422ec069d87190632da1d0621a026f7c6c0f17e",
+      "sha256": "a80a808dda9cce7421882099f08bd52b8971b512a04d07a65375338aa6bc579c"
+    },
+    {
+      "path": "nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "e7b0d802a548d05054c3bdbc2d44a9924bd68c5d",
+      "sha256": "0ed1cd584dbdbb42fe5a5798bcc19befa642129412a5b96ac32989fe96956fb5"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "96a19f58fe26a96fdd0a41789f64d55031c4779c",
+      "sha256": "709200550e3f9b400d8b760c3a7717c073c52d938cb965237eefe8f4b4588a70"
+    },
+    {
+      "path": "package/check-final-zip.py",
+      "mode": "0o755",
+      "upstream_blob": "9c85a05ff5d8fabf3a3b40bc81c84b75cbc29cec",
+      "sha256": "21e8da70dc18767399c3ebdc26de6c86e7db027f0fd4c7ebffb7640ab46088f2"
+    },
+    {
+      "path": "package/refresh-generation.py",
+      "mode": "0o644",
+      "upstream_blob": "7a269a53fc1eaa89741708cdda1a382cb4236e49",
+      "sha256": "cedefd8337394cd0df24ce02c475519e317ab0f26b9491248d22880f6ad33c83"
+    },
+    {
+      "path": "package/refresh-release-manifest.py",
+      "mode": "0o644",
+      "upstream_blob": "cdcb1e6dc42c38c93c050338a8e838931672fbd4",
+      "sha256": "81407cf36a02383c47b7d1a96de32613e69c4e136547cd1df9a8307fe6655563"
+    },
+    {
+      "path": "package/test-final-zip.sh",
+      "mode": "0o755",
+      "upstream_blob": "c07a447a94cf0ac25fa6a8feb5c59ac10cafb9b9",
+      "sha256": "b70ca4331b20c44add4ed218cca8e9011cfd13d8b38cb6f35b62c7d904e1d8ce"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "f95dc90515e8d72e0cbec3ac6b8d3de5ff199e21",
+      "sha256": "194ca5fdbd091880822d5f58062e77c75b7baa4d48706566183e20b99e103f8a"
+    },
+    {
+      "path": "src/android.c",
+      "mode": "0o644",
+      "upstream_blob": "9307fae6b00ff128159c6d4914f09a6a65a772d9",
+      "sha256": "cb5184b220b6dae67422ac9c0e92d42881c66b3287fb7fe3bffa257ee6171695"
+    },
+    {
+      "path": "src/audio.c",
+      "mode": "0o644",
+      "upstream_blob": "3eb2239692dfbe9713e4bfc4144e41a40c4a84b7",
+      "sha256": "7cc7676b14ea5bcc5b3265184548db96d81b4c7ad25f652f1ccadcb18e3f3023"
+    },
+    {
+      "path": "src/bionic.c",
+      "mode": "0o644",
+      "upstream_blob": "653bec77e32e73634628a5505e7bccaea2ad13cb",
+      "sha256": "0f2e416281e90d02486850c9390df1e396e643f8608356d8ab6eed06433a50b5"
+    },
+    {
+      "path": "src/egl.c",
+      "mode": "0o644",
+      "upstream_blob": "9f8c2614af93957b4f5fc5aeff7d05c1ed3639a9",
+      "sha256": "23c585adebad72a228e99798438e4076c4bff1d69685ea6448d0ade43e2ccaa1"
+    },
+    {
+      "path": "src/glibc_compat.h",
+      "mode": "0o644",
+      "upstream_blob": "6ac5a9a54a688e4685cfd04a1fd2eb5ccc9a94a1",
+      "sha256": "ecaa0b2103b2bdde6b11ac153bc40b27b664c7d10b7c0fa04460c32bf9923b12"
+    },
+    {
+      "path": "src/input.c",
+      "mode": "0o644",
+      "upstream_blob": "8bf4620621690441e0fd9f2ec57a22e5663834b7",
+      "sha256": "49ab3f15142063bbcfe69f182b28679b00b81868c74a2a8d7bf7fa68db24ee08"
+    },
+    {
+      "path": "src/jni.c",
+      "mode": "0o644",
+      "upstream_blob": "06c4b4d990248c1a91ab3328033ad543beee87b1",
+      "sha256": "bb0e7e2c054f8744933100cbbe0eef73252f190b25ec047fd56e301d15ed0022"
+    },
+    {
+      "path": "src/jni_slots.h",
+      "mode": "0o644",
+      "upstream_blob": "db7d4585359118356e3a068c598b6bfadc5b3ab5",
+      "sha256": "c242d4b68e03b5b5e0a1273821d2931f04376bff2ba5ef5885f2d554b0de4fef"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "60c6203f8746bcc437bb705df23e2246e4549e6e",
+      "sha256": "cd9ab55762fbb7c0bcd418013567aa07a0cf1edbeeca8c4fedec200fd0a1777a"
+    },
+    {
+      "path": "src/nx_elf.c",
+      "mode": "0o644",
+      "upstream_blob": "193700c80b56f0b5ce6920f967fcb1aeac119cef",
+      "sha256": "21c646b397a3b53fdb821fa3a31ff26d80a1d40371fa651702343c7a0a4c3085"
+    },
+    {
+      "path": "src/nx_elf.h",
+      "mode": "0o644",
+      "upstream_blob": "2655202815bb8d4e2c5035b941bba8d75119f85c",
+      "sha256": "e9d1ee67ee8b0f2bbbb5a136332f424a1cd91781f77a087f96bc9a1c93dc0597"
+    },
+    {
+      "path": "src/nx_frameprobe.c",
+      "mode": "0o644",
+      "upstream_blob": "c30a67ff86b565586f0ec44623962a573d7e29d8",
+      "sha256": "40546beb1b3fd7095d6eb283431f56576739b4352ecc2d35865548e8344637f5"
+    },
+    {
+      "path": "src/nx_frameprobe.h",
+      "mode": "0o644",
+      "upstream_blob": "34f36b01c8b2db1cfcf5129e9c505fd466a69407",
+      "sha256": "2b59a40ac8088970d88316fce8f302e0350d6d6ab4c773e1006075807832a06d"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.c",
+      "mode": "0o644",
+      "upstream_blob": "de77b23d6e27b946e0075484d83df85d3c93d287",
+      "sha256": "f14139178c2f01717956ef11c7dcd94b6d19ac8228b8ca57f6d303456a55d083"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.h",
+      "mode": "0o644",
+      "upstream_blob": "de48fd75f9c315bc92ecb9558540702400b85051",
+      "sha256": "0e79c6dd61bae4a1817d79f5a26a2a1f6bd3dc16e3a849e9c2c69dea829fe667"
+    },
+    {
+      "path": "src/probe_ring.c",
+      "mode": "0o644",
+      "upstream_blob": "327130eb43849f1641273a97f09d4bf52be6329a",
+      "sha256": "631619ff134e2dfd96735a729128407c7ed88a6649a4eaade4f2e8bb021a87c2"
+    },
+    {
+      "path": "src/probe_ring.h",
+      "mode": "0o644",
+      "upstream_blob": "3265c11324a719ae094473b6732b939b84b66389",
+      "sha256": "fffcb5c75df0f9e673435ca35bddb07fe87a96dd35e5868e144f6aa19b8420e7"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "95a6913450e5ef5670b5e5412eb144d873060242",
+      "sha256": "439a4e4eb82df45a561c394b21e5bc4706e83ff8c61254aa0b598ac3af058042"
+    },
+    {
+      "path": "src/rcr.h",
+      "mode": "0o644",
+      "upstream_blob": "0565046b24e0b9b819d15e5c60947046902499d5",
+      "sha256": "3e54a0a877b9fa6379802fa7e1dcce6e1abb0f76f04812af884a6de728f4c38f"
+    },
+    {
+      "path": "src/sdl_java.c",
+      "mode": "0o644",
+      "upstream_blob": "4df8057240c15b9d14d82ad80b542fd53f58b66d",
+      "sha256": "d654441263e309cc74073e8778e64049266614f3fb17a28894deb31235d753c2"
+    },
+    {
+      "path": "src/video.c",
+      "mode": "0o644",
+      "upstream_blob": "21d60192458d352eabc088604b182d417c0e5608",
+      "sha256": "afc36b7f749be7aa93880e40c92269b2e1e9e5e762605f05ba3e2c21b9ed90ef"
+    },
+    {
+      "path": "src/video.h",
+      "mode": "0o644",
+      "upstream_blob": "451242c70af50779512127fcbe407c07981f8bb0",
+      "sha256": "24336e1e20d1a7101fbccf053ecbe1a4bd2c54ca342f4df79e3efb29361a9afd"
+    },
+    {
+      "path": "tests/fake_gl_provider.c",
+      "mode": "0o644",
+      "upstream_blob": "a834359b2238644d1767ea30e7029ecfcb998d98",
+      "sha256": "e9724d4ae814956d46bd9f13d9c3dd6547ea58cfd993140e7e55dac7b6f4062a"
+    },
+    {
+      "path": "tests/test_video_provider.c",
+      "mode": "0o644",
+      "upstream_blob": "e6aa0ab664874771f2106d26f7075cb7ee3846a3",
+      "sha256": "38577bbed10450bb9e191e44b9e0c51bd653e5fab03ba04d43c34d45a74e0b44"
+    },
+    {
+      "path": "tests/test_video_provider.sh",
+      "mode": "0o755",
+      "upstream_blob": "ce87638509d0d3585b85ec1aa5d400b2c9a64d3f",
+      "sha256": "83d8fb674f47cfda9d14ab793e15ed0b74094ebd3fa3b0a210682b99624af4a9"
+    },
+    {
+      "path": "tools-compare.py",
+      "mode": "0o644",
+      "upstream_blob": "ff82502b7fee38bc1ca93766e6f17565c0c644b8",
+      "sha256": "9460ba00424262674b44881f5a0e048c03098a84515a440bdf23e3ef5ab4e6d0"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "3eefcb9dd5b38e2c1dc061052455dd97bcd51e6c",
+      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+    }
+  ],
+  "omitted_selected_files": []
+}

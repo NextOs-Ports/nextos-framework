@@ -1,0 +1,255 @@
+{
+  "schema": 1,
+  "package_version": "1.1.9",
+  "target_game": {
+    "android_version_names": [
+      "1.2.7d",
+      "1.2.8d"
+    ],
+    "android_version_code": 12723,
+    "package": "com.gameloft.android.ANMP.GloftASHM"
+  },
+  "owner_input_profiles": [
+    {
+      "id": "android-127-recovery",
+      "sha256": "4188a463432b921dfb767a3ddf316e970655789a7bdf806298757f45071a8c87",
+      "abi_scope": "armeabi-v7a+x86"
+    },
+    {
+      "id": "android-127-standard",
+      "sha256": "2878fec3235a91a0487ee0a3ffdbcb5c534e0d052a573941a10489024b2b1868",
+      "abi_scope": "armeabi-v7a+x86"
+    },
+    {
+      "id": "android-128-universal",
+      "sha256": "6211d194cb06c6cbb32c2491adef59554eef4d97763a2fbc1e4bbb52d9fcae9b",
+      "abi_scope": "armeabi-v7a+x86"
+    },
+    {
+      "id": "android-128-arm32-installer",
+      "sha256": "42d1a3ac86708549fb425b8e36338ece56ea384fb2e30062c7a7da6ca34689e3",
+      "abi_scope": "armeabi-v7a-only"
+    }
+  ],
+  "loaders": {
+    "bin/asm2-nextos-armhf": {
+      "abi": "ELF32 ARM EABI5 hard-float",
+      "build_profile": "deterministic Debian Buster public ARMHF build with failure-triggered ALSA retry, SOURCE_DATE_EPOCH=1785628800 and strip --strip-unneeded",
+      "maximum_glibc": "2.27",
+      "size": 122704,
+      "build_id": "3496aaa7ac7d52b0e773639b9d203e1556f540a5",
+      "sha256": "c81c8ab0c1a0b403ef82e9166997b204cdc81514199fdbb37c4c7885bd1bbfcc"
+    },
+    "bin/asm2-portmaster-armhf": {
+      "abi": "ELF32 ARM EABI5 hard-float",
+      "build_profile": "deterministic Debian Buster public ARMHF build with failure-triggered ALSA retry, SOURCE_DATE_EPOCH=1785628800 and strip --strip-unneeded",
+      "maximum_glibc": "2.27",
+      "size": 122704,
+      "build_id": "3496aaa7ac7d52b0e773639b9d203e1556f540a5",
+      "sha256": "c81c8ab0c1a0b403ef82e9166997b204cdc81514199fdbb37c4c7885bd1bbfcc"
+    },
+    "asm2_127_x86_box32": {
+      "abi": "ELF32 i386 System V executable for Box32",
+      "build_profile": "deterministic Debian Buster GCC -m32 release with static libgcc, corrected lazy-resolver ABI alignment, SOURCE_DATE_EPOCH=1785628800 and strip --strip-unneeded",
+      "maximum_glibc": "2.17",
+      "size": 196508,
+      "build_id": "a0bc1845f7ec16ac9c914bdd68c5be35df384044",
+      "sha256": "201c2ef029451a005f047090db05f8f0d9f61b43eccf5309b936ba4306a7b110",
+      "license": "GPL-3.0-only",
+      "release_status": "validated"
+    },
+    "rejected-fd6/asm2_127_x86_box32": {
+      "abi": "ELF32 i386 System V executable for Box32",
+      "build_profile": "GCC -m32 release with static libgcc and strip --strip-unneeded",
+      "maximum_glibc": "2.38",
+      "size": 208856,
+      "build_id": "a4982da46df3f5c106bfc786c95ba5f6e9e770fa",
+      "sha256": "fd6b48f4d89b1b9ff67af2cb34a67a4e61d7259eed34e52c781ff91a85481b8d",
+      "license": "GPL-3.0-only",
+      "release_status": "rejected",
+      "rejection_reason": "incorrect i386 stack alignment at the lazy ASM-to-C resolver boundary"
+    }
+  },
+  "nxextract": {
+    "upstream_version": "1.1.2",
+    "upstream_commit": "8229cc857467e8641e7e2d6021c6a9bdea63afbf",
+    "downstream_revision": "1.1.2-asm2.1",
+    "downstream_change": "preserve sniffed extensionless non-ZIP inputs as loose candidates",
+    "ui_sha256": "046afb583f5a211c946495e639409f81d9cfec706788eeccb7924b0e8e5a50b6",
+    "ui_maximum_glibc": "2.17"
+  },
+  "recipe": {
+    "id": "asm2-127",
+    "version": "1.2.7d-1.2.8d-1",
+    "file_sha256": "7e26143c70e9802fc7645b468a7bddcf5de773ba90147731545d8ecf96956f93",
+    "nxextract_digest": "0f20ad42bca295057e72b9dd1e738395f4918583863e0b139e786df31909d927"
+  },
+  "x5m_runtime": {
+    "selection_scope": {
+      "host_architecture": "aarch64",
+      "operating_system": "NextOS",
+      "device_tree_compatible": "amlogic,s7d",
+      "tested_marketing_model": "X5M",
+      "tested_gpu": "Mali-G310 r44p0",
+      "notes": "The S7D compatible signature is the narrowest stable pre-context identifier exposed by the tested board."
+    },
+    "runtime/x5m/box64": {
+      "component": "Box64 built with BOX32=ON",
+      "upstream": "https://github.com/ptitSeb/box64",
+      "upstream_commit": "3ec5de03c786333ed8d5a51c5b35a8bd6e22b229",
+      "downstream_patch_sha256": "4d1042b5fadd1a5ad16b47882c62d79aae12f10c450ede84b81bf079f3ef6ad7",
+      "abi": "ELF64 AArch64",
+      "build_profile": "deterministic Debian Buster AArch64 cross-build, SOURCE_DATE_EPOCH=1785628800 and strip --strip-unneeded",
+      "maximum_glibc": "2.28",
+      "size": 25622728,
+      "build_id": "c9fea4a9332e0a08fb67d049be1909a740fc9037",
+      "sha256": "d73aa019eefd4e553acda8ef7a126f88101cd1cdf46502e4060c192412c3f4dc",
+      "license": "MIT",
+      "release_status": "validated"
+    },
+    "runtime/x5m/native/libSDL2-2.0.so.0": {
+      "component": "sdl2-compat 2.32.71 over system SDL3",
+      "upstream": "https://github.com/libsdl-org/sdl2-compat",
+      "upstream_commit": "3e1fa90d301428ace65d5c8b371e93d2c59c3d65",
+      "version": "2.32.71",
+      "embedded_version_string": "SDL-2.32.71-no-vcs",
+      "embedded_version_note": "the hermetic Debian Buster build intentionally omits surrounding parent-tree Git metadata",
+      "abi": "ELF64 AArch64 shared object",
+      "build_profile": "deterministic Debian Buster AArch64 cross-build, X11 disabled, SOURCE_DATE_EPOCH=1785628800 and strip --strip-unneeded",
+      "maximum_glibc": "2.17",
+      "size": 451256,
+      "build_id": "b67b112cd90b561ddb7059789417d588c2b29c45",
+      "sha256": "798051928c553ee27fde9e2d555be4a9fe4ddcefbbb72f59252e427cbcb0d452",
+      "license": "Zlib"
+    },
+    "validation": {
+      "component_bytes_frozen": true,
+      "host_runtime_bytes_frozen": true,
+      "i386_loader_bytes_frozen": true,
+      "real_x5m_gameplay": true,
+      "corresponding_source_release_mode": true,
+      "deterministic_public_and_source_archives": true,
+      "host_reinstall_update_preservation": true,
+      "x5m_full_extraction_and_fast_path": true,
+      "x5m_extractor_firmware_sdl_kmsdrm_physical": true,
+      "mali450_full_extraction_and_exact_package_smoke": true,
+      "mali450_arm32_installer_payload_gameplay": true,
+      "mali450_owner_input_transactional_matrix": "4/4 ARMv7 extractions",
+      "mali450_interrupted_extraction_resume": true,
+      "armhf_gles_oes_alias_contract": true,
+      "first_run_geometry_and_resume_contract": true,
+      "all_bundled_linux_elf_glibc_at_most_2_30": true,
+      "arkos_rk3326_first_run_physical": {
+        "passed": true,
+        "candidate": "1.1.8",
+        "firmware": "ArkOS 2.0",
+        "hardware": "RK3326 handheld",
+        "drawable": "640x480",
+        "sequence": [
+          "legal-touch",
+          "update-log-hid",
+          "cloud-notice-touch",
+          "controls",
+          "loading"
+        ],
+        "tested_loader_sha256": "c81c8ab0c1a0b403ef82e9166997b204cdc81514199fdbb37c4c7885bd1bbfcc",
+        "nintendo_layout_trigger_normalized_to_logical_a": true,
+        "profile_reopen_without_interception": true,
+        "clean_shutdown": true
+      },
+      "x5m_low_glibc_rebuild": {
+        "box32_host_source_and_runtime_profile_match_physical_baseline": true,
+        "i386_loader_changes_limited_to_shared_first_run_input_path": true,
+        "two_clean_builds_byte_identical": true,
+        "box32_qemu_start": true,
+        "i386_guest_loader_qemu_box32_smoke": true,
+        "exact_rebuilt_bytes_physically_revalidated": false
+      },
+      "armhf_muos_lib32_audio_environment_contract": true,
+      "muos_rg40xxh_armhf_audio_physical": {
+        "passed": true,
+        "candidate": "1.1.6-rc2",
+        "firmware": "muOS",
+        "hardware": "RG 40XX-H",
+        "loader": "bin/asm2-portmaster-armhf",
+        "module_roots": {
+          "pipewire": "/usr/lib32/pipewire-0.3",
+          "spa": "/usr/lib32/spa-0.2",
+          "alsa": "/usr/lib32/alsa-lib"
+        },
+        "opensl_driver": "alsa",
+        "alsa_device": "audiocodec",
+        "format": "32000/2/S16LE",
+        "buffers": "2/2",
+        "callbacks_observed": 6222,
+        "underruns": 0,
+        "missing_bytes": 0,
+        "failures": 0,
+        "gameplay_frames": 4782,
+        "audio_report": "clear",
+        "clean_shutdown": true
+      },
+      "rocknix_rgds_armhf_audio_rc1": {
+        "candidate": "1.1.7-rc1",
+        "passed": false,
+        "observed_automatic_backend_failure": "Could not connect to PulseAudio",
+        "observed_inherited_driver": "pulseaudio",
+        "fallback_attempted": false,
+        "reason": "the conservative explicit-driver guard preserved the inherited firmware selection"
+      },
+      "rocknix_rgds_armhf_audio_physical": {
+        "passed": true,
+        "candidate": "1.1.7-rc2",
+        "firmware": "ROCKNIX",
+        "hardware": "RG-DS",
+        "graphics_driver": "Panfrost",
+        "video_driver": "wayland",
+        "gles": "OpenGL ES 3.1 Mesa 26.1.2",
+        "loader": "bin/asm2-portmaster-armhf",
+        "inherited_server_driver": "pulseaudio",
+        "primary_error": "Could not connect to PulseAudio",
+        "fallback_driver": "alsa",
+        "alsa_device": "rk817_ext, fe410000.i2s-rk817-hifi rk817-hifi-0",
+        "format": "32000/2/S16LE",
+        "buffers": "2/2",
+        "callbacks_observed": 2197,
+        "underruns": 1,
+        "missing_bytes": 4096,
+        "failures": 0,
+        "gameplay_frames": 1550,
+        "audio_report": "clear",
+        "clean_shutdown": true,
+        "extractor_progress_ui_visible": false,
+        "transactional_install_completed": true
+      },
+      "owner_source_diagnostic_logging_contract": true,
+      "r36s_full_extraction_and_exact_package_smoke": true,
+      "multi_profile_hook_matrix": "4/4",
+      "arm32_installer_transactional_extraction": true,
+      "apk_plus_cache_zip_transactional_extraction": true,
+      "box32_condition_stress": "3/3 runs, 256 cycles each",
+      "dynarec_safety_profile": {
+        "BOX64_DYNAREC": "1",
+        "BOX64_DYNAREC_BIGBLOCK": "0",
+        "BOX64_DYNAREC_SAFEFLAGS": "2",
+        "scope": "configure_x5m_runtime only",
+        "real_gameplay_1920x1080": true,
+        "long_run_frames": 11034,
+        "reopen_run_frames": 6213,
+        "save_create_update_reload": true,
+        "save_term_reopen_rc0": true,
+        "audio_failures": 0,
+        "physical_controller": true,
+        "experimental_eager_mode": false
+      },
+      "universal_release_gate": "passed"
+    }
+  },
+  "owner_extracted_x86_library": {
+    "path": "libtasm2-x86.so",
+    "abi": "ELF32 i386 shared object",
+    "size": 32152072,
+    "sha256": "d146d38574c19a105df8a46e523f626c06004c8f71bbeed5cf77e919dbf81a12",
+    "included_in_public_zip": false
+  }
+}

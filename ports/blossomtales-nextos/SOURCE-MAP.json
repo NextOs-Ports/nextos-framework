@@ -1,0 +1,1077 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/blossomtales-nextos",
+  "observed_commit": "03f1088305be779c3ba528ec6a69c7542068f6f7",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Blossom Tales: The Sleeping King"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "df4a9ed130be670962178e85c899632901697e02",
+      "sha256": "3ce8de73b4da9b621dd0b2b725ef1a16737e23948608f34a6c3058f035d5c44f"
+    },
+    {
+      "path": "Blossom Tales.sh",
+      "mode": "0o755",
+      "upstream_blob": "ff18500b375e3d74879c4e13d52b6fa6ab57c954",
+      "sha256": "b05eb45a7f258540560271c75fed660f809f268f318d57acd065957ab1989c86"
+    },
+    {
+      "path": "CONTROLS-CLOSURE.json",
+      "mode": "0o644",
+      "upstream_blob": "7e7076ccc53b655f7d4aecaf7ea285d1443689ff",
+      "sha256": "1cdd0633b59281b42a26444ee5d47f6d595e059f5b9ca42bc985acc062e5a436"
+    },
+    {
+      "path": "FRAMEWORK-PIN.json",
+      "mode": "0o644",
+      "upstream_blob": "cb5b07166fe5bef3ee4a6c8c80e614986efcf9d5",
+      "sha256": "04666536a96960be52fb673de3d7cae336a1a88f84b5641d8ee01a5540ed535d"
+    },
+    {
+      "path": "GENERATION.json",
+      "mode": "0o644",
+      "upstream_blob": "5cbcb9b908eecfd4502974513ef4b4d37f3f920d",
+      "sha256": "d2fe5ac458ef6537634b19fb675242815fd61afb32c6d8f5b7fccb1140485ee0"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "7f58431650f7bf0a6df74606c52520fc2d804269",
+      "sha256": "eea07ba1aa26875b9ff81da34580913ada34cb433944469b16e02a6d14dff848"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "2f66dc8fd6a6fb1e5efbb67bbddd60f3b1a6c2d5",
+      "sha256": "281e888edc268e8eea674126001fe173a8f1ce8417e319d487757ffd8e6808ad"
+    },
+    {
+      "path": "OWNERSHIP.json",
+      "mode": "0o644",
+      "upstream_blob": "6feb4e135bb3af1655b43897c1c41f42c82d683c",
+      "sha256": "07d61ff933ff598f554f9f18e64905b54a258e2d63e89ecf5037edeaa899d640"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "564bb7d092b22942a07066a693ebd8106e055a18",
+      "sha256": "ec7da99b0cf2116c481d6d34ab76360790c3170ed71c6f4912930009e0127538"
+    },
+    {
+      "path": "SBOM.md",
+      "mode": "0o644",
+      "upstream_blob": "b8ea21fbe3d748c8fdc0de1009704dbf80cf022f",
+      "sha256": "82dcb931c6658f15ebac8b455149f347e4fb5d13b8b90d174c8c67705754a99a"
+    },
+    {
+      "path": "STUDY.md",
+      "mode": "0o644",
+      "upstream_blob": "21dcbd0cbd4a82d613727dd873aad7ef26f90675",
+      "sha256": "6e5b1a85a14abe1cee3ca4a6dd39adfecc24d273271c4b080a461eb70f8066d8"
+    },
+    {
+      "path": "TRIAGEM.md",
+      "mode": "0o644",
+      "upstream_blob": "ac8568438b5e1a1162b6bb075d9c4e595a2ce9a8",
+      "sha256": "15362054e204a7595383a3d80ba3499f92c82e6922253f8b9bbc691c09452be5"
+    },
+    {
+      "path": "adapter-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "cdcc53d2378553a57c49ed558e3de1d9bb4cdbc5",
+      "sha256": "05847c5e985ba0f93d75ffb26452d663126b313d58de174f57de43b3e2155574"
+    },
+    {
+      "path": "adapter/adapter-contract.json",
+      "mode": "0o644",
+      "upstream_blob": "fd5e6f61706faa5918a2de18f11bcc1e875aba58",
+      "sha256": "f7e339fc33960057595e343b0ad131f1ae2eca5888515005ec97032c16b8695a"
+    },
+    {
+      "path": "build.sh",
+      "mode": "0o644",
+      "upstream_blob": "827928253a604e66d08dd18338664bb4745b9335",
+      "sha256": "79b5e1a5215f4ee8fac8d349891484fdc96371dcf33f632e961a0d07ddb8c1ce"
+    },
+    {
+      "path": "build_buster.sh",
+      "mode": "0o755",
+      "upstream_blob": "3859a67abcb05b2a9edb6deb6a6a95b330e0d15b",
+      "sha256": "7515fd097b9ed9133ce4a466327f925a12f2f4ed71fc9f30af4f268c11148935"
+    },
+    {
+      "path": "buster_compat.h",
+      "mode": "0o644",
+      "upstream_blob": "1eea0cd7ba17c569fbdd3115efce35b034c50cfd",
+      "sha256": "a8932307163df77958a9c07a362da7a649df334f41c9064fb6de9d20eb08b82e"
+    },
+    {
+      "path": "defaults-src/port-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "850ae4c168f9a6117ed3d7a3871b90cb5b3d555d",
+      "sha256": "aacd83b8b7482aa80fd12c4591510c87a8cc8c976ef5a1156d01b1e5bc10e480"
+    },
+    {
+      "path": "defaults/NEXTOSCONTROLLERS.gptk",
+      "mode": "0o644",
+      "upstream_blob": "fa9cc51045702fd8ef2e35c094531a0e94c0f5b8",
+      "sha256": "bb5bc73d4a2c95a261ba73417784c50c51cb0b465f124a1d3ac5ec5ddd505333"
+    },
+    {
+      "path": "defaults/NEXTOSSETTINGS.txt",
+      "mode": "0o644",
+      "upstream_blob": "c32fa34f814a48dd6f2bb134948f5b5e95808d07",
+      "sha256": "c74548b75905ae38a6ae024cecc5e3bd806dc5667a434aa526e3668afd6c05f0"
+    },
+    {
+      "path": "defaults/port-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "850ae4c168f9a6117ed3d7a3871b90cb5b3d555d",
+      "sha256": "aacd83b8b7482aa80fd12c4591510c87a8cc8c976ef5a1156d01b1e5bc10e480"
+    },
+    {
+      "path": "devtools/aac_selftest.c",
+      "mode": "0o644",
+      "upstream_blob": "7c2e06a9836eee11656afd189613590b08f1747e",
+      "sha256": "7f99c9ab08ea224a85fd868324dbfa7c2d9a4d18c7e8af6cb34aedc1b4619491"
+    },
+    {
+      "path": "devtools/assemble_runtime.sh",
+      "mode": "0o755",
+      "upstream_blob": "35738fba34b06dc687b041abe49c821c2fc2cad4",
+      "sha256": "a84b75df890c34a0221148fc0f732caaedad44bcc0e8520304f9bd703e4bbf4a"
+    },
+    {
+      "path": "devtools/audio_capture.conf",
+      "mode": "0o644",
+      "upstream_blob": "65d0a82e6eecb58daf32f66406c478f29d539037",
+      "sha256": "4a8367524fdac495a75da519eb3049f773ff2b0f39565e8ea14c30ec069eea1b"
+    },
+    {
+      "path": "devtools/cycle.sh",
+      "mode": "0o755",
+      "upstream_blob": "bf87dbf9aabf2b8bdf1d3d2fb3c8fb6c144dfaa2",
+      "sha256": "2aa02606a89078cb708f94bec4c305bd92f4a8a3b30838d01f89face076616ba"
+    },
+    {
+      "path": "devtools/make_nxrelease.py",
+      "mode": "0o755",
+      "upstream_blob": "676c6b1c1ac639a9d004d0713787243cb684b105",
+      "sha256": "ff1c4c981b7f4b053b97fd649ce2aab682248425c376a3803cfb0ee67e3451e8"
+    },
+    {
+      "path": "devtools/materialize.sh",
+      "mode": "0o755",
+      "upstream_blob": "e3cc7867ae96440605ac7d58a39244578ad64323",
+      "sha256": "044f0af421ead7e3eadc81869826f2b0581d9a4203ddfd3f7a55a6199010e9ee"
+    },
+    {
+      "path": "devtools/scan_kill.sh",
+      "mode": "0o755",
+      "upstream_blob": "1d8b8251af1dc1e9fc587a312a42f1e560de9214",
+      "sha256": "29b10d803dcb59ad54be774df5648ccff8b339cb384bc94a699ec85a18ec36b8"
+    },
+    {
+      "path": "devtools/virtual_pad.py",
+      "mode": "0o644",
+      "upstream_blob": "f5c843bc5a84a89f3bd8b7dbd3ee6e887d7c404b",
+      "sha256": "897376a344e928ddbec4948852cb84daf5f6bec04d4548346153fe406ebbfbac"
+    },
+    {
+      "path": "devtools/vpad.py",
+      "mode": "0o755",
+      "upstream_blob": "13aeb4e6ce442b286241526ec6c030c2f49a0c77",
+      "sha256": "7d625d0ced9f277074ad9dfc8b5df31a4351d3694c307ebb02f48a5f78509773"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "6b3fd4f56c8fa29915fd7eee4acbf07a0b0bdfd2",
+      "sha256": "c5fffb63197a6715f4dd53c0e2c14dd316500e1c92871f7db63101d32a5576e4"
+    },
+    {
+      "path": "gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "09a8fb3dd53dfa9318cb3ffd54350420a47266ca",
+      "sha256": "f78971f09480694331b0007459ec3537d840922fba83eee1506628d849fc7395"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "df1211b63870c4ab393e4fe2e3e3787e67b81d1f",
+      "sha256": "19a0952b030aa90b50c186c2fb7b6ac48ff2991f5499ad4b3ca749a33416b5f0"
+    },
+    {
+      "path": "nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "d11b6c4406ef2148f8755dee9c3e79dd3647b26c",
+      "sha256": "8fbe17d971fbf22068dcade2798b073def261ee26f7fd0804c1f55a41f468e36"
+    },
+    {
+      "path": "nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "af4e4d9865c16068699d747f44236d16faa71b72",
+      "sha256": "9e3c642e226a2978efc8de175ae5add9695021e99530fcfc2eec14a5669eb506"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "306a0242ba16e45778a1089f0c727746e46843b5",
+      "sha256": "1fd4c3324af1bb0a9f934094b5059a986c839943501d6286df12319e911edade"
+    },
+    {
+      "path": "run_bringup.sh",
+      "mode": "0o644",
+      "upstream_blob": "36e2c945b55e692df05a77d555a6a6c04ef17cf0",
+      "sha256": "c7c5eaa5379f20d411820016cb4ee403efeab56505f5ac286c87d49cb66b6723"
+    },
+    {
+      "path": "run_dev.sh",
+      "mode": "0o644",
+      "upstream_blob": "8b0196b1e7d8f68e4a39dcaacf16ec0a9b541812",
+      "sha256": "abcf95d025ec5c4e4d310409383c3a82385213dc32460d8a51efc8f07b944b53"
+    },
+    {
+      "path": "run_device.sh",
+      "mode": "0o644",
+      "upstream_blob": "2a8b0a403f8d31f32df59ed8ddf2252a9f144aa4",
+      "sha256": "427eb8477c50fbeb4c58dcd327feb67d5354c56bd825fccc91117d8734c62ce2"
+    },
+    {
+      "path": "src/aac_decoder.c",
+      "mode": "0o644",
+      "upstream_blob": "18893b30d1ab5b4a958850ab24f6f62019498e4e",
+      "sha256": "bb19cbd29dcf425fa702a9300cdba57a66d083af6c1320aacf7d255fadcd4c49"
+    },
+    {
+      "path": "src/aac_decoder.h",
+      "mode": "0o644",
+      "upstream_blob": "151961c022f4c5ce5ff4b13c1c071c708a4895ab",
+      "sha256": "ec64e518179fcbf71075d13d82cc228055f16ff99b33ea2f44c9539dd3222d49"
+    },
+    {
+      "path": "src/aaudio_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "aecfaea758257959efad957c3cf1bb1b10c186c4",
+      "sha256": "ab2fc6d38503e884cffd52700b3cd320f71f9d85ee6a679d12ebf7c6dd0b317b"
+    },
+    {
+      "path": "src/android_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "ddc1b80af1014d33eaf385a0ff204a05cd02c8b6",
+      "sha256": "134371db623b4e6086733955dc7aa8c9652d64d4b2cf4c4d644c0c535a09607e"
+    },
+    {
+      "path": "src/android_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "8fa2ff35eb7726b69a37a3809fe0a7c304fd225b",
+      "sha256": "b702e9f54a78088259bd04eec4616e4639b43742faa26ff57f536cdeac71b170"
+    },
+    {
+      "path": "src/astc_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "a7da0fa0321b3e46c5ed65f96671340e2084c3b5",
+      "sha256": "555ed50cf2786e732dedafe4fc4965dea861ab7980c402b75718963cd8ca2e58"
+    },
+    {
+      "path": "src/bionic_shims.c",
+      "mode": "0o644",
+      "upstream_blob": "356cc67e6c412a6238c9bc60e1cbc401be379f0d",
+      "sha256": "fb25c585008d5bdd6852575c69d8ef05a42972ad958a5c03be1ae7f847191cfd"
+    },
+    {
+      "path": "src/bt_input.c",
+      "mode": "0o644",
+      "upstream_blob": "93af00848be6bd36c3571359c4540eece1e0e748",
+      "sha256": "042e9cd33654fa7b158c14c2caa8277d0fa0d759cf1fec09d3dbc38b86ca34d6"
+    },
+    {
+      "path": "src/bt_input.h",
+      "mode": "0o644",
+      "upstream_blob": "d2cf20c73f5f13ec9a93c88d4860d1ce97feeba5",
+      "sha256": "c983c124301d2bc5a7927c8c4b032606d9080d56d4d2ed2902d21c48f20529e3"
+    },
+    {
+      "path": "src/bt_sdl_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "950d73bd4fb4f5ca8ed162aad13ca8bcd34b8f44",
+      "sha256": "b999111a9a21b8fc079ddbce8f552d745a863ab0c3e7f819f8e5193365e70810"
+    },
+    {
+      "path": "src/egl_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "74e6ca80baafe41556e440a38552304e590f047e",
+      "sha256": "62f6fad025b808173a7512610886a9735845906e10c1a40867ee8c0c6a3da56c"
+    },
+    {
+      "path": "src/egl_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0e530fa062f727d9f3ee8733918c942627174147",
+      "sha256": "21b531dcdb2a1508f6a649556a15d8f5c73c23028c5fd6f259a2fdf168d142d4"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "657acd34d8b35050e31bdb0301518fbf0fda09db",
+      "sha256": "1bc4ccd363c0e181cd3854501fde61117b8efb887b65986510c4e50336691e2d"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "f7030977c14ec8d62e53ed71cd277cd04a95cbf2",
+      "sha256": "8e3787cf76c976577f81bfe0719cb64d028389838d1a21f3dbd0dc2a79b3bc42"
+    },
+    {
+      "path": "src/etc1.c",
+      "mode": "0o644",
+      "upstream_blob": "0da1942206efe4523c03e1c9203b736877fdd32e",
+      "sha256": "608fe37e4d29e92d75de7aef45c46e55eaf1712193db8798a57861c5569f9990"
+    },
+    {
+      "path": "src/etc1.h",
+      "mode": "0o644",
+      "upstream_blob": "d6e72187c43b6a4f6d9eccf13266798627d51768",
+      "sha256": "037f78d4e636c239eb4e92a51089f229ebae698c09fbee1d878eeb94a19e9ac5"
+    },
+    {
+      "path": "src/fbo_compat.c",
+      "mode": "0o644",
+      "upstream_blob": "67351968e96f828faafdb7deabc3f39ac3baaae8",
+      "sha256": "03c79868e89eb914cfe76020304381f43981dd89b3b33a65efff49116e5c4088"
+    },
+    {
+      "path": "src/fbo_compat.h",
+      "mode": "0o644",
+      "upstream_blob": "06f66cc0fb27d491317036146e78c74b7e7bbbf2",
+      "sha256": "9897fc6d202ab04bca0fa754b655b70996d2f8de34498a168b945fe670f15b1d"
+    },
+    {
+      "path": "src/fmod_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "a945da81baa6983366dabb7152092c0e3f80e401",
+      "sha256": "07ab6bff33a9b10693f73d173e83837a37b0b8347467a71dec3a4c3589c5cfe4"
+    },
+    {
+      "path": "src/host_libs.c",
+      "mode": "0o644",
+      "upstream_blob": "f12e2c21453dcd4e3f612066e47a2a036421f675",
+      "sha256": "15067416faebf8409068746d6c6832fa170d8460a3ecef79cb7d2e6565ae58c6"
+    },
+    {
+      "path": "src/imports.gen.c",
+      "mode": "0o644",
+      "upstream_blob": "be0bc9d8a8ea41f96d9bdd8216649ba8c74f9f57",
+      "sha256": "42a58495128f13e779c6ce92e6413c0eac55491d22a07cc571a2f3aeaa8cac35"
+    },
+    {
+      "path": "src/imports.h",
+      "mode": "0o644",
+      "upstream_blob": "ee7e1400b0b26678d32e35789b7543e9e2661e90",
+      "sha256": "f9317c4e496f00c657bd552ebeaa1f7bf3c5c55c4d2bf8673f2371fd2ce3bfa6"
+    },
+    {
+      "path": "src/input_gptk.c",
+      "mode": "0o644",
+      "upstream_blob": "3389fcca4e145979c8f850cc8770b1f8c5f1edbb",
+      "sha256": "c704776b14a55cd7d63c89dd196b7727f8bcfa32adce9676716c6d35fe919fbe"
+    },
+    {
+      "path": "src/input_gptk.h",
+      "mode": "0o644",
+      "upstream_blob": "01a7364c13e7a64da26c8b607610cfaf180bffca",
+      "sha256": "90f81eb8a6fe6f0b528583d35a579e549ac877fe032f8ab742b2e29bfdf94d8b"
+    },
+    {
+      "path": "src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "12f0bdafedfd1a994638edf7bd39d1d91ce7de84",
+      "sha256": "95b08c2c147565d12d0c7a35bd9f624825879f6d6dbe9e799db94cdc67aaf928"
+    },
+    {
+      "path": "src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "7125ae1fed356f1b41e3e8b84d13f326093119a2",
+      "sha256": "aa5de317de2b34b8cf3706f7a12172bc6656840c57be9896d27484bcc53e192a"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "065bea2d6f498ae018ab5f801cffec99b0143eaa",
+      "sha256": "cf15c9c66b2ab09078522a1178ec6d184b82f8f261acc2139399f28b87cef822"
+    },
+    {
+      "path": "src/media_player.c",
+      "mode": "0o644",
+      "upstream_blob": "a198b6b29ed8a0c355d6353b08e2807fb6d6742a",
+      "sha256": "c7db6dde864703a509c5a6728f9977e794cce741a35abb353abbc83bd19fcf13"
+    },
+    {
+      "path": "src/media_player.h",
+      "mode": "0o644",
+      "upstream_blob": "daee57a56ffec7585738dda3bf1f19083024bec6",
+      "sha256": "3d19d96668c8ccd395d1cb95282fe5535acc8ebfc8f388ad50031950e7a4f7f6"
+    },
+    {
+      "path": "src/minimp4.h",
+      "mode": "0o644",
+      "upstream_blob": "088ce8964fb7ca0a0ac624498ec8fc4ac569d2a4",
+      "sha256": "1fc8d29b8c29dbeead9710bd9e95f6aab4d2fec48a55c2cc54a59f0338190bf2"
+    },
+    {
+      "path": "src/mono_trace.c",
+      "mode": "0o644",
+      "upstream_blob": "1753f8cb0a57669c2f390f8006977c0cb9337546",
+      "sha256": "61eaefae7f3883d8772ac93d25517e7070e68572216c6b067d369ae5d68a138e"
+    },
+    {
+      "path": "src/nx_jni.c",
+      "mode": "0o644",
+      "upstream_blob": "792890213f3acd7a59e8484fd6ae3827c4547a31",
+      "sha256": "51023496ddf8edbbc1bd47dc93e8c692f4d5029a6b9985b71ded358aa8d638ae"
+    },
+    {
+      "path": "src/nx_jni.h",
+      "mode": "0o644",
+      "upstream_blob": "79ca173837cdd7da8e2b9cbfb61000c7cddd687a",
+      "sha256": "de030e2c1232519658ee7a04a17be87e7b385f01a19d39f2863264f49f2872d9"
+    },
+    {
+      "path": "src/present_fbo.c",
+      "mode": "0o644",
+      "upstream_blob": "d2d998f54cd548c898c21ba8924e2446b1e7fee6",
+      "sha256": "5eb96229779b1239a3b32417340ae20eecc486170965b0a8ba73b7e04bcf424b"
+    },
+    {
+      "path": "src/present_fbo.h",
+      "mode": "0o644",
+      "upstream_blob": "80226dfd9a5e28d9aac536e5fb3aefb50658ed0c",
+      "sha256": "25ffa0ebc1e0b886b44b07c414487a6a6f6b00eacac8bff40a52bc2a93e1dfe0"
+    },
+    {
+      "path": "src/present_policy.c",
+      "mode": "0o644",
+      "upstream_blob": "b39e6a5ee3aaef8d29223ff09898d0976c7399b0",
+      "sha256": "4a2df04c7cd72469346d05d0ab00e0d99ad50a8ce3b1d94cdd51f8da02736f40"
+    },
+    {
+      "path": "src/present_policy.h",
+      "mode": "0o644",
+      "upstream_blob": "7e6651193d536ca79f11c4262aa3addd5a776025",
+      "sha256": "471f361f4797926e138c67931b03ba94a89318c5d6a062fe278281ba3e37cbab"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "9816490d8553dd1af04a0f50787eff7fc81de1b8",
+      "sha256": "853508c0bee96bc556d8d0436f284b9b6dfef27be05f8a2413184b3970c05a99"
+    },
+    {
+      "path": "src/sdv_egl_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "763212e000b844ac370ac3f10d0b408d8a78055e",
+      "sha256": "3c4b784c4cc6c9296340ea754a71093dd896924546886bd4b47b8685b32f4490"
+    },
+    {
+      "path": "src/sdv_egl_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "f449a8392e0508586cb4175220d73deecb950ac3",
+      "sha256": "c839aeb000fa3f811befbd52700b53e7e481588fe7f4b02503ee063fa5c69460"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "1c74f8e1b95714a2d749bc5366e61657a58a83cd",
+      "sha256": "e4b4f78f54a3a6612f6a5d67258ee964dc858ff1142c6bf728606c47b9b7fdde"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "1c0da3886454ede6578ff551c5e0574389b4040b",
+      "sha256": "912bddeaca0bfbd5c3791b294334cbfa57a059f4636e84fc07ee1e19e1933dec"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "31ccb97b25a8478880476d41d49027385e9c748f",
+      "sha256": "1d5360007f5cc3610e23a2f3e28a1b3ac8f18046ae720ff1b97788b86f14ba01"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "a21ac6dacc0ff249669fd72139de2c4c60e52817",
+      "sha256": "24b816bc531bc4c27a36883ac60e471d01d0d791aa6b300316206a37cfc91a54"
+    },
+    {
+      "path": "tests/run-targeted.sh",
+      "mode": "0o755",
+      "upstream_blob": "5b3e4b5edebea3ac14287fe4a269202cb6c98a87",
+      "sha256": "0096ffca4bdb7f02b89dff7b14d52dd75a6dfdb4295d7f6a26a267620b586a81"
+    },
+    {
+      "path": "tests/test_fbo_compat.c",
+      "mode": "0o644",
+      "upstream_blob": "724dd254cd9d888367f12bebfaa1a54415dc76e5",
+      "sha256": "00f5602a51d5d7cce863f26306e1b3d3f9fc2c87c6548a00e2cd3f52491082b9"
+    },
+    {
+      "path": "tests/test_present_fbo_scan.c",
+      "mode": "0o644",
+      "upstream_blob": "d85caee64c575d43903a0b811e4c4ec6d0899ade",
+      "sha256": "af8671562914e634f762175109140b5ca744a8bdce0de0728090f81f6a9d8e83"
+    },
+    {
+      "path": "tests/test_present_policy.c",
+      "mode": "0o644",
+      "upstream_blob": "ec4cddf8452903bbc3a274ca4d9cc470ad502920",
+      "sha256": "fdbf91af408f3f7374640e82a9dc2f1a9f2d537b85e119cacc95d3b97abaa5fd"
+    },
+    {
+      "path": "tests/test_v5_integration.py",
+      "mode": "0o755",
+      "upstream_blob": "1a48100746cfa1a8c36a6a38134afea28376933c",
+      "sha256": "280781e9fcc05110ba228ed30d2ecc9ac9beffdd63ad57d0b1e30b913f0b9b2d"
+    },
+    {
+      "path": "vendor/PINS.txt",
+      "mode": "0o644",
+      "upstream_blob": "3f347ae7c8b4e729c486375ed9b4a52df59f5c34",
+      "sha256": "d00697a0520975289c9126ad3147ff4bc1e9449a71bc5e1b708b83af644ea206"
+    },
+    {
+      "path": "vendor/build_fdk.sh",
+      "mode": "0o755",
+      "upstream_blob": "e08105b7b066864ef4f2fda9215a6036ddbfa34e",
+      "sha256": "1c3612acc70f637433bcad45267c5d84a040e7d1715695cf7dcdb07b6fb8a179"
+    },
+    {
+      "path": "vendor/nxcompat/PINS.json",
+      "mode": "0o644",
+      "upstream_blob": "13c8c9c4a4927b15b4fee74805d6f795c0550f14",
+      "sha256": "5ba38fec3ba50713400bb55054ea553fd089029825016a40926dc32755e67b23"
+    },
+    {
+      "path": "vendor/nxcompat/include/nxcompat_settings.h",
+      "mode": "0o644",
+      "upstream_blob": "ad2c74a9955c1b0147d5c75e2ecd1e1176e4c813",
+      "sha256": "8b5742ee68f3d41969494e3c3b583ba15d7f00f015ec7353b6c09b04ec204252"
+    },
+    {
+      "path": "vendor/nxcompat/include/nxcompat_video.h",
+      "mode": "0o644",
+      "upstream_blob": "239fa9cb80c5a98b172fcd8a97c1cd21402d2c0e",
+      "sha256": "5f5733261d731b95498fe9b5f3c1594dbebffc63bfe1a472c0e41aa74e9f7b0b"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_settings.c",
+      "mode": "0o644",
+      "upstream_blob": "01b2c86b04defc2cbd4731787dde492b8a099c7c",
+      "sha256": "eab8e418e38582770c3227164e42e9996448380fb8b7b9992cb98bc63775d416"
+    },
+    {
+      "path": "vendor/nxcompat/src/nxcompat_video.c",
+      "mode": "0o644",
+      "upstream_blob": "2c846240a08929f28788bda9733ed5adb8731325",
+      "sha256": "b3bfbd1417a6e05371b66b2fa460805810696cac99cc04fa646ff9b96015390a"
+    },
+    {
+      "path": "vendor/nxinput/PINS.json",
+      "mode": "0o644",
+      "upstream_blob": "2ecfb0a54a8e98954aefaaf94090b7945f05346e",
+      "sha256": "32f15ce54b4bf7f22b77469fae5737640ea0d08bce72204815eaad4b4f9c92b6"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxc6_glue.c",
+      "mode": "0o644",
+      "upstream_blob": "7a2cab654c1dccebbee7756520972ab596a9267d",
+      "sha256": "3fa8c4ea741a24cd5a02c9015716b4bb4bc843cc3d588bc599f4662ccfeb817b"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxc6_glue.h",
+      "mode": "0o644",
+      "upstream_blob": "a1f32afa56fa62b7c9dc1426192ccf3b03ba3d2b",
+      "sha256": "1d9839cbfb4149672cf365de993f035cff86ceb81023bc7211b319bf2be281c6"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxinput_gptk_godot4_glue.h",
+      "mode": "0o644",
+      "upstream_blob": "25088768c7fd4fc9d10e419dcdeb1d5d0300f93f",
+      "sha256": "7b964d294ada25acd7948db9220e86129c70dc9975e86347391e66659cef61a9"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxinput_padset.c",
+      "mode": "0o644",
+      "upstream_blob": "c21a3947a62abd02be75e2325ad43caebb17b61c",
+      "sha256": "983923214426926b1e5517a3aa18d444b46e88012ab480179b9f1f879b03bf72"
+    },
+    {
+      "path": "vendor/nxinput/engine-glue/nxinput_padset.h",
+      "mode": "0o644",
+      "upstream_blob": "fd43d129e5d6a2cee546ccbb9af5d12960c2be30",
+      "sha256": "ac7a251a01529c2919215ce2b1d859bcd80cb950c22d0cdb96696b395d8c9102"
+    },
+    {
+      "path": "vendor/nxinput/engine-patches/C6-SDL-PROVENANCE.json",
+      "mode": "0o644",
+      "upstream_blob": "5ee60ef2045d38141d14a7b40448f1034b49c081",
+      "sha256": "22c7243582c5393314ccee4f7f06cb283785bc051b562a76db4b61d7a60e1294"
+    },
+    {
+      "path": "vendor/nxinput/engine-patches/sdl2-2.32.10-nxc6-seam.patch",
+      "mode": "0o644",
+      "upstream_blob": "081eacfb628056e91fc3f776627fe2f4efed0294",
+      "sha256": "39470691346a124b774b112351c2cd9fba1d4f4a49664bb0dfc031edebc54e6e"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput.h",
+      "mode": "0o644",
+      "upstream_blob": "35663bdf66ef8f49328e23fba26896bb5daa7178",
+      "sha256": "d53b5176864cd0b51ca9c7d9fc20adb28b3cd011453b3dc59274c0fbe7461fec"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_authority.h",
+      "mode": "0o644",
+      "upstream_blob": "55f5ec85b021d866f3a3e40f07637a16f3ec3c71",
+      "sha256": "4715b4f4d791e12346d91162e3700a57af68fc7c897d6528630f63d509f1f714"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_authority_v5.h",
+      "mode": "0o644",
+      "upstream_blob": "5a10a71b16939eb1ac072af41c102cc4222f50a8",
+      "sha256": "a72ef77587674124db7a1fee901ca2d2a7d09cbf19b49db3da05707aa6fe2849"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_axis_calib.h",
+      "mode": "0o644",
+      "upstream_blob": "d984a711b0b104b0cb2dac477e9dfc392434e0a8",
+      "sha256": "a0ca01c867e843aaf02ef498dd017920d3e3aedeff5d43d610aa799e3a03d0f4"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_coexist.h",
+      "mode": "0o644",
+      "upstream_blob": "00f4cd5fa17f4ee522f084f610cbe5fd8267d267",
+      "sha256": "accfb0907d673e54814d982eccea3f75e61ddb46304d0f8410a93a5d5ba7e258"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_corpus.h",
+      "mode": "0o644",
+      "upstream_blob": "b2bbc6424dff5403e75b186051591cc625d1e382",
+      "sha256": "29805a932b2e2834fa1d14b7d4f773948336e130ae4d8f7c5c3810d01ca9a3b4"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_decision.h",
+      "mode": "0o644",
+      "upstream_blob": "58ea863bd968245e53f1efd5ae3caf02ddc40198",
+      "sha256": "54f92efcadba97ec6277a5febbe981d5017a908b86611e3ee44c431d0cce837a"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_evdev_chord.h",
+      "mode": "0o644",
+      "upstream_blob": "e27fab98787442738346cfa1de4dcb2c160df35d",
+      "sha256": "beddb47ea37be5c700fbb96d687b8fc871275ec27edb6880bf4a89f02a12c60a"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_exit_chord.h",
+      "mode": "0o644",
+      "upstream_blob": "d9cdc9db540fabbd82765aea75be9cf2e8aff628",
+      "sha256": "597aba07ef7f7bde241d7c409155b219fc804b862b01b307da16e1e2763c3708"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_godot.h",
+      "mode": "0o644",
+      "upstream_blob": "4d373d8d7d6066436789892158a6002a5bee5746",
+      "sha256": "d543fad6c01d5f5625f180a7f9370d6f79bc963d5cc4c776e16b3fd1ea094d36"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_godot_consumer.h",
+      "mode": "0o644",
+      "upstream_blob": "ae72a3ddb5f80f2d521ea639c1b941bcd40bd6fd",
+      "sha256": "9522a8c882a52e603c3f5b590ae86f69ef0a0d9d58bc214a93a6b1cc85135895"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_godot_runtime.h",
+      "mode": "0o644",
+      "upstream_blob": "4a12cd228583e2334de7438d0732c9ab95473326",
+      "sha256": "920823ab7288c21f6336553bb45e6835e0855a66062334cd5da27cb05a0286b9"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_godot_seam.h",
+      "mode": "0o644",
+      "upstream_blob": "a3035012adc3decd21fb77b3934750dd4466ea2f",
+      "sha256": "6c81ea66758ea276429c1e45e55282a7ce917d42fc1038cb214dfca212ce97da"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk.h",
+      "mode": "0o644",
+      "upstream_blob": "0fea2f66e02139731b8e84626d464ce43b673c5f",
+      "sha256": "e48be8ddabacfa23e3e00480d17d52eea54af0ae8aa296906e4a699524caf3d4"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk4.h",
+      "mode": "0o644",
+      "upstream_blob": "dd90b198e47d6a0651d008afabcdcf091306ba51",
+      "sha256": "606e0ebcb8028606123750d7c08f396aa87146c641853cc134d672b6cdfeaa5a"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk4_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "f4ae0d08b6c6620cf9358b70de8cc4945805ac1f",
+      "sha256": "069b32f4df546a0e89cea761d8068099a00a750d20b7ec18849b571927df6d57"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk4_preinit.h",
+      "mode": "0o644",
+      "upstream_blob": "967194a0cce60d8994058030a832afd4187d6589",
+      "sha256": "c9cd88fa8bfad9c06eb7b6ccdf672818e1f3edf1786b77e785fa570303161217"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_live.h",
+      "mode": "0o644",
+      "upstream_blob": "7829fd51afb8d64499f316ba1086b8adaf923f31",
+      "sha256": "343778198f5b5f922551bb4a7f38c0666425d5e39ba2e49af92f1a4f64ab82bf"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_loader.h",
+      "mode": "0o644",
+      "upstream_blob": "8c6e3331ce8d02fed8a8684546820801a53cdbf7",
+      "sha256": "11b35a23d00c5921984b584e10d580bb220764a44b66dfde03acc26525a67555"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_motion.h",
+      "mode": "0o644",
+      "upstream_blob": "b32997615a0af021c9eb9012e511a17dd0fbdae0",
+      "sha256": "baec08b8981249a28c992be1456f667c59719d50e0ef1b22fcb79cbb07d37f2b"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_preinit.h",
+      "mode": "0o644",
+      "upstream_blob": "723d4a69d0d19bc2c6e40040ff2f500cc3ecea6a",
+      "sha256": "57beec0ea03ae8f85140c783e2096f4fa5fb94fd879e9af980ac7f97faa6e9e0"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_gptk_upgrade.h",
+      "mode": "0o644",
+      "upstream_blob": "2125f6b9f0036d7c99518092ac0ecc8106544ec8",
+      "sha256": "651d76c97fb7a0273e4734e4d9806ea2fad8f6e9705155760a7810c3920583a1"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_keyboard.h",
+      "mode": "0o644",
+      "upstream_blob": "718f9f894bef7c4abdb20c6406e7ecd946abc92d",
+      "sha256": "05d4de41fe897f901b76a539053f23b172ddd881a6db7ce70200576d5c9cfd73"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_lifecycle.h",
+      "mode": "0o644",
+      "upstream_blob": "d1cde4dacc692207035c28c33432aa840d682d85",
+      "sha256": "ee11d61263ba47f4803979d120d9ffe45123a7128ad09f1e9fdd0c6ff7883ba1"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_livedb.h",
+      "mode": "0o644",
+      "upstream_blob": "6eec3fa22382fc3e7526065c6d24d664e5737b72",
+      "sha256": "0f72d7024bf027f9f516750a0184e56a0a3a1e20a56b9587fc37274f8acbe530"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_nxcompat.h",
+      "mode": "0o644",
+      "upstream_blob": "32b479e93850936b79ecbbbb98c7bcf7541b7b1c",
+      "sha256": "e57f6f79ebacaa05bd9825929aced03f0db4ecd71385fb92b74d8d9ae688c881"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_observe.h",
+      "mode": "0o644",
+      "upstream_blob": "ae8ac5a3453cb428db3c18496fcef8d7bfc91819",
+      "sha256": "fd1785f80f2b29ede8d1a4c5262a6abd36705224e2be8aefd4b551aa58bb87d8"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_pad_ordinal_fix.h",
+      "mode": "0o644",
+      "upstream_blob": "f4ae9828a6fd3fcbb003f170dd69104f257c97a2",
+      "sha256": "3976530903697641b09b7e2b212a961427941f46fc296e5ba4540adf63b99e37"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_portmaster.h",
+      "mode": "0o644",
+      "upstream_blob": "9abd59c59bc2b8ed6cb115f4ec370e7174964944",
+      "sha256": "d9a8bc31b5a8d509d4d3e58d20222cb9761e0180a43370298e6eb0adc04ce5f3"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_prerouter.h",
+      "mode": "0o644",
+      "upstream_blob": "56f2213eeb92666512d443d4b69b324513a3be1f",
+      "sha256": "cfcae9772a31111c73c1e3ab2b64b71129c258c09ff3a2a5f97f6ec2ddfcef92"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_provider.h",
+      "mode": "0o644",
+      "upstream_blob": "50e1a26f2d570d7ac69aa7f7767dc72ccd349a08",
+      "sha256": "bc58f83d960643697fee029d726fa9c9e7a7c9eec274d3b8b9b0ade61c39fe77"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_provider_linux.h",
+      "mode": "0o644",
+      "upstream_blob": "0e4eec3c8b37fbc50320cae8f6d1e9ffdb6da8cd",
+      "sha256": "8826c72a1690de1860014809723e254160a76a8c133d2882f35b884681bb300f"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_registry.h",
+      "mode": "0o644",
+      "upstream_blob": "0a65904198b8882aa9c53c6922a4255d679b8bff",
+      "sha256": "e2483fecf10430b2fc785f8ce01ba5ec355535f576e6de5d0efbbac8a20883e1"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_route.h",
+      "mode": "0o644",
+      "upstream_blob": "1394253f207351898c9dbf935b11cc1ac24870e2",
+      "sha256": "6761e30073d6b55a1401123bf7d84b0cd6623fe128d8eb6adf304284edee4066"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_route_policy.h",
+      "mode": "0o644",
+      "upstream_blob": "74000d49a3cd958730a74426c63e0e27da3d4009",
+      "sha256": "9f349cb958523d9e9743d615d3ae513850f27594909742f10ac649f6aafdab88"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "c9dea084f44fb32dda1c88799a377e7022541c59",
+      "sha256": "50736cf8ca24c04cbff4681e92e6e5ecfd51bd7cbeb414c557b06ef6f3568fc8"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sdl3_portmaster.h",
+      "mode": "0o644",
+      "upstream_blob": "6fccecd41995c546c7f98703e899e4c7c3f58a95",
+      "sha256": "ee565ea9967189597944c68475b9cefd2b8d16b72ac8305dd1ff1d8c41ac9c5d"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sdl_seam.h",
+      "mode": "0o644",
+      "upstream_blob": "ea5d08bcd3c739179e847a27465fa1787fc3dcaa",
+      "sha256": "0bf2fcbf54f0619f421284fae405214e70ee44b949980858eb0a8f34617dcd78"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sha256.h",
+      "mode": "0o644",
+      "upstream_blob": "86a1a53c724d0816badd9a2b89900e1cf3c56e48",
+      "sha256": "a9613dbe8feb08d093a257d27912c99f369e2927cf7ca73ff2db25f8aad9c718"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_sovereign.h",
+      "mode": "0o644",
+      "upstream_blob": "48e23e91d303581042b7db54f6b0099862d6e75b",
+      "sha256": "b07b83acabe61732ed88a486ae51453ae79741e1d1a96f60964e0ef9f5462167"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_touch_sequence.h",
+      "mode": "0o644",
+      "upstream_blob": "923337003437d2abc1006abab161c0aabf879403",
+      "sha256": "5d3720746158320338976c96ab4b763952adc781b397c2130b8ba5cb967f9bbb"
+    },
+    {
+      "path": "vendor/nxinput/include/nxinput_translate.h",
+      "mode": "0o644",
+      "upstream_blob": "e102e47702a49ec4cb553430b794039a3423f251",
+      "sha256": "797c65d2f8fa7975121b358d59d225259dda2163260c9efc4c854bfa5bcfc13a"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_authority.c",
+      "mode": "0o644",
+      "upstream_blob": "12a92eb3b9511583096ea2eb1ba8c2ecd38942d0",
+      "sha256": "74abae2b89e94d390f1f2735935409bc275043d12d0291ff02a8deebe7aaf9d5"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_authority_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "32731fdfcae20540c8042c04cd472384cfb73520",
+      "sha256": "04e68448258d0125a3a880881be2627cc29e85bd3c2b93b5ec1bd397b15596dd"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_authority_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "e82ad445b98e51b13b73dbe2d85fba12a3cad3f1",
+      "sha256": "d37a22eb3cd72caf7f8d0667b738a7770effc903eb892c9d8a2899c1d83ea6ca"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_axis_calib.c",
+      "mode": "0o644",
+      "upstream_blob": "295a4096280b063d92e8b6e765c9bc7b77715fb8",
+      "sha256": "a193bb88baa05137f392e4c94071acf489729188231a73f980d70345a039f0c0"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_corpus.c",
+      "mode": "0o644",
+      "upstream_blob": "ae3fdc629d93579101fab20d40a4d0c5fb80ed14",
+      "sha256": "b2080a6328355958d0aa7aaa6e518f254246e12b03ec3ffcf17a18984dcd38a7"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_decision.c",
+      "mode": "0o644",
+      "upstream_blob": "bbc0f05623fb0a436bc16438b463ee04f899400c",
+      "sha256": "cbf42dbde8540b34d8b4b3855cda720ea21349cdae20335bd3064fc613a7e7d0"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_exit_chord.c",
+      "mode": "0o644",
+      "upstream_blob": "23e3359889434b387bdb21c603a5acaa43dd2faa",
+      "sha256": "4684a1c42e85119add0574989f697489a8b20f0430b67116f7e06d381a8bea10"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_godot.c",
+      "mode": "0o644",
+      "upstream_blob": "8b292d8fabfdf4d9ca08aa50a0143a0145155153",
+      "sha256": "73c62672402adb3604672890f43e31af32ebfc32e9e8ebb78fdb1db066e68a7a"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk.c",
+      "mode": "0o644",
+      "upstream_blob": "def3ba1e7cf78fc4f50082eb2f4b7a590bc8d2a8",
+      "sha256": "38f182499f47ea2f2ec0ef6bd553e30439c74a127c4319be495cf9fb5fdf7a63"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk4.c",
+      "mode": "0o644",
+      "upstream_blob": "c9a2aee1a8c99c0f0b410d4592aa3a359479ff1e",
+      "sha256": "152024e8f4c8ab309d048ae2edb83e2df9fe3f61e2b31d86f65ec3a7aefd8811"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk4_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "85eece9e7281577e4f19d60e17356a900eaa45f4",
+      "sha256": "326d383a69dcabce4bd094c807f9220f9d744a8ac0d61f0061dc0ace823d6904"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk4_preinit.c",
+      "mode": "0o644",
+      "upstream_blob": "e6bdcd202e14e4c7cf080f1b3ee35733c5bd012b",
+      "sha256": "0d27abd504ff42c6c0af05fa2b97faa6777a0573ef7564e3ee0ec1f145d6f068"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk_live.c",
+      "mode": "0o644",
+      "upstream_blob": "3cffbf8cc8ffc249c46c204e943545ab6d091114",
+      "sha256": "36d4d647e891a10b1b6fe7a92fae3f3b9fb93f5301bfeea6799626a610437932"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk_loader.c",
+      "mode": "0o644",
+      "upstream_blob": "f6dc2c021ea20ffc0dfc2c815dc83e1b67703a83",
+      "sha256": "8c42a75c8b98fe7ca0a04cc30a2b54ef1ac9429b4143be0675869c457147d030"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk_motion.c",
+      "mode": "0o644",
+      "upstream_blob": "690b2f5b984e89295faddc300ccdc86404a4475c",
+      "sha256": "3f9fda13cf1798389d01e5fcb2c27c6c12576f5eb5f6052a885c45866424b020"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_gptk_preinit.c",
+      "mode": "0o644",
+      "upstream_blob": "7e87c1979edfb0b0c6fd134b341a4b63e3c08459",
+      "sha256": "dbf46d48385ff8eb19310d73d523287a717c651075ddb0f3868c10dd3a41a7e6"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_lifecycle.c",
+      "mode": "0o644",
+      "upstream_blob": "4842b4500a35f6ca7818da0b180e2371b7039b6a",
+      "sha256": "4e58c96ad4156f928d1cc947e74650827f73f97c9a8f9129ff97f0a9f6810572"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_livedb.c",
+      "mode": "0o644",
+      "upstream_blob": "45dfd1f60ee9e13ffc3634bac7756ee3d2c9211f",
+      "sha256": "05b6a3febc8753c467f176323debf0a35a575618360d17bf134acb0fa351b73a"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_portmaster.c",
+      "mode": "0o644",
+      "upstream_blob": "8c4bdacfd6be209cf9ce1525eddc07e36a9867c8",
+      "sha256": "6e6e677595413072d712ad43318dcf52ac5e4d0cace791a73afb02749236fa05"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_prerouter.c",
+      "mode": "0o644",
+      "upstream_blob": "2ed8b8c66a629385f90bec1de4f9c6754a76c9c2",
+      "sha256": "7b20f9c19cfc09b52d9dc7cd4b45e86b423838d7d6d5f01b30eb20af71b3bb9b"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_provider.c",
+      "mode": "0o644",
+      "upstream_blob": "69433577148c1e7ec26d14b53b409314e155373d",
+      "sha256": "28ae11c1c287063d252b00c5b11abf8e1680d8fb3564254f89167f6b3376c66f"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_provider_linux.c",
+      "mode": "0o644",
+      "upstream_blob": "b1522349f38dd322970e63e3570b2c3ac6bb9d7e",
+      "sha256": "e3d8cabe3aeeb0acf215720292b2d0d9e01fb16fc61f8c9a0a8751579bb34696"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_registry.c",
+      "mode": "0o644",
+      "upstream_blob": "bb4f63b5bacc60c19a4d32dd0e364cab7e6e4743",
+      "sha256": "411abe298bfbea1d55b1ed85fdd50e21b24c86a0c9ec623236fc92748b9e841f"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_route.c",
+      "mode": "0o644",
+      "upstream_blob": "60d14c9d98e790b4735b7450c7ca22a8eeac260b",
+      "sha256": "4584ffdb67defa987706d06d5c465290c243d630030419c8ac714347694135d6"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "08ec0e75b14e95a0a7871baeaea0078aa238b8b6",
+      "sha256": "3544c525af654f27764669320c55149a4894ed4338e55e8d2c1ac78c37722762"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_sdl_seam.c",
+      "mode": "0o644",
+      "upstream_blob": "1140c61c88c840836fbdcf6fd354a1a7563b074e",
+      "sha256": "d8751e849cdc7f6fbc7fad422f374a827110e6002c37241378ed6abe76283e3f"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_sha256.c",
+      "mode": "0o644",
+      "upstream_blob": "3e36ae74ddd7a0b601e03bacb212ac0d9205252f",
+      "sha256": "830c8d878d881da6635392e71339c9744968ce979cee3a44087264517f1c5cb7"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_sovereign.c",
+      "mode": "0o644",
+      "upstream_blob": "bee3ca01ac661bc5a0cc2d75161f61b6f23b29ce",
+      "sha256": "10edcbf9573a26bfd7ed72a2f06c4a2a538f57efcaa08c20ed994e976d4dd67d"
+    },
+    {
+      "path": "vendor/nxinput/src/nxinput_translate.c",
+      "mode": "0o644",
+      "upstream_blob": "868d3843816c6e847a7189ecfdf6575528734482",
+      "sha256": "7ada2ccb0d79367f8f17a313a14aeb8aa3eabe49f8aee2e53c256298e4d81165"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "e516bb9d963a0cc79a2d530e45103ac21eac0643",
+      "sha256": "f43a0292c674542a2d676a0f4f588a7ffbe1cbac25090df344b12ff1279f7820"
+    }
+  ],
+  "omitted_selected_files": []
+}

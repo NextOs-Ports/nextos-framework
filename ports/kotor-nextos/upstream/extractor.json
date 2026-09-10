@@ -1,0 +1,278 @@
+{
+  "schema": 1,
+  "id": "kotor-nextos",
+  "version": "1.0.10-53-universal-2",
+  "title": "STAR WARS: KOTOR",
+  "abi_order": [
+    "armeabi-v7a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "extensions": [
+      ".apk",
+      ".apkm",
+      ".apks",
+      ".xapk",
+      ".zip",
+      ".obb"
+    ],
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 3221225472,
+    "max_bundle_bytes": 6442450944
+  },
+  "extract": [
+    {
+      "id": "engine-armv7-libkotor-53",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libKOTOR.so"
+        ]
+      },
+      "destination": "libKOTOR.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 4500000,
+        "max_size": 9000000
+      }
+    },
+    {
+      "id": "port-armv7-libandroidport-53",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libandroid_port.so"
+        ]
+      },
+      "destination": "libandroid_port.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 600000,
+        "max_size": 1500000
+      }
+    },
+    {
+      "id": "audio-armv7-libfmod-53",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libfmod.so"
+        ]
+      },
+      "destination": "libfmod.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 600000,
+        "max_size": 1600000
+      }
+    },
+    {
+      "id": "font-armv7-libfreetype-53",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libfreetype.so"
+        ]
+      },
+      "destination": "libfreetype.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 300000,
+        "max_size": 900000
+      }
+    },
+    {
+      "id": "hid-armv7-libhidapi-53",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libhidapi.so"
+        ]
+      },
+      "destination": "libhidapi.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 60000,
+        "max_size": 300000
+      }
+    },
+    {
+      "id": "lzma-armv7-liblzmalib-53",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libLzmaLib.so"
+        ]
+      },
+      "destination": "libLzmaLib.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 10000,
+        "max_size": 80000
+      }
+    },
+    {
+      "id": "miniz-armv7-libminiz-53",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libminiz.so"
+        ]
+      },
+      "destination": "libminiz.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 30000,
+        "max_size": 200000
+      }
+    },
+    {
+      "id": "assets-shaders-font-53",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": {
+        "type": "tree",
+        "min_files": 18,
+        "max_files": 32,
+        "required_paths": [
+          "kotor.vert",
+          "kotor.frag",
+          "kotorbloom.vert",
+          "kotorbloom.frag",
+          "kotorpost1.vert",
+          "kotorpost1.frag",
+          "main.vert",
+          "main.frag",
+          "clipPlane.vert",
+          "fog.glsl",
+          "lighting.vert",
+          "lightingPerFragment.vert",
+          "lightingPerVertex.vert",
+          "texture.vert",
+          "texture0.vert",
+          "texture1.vert",
+          "texture2.vert",
+          "iosdialog.otf"
+        ]
+      }
+    },
+    {
+      "id": "obb-main-53",
+      "source": {
+        "kind": "entry_or_file",
+        "patterns": [
+          "**/main.*.obb",
+          "main.*.obb",
+          "**/main.obb",
+          "main.obb",
+          "*.obb",
+          "**/*.obb"
+        ],
+        "file_extensions": [
+          ".obb"
+        ]
+      },
+      "destination": "main.obb",
+      "validate": {
+        "type": "file",
+        "magic_hex": "504b0304",
+        "magic_offset": 0,
+        "min_size": 1800000000,
+        "max_size": 2600000000
+      }
+    },
+    {
+      "id": "obb-patch-53",
+      "source": {
+        "kind": "entry_or_file",
+        "patterns": [
+          "**/patch.*.obb",
+          "patch.*.obb",
+          "**/patch.obb",
+          "patch.obb",
+          "*.obb",
+          "**/*.obb"
+        ],
+        "file_extensions": [
+          ".obb"
+        ]
+      },
+      "destination": "patch.obb",
+      "validate": {
+        "type": "file",
+        "magic_hex": "504b0304",
+        "magic_offset": 0,
+        "min_size": 300000000,
+        "max_size": 700000000
+      }
+    }
+  ],
+  "hooks": [],
+  "validate": [
+    {
+      "path": "libKOTOR.so",
+      "type": "file",
+      "elf_machine": "armeabi-v7a",
+      "min_size": 4500000,
+      "max_size": 9000000
+    },
+    {
+      "path": "main.obb",
+      "type": "file",
+      "magic_hex": "504b0304",
+      "magic_offset": 0,
+      "min_size": 1800000000,
+      "max_size": 2600000000
+    },
+    {
+      "path": "patch.obb",
+      "type": "file",
+      "magic_hex": "504b0304",
+      "magic_offset": 0,
+      "min_size": 300000000,
+      "max_size": 700000000
+    },
+    {
+      "path": "assets/kotor.vert",
+      "type": "file",
+      "min_size": 1000,
+      "max_size": 65536
+    }
+  ],
+  "commit": [
+    "libKOTOR.so",
+    "libandroid_port.so",
+    "libfmod.so",
+    "libfreetype.so",
+    "libhidapi.so",
+    "libLzmaLib.so",
+    "libminiz.so",
+    "assets",
+    "main.obb",
+    "patch.obb"
+  ],
+  "marker": ".kotor-data.json",
+  "space": {
+    "safety_bytes": 536870912
+  },
+  "log": "nxextract.log"
+}

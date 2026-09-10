@@ -1,0 +1,37 @@
+# Binarios construidos (saem do build_universal.sh; vao na release, nao no git)
+kotor-nextos
+kotor-universal
+libkotor_input-universal.so
+kotor
+libkotor_input.so
+
+# Dados do jogo do usuario: NUNCA versionados
+gamedata/*
+!gamedata/README.txt
+*.obb
+*.apk
+libKOTOR.so
+libandroid_port.so
+libfmod.so
+libfreetype.so
+libhidapi.so
+libLzmaLib.so
+libminiz.so
+assets/
+.kotor-data.json
+.nxextract/
+
+# Saves e ruido de execucao
+*.log
+*.raw
+*.core
+gameinprogress/
+saves/
+.lockfile
+.lock/
+dist/
+.build/
+
+# Artefatos locais dos validadores Python
+__pycache__/
+*.pyc

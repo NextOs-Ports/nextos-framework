@@ -1,0 +1,85 @@
+{
+    "component_tag_object_sha256": {},
+    "component_tag_objects": {},
+    "component_tags": {},
+    "components": {
+        "nxabi": "0.2.3",
+        "nxbootstrap": "0.8.2",
+        "nxcompat": "0.5.3",
+        "nxextract": "1.3.0",
+        "nxextract_ui": "1.2.16",
+        "nxgenerator": "0.4.5",
+        "nxgl": "0.3.5",
+        "nxinput": "0.11.8",
+        "nxrelease": "0.4.8",
+        "nxsplash": "0.1.2",
+        "portmaster": "2.1.1"
+    },
+    "digest_format": "sha256(mode_git\\0path_utf8\\0size_decimal\\0sha256_hex\\n), __pycache__ excluded",
+    "framework_commit": "ba1da0e7b0482c4dbad76b7e36afe04de57fa5c3",
+    "framework_state": "candidate-commit-pinned",
+    "roots": [
+        {
+            "files": 6,
+            "path": "framework/contracts/apkcompat",
+            "tree_sha256": "2b6f2c74f04389fedf243a7d72aa5020fe4a43d9ad3cdcbdf6d18960f8e573a2"
+        },
+        {
+            "files": 17,
+            "path": "framework/nxabi",
+            "tree_sha256": "d6c065d1febfaa228ea6b19ec0d4e5cd2b361712f3c77696c0501124bc204ab0"
+        },
+        {
+            "files": 56,
+            "path": "framework/nxbootstrap",
+            "tree_sha256": "436066604dd328f09b2ceeab2c0df102164f446bccb4afa6b8f543e8cce0d498"
+        },
+        {
+            "files": 75,
+            "path": "framework/nxcompat",
+            "tree_sha256": "ef251ad8b6808e9bb7d6981e01f8cd51df6f9f4a9fead07c3937099058063449"
+        },
+        {
+            "files": 72,
+            "path": "framework/nxgenerator",
+            "tree_sha256": "044492a202084df9bbc4c31d07b50223b2477dc71f2068409a8c2547693dd5e4"
+        },
+        {
+            "files": 99,
+            "path": "framework/nxgl",
+            "tree_sha256": "b39e37c138d76ecec837fd45f132ab1def898b4a7f1dfccb3ccb150f34f57fcb"
+        },
+        {
+            "files": 306,
+            "path": "framework/nxinput",
+            "tree_sha256": "8e7f6dabd445a6b8d428685ea73f02291e7fda667a4c16f955dd50b7b53dd2b4"
+        },
+        {
+            "files": 80,
+            "path": "framework/nxrelease",
+            "tree_sha256": "fc540c4aba976f736c6ebb8dea0685cb55aa4b02e7d1270264f542a3c4e1664c"
+        },
+        {
+            "files": 18,
+            "path": "framework/nxsplash",
+            "tree_sha256": "b607d57ebbc374bf978caae2daaea08ae07e64655b6411cc7597db394a275e4e"
+        },
+        {
+            "files": 190,
+            "path": "framework/portmaster",
+            "tree_sha256": "bb51ba30efe50fcf59ef6164f67dbb1935c59e78d25c5e2463c571f78bc6b99b"
+        },
+        {
+            "files": 1,
+            "path": "framework/tests/audit-portmaster-zip.py",
+            "tree_sha256": "c98af5e4fa00196b13323e26a079564f45d47b63298529007ed7d7ea085999de"
+        },
+        {
+            "files": 78,
+            "path": "suportando_outros_devices/extrator-universal",
+            "tree_sha256": "291b9ca7a883ce0221ef5b843e7f3f062ae9b025aa6e5cbcacd1443d89854f74"
+        }
+    ],
+    "schema": "org.nextos.tearscape.framework-integration-pin",
+    "schema_version": 2
+}

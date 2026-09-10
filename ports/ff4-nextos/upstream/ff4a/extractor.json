@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "id": "ff4a",
+  "version": "1",
+  "title": "FINAL FANTASY IV THE AFTER YEARS",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.square_enix.android_googleplay.FF4AY_GP"
+    ]
+  },
+  "extract": [
+    {
+      "id": "game-engine",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libff4a.so"
+        ]
+      },
+      "destination": "libff4a.so",
+      "validate": {
+        "type": "file",
+        "size": 5304080,
+        "sha256": "e731f7068ad6004b21f7c49968487b5550b057ce8cfd7134ff7a8997fc553bea",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "jni-proxy",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libjniproxy.so"
+        ]
+      },
+      "destination": "data/libjniproxy.so",
+      "required": false,
+      "validate": {
+        "type": "file",
+        "size": 225088,
+        "sha256": "0427f9b3c6dad5707f8172a4d7a2a77148a023553c59348f15cb580139484a45",
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "game-data",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/main.obb"
+        ]
+      },
+      "destination": "data/main.obb",
+      "validate": {
+        "type": "file",
+        "size": 474457953,
+        "sha256": "419e10052f2daab84f591fd8998789a5a74623c894f0ede101345f7fb3653a6c"
+      }
+    }
+  ],
+  "validate": [
+    {
+      "path": "libff4a.so",
+      "type": "file",
+      "elf_machine": "{abi}"
+    },
+    {
+      "path": "data/main.obb",
+      "type": "file",
+      "size": 474457953
+    }
+  ],
+  "commit": [
+    "libff4a.so",
+    "data"
+  ],
+  "marker": ".nxextract-ff4a.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

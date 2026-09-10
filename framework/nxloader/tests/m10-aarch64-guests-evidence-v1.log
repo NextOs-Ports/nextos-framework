@@ -1,0 +1,20 @@
+m10-aarch64-guest-gate: START guests=5 modes=--relocate,--exports timeout_seconds=120.0 output_limit_bytes_per_stream=262144
+source_snapshot_sha256=05518af3c8463f6fd19db5141a96f84cf17809e7f3be55fd327f21c62948e8fc files=11
+inspector_support=PASS modes=--relocate,--exports sha256=429986130ba71a51930a1e5aa5b98da353fbf10c1d831ea770e1f8a5bd068423
+guest=bully2-libgame static=PASS sha256=345f6411bebbd2310b2cb5d2a271341847a054c2b7f6d5ffba8030cd53140d76 pt_load=3 symbols=50356 relocations=75033 init_array=506 registry_eligible=49938
+guest=bully2-libgame relocate=PASS monotonic_elapsed_ns=31577527 max_rss_kib=55356 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=bully2-libgame exports=PASS added=49938 equivalent=0 monotonic_elapsed_ns=55426571 max_rss_kib=55356 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=sonic4ep2-libfox static=PASS sha256=ca07163ad1e92d767016d43048a2c13eede7b9d6217ed4f032ca4d6d8e342a1a pt_load=2 symbols=29153 relocations=54962 init_array=46 registry_eligible=28776
+guest=sonic4ep2-libfox relocate=PASS monotonic_elapsed_ns=20195540 max_rss_kib=55356 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=sonic4ep2-libfox exports=PASS added=28776 equivalent=0 monotonic_elapsed_ns=33666493 max_rss_kib=55356 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=horizonchase-libunity static=PASS sha256=7c46972d06b6b85f953bf61b477fdbf5bf22f7be55b57e4b54b4403f05478359 pt_load=4 symbols=646 relocations=54707 init_array=433 registry_eligible=222
+guest=horizonchase-libunity relocate=PASS monotonic_elapsed_ns=31220293 max_rss_kib=55356 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=horizonchase-libunity exports=PASS added=222 equivalent=0 monotonic_elapsed_ns=28294976 max_rss_kib=55356 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=horizonchase-libil2cpp static=PASS sha256=acf414c77853aa0e7f8d8963f307f65f3d156c8d6d806661b738df3385e48cdc pt_load=4 symbols=2658 relocations=305750 init_array=24 registry_eligible=2369
+guest=horizonchase-libil2cpp relocate=PASS monotonic_elapsed_ns=100489495 max_rss_kib=94592 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=horizonchase-libil2cpp exports=PASS added=2369 equivalent=0 monotonic_elapsed_ns=92561509 max_rss_kib=94828 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=horizonchase-libmain static=PASS sha256=a2dfe24e0170af0ae90b13630fc6d4e788be2c5216b4bddb17a6e0ca3c4c5af8 pt_load=4 symbols=13 relocations=20 init_array=0 registry_eligible=1
+guest=horizonchase-libmain relocate=PASS monotonic_elapsed_ns=768689 max_rss_kib=89480 guest_initializers_executed=0 guest_jni_onload_executed=0
+guest=horizonchase-libmain exports=PASS added=1 equivalent=0 monotonic_elapsed_ns=724930 max_rss_kib=89480 guest_initializers_executed=0 guest_jni_onload_executed=0
+m10-aarch64-guest-gate: PASS guests=5 guest_initializers_executed=0 guest_jni_onload_executed=0 device_access=0 guest_files_copied=0
+evidence_log=m10.log evidence_manifest=m10.json

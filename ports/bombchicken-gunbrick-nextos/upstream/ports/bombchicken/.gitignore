@@ -1,0 +1,18 @@
+# REGRA #14b — dado de jogo NUNCA vai pro repo
+gamedata/*
+!gamedata/README.txt
+*.apk
+*.so
+build/
+.host-gate.*
+.release/
+verify/
+stage/
+bombchicken
+bombchicken-nextos
+debug.log
+debug.prev.log
+*.ppm
+*.png
+home/
+.nxlegacy-bombchicken-v1/

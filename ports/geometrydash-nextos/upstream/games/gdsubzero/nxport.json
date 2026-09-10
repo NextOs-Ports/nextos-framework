@@ -1,0 +1,32 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "none",
+  "enabled_quirks": [],
+  "executable": "gdsubzero",
+  "home_mode": "port",
+  "id": "gdsubzero",
+  "launcher_name": "Geometry Dash SubZero.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.10"
+  },
+  "prepare_script": "",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "graphics.gles2",
+    "graphics.egl",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api"
+  ],
+  "required_files": [
+    "gdsubzero",
+    "nxsplash-nextos",
+    "game.apk"
+  ],
+  "runtime_report": "log-and-logo",
+  "schema_version": 2,
+  "title": "Geometry Dash SubZero"
+}

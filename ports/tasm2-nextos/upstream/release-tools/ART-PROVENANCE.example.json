@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "screenshot.png": {
+    "sha256": "5935351d03b43bd472dece3e610c0c5ce93decc1eba6bb2a2579e8ac1fe7888e",
+    "origin": "Real gameplay screenshot captured during final R36S validation",
+    "capture_context": "Clean data installation followed by first-run, gameplay, save and reopen validation at the device's native 640x480 output",
+    "capture_date": "2026-07-30",
+    "rights_basis": "Port documentation screenshot captured by the porter; underlying game copyright and trademarks remain with their owners",
+    "release_allowed": true
+  }
+}

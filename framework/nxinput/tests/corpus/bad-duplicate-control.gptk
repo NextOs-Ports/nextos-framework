@@ -1,0 +1,6 @@
+format = NEXTOS_CONTROLLERS/1
+[menu]
+A = ui.confirm
+A = ui.back
+[gameplay]
+A = player.jump

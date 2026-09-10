@@ -1,0 +1,19 @@
+# Dados BYO e artefatos locais nunca entram no repositório nem no pacote.
+/gamedata/
+/stage/
+/verify/
+/.build/
+/build/
+/gunbrick
+/gunbrick-nextos
+*.apk
+*.apkm
+*.apks
+*.xapk
+*.obb
+*.so
+*.log
+*.raw
+*.ppm
+*.png
+/home/

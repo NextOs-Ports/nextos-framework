@@ -1,0 +1,222 @@
+{
+  "schema": "nxadapter-contract-v1",
+  "schema_version": 1,
+  "status": "community_candidate_1_1_2_test_3",
+  "release_ready": true,
+  "release_boundary": "ARMHF PortMaster community candidate; exact 1.1.2-test.3 executable physically exercised with official APK 22680302 on ArkOS RK3326 Mali-G31; perceived audio sync, exact ZIP, H700 and Mali-450 claims remain pending their own physical tests",
+  "runtime_owner": "game-adapter-with-framework-receipts",
+  "identity": {
+    "android_package": "com.rovio.angrybirds",
+    "game_version": "8.0.3",
+    "guest_abi": "armeabi-v7a-softfp",
+    "owner_apk_size": 103362175,
+    "owner_apk_sha256": "0d533148bde4e2067f9138736dde22e49dcc6d7191d20d5061e2afb7dd35b75d",
+    "owner_apk_variants": [
+      {
+        "profile": "8.0.3-22680302",
+        "size": 103362175,
+        "sha256": "0d533148bde4e2067f9138736dde22e49dcc6d7191d20d5061e2afb7dd35b75d",
+        "guest_library_sha256": "049fc3739ff9075b3ad1557597fa6a40e5f242c4fb761855ce50b4ff2a67df84"
+      },
+      {
+        "profile": "8.0.3-8031",
+        "size": 103772201,
+        "sha256": "8cdea1ef39a2a5c3bad5ac27050b491dbdf68050754241390cf9f0d3d24979b8",
+        "guest_library_sha256": "ce7a5179cd00fce1f6c3c1ccf56e98dd87735ea56d814d962f0dc733b22988f3"
+      }
+    ],
+    "guest_library_path": "lib/armeabi-v7a/libAngryBirdsClassic.so",
+    "guest_uses_jni_onload": true
+  },
+  "framework": {
+    "runtime": [
+      "nxbootstrap-0.6.8",
+      "nxloader-0.7.1",
+      "nxcompat-0.2.1",
+      "nxgl-0.2.5",
+      "nxaudio-0.2.0",
+      "nxinput-0.3.1"
+    ],
+    "host_gates": [
+      "nxabi-0.1.0",
+      "nxrelease-0.2.6",
+      "nxgenerator-0.2.1"
+    ],
+    "extractor": "NXExtract-1.2.6",
+    "not_integrated": {
+      "nxandroid": "the APK's NativeApplication/JNI flow is reproduced by this version-pinned adapter; no generic lifecycle substitution is used",
+      "nxobs": "host-side support-bundle tooling is not linked or packaged and raw logs are excluded from releases"
+    }
+  },
+  "lifecycle": {
+    "policy": "preserve_native_android_order",
+    "sequence": [
+      "nxcompat-preflight",
+      "nxgl-window-egl-gles-drawable",
+      "guest-load-from-owner-apk-memory",
+      "guest-relocate",
+      "guest-resolve-imports",
+      "install-version-pinned-lua-control-hook",
+      "guest-finalize-wx-relro",
+      "jni-bridge-init",
+      "guest-init-array",
+      "guest-jni-onload",
+      "native-config",
+      "native-get-possible-orientations",
+      "native-render-thread-selection",
+      "native-init",
+      "native-resume",
+      "native-resize",
+      "android-input-flush-before-native-update",
+      "native-update-or-render",
+      "framework-present",
+      "native-pause",
+      "audio-stop",
+      "input-shutdown",
+      "native-deinit",
+      "bounded-process-exit"
+    ],
+    "source_evidence": [
+      "src/main_angrybirds.c",
+      "src/ab_jni.c",
+      "src/ab_framework.c"
+    ]
+  },
+  "loader": {
+    "framework": "nxloader-0.7.1",
+    "mapping": "owner-supplied ARMv7 ELF loaded directly from the validated APK",
+    "resolved_imports": 378,
+    "unresolved_strong_imports": 0,
+    "softfp_boundary": "nxloader softfp libm plus adapter-local proven GLES/math edges",
+    "protection": "finalize W^X and RELRO before guest execution"
+  },
+  "jni": {
+    "classes": [
+      "com/rovio/fusion/NativeApplication",
+      "com/rovio/fusion/MyInputHandler",
+      "com/rovio/fusion/AudioOutput"
+    ],
+    "native_methods": [
+      "nativeConfig",
+      "nativeGetPossibleOrientations",
+      "nativeRenderThread",
+      "nativeInit",
+      "nativeResume",
+      "nativeResize",
+      "nativeUpdate",
+      "nativeRender",
+      "nativePause",
+      "nativeDeinit",
+      "nativeInput",
+      "nativeKeyInput",
+      "nativeInputAxis",
+      "nativeMixData"
+    ],
+    "policy": "only version-observed Android services are implemented; optional analytics, notifications and location surfaces remain inert"
+  },
+  "graphics": {
+    "api": "OpenGL ES 2 guest on a measured EGL drawable",
+    "framework": "nxgl-0.2.5-v2-receipt",
+    "provider_ownership": "inherited providers are tried untouched first; one coherent provider pair retry is adapter opt-in and capability-gated",
+    "global_alpha_override": false,
+    "global_texture_wrap_override": false,
+    "presentation": "one framework present after the guest update/render path"
+  },
+  "audio": {
+    "callbacks": [
+      "Java_com_rovio_fusion_AudioOutput_nativeMixData",
+      "adapter-mixer-worker",
+      "nxaudio_worker_submit",
+      "nxaudio_realtime_pull",
+      "SDL audio callback"
+    ],
+    "format": "guest-declared rate/channels converted to firmware-opened S16; test.3 physically opened 44100-Hz stereo S16 with 1024-frame SDL periods",
+    "buffering": "adapter-local six-period SPSC queue (6144 frames/139 ms at 44100 Hz), 4096-frame guest mix chunks, prefill before unpause, measured software lead at most 233 ms",
+    "ownership": "guest mixer runs only on the worker; the realtime callback pulls queued PCM or deterministic silence; exit records one aggregate latency/underrun receipt without runtime spam"
+  },
+  "input": {
+    "framework": "nxinput-0.3.1",
+    "authority": "PortMaster/firmware SDL GameController mapping with capability discovery and hotplug generation; adapter-local evdev is an exit-only fallback for stable BTN_SELECT/START and TRIGGER_HAPPY1/2 keycodes",
+    "menu": "right stick moves a code-native polished arrow with radial deadzone, progressive response, smoothing and frame-time integration; A and R3 are equivalent click sources sharing one held touch until the last source releases",
+    "gameplay": "the same global right-stick arrow and A/R3 pointer touch remain available for powers; left stick owns the original SlingshotSystem bridge; while it owns a real dragged bird, fresh A launches through the original release method at the current vector; stick-center release remains a fallback; triggers and D-pad left/right own camera pan/zoom",
+    "cursor_visibility": "global in menus and gameplay; hide after 2000 ms without cursor activity; reappear on right-stick movement or click",
+    "native_buttons": "A and R3 are globally pointer-owned and never emit a competing Android key; B, Start, shoulders and other face buttons retain Android key delivery except for explicitly proven context actions",
+    "terminal_combo": "Select+Start from SDL BACK, exit-only SDL GUIDE or capability-proven evdev keycodes requests the same native pause/deinit exit path; raw button ordinals are never guessed"
+  },
+  "persistence": {
+    "paths": [
+      "game-relative saves/",
+      "game-relative cache/"
+    ],
+    "callbacks": [
+      "nativePause",
+      "nativeDeinit"
+    ],
+    "owner_data": "validated game.apk remains private and is never included in source or release artifacts"
+  },
+  "terminal": {
+    "action": "Select+Start or native quit request stops guest updates, interrupts and joins an optional native render thread, calls nativePause, stops audio/input, calls nativeDeinit, then _exit(0)",
+    "evidence": [
+      "src/ab_input.c",
+      "src/main_angrybirds.c"
+    ]
+  },
+  "quirks": [
+    {
+      "id": "angrybirds.coherent-precontext-provider-retry",
+      "default": "adapter-local authorization only after normal nxgl candidates are exhausted",
+      "selector": "exact WINDOW_CREATE/WINDOW_FAILED pre-context report, no inherited provider hint, one same-object provider exporting all required EGL and engine GLES symbols",
+      "effect": "bind SDL EGL and GLES provider variables to that same object for one retry, promote only the already-loaded actual providers, then remove temporary environment variables",
+      "source_evidence": [
+        "src/ab_framework.c",
+        "src/ab_gl.c",
+        "framework/nxgl/src/nxgl_logic.c"
+      ]
+    },
+    {
+      "id": "angrybirds.8.0.3-lua-slingshot-hook",
+      "default": "enabled only for either pinned official owner APK/library signature",
+      "selector": "exact 8.0.3-22680302 or 8.0.3-8031 Lua os.clock and SlingshotSystem signatures",
+      "effect": "feed a coherent controller snapshot into the original slingshot API without screen-coordinate aiming and route precision-A through the original release method only after a real drag is proven",
+      "source_evidence": [
+        "src/ab_lua_control.c",
+        "src/ab_slingshot_adapter.lua"
+      ]
+    }
+  ],
+  "physical_validation": [
+    {
+      "artifact_sha256": "3255b19c9301ab2c4b2a1586825ba329f7093844a39f9d2ddd13edfc2634c15e",
+      "date": "2026-08-14",
+      "family": "ArkOS RK3326 Mali-G31",
+      "status": "official-22680302-profile; 378-imports-resolved; jni-onload-success; real-egl-gles-drawable; alsa-44100-stereo-s16; period-1024; mix-4096; queue-6144-frames-139ms; prefill-complete-before-unpause; first-content-transition; clean-sdl-quit; guest-mixer-stall-up-to-430ms-observed; perceived-sync-and-exact-zip-community-test-pending"
+    },
+    {
+      "artifact_sha256": "7db06de9d1e1f57d0e69df6de2e7f0ecf6ee414daaf77339dc45a527b81eae5f",
+      "date": "2026-08-14",
+      "family": "ArkOS RK3326 Mali-G31",
+      "status": "official-8031-apk-transactional-install; strict-8.0.3-8031-profile; 378-imports-resolved; jni-onload-success; real-egl-gles-drawable; alsa-44100-stereo-s16; menu-reached; gameplay-slingshot; precision-a-launch-user-confirmed; trigger-happy-exit-route-discovered; exact-zip-and-exit-combo-community-retest-pending"
+    },
+    {
+      "artifact_sha256": "c9125a6781abee02dc0ac31ab39e20b4056da0ecd878d60ad8fef7057aaa67ae",
+      "date": "2026-08-13",
+      "family": "ArkOS RK3326 Mali-G31",
+      "status": "clean-and-repeat-nxextract; 378-imports-resolved; jni-onload-success; real-egl-gles-drawable; stable-present; alsa-44100-stereo-s16; mapped-controller; gameplay-slingshot; dpad-trigger-camera; global-arrow-menu-and-gameplay; idle-hide-and-movement-reappear; global-a-r3-pointer-click; combined-a-r3-single-touch-release; select-start-clean-exit; no-duplicate-process"
+    },
+    {
+      "artifact_sha256": null,
+      "date": "2026-08-12",
+      "family": "NextOS Mali-450 Utgard",
+      "status": "approved predecessor baseline; preserved but not an exact 1.1.2-test.3 artifact claim"
+    }
+  ],
+  "prohibitions": [
+    "do not reorder or skip the guest Android lifecycle",
+    "do not package owner APK, Android library, game assets, saves or raw logs",
+    "do not claim a physical family that has not run the exact release",
+    "do not select graphics providers from a device or firmware name",
+    "do not promote the adapter provider retry or Lua hook to a global default",
+    "do not restrict the approved global cursor to menus, route the gameplay right stick to camera, or emit parallel Android A/R3 keys; the global A/R3 pointer aliases are adapter-specific proven behavior",
+    "do not enable global texture-wrap or backbuffer-alpha overrides without game-specific proof"
+  ]
+}

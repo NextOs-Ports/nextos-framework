@@ -1,0 +1,26 @@
+{
+  "schema": "nextos-framework-development-pin-v1",
+  "port_id": "scourgebringer",
+  "release_status": "community-test-1.0.0-test.8-menu-gameplay-regression-passed-old-glibc-acceptance-pending",
+  "source_branch": "framework/nxbootstrap-0.6.8",
+  "source_commit": "583ec1e977eb377669414fe949969bd784ced730",
+  "components": {
+    "nxbootstrap": "0.6.8",
+    "nxloader": "0.7.1",
+    "nxcompat": "0.2.1",
+    "nxgl": "0.2.3",
+    "nxaudio": "0.2.0",
+    "nxinput": "0.3.1",
+    "nxandroid": "0.1.0",
+    "nxabi": "0.1.0",
+    "nxrelease": "0.2.6",
+    "nxobs": "0.1.0",
+    "nxgenerator": "0.2.0",
+    "nxextract": "1.2.6"
+  },
+  "binary": {
+    "path": "scourgebringer-nextos",
+    "sha256": "a245edea4cf83dd9f1dc0e9b808ddf6e9d15ecaee35433bba8bc78c2555c0273",
+    "max_glibc": "2.17"
+  }
+}

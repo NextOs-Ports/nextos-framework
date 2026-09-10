@@ -1,0 +1,120 @@
+{
+  "artifacts": [
+    {
+      "mode": "0755",
+      "path": "Retro City Rampage DX.sh",
+      "sha256": "49860660f3a237cef83609c76d7716a325b2555c2417393e54819da8e78d73e5"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/LICENSE",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/README.md",
+      "sha256": "1947d2dd2198cf3178001b0177cd8ade08563afbda8ea7cabd1aff023c2f2673"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/adapter/adapter-contract.json",
+      "sha256": "2c6b370bc3520fc55491129cc10e49f676684f6f0ca99c17c8421d64533cce8c"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/extractor.json",
+      "sha256": "1eae8a2f19a9fed490583e5aef91e0d409d60018e8da20c0455b169de87c4261"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "rcrdx/nxextract/nxextract-ui",
+      "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/nxextract/nxextract.py",
+      "sha256": "7c9d44df71cbe06ff24266c3fa73f08d14ad72973c532d8ef0808af7756a4901"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/nxextract/run-extractor.sh",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/nxport.json",
+      "sha256": "2aea3a4d4b8e483120119c9d92d44f9c97ed3b4d72ca5b386c8fbbfb6b116126"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/nxproject.json",
+      "sha256": "a80a808dda9cce7421882099f08bd52b8971b512a04d07a65375338aa6bc579c"
+    },
+    {
+      "mode": "0755",
+      "path": "rcrdx/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0644",
+      "path": "rcrdx/port.json",
+      "sha256": "259cfedfc086301b94e91eaf3b23a9f516adbe499502c16b96e4692d9b88aa9b"
+    }
+  ],
+  "claims": {
+    "adapter_lifecycle_implemented": false,
+    "deterministic_scaffold": true,
+    "physical_support_proven": false,
+    "release_ready": false
+  },
+  "generator": {
+    "name": "nxgenerator",
+    "version": "0.2.8"
+  },
+  "project_manifest_sha256": "a80a808dda9cce7421882099f08bd52b8971b512a04d07a65375338aa6bc579c",
+  "schema": "nxgenerator-receipt-v1",
+  "schema_version": 1,
+  "source_pins": {
+    "nxbootstrap": {
+      "source_files": {
+        "templates/launcher.sh.in": "a3be9b12d048d3111487e9fa0295f3a7e13671258ea92c8db9b0c17ce01035f2",
+        "tools/generate-port.py": "7328364845f1044baa0275344f959d5c98c71080e749343e8b7963163e84268c"
+      },
+      "version": "0.6.14"
+    },
+    "nxextract": {
+      "files": {
+        "nxextract-runtime-env.sh": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+        "nxextract-ui": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+        "nxextract.py": "7c9d44df71cbe06ff24266c3fa73f08d14ad72973c532d8ef0808af7756a4901",
+        "run-extractor.sh": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+      },
+      "recipe_sha256": "1eae8a2f19a9fed490583e5aef91e0d409d60018e8da20c0455b169de87c4261",
+      "ui_artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "ui/release/aarch64/nxextract-ui",
+        "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56"
+      },
+      "ui_release_manifest_sha256": "0449875cb016fb915e4001742137c919b22087617853bd5f3ed1118b9e2420fc",
+      "ui_source_sha256": "2122d1f5727e1cecf2c572560a07a97411f551c8e77145baa1f383fa5e989fa4",
+      "version": "1.2.9"
+    },
+    "nxsplash": {
+      "artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "release/aarch64/nxsplash-nextos",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      },
+      "release_manifest_sha256": "14c9a0ec823eceb6b53620e443821375c0d6c2dbe4004470bcee514bb8e3d118",
+      "source_sha256": "c393afcef644745b9d1e557c9833146e908aee4d4b6bfdb57e64e7d304c8e177",
+      "version": "0.1.2"
+    }
+  }
+}

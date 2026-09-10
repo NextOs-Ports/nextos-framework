@@ -1,0 +1,5 @@
+Pasta opcional para um export legal do save Android.
+Leia ../../docs/OWNED-SAVE-IMPORT.md e execute primeiro com --dry-run.
+
+Optional location for a legally owned Android save export.
+Read ../../docs/OWNED-SAVE-IMPORT.md and run a dry-run first.

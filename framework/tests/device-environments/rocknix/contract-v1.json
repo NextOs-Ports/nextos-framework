@@ -1,0 +1,305 @@
+{
+  "schema": "nxframework-device-environment-v1",
+  "schema_version": 1,
+  "id": "rocknix-rk3566-specific-20260801",
+  "device": "ROCKNIX RK3566-Specific image",
+  "firmware": {
+    "name": "ROCKNIX",
+    "version": "20260801",
+    "image_variant": "RK3566-Specific",
+    "archive_name": "ROCKNIX-RK3566.aarch64-20260801-Specific.img.gz",
+    "archive_size": 1372826408,
+    "archive_sha256": "2a2eb9371c63c4463601b9511172ac5d551f600b18d08c3b4fa9080a584ecdef",
+    "compression": "gzip",
+    "uncompressed_name": "ROCKNIX-RK3566.aarch64-20260801-Specific.img",
+    "uncompressed_size": 2198863872,
+    "stored_in_repository": false,
+    "redistributed_by_framework": false
+  },
+  "evidence": {
+    "source": "official-firmware-image",
+    "hardware_ran_during_pc_verification": false,
+    "device_access_during_pc_verification": false,
+    "physical_graphics_claim": false,
+    "result_scope": "image identity, disk layout, rootfs file identity, ELF and static graphics-userspace inventory only"
+  },
+  "disk": {
+    "partition_table": "gpt",
+    "logical_sector_size": 512,
+    "total_logical_sectors": 4294656,
+    "disk_guid": "5ab75462-b051-43ac-b52c-34fa840016cb",
+    "crc_state": "valid",
+    "partitions": [
+      {
+        "number": 1,
+        "name": "system",
+        "start_lba": 32768,
+        "end_lba": 4227071,
+        "offset": 16777216,
+        "size": 2147483648,
+        "type_guid": "ebd0a0a2-b9e5-4433-87c0-68b6b72699c7",
+        "filesystem": "fat32",
+        "label": "ROCKNIX",
+        "uuid": "0108-3734"
+      },
+      {
+        "number": 2,
+        "name": "storage",
+        "start_lba": 4227072,
+        "end_lba": 4292607,
+        "offset": 2164260864,
+        "size": 33554432,
+        "type_guid": "0fc63daf-8483-4772-8e79-3d69d8477de4",
+        "filesystem": "ext4",
+        "label": "STORAGE",
+        "uuid": "dd14fcf4-a987-4f63-ac33-cfc749d22bfb"
+      }
+    ]
+  },
+  "system_payload": {
+    "partition_number": 1,
+    "path": "SYSTEM",
+    "size": 1357410304,
+    "sha256": "bfc4d7fae0f77f81633c988ad2ff00645b4e24a3bc8d7ac3cc9ace24b1541eee",
+    "raw_offset": 52621312,
+    "raw_start_sector": 102776,
+    "raw_sector_count": 2651192,
+    "contiguous": true,
+    "filesystem": {
+      "type": "squashfs",
+      "version": 4,
+      "compression": "zstd",
+      "compression_level": 19,
+      "bytes_used": 1357407047,
+      "block_size": 1048576,
+      "inode_count": 59827
+    }
+  },
+  "topology": {
+    "host_architecture": "aarch64",
+    "graphics": {
+      "evidence_scope": "image-backed-userspace-inventory-only",
+      "session": {
+        "compositor": "/usr/bin/sway",
+        "profile": "/etc/profile.d/050-sway.conf",
+        "observed_environment": {
+          "WAYLAND_DISPLAY": "wayland-1",
+          "SDL_VIDEODRIVER": "wayland",
+          "WLR_BACKENDS": "drm,libinput"
+        },
+        "physical_selected_backend": "not-measured"
+      },
+      "sdl": {
+        "version_from_library": "2.32.10",
+        "library": "/usr/lib/libSDL2-2.0.so.0.3200.10",
+        "compiled_video_drivers_state": "measured-under-qemu-without-video-init",
+        "compiled_video_drivers": [
+          "x11",
+          "wayland",
+          "KMSDRM",
+          "offscreen",
+          "dummy",
+          "evdev"
+        ],
+        "physical_selected_video_driver": "not-measured"
+      },
+      "mesa": {
+        "version_from_library": "26.1.2",
+        "panfrost_dri_link": "/usr/lib/dri/panfrost_dri.so",
+        "gallium_provider": "/usr/lib/libgallium-26.1.2.so",
+        "kernel_module": "/usr/lib/kernel-overlays/base/lib/modules/7.0.2/kernel/drivers/gpu/drm/panfrost/panfrost.ko",
+        "physical_driver_bound": "not-measured"
+      },
+      "egl": {
+        "dispatch_library": "/usr/lib/libEGL.so.1.1.0",
+        "mesa_provider": "/usr/lib/libEGL_mesa.so.0.0.0",
+        "initialized_during_pc_verification": false
+      },
+      "gles": {
+        "dispatch_library": "/usr/lib/libGLESv2.so.2.1.0",
+        "context_created_during_pc_verification": false,
+        "version_and_renderer_measured": false
+      },
+      "framework_policy": {
+        "backend_selected_by_firmware_or_device_name": false,
+        "absent_sdl_video_hint": "leave-absent-for-autodetection",
+        "supported_inherited_sdl_video_hint": "preserve",
+        "unsupported_inherited_sdl_video_hint": "remove-without-replacement",
+        "egl_gles_provider_override": false,
+        "ld_preload_override": false
+      }
+    }
+  },
+  "runtime_files": [
+    {
+      "id": "sway-profile",
+      "path": "etc/profile.d/050-sway.conf",
+      "size": 400,
+      "sha256": "dc7dab8c116f3a3ebf092705050daf9cfd2c160f240d1c9b89da485aeb0fcead",
+      "kind": "text"
+    },
+    {
+      "id": "sway-service",
+      "path": "usr/lib/systemd/system/sway.service",
+      "size": 615,
+      "sha256": "455608df0dff76553ad26b983bd11dc94fb8b504872833b964e3e99d1678e1a8",
+      "kind": "text"
+    },
+    {
+      "id": "os-release",
+      "path": "etc/os-release",
+      "size": 341,
+      "sha256": "2a25ea698fb596ed9e60c6cb8a4a3a5d77044c374e588b2159cfffe3b1edcfac",
+      "kind": "text"
+    },
+    {
+      "id": "aarch64-loader",
+      "path": "usr/lib/ld-linux-aarch64.so.1",
+      "size": 201056,
+      "sha256": "b74c6a63b73c9ae48cdeae4b1fb1e71acbb34e8e2959b1c7c111d495e4383e7c",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "libc",
+      "path": "usr/lib/libc.so.6",
+      "version": "2.41",
+      "size": 1781952,
+      "sha256": "a47e8e8928a0fdbdf4bd5427eecc2e9b3c88ba6e89c17f65f29842ffa408de80",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "sdl2",
+      "path": "usr/lib/libSDL2-2.0.so.0.3200.10",
+      "size": 2193712,
+      "sha256": "4e1e08ccdb18510e5839b7db1ebc3053f57ed09d04c252e0f2cc00c3161c8142",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "egl-dispatch",
+      "path": "usr/lib/libEGL.so.1.1.0",
+      "size": 133440,
+      "sha256": "1668eb1e70915303ee0f47ac92509f0aa9f8159f718b18e2447001b9e8f336e3",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "gles2-dispatch",
+      "path": "usr/lib/libGLESv2.so.2.1.0",
+      "size": 198624,
+      "sha256": "ccad4c8eb77453e23340f5eee0b01ca17f111deabef21fc244f01acb4366cbf3",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "egl-mesa",
+      "path": "usr/lib/libEGL_mesa.so.0.0.0",
+      "size": 398360,
+      "sha256": "5a092f55bad8c5c3873a7e9d1e4e80b7f21aa8d1ee75d90194a03391b56956a3",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "gbm",
+      "path": "usr/lib/libgbm.so.1.0.0",
+      "size": 67560,
+      "sha256": "56e68b39a935eab8c14c9da1eb853a7366150f848677118ff511211fcd4f7af6",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "drm",
+      "path": "usr/lib/libdrm.so.2.128.0",
+      "size": 133816,
+      "sha256": "a13d462e5232c02407a8bdfcbd05b1871358780092a0357348bd6203aa17bd74",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "wayland-client",
+      "path": "usr/lib/libwayland-client.so.0.23.1",
+      "size": 200184,
+      "sha256": "ec112a8d1eb6b0164602b3eacf243c35168a5b103fc21b6c0961c049d4cdbfe5",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "wayland-egl",
+      "path": "usr/lib/libwayland-egl.so.1.23.1",
+      "size": 67264,
+      "sha256": "b19dcf0ce7d42f60246f05ddb25f5af2a165cc172f8d07ad43a335016dbd4fcc",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "panfrost-dri-link",
+      "path": "usr/lib/dri/panfrost_dri.so",
+      "kind": "symlink",
+      "target": "libdril_dri.so"
+    },
+    {
+      "id": "dril-dri",
+      "path": "usr/lib/dri/libdril_dri.so",
+      "size": 133168,
+      "sha256": "164f29b0ceb285a5cf17e02c9367a0b5daf5d027ca13690c937ded55c4256ebb",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "gallium",
+      "path": "usr/lib/libgallium-26.1.2.so",
+      "size": 20951528,
+      "sha256": "aaa0e67243d71e19beda50f230c1dbf6451cc352ef1e5ac1949ea46571302e02",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "panfrost-kernel-module",
+      "path": "usr/lib/kernel-overlays/base/lib/modules/7.0.2/kernel/drivers/gpu/drm/panfrost/panfrost.ko",
+      "size": 142208,
+      "sha256": "ea1843912a776c00617f999377d401c57fb96608d611b5a43bf802acbe2e6df4",
+      "kind": "kernel-module",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "vulkan-panfrost",
+      "path": "usr/lib/libvulkan_panfrost.so",
+      "size": 15577032,
+      "sha256": "d89006d20ac27c10495aa558fd0b9e35ca6021a24606d82b1c948b28d7627bc6",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    },
+    {
+      "id": "sway",
+      "path": "usr/bin/sway",
+      "size": 533008,
+      "sha256": "1d379411d88c0dc2dba82ca217356735cf0e066d4ad906c935e3c6f2e7cfeed2",
+      "kind": "elf",
+      "elf_class": 2,
+      "elf_machine": 183
+    }
+  ],
+  "prepared_layout": {
+    "root": "root",
+    "source": "source",
+    "system_image": "source/SYSTEM",
+    "rootfs": "root",
+    "receipt": "environment-receipt.json"
+  }
+}

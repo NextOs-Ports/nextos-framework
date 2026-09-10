@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.17",
+    "runtime": [],
+    "title": "Final Fantasy IV The After Years"
+  },
+  "items": [
+    "Final Fantasy IV The After Years.sh",
+    "ff4a/"
+  ],
+  "items_opt": [],
+  "name": "ff4a.zip",
+  "version": 4
+}

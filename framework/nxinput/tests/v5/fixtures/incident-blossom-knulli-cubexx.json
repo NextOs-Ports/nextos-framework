@@ -1,0 +1,55 @@
+{
+  "fixture": "nxinput-incident-fixture/1",
+  "id": "incident-blossomtales-1.4.0-knulli-rg-cubexx",
+  "class": "FIELD_INCIDENT / sanitized",
+  "summary": "Blossom Tales 1.4.0 on Knulli Scarab (Anbernic RG CubeXX, H700): pad discovered and admitted, GPTK owner active with 11 sinks, context menu, MonoGame saw 'Xbox Wireless Controller', video/audio OK, no control and no SELECT+START answered. Receipt: NXC6-DOMAIN ... rewritten=1 rewritten_bindings=13 ... volume_markers=0 result=rewritten; NXC6-SEAM source_domain=joydev-legacy target_domain=sdl2-evdev.",
+  "device": {
+    "family": "allwinner-h700-gpio-keys-polled",
+    "name_evidence_only": "Anbernic RG CubeXX Controller",
+    "guid_zero_crc": "19000000010000000100000000010000",
+    "ev_key_codes": ["0x11", "0x72", "0x73", "0x130", "0x131", "0x132", "0x133", "0x134", "0x135", "0x136", "0x137", "0x138", "0x139", "0x13a", "0x13b", "0x13c"],
+    "ev_key_note": "DTS (fdt_boot_package.fex_0.dts, image knulli-h700-rg-cubexx-gladiator-ii-20250813, sha256 87f886e0...) lists 0x72, 0x73 and 0x130..0x13c; es_input.cfg of the same image binds a=id3, so exactly THREE keys precede 0x130 in the ascending sweep (the tester's log reported 17 buttons). The third low code is not in the DTS; 0x11 is a placeholder < 0x72. Reproduction and fix do not depend on its value.",
+    "ev_abs_codes": ["0x00", "0x01", "0x02", "0x03", "0x10", "0x11"],
+    "hats": 1
+  },
+  "physical_table": {
+    "trust_root": "DTS gpio-keys-polled labels of the CubeXX image (tests/providers/provider-manifest-v5.json: knulli-cubexx-dts) + es_input.cfg sha256 9f31c56b...",
+    "position_to_ev_key": {
+      "face.south": "0x130", "face.east": "0x131", "face.west": "0x132", "face.north": "0x133",
+      "l1": "0x134", "r1": "0x135", "select": "0x136", "start": "0x137", "guide": "0x138",
+      "l3": "0x139", "l2": "0x13a", "r2": "0x13b", "r3": "0x13c",
+      "volume.down": "0x72", "volume.up": "0x73"
+    },
+    "plastic_legend_note": "DTS labels 'GPIO Key a'=0x130, 'b'=0x131, 'x'=0x132, 'y'=0x133; Knulli es_input.cfg binds y=id5(0x132) and x=id6(0x133): the legend and the position disagree on this unit. Xbox surface is positional; legend is evidence only."
+  },
+  "source": {
+    "authority": "env-get-controls (Knulli control.txt get_controls; PortMaster knulli/gamecontrollerdb.txt line 1055)",
+    "provenance": "PortMaster knulli gamecontrollerdb.txt sha256 4028971e... line 1055 (13 button bindings, no volume markers: matches rewritten_bindings=13 volume_markers=0 of the field receipt)",
+    "domain_claimed": "sdl2-batocera-ascending (Knulli SDL2 2.30.12 with the Batocera patch set)",
+    "mapping": "19000000010000000100000000010000,ANBERNIC-keys,b:b3,a:b4,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b13,leftstick:b12,dpleft:h0.8,rightshoulder:b8,leftshoulder:b7,righttrigger:b14,rightstick:b15,dpright:h0.2,back:b9,start:b10,dpup:h0.1,y:b6,x:b5,guide:b11,platform:Linux,",
+    "field_corrupted_readback": "controller: ... a:b1,b:b0,back:b6,start:b7 (OUTPUT of the V4 rewrite; never an input fixture)"
+  },
+  "provider_loaded": {
+    "api": "sdl2",
+    "dso": "libSDL2-2.0.so.0.3000.12",
+    "sha256": "8c4dc956e278546c96b06a6a7b0a2b8a1991e877e81e172fa1bed26a9ada453a",
+    "build_id": "none",
+    "version": "2.30.12",
+    "revision": "SDL-2.30.12-no-vcs",
+    "exports": ["SDL_JoystickButtonEventCodeById", "SDL_JoystickAxisEventCodeById", "SDL_JoystickHatEventCodeById", "SDL_JoystickDevicePathById"],
+    "domain": "sdl2-batocera-ascending",
+    "method": "exported-api + pinned-elf (manifest knulli-h700-sdl2-2.30.12)"
+  },
+  "v4_behaviour": {
+    "target_presumed": "sdl2-evdev (upstream high-first)",
+    "expected_receipt": "NXC6-DOMAIN ... rewritten=1 rewritten_bindings=13 ... volume_markers=0 result=rewritten",
+    "rewritten_expected_bindings": {"b": "b0", "a": "b1", "x": "b2", "y": "b3", "leftshoulder": "b4", "rightshoulder": "b5", "back": "b6", "start": "b7", "guide": "b8", "leftstick": "b9", "lefttrigger": "b10", "righttrigger": "b11", "rightstick": "b12"},
+    "effect_on_ascending_provider": {
+      "b": "0x11 (unknown low key)", "a": "0x72 VOLUMEDOWN", "x": "0x73 VOLUMEUP", "y": "0x130 (physical A/south)",
+      "leftshoulder": "0x131", "rightshoulder": "0x132", "back": "0x133", "start": "0x134 (physical L1)",
+      "guide": "0x135", "leftstick": "0x136 (physical SELECT)", "lefttrigger": "0x137 (physical START)",
+      "righttrigger": "0x138", "rightstick": "0x139"
+    },
+    "field_symptoms_explained": ["'Press A' never advanced: 'a' landed on VOLUMEDOWN", "SELECT+START dead: back/start landed on physical Y and L1"]
+  }
+}

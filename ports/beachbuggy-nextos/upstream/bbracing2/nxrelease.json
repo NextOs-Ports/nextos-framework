@@ -1,0 +1,261 @@
+{
+  "dependencies": [
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "path": "bbracing2/lib/libSDL3.so.0",
+      "provider": "package",
+      "soname": "libSDL3.so.0"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libc.so.6"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libdl.so.2"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libm.so.6"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "glibc-base",
+      "soname": "libpthread.so.0"
+    },
+    {
+      "architecture": "aarch64",
+      "namespace": "linux",
+      "provider": "firmware",
+      "soname": "libz.so.1"
+    }
+  ],
+  "exceptions": [],
+  "files": [
+    {
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "b5dbbb01e14a3f8b928b543711ba4032d0d02f147613124221ddce11e3ce90cb",
+      "source": "Beach Buggy Racing 2.sh",
+      "target": "Beach Buggy Racing 2.sh"
+    },
+    {
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "20bf88aa4da96e0cc949cf9158adf41d564b11d88a23b21102c0d3b1530a840f",
+      "source": "nxport.json",
+      "target": "bbracing2/nxport.json"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "2853e4347af715213e4a8e2420617fa47c51a7acfc831f3c4e3bdc2cb12e67f5",
+      "source": "nxproject.json",
+      "target": "bbracing2/nxproject.json"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "project-linux",
+      "mode": "0755",
+      "needed": [
+        "libSDL3.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "provenance": "port build script; framework pinned by FRAMEWORK-PIN.json",
+      "sha256": "5440be19fb7aeb5864880de5b1359d76d72d5910e52920afc94e2bc689365886",
+      "soname": null,
+      "source": "bbracing2",
+      "target": "bbracing2/bbracing2"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "16bb1fddbb4807843caf6a6988c76324070f5f5ce66e50d9fbc2a461a566a6c6",
+      "source": "README.md",
+      "target": "bbracing2/README.md"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "621291851de4643a4fc2565953c1bb77363455507a8d92b818f4db8b263b95b3",
+      "source": "INSTALLATION.md",
+      "target": "bbracing2/INSTALLATION.md"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0",
+      "source": "LICENSE",
+      "target": "bbracing2/LICENSE"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "50f5ccb75956c34218cf660cbde4838b0a42050cc098249f25fa7d0aed485571",
+      "source": "port.json",
+      "target": "bbracing2/port.json"
+    },
+    {
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "b49574ac3346f2dc3df66877a1fbe4893599b7292b2a8aa09bfdc12cc6cabf35",
+      "source": "gameinfo.xml",
+      "target": "bbracing2/gameinfo.xml"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXSplash 0.1.2 canonical aarch64 artifact",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "soname": null,
+      "source": "nxsplash-nextos",
+      "target": "bbracing2/nxsplash-nextos"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "44e161e4495cac2cf7858043e9e6418e9579f0ddcfae826f9a372622968ce066",
+      "source": "version.txt",
+      "target": "bbracing2/version.txt"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "third-party-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0"
+      ],
+      "provenance": "bundled runtime dependency",
+      "sha256": "dd830926f57401042bc62d6e6462736f68866c84deba2074d1fff40ad5747c46",
+      "soname": "libSDL3.so.0",
+      "source": "lib/libSDL3.so.0",
+      "target": "bbracing2/lib/libSDL3.so.0"
+    },
+    {
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "344b3fd409fcdc28e1c02c8ae3e1ca4bf355e334d3a0b1f8f3dd961b9482cfbd",
+      "source": "extractor.json",
+      "target": "bbracing2/extractor.json"
+    },
+    {
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f",
+      "source": "nxextract/nxextract.py",
+      "target": "bbracing2/nxextract/nxextract.py"
+    },
+    {
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+      "source": "nxextract/run-extractor.sh",
+      "target": "bbracing2/nxextract/run-extractor.sh"
+    },
+    {
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "bbracing2/nxextract/nxextract-runtime-env.sh"
+    },
+    {
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "provenance": "NXExtract UI 1.2.18 canonical aarch64 artifact",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+      "soname": null,
+      "source": "nxextract/nxextract-ui",
+      "target": "bbracing2/nxextract/nxextract-ui"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "1046822942b68dbf8a31e81e25f587c411ec42cfa7b13498b2df79723e8b248a",
+      "source": "nxextract-version.txt",
+      "target": "bbracing2/nxextract-version.txt"
+    }
+  ],
+  "nxextract": {
+    "minimum_version": "1.2.18",
+    "path": "bbracing2/nxextract/nxextract.py",
+    "recipe_path": "bbracing2/extractor.json",
+    "recipe_sha256": "344b3fd409fcdc28e1c02c8ae3e1ca4bf355e334d3a0b1f8f3dd961b9482cfbd",
+    "runner_path": "bbracing2/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "bbracing2/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "sha256": "0243b65874a58e71b156c049812c34906fcc44f7c0fdea1a9322bd132183779f",
+    "ui_path": "bbracing2/nxextract/nxextract-ui",
+    "ui_sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+    "version": "1.2.18"
+  },
+  "package": {
+    "id": "bbracing2",
+    "launcher": "Beach Buggy Racing 2.sh",
+    "launcher_chain": [
+      "Beach Buggy Racing 2.sh"
+    ],
+    "launcher_contract": {
+      "config_path": "bbracing2/nxport.json",
+      "config_sha256": "20bf88aa4da96e0cc949cf9158adf41d564b11d88a23b21102c0d3b1530a840f",
+      "generator": "nxbootstrap",
+      "version": "0.6.30"
+    },
+    "license": {
+      "file": "bbracing2/LICENSE",
+      "source_url": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "spdx_id": "GPL-3.0-only"
+    },
+    "port_dir": "bbracing2",
+    "profile": "universal-portmaster",
+    "version": "1.0.1"
+  },
+  "portmaster_metadata": {
+    "gameinfo_xml": {
+      "path": "bbracing2/gameinfo.xml",
+      "sha256": "b49574ac3346f2dc3df66877a1fbe4893599b7292b2a8aa09bfdc12cc6cabf35"
+    },
+    "images": [],
+    "port_json": {
+      "path": "bbracing2/port.json",
+      "sha256": "50f5ccb75956c34218cf660cbde4838b0a42050cc098249f25fa7d0aed485571"
+    }
+  },
+  "release": {
+    "compression": "deflated",
+    "max_glibc": "2.30",
+    "source_date_epoch": 1786492800
+  },
+  "schema_version": 2,
+  "source_root": "."
+}

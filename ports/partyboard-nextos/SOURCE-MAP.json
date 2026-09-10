@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/partyboard-nextos",
+  "observed_commit": "6ac391d61fda260aadb0c8b1e5f77d2ae5f0d797",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "PartyBoard / Mario Party 4"
+  ],
+  "platform": "GameCube",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "other",
+    "name": "Other",
+    "nickname": ""
+  },
+  "license_review": "LICENSE grants MIT only for NextOS contributions; explicitly excludes unlicensed upstream PartyBoard and reconstructed game code. Whole-tree redistribution not cleared by this study.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "27f6554bb4a091819292981ae12ff6f00f2f5312",
+      "sha256": "bdf491e16edeefa89392f187d24771ccb722395a3477ff438ddad73ecaf5cfe0"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "96a151aa51ed4b83bf64de7daf54b33a2458b84a",
+      "sha256": "baa605581bea559c1279b095c2713a5fe3070d6633e4d07bd554e16d1be5ca35"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "a5b02db2febca6fbbe83c6c7ffff1f4a1be3c2ca",
+      "sha256": "600435735d1f1561f686ac11c5e1e4bf68174a56cd4258d4e9e82576951acb00"
+    },
+    {
+      "path": "cmake/nextos-aarch64.toolchain.cmake",
+      "mode": "0o644",
+      "upstream_blob": "3cce41814de37d9dc9f8b0ff1132a02579962d8b",
+      "sha256": "fc2e08b0855df37ba296a01f0b212ab4c8de0ca88cc5d9b4614b477c5fa84e1b"
+    },
+    {
+      "path": "configure-nextos.sh",
+      "mode": "0o644",
+      "upstream_blob": "ce4e36e481d0b11a7e092bded985e3ee77f10d96",
+      "sha256": "66d9c3ac4a1a8400408efe3418e12f4d5750939bb7f1cbde7f8347eec42f2b6a"
+    },
+    {
+      "path": "packaging/nextos/PUT-YOUR-DISC-IMAGE-HERE.txt",
+      "mode": "0o644",
+      "upstream_blob": "a1ceb99fa96bf9fc49168428822ba2730c18d30c",
+      "sha256": "c48990354a9c29fae720ee291a3b1150ff4cbc726c8be83ba6e3a7ee8895aff9"
+    },
+    {
+      "path": "packaging/nextos/PartyBoard.sh",
+      "mode": "0o644",
+      "upstream_blob": "4bf7a83a78dc6f2667e00b538754215b762f7edf",
+      "sha256": "fa8eb8f86de5dd61a15ece50eb7470e7a31242be56b6f41ce115f752ebd9945b"
+    },
+    {
+      "path": "packaging/nextos/README.txt",
+      "mode": "0o644",
+      "upstream_blob": "d382bb2008fe921fc1dbef36f8c5224c910e9af6",
+      "sha256": "beb9e0dc3149fcbbc527c5fdf3353b68db921e66f9944075747549561a45f590"
+    },
+    {
+      "path": "packaging/nextos/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "5ba11cb7e3f7ac85a403330bc8ee82008fe789df",
+      "sha256": "df94fdf5b4e45d1c29105abb68267e32022937d44db5d95ae053affea65e180e"
+    },
+    {
+      "path": "packaging/nextos/gamecontrollerdb.txt",
+      "mode": "0o644",
+      "upstream_blob": "4cd0d90deed46de4dea8f4a5223d0a0e1057ef1e",
+      "sha256": "ee14d749be4670c4e66b1adaf0493f986d3ffb25661f4a42ff80a5f42cf18206"
+    },
+    {
+      "path": "packaging/nextos/gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "0c351e13ca95aee8dcaa827428edaf4b255229dd",
+      "sha256": "0ff72147c07a09115cd12be5d5374bd574ad640ef6c8bc7dff3e03e8dd6508e5"
+    },
+    {
+      "path": "packaging/nextos/port.json",
+      "mode": "0o644",
+      "upstream_blob": "c63e54775ba32ae3986679192eb605ccbe0feab8",
+      "sha256": "a9750577e654c4d8c7ce09c0c4ae9b448fbe9660991528e27f08f4893ab3ad9d"
+    },
+    {
+      "path": "packaging/portmaster/aarch64-linux-gnu-gcc10.toolchain.cmake",
+      "mode": "0o644",
+      "upstream_blob": "bd2a2908c22b790d9d93894f967be1f7e4b2766d",
+      "sha256": "3d88b847c829c33f326f9956f010feb285ff97af8ba199e3c8a90a97607d8013"
+    },
+    {
+      "path": "packaging/portmaster/aarch64/PartyBoard.sh",
+      "mode": "0o755",
+      "upstream_blob": "f5ef7dabdacf4632d8928b519fbabf4cc02c1352",
+      "sha256": "7522426713847781dd5555ba5cb116853b1726786b75e61a928ec3ddbd952af2"
+    },
+    {
+      "path": "packaging/portmaster/aarch64/partyboard/partyboard.gptk",
+      "mode": "0o644",
+      "upstream_blob": "7a1cbae9ab4ade1d75a0a37c4597ff761431b7b6",
+      "sha256": "379dafe94b66fd9653e0194945d742e78cdcfc8d1841ad07f25b30e8c9969fca"
+    },
+    {
+      "path": "packaging/portmaster/aarch64/partyboard/port.json",
+      "mode": "0o644",
+      "upstream_blob": "32ffc04762f7f8ab5d03d0e2051f8d524843630c",
+      "sha256": "d14d881d0a82c8709d7cf1b378b849f3ec1e9a4c804c2aeae78c35c63efe1334"
+    },
+    {
+      "path": "packaging/portmaster/build-in-docker.sh",
+      "mode": "0o755",
+      "upstream_blob": "1d5ceaf5029f82128478f161a59f804d92592da0",
+      "sha256": "7cbadea1d0bcabb7515c2f78cbdc9a04367767e7ac1abd049862a22950cda870"
+    },
+    {
+      "path": "packaging/portmaster/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "3606c2a7a69f8e0452156998de5f75c08d64af49",
+      "sha256": "8a157830c6ac08805bc7ec603b94aba15caafff31b200a016fb4deb0a8d7c0ea"
+    },
+    {
+      "path": "packaging/portmaster/configure-portmaster.sh",
+      "mode": "0o755",
+      "upstream_blob": "5310cce64811b96202ad019a9952a3764d0781f6",
+      "sha256": "8f4cbc89d13eb3dd0725351fac572902d627e71f94ab38301afcad210b59afb4"
+    },
+    {
+      "path": "packaging/portmaster/patches/sdl2shim-publish-egl-context.patch",
+      "mode": "0o644",
+      "upstream_blob": "22afd7eaa9af99e82025c6059bd6157eb10ed61d",
+      "sha256": "ea6fd70dc5cf3cf5dc127771257f2ccd4bd91fb90ff298b9b7d58c83c3fefbb4"
+    },
+    {
+      "path": "packaging/portmaster/patches/sdl2shim-publish-egl-properties.patch",
+      "mode": "0o644",
+      "upstream_blob": "4dc4c7caf78df60eba65453d401b2214634a38b2",
+      "sha256": "a1d8d9b55fdddaf40bb186e07a2bf69b4d8d864937b8938184991031b21ae399"
+    },
+    {
+      "path": "packaging/portmaster/patches/sdl2shim-unset-nested-video-driver.patch",
+      "mode": "0o644",
+      "upstream_blob": "a3368c8c3445033ccd31984f452c235267d8b941",
+      "sha256": "d69e1e14b671882a3b4b3daee9b7cd939a53d5cdd3d72b7e18234ceb15424ac1"
+    },
+    {
+      "path": "packaging/portmaster/patches/sdl2shim-video-only-linux-joystick.patch",
+      "mode": "0o644",
+      "upstream_blob": "381fbeebebd66dc184d773b999dbda750a524397",
+      "sha256": "13a9084e7da73a55595e3b8215553d3668a453edd77c5d995e85f4013f1e136c"
+    },
+    {
+      "path": "platforms/android/README.md",
+      "mode": "0o644",
+      "upstream_blob": "eb8a1339ea5a08f0c7d3c00c7b7ac34cc6678f79",
+      "sha256": "d2cb73a4fa923532e067adfcee7a0122b9ade7476570736f6fe5923a6aeda93e"
+    },
+    {
+      "path": "tools/nextos-nod-extract.c",
+      "mode": "0o644",
+      "upstream_blob": "10ba14784138aeee59ad5965023bc25c4faaf65c",
+      "sha256": "977e3c99274c8d215a365a58f5b4174e62df3cd5b84cbe2d48b3c6752dd2d36f"
+    },
+    {
+      "path": "tools/nextos-sdl-gamepad-probe.c",
+      "mode": "0o644",
+      "upstream_blob": "419dff6bdbb14521d07db60745bf5b8756cb9457",
+      "sha256": "92324c046650df3e265ef42e17a9463e0a64a3f41e6313158f2acc270985c2b6"
+    },
+    {
+      "path": "tools/nextos-virtual-gamepads.py",
+      "mode": "0o644",
+      "upstream_blob": "606c598cb5ce74ec30abe0dfecb99d1343ba7a5c",
+      "sha256": "c5afd96f453549a7bc117ce6bc8e5b8b22fde68082f76275a3d2a64720050480"
+    }
+  ],
+  "omitted_selected_files": []
+}

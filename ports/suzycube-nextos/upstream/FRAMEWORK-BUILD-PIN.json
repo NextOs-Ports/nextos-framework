@@ -1,0 +1,22 @@
+{
+  "components": {
+    "nxaudio": {
+      "commit": "a823b28a58f77ddcaa6dfc922c5f6da3ce40d77f",
+      "tree_sha256": "6266da375cf47ce301289cf2f5504415a0e92eff318e02c6bfdd3ec542602e31",
+      "version": "0.2.0"
+    },
+    "nxcompat": {
+      "commit": "a823b28a58f77ddcaa6dfc922c5f6da3ce40d77f",
+      "tree_sha256": "14a224881dd34ce4c60336c8b6805d9062f765b0bca46a1b9af5adc149a21c3d",
+      "version": "0.2.1"
+    },
+    "nxinput": {
+      "commit": "a823b28a58f77ddcaa6dfc922c5f6da3ce40d77f",
+      "tree_sha256": "57d7a46e92139464e78e08bd6a3a51c99ddb0e5a3445b75b722b0d81b7eb0b5b",
+      "version": "0.3.1"
+    }
+  },
+  "schema": "nextos-framework-build-pin-v1",
+  "schema_version": 1,
+  "tree_digest": "nxgenerator-component-tree-sha256-v1"
+}

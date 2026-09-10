@@ -1,0 +1,7 @@
+# NEXTOS_SETTINGS/1
+# Off The Road — ajustes do dono / owner settings
+# Edite os valores; chaves desconhecidas sao REJEITADAS (fail-closed): so language e quality.
+# Edit the values; unknown keys are REJECTED fail-closed: only language and quality.
+# language: auto ou uma tag como pt-BR, en, es (o port lista as suportadas).
+# quality: auto|low|medium|high (so aparece quando o adapter declara perfis).
+language=auto

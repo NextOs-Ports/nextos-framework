@@ -1,0 +1,32 @@
+# summertimesaga.gptk — mapeamento do controle (editável)
+#
+# ESQUERDA = botão FÍSICO no padrão Xbox/SDL:
+#   a = baixo  (PS ✕ / Xbox A)      b = direita (PS ○ / Xbox B)
+#   x = esquerda (PS □ / Xbox X)    y = cima    (PS △ / Xbox Y)
+#   l1 r1 l2 r2 select start l3 r3
+# DIREITA = botão que o JOGO recebe (a/b/x/y/l1/r1/l2/r2/select/start/l3/r3).
+#
+# Edite e relance o jogo (não precisa recompilar). Funciona com qualquer
+# controle (Xbox/PS/genérico). Atalho: SELECT + START = sair do jogo.
+#
+# Visual novel/point-and-click: base Xbox normal.
+# Se o menu nao aceitar gamepad direto, o loader ganha cursor virtual.
+#
+# ATALHOS NATIVOS por toque: "botao = tap:X,Y" com X,Y normalizados (0..1)
+# na area 16:9 do jogo. O botao teleporta a seta ao alvo e clica — serve
+# para qualquer elemento de toque do HUD. Medidos na UI Tech-Update (v21):
+#   telefone tap:0.855,0.056   mochila tap:0.906,0.053
+#   mapa     tap:0.963,0.053   save    tap:0.975,0.633
+#   q.save   tap:0.975,0.664   menu(engrenagem) tap:0.036,0.056
+a = a
+b = b
+x = x
+y = tap:0.855,0.056     # Y      = TELEFONE
+l1 = tap:0.906,0.053    # L1     = MOCHILA (inventario)
+r1 = tap:0.963,0.053    # R1     = MAPA da cidade
+l2 = tap:0.975,0.633    # L2     = SAVE (tela de saves)
+r2 = tap:0.975,0.664    # R2     = QUICK SAVE
+select = select
+start = start
+l3 = l3
+r3 = r3

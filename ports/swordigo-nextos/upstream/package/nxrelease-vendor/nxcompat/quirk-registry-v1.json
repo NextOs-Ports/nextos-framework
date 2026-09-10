@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "registry_version": "1.0.0",
+  "default_enabled": false,
+  "meaning": "Finite registry of named runtime adjustments. Every quirk is adapter/port opt-in, off by default, and its condition is an observed capability or measured fact - CFW_NAME and DEVICE_NAME are logged facts, never sufficient conditions (portmaster contract device_info_rule).",
+  "namespaces": [
+    "adapter",
+    "engine",
+    "game"
+  ],
+  "activation": "adapter-opt-in",
+  "quirks": [
+    {
+      "id": "engine.utgard-finish-to-flush",
+      "condition": "graphics: GPU family observed as Mali Utgard (mali-4xx) after context creation",
+      "effect": "replace glFinish with glFlush on render-to-texture completion paths; the Utgard blob stalls the GPU and starves audio on per-RTT glFinish",
+      "evidence": [
+        "bully2"
+      ]
+    },
+    {
+      "id": "engine.stream-read-ahead",
+      "condition": "host: game assets streamed from FUSE-like or slow block storage",
+      "effect": "enable block read-ahead for archive streaming",
+      "evidence": [
+        "sonic4ep2"
+      ]
+    },
+    {
+      "id": "adapter.console-keymap-restore",
+      "condition": "host: process owns the console on a KMSDRM/evdev stack (SDL took the VT keyboard)",
+      "effect": "restore KDSKBMODE/kbd_mode and reset the TTY before process exit so the device is not left with the keymap in K_OFF",
+      "evidence": [
+        "kotor"
+      ]
+    },
+    {
+      "id": "adapter.exit-chord-evdev-fallback",
+      "condition": "input: active SDL mapping does not deliver back and start buttons",
+      "effect": "read BTN_TRIGGER_HAPPY1/2 from evdev as an emergency SELECT+START exit chord, gated so it never fires when the mapping already declares back/start",
+      "evidence": [
+        "kotor",
+        "chrono",
+        "pacman256"
+      ]
+    },
+    {
+      "id": "adapter.strip-guide-button",
+      "condition": "input: CFW mapping declares a guide button that collides with the firmware hotkey",
+      "effect": "strip guide:bN from the inherited SDL mapping before use",
+      "evidence": [
+        "kotor"
+      ]
+    },
+    {
+      "id": "adapter.exclusive-fullscreen",
+      "condition": "graphics: FULLSCREEN_DESKTOP produced a wrong-size drawable on the observed backend",
+      "effect": "opt into exclusive fullscreen instead of desktop fullscreen; default stays desktop because exclusive modesets fail with EGL_BAD_MATCH on kmsdrm/wayland",
+      "evidence": [
+        "horizonchase",
+        "sonic4ep2"
+      ]
+    },
+    {
+      "id": "adapter.gl-provider-reexec-preload",
+      "condition": "graphics: real context created but glGetString(GL_RENDERER) is empty - the versioned GLES/EGL SONAME resolves to a driverless Mesa while a Mali blob with the needed entry points exists behind the unversioned name",
+      "effect": "re-execute the process with LD_PRELOAD pointing at the validated Mali blob (prefer direct GBM/DRM/fbdev transport; reject dummy/stub and compositor-only variants incompatible with the active SDL backend; require GLES1 entry points via dlsym); healthy stacks incl. Panfrost report a renderer and are never touched",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "adapter.gl-provider-probe-init-reexec",
+      "condition": "graphics: the EGL provider the dynamic linker resolved refuses the kernel driver before any window exists (eglInitialize fails, e.g. Mali user/kernel API mismatch such as user 10.6 vs kernel 11.7); the process would otherwise die at GL init with no context to measure",
+      "effect": "after video teardown, prefilter alternate Mali provider objects by active SDL transport (hybrid names such as wayland-gbm remain eligible for KMSDRM), then perform real eglGetDisplay+eglInitialize on each candidate; exclude the loaded provider and dummy/stub or incompatible compositor-only variants; re-execute once with LD_PRELOAD pointing at the first candidate that initializes; if none initializes the original failure is left untouched",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "game.swordigo.present-alpha-one",
+      "condition": "graphics: scanout plane honours alpha (ARGB8888 KMSDRM) and the game leaves frames at alpha 0",
+      "effect": "force the frame opaque immediately before present",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "game.swordigo.fullscreen-desktop",
+      "condition": "graphics: exclusive-fullscreen modeset yields a window that never reaches the panel",
+      "effect": "use FULLSCREEN_DESKTOP and keep the firmware mode; exclusive stays an env escape",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "game.swordigo.present-finish",
+      "condition": "graphics: measured tearing/latency on the observed present path",
+      "effect": "glFinish before swap on the drivers where it was measured to help",
+      "evidence": [
+        "swordigo"
+      ]
+    },
+    {
+      "id": "game.bully2.etc1-low-memory-drm",
+      "condition": "measured on this title: /dev/dri present and effective memory below 1.2 GiB made raw textures exceed the RAM budget",
+      "effect": "force ETC1 textures without mipmaps on KMSDRM to keep RAM inside budget",
+      "evidence": [
+        "bully2"
+      ]
+    },
+    {
+      "id": "game.bully2.texture-half-low-memory",
+      "condition": "measured on this title: streamed textures at full resolution exceeded the observed memory budget (Horizon Chase carries its own equivalent as CUP_TEXHALF)",
+      "effect": "halve streamed texture resolution above a floor (512px proven)",
+      "evidence": [
+        "bully2",
+        "horizonchase"
+      ]
+    },
+    {
+      "id": "game.horizonchase.frame-limit-30",
+      "condition": "measured on this title: sustained frame time above target on the observed GPU tier",
+      "effect": "cap the engine choreographer to 30 fps",
+      "evidence": [
+        "horizonchase"
+      ]
+    },
+    {
+      "id": "adapter.home-asoundrc-redirect",
+      "condition": "audio: no session sound server observed, an .asoundrc exists at the login HOME, and the manifest home_mode is preserve (never applied with home_mode: port, which owns HOME)",
+      "effect": "point HOME at the directory holding .asoundrc so firmware volume keys keep working (Knulli/Batocera)",
+      "evidence": [
+        "sonic4ep2"
+      ]
+    },
+    {
+      "id": "game.bombchicken.menu-cursor-v44",
+      "condition": "input: touch-driven menus need a pointer on a gamepad-only device",
+      "effect": "provide a right-stick/analog menu cursor with a tap button (BC_CURSOR)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.native-pause-v44",
+      "condition": "lifecycle: the engine expects Android nativePause to drive its own save/pause on focus-out and exit",
+      "effect": "route pause/exit through UnityPlayer.nativePause so the game saves (BC_PAUSE_NATIVE)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.nonnull-play-games-v44",
+      "condition": "jni: the game queries Google Play Games services that this offline port does not model",
+      "effect": "return a live non-null Play Games stub so the engine does not hit a NullReference (BC_* nonnull)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.present-alpha-one",
+      "condition": "graphics: scanout plane honours alpha (ARGB8888 KMSDRM) and the game leaves frames at alpha 0",
+      "effect": "force the frame opaque immediately before present (BC present-alpha)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.progress-parser-v44",
+      "condition": "persistence: the on-disk progress/save format needs the port-specific parser to load correctly",
+      "effect": "use the game-specific progress parser (BC_PROGRESS_FIX)",
+      "evidence": [
+        "bombchicken"
+      ]
+    },
+    {
+      "id": "game.bombchicken.stencil8-v44",
+      "condition": "graphics: the engine renderer needs an 8-bit stencil in the GLES2 config",
+      "effect": "request depth24/stencil8 for the context (BC_FORCE_STENCIL)",
+      "evidence": [
+        "bombchicken"
+      ]
+    }
+  ]
+}

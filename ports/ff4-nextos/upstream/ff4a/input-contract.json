@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "ff4a",
+  "adapter": "src/main.c",
+  "extraction": {
+    "pattern": "BTN\\((?P<control>[A-Z_]+)\\)[^\\n]*?(?P<slot>K_[A-Z0-9_]+)",
+    "minimum_pairs": 10
+  },
+  "groups": {
+    "gameplay": {
+      "confirm": {
+        "control": "A",
+        "slot": "K_A"
+      },
+      "cancel": {
+        "control": "B",
+        "slot": "K_B"
+      },
+      "menu-x": {
+        "control": "X",
+        "slot": "K_X"
+      },
+      "menu-y": {
+        "control": "Y",
+        "slot": "K_Y"
+      },
+      "move-right": {
+        "control": "DPAD_RIGHT",
+        "slot": "K_RIGHT"
+      },
+      "move-left": {
+        "control": "DPAD_LEFT",
+        "slot": "K_LEFT"
+      },
+      "move-up": {
+        "control": "DPAD_UP",
+        "slot": "K_UP"
+      },
+      "move-down": {
+        "control": "DPAD_DOWN",
+        "slot": "K_DOWN"
+      },
+      "page-left": {
+        "control": "LEFTSHOULDER",
+        "slot": "K_L"
+      },
+      "page-right": {
+        "control": "RIGHTSHOULDER",
+        "slot": "K_R"
+      },
+      "select": {
+        "control": "BACK",
+        "slot": "K_SELECT"
+      }
+    }
+  }
+}

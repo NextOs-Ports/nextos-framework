@@ -1,0 +1,19 @@
+# Binario construido (sai do build_universal.sh; vai na release, nao no git)
+castleofillusion
+
+# Dados do jogo do usuario: NUNCA versionados
+gamedata/*
+!gamedata/README.txt
+lib/
+obb/
+home/
+userdata/
+.nxextract/
+
+# Ruido de execucao
+*.log
+*.raw
+*.ppm
+*.core
+.build/
+.castleofillusion.lock

@@ -1,0 +1,8 @@
+NXExtract 1.2.6
+upstream: nextos_ports_android/suportando_outros_devices/extrator-universal @ 1.2.6
+nxextract/nxextract.py sha256=a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170
+nxextract/nxextract-ui sha256=046afb583f5a211c946495e639409f81d9cfec706788eeccb7924b0e8e5a50b6
+nxextract/run-extractor.sh sha256=179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2
+nxextract/nxextract-runtime-env.sh sha256=332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f
+extractor.json sha256=03361a5efc93bcc87709bc5fe7aa3dbb1f855e74c4cccb2f5e534dd7c668ee79
+patches locais: 0

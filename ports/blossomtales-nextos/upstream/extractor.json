@@ -1,0 +1,174 @@
+{
+  "schema": 1,
+  "id": "blossomtales",
+  "version": "1",
+  "title": "Blossom Tales",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "reference_build": {
+    "game_version": "1.0.0",
+    "version_code": 25,
+    "container_size": 99073099,
+    "container_sha256": "2c9c6756aea948a3aef2313082d20b1c584c85883551bd74cae996140ebf32aa",
+    "note": "container de referencia documentado; a compatibilidade NAO e' decidida pelo SHA integral, e sim por capacidade -- familia do pacote, ABI, membros obrigatorios e pisos estruturais -- para que outra build com o mesmo layout MonoGame/.NET-for-Android instale sem trocar a receita"
+  },
+  "compatibility": {
+    "package_families": [
+      "com.FDGEntertainment.BlossomTales.gp"
+    ],
+    "abis": [
+      "arm64-v8a"
+    ],
+    "required_members": [
+      "assets/Content/Audio_Mobile/Music/bt_newtitle01_visager.m4a",
+      "lib/arm64-v8a/libmonodroid.so",
+      "lib/arm64-v8a/libmonosgen-2.0.so",
+      "lib/arm64-v8a/libassembly-store.so",
+      "lib/arm64-v8a/libxamarin-app.so",
+      "lib/arm64-v8a/libopenal.so",
+      "lib/arm64-v8a/libSystem.Globalization.Native.so"
+    ],
+    "payload_contracts": [
+      "arvore de conteudo XNA (.xnb) e mapas Tiled (.tmx) abertos em assets/",
+      "trilha AAC-LC 48 kHz estereo em container MP4 (.m4a)",
+      "MonoVM + .NET for Android com assembly store em lib/arm64-v8a",
+      "ACW do MonoGame por marshal methods em libxamarin-app.so"
+    ],
+    "required_symbols_or_interfaces": [
+      "Java_mono_android_Runtime_init",
+      "Java_mono_android_TypeManager_n_1activate",
+      "Java_com_castlepixel_blossomtales_Activity1_n_1onCreate__Landroid_os_Bundle_2"
+    ]
+  },
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "extensions": [
+      ".apk",
+      ".apkm",
+      ".apks",
+      ".xapk",
+      ".zip"
+    ],
+    "packages": [
+      "com.FDGEntertainment.BlossomTales.gp"
+    ]
+  },
+  "extract": [
+    {
+      "id": "game-content",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/Content/**",
+          "assets/Maps/**",
+          "assets/TouchIcons/**"
+        ],
+        "scopes": [
+          "apk",
+          "bundle"
+        ],
+        "strip_prefix": "assets/",
+        "case_sensitive": true
+      },
+      "destination": "assets",
+      "source_validate": {
+        "type": "tree",
+        "required_paths": [
+          "Content/Audio_Mobile/Music/bt_newtitle01_visager.m4a",
+          "Maps"
+        ],
+        "min_files": 1200,
+        "max_files": 20000,
+        "min_bytes": 150000000,
+        "max_bytes": 900000000
+      }
+    },
+    {
+      "id": "android-native-libs",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "lib/arm64-v8a/**"
+        ],
+        "scopes": [
+          "apk",
+          "bundle"
+        ],
+        "strip_prefix": "lib/arm64-v8a/",
+        "case_sensitive": true
+      },
+      "destination": "libs",
+      "source_validate": {
+        "type": "tree",
+        "required_paths": [
+          "libmonodroid.so",
+          "libmonosgen-2.0.so",
+          "libassembly-store.so",
+          "libxamarin-app.so",
+          "libopenal.so",
+          "libSystem.Globalization.Native.so"
+        ],
+        "min_files": 40,
+        "max_files": 400,
+        "min_bytes": 15000000,
+        "max_bytes": 200000000
+      }
+    }
+  ],
+  "validate": [
+    {
+      "path": "assets/Content/Audio_Mobile/Music/bt_newtitle01_visager.m4a",
+      "type": "file",
+      "min_size": 100000
+    },
+    {
+      "path": "libs/libmonodroid.so",
+      "type": "file",
+      "min_size": 1000000
+    },
+    {
+      "path": "libs/libmonosgen-2.0.so",
+      "type": "file",
+      "min_size": 2500000
+    },
+    {
+      "path": "libs/libassembly-store.so",
+      "type": "file",
+      "min_size": 2500000
+    },
+    {
+      "path": "libs/libxamarin-app.so",
+      "type": "file",
+      "min_size": 50000
+    },
+    {
+      "path": "libs/libopenal.so",
+      "type": "file",
+      "min_size": 1000000
+    },
+    {
+      "path": "libs/libSystem.Globalization.Native.so",
+      "type": "file",
+      "min_size": 40000
+    }
+  ],
+  "commit": [
+    "assets",
+    "libs"
+  ],
+  "hooks": [],
+  "marker": ".nxextract-blossomtales.json",
+  "space": {
+    "safety_bytes": 402653184
+  },
+  "log": "nxextract.log",
+  "detail_log": "nxextract-detail.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

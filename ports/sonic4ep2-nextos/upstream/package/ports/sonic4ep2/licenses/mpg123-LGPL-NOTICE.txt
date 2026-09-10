@@ -1,0 +1,9 @@
+mpg123 notice
+=============
+
+libmpg123 is not bundled in this package. The port dynamically links against
+the mpg123 library provided by the user's CFW/device.
+
+mpg123 is licensed under the LGPL-2.1-or-later family of licenses. See the
+license files supplied with the target system's mpg123 package, or:
+https://www.mpg123.de/

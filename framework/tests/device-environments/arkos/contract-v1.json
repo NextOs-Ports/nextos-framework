@@ -1,0 +1,117 @@
+{
+  "schema": "nxframework-device-environment-v1",
+  "schema_version": 1,
+  "id": "arkos-r36s-v2.0",
+  "device": "R36S",
+  "firmware": {
+    "name": "ArkOS",
+    "version": "v2.0",
+    "archive_name": "ArkOS_R36S_v2.0.img.xz",
+    "archive_size": 2713421496,
+    "archive_sha256": "55721f501bc6f01043d51c217ffecbd3db203c9bbb33712568dad6ba9c4a5473",
+    "image_name": "arkos-r36s-v2.0.img",
+    "image_size": 7948206080,
+    "image_sha256": "c3909660e8461a38be20e7baa9b7ef450de5c7d676b3e69efd253a357a8786d6",
+    "stored_in_repository": false,
+    "redistributed_by_framework": false
+  },
+  "scope": {
+    "covers": "multiarch roots, the Debian multiarch libc.so linker script, EGL/GLES soname chains and the KMSDRM-capable SDL of the image",
+    "not_covered": "the physical acceptance already recorded for the published port is not replayed here"
+  },
+  "evidence": {
+    "source": "official-firmware-image",
+    "hardware_ran_during_pc_verification": false,
+    "device_access_during_pc_verification": false,
+    "result_scope": "host-side ABI, root isolation, linker-script recognition, soname chains and compiled-SDL-driver verification only"
+  },
+  "image_layout": {
+    "partition_table": "mbr",
+    "rootfs_offset": 134217728,
+    "filesystem": "ext",
+    "read_method": "debugfs read-only with byte offset; never mounted, never looped, never written"
+  },
+  "topology": {
+    "multiarch": true,
+    "roots": {
+      "aarch64": [
+        "/usr/lib/aarch64-linux-gnu",
+        "/lib/aarch64-linux-gnu"
+      ],
+      "armv7": [
+        "/usr/lib/arm-linux-gnueabihf",
+        "/lib/arm-linux-gnueabihf"
+      ]
+    },
+    "interpreters": {
+      "aarch64": "/lib/ld-linux-aarch64.so.1",
+      "armv7": "/lib/arm-linux-gnueabihf/ld-linux-armhf.so.3"
+    },
+    "isolation_rule": "each multiarch root is judged by the runtime ELFs it exposes; a runtime ELF of the wrong ABI rejects the whole root"
+  },
+  "linker_scripts": {
+    "expected_paths": [
+      "/usr/lib/aarch64-linux-gnu/libc.so"
+    ],
+    "rule": "a GNU ld script is a build artifact, never a runtime library: it must be skipped without rejecting the root that holds it"
+  },
+  "renderer": {
+    "aarch64_sonames": [
+      "libSDL2-2.0.so.0",
+      "libdrm.so.2"
+    ],
+    "armv7_sonames": [
+      "libSDL2-2.0.so.0",
+      "libdrm.so.2"
+    ],
+    "sdl": {
+      "aarch64": "/usr/lib/aarch64-linux-gnu/libSDL2-2.0.so.0",
+      "armv7": "/usr/lib/arm-linux-gnueabihf/libSDL2-2.0.so.0",
+      "required_video_driver": "KMSDRM"
+    },
+    "aarch64_unsonamed_providers": [
+      "libEGL.so.1",
+      "libGLESv2.so.2",
+      "libgbm.so.1"
+    ],
+    "armv7_unsonamed_providers": [],
+    "soname_note": "medido nesta imagem: EGL, GLES e GBM do ramo AArch64 NAO declaram DT_SONAME. Eles entram como provedores presentes e de ABI conferida, nunca como cadeia de soname provada -- contar os dois juntos diria mais do que a leitura prova"
+  },
+  "seeds": {
+    "aarch64": [
+      "/lib/ld-linux-aarch64.so.1",
+      "/usr/lib/aarch64-linux-gnu/libc.so.6",
+      "/usr/lib/aarch64-linux-gnu/libSDL2-2.0.so.0",
+      "/usr/lib/aarch64-linux-gnu/libEGL.so.1",
+      "/usr/lib/aarch64-linux-gnu/libGLESv2.so.2",
+      "/usr/lib/aarch64-linux-gnu/libgbm.so.1",
+      "/usr/lib/aarch64-linux-gnu/libdrm.so.2"
+    ],
+    "armv7": [
+      "/lib/arm-linux-gnueabihf/ld-linux-armhf.so.3",
+      "/usr/lib/arm-linux-gnueabihf/libc.so.6",
+      "/usr/lib/arm-linux-gnueabihf/libSDL2-2.0.so.0",
+      "/usr/lib/arm-linux-gnueabihf/libdrm.so.2"
+    ],
+    "verbatim": [
+      "/usr/lib/aarch64-linux-gnu/libc.so"
+    ]
+  },
+  "profile_cross_check": {
+    "arkos": {
+      "architectures": [
+        "aarch64",
+        "armv7"
+      ],
+      "armv7_nxextract_ui_arch": "armv7"
+    },
+    "darkosre": {
+      "architectures": [
+        "aarch64",
+        "armv7"
+      ],
+      "armv7_nxextract_ui_arch": "aarch64"
+    },
+    "note": "a rota ARMHF do dArkOS e MIXED-ABI: o NXExtract roda na ABI nativa do host (AArch64) enquanto splash e jogo seguem ARMHF. E o que o recibo fisico do Titan Souls registrou naquele aparelho, citado aqui e nao repetido"
+  }
+}

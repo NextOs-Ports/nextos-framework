@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Merchant of the Skies"
+  },
+  "items": [
+    "Merchant of the Skies.sh",
+    "merchantskies/"
+  ],
+  "items_opt": [],
+  "name": "merchantskies.zip",
+  "version": 4
+}

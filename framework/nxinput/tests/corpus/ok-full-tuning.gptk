@@ -1,0 +1,27 @@
+format = NEXTOS_CONTROLLERS/1
+port = happywheels
+[menu]
+A = ui.confirm
+B = ui.back
+START = ui.pause
+[gameplay]
+A = player.jump
+B = player.attack
+L2 = player.brake
+LEFT_STICK = player.move
+[cursor]
+A = cursor.click
+RIGHT_STICK = cursor.move
+speed = 1.5
+deadzone = 0.2
+response_curve = 2.0
+acceleration = 1.0
+smoothing_ms = 40
+[camera]
+sensitivity_x = 1.25
+sensitivity_y = 0.8
+deadzone = 0.1
+response_curve = 1.5
+invert_x = false
+invert_y = true
+authority = nextos

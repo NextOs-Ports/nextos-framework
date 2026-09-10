@@ -1,0 +1,1219 @@
+id	entry	check	category	status	value
+PORT-bully2-001-canonical-id	bully2	001-canonical-id	identity	recorded	bully2
+PORT-bully2-002-title	bully2	002-title	identity	recorded	Bully: Anniversary Edition
+PORT-bully2-003-support-scope	bully2	003-support-scope	classification	recorded	historical-delisted-local-limited
+PORT-bully2-004-publication	bully2	004-publication	classification	recorded	official-PortMaster-delisted
+PORT-bully2-005-positive-reference	bully2	005-positive-reference	classification	recorded	true
+PORT-bully2-006-local-path	bully2	006-local-path	source	recorded	ports/bully2
+PORT-bully2-007-remote-url	bully2	007-remote-url	source	recorded	https://github.com/PortsMaster/PortMaster-New/commit/e69716411222beb1dde6fc604f8180cb87ecd959
+PORT-bully2-008-source-snapshot	bully2	008-source-snapshot	source	recorded	76aefd102e00e7ba0f60a2c5a4687154060e9425 local; last listed PortMaster tree parent fac0bde172bb1ec3d214d276bb35cd577b677d8d
+PORT-bully2-009-release-tag	bully2	009-release-tag	release	recorded	historical PortMaster listing 2026-07-14 to 2026-07-22
+PORT-bully2-010-release-commit	bully2	010-release-commit	release	recorded	delisted by 79561e7a05d377c4479c9ee42a635ae2bec72b73
+PORT-bully2-011-release-asset	bully2	011-release-asset	release	recorded	local v11 handoff named Bully v11.zip
+PORT-bully2-012-release-sha256	bully2	012-release-sha256	release	recorded	5475249ceb387893f3e5d3099522f595037738a7b62c349bb0d8387b69541711
+PORT-bully2-013-data-policy	bully2	013-data-policy	data	recorded	BYO APK/OBB only
+PORT-bully2-014-package-identity	bully2	014-package-identity	data	recorded	Bully Android 1.4.311 ARM64 plus matching main/patch OBB
+PORT-bully2-015-version-rule	bully2	015-version-rule	data	recorded	exact-version data and loader guards
+PORT-bully2-016-transactional-install	bully2	016-transactional-install	data	recorded	local v11 extractor existed, but clean user first-boot flow remained pending and public instructions were ambiguous
+PORT-bully2-017-guest-abi	bully2	017-guest-abi	abi	recorded	Android AArch64
+PORT-bully2-018-host-abi	bully2	018-host-abi	abi	recorded	Linux AArch64
+PORT-bully2-019-elf-class	bully2	019-elf-class	abi	recorded	ELF64
+PORT-bully2-020-float-abi	bully2	020-float-abi	abi	recorded	AAPCS64
+PORT-bully2-021-interpreter	bully2	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-bully2-022-glibc-ceiling	bully2	022-glibc-ceiling	abi	recorded	low-glibc loader path validated; exact public artifact no longer current
+PORT-bully2-023-loader-family	bully2	023-loader-family	loader	recorded	Rockstar War Drum/GameNative AArch64 so-loader
+PORT-bully2-024-init-array	bully2	024-init-array	loader	recorded	native constructors required
+PORT-bully2-025-jni-onload	bully2	025-jni-onload	loader	recorded	registration and native callbacks retained
+PORT-bully2-026-native-lifecycle	bully2	026-native-lifecycle	loader	recorded	runtime mechanics useful; first-run product flow not fully closed
+PORT-bully2-027-video-ownership	bully2	027-video-ownership	video	recorded	Mali fbdev versus KMSDRM behavior measured
+PORT-bully2-028-backend-detection	bully2	028-backend-detection	video	recorded	capability/memory profiles
+PORT-bully2-029-gles-probe	bully2	029-gles-probe	video	recorded	GLES2/Mali route
+PORT-bully2-030-drawable-size	bully2	030-drawable-size	video	recorded	real target path
+PORT-bully2-031-video-fix-scope	bully2	031-video-fix-scope	video	recorded	Rockstar offsets, render scale and shadows remain exact-version/device-specific
+PORT-bully2-032-native-audio-first	bully2	032-native-audio-first	audio	recorded	game/OpenAL path
+PORT-bully2-033-audio-fallback-condition	bully2	033-audio-fallback-condition	audio	recorded	output and timing fixes remain Bully-specific
+PORT-bully2-034-realtime-safety	bully2	034-realtime-safety	audio	recorded	no universal conclusion from local runtime
+PORT-bully2-035-portmaster-mapping	bully2	035-portmaster-mapping	input	recorded	PortMaster parser compatibility and contained device signatures
+PORT-bully2-036-input-hotplug	bully2	036-input-hotplug	input	recorded	not established for universal reuse
+PORT-bully2-037-cursor-context	bully2	037-cursor-context	input	recorded	not-applicable: native Rockstar controls
+PORT-bully2-038-single-instance	bully2	038-single-instance	lifecycle	recorded	port tests must own exact game PID
+PORT-bully2-039-save-pause-exit	bully2	039-save-pause-exit	lifecycle	recorded	runtime path studied; clean virgin install-to-exit product gate remained open
+PORT-bully2-040-physical-stacks	bully2	040-physical-stacks	evidence	recorded	[{"level":"physical-subsystem","release":"historical runtime line","result":"loader, rendering and capability mechanics provided strong narrow evidence","stack":"Mali-450 and R36S/KMSDRM studies"},{"level":"designed-only","release":"local v11","result":"ZIP hash matched but APK transfer stopped partial; no valid first boot","stack":"Ark/R36S first-run"}]
+PORT-bully2-041-limitations	bully2	041-limitations	evidence	recorded	["Removed from official PortMaster because APK sourcing instructions caused excessive user failures","Never use the partial APK recorded in the old handoff","Not a current public/universal reference"]
+PORT-bully2-042-generalization	bully2	042-generalization	generalization	recorded	{"allowed":["AArch64 relocation cross-check","capability/memory detection","data validator shape"],"forbidden":["Rockstar offsets","global performance tier","controller heuristic outside exact signature","claim current PortMaster availability"]}
+PORT-castleofillusion-001-canonical-id	castleofillusion	001-canonical-id	identity	recorded	castleofillusion
+PORT-castleofillusion-002-title	castleofillusion	002-title	identity	recorded	Castle of Illusion
+PORT-castleofillusion-003-support-scope	castleofillusion	003-support-scope	classification	recorded	multi-device-validated
+PORT-castleofillusion-004-publication	castleofillusion	004-publication	classification	recorded	current-public
+PORT-castleofillusion-005-positive-reference	castleofillusion	005-positive-reference	classification	recorded	true
+PORT-castleofillusion-006-local-path	castleofillusion	006-local-path	source	recorded	ports/castleofillusion
+PORT-castleofillusion-007-remote-url	castleofillusion	007-remote-url	source	recorded	https://github.com/NextOs-Ports/castleofillusion-nextos
+PORT-castleofillusion-008-source-snapshot	castleofillusion	008-source-snapshot	source	recorded	46ffe044818d08c59af25b456f8fa0f40c9ba951
+PORT-castleofillusion-009-release-tag	castleofillusion	009-release-tag	release	recorded	v1.0.1
+PORT-castleofillusion-010-release-commit	castleofillusion	010-release-commit	release	recorded	46ffe044818d08c59af25b456f8fa0f40c9ba951
+PORT-castleofillusion-011-release-asset	castleofillusion	011-release-asset	release	recorded	castleofillusion.zip
+PORT-castleofillusion-012-release-sha256	castleofillusion	012-release-sha256	release	recorded	c65b6e613bc5269f12e3496dfb7755378c6a457bc4b69c4cf7cd9599a32ae437
+PORT-castleofillusion-013-data-policy	castleofillusion	013-data-policy	data	recorded	BYO only
+PORT-castleofillusion-014-package-identity	castleofillusion	014-package-identity	data	recorded	Castle APK 1.4.5 arm64 plus matching main.154 OBB
+PORT-castleofillusion-015-version-rule	castleofillusion	015-version-rule	data	recorded	structural validation with wrong-build rejection
+PORT-castleofillusion-016-transactional-install	castleofillusion	016-transactional-install	data	recorded	NXExtract 1.2.2 install, resume, marker and adoption validated
+PORT-castleofillusion-017-guest-abi	castleofillusion	017-guest-abi	abi	recorded	Android AArch64
+PORT-castleofillusion-018-host-abi	castleofillusion	018-host-abi	abi	recorded	Linux AArch64
+PORT-castleofillusion-019-elf-class	castleofillusion	019-elf-class	abi	recorded	ELF64
+PORT-castleofillusion-020-float-abi	castleofillusion	020-float-abi	abi	recorded	AAPCS64
+PORT-castleofillusion-021-interpreter	castleofillusion	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-castleofillusion-022-glibc-ceiling	castleofillusion	022-glibc-ceiling	abi	recorded	public package <= GLIBC_2.30
+PORT-castleofillusion-023-loader-family	castleofillusion	023-loader-family	loader	recorded	AArch64 Android so-loader for Sega oz engine
+PORT-castleofillusion-024-init-array	castleofillusion	024-init-array	loader	recorded	complete native constructors required
+PORT-castleofillusion-025-jni-onload	castleofillusion	025-jni-onload	loader	recorded	preserved where requested by the game
+PORT-castleofillusion-026-native-lifecycle	castleofillusion	026-native-lifecycle	loader	recorded	engine boot, pause, save and exit flow preserved
+PORT-castleofillusion-027-video-ownership	castleofillusion	027-video-ownership	video	recorded	firmware SDL/EGL/GLES
+PORT-castleofillusion-028-backend-detection	castleofillusion	028-backend-detection	video	recorded	uses inherited firmware backend; none forced
+PORT-castleofillusion-029-gles-probe	castleofillusion	029-gles-probe	video	recorded	real context and GLES capability measured
+PORT-castleofillusion-030-drawable-size	castleofillusion	030-drawable-size	video	recorded	real SDL drawable
+PORT-castleofillusion-031-video-fix-scope	castleofillusion	031-video-fix-scope	video	recorded	NPOT wrap fix remains off unless a real artifact proves it; external-alpha fixes are narrow
+PORT-castleofillusion-032-native-audio-first	castleofillusion	032-native-audio-first	audio	recorded	FMOD Ex mixer retained through SDL output
+PORT-castleofillusion-033-audio-fallback-condition	castleofillusion	033-audio-fallback-condition	audio	recorded	only after measured output failure
+PORT-castleofillusion-034-realtime-safety	castleofillusion	034-realtime-safety	audio	recorded	full session recorded with zero underruns
+PORT-castleofillusion-035-portmaster-mapping	castleofillusion	035-portmaster-mapping	input	recorded	PortMaster and firmware gamecontrollerdb take priority
+PORT-castleofillusion-036-input-hotplug	castleofillusion	036-input-hotplug	input	recorded	SDL controller path
+PORT-castleofillusion-037-cursor-context	castleofillusion	037-cursor-context	input	recorded	touch synthesis only for proven touch-only screens
+PORT-castleofillusion-038-single-instance	castleofillusion	038-single-instance	lifecycle	recorded	foreground package flow; no global process sweep
+PORT-castleofillusion-039-save-pause-exit	castleofillusion	039-save-pause-exit	lifecycle	recorded	SELECT+START and SIGTERM request pause, engine save and clean exit
+PORT-castleofillusion-040-physical-stacks	castleofillusion	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.0.1","result":"clean BYO install, gameplay, audio, control, save/reload and exit","stack":"ArkOS R36T/K36S, Mali-G31/KMSDRM"},{"level":"physical-full","release":"v1.0.1","result":"developed and revalidated from the package","stack":"NextOS Mali-450/fbdev"}]
+PORT-castleofillusion-041-limitations	castleofillusion	041-limitations	evidence	recorded	["No other firmware is marked verified without the complete protocol"]
+PORT-castleofillusion-042-generalization	castleofillusion	042-generalization	generalization	recorded	{"allowed":["capability-first backend choice","FMOD Ex to SDL contract","PortMaster controller priority"],"forbidden":["global NPOT clamp","device-name-only backend forcing","support claims by similar SoC"]}
+PORT-chrono_pilot-001-canonical-id	chrono_pilot	001-canonical-id	identity	recorded	chrono_pilot
+PORT-chrono_pilot-002-title	chrono_pilot	002-title	identity	recorded	Chrono Trigger universal-framework pilot
+PORT-chrono_pilot-003-support-scope	chrono_pilot	003-support-scope	classification	recorded	two-stack-physical-pilot
+PORT-chrono_pilot-004-publication	chrono_pilot	004-publication	classification	recorded	release-candidate
+PORT-chrono_pilot-005-positive-reference	chrono_pilot	005-positive-reference	classification	recorded	true
+PORT-chrono_pilot-006-local-path	chrono_pilot	006-local-path	source	recorded	ports/chrono
+PORT-chrono_pilot-007-remote-url	chrono_pilot	007-remote-url	source	recorded	https://github.com/NextOs-Ports/chrono-nextos
+PORT-chrono_pilot-008-source-snapshot	chrono_pilot	008-source-snapshot	source	recorded	M22 checkpoint 20260809T074141Z-pid3514038-301057239
+PORT-chrono_pilot-009-release-tag	chrono_pilot	009-release-tag	release	recorded	v1.0.3-framework-candidate
+PORT-chrono_pilot-010-release-commit	chrono_pilot	010-release-commit	release	recorded	pending focused M24 publication commit
+PORT-chrono_pilot-011-release-asset	chrono_pilot	011-release-asset	release	recorded	chrono.zip
+PORT-chrono_pilot-012-release-sha256	chrono_pilot	012-release-sha256	release	recorded	886cefaef1a2be2ff276c4d276d430e35ce2162bd47c4af5d29a62863638b27a
+PORT-chrono_pilot-013-data-policy	chrono_pilot	013-data-policy	data	recorded	BYO only
+PORT-chrono_pilot-014-package-identity	chrono_pilot	014-package-identity	data	recorded	Chrono Trigger Android 2.1.4 arm64-v8a payload
+PORT-chrono_pilot-015-version-rule	chrono_pilot	015-version-rule	data	recorded	exact NXExtract recipe 2.x-universal-2 and AArch64 module set
+PORT-chrono_pilot-016-transactional-install	chrono_pilot	016-transactional-install	data	recorded	NXExtract 1.2.6 validates and atomically adopts or publishes owner-supplied data
+PORT-chrono_pilot-017-guest-abi	chrono_pilot	017-guest-abi	abi	recorded	Android AArch64
+PORT-chrono_pilot-018-host-abi	chrono_pilot	018-host-abi	abi	recorded	Linux AArch64
+PORT-chrono_pilot-019-elf-class	chrono_pilot	019-elf-class	abi	recorded	ELF64
+PORT-chrono_pilot-020-float-abi	chrono_pilot	020-float-abi	abi	recorded	AAPCS64
+PORT-chrono_pilot-021-interpreter	chrono_pilot	021-interpreter	abi	recorded	/lib/ld-linux-aarch64.so.1
+PORT-chrono_pilot-022-glibc-ceiling	chrono_pilot	022-glibc-ceiling	abi	recorded	final loader max GLIBC_2.27
+PORT-chrono_pilot-023-loader-family	chrono_pilot	023-loader-family	loader	recorded	nxloader 0.5.0 with Chrono AArch64 adapter
+PORT-chrono_pilot-024-init-array	chrono_pilot	024-init-array	loader	recorded	native initializers exactly once
+PORT-chrono_pilot-025-jni-onload	chrono_pilot	025-jni-onload	loader	recorded	literal JNI_OnLoad accepted at proven JNI 1.4
+PORT-chrono_pilot-026-native-lifecycle	chrono_pilot	026-native-lifecycle	loader	recorded	initializers then JNI, context/assets, init, resume, loop, pause/save and shutdown
+PORT-chrono_pilot-027-video-ownership	chrono_pilot	027-video-ownership	video	recorded	nxgl measured SDL/EGL/GLES stack
+PORT-chrono_pilot-028-backend-detection	chrono_pilot	028-backend-detection	video	recorded	capability driven; no device-name selection
+PORT-chrono_pilot-029-gles-probe	chrono_pilot	029-gles-probe	video	recorded	GLES2 on Mali-450 and GLES3.2 delivered for GLES2 request on Mali-G31
+PORT-chrono_pilot-030-drawable-size	chrono_pilot	030-drawable-size	video	recorded	1280x720 fbdev and 640x480 KMSDRM physically observed
+PORT-chrono_pilot-031-video-fix-scope	chrono_pilot	031-video-fix-scope	video	recorded	Chrono alpha-one and finish present quirks only
+PORT-chrono_pilot-032-native-audio-first	chrono_pilot	032-native-audio-first	audio	recorded	firmware-selected SDL output
+PORT-chrono_pilot-033-audio-fallback-condition	chrono_pilot	033-audio-fallback-condition	audio	recorded	no global forced backend; PulseAudio and ALSA both physically opened
+PORT-chrono_pilot-034-realtime-safety	chrono_pilot	034-realtime-safety	audio	recorded	OpenSL buffer queue remains adapter-owned and device-open receipts are recorded
+PORT-chrono_pilot-035-portmaster-mapping	chrono_pilot	035-portmaster-mapping	input	recorded	nxinput mapping plus native Chrono controller callbacks
+PORT-chrono_pilot-036-input-hotplug	chrono_pilot	036-input-hotplug	input	recorded	framework boundary present; final replay retained approved continuity without repeating unplug
+PORT-chrono_pilot-037-cursor-context	chrono_pilot	037-cursor-context	input	recorded	not-applicable: native controller path
+PORT-chrono_pilot-038-single-instance	chrono_pilot	038-single-instance	lifecycle	recorded	comm, cmdline and executable audited before launch
+PORT-chrono_pilot-039-save-pause-exit	chrono_pilot	039-save-pause-exit	lifecycle	recorded	approved save continuity; exact final native pause and supervised status-zero shutdown on both stacks
+PORT-chrono_pilot-040-physical-stacks	chrono_pilot	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"exact framework candidate ZIP","result":"video, PulseAudio, native input, main loop and clean shutdown","stack":"NextOS Mali-450/fbdev"},{"level":"physical-full","release":"same exact framework candidate ZIP","result":"video, ALSA, native input, main loop and clean shutdown","stack":"ArkOS RK3326/KMSDRM"}]
+PORT-chrono_pilot-041-limitations	chrono_pilot	041-limitations	evidence	recorded	["Only the two recorded AArch64 stacks are physically claimed","Other AArch64 firmware routes remain designed-only","ARMHF cannot load the AArch64 game payload"]
+PORT-chrono_pilot-042-generalization	chrono_pilot	042-generalization	generalization	recorded	{"allowed":["capability-driven backend selection","bounded single retry","single-buffer-capable EGL validation","same-stack EGL receipt fallback","AArch64 Bionic stat syscall bridge"],"forbidden":["select backend by device name","claim untested firmware","copy Chrono JNI or offsets into other engines","alter approved GTA ports while using them as references"]}
+PORT-dysmantle-001-canonical-id	dysmantle	001-canonical-id	identity	recorded	dysmantle
+PORT-dysmantle-002-title	dysmantle	002-title	identity	recorded	DYSMANTLE
+PORT-dysmantle-003-support-scope	dysmantle	003-support-scope	classification	recorded	local-limited-physical-subsystem
+PORT-dysmantle-004-publication	dysmantle	004-publication	classification	recorded	local-historical-package
+PORT-dysmantle-005-positive-reference	dysmantle	005-positive-reference	classification	recorded	true
+PORT-dysmantle-006-local-path	dysmantle	006-local-path	source	recorded	ports/dysmantle
+PORT-dysmantle-007-remote-url	dysmantle	007-remote-url	source	recorded	not-applicable: no current NextOs-Ports public repository found
+PORT-dysmantle-008-source-snapshot	dysmantle	008-source-snapshot	source	recorded	46b1535a5c0a6d596951a8d2e83a95b15a32af0c
+PORT-dysmantle-009-release-tag	dysmantle	009-release-tag	release	recorded	local V7 RC2 test snapshot
+PORT-dysmantle-010-release-commit	dysmantle	010-release-commit	release	recorded	46b1535a5c0a6d596951a8d2e83a95b15a32af0c
+PORT-dysmantle-011-release-asset	dysmantle	011-release-asset	release	recorded	not-applicable: no current public asset ledger
+PORT-dysmantle-012-release-sha256	dysmantle	012-release-sha256	release	recorded	not-applicable: no current public asset ledger
+PORT-dysmantle-013-data-policy	dysmantle	013-data-policy	data	recorded	BYO only
+PORT-dysmantle-014-package-identity	dysmantle	014-package-identity	data	recorded	DYSMANTLE Android 1.4.1.12 arm64
+PORT-dysmantle-015-version-rule	dysmantle	015-version-rule	data	recorded	exact supported APK
+PORT-dysmantle-016-transactional-install	dysmantle	016-transactional-install	data	recorded	multi-stage extraction and texture preparation; reuse only after NXExtract contract audit
+PORT-dysmantle-017-guest-abi	dysmantle	017-guest-abi	abi	recorded	Android AArch64
+PORT-dysmantle-018-host-abi	dysmantle	018-host-abi	abi	recorded	Linux AArch64
+PORT-dysmantle-019-elf-class	dysmantle	019-elf-class	abi	recorded	ELF64
+PORT-dysmantle-020-float-abi	dysmantle	020-float-abi	abi	recorded	AAPCS64
+PORT-dysmantle-021-interpreter	dysmantle	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-dysmantle-022-glibc-ceiling	dysmantle	022-glibc-ceiling	abi	recorded	historical binary reports glibc >=2.27; re-audit before public use
+PORT-dysmantle-023-loader-family	dysmantle	023-loader-family	loader	recorded	10tons NX/GameActivity AArch64 so-loader
+PORT-dysmantle-024-init-array	dysmantle	024-init-array	loader	recorded	native constructors
+PORT-dysmantle-025-jni-onload	dysmantle	025-jni-onload	loader	recorded	GameActivity registration
+PORT-dysmantle-026-native-lifecycle	dysmantle	026-native-lifecycle	loader	recorded	gameplay path observed; old STATUS also contains incomplete milestones
+PORT-dysmantle-027-video-ownership	dysmantle	027-video-ownership	video	recorded	GLES2/GLES3 firmware path
+PORT-dysmantle-028-backend-detection	dysmantle	028-backend-detection	video	recorded	memory and texture capability profiles
+PORT-dysmantle-029-gles-probe	dysmantle	029-gles-probe	video	recorded	GLES2 Ark route physically exercised
+PORT-dysmantle-030-drawable-size	dysmantle	030-drawable-size	video	recorded	640x480 Ark profile
+PORT-dysmantle-031-video-fix-scope	dysmantle	031-video-fix-scope	video	recorded	texture streaming/cache and ETC work only; inherited global NPOT clamp is prohibited
+PORT-dysmantle-032-native-audio-first	dysmantle	032-native-audio-first	audio	recorded	game audio path
+PORT-dysmantle-033-audio-fallback-condition	dysmantle	033-audio-fallback-condition	audio	recorded	old Null-output milestone is negative evidence, not a valid default
+PORT-dysmantle-034-realtime-safety	dysmantle	034-realtime-safety	audio	recorded	audio not part of the documented V7 RC2 conclusion
+PORT-dysmantle-035-portmaster-mapping	dysmantle	035-portmaster-mapping	input	recorded	controller path exists
+PORT-dysmantle-036-input-hotplug	dysmantle	036-input-hotplug	input	recorded	not established by V7 RC2 report
+PORT-dysmantle-037-cursor-context	dysmantle	037-cursor-context	input	recorded	not-applicable: native controller gameplay
+PORT-dysmantle-038-single-instance	dysmantle	038-single-instance	lifecycle	recorded	exact game PID only
+PORT-dysmantle-039-save-pause-exit	dysmantle	039-save-pause-exit	lifecycle	recorded	not fully established by the cited V7 RC2 test
+PORT-dysmantle-040-physical-stacks	dysmantle	040-physical-stacks	evidence	recorded	[{"level":"physical-subsystem","release":"V7 RC2","result":"14m52s gameplay, outdoor traversal, no OOM, bounded pager and no visual artifacts","stack":"R36S/ArkOS, 640 MB plus swap, Mali-G31/KMSDRM"}]
+PORT-dysmantle-041-limitations	dysmantle	041-limitations	evidence	recorded	["This test does not prove audio, save/reload and clean exit","README claims about every AArch64 CFW are design claims, not physical proof","RG CubeXX issue requires its own repeat"]
+PORT-dysmantle-042-generalization	dysmantle	042-generalization	generalization	recorded	{"allowed":["low-memory pager measurements","bounded texture cache","transaction stages"],"forbidden":["global NPOT wrap clamp","Null audio as success","claim broad CFW support from Ark test"]}
+PORT-geometrydash-001-canonical-id	geometrydash	001-canonical-id	identity	recorded	geometrydash
+PORT-geometrydash-002-title	geometrydash	002-title	identity	recorded	Geometry Dash
+PORT-geometrydash-003-support-scope	geometrydash	003-support-scope	classification	recorded	multi-device-validated
+PORT-geometrydash-004-publication	geometrydash	004-publication	classification	recorded	current-public
+PORT-geometrydash-005-positive-reference	geometrydash	005-positive-reference	classification	recorded	true
+PORT-geometrydash-006-local-path	geometrydash	006-local-path	source	recorded	external:geometrydash-nextos
+PORT-geometrydash-007-remote-url	geometrydash	007-remote-url	source	recorded	https://github.com/NextOs-Ports/geometrydash-nextos
+PORT-geometrydash-008-source-snapshot	geometrydash	008-source-snapshot	source	recorded	11c95cfcbf9cfc53fd5bebd4f8c776dcf8046b74
+PORT-geometrydash-009-release-tag	geometrydash	009-release-tag	release	recorded	v1.0.1
+PORT-geometrydash-010-release-commit	geometrydash	010-release-commit	release	recorded	11c95cfcbf9cfc53fd5bebd4f8c776dcf8046b74
+PORT-geometrydash-011-release-asset	geometrydash	011-release-asset	release	recorded	Geometry.Dash.NextOS.zip
+PORT-geometrydash-012-release-sha256	geometrydash	012-release-sha256	release	recorded	6b8fa0be06ab7f24aff5107b8fb74409ef71cf7c05adece9b192856d2a1e53b8
+PORT-geometrydash-013-data-policy	geometrydash	013-data-policy	data	recorded	BYO only
+PORT-geometrydash-014-package-identity	geometrydash	014-package-identity	data	recorded	com.robtopx.geometryjump; validated build 2.2.144 arm64
+PORT-geometrydash-015-version-rule	geometrydash	015-version-rule	data	recorded	package and structure, not filename; ARMv7-only rejected
+PORT-geometrydash-016-transactional-install	geometrydash	016-transactional-install	data	recorded	NXExtract container/split-aware transactional install
+PORT-geometrydash-017-guest-abi	geometrydash	017-guest-abi	abi	recorded	Android AArch64
+PORT-geometrydash-018-host-abi	geometrydash	018-host-abi	abi	recorded	Linux AArch64
+PORT-geometrydash-019-elf-class	geometrydash	019-elf-class	abi	recorded	ELF64
+PORT-geometrydash-020-float-abi	geometrydash	020-float-abi	abi	recorded	AAPCS64
+PORT-geometrydash-021-interpreter	geometrydash	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-geometrydash-022-glibc-ceiling	geometrydash	022-glibc-ceiling	abi	recorded	public package <= GLIBC_2.30
+PORT-geometrydash-023-loader-family	geometrydash	023-loader-family	loader	recorded	shared Cocos2d-x 2.x AArch64 core
+PORT-geometrydash-024-init-array	geometrydash	024-init-array	loader	recorded	native constructors preserved
+PORT-geometrydash-025-jni-onload	geometrydash	025-jni-onload	loader	recorded	game registration preserved
+PORT-geometrydash-026-native-lifecycle	geometrydash	026-native-lifecycle	loader	recorded	Android lifecycle, preferences, touch and asset reader reproduced
+PORT-geometrydash-027-video-ownership	geometrydash	027-video-ownership	video	recorded	firmware SDL/EGL/GLES
+PORT-geometrydash-028-backend-detection	geometrydash	028-backend-detection	video	recorded	no video backend forced
+PORT-geometrydash-029-gles-probe	geometrydash	029-gles-probe	video	recorded	GLES2 context capability measured
+PORT-geometrydash-030-drawable-size	geometrydash	030-drawable-size	video	recorded	real drawable
+PORT-geometrydash-031-video-fix-scope	geometrydash	031-video-fix-scope	video	recorded	shared only where both RobTop binaries prove the same contract
+PORT-geometrydash-032-native-audio-first	geometrydash	032-native-audio-first	audio	recorded	OpenSL-style game audio through host bridge
+PORT-geometrydash-033-audio-fallback-condition	geometrydash	033-audio-fallback-condition	audio	recorded	inherited host output first
+PORT-geometrydash-034-realtime-safety	geometrydash	034-realtime-safety	audio	recorded	60 fps audio validated on ArkOS
+PORT-geometrydash-035-portmaster-mapping	geometrydash	035-portmaster-mapping	input	recorded	SDL mapping plus direct TRIGGER_HAPPY function keys
+PORT-geometrydash-036-input-hotplug	geometrydash	036-input-hotplug	input	recorded	evdev rescan supports late controller
+PORT-geometrydash-037-cursor-context	geometrydash	037-cursor-context	input	recorded	right stick arrow in touch menus; R3 click; gameplay buttons remain native
+PORT-geometrydash-038-single-instance	geometrydash	038-single-instance	lifecycle	recorded	foreground process only
+PORT-geometrydash-039-save-pause-exit	geometrydash	039-save-pause-exit	lifecycle	recorded	SELECT+START clean exit with no residual process/lock
+PORT-geometrydash-040-physical-stacks	geometrydash	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.0.0 base, carried into v1.0.1 metadata update","result":"clean install, 60 fps, audio, native pad and clean exit","stack":"R36S/ArkOS Mali-G31/KMSDRM"},{"level":"physical-full","release":"shared loader before unification","result":"gameplay, audio, control and save","stack":"NextOS Mali-450/fbdev"}]
+PORT-geometrydash-041-limitations	geometrydash	041-limitations	evidence	recorded	["v1.0.1 release identity is recorded separately from the exact physical-test version","Other AArch64 CFWs remain untested"]
+PORT-geometrydash-042-generalization	geometrydash	042-generalization	generalization	recorded	{"allowed":["shared engine core with game adapter","direct function-key evdev supplement","content-based split selection"],"forbidden":["treat ARMv7 and AArch64 libraries as interchangeable","steal D-pad or face buttons for cursor"]}
+PORT-geometrydash_subzero-001-canonical-id	geometrydash_subzero	001-canonical-id	identity	recorded	geometrydash_subzero
+PORT-geometrydash_subzero-002-title	geometrydash_subzero	002-title	identity	recorded	Geometry Dash SubZero
+PORT-geometrydash_subzero-003-support-scope	geometrydash_subzero	003-support-scope	classification	recorded	multi-device-validated
+PORT-geometrydash_subzero-004-publication	geometrydash_subzero	004-publication	classification	recorded	current-public
+PORT-geometrydash_subzero-005-positive-reference	geometrydash_subzero	005-positive-reference	classification	recorded	true
+PORT-geometrydash_subzero-006-local-path	geometrydash_subzero	006-local-path	source	recorded	external:geometrydash-nextos/games/gdsubzero
+PORT-geometrydash_subzero-007-remote-url	geometrydash_subzero	007-remote-url	source	recorded	https://github.com/NextOs-Ports/geometrydash-nextos
+PORT-geometrydash_subzero-008-source-snapshot	geometrydash_subzero	008-source-snapshot	source	recorded	11c95cfcbf9cfc53fd5bebd4f8c776dcf8046b74
+PORT-geometrydash_subzero-009-release-tag	geometrydash_subzero	009-release-tag	release	recorded	v1.0.1
+PORT-geometrydash_subzero-010-release-commit	geometrydash_subzero	010-release-commit	release	recorded	11c95cfcbf9cfc53fd5bebd4f8c776dcf8046b74
+PORT-geometrydash_subzero-011-release-asset	geometrydash_subzero	011-release-asset	release	recorded	Geometry.Dash.SubZero.NextOS.zip
+PORT-geometrydash_subzero-012-release-sha256	geometrydash_subzero	012-release-sha256	release	recorded	0a6bad13440d5e9ff3d6a821e91c9afa96ef81793573fb7be02ee20607016f2d
+PORT-geometrydash_subzero-013-data-policy	geometrydash_subzero	013-data-policy	data	recorded	BYO only
+PORT-geometrydash_subzero-014-package-identity	geometrydash_subzero	014-package-identity	data	recorded	com.robtopx.geometrydashsubzero; validated build 2.2.147 arm64
+PORT-geometrydash_subzero-015-version-rule	geometrydash_subzero	015-version-rule	data	recorded	package and structure, not filename; ARMv7-only rejected
+PORT-geometrydash_subzero-016-transactional-install	geometrydash_subzero	016-transactional-install	data	recorded	NXExtract container/split-aware transactional install
+PORT-geometrydash_subzero-017-guest-abi	geometrydash_subzero	017-guest-abi	abi	recorded	Android AArch64
+PORT-geometrydash_subzero-018-host-abi	geometrydash_subzero	018-host-abi	abi	recorded	Linux AArch64
+PORT-geometrydash_subzero-019-elf-class	geometrydash_subzero	019-elf-class	abi	recorded	ELF64
+PORT-geometrydash_subzero-020-float-abi	geometrydash_subzero	020-float-abi	abi	recorded	AAPCS64
+PORT-geometrydash_subzero-021-interpreter	geometrydash_subzero	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-geometrydash_subzero-022-glibc-ceiling	geometrydash_subzero	022-glibc-ceiling	abi	recorded	public package <= GLIBC_2.30
+PORT-geometrydash_subzero-023-loader-family	geometrydash_subzero	023-loader-family	loader	recorded	shared Cocos2d-x 2.x AArch64 core
+PORT-geometrydash_subzero-024-init-array	geometrydash_subzero	024-init-array	loader	recorded	native constructors preserved
+PORT-geometrydash_subzero-025-jni-onload	geometrydash_subzero	025-jni-onload	loader	recorded	game registration preserved
+PORT-geometrydash_subzero-026-native-lifecycle	geometrydash_subzero	026-native-lifecycle	loader	recorded	Android lifecycle, preferences, touch and asset reader reproduced
+PORT-geometrydash_subzero-027-video-ownership	geometrydash_subzero	027-video-ownership	video	recorded	firmware SDL/EGL/GLES
+PORT-geometrydash_subzero-028-backend-detection	geometrydash_subzero	028-backend-detection	video	recorded	no video backend forced
+PORT-geometrydash_subzero-029-gles-probe	geometrydash_subzero	029-gles-probe	video	recorded	GLES2 context capability measured
+PORT-geometrydash_subzero-030-drawable-size	geometrydash_subzero	030-drawable-size	video	recorded	real drawable
+PORT-geometrydash_subzero-031-video-fix-scope	geometrydash_subzero	031-video-fix-scope	video	recorded	game-specific adapter stays separate from shared core
+PORT-geometrydash_subzero-032-native-audio-first	geometrydash_subzero	032-native-audio-first	audio	recorded	OpenSL-style game audio through host bridge
+PORT-geometrydash_subzero-033-audio-fallback-condition	geometrydash_subzero	033-audio-fallback-condition	audio	recorded	inherited host output first
+PORT-geometrydash_subzero-034-realtime-safety	geometrydash_subzero	034-realtime-safety	audio	recorded	long ArkOS gameplay session with audio
+PORT-geometrydash_subzero-035-portmaster-mapping	geometrydash_subzero	035-portmaster-mapping	input	recorded	SDL mapping plus direct TRIGGER_HAPPY function keys
+PORT-geometrydash_subzero-036-input-hotplug	geometrydash_subzero	036-input-hotplug	input	recorded	evdev rescan supports late controller
+PORT-geometrydash_subzero-037-cursor-context	geometrydash_subzero	037-cursor-context	input	recorded	right stick arrow in touch menus; R3 click; gameplay remains native
+PORT-geometrydash_subzero-038-single-instance	geometrydash_subzero	038-single-instance	lifecycle	recorded	foreground process only
+PORT-geometrydash_subzero-039-save-pause-exit	geometrydash_subzero	039-save-pause-exit	lifecycle	recorded	SELECT+START clean exit
+PORT-geometrydash_subzero-040-physical-stacks	geometrydash_subzero	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.0.0 base, carried into v1.0.1 metadata update","result":"clean install, 60 fps, audio, native pad and long gameplay","stack":"R36S/ArkOS Mali-G31/KMSDRM"},{"level":"physical-full","release":"shared loader before unification","result":"gameplay, audio, control and save","stack":"NextOS Mali-450/fbdev"}]
+PORT-geometrydash_subzero-041-limitations	geometrydash_subzero	041-limitations	evidence	recorded	["Other AArch64 CFWs remain untested"]
+PORT-geometrydash_subzero-042-generalization	geometrydash_subzero	042-generalization	generalization	recorded	{"allowed":["shared engine core with strict package adapter","hotplug function-key supplement"],"forbidden":["assume every Cocos title shares offsets","cursor input during native gameplay"]}
+PORT-gta3-001-canonical-id	gta3	001-canonical-id	identity	recorded	gta3
+PORT-gta3-002-title	gta3	002-title	identity	recorded	GTA III Classic Android
+PORT-gta3-003-support-scope	gta3	003-support-scope	classification	recorded	local-device-specific-approved
+PORT-gta3-004-publication	gta3	004-publication	classification	recorded	local-reference
+PORT-gta3-005-positive-reference	gta3	005-positive-reference	classification	recorded	true
+PORT-gta3-006-local-path	gta3	006-local-path	source	recorded	ports/gta3
+PORT-gta3-007-remote-url	gta3	007-remote-url	source	recorded	not-applicable: no current public release ledger
+PORT-gta3-008-source-snapshot	gta3	008-source-snapshot	source	recorded	4a27434bb0b2c66d106ba60a74b3a7066b5bc629
+PORT-gta3-009-release-tag	gta3	009-release-tag	release	recorded	local finished snapshot
+PORT-gta3-010-release-commit	gta3	010-release-commit	release	recorded	4a27434bb0b2c66d106ba60a74b3a7066b5bc629
+PORT-gta3-011-release-asset	gta3	011-release-asset	release	recorded	not-applicable: local reference
+PORT-gta3-012-release-sha256	gta3	012-release-sha256	release	recorded	not-applicable: local reference
+PORT-gta3-013-data-policy	gta3	013-data-policy	data	recorded	BYO Rockstar APK/OBB
+PORT-gta3-014-package-identity	gta3	014-package-identity	data	recorded	classic Android GTA III arm64
+PORT-gta3-015-version-rule	gta3	015-version-rule	data	recorded	matching libGame/libc++ and assets
+PORT-gta3-016-transactional-install	gta3	016-transactional-install	data	recorded	historical custom extraction; migrate only after audit
+PORT-gta3-017-guest-abi	gta3	017-guest-abi	abi	recorded	Android AArch64
+PORT-gta3-018-host-abi	gta3	018-host-abi	abi	recorded	Linux AArch64
+PORT-gta3-019-elf-class	gta3	019-elf-class	abi	recorded	ELF64
+PORT-gta3-020-float-abi	gta3	020-float-abi	abi	recorded	AAPCS64
+PORT-gta3-021-interpreter	gta3	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-gta3-022-glibc-ceiling	gta3	022-glibc-ceiling	abi	recorded	local release loader verified GLIBC_2.17
+PORT-gta3-023-loader-family	gta3	023-loader-family	loader	recorded	War Drum RenderWare/GameNative two-module loader
+PORT-gta3-024-init-array	gta3	024-init-array	loader	recorded	native constructors
+PORT-gta3-025-jni-onload	gta3	025-jni-onload	loader	recorded	static GameNative JNI path
+PORT-gta3-026-native-lifecycle	gta3	026-native-lifecycle	loader	recorded	finished/playable target flow
+PORT-gta3-027-video-ownership	gta3	027-video-ownership	video	recorded	Mali-450 fbdev target
+PORT-gta3-028-backend-detection	gta3	028-backend-detection	video	recorded	not universal
+PORT-gta3-029-gles-probe	gta3	029-gles-probe	video	recorded	native GLES2
+PORT-gta3-030-drawable-size	gta3	030-drawable-size	video	recorded	target drawable
+PORT-gta3-031-video-fix-scope	gta3	031-video-fix-scope	video	recorded	Rockstar engine fixes exact to version
+PORT-gta3-032-native-audio-first	gta3	032-native-audio-first	audio	recorded	OpenAL plus mpg123
+PORT-gta3-033-audio-fallback-condition	gta3	033-audio-fallback-condition	audio	recorded	target-specific working backend configuration
+PORT-gta3-034-realtime-safety	gta3	034-realtime-safety	audio	recorded	target gameplay evidence
+PORT-gta3-035-portmaster-mapping	gta3	035-portmaster-mapping	input	recorded	SDL GameController to GameNative callbacks
+PORT-gta3-036-input-hotplug	gta3	036-input-hotplug	input	recorded	not universal evidence
+PORT-gta3-037-cursor-context	gta3	037-cursor-context	input	recorded	not-applicable: native controls
+PORT-gta3-038-single-instance	gta3	038-single-instance	lifecycle	recorded	exact game process only
+PORT-gta3-039-save-pause-exit	gta3	039-save-pause-exit	lifecycle	recorded	audio, cutscenes, controls, save/autosave and frontend exit validated on target
+PORT-gta3-040-physical-stacks	gta3	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"local finished snapshot","result":"boot, gameplay, audio, video, controls and save","stack":"NextOS Mali-450/fbdev"}]
+PORT-gta3-041-limitations	gta3	041-limitations	evidence	recorded	["Not universal","No other device is implied"]
+PORT-gta3-042-generalization	gta3	042-generalization	generalization	recorded	{"allowed":["low-glibc AArch64 loader","stable bionic stack-guard TLS pattern after contract proof"],"forbidden":["Rockstar offsets","movie-gate shortcuts as generic lifecycle","claim cross-device support"]}
+PORT-gta3de-001-canonical-id	gta3de	001-canonical-id	identity	recorded	gta3de
+PORT-gta3de-002-title	gta3de	002-title	identity	recorded	GTA III Definitive Edition UE4 experiment
+PORT-gta3de-003-support-scope	gta3de	003-support-scope	classification	recorded	local-approved-subsystems-not-playable
+PORT-gta3de-004-publication	gta3de	004-publication	classification	recorded	local-approved-subsystem-reference
+PORT-gta3de-005-positive-reference	gta3de	005-positive-reference	classification	recorded	true
+PORT-gta3de-006-local-path	gta3de	006-local-path	source	recorded	ports/gta3de
+PORT-gta3de-007-remote-url	gta3de	007-remote-url	source	recorded	not-applicable: no current public release ledger
+PORT-gta3de-008-source-snapshot	gta3de	008-source-snapshot	source	recorded	1d2215a84e938183d7555d15379db33a4eeda771
+PORT-gta3de-009-release-tag	gta3de	009-release-tag	release	recorded	not-applicable: in progress
+PORT-gta3de-010-release-commit	gta3de	010-release-commit	release	recorded	1d2215a84e938183d7555d15379db33a4eeda771
+PORT-gta3de-011-release-asset	gta3de	011-release-asset	release	recorded	not-applicable: no playable release
+PORT-gta3de-012-release-sha256	gta3de	012-release-sha256	release	recorded	not-applicable: no playable release
+PORT-gta3de-013-data-policy	gta3de	013-data-policy	data	recorded	BYO Netflix UE4 data
+PORT-gta3de-014-package-identity	gta3de	014-package-identity	data	recorded	GTA Trilogy Netflix v1.84.3 ARM64 libUE4
+PORT-gta3de-015-version-rule	gta3de	015-version-rule	data	recorded	exact UE4 build and missing compatible texture data remain blockers
+PORT-gta3de-016-transactional-install	gta3de	016-transactional-install	data	recorded	not release-ready
+PORT-gta3de-017-guest-abi	gta3de	017-guest-abi	abi	recorded	Android AArch64
+PORT-gta3de-018-host-abi	gta3de	018-host-abi	abi	recorded	Linux AArch64
+PORT-gta3de-019-elf-class	gta3de	019-elf-class	abi	recorded	ELF64
+PORT-gta3de-020-float-abi	gta3de	020-float-abi	abi	recorded	AAPCS64
+PORT-gta3de-021-interpreter	gta3de	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-gta3de-022-glibc-ceiling	gta3de	022-glibc-ceiling	abi	recorded	not a public artifact
+PORT-gta3de-023-loader-family	gta3de	023-loader-family	loader	recorded	UE4 android_main bootstrap
+PORT-gta3de-024-init-array	gta3de	024-init-array	loader	recorded	constructor/TLS/stdio subsystems studied
+PORT-gta3de-025-jni-onload	gta3de	025-jni-onload	loader	recorded	UE4 JNI metadata surface
+PORT-gta3de-026-native-lifecycle	gta3de	026-native-lifecycle	loader	recorded	partial boot only; no gameplay
+PORT-gta3de-027-video-ownership	gta3de	027-video-ownership	video	recorded	Mali-450 target experiment
+PORT-gta3de-028-backend-detection	gta3de	028-backend-detection	video	recorded	Vulkan disabled only because capability is absent
+PORT-gta3de-029-gles-probe	gta3de	029-gles-probe	video	recorded	GLES2 context reached
+PORT-gta3de-030-drawable-size	gta3de	030-drawable-size	video	recorded	target drawable
+PORT-gta3de-031-video-fix-scope	gta3de	031-video-fix-scope	video	recorded	OpenSSL/TLS/stdio/Vulkan hooks exact to UE4 build
+PORT-gta3de-032-native-audio-first	gta3de	032-native-audio-first	audio	recorded	not reached as complete gameplay evidence
+PORT-gta3de-033-audio-fallback-condition	gta3de	033-audio-fallback-condition	audio	recorded	not established
+PORT-gta3de-034-realtime-safety	gta3de	034-realtime-safety	audio	recorded	not established
+PORT-gta3de-035-portmaster-mapping	gta3de	035-portmaster-mapping	input	recorded	not complete
+PORT-gta3de-036-input-hotplug	gta3de	036-input-hotplug	input	recorded	not complete
+PORT-gta3de-037-cursor-context	gta3de	037-cursor-context	input	recorded	not-applicable
+PORT-gta3de-038-single-instance	gta3de	038-single-instance	lifecycle	recorded	exact experiment process only
+PORT-gta3de-039-save-pause-exit	gta3de	039-save-pause-exit	lifecycle	recorded	not established
+PORT-gta3de-040-physical-stacks	gta3de	040-physical-stacks	evidence	recorded	[{"level":"physical-subsystem","release":"local WIP","result":"ELF/UE4 bootstrap faults solved and GLES context reached","stack":"NextOS Mali-450/fbdev"}]
+PORT-gta3de-041-limitations	gta3de	041-limitations	evidence	recorded	["No gameplay","No complete audio/input/save/exit","ASTC data remains incompatible with Mali-450"]
+PORT-gta3de-042-generalization	gta3de	042-generalization	generalization	recorded	{"allowed":["narrow UE4 bootstrap/TLS/stdio lessons after contract proof"],"forbidden":["call the port complete","claim universal/device support","copy UE4 offsets"]}
+PORT-gtactw-001-canonical-id	gtactw	001-canonical-id	identity	recorded	gtactw
+PORT-gtactw-002-title	gtactw	002-title	identity	recorded	GTA Chinatown Wars Netflix rerelease
+PORT-gtactw-003-support-scope	gtactw	003-support-scope	classification	recorded	local-device-specific-approved
+PORT-gtactw-004-publication	gtactw	004-publication	classification	recorded	local-reference
+PORT-gtactw-005-positive-reference	gtactw	005-positive-reference	classification	recorded	true
+PORT-gtactw-006-local-path	gtactw	006-local-path	source	recorded	ports/gtactw
+PORT-gtactw-007-remote-url	gtactw	007-remote-url	source	recorded	not-applicable: no current public release ledger
+PORT-gtactw-008-source-snapshot	gtactw	008-source-snapshot	source	recorded	b9f72ce7569cf0d938f625727cb3f01ed19a4bfd
+PORT-gtactw-009-release-tag	gtactw	009-release-tag	release	recorded	local playable snapshot
+PORT-gtactw-010-release-commit	gtactw	010-release-commit	release	recorded	b9f72ce7569cf0d938f625727cb3f01ed19a4bfd
+PORT-gtactw-011-release-asset	gtactw	011-release-asset	release	recorded	not-applicable: local reference
+PORT-gtactw-012-release-sha256	gtactw	012-release-sha256	release	recorded	not-applicable: local reference
+PORT-gtactw-013-data-policy	gtactw	013-data-policy	data	recorded	BYO Netflix split APK/assets
+PORT-gtactw-014-package-identity	gtactw	014-package-identity	data	recorded	ARM64 libGame plus matching split assets
+PORT-gtactw-015-version-rule	gtactw	015-version-rule	data	recorded	complete split set required
+PORT-gtactw-016-transactional-install	gtactw	016-transactional-install	data	recorded	historical manual split extraction
+PORT-gtactw-017-guest-abi	gtactw	017-guest-abi	abi	recorded	Android AArch64
+PORT-gtactw-018-host-abi	gtactw	018-host-abi	abi	recorded	Linux AArch64
+PORT-gtactw-019-elf-class	gtactw	019-elf-class	abi	recorded	ELF64
+PORT-gtactw-020-float-abi	gtactw	020-float-abi	abi	recorded	AAPCS64
+PORT-gtactw-021-interpreter	gtactw	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-gtactw-022-glibc-ceiling	gtactw	022-glibc-ceiling	abi	recorded	not a current public artifact; re-audit
+PORT-gtactw-023-loader-family	gtactw	023-loader-family	loader	recorded	GameNative/libGame AArch64 so-loader
+PORT-gtactw-024-init-array	gtactw	024-init-array	loader	recorded	native constructors
+PORT-gtactw-025-jni-onload	gtactw	025-jni-onload	loader	recorded	GameNative JNI
+PORT-gtactw-026-native-lifecycle	gtactw	026-native-lifecycle	loader	recorded	target frame flow
+PORT-gtactw-027-video-ownership	gtactw	027-video-ownership	video	recorded	single SDL context on Mali fbdev
+PORT-gtactw-028-backend-detection	gtactw	028-backend-detection	video	recorded	target-specific; raw EGL behavior differs from KMSDRM
+PORT-gtactw-029-gles-probe	gtactw	029-gles-probe	video	recorded	GLES2
+PORT-gtactw-030-drawable-size	gtactw	030-drawable-size	video	recorded	target drawable
+PORT-gtactw-031-video-fix-scope	gtactw	031-video-fix-scope	video	recorded	one-context rule and presentation behavior are backend evidence, not universal constants
+PORT-gtactw-032-native-audio-first	gtactw	032-native-audio-first	audio	recorded	OpenAL plus mpg123
+PORT-gtactw-033-audio-fallback-condition	gtactw	033-audio-fallback-condition	audio	recorded	target route
+PORT-gtactw-034-realtime-safety	gtactw	034-realtime-safety	audio	recorded	target audio working
+PORT-gtactw-035-portmaster-mapping	gtactw	035-portmaster-mapping	input	recorded	SDL GameControllerDB into GameNative callbacks
+PORT-gtactw-036-input-hotplug	gtactw	036-input-hotplug	input	recorded	not universal evidence
+PORT-gtactw-037-cursor-context	gtactw	037-cursor-context	input	recorded	not-applicable
+PORT-gtactw-038-single-instance	gtactw	038-single-instance	lifecycle	recorded	exact target process
+PORT-gtactw-039-save-pause-exit	gtactw	039-save-pause-exit	lifecycle	recorded	native save/autosave and exit proven on target
+PORT-gtactw-040-physical-stacks	gtactw	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"local playable snapshot","result":"gameplay, audio, controls and save","stack":"NextOS Mali-450/fbdev"}]
+PORT-gtactw-041-limitations	gtactw	041-limitations	evidence	recorded	["Not universal","Observed raw-EGL presentation is the opposite of some KMS devices"]
+PORT-gtactw-042-generalization	gtactw	042-generalization	generalization	recorded	{"allowed":["backend ownership must be detected","never create redundant EGL context"],"forbidden":["assume fbdev swap behavior on KMSDRM","claim other devices"]}
+PORT-gtalcs2-001-canonical-id	gtalcs2	001-canonical-id	identity	recorded	gtalcs2
+PORT-gtalcs2-002-title	gtalcs2	002-title	identity	recorded	GTA Liberty City Stories clean JNI-table loader
+PORT-gtalcs2-003-support-scope	gtalcs2	003-support-scope	classification	recorded	local-device-specific-approved
+PORT-gtalcs2-004-publication	gtalcs2	004-publication	classification	recorded	local-reference
+PORT-gtalcs2-005-positive-reference	gtalcs2	005-positive-reference	classification	recorded	true
+PORT-gtalcs2-006-local-path	gtalcs2	006-local-path	source	recorded	ports/gtalcs2
+PORT-gtalcs2-007-remote-url	gtalcs2	007-remote-url	source	recorded	not-applicable: no current public release ledger
+PORT-gtalcs2-008-source-snapshot	gtalcs2	008-source-snapshot	source	recorded	0ff14a1c307ba51d2f0951da1af4755e80ebc270
+PORT-gtalcs2-009-release-tag	gtalcs2	009-release-tag	release	recorded	current local LCS snapshot
+PORT-gtalcs2-010-release-commit	gtalcs2	010-release-commit	release	recorded	0ff14a1c307ba51d2f0951da1af4755e80ebc270
+PORT-gtalcs2-011-release-asset	gtalcs2	011-release-asset	release	recorded	not-applicable: local reference
+PORT-gtalcs2-012-release-sha256	gtalcs2	012-release-sha256	release	recorded	not-applicable: local reference
+PORT-gtalcs2-013-data-policy	gtalcs2	013-data-policy	data	recorded	BYO Rockstar APK/WAD
+PORT-gtalcs2-014-package-identity	gtalcs2	014-package-identity	data	recorded	com.rockstargames.gtalcs ARM64
+PORT-gtalcs2-015-version-rule	gtalcs2	015-version-rule	data	recorded	matching libGame and WAD data
+PORT-gtalcs2-016-transactional-install	gtalcs2	016-transactional-install	data	recorded	historical local data setup
+PORT-gtalcs2-017-guest-abi	gtalcs2	017-guest-abi	abi	recorded	Android AArch64
+PORT-gtalcs2-018-host-abi	gtalcs2	018-host-abi	abi	recorded	Linux AArch64
+PORT-gtalcs2-019-elf-class	gtalcs2	019-elf-class	abi	recorded	ELF64
+PORT-gtalcs2-020-float-abi	gtalcs2	020-float-abi	abi	recorded	AAPCS64
+PORT-gtalcs2-021-interpreter	gtalcs2	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-gtalcs2-022-glibc-ceiling	gtalcs2	022-glibc-ceiling	abi	recorded	not a current public artifact; re-audit
+PORT-gtalcs2-023-loader-family	gtalcs2	023-loader-family	loader	recorded	clean two-module GTAJNIlib table loader
+PORT-gtalcs2-024-init-array	gtalcs2	024-init-array	loader	recorded	native constructors
+PORT-gtalcs2-025-jni-onload	gtalcs2	025-jni-onload	loader	recorded	JNI_OnLoad to GTAJNIlib to frames
+PORT-gtalcs2-026-native-lifecycle	gtalcs2	026-native-lifecycle	loader	recorded	current maintained LCS flow
+PORT-gtalcs2-027-video-ownership	gtalcs2	027-video-ownership	video	recorded	Mali-450 GLES2 target
+PORT-gtalcs2-028-backend-detection	gtalcs2	028-backend-detection	video	recorded	not universal
+PORT-gtalcs2-029-gles-probe	gtalcs2	029-gles-probe	video	recorded	GLES2
+PORT-gtalcs2-030-drawable-size	gtalcs2	030-drawable-size	video	recorded	target drawable
+PORT-gtalcs2-031-video-fix-scope	gtalcs2	031-video-fix-scope	video	recorded	vehicle-glass and loading-screen fixes exact to target/version
+PORT-gtalcs2-032-native-audio-first	gtalcs2	032-native-audio-first	audio	recorded	OpenAL gameplay/SFX and WAD radio
+PORT-gtalcs2-033-audio-fallback-condition	gtalcs2	033-audio-fallback-condition	audio	recorded	target route only
+PORT-gtalcs2-034-realtime-safety	gtalcs2	034-realtime-safety	audio	recorded	target gameplay audio
+PORT-gtalcs2-035-portmaster-mapping	gtalcs2	035-portmaster-mapping	input	recorded	SDL GameController to GTAJNIlib
+PORT-gtalcs2-036-input-hotplug	gtalcs2	036-input-hotplug	input	recorded	not universal evidence
+PORT-gtalcs2-037-cursor-context	gtalcs2	037-cursor-context	input	recorded	not-applicable
+PORT-gtalcs2-038-single-instance	gtalcs2	038-single-instance	lifecycle	recorded	exact target process
+PORT-gtalcs2-039-save-pause-exit	gtalcs2	039-save-pause-exit	lifecycle	recorded	menu, mission, local save and SELECT+START exit
+PORT-gtalcs2-040-physical-stacks	gtalcs2	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"current local snapshot","result":"menu, cutscenes, first mission, audio, controls, save and exit","stack":"NextOS Mali-450/fbdev"}]
+PORT-gtalcs2-041-limitations	gtalcs2	041-limitations	evidence	recorded	["Not universal","Intact vehicle glass workaround is exact-target behavior"]
+PORT-gtalcs2-042-generalization	gtalcs2	042-generalization	generalization	recorded	{"allowed":["clean JNI-table driver architecture","loading overlay state ownership"],"forbidden":["copy glass skip","copy offsets","claim other devices"]}
+PORT-gtasa-001-canonical-id	gtasa	001-canonical-id	identity	recorded	gtasa
+PORT-gtasa-002-title	gtasa	002-title	identity	recorded	GTA San Andreas Classic Android
+PORT-gtasa-003-support-scope	gtasa	003-support-scope	classification	recorded	local-device-specific-approved
+PORT-gtasa-004-publication	gtasa	004-publication	classification	recorded	local-reference
+PORT-gtasa-005-positive-reference	gtasa	005-positive-reference	classification	recorded	true
+PORT-gtasa-006-local-path	gtasa	006-local-path	source	recorded	ports/gtasa
+PORT-gtasa-007-remote-url	gtasa	007-remote-url	source	recorded	not-applicable: no current public release ledger
+PORT-gtasa-008-source-snapshot	gtasa	008-source-snapshot	source	recorded	5f23570c12997082a47c1ece6ae4ba3c131fe96d
+PORT-gtasa-009-release-tag	gtasa	009-release-tag	release	recorded	local playable snapshot
+PORT-gtasa-010-release-commit	gtasa	010-release-commit	release	recorded	5f23570c12997082a47c1ece6ae4ba3c131fe96d
+PORT-gtasa-011-release-asset	gtasa	011-release-asset	release	recorded	not-applicable: local reference
+PORT-gtasa-012-release-sha256	gtasa	012-release-sha256	release	recorded	not-applicable: local reference
+PORT-gtasa-013-data-policy	gtasa	013-data-policy	data	recorded	BYO Rockstar classic v2.00 APK data
+PORT-gtasa-014-package-identity	gtasa	014-package-identity	data	recorded	libGTASA.so ARM64 classic build
+PORT-gtasa-015-version-rule	gtasa	015-version-rule	data	recorded	do not mix with Flutter rerelease
+PORT-gtasa-016-transactional-install	gtasa	016-transactional-install	data	recorded	historical custom layout; framework migration requires explicit recipe
+PORT-gtasa-017-guest-abi	gtasa	017-guest-abi	abi	recorded	Android AArch64
+PORT-gtasa-018-host-abi	gtasa	018-host-abi	abi	recorded	Linux AArch64
+PORT-gtasa-019-elf-class	gtasa	019-elf-class	abi	recorded	ELF64
+PORT-gtasa-020-float-abi	gtasa	020-float-abi	abi	recorded	AAPCS64
+PORT-gtasa-021-interpreter	gtasa	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-gtasa-022-glibc-ceiling	gtasa	022-glibc-ceiling	abi	recorded	not a current public artifact; re-audit before release
+PORT-gtasa-023-loader-family	gtasa	023-loader-family	loader	recorded	NVIDIA NvEventQueueActivity/RenderWare loader
+PORT-gtasa-024-init-array	gtasa	024-init-array	loader	recorded	native constructors
+PORT-gtasa-025-jni-onload	gtasa	025-jni-onload	loader	recorded	NVIDIA framework registration
+PORT-gtasa-026-native-lifecycle	gtasa	026-native-lifecycle	loader	recorded	window-size and resume sequence used on target
+PORT-gtasa-027-video-ownership	gtasa	027-video-ownership	video	recorded	Mali-450 GLES2 target
+PORT-gtasa-028-backend-detection	gtasa	028-backend-detection	video	recorded	not universal
+PORT-gtasa-029-gles-probe	gtasa	029-gles-probe	video	recorded	engine verified pure GLES2
+PORT-gtasa-030-drawable-size	gtasa	030-drawable-size	video	recorded	target full resolution
+PORT-gtasa-031-video-fix-scope	gtasa	031-video-fix-scope	video	recorded	engine-specific timing/render hooks
+PORT-gtasa-032-native-audio-first	gtasa	032-native-audio-first	audio	recorded	OpenSL/OpenAL engine path
+PORT-gtasa-033-audio-fallback-condition	gtasa	033-audio-fallback-condition	audio	recorded	OpenSL to SDL output bridge on target
+PORT-gtasa-034-realtime-safety	gtasa	034-realtime-safety	audio	recorded	ring buffer and SDL stream tests
+PORT-gtasa-035-portmaster-mapping	gtasa	035-portmaster-mapping	input	recorded	SDL polling into gamepad callbacks
+PORT-gtasa-036-input-hotplug	gtasa	036-input-hotplug	input	recorded	not universal evidence
+PORT-gtasa-037-cursor-context	gtasa	037-cursor-context	input	recorded	not-applicable: native controls
+PORT-gtasa-038-single-instance	gtasa	038-single-instance	lifecycle	recorded	exact target process
+PORT-gtasa-039-save-pause-exit	gtasa	039-save-pause-exit	lifecycle	recorded	playable target evidence
+PORT-gtasa-040-physical-stacks	gtasa	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"local playable snapshot","result":"world, menus, audio, controls and full-resolution rendering","stack":"NextOS Mali-450/fbdev"}]
+PORT-gtasa-041-limitations	gtasa	041-limitations	evidence	recorded	["Not universal","Classic and Flutter variants are independent"]
+PORT-gtasa-042-generalization	gtasa	042-generalization	generalization	recorded	{"allowed":["OpenSL queue bridge shape","AArch64 JNI table sizing"],"forbidden":["copy GTASA button ordinals to another Rockstar title","claim another device","assume engine patches transfer"]}
+PORT-gtasaf-001-canonical-id	gtasaf	001-canonical-id	identity	recorded	gtasaf
+PORT-gtasaf-002-title	gtasaf	002-title	identity	recorded	GTA San Andreas Flutter rerelease
+PORT-gtasaf-003-support-scope	gtasaf	003-support-scope	classification	recorded	local-device-specific-approved
+PORT-gtasaf-004-publication	gtasaf	004-publication	classification	recorded	local-reference
+PORT-gtasaf-005-positive-reference	gtasaf	005-positive-reference	classification	recorded	true
+PORT-gtasaf-006-local-path	gtasaf	006-local-path	source	recorded	ports/gtasaf
+PORT-gtasaf-007-remote-url	gtasaf	007-remote-url	source	recorded	not-applicable: no current public release ledger
+PORT-gtasaf-008-source-snapshot	gtasaf	008-source-snapshot	source	recorded	dfada1b91d5f011fb2a7933b3b99a30ea2156af4
+PORT-gtasaf-009-release-tag	gtasaf	009-release-tag	release	recorded	local snapshot
+PORT-gtasaf-010-release-commit	gtasaf	010-release-commit	release	recorded	dfada1b91d5f011fb2a7933b3b99a30ea2156af4
+PORT-gtasaf-011-release-asset	gtasaf	011-release-asset	release	recorded	not-applicable: local reference
+PORT-gtasaf-012-release-sha256	gtasaf	012-release-sha256	release	recorded	not-applicable: local reference
+PORT-gtasaf-013-data-policy	gtasaf	013-data-policy	data	recorded	BYO Rockstar Flutter APK assets
+PORT-gtasaf-014-package-identity	gtasaf	014-package-identity	data	recorded	GTASA v2.11.311 ARM64 Flutter rerelease
+PORT-gtasaf-015-version-rule	gtasaf	015-version-rule	data	recorded	never mix with classic v2.00 assets
+PORT-gtasaf-016-transactional-install	gtasaf	016-transactional-install	data	recorded	historical custom extraction
+PORT-gtasaf-017-guest-abi	gtasaf	017-guest-abi	abi	recorded	Android AArch64
+PORT-gtasaf-018-host-abi	gtasaf	018-host-abi	abi	recorded	Linux AArch64
+PORT-gtasaf-019-elf-class	gtasaf	019-elf-class	abi	recorded	ELF64 with Android RELR
+PORT-gtasaf-020-float-abi	gtasaf	020-float-abi	abi	recorded	AAPCS64
+PORT-gtasaf-021-interpreter	gtasaf	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-gtasaf-022-glibc-ceiling	gtasaf	022-glibc-ceiling	abi	recorded	not a current public artifact; re-audit
+PORT-gtasaf-023-loader-family	gtasaf	023-loader-family	loader	recorded	GameNative/libGame two-module loader with RELR
+PORT-gtasaf-024-init-array	gtasaf	024-init-array	loader	recorded	RELR relocations before constructors
+PORT-gtasaf-025-jni-onload	gtasaf	025-jni-onload	loader	recorded	jni_load/GameNative path
+PORT-gtasaf-026-native-lifecycle	gtasaf	026-native-lifecycle	loader	recorded	target flow
+PORT-gtasaf-027-video-ownership	gtasaf	027-video-ownership	video	recorded	Mali-450 GLES2 target
+PORT-gtasaf-028-backend-detection	gtasaf	028-backend-detection	video	recorded	not universal
+PORT-gtasaf-029-gles-probe	gtasaf	029-gles-probe	video	recorded	pure GLES2 target
+PORT-gtasaf-030-drawable-size	gtasaf	030-drawable-size	video	recorded	target drawable
+PORT-gtasaf-031-video-fix-scope	gtasaf	031-video-fix-scope	video	recorded	RELR is generic format support; GameNative hooks are not
+PORT-gtasaf-032-native-audio-first	gtasaf	032-native-audio-first	audio	recorded	OpenAL native context
+PORT-gtasaf-033-audio-fallback-condition	gtasaf	033-audio-fallback-condition	audio	recorded	repair inherited Pulse then direct ALSA only on proven route
+PORT-gtasaf-034-realtime-safety	gtasaf	034-realtime-safety	audio	recorded	context-rate handling target-specific
+PORT-gtasaf-035-portmaster-mapping	gtasaf	035-portmaster-mapping	input	recorded	GameNative callbacks
+PORT-gtasaf-036-input-hotplug	gtasaf	036-input-hotplug	input	recorded	not universal evidence
+PORT-gtasaf-037-cursor-context	gtasaf	037-cursor-context	input	recorded	not-applicable
+PORT-gtasaf-038-single-instance	gtasaf	038-single-instance	lifecycle	recorded	exact target process
+PORT-gtasaf-039-save-pause-exit	gtasaf	039-save-pause-exit	lifecycle	recorded	approved local target behavior only
+PORT-gtasaf-040-physical-stacks	gtasaf	040-physical-stacks	evidence	recorded	[{"level":"physical-subsystem","release":"local snapshot","result":"approved source of loader, RELR, video, audio and input parts; no cross-device claim","stack":"NextOS Mali-450/fbdev"}]
+PORT-gtasaf-041-limitations	gtasaf	041-limitations	evidence	recorded	["Not universal","Do not mix data/engine with classic GTASA"]
+PORT-gtasaf-042-generalization	gtasaf	042-generalization	generalization	recorded	{"allowed":["Android RELR implementation","native-first audio diagnosis"],"forbidden":["GameNative offsets","force Pulse or ALSA globally","claim device support"]}
+PORT-gtavc-001-canonical-id	gtavc	001-canonical-id	identity	recorded	gtavc
+PORT-gtavc-002-title	gtavc	002-title	identity	recorded	GTA Vice City Android rerelease
+PORT-gtavc-003-support-scope	gtavc	003-support-scope	classification	recorded	local-device-specific-approved
+PORT-gtavc-004-publication	gtavc	004-publication	classification	recorded	local-reference
+PORT-gtavc-005-positive-reference	gtavc	005-positive-reference	classification	recorded	true
+PORT-gtavc-006-local-path	gtavc	006-local-path	source	recorded	ports/gtavc
+PORT-gtavc-007-remote-url	gtavc	007-remote-url	source	recorded	not-applicable: no current public release ledger
+PORT-gtavc-008-source-snapshot	gtavc	008-source-snapshot	source	recorded	58aa81be7527386be895c91509e818c0da7d018c
+PORT-gtavc-009-release-tag	gtavc	009-release-tag	release	recorded	local playable snapshot
+PORT-gtavc-010-release-commit	gtavc	010-release-commit	release	recorded	58aa81be7527386be895c91509e818c0da7d018c
+PORT-gtavc-011-release-asset	gtavc	011-release-asset	release	recorded	not-applicable: local reference
+PORT-gtavc-012-release-sha256	gtavc	012-release-sha256	release	recorded	not-applicable: local reference
+PORT-gtavc-013-data-policy	gtavc	013-data-policy	data	recorded	BYO Rockstar Android ARM64 assets
+PORT-gtavc-014-package-identity	gtavc	014-package-identity	data	recorded	official ARM64 libGame Flutter-shell rerelease
+PORT-gtavc-015-version-rule	gtavc	015-version-rule	data	recorded	do not mix with reVC or other Rockstar data
+PORT-gtavc-016-transactional-install	gtavc	016-transactional-install	data	recorded	historical custom loose-asset layout
+PORT-gtavc-017-guest-abi	gtavc	017-guest-abi	abi	recorded	Android AArch64
+PORT-gtavc-018-host-abi	gtavc	018-host-abi	abi	recorded	Linux AArch64
+PORT-gtavc-019-elf-class	gtavc	019-elf-class	abi	recorded	ELF64
+PORT-gtavc-020-float-abi	gtavc	020-float-abi	abi	recorded	AAPCS64
+PORT-gtavc-021-interpreter	gtavc	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-gtavc-022-glibc-ceiling	gtavc	022-glibc-ceiling	abi	recorded	not a current public artifact; re-audit
+PORT-gtavc-023-loader-family	gtavc	023-loader-family	loader	recorded	War Drum RenderWare/GameNative two-module loader
+PORT-gtavc-024-init-array	gtavc	024-init-array	loader	recorded	native constructors
+PORT-gtavc-025-jni-onload	gtavc	025-jni-onload	loader	recorded	GameNative callbacks
+PORT-gtavc-026-native-lifecycle	gtavc	026-native-lifecycle	loader	recorded	native gates/callbacks used for playable flow
+PORT-gtavc-027-video-ownership	gtavc	027-video-ownership	video	recorded	Mali-450 fbdev target
+PORT-gtavc-028-backend-detection	gtavc	028-backend-detection	video	recorded	not universal
+PORT-gtavc-029-gles-probe	gtavc	029-gles-probe	video	recorded	native GLES2
+PORT-gtavc-030-drawable-size	gtavc	030-drawable-size	video	recorded	target drawable
+PORT-gtavc-031-video-fix-scope	gtavc	031-video-fix-scope	video	recorded	timestep, glass/skid and button fixes exact to this engine
+PORT-gtavc-032-native-audio-first	gtavc	032-native-audio-first	audio	recorded	OpenAL native
+PORT-gtavc-033-audio-fallback-condition	gtavc	033-audio-fallback-condition	audio	recorded	target configuration only
+PORT-gtavc-034-realtime-safety	gtavc	034-realtime-safety	audio	recorded	radio underrun remains a documented limitation
+PORT-gtavc-035-portmaster-mapping	gtavc	035-portmaster-mapping	input	recorded	SDL/GameNative plus exact CControllerState fields
+PORT-gtavc-036-input-hotplug	gtavc	036-input-hotplug	input	recorded	not universal evidence
+PORT-gtavc-037-cursor-context	gtavc	037-cursor-context	input	recorded	not-applicable
+PORT-gtavc-038-single-instance	gtavc	038-single-instance	lifecycle	recorded	exact target process
+PORT-gtavc-039-save-pause-exit	gtavc	039-save-pause-exit	lifecycle	recorded	playable native flow and frontend exit
+PORT-gtavc-040-physical-stacks	gtavc	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"local playable snapshot","result":"menu, new game, world, vehicles, cutscenes, controls and exit","stack":"NextOS Mali-450/fbdev"}]
+PORT-gtavc-041-limitations	gtavc	041-limitations	evidence	recorded	["Not universal","Radio can underrun","ARMHF classic attempt is dead negative evidence"]
+PORT-gtavc-042-generalization	gtavc	042-generalization	generalization	recorded	{"allowed":["diagnose physics timestep before input","C++ member-hook ABI discipline"],"forbidden":["copy high button ordinals from GTASA","copy engine offsets","claim other devices"]}
+PORT-hitmango-001-canonical-id	hitmango	001-canonical-id	identity	recorded	hitmango
+PORT-hitmango-002-title	hitmango	002-title	identity	recorded	Hitman GO
+PORT-hitmango-003-support-scope	hitmango	003-support-scope	classification	recorded	multi-device-validated
+PORT-hitmango-004-publication	hitmango	004-publication	classification	recorded	current-public
+PORT-hitmango-005-positive-reference	hitmango	005-positive-reference	classification	recorded	true
+PORT-hitmango-006-local-path	hitmango	006-local-path	source	recorded	ports/hitmango
+PORT-hitmango-007-remote-url	hitmango	007-remote-url	source	recorded	https://github.com/NextOs-Ports/hitmango-nextos
+PORT-hitmango-008-source-snapshot	hitmango	008-source-snapshot	source	recorded	0655a48f616a614fda8964c738531bf1e9a928f3
+PORT-hitmango-009-release-tag	hitmango	009-release-tag	release	recorded	v1.2.0
+PORT-hitmango-010-release-commit	hitmango	010-release-commit	release	recorded	0655a48f616a614fda8964c738531bf1e9a928f3
+PORT-hitmango-011-release-asset	hitmango	011-release-asset	release	recorded	Hitman.GO.Universal.v1.2.0.zip
+PORT-hitmango-012-release-sha256	hitmango	012-release-sha256	release	recorded	27b67eb0ab0709d8e49d275c999d7b626e893e3d76ffe867706923685d347f8a
+PORT-hitmango-013-data-policy	hitmango	013-data-policy	data	recorded	BYO only
+PORT-hitmango-014-package-identity	hitmango	014-package-identity	data	recorded	Hitman GO 1.18.1 arm64 Unity data
+PORT-hitmango-015-version-rule	hitmango	015-version-rule	data	recorded	exact supported ARM64 release and required Unity tree
+PORT-hitmango-016-transactional-install	hitmango	016-transactional-install	data	recorded	bundled NXExtract prepares legal user data
+PORT-hitmango-017-guest-abi	hitmango	017-guest-abi	abi	recorded	Android AArch64
+PORT-hitmango-018-host-abi	hitmango	018-host-abi	abi	recorded	Linux AArch64
+PORT-hitmango-019-elf-class	hitmango	019-elf-class	abi	recorded	ELF64
+PORT-hitmango-020-float-abi	hitmango	020-float-abi	abi	recorded	AAPCS64
+PORT-hitmango-021-interpreter	hitmango	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-hitmango-022-glibc-ceiling	hitmango	022-glibc-ceiling	abi	recorded	public package <= GLIBC_2.30
+PORT-hitmango-023-loader-family	hitmango	023-loader-family	loader	recorded	Unity 2022 IL2CPP multi-module so-loader
+PORT-hitmango-024-init-array	hitmango	024-init-array	loader	recorded	all module constructors in NativeLoader order
+PORT-hitmango-025-jni-onload	hitmango	025-jni-onload	loader	recorded	libmain, libunity and libil2cpp registration preserved
+PORT-hitmango-026-native-lifecycle	hitmango	026-native-lifecycle	loader	recorded	initJni, surface, focus, resume, render, focus loss and pause
+PORT-hitmango-027-video-ownership	hitmango	027-video-ownership	video	recorded	SDL/fbdev or firmware path selected by capability
+PORT-hitmango-028-backend-detection	hitmango	028-backend-detection	video	recorded	launcher does not force SDL video
+PORT-hitmango-029-gles-probe	hitmango	029-gles-probe	video	recorded	conservative real GLES negotiation
+PORT-hitmango-030-drawable-size	hitmango	030-drawable-size	video	recorded	host framebuffer/drawable
+PORT-hitmango-031-video-fix-scope	hitmango	031-video-fix-scope	video	recorded	backbuffer alpha repair only on compositor evidence
+PORT-hitmango-032-native-audio-first	hitmango	032-native-audio-first	audio	recorded	Unity FMOD mixer retained
+PORT-hitmango-033-audio-fallback-condition	hitmango	033-audio-fallback-condition	audio	recorded	Android AudioTrack output bridged to SDL
+PORT-hitmango-034-realtime-safety	hitmango	034-realtime-safety	audio	recorded	dedicated native PCM thread
+PORT-hitmango-035-portmaster-mapping	hitmango	035-portmaster-mapping	input	recorded	SDL gamepad through InControl
+PORT-hitmango-036-input-hotplug	hitmango	036-input-hotplug	input	recorded	SDL controller discovery
+PORT-hitmango-037-cursor-context	hitmango	037-cursor-context	input	recorded	polished right-stick arrow and R3 only for touch UI; board movement uses game path
+PORT-hitmango-038-single-instance	hitmango	038-single-instance	lifecycle	recorded	foreground launcher-owned game
+PORT-hitmango-039-save-pause-exit	hitmango	039-save-pause-exit	lifecycle	recorded	clean Unity pause lifecycle before exit
+PORT-hitmango-040-physical-stacks	hitmango	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.2.0","result":"boards, audio, saves, controls and exit","stack":"ArkOS R36T-class"},{"level":"physical-full","release":"v1.2.0 loader line","result":"boot, levels, audio, saves and exit","stack":"NextOS Mali-450/fbdev"}]
+PORT-hitmango-041-limitations	hitmango	041-limitations	evidence	recorded	["Unity/game offsets remain exact-version scoped"]
+PORT-hitmango-042-generalization	hitmango	042-generalization	generalization	recorded	{"allowed":["Unity native lifecycle skeleton","FMOD AudioTrack bridge","context-separated cursor"],"forbidden":["copy Unity offsets","force compositor alpha fix without zero-alpha proof"]}
+PORT-horizonchase-001-canonical-id	horizonchase	001-canonical-id	identity	recorded	horizonchase
+PORT-horizonchase-002-title	horizonchase	002-title	identity	recorded	Horizon Chase
+PORT-horizonchase-003-support-scope	horizonchase	003-support-scope	classification	recorded	multi-device-validated
+PORT-horizonchase-004-publication	horizonchase	004-publication	classification	recorded	current-public
+PORT-horizonchase-005-positive-reference	horizonchase	005-positive-reference	classification	recorded	true
+PORT-horizonchase-006-local-path	horizonchase	006-local-path	source	recorded	ports/horizonchase
+PORT-horizonchase-007-remote-url	horizonchase	007-remote-url	source	recorded	https://github.com/NextOs-Ports/horizonchase-nextos
+PORT-horizonchase-008-source-snapshot	horizonchase	008-source-snapshot	source	recorded	59d2d38dc496ae0a71726181d3ccc80923e4144d
+PORT-horizonchase-009-release-tag	horizonchase	009-release-tag	release	recorded	v1.2.2
+PORT-horizonchase-010-release-commit	horizonchase	010-release-commit	release	recorded	59d2d38dc496ae0a71726181d3ccc80923e4144d
+PORT-horizonchase-011-release-asset	horizonchase	011-release-asset	release	recorded	horizonchase.zip
+PORT-horizonchase-012-release-sha256	horizonchase	012-release-sha256	release	recorded	26319e6c397d7e22c5ab09e0caf07c1fb08751a731d9df8478a7d62d57f789e6
+PORT-horizonchase-013-data-policy	horizonchase	013-data-policy	data	recorded	BYO only
+PORT-horizonchase-014-package-identity	horizonchase	014-package-identity	data	recorded	Horizon Chase 2.6.9 Android ARM64 Unity payload
+PORT-horizonchase-015-version-rule	horizonchase	015-version-rule	data	recorded	package, ABI, libraries and Unity generation validated
+PORT-horizonchase-016-transactional-install	horizonchase	016-transactional-install	data	recorded	NXExtract builds deterministic asset pack and publishes atomically
+PORT-horizonchase-017-guest-abi	horizonchase	017-guest-abi	abi	recorded	Android AArch64
+PORT-horizonchase-018-host-abi	horizonchase	018-host-abi	abi	recorded	Linux AArch64
+PORT-horizonchase-019-elf-class	horizonchase	019-elf-class	abi	recorded	ELF64
+PORT-horizonchase-020-float-abi	horizonchase	020-float-abi	abi	recorded	AAPCS64
+PORT-horizonchase-021-interpreter	horizonchase	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-horizonchase-022-glibc-ceiling	horizonchase	022-glibc-ceiling	abi	recorded	public loader <= GLIBC_2.30
+PORT-horizonchase-023-loader-family	horizonchase	023-loader-family	loader	recorded	Unity 2022.3.33f1 IL2CPP AArch64 so-loader
+PORT-horizonchase-024-init-array	horizonchase	024-init-array	loader	recorded	complete constructors for every mapped module
+PORT-horizonchase-025-jni-onload	horizonchase	025-jni-onload	loader	recorded	JNI_OnLoad preserved in native order
+PORT-horizonchase-026-native-lifecycle	horizonchase	026-native-lifecycle	loader	recorded	Activity, Surface, HandlerThread and Choreographer flow preserved
+PORT-horizonchase-027-video-ownership	horizonchase	027-video-ownership	video	recorded	raw EGL only for SDL mali/fbdev; SDL-owned context for KMSDRM/Wayland
+PORT-horizonchase-028-backend-detection	horizonchase	028-backend-detection	video	recorded	capability and actual SDL backend
+PORT-horizonchase-029-gles-probe	horizonchase	029-gles-probe	video	recorded	vendor, renderer, GLES and compressed texture capabilities
+PORT-horizonchase-030-drawable-size	horizonchase	030-drawable-size	video	recorded	real drawable on 640x480, 720p and 1080p
+PORT-horizonchase-031-video-fix-scope	horizonchase	031-video-fix-scope	video	recorded	Swappy, alpha and texture fixes guarded by exact observed state
+PORT-horizonchase-032-native-audio-first	horizonchase	032-native-audio-first	audio	recorded	Unity/FMOD mix retained; inherited output first
+PORT-horizonchase-033-audio-fallback-condition	horizonchase	033-audio-fallback-condition	audio	recorded	reject dummy/disk then negotiate real PipeWire/Pulse/ALSA after failure
+PORT-horizonchase-034-realtime-safety	horizonchase	034-realtime-safety	audio	recorded	queued SDL PCM; no guest callback under host lock
+PORT-horizonchase-035-portmaster-mapping	horizonchase	035-portmaster-mapping	input	recorded	SDL normalized Xbox mapping
+PORT-horizonchase-036-input-hotplug	horizonchase	036-input-hotplug	input	recorded	game controller discovery
+PORT-horizonchase-037-cursor-context	horizonchase	037-cursor-context	input	recorded	not-applicable: native menu and vehicle controller path
+PORT-horizonchase-038-single-instance	horizonchase	038-single-instance	lifecycle	recorded	foreground lock and exact executable/cmdline checks; never global sweep
+PORT-horizonchase-039-save-pause-exit	horizonchase	039-save-pause-exit	lifecycle	recorded	focus loss, pause, save, audio stop and frontend return
+PORT-horizonchase-040-physical-stacks	horizonchase	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.2.x same loader SHA","result":"complete race, audio, controls, save/reload, exit","stack":"NextOS Mali-450/fbdev"},{"level":"physical-full","release":"v1.2.x same loader SHA","result":"complete race and frontend return","stack":"R36S/ArkOS Mali-G31/KMSDRM"},{"level":"physical-full","release":"v1.2.x same loader SHA","result":"1080p install, gameplay, 30 fps, save and exit","stack":"NextOS X5 Mali-G310/KMSDRM"},{"level":"physical-full","release":"v1.2.x same loader SHA","result":"XAPK install, menu, audio, controller and exit","stack":"ROCKNIX RG-DS Panfrost/Wayland"}]
+PORT-horizonchase-041-limitations	horizonchase	041-limitations	evidence	recorded	["Per-engine fixes are not generic even when the capability detector is"]
+PORT-horizonchase-042-generalization	horizonchase	042-generalization	generalization	recorded	{"allowed":["raw-EGL versus SDL ownership decision","real-output audio negotiation","memory/capability tiers","exact single-instance ownership"],"forbidden":["manual VBO retirement","accept dummy audio","device-name-only routes"]}
+PORT-kotor-001-canonical-id	kotor	001-canonical-id	identity	recorded	kotor
+PORT-kotor-002-title	kotor	002-title	identity	recorded	Star Wars: Knights of the Old Republic
+PORT-kotor-003-support-scope	kotor	003-support-scope	classification	recorded	multi-device-version-split
+PORT-kotor-004-publication	kotor	004-publication	classification	recorded	current-public
+PORT-kotor-005-positive-reference	kotor	005-positive-reference	classification	recorded	true
+PORT-kotor-006-local-path	kotor	006-local-path	source	recorded	ports/kotor
+PORT-kotor-007-remote-url	kotor	007-remote-url	source	recorded	https://github.com/NextOs-Ports/kotor-nextos
+PORT-kotor-008-source-snapshot	kotor	008-source-snapshot	source	recorded	6d3424f583368ac0f67005b466c25cfdeb4eea8b
+PORT-kotor-009-release-tag	kotor	009-release-tag	release	recorded	v1.0.4
+PORT-kotor-010-release-commit	kotor	010-release-commit	release	recorded	6d3424f583368ac0f67005b466c25cfdeb4eea8b
+PORT-kotor-011-release-asset	kotor	011-release-asset	release	recorded	kotor-nextos-1.0.4.zip
+PORT-kotor-012-release-sha256	kotor	012-release-sha256	release	recorded	dcca08b81f2ed8917abec96b19aaecfc6b2ee68ca462245dc59a1c0cbc386c3a
+PORT-kotor-013-data-policy	kotor	013-data-policy	data	recorded	BYO only
+PORT-kotor-014-package-identity	kotor	014-package-identity	data	recorded	KOTOR Android ARMv7 plus original OBB ZIP
+PORT-kotor-015-version-rule	kotor	015-version-rule	data	recorded	required ARMv7 objects and OBB structure
+PORT-kotor-016-transactional-install	kotor	016-transactional-install	data	recorded	NXExtract keeps OBB intact and validates runtime
+PORT-kotor-017-guest-abi	kotor	017-guest-abi	abi	recorded	Android ARMv7 softfp
+PORT-kotor-018-host-abi	kotor	018-host-abi	abi	recorded	Linux ARMHF hardfp on 32-bit userspace path
+PORT-kotor-019-elf-class	kotor	019-elf-class	abi	recorded	ELF32
+PORT-kotor-020-float-abi	kotor	020-float-abi	abi	recorded	explicit softfp-to-hardfp thunks
+PORT-kotor-021-interpreter	kotor	021-interpreter	abi	recorded	selected 32-bit host runtime
+PORT-kotor-022-glibc-ceiling	kotor	022-glibc-ceiling	abi	recorded	public Linux ELFs must remain <= GLIBC_2.30
+PORT-kotor-023-loader-family	kotor	023-loader-family	loader	recorded	Odyssey/SDL2 ARMv7 so-loader
+PORT-kotor-024-init-array	kotor	024-init-array	loader	recorded	constructors before registration
+PORT-kotor-025-jni-onload	kotor	025-jni-onload	loader	recorded	preserved
+PORT-kotor-026-native-lifecycle	kotor	026-native-lifecycle	loader	recorded	Activity/OBB/SDL_main order preserved
+PORT-kotor-027-video-ownership	kotor	027-video-ownership	video	recorded	firmware SDL/EGL/GLES2
+PORT-kotor-028-backend-detection	kotor	028-backend-detection	video	recorded	DRM drawable then fb0 fallback
+PORT-kotor-029-gles-probe	kotor	029-gles-probe	video	recorded	real GLES2 context
+PORT-kotor-030-drawable-size	kotor	030-drawable-size	video	recorded	DRM/fb0 physical geometry; never virtual_size
+PORT-kotor-031-video-fix-scope	kotor	031-video-fix-scope	video	recorded	softfp GLES thunks and exact surface contract only
+PORT-kotor-032-native-audio-first	kotor	032-native-audio-first	audio	recorded	FMOD/OpenSL game path retained
+PORT-kotor-033-audio-fallback-condition	kotor	033-audio-fallback-condition	audio	recorded	OpenSL output bridged through SDL/Pulse when Android AudioTrack is absent
+PORT-kotor-034-realtime-safety	kotor	034-realtime-safety	audio	recorded	native channel lifetime preserved
+PORT-kotor-035-portmaster-mapping	kotor	035-portmaster-mapping	input	recorded	SDL database first; narrow VID/PID raw normalizers
+PORT-kotor-036-input-hotplug	kotor	036-input-hotplug	input	recorded	SDL controller path
+PORT-kotor-037-cursor-context	kotor	037-cursor-context	input	recorded	not-applicable: native controller UI
+PORT-kotor-038-single-instance	kotor	038-single-instance	lifecycle	recorded	foreground process
+PORT-kotor-039-save-pause-exit	kotor	039-save-pause-exit	lifecycle	recorded	SELECT+START follows pause and exit path
+PORT-kotor-040-physical-stacks	kotor	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.0.0 loader line","result":"movies, gameplay, audio, controls and exit","stack":"NextOS Mali-450/fbdev"},{"level":"physical-full","release":"v1.0.0 loader line","result":"BYO install, gameplay, audio and clean exit","stack":"R36S/ArkOS Mali-G31/KMSDRM"},{"level":"release-fix","release":"v1.0.4 field fix","result":"unbound buttons, volume and console handback corrected; virgin ZIP and quit path checked","stack":"Knulli RG34XX-SP"}]
+PORT-kotor-041-limitations	kotor	041-limitations	evidence	recorded	["Do not call the full Knulli game lifecycle proven by the field-fix evidence alone","Campaign-wide validation is not claimed"]
+PORT-kotor-042-generalization	kotor	042-generalization	generalization	recorded	{"allowed":["ELF32 runtime selection","softfp-hardfp bridge pattern","real drawable probing"],"forbidden":["copy VID/PID profile to unknown pads","claim Knulli full support from a launcher fix"]}
+PORT-lcs_legacy-001-canonical-id	lcs_legacy	001-canonical-id	identity	recorded	lcs_legacy
+PORT-lcs_legacy-002-title	lcs_legacy	002-title	identity	recorded	GTA Liberty City Stories legacy first loader
+PORT-lcs_legacy-003-support-scope	lcs_legacy	003-support-scope	classification	recorded	local-historical-superseded
+PORT-lcs_legacy-004-publication	lcs_legacy	004-publication	classification	recorded	local-reference
+PORT-lcs_legacy-005-positive-reference	lcs_legacy	005-positive-reference	classification	recorded	true
+PORT-lcs_legacy-006-local-path	lcs_legacy	006-local-path	source	recorded	ports/lcs
+PORT-lcs_legacy-007-remote-url	lcs_legacy	007-remote-url	source	recorded	not-applicable: superseded local tree
+PORT-lcs_legacy-008-source-snapshot	lcs_legacy	008-source-snapshot	source	recorded	97e4d07ce0531b0d398373021be7677913f52c47
+PORT-lcs_legacy-009-release-tag	lcs_legacy	009-release-tag	release	recorded	superseded
+PORT-lcs_legacy-010-release-commit	lcs_legacy	010-release-commit	release	recorded	97e4d07ce0531b0d398373021be7677913f52c47
+PORT-lcs_legacy-011-release-asset	lcs_legacy	011-release-asset	release	recorded	not-applicable: use gtalcs2 as maintained port
+PORT-lcs_legacy-012-release-sha256	lcs_legacy	012-release-sha256	release	recorded	not-applicable: superseded
+PORT-lcs_legacy-013-data-policy	lcs_legacy	013-data-policy	data	recorded	BYO Rockstar APK/WAD
+PORT-lcs_legacy-014-package-identity	lcs_legacy	014-package-identity	data	recorded	com.rockstargames.gtalcs ARM64
+PORT-lcs_legacy-015-version-rule	lcs_legacy	015-version-rule	data	recorded	same guest family as gtalcs2
+PORT-lcs_legacy-016-transactional-install	lcs_legacy	016-transactional-install	data	recorded	historical manual setup
+PORT-lcs_legacy-017-guest-abi	lcs_legacy	017-guest-abi	abi	recorded	Android AArch64
+PORT-lcs_legacy-018-host-abi	lcs_legacy	018-host-abi	abi	recorded	Linux AArch64
+PORT-lcs_legacy-019-elf-class	lcs_legacy	019-elf-class	abi	recorded	ELF64
+PORT-lcs_legacy-020-float-abi	lcs_legacy	020-float-abi	abi	recorded	AAPCS64
+PORT-lcs_legacy-021-interpreter	lcs_legacy	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-lcs_legacy-022-glibc-ceiling	lcs_legacy	022-glibc-ceiling	abi	recorded	historical local artifact
+PORT-lcs_legacy-023-loader-family	lcs_legacy	023-loader-family	loader	recorded	Bully-derived War Drum/Leeds low-level loader
+PORT-lcs_legacy-024-init-array	lcs_legacy	024-init-array	loader	recorded	native constructors
+PORT-lcs_legacy-025-jni-onload	lcs_legacy	025-jni-onload	loader	recorded	low-level/native flow
+PORT-lcs_legacy-026-native-lifecycle	lcs_legacy	026-native-lifecycle	loader	recorded	superseded by clean JNI-table implementation
+PORT-lcs_legacy-027-video-ownership	lcs_legacy	027-video-ownership	video	recorded	Mali-450 fbdev target
+PORT-lcs_legacy-028-backend-detection	lcs_legacy	028-backend-detection	video	recorded	not universal
+PORT-lcs_legacy-029-gles-probe	lcs_legacy	029-gles-probe	video	recorded	GLES2
+PORT-lcs_legacy-030-drawable-size	lcs_legacy	030-drawable-size	video	recorded	1280x720 target
+PORT-lcs_legacy-031-video-fix-scope	lcs_legacy	031-video-fix-scope	video	recorded	historical performance/thread/save hints only
+PORT-lcs_legacy-032-native-audio-first	lcs_legacy	032-native-audio-first	audio	recorded	OpenAL target path
+PORT-lcs_legacy-033-audio-fallback-condition	lcs_legacy	033-audio-fallback-condition	audio	recorded	historical
+PORT-lcs_legacy-034-realtime-safety	lcs_legacy	034-realtime-safety	audio	recorded	not a new framework authority
+PORT-lcs_legacy-035-portmaster-mapping	lcs_legacy	035-portmaster-mapping	input	recorded	event-based target controls
+PORT-lcs_legacy-036-input-hotplug	lcs_legacy	036-input-hotplug	input	recorded	not universal evidence
+PORT-lcs_legacy-037-cursor-context	lcs_legacy	037-cursor-context	input	recorded	not-applicable
+PORT-lcs_legacy-038-single-instance	lcs_legacy	038-single-instance	lifecycle	recorded	historical exact process
+PORT-lcs_legacy-039-save-pause-exit	lcs_legacy	039-save-pause-exit	lifecycle	recorded	playable on-foot target flow
+PORT-lcs_legacy-040-physical-stacks	lcs_legacy	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"legacy local","result":"boot, cutscenes, on-foot gameplay, audio, controls and exit; driving RAM limitation","stack":"NextOS Mali-450/fbdev"}]
+PORT-lcs_legacy-041-limitations	lcs_legacy	041-limitations	evidence	recorded	["Superseded by ports/gtalcs2","Not universal","Do not use as the primary LCS architecture"]
+PORT-lcs_legacy-042-generalization	lcs_legacy	042-generalization	generalization	recorded	{"allowed":["narrow historical save/cloud/thread hints after re-proof"],"forbidden":["base a new port on superseded architecture","claim other devices"]}
+PORT-limbo_local-001-canonical-id	limbo_local	001-canonical-id	identity	recorded	limbo_local
+PORT-limbo_local-002-title	limbo_local	002-title	identity	recorded	LIMBO local loader and audited small package
+PORT-limbo_local-003-support-scope	limbo_local	003-support-scope	classification	recorded	negative-wip
+PORT-limbo_local-004-publication	limbo_local	004-publication	classification	recorded	not-current-official-PortMaster
+PORT-limbo_local-005-positive-reference	limbo_local	005-positive-reference	classification	recorded	false
+PORT-limbo_local-006-local-path	limbo_local	006-local-path	source	recorded	ports/limbo
+PORT-limbo_local-007-remote-url	limbo_local	007-remote-url	source	recorded	not-applicable: no ports/limbo history in current official PortsMaster/PortMaster-New
+PORT-limbo_local-008-source-snapshot	limbo_local	008-source-snapshot	source	recorded	a4ae8cae941eb242d1ce752a21c78d49d5074adc
+PORT-limbo_local-009-release-tag	limbo_local	009-release-tag	release	recorded	not-applicable: WIP
+PORT-limbo_local-010-release-commit	limbo_local	010-release-commit	release	recorded	a4ae8cae941eb242d1ce752a21c78d49d5074adc
+PORT-limbo_local-011-release-asset	limbo_local	011-release-asset	release	recorded	external small package was audited only for launcher shape
+PORT-limbo_local-012-release-sha256	limbo_local	012-release-sha256	release	recorded	not-applicable: no canonical approved release hash
+PORT-limbo_local-013-data-policy	limbo_local	013-data-policy	data	recorded	BYO only
+PORT-limbo_local-014-package-identity	limbo_local	014-package-identity	data	recorded	matching LIMBO Android AArch64 libraries/assets
+PORT-limbo_local-015-version-rule	limbo_local	015-version-rule	data	recorded	contextual bridge refuses unknown layout
+PORT-limbo_local-016-transactional-install	limbo_local	016-transactional-install	data	recorded	not closed as a clean-device product install
+PORT-limbo_local-017-guest-abi	limbo_local	017-guest-abi	abi	recorded	Android AArch64
+PORT-limbo_local-018-host-abi	limbo_local	018-host-abi	abi	recorded	Linux AArch64
+PORT-limbo_local-019-elf-class	limbo_local	019-elf-class	abi	recorded	ELF64
+PORT-limbo_local-020-float-abi	limbo_local	020-float-abi	abi	recorded	AAPCS64
+PORT-limbo_local-021-interpreter	limbo_local	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-limbo_local-022-glibc-ceiling	limbo_local	022-glibc-ceiling	abi	recorded	current-sysroot build; not a universal release
+PORT-limbo_local-023-loader-family	limbo_local	023-loader-family	loader	recorded	NativeActivity/GLES2/Wwise loader
+PORT-limbo_local-024-init-array	limbo_local	024-init-array	loader	recorded	documented native order
+PORT-limbo_local-025-jni-onload	limbo_local	025-jni-onload	loader	recorded	documented
+PORT-limbo_local-026-native-lifecycle	limbo_local	026-native-lifecycle	loader	recorded	GAME ON and press-start reached, final clean validation pending
+PORT-limbo_local-027-video-ownership	limbo_local	027-video-ownership	video	recorded	NextOS Mali fbdev experiment
+PORT-limbo_local-028-backend-detection	limbo_local	028-backend-detection	video	recorded	not proven beyond target
+PORT-limbo_local-029-gles-probe	limbo_local	029-gles-probe	video	recorded	Mali-450 GLES2
+PORT-limbo_local-030-drawable-size	limbo_local	030-drawable-size	video	recorded	target drawable
+PORT-limbo_local-031-video-fix-scope	limbo_local	031-video-fix-scope	video	recorded	ThreadEvent and finish/swap workarounds remain WIP evidence only
+PORT-limbo_local-032-native-audio-first	limbo_local	032-native-audio-first	audio	recorded	Wwise/OpenSL banks through SDL
+PORT-limbo_local-033-audio-fallback-condition	limbo_local	033-audio-fallback-condition	audio	recorded	experimental bridge
+PORT-limbo_local-034-realtime-safety	limbo_local	034-realtime-safety	audio	recorded	not approved as universal evidence
+PORT-limbo_local-035-portmaster-mapping	limbo_local	035-portmaster-mapping	input	recorded	SDL to Android input queue
+PORT-limbo_local-036-input-hotplug	limbo_local	036-input-hotplug	input	recorded	not final
+PORT-limbo_local-037-cursor-context	limbo_local	037-cursor-context	input	recorded	optional cursor mapping not final
+PORT-limbo_local-038-single-instance	limbo_local	038-single-instance	lifecycle	recorded	local launcher exact comm/executable checks
+PORT-limbo_local-039-save-pause-exit	limbo_local	039-save-pause-exit	lifecycle	recorded	reverse NativeActivity shutdown designed; final gameplay validation pending
+PORT-limbo_local-040-physical-stacks	limbo_local	040-physical-stacks	evidence	recorded	[{"level":"negative-wip","release":"local WIP","result":"reached scene/press-start but encountered driver-lock failures and awaits clean-device validation","stack":"NextOS Mali-450/fbdev"}]
+PORT-limbo_local-041-limitations	limbo_local	041-limitations	evidence	recorded	["Must not supply positive workaround code","The small package demonstrates desired launcher size only","No current official PortMaster LIMBO entry was found; Depths of Limbo is another game"]
+PORT-limbo_local-042-generalization	limbo_local	042-generalization	generalization	recorded	{"allowed":["product goal: thin launcher and centralized complexity","negative warning against NOPing waits or misrouting GL imports"],"forbidden":["copy WIP workaround","call it complete","claim official current PortMaster status"]}
+PORT-oceanhorn-001-canonical-id	oceanhorn	001-canonical-id	identity	recorded	oceanhorn
+PORT-oceanhorn-002-title	oceanhorn	002-title	identity	recorded	Oceanhorn: Chronos Dungeon
+PORT-oceanhorn-003-support-scope	oceanhorn	003-support-scope	classification	recorded	multi-device-version-split
+PORT-oceanhorn-004-publication	oceanhorn	004-publication	classification	recorded	current-public
+PORT-oceanhorn-005-positive-reference	oceanhorn	005-positive-reference	classification	recorded	true
+PORT-oceanhorn-006-local-path	oceanhorn	006-local-path	source	recorded	ports/oceanhorn
+PORT-oceanhorn-007-remote-url	oceanhorn	007-remote-url	source	recorded	https://github.com/NextOs-Ports/oceanhorn-nextos
+PORT-oceanhorn-008-source-snapshot	oceanhorn	008-source-snapshot	source	recorded	8f05e0408186236e15d9b6bd4b10d0a1f4c16aa6
+PORT-oceanhorn-009-release-tag	oceanhorn	009-release-tag	release	recorded	v1.0.7
+PORT-oceanhorn-010-release-commit	oceanhorn	010-release-commit	release	recorded	8f05e0408186236e15d9b6bd4b10d0a1f4c16aa6
+PORT-oceanhorn-011-release-asset	oceanhorn	011-release-asset	release	recorded	Oceanhorn.Chronos.Dungeon.Universal.v1.0.7.zip
+PORT-oceanhorn-012-release-sha256	oceanhorn	012-release-sha256	release	recorded	4c3e094c04183408a17e44f8716ce29cb140e3101b9bf303447a1fdcf88ea024
+PORT-oceanhorn-013-data-policy	oceanhorn	013-data-policy	data	recorded	BYO only
+PORT-oceanhorn-014-package-identity	oceanhorn	014-package-identity	data	recorded	Oceanhorn Chronos Dungeon 4.0b54 ARM64 Unity payload
+PORT-oceanhorn-015-version-rule	oceanhorn	015-version-rule	data	recorded	matching Unity libraries and data tree
+PORT-oceanhorn-016-transactional-install	oceanhorn	016-transactional-install	data	recorded	public loader package prepares user-owned data
+PORT-oceanhorn-017-guest-abi	oceanhorn	017-guest-abi	abi	recorded	Android AArch64
+PORT-oceanhorn-018-host-abi	oceanhorn	018-host-abi	abi	recorded	Linux AArch64
+PORT-oceanhorn-019-elf-class	oceanhorn	019-elf-class	abi	recorded	ELF64
+PORT-oceanhorn-020-float-abi	oceanhorn	020-float-abi	abi	recorded	AAPCS64
+PORT-oceanhorn-021-interpreter	oceanhorn	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-oceanhorn-022-glibc-ceiling	oceanhorn	022-glibc-ceiling	abi	recorded	public package <= GLIBC_2.30
+PORT-oceanhorn-023-loader-family	oceanhorn	023-loader-family	loader	recorded	Unity 2022.3.61f1 IL2CPP so-loader
+PORT-oceanhorn-024-init-array	oceanhorn	024-init-array	loader	recorded	module constructors preserved
+PORT-oceanhorn-025-jni-onload	oceanhorn	025-jni-onload	loader	recorded	UnityPlayer JNI entry points in native order
+PORT-oceanhorn-026-native-lifecycle	oceanhorn	026-native-lifecycle	loader	recorded	surface, resume, focus, render, focus loss, pause and teardown
+PORT-oceanhorn-027-video-ownership	oceanhorn	027-video-ownership	video	recorded	firmware EGL/fbdev or SDL/KMS path
+PORT-oceanhorn-028-backend-detection	oceanhorn	028-backend-detection	video	recorded	GLES and memory measured
+PORT-oceanhorn-029-gles-probe	oceanhorn	029-gles-probe	video	recorded	GLES2/GLES3 context and texture capabilities
+PORT-oceanhorn-030-drawable-size	oceanhorn	030-drawable-size	video	recorded	real 640x480 or 1280x720 drawable
+PORT-oceanhorn-031-video-fix-scope	oceanhorn	031-video-fix-scope	video	recorded	external alpha and resident-stream fixes exact to affected assets
+PORT-oceanhorn-032-native-audio-first	oceanhorn	032-native-audio-first	audio	recorded	FMOD data and mixer retained
+PORT-oceanhorn-033-audio-fallback-condition	oceanhorn	033-audio-fallback-condition	audio	recorded	failing async Android stream becomes bounded resident sample; OpenSL output to SDL
+PORT-oceanhorn-034-realtime-safety	oceanhorn	034-realtime-safety	audio	recorded	resident ceiling and soft limiter
+PORT-oceanhorn-035-portmaster-mapping	oceanhorn	035-portmaster-mapping	input	recorded	first SDL controller with Android InputDevice ranges
+PORT-oceanhorn-036-input-hotplug	oceanhorn	036-input-hotplug	input	recorded	SDL controller publication
+PORT-oceanhorn-037-cursor-context	oceanhorn	037-cursor-context	input	recorded	not-applicable: native Rewired/controller path
+PORT-oceanhorn-038-single-instance	oceanhorn	038-single-instance	lifecycle	recorded	foreground process
+PORT-oceanhorn-039-save-pause-exit	oceanhorn	039-save-pause-exit	lifecycle	recorded	pause Unity, flush preferences, stop audio and exit
+PORT-oceanhorn-040-physical-stacks	oceanhorn	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"pre-v1.0.7 compatible loader line","result":"title, cutscene, dungeon, audio, control and exit","stack":"R36S/ArkOS Mali-G31/KMSDRM"},{"level":"physical-full","release":"pre-v1.0.7 compatible loader line","result":"same loader without regression","stack":"NextOS Mali-450/fbdev"},{"level":"release-fix","release":"v1.0.7","result":"real low-memory crash addressed","stack":"ArkOS/AeUX low-memory route"}]
+PORT-oceanhorn-041-limitations	oceanhorn	041-limitations	evidence	recorded	["Full v1.0.7 regression on both original targets is not explicitly recorded","Local multiplayer is unvalidated"]
+PORT-oceanhorn-042-generalization	oceanhorn	042-generalization	generalization	recorded	{"allowed":["bounded stream-to-resident fallback","memory capability profile","Unity teardown order"],"forbidden":["global alpha replacement","claim latest release fully revalidated without a recorded cycle"]}
+PORT-partyboard-001-canonical-id	partyboard	001-canonical-id	identity	recorded	partyboard
+PORT-partyboard-002-title	partyboard	002-title	identity	recorded	PartyBoard / Mario Party 4
+PORT-partyboard-003-support-scope	partyboard	003-support-scope	classification	recorded	single-stack-device-specific
+PORT-partyboard-004-publication	partyboard	004-publication	classification	recorded	current-public
+PORT-partyboard-005-positive-reference	partyboard	005-positive-reference	classification	recorded	true
+PORT-partyboard-006-local-path	partyboard	006-local-path	source	recorded	external:partyboard-nextos
+PORT-partyboard-007-remote-url	partyboard	007-remote-url	source	recorded	https://github.com/NextOs-Ports/partyboard-nextos
+PORT-partyboard-008-source-snapshot	partyboard	008-source-snapshot	source	recorded	6f9d890afef05413fd91fddabaad0114e203e326
+PORT-partyboard-009-release-tag	partyboard	009-release-tag	release	recorded	v1.1
+PORT-partyboard-010-release-commit	partyboard	010-release-commit	release	recorded	6f9d890afef05413fd91fddabaad0114e203e326
+PORT-partyboard-011-release-asset	partyboard	011-release-asset	release	recorded	PartyBoard-NextOS-v1.1.zip
+PORT-partyboard-012-release-sha256	partyboard	012-release-sha256	release	recorded	5c9cda1eeff4d2bd8c67ecad32f52c745684c74e8547de84af3defa7c1d12945
+PORT-partyboard-013-data-policy	partyboard	013-data-policy	data	recorded	BYO GameCube data only
+PORT-partyboard-014-package-identity	partyboard	014-package-identity	data	recorded	Mario Party 4 legal disc data
+PORT-partyboard-015-version-rule	partyboard	015-version-rule	data	recorded	exact PartyBoard/Aurora-supported disc layout
+PORT-partyboard-016-transactional-install	partyboard	016-transactional-install	data	recorded	package contains no game data
+PORT-partyboard-017-guest-abi	partyboard	017-guest-abi	abi	recorded	native decomp/reimplementation
+PORT-partyboard-018-host-abi	partyboard	018-host-abi	abi	recorded	Linux AArch64 Cortex-A53
+PORT-partyboard-019-elf-class	partyboard	019-elf-class	abi	recorded	ELF64
+PORT-partyboard-020-float-abi	partyboard	020-float-abi	abi	recorded	AAPCS64
+PORT-partyboard-021-interpreter	partyboard	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-partyboard-022-glibc-ceiling	partyboard	022-glibc-ceiling	abi	recorded	not established as a universal artifact; device-specific build
+PORT-partyboard-023-loader-family	partyboard	023-loader-family	loader	recorded	native PartyBoard plus Aurora GX-to-GLES2
+PORT-partyboard-024-init-array	partyboard	024-init-array	loader	recorded	native Linux startup
+PORT-partyboard-025-jni-onload	partyboard	025-jni-onload	loader	recorded	not-applicable: no Android JNI
+PORT-partyboard-026-native-lifecycle	partyboard	026-native-lifecycle	loader	recorded	normal PartyBoard boot flow
+PORT-partyboard-027-video-ownership	partyboard	027-video-ownership	video	recorded	bundled SDL3 Mali fbdev on target
+PORT-partyboard-028-backend-detection	partyboard	028-backend-detection	video	recorded	target-specific Mali path; an SDL2 shim experiment has strict recursion caveat
+PORT-partyboard-029-gles-probe	partyboard	029-gles-probe	video	recorded	Mali-450 GLES2 only
+PORT-partyboard-030-drawable-size	partyboard	030-drawable-size	video	recorded	NextOS target display
+PORT-partyboard-031-video-fix-scope	partyboard	031-video-fix-scope	video	recorded	Aurora ES2 and driver program cache tied to exact target
+PORT-partyboard-032-native-audio-first	partyboard	032-native-audio-first	audio	recorded	reconstructed MusyX through SDL3 ALSA
+PORT-partyboard-033-audio-fallback-condition	partyboard	033-audio-fallback-condition	audio	recorded	do not pin audio in experimental SDL2 handoff
+PORT-partyboard-034-realtime-safety	partyboard	034-realtime-safety	audio	recorded	music and SFX physically validated
+PORT-partyboard-035-portmaster-mapping	partyboard	035-portmaster-mapping	input	recorded	SDL3/PortMaster mappings first; exact fallback for 0810:0001
+PORT-partyboard-036-input-hotplug	partyboard	036-input-hotplug	input	recorded	up to four SDL controllers
+PORT-partyboard-037-cursor-context	partyboard	037-cursor-context	input	recorded	not-applicable: native game controller UI
+PORT-partyboard-038-single-instance	partyboard	038-single-instance	lifecycle	recorded	foreground launcher
+PORT-partyboard-039-save-pause-exit	partyboard	039-save-pause-exit	lifecycle	recorded	save and Select+Start frontend return validated
+PORT-partyboard-040-physical-stacks	partyboard	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.1","result":"title, boards, minigames, four controllers, music/SFX, save and exit","stack":"NextOS Elite Amlogic Mali-450/fbdev"}]
+PORT-partyboard-041-limitations	partyboard	041-limitations	evidence	recorded	["Not universal","No other GPU, driver, kernel, firmware or API is claimed","Bundled shader/program cache is driver-specific"]
+PORT-partyboard-042-generalization	partyboard	042-generalization	generalization	recorded	{"allowed":["endianness auditing","PortMaster mapping priority","SDL2-compat recursion detector as a negative guard"],"forbidden":["Mali program cache reuse","claim other devices","copy target-specific SDL3 backend choice"]}
+PORT-pikmin-001-canonical-id	pikmin	001-canonical-id	identity	recorded	pikmin
+PORT-pikmin-002-title	pikmin	002-title	identity	recorded	Pikmin native decomp port
+PORT-pikmin-003-support-scope	pikmin	003-support-scope	classification	recorded	single-stack-device-specific
+PORT-pikmin-004-publication	pikmin	004-publication	classification	recorded	current-public
+PORT-pikmin-005-positive-reference	pikmin	005-positive-reference	classification	recorded	true
+PORT-pikmin-006-local-path	pikmin	006-local-path	source	recorded	external:pikmin-nextos
+PORT-pikmin-007-remote-url	pikmin	007-remote-url	source	recorded	https://github.com/NextOs-Ports/pikmin-nextos
+PORT-pikmin-008-source-snapshot	pikmin	008-source-snapshot	source	recorded	34bf7ae82e6b8fcaca3b1294546312144f86a26a
+PORT-pikmin-009-release-tag	pikmin	009-release-tag	release	recorded	v1.0
+PORT-pikmin-010-release-commit	pikmin	010-release-commit	release	recorded	34bf7ae82e6b8fcaca3b1294546312144f86a26a
+PORT-pikmin-011-release-asset	pikmin	011-release-asset	release	recorded	pikmin.zip
+PORT-pikmin-012-release-sha256	pikmin	012-release-sha256	release	recorded	6279bc7d8e5a5fdacab4808c44f2f59639dc66db6444dbd5e689cb9ba8c5490d
+PORT-pikmin-013-data-policy	pikmin	013-data-policy	data	recorded	BYO legal Pikmin USA Rev 1 disc/RVZ
+PORT-pikmin-014-package-identity	pikmin	014-package-identity	data	recorded	GPIE01_01
+PORT-pikmin-015-version-rule	pikmin	015-version-rule	data	recorded	exact disc/decomp baseline
+PORT-pikmin-016-transactional-install	pikmin	016-transactional-install	data	recorded	package contains no Nintendo data
+PORT-pikmin-017-guest-abi	pikmin	017-guest-abi	abi	recorded	native decomp with console contracts
+PORT-pikmin-018-host-abi	pikmin	018-host-abi	abi	recorded	Linux AArch64
+PORT-pikmin-019-elf-class	pikmin	019-elf-class	abi	recorded	ELF64
+PORT-pikmin-020-float-abi	pikmin	020-float-abi	abi	recorded	AAPCS64 plus audited console-width data
+PORT-pikmin-021-interpreter	pikmin	021-interpreter	abi	recorded	NextOS AArch64 runtime
+PORT-pikmin-022-glibc-ceiling	pikmin	022-glibc-ceiling	abi	recorded	not established as a universal artifact; device-specific build
+PORT-pikmin-023-loader-family	pikmin	023-loader-family	loader	recorded	Pikmin decomp plus Aurora platform layer
+PORT-pikmin-024-init-array	pikmin	024-init-array	loader	recorded	native Linux startup
+PORT-pikmin-025-jni-onload	pikmin	025-jni-onload	loader	recorded	not-applicable: no Android JNI
+PORT-pikmin-026-native-lifecycle	pikmin	026-native-lifecycle	loader	recorded	engine state machine preserved; no forced section
+PORT-pikmin-027-video-ownership	pikmin	027-video-ownership	video	recorded	Aurora GLES2 on Mali fbdev target
+PORT-pikmin-028-backend-detection	pikmin	028-backend-detection	video	recorded	target-specific build
+PORT-pikmin-029-gles-probe	pikmin	029-gles-probe	video	recorded	Mali-450 GLES2
+PORT-pikmin-030-drawable-size	pikmin	030-drawable-size	video	recorded	target display
+PORT-pikmin-031-video-fix-scope	pikmin	031-video-fix-scope	video	recorded	console endianness, pointer-width and scheduler contracts only
+PORT-pikmin-032-native-audio-first	pikmin	032-native-audio-first	audio	recorded	project audio path validated only on target release
+PORT-pikmin-033-audio-fallback-condition	pikmin	033-audio-fallback-condition	audio	recorded	no universal fallback inferred
+PORT-pikmin-034-realtime-safety	pikmin	034-realtime-safety	audio	recorded	target release evidence only
+PORT-pikmin-035-portmaster-mapping	pikmin	035-portmaster-mapping	input	recorded	Aurora/SDL controller path
+PORT-pikmin-036-input-hotplug	pikmin	036-input-hotplug	input	recorded	target SDL path
+PORT-pikmin-037-cursor-context	pikmin	037-cursor-context	input	recorded	not-applicable: native PADRead game controls
+PORT-pikmin-038-single-instance	pikmin	038-single-instance	lifecycle	recorded	foreground package flow
+PORT-pikmin-039-save-pause-exit	pikmin	039-save-pause-exit	lifecycle	recorded	target release save and frontend exit evidence
+PORT-pikmin-040-physical-stacks	pikmin	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.0","result":"boot, gameplay, audio, controls, save and exit reported by release evidence","stack":"NextOS Elite Mali-450/fbdev"}]
+PORT-pikmin-041-limitations	pikmin	041-limitations	evidence	recorded	["Not universal","Host/null-backend flow tests do not prove another physical GPU","No ArkOS, muOS, ROCKNIX or Knulli support claim"]
+PORT-pikmin-042-generalization	pikmin	042-generalization	generalization	recorded	{"allowed":["strict endianness and pointer-width audit","preserve engine state machine"],"forbidden":["reuse Aurora/Mali configuration as universal","claim all devices","treat host headless validation as physical-device proof"]}
+PORT-prizefighters2-001-canonical-id	prizefighters2	001-canonical-id	identity	recorded	prizefighters2
+PORT-prizefighters2-002-title	prizefighters2	002-title	identity	recorded	Prizefighters 2
+PORT-prizefighters2-003-support-scope	prizefighters2	003-support-scope	classification	recorded	multi-device-partial
+PORT-prizefighters2-004-publication	prizefighters2	004-publication	classification	recorded	current-public
+PORT-prizefighters2-005-positive-reference	prizefighters2	005-positive-reference	classification	recorded	true
+PORT-prizefighters2-006-local-path	prizefighters2	006-local-path	source	recorded	ports/pf2
+PORT-prizefighters2-007-remote-url	prizefighters2	007-remote-url	source	recorded	https://github.com/NextOs-Ports/prizefighters2-nextos
+PORT-prizefighters2-008-source-snapshot	prizefighters2	008-source-snapshot	source	recorded	b859b8a27942c319f141f7f3f10a323ad96cf05a
+PORT-prizefighters2-009-release-tag	prizefighters2	009-release-tag	release	recorded	v1.0.2
+PORT-prizefighters2-010-release-commit	prizefighters2	010-release-commit	release	recorded	b859b8a27942c319f141f7f3f10a323ad96cf05a
+PORT-prizefighters2-011-release-asset	prizefighters2	011-release-asset	release	recorded	Prizefighters.2.NextOS-v1.0.2.zip
+PORT-prizefighters2-012-release-sha256	prizefighters2	012-release-sha256	release	recorded	376f059cacd623d2ae9eb25deb7eae808581929ee9e4032ce102160c3fa48d1e
+PORT-prizefighters2-013-data-policy	prizefighters2	013-data-policy	data	recorded	BYO only
+PORT-prizefighters2-014-package-identity	prizefighters2	014-package-identity	data	recorded	Prizefighters 2 v1.09.3 XAPK with arm64 split
+PORT-prizefighters2-015-version-rule	prizefighters2	015-version-rule	data	recorded	exact Unity libraries, PairIP layout and data hashes
+PORT-prizefighters2-016-transactional-install	prizefighters2	016-transactional-install	data	recorded	NXExtract plus deterministic GLES2 shader-data preparation
+PORT-prizefighters2-017-guest-abi	prizefighters2	017-guest-abi	abi	recorded	Android AArch64
+PORT-prizefighters2-018-host-abi	prizefighters2	018-host-abi	abi	recorded	Linux AArch64
+PORT-prizefighters2-019-elf-class	prizefighters2	019-elf-class	abi	recorded	ELF64
+PORT-prizefighters2-020-float-abi	prizefighters2	020-float-abi	abi	recorded	AAPCS64
+PORT-prizefighters2-021-interpreter	prizefighters2	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-prizefighters2-022-glibc-ceiling	prizefighters2	022-glibc-ceiling	abi	recorded	public package <= GLIBC_2.30
+PORT-prizefighters2-023-loader-family	prizefighters2	023-loader-family	loader	recorded	Unity 2022.3.62f2 IL2CPP multi-module loader
+PORT-prizefighters2-024-init-array	prizefighters2	024-init-array	loader	recorded	module constructors in NativeLoader order
+PORT-prizefighters2-025-jni-onload	prizefighters2	025-jni-onload	loader	recorded	libmain, libil2cpp and libunity in original order
+PORT-prizefighters2-026-native-lifecycle	prizefighters2	026-native-lifecycle	loader	recorded	UnityPlayer init, surfaces, input, render and teardown
+PORT-prizefighters2-027-video-ownership	prizefighters2	027-video-ownership	video	recorded	firmware SDL/EGL
+PORT-prizefighters2-028-backend-detection	prizefighters2	028-backend-detection	video	recorded	GLES capability selected by actual context
+PORT-prizefighters2-029-gles-probe	prizefighters2	029-gles-probe	video	recorded	GLES3 request reduced to proven GLES2 path only where required
+PORT-prizefighters2-030-drawable-size	prizefighters2	030-drawable-size	video	recorded	real drawable
+PORT-prizefighters2-031-video-fix-scope	prizefighters2	031-video-fix-scope	video	recorded	translated platform-5 shader variants belong to exact Unity asset
+PORT-prizefighters2-032-native-audio-first	prizefighters2	032-native-audio-first	audio	recorded	original Unity/FMOD mixer
+PORT-prizefighters2-033-audio-fallback-condition	prizefighters2	033-audio-fallback-condition	audio	recorded	FMODAudioDevice loop queues PCM to SDL
+PORT-prizefighters2-034-realtime-safety	prizefighters2	034-realtime-safety	audio	recorded	dedicated output loop
+PORT-prizefighters2-035-portmaster-mapping	prizefighters2	035-portmaster-mapping	input	recorded	SDL GameController database first plus conservative fallbacks
+PORT-prizefighters2-036-input-hotplug	prizefighters2	036-input-hotplug	input	recorded	up to eight devices and joystick fallback
+PORT-prizefighters2-037-cursor-context	prizefighters2	037-cursor-context	input	recorded	right stick polished pointer and R3 click in menus; gameplay retains native actions
+PORT-prizefighters2-038-single-instance	prizefighters2	038-single-instance	lifecycle	recorded	foreground process
+PORT-prizefighters2-039-save-pause-exit	prizefighters2	039-save-pause-exit	lifecycle	recorded	settings persistence and exit route validated on target
+PORT-prizefighters2-040-physical-stacks	prizefighters2	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.0.2 line","result":"title, tutorial, fight, image, FMOD, control and settings","stack":"NextOS Mali-450/fbdev"},{"level":"physical-subsystem","release":"v1.0.2","result":"clean XAPK extraction, GLES2, ALSA and 820-frame playable boot","stack":"R36S/ArkOS Mali-G31/KMSDRM"}]
+PORT-prizefighters2-041-limitations	prizefighters2	041-limitations	evidence	recorded	["ArkOS evidence is not promoted to a complete long-session lifecycle","One ordinal-device correction awaited community retest"]
+PORT-prizefighters2-042-generalization	prizefighters2	042-generalization	generalization	recorded	{"allowed":["Unity module order","context-separated cursor","managed Input System device publication"],"forbidden":["reuse shader patches on another Unity asset","claim full ArkOS cycle from boot evidence"]}
+PORT-sonic4ep2-001-canonical-id	sonic4ep2	001-canonical-id	identity	recorded	sonic4ep2
+PORT-sonic4ep2-002-title	sonic4ep2	002-title	identity	recorded	Sonic the Hedgehog 4: Episode II
+PORT-sonic4ep2-003-support-scope	sonic4ep2	003-support-scope	classification	recorded	multi-device-mixed-evidence
+PORT-sonic4ep2-004-publication	sonic4ep2	004-publication	classification	recorded	current-public
+PORT-sonic4ep2-005-positive-reference	sonic4ep2	005-positive-reference	classification	recorded	true
+PORT-sonic4ep2-006-local-path	sonic4ep2	006-local-path	source	recorded	ports/sonic4
+PORT-sonic4ep2-007-remote-url	sonic4ep2	007-remote-url	source	recorded	https://github.com/NextOs-Ports/sonic4ep2-nextos
+PORT-sonic4ep2-008-source-snapshot	sonic4ep2	008-source-snapshot	source	recorded	e162654d074dc2f98185a4cf65c1ec47513146bc
+PORT-sonic4ep2-009-release-tag	sonic4ep2	009-release-tag	release	recorded	v6
+PORT-sonic4ep2-010-release-commit	sonic4ep2	010-release-commit	release	recorded	e162654d074dc2f98185a4cf65c1ec47513146bc
+PORT-sonic4ep2-011-release-asset	sonic4ep2	011-release-asset	release	recorded	sonic4ep2.zip
+PORT-sonic4ep2-012-release-sha256	sonic4ep2	012-release-sha256	release	recorded	5d4c7647494cf8212f33bc96bedca4dbcd723c0b6e682c93a372b84bb93fffc6
+PORT-sonic4ep2-013-data-policy	sonic4ep2	013-data-policy	data	recorded	BYO only
+PORT-sonic4ep2-014-package-identity	sonic4ep2	014-package-identity	data	recorded	Android 3.0.0-109 ARM64 libfox plus matching assets
+PORT-sonic4ep2-015-version-rule	sonic4ep2	015-version-rule	data	recorded	ARM64 split and data validated together; old 2.0.0 ARMv7 is another engine
+PORT-sonic4ep2-016-transactional-install	sonic4ep2	016-transactional-install	data	recorded	first-run validator/extractor for user package
+PORT-sonic4ep2-017-guest-abi	sonic4ep2	017-guest-abi	abi	recorded	Android AArch64; old ARMv7 explicitly separate
+PORT-sonic4ep2-018-host-abi	sonic4ep2	018-host-abi	abi	recorded	Linux AArch64
+PORT-sonic4ep2-019-elf-class	sonic4ep2	019-elf-class	abi	recorded	ELF64 for v6
+PORT-sonic4ep2-020-float-abi	sonic4ep2	020-float-abi	abi	recorded	AAPCS64
+PORT-sonic4ep2-021-interpreter	sonic4ep2	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-sonic4ep2-022-glibc-ceiling	sonic4ep2	022-glibc-ceiling	abi	recorded	public Linux ELFs audited for low-glibc policy
+PORT-sonic4ep2-023-loader-family	sonic4ep2	023-loader-family	loader	recorded	SEGA libfox AArch64 ELF loader
+PORT-sonic4ep2-024-init-array	sonic4ep2	024-init-array	loader	recorded	constructors and aliases preserved
+PORT-sonic4ep2-025-jni-onload	sonic4ep2	025-jni-onload	loader	recorded	native registration preserved
+PORT-sonic4ep2-026-native-lifecycle	sonic4ep2	026-native-lifecycle	loader	recorded	engine launch and gameplay flow preserved
+PORT-sonic4ep2-027-video-ownership	sonic4ep2	027-video-ownership	video	recorded	firmware EGL/GLES
+PORT-sonic4ep2-028-backend-detection	sonic4ep2	028-backend-detection	video	recorded	device study separates fbdev, KMSDRM and Panfrost
+PORT-sonic4ep2-029-gles-probe	sonic4ep2	029-gles-probe	video	recorded	actual GLES path
+PORT-sonic4ep2-030-drawable-size	sonic4ep2	030-drawable-size	video	recorded	real target size
+PORT-sonic4ep2-031-video-fix-scope	sonic4ep2	031-video-fix-scope	video	recorded	engine-specific audio/video fixes stay versioned
+PORT-sonic4ep2-032-native-audio-first	sonic4ep2	032-native-audio-first	audio	recorded	engine audio retained with redistributable decoder fallbacks
+PORT-sonic4ep2-033-audio-fallback-condition	sonic4ep2	033-audio-fallback-condition	audio	recorded	output route changes only after detected failure
+PORT-sonic4ep2-034-realtime-safety	sonic4ep2	034-realtime-safety	audio	recorded	music and SFX proven on recorded targets
+PORT-sonic4ep2-035-portmaster-mapping	sonic4ep2	035-portmaster-mapping	input	recorded	PortMaster/SDL controller mapping
+PORT-sonic4ep2-036-input-hotplug	sonic4ep2	036-input-hotplug	input	recorded	firmware controller path
+PORT-sonic4ep2-037-cursor-context	sonic4ep2	037-cursor-context	input	recorded	not-applicable: native Sonic controls
+PORT-sonic4ep2-038-single-instance	sonic4ep2	038-single-instance	lifecycle	recorded	foreground game instance
+PORT-sonic4ep2-039-save-pause-exit	sonic4ep2	039-save-pause-exit	lifecycle	recorded	save/audio/exit evidenced on prior physical runs
+PORT-sonic4ep2-040-physical-stacks	sonic4ep2	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v6","result":"end-to-end playable release","stack":"NextOS Mali-450/fbdev"},{"level":"physical-full","release":"v5 loader line","result":"runtime, save and audio","stack":"R36S/ArkOS"},{"level":"physical-full","release":"v5 loader line","result":"gameplay, music and SFX","stack":"NextOS X5M"},{"level":"community-confirmed","release":"reported v6 line","result":"reported working","stack":"muOS and ROCKNIX/Panfrost"}]
+PORT-sonic4ep2-041-limitations	sonic4ep2	041-limitations	evidence	recorded	["Community reports are not local instrumentation","ARMv7 is a different artifact and engine","Historical STATUS contains sensitive hygiene issues and must not be copied into packages"]
+PORT-sonic4ep2-042-generalization	sonic4ep2	042-generalization	generalization	recorded	{"allowed":["independent AArch64 loader cross-check","ABI separation","decoder fallback packaging"],"forbidden":["merge ARMv7 and ARM64 offsets","promote community report to physical-full","copy raw IP/path logs"]}
+PORT-sor4-001-canonical-id	sor4	001-canonical-id	identity	recorded	sor4
+PORT-sor4-002-title	sor4	002-title	identity	recorded	Streets of Rage 4
+PORT-sor4-003-support-scope	sor4	003-support-scope	classification	recorded	single-stack-validated-public
+PORT-sor4-004-publication	sor4	004-publication	classification	recorded	current-public
+PORT-sor4-005-positive-reference	sor4	005-positive-reference	classification	recorded	true
+PORT-sor4-006-local-path	sor4	006-local-path	source	recorded	ports/sor4
+PORT-sor4-007-remote-url	sor4	007-remote-url	source	recorded	https://github.com/NextOs-Ports/sor4-nextos
+PORT-sor4-008-source-snapshot	sor4	008-source-snapshot	source	recorded	8769082f0d029f526c6560aa504c258982ee2e2e
+PORT-sor4-009-release-tag	sor4	009-release-tag	release	recorded	v2.0.2
+PORT-sor4-010-release-commit	sor4	010-release-commit	release	recorded	8769082f0d029f526c6560aa504c258982ee2e2e
+PORT-sor4-011-release-asset	sor4	011-release-asset	release	recorded	sor4.zip
+PORT-sor4-012-release-sha256	sor4	012-release-sha256	release	recorded	5e4641ffc00e59261539de71534f99c77f24c7a469c975532bc0312ad23aa48c
+PORT-sor4-013-data-policy	sor4	013-data-policy	data	recorded	BYO game data
+PORT-sor4-014-package-identity	sor4	014-package-identity	data	recorded	SOR4 data compatible with canonical package
+PORT-sor4-015-version-rule	sor4	015-version-rule	data	recorded	canonical repository recipe only
+PORT-sor4-016-transactional-install	sor4	016-transactional-install	data	recorded	deterministic public package and SHA sidecar
+PORT-sor4-017-guest-abi	sor4	017-guest-abi	abi	recorded	native .NET 9/CoreCLR and MonoGame
+PORT-sor4-018-host-abi	sor4	018-host-abi	abi	recorded	Linux AArch64
+PORT-sor4-019-elf-class	sor4	019-elf-class	abi	recorded	ELF64
+PORT-sor4-020-float-abi	sor4	020-float-abi	abi	recorded	AAPCS64
+PORT-sor4-021-interpreter	sor4	021-interpreter	abi	recorded	host AArch64 runtime
+PORT-sor4-022-glibc-ceiling	sor4	022-glibc-ceiling	abi	recorded	all public ELFs <= GLIBC_2.30 via port/wwise-native/build-glibc230.sh
+PORT-sor4-023-loader-family	sor4	023-loader-family	loader	recorded	CoreCLR/MonoGame application, not Android so-loader
+PORT-sor4-024-init-array	sor4	024-init-array	loader	recorded	native Linux runtime startup
+PORT-sor4-025-jni-onload	sor4	025-jni-onload	loader	recorded	not-applicable: no Android JNI
+PORT-sor4-026-native-lifecycle	sor4	026-native-lifecycle	loader	recorded	managed game flow retained
+PORT-sor4-027-video-ownership	sor4	027-video-ownership	video	recorded	SDL/MonoGame firmware path
+PORT-sor4-028-backend-detection	sor4	028-backend-detection	video	recorded	GLES and compressed-texture capabilities probed
+PORT-sor4-029-gles-probe	sor4	029-gles-probe	video	recorded	ASTC/ETC/RAM profiles
+PORT-sor4-030-drawable-size	sor4	030-drawable-size	video	recorded	firmware drawable
+PORT-sor4-031-video-fix-scope	sor4	031-video-fix-scope	video	recorded	texture profile selected from capability and memory
+PORT-sor4-032-native-audio-first	sor4	032-native-audio-first	audio	recorded	OpenAL/ALSA through managed runtime
+PORT-sor4-033-audio-fallback-condition	sor4	033-audio-fallback-condition	audio	recorded	real output selection after probe
+PORT-sor4-034-realtime-safety	sor4	034-realtime-safety	audio	recorded	extended gameplay audio validated
+PORT-sor4-035-portmaster-mapping	sor4	035-portmaster-mapping	input	recorded	SDL/PortMaster mapping
+PORT-sor4-036-input-hotplug	sor4	036-input-hotplug	input	recorded	runtime controller path
+PORT-sor4-037-cursor-context	sor4	037-cursor-context	input	recorded	not-applicable: native controls
+PORT-sor4-038-single-instance	sor4	038-single-instance	lifecycle	recorded	owned child PID supervisor
+PORT-sor4-039-save-pause-exit	sor4	039-save-pause-exit	lifecycle	recorded	managed exit and frontend return
+PORT-sor4-040-physical-stacks	sor4	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v2.0.2","result":"extended gameplay, ASTC art, audio, effects and controls","stack":"R36S/ArkOS, about 639 MiB plus zram"}]
+PORT-sor4-041-limitations	sor4	041-limitations	evidence	recorded	["Not physically proven on every claimed AArch64 target","Its managed runtime architecture must not be confused with nxloader"]
+PORT-sor4-042-generalization	sor4	042-generalization	generalization	recorded	{"allowed":["release glibc gate","compressed texture capability profile","owned-PID supervisor"],"forbidden":["use historical sor4wwise build recipe","reuse old ZIP after source change","claim multi-device physical support from design"]}
+PORT-stardewvalley-001-canonical-id	stardewvalley	001-canonical-id	identity	recorded	stardewvalley
+PORT-stardewvalley-002-title	stardewvalley	002-title	identity	recorded	Stardew Valley
+PORT-stardewvalley-003-support-scope	stardewvalley	003-support-scope	classification	recorded	multi-device-version-split
+PORT-stardewvalley-004-publication	stardewvalley	004-publication	classification	recorded	current-public
+PORT-stardewvalley-005-positive-reference	stardewvalley	005-positive-reference	classification	recorded	true
+PORT-stardewvalley-006-local-path	stardewvalley	006-local-path	source	recorded	ports/stardewvalley
+PORT-stardewvalley-007-remote-url	stardewvalley	007-remote-url	source	recorded	https://github.com/NextOs-Ports/stardewvalley-nextos
+PORT-stardewvalley-008-source-snapshot	stardewvalley	008-source-snapshot	source	recorded	b2357913204f7199e83efd92113ce6fb118091cf
+PORT-stardewvalley-009-release-tag	stardewvalley	009-release-tag	release	recorded	v1.1.8
+PORT-stardewvalley-010-release-commit	stardewvalley	010-release-commit	release	recorded	b2357913204f7199e83efd92113ce6fb118091cf
+PORT-stardewvalley-011-release-asset	stardewvalley	011-release-asset	release	recorded	Stardew.Valley.NextOS.zip
+PORT-stardewvalley-012-release-sha256	stardewvalley	012-release-sha256	release	recorded	a501093701d0d544ed90dbfb4b023413b98fca1c1852c270f442325c4fa9978d
+PORT-stardewvalley-013-data-policy	stardewvalley	013-data-policy	data	recorded	BYO only
+PORT-stardewvalley-014-package-identity	stardewvalley	014-package-identity	data	recorded	com.chucklefish.stardewvalley 1.6.15.3 arm64
+PORT-stardewvalley-015-version-rule	stardewvalley	015-version-rule	data	recorded	package/ABI/assembly-store structure
+PORT-stardewvalley-016-transactional-install	stardewvalley	016-transactional-install	data	recorded	NXExtract transaction and migration marker
+PORT-stardewvalley-017-guest-abi	stardewvalley	017-guest-abi	abi	recorded	Android AArch64 Mono-Android/.NET 8
+PORT-stardewvalley-018-host-abi	stardewvalley	018-host-abi	abi	recorded	Linux AArch64
+PORT-stardewvalley-019-elf-class	stardewvalley	019-elf-class	abi	recorded	ELF64
+PORT-stardewvalley-020-float-abi	stardewvalley	020-float-abi	abi	recorded	AAPCS64
+PORT-stardewvalley-021-interpreter	stardewvalley	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-stardewvalley-022-glibc-ceiling	stardewvalley	022-glibc-ceiling	abi	recorded	public compatibility loader <= GLIBC_2.30
+PORT-stardewvalley-023-loader-family	stardewvalley	023-loader-family	loader	recorded	AArch64 Mono-Android/.NET runtime loader
+PORT-stardewvalley-024-init-array	stardewvalley	024-init-array	loader	recorded	runtime constructors preserved
+PORT-stardewvalley-025-jni-onload	stardewvalley	025-jni-onload	loader	recorded	managed/native registration preserved
+PORT-stardewvalley-026-native-lifecycle	stardewvalley	026-native-lifecycle	loader	recorded	full MonoGame game flow
+PORT-stardewvalley-027-video-ownership	stardewvalley	027-video-ownership	video	recorded	firmware SDL/EGL; MonoGame path
+PORT-stardewvalley-028-backend-detection	stardewvalley	028-backend-detection	video	recorded	capability-first and no backend forcing
+PORT-stardewvalley-029-gles-probe	stardewvalley	029-gles-probe	video	recorded	Panfrost/firmware path measured
+PORT-stardewvalley-030-drawable-size	stardewvalley	030-drawable-size	video	recorded	real viewport and managed zoom
+PORT-stardewvalley-031-video-fix-scope	stardewvalley	031-video-fix-scope	video	recorded	zoom and renderer fixes remain Stardew-specific
+PORT-stardewvalley-032-native-audio-first	stardewvalley	032-native-audio-first	audio	recorded	managed game audio through inherited firmware output
+PORT-stardewvalley-033-audio-fallback-condition	stardewvalley	033-audio-fallback-condition	audio	recorded	no forced SDL audio backend
+PORT-stardewvalley-034-realtime-safety	stardewvalley	034-realtime-safety	audio	recorded	physical sessions include audio
+PORT-stardewvalley-035-portmaster-mapping	stardewvalley	035-portmaster-mapping	input	recorded	PortMaster handoff and managed Android/MonoGame input
+PORT-stardewvalley-036-input-hotplug	stardewvalley	036-input-hotplug	input	recorded	firmware SDL path
+PORT-stardewvalley-037-cursor-context	stardewvalley	037-cursor-context	input	recorded	right-stick cursor is Stardew-specific and not universal
+PORT-stardewvalley-038-single-instance	stardewvalley	038-single-instance	lifecycle	recorded	launcher supervises exact child; global old-instance killer removed
+PORT-stardewvalley-039-save-pause-exit	stardewvalley	039-save-pause-exit	lifecycle	recorded	save and exit validated on full-test releases
+PORT-stardewvalley-040-physical-stacks	stardewvalley	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.1.3","result":"game, audio, control, save and exit","stack":"NextOS Mali-450/fbdev"},{"level":"physical-full","release":"v1.1.3","result":"full lifecycle","stack":"R36S/ArkOS Mali-G31/KMSDRM"},{"level":"community-confirmed","release":"v1.1.1","result":"reported working","stack":"RG40XX-H/muOS"},{"level":"release-fix","release":"v1.1.2+","result":"classification fix shipped; retest pending","stack":"ROCKNIX/Panfrost"},{"level":"release-fix","release":"v1.1.8","result":"installer regression fixed","stack":"release pipeline"}]
+PORT-stardewvalley-041-limitations	stardewvalley	041-limitations	evidence	recorded	["Latest v1.1.8 is not automatically the physically tested version on every stack","muOS physical confirmation belongs to v1.1.1"]
+PORT-stardewvalley-042-generalization	stardewvalley	042-generalization	generalization	recorded	{"allowed":["thin wrapper","early durable logging","NXExtract/runtime isolation"],"forbidden":["global process killer","Stardew cursor or zoom as framework default","claim latest all-device validation"]}
+PORT-summertimesaga-001-canonical-id	summertimesaga	001-canonical-id	identity	recorded	summertimesaga
+PORT-summertimesaga-002-title	summertimesaga	002-title	identity	recorded	Summertime Saga Preview
+PORT-summertimesaga-003-support-scope	summertimesaga	003-support-scope	classification	recorded	single-full-plus-subsystem
+PORT-summertimesaga-004-publication	summertimesaga	004-publication	classification	recorded	current-public
+PORT-summertimesaga-005-positive-reference	summertimesaga	005-positive-reference	classification	recorded	true
+PORT-summertimesaga-006-local-path	summertimesaga	006-local-path	source	recorded	ports/summertimesaga
+PORT-summertimesaga-007-remote-url	summertimesaga	007-remote-url	source	recorded	https://github.com/NextOs-Ports/summertimesaga-nextos
+PORT-summertimesaga-008-source-snapshot	summertimesaga	008-source-snapshot	source	recorded	8ad583b5a3328718006a180b1bb10b6992df376a
+PORT-summertimesaga-009-release-tag	summertimesaga	009-release-tag	release	recorded	v1.1.1
+PORT-summertimesaga-010-release-commit	summertimesaga	010-release-commit	release	recorded	8ad583b5a3328718006a180b1bb10b6992df376a
+PORT-summertimesaga-011-release-asset	summertimesaga	011-release-asset	release	recorded	summertimesaga.zip
+PORT-summertimesaga-012-release-sha256	summertimesaga	012-release-sha256	release	recorded	88210cd2ad1f271f592ed5bbf9a8c2efbebc2c48c266bf140e62dc05fcdf5f32
+PORT-summertimesaga-013-data-policy	summertimesaga	013-data-policy	data	recorded	BYO only
+PORT-summertimesaga-014-package-identity	summertimesaga	014-package-identity	data	recorded	com.kompasproductions.summertimesaga Preview 21+, Ren'Py 8.5.3+
+PORT-summertimesaga-015-version-rule	summertimesaga	015-version-rule	data	recorded	package identity, generation, numeric version and AArch64 librenpython
+PORT-summertimesaga-016-transactional-install	summertimesaga	016-transactional-install	data	recorded	NXExtract transactional install/update with old live data retained until commit
+PORT-summertimesaga-017-guest-abi	summertimesaga	017-guest-abi	abi	recorded	Android AArch64
+PORT-summertimesaga-018-host-abi	summertimesaga	018-host-abi	abi	recorded	Linux AArch64 with separate NextOS and compatibility loaders
+PORT-summertimesaga-019-elf-class	summertimesaga	019-elf-class	abi	recorded	ELF64
+PORT-summertimesaga-020-float-abi	summertimesaga	020-float-abi	abi	recorded	AAPCS64
+PORT-summertimesaga-021-interpreter	summertimesaga	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-summertimesaga-022-glibc-ceiling	summertimesaga	022-glibc-ceiling	abi	recorded	compatibility loader <= GLIBC_2.30; NextOS loader separate
+PORT-summertimesaga-023-loader-family	summertimesaga	023-loader-family	loader	recorded	Ren'Py 8.5/librenpython AArch64 loader
+PORT-summertimesaga-024-init-array	summertimesaga	024-init-array	loader	recorded	native constructors preserved
+PORT-summertimesaga-025-jni-onload	summertimesaga	025-jni-onload	loader	recorded	Ren'Py registration path preserved
+PORT-summertimesaga-026-native-lifecycle	summertimesaga	026-native-lifecycle	loader	recorded	Android/Ren'Py startup and callbacks retained
+PORT-summertimesaga-027-video-ownership	summertimesaga	027-video-ownership	video	recorded	firmware SDL/EGL
+PORT-summertimesaga-028-backend-detection	summertimesaga	028-backend-detection	video	recorded	OS and actual GLES/memory profile
+PORT-summertimesaga-029-gles-probe	summertimesaga	029-gles-probe	video	recorded	GLES2/GLES3 and ETC profile
+PORT-summertimesaga-030-drawable-size	summertimesaga	030-drawable-size	video	recorded	real 640x480 or target drawable
+PORT-summertimesaga-031-video-fix-scope	summertimesaga	031-video-fix-scope	video	recorded	Mali OSD2 cursor and ETC1 dual layer only on proven route
+PORT-summertimesaga-032-native-audio-first	summertimesaga	032-native-audio-first	audio	recorded	Ren'Py game audio through inherited output
+PORT-summertimesaga-033-audio-fallback-condition	summertimesaga	033-audio-fallback-condition	audio	recorded	ArkOS ALSA route after measured environment
+PORT-summertimesaga-034-realtime-safety	summertimesaga	034-realtime-safety	audio	recorded	full Ark session with audio
+PORT-summertimesaga-035-portmaster-mapping	summertimesaga	035-portmaster-mapping	input	recorded	PortMaster function keys and native shortcuts
+PORT-summertimesaga-036-input-hotplug	summertimesaga	036-input-hotplug	input	recorded	firmware controller path
+PORT-summertimesaga-037-cursor-context	summertimesaga	037-cursor-context	input	recorded	hardware arrow only on validated NextOS OSD2; GL arrow elsewhere; right stick/R3 menu context
+PORT-summertimesaga-038-single-instance	summertimesaga	038-single-instance	lifecycle	recorded	foreground launcher
+PORT-summertimesaga-039-save-pause-exit	summertimesaga	039-save-pause-exit	lifecycle	recorded	save slot and clean Select+Start exit validated on ArkOS
+PORT-summertimesaga-040-physical-stacks	summertimesaga	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.1.1","result":"install, title, prologue, free-roam, shortcuts, save, ALSA audio and exit","stack":"R36S/ArkOS Mali-G31/KMSDRM"},{"level":"physical-subsystem","release":"loader route","result":"OSD2 hardware cursor and ETC1 dual-layer texture path","stack":"NextOS Mali-450/fbdev"}]
+PORT-summertimesaga-041-limitations	summertimesaga	041-limitations	evidence	recorded	["Other PortMaster-class AArch64 firmware are designed targets, not physical claims","NextOS evidence does not by itself establish the same full session as ArkOS"]
+PORT-summertimesaga-042-generalization	summertimesaga	042-generalization	generalization	recorded	{"allowed":["separate current-sysroot and low-glibc loaders","transactional update","cursor route selected by capability"],"forbidden":["force hardware cursor on unknown compositor","claim all AArch64 CFWs validated"]}
+PORT-tasm2_127-001-canonical-id	tasm2_127	001-canonical-id	identity	recorded	tasm2_127
+PORT-tasm2_127-002-title	tasm2_127	002-title	identity	recorded	The Amazing Spider-Man 2 Android 1.2.7d
+PORT-tasm2_127-003-support-scope	tasm2_127	003-support-scope	classification	recorded	multi-device-version-split
+PORT-tasm2_127-004-publication	tasm2_127	004-publication	classification	recorded	current-public
+PORT-tasm2_127-005-positive-reference	tasm2_127	005-positive-reference	classification	recorded	true
+PORT-tasm2_127-006-local-path	tasm2_127	006-local-path	source	recorded	ports/asm2_127
+PORT-tasm2_127-007-remote-url	tasm2_127	007-remote-url	source	recorded	https://github.com/NextOs-Ports/tasm2-nextos
+PORT-tasm2_127-008-source-snapshot	tasm2_127	008-source-snapshot	source	recorded	local 553da3198b20b13da69e87544db29df80cd11ec8; public f8ef291ff8e2f60160a156434475c738a9d43f18
+PORT-tasm2_127-009-release-tag	tasm2_127	009-release-tag	release	recorded	v1.1.9
+PORT-tasm2_127-010-release-commit	tasm2_127	010-release-commit	release	recorded	f8ef291ff8e2f60160a156434475c738a9d43f18
+PORT-tasm2_127-011-release-asset	tasm2_127	011-release-asset	release	recorded	asm2.zip
+PORT-tasm2_127-012-release-sha256	tasm2_127	012-release-sha256	release	recorded	d1a2a200b2e4680265d947fb4766f953a640b90f32251759c4ce0dc47b2d15d2
+PORT-tasm2_127-013-data-policy	tasm2_127	013-data-policy	data	recorded	BYO only
+PORT-tasm2_127-014-package-identity	tasm2_127	014-package-identity	data	recorded	Gameloft TASM2 1.2.7d versionCode 12723 plus matching expansions
+PORT-tasm2_127-015-version-rule	tasm2_127	015-version-rule	data	recorded	exact guest hashes/layout with clean-room boundary
+PORT-tasm2_127-016-transactional-install	tasm2_127	016-transactional-install	data	recorded	damaged source ZIP recovery validates physical records/CRC and publishes normalized runtime copy
+PORT-tasm2_127-017-guest-abi	tasm2_127	017-guest-abi	abi	recorded	Android ARMv7 plus optional Android i386
+PORT-tasm2_127-018-host-abi	tasm2_127	018-host-abi	abi	recorded	Linux ARMHF direct or AArch64 Box32 route
+PORT-tasm2_127-019-elf-class	tasm2_127	019-elf-class	abi	recorded	ELF32 ARM and ELF32 i386
+PORT-tasm2_127-020-float-abi	tasm2_127	020-float-abi	abi	recorded	ARM guest ABI audited; Box32 SysV i386 call alignment
+PORT-tasm2_127-021-interpreter	tasm2_127	021-interpreter	abi	recorded	selected 32-bit runtime or Box32
+PORT-tasm2_127-022-glibc-ceiling	tasm2_127	022-glibc-ceiling	abi	recorded	public Linux artifacts <= GLIBC_2.30
+PORT-tasm2_127-023-loader-family	tasm2_127	023-loader-family	loader	recorded	Gameloft ARMHF so-loader plus separate i386/Box32 loader
+PORT-tasm2_127-024-init-array	tasm2_127	024-init-array	loader	recorded	native order retained
+PORT-tasm2_127-025-jni-onload	tasm2_127	025-jni-onload	loader	recorded	registration retained
+PORT-tasm2_127-026-native-lifecycle	tasm2_127	026-native-lifecycle	loader	recorded	Activity/game flow required; no direct gameplay entry
+PORT-tasm2_127-027-video-ownership	tasm2_127	027-video-ownership	video	recorded	firmware SDL/EGL or Box32 GL bridge
+PORT-tasm2_127-028-backend-detection	tasm2_127	028-backend-detection	video	recorded	ARMHF/i386 and backend chosen by capability
+PORT-tasm2_127-029-gles-probe	tasm2_127	029-gles-probe	video	recorded	GLES/fbdev/KMSDRM/Panfrost measured
+PORT-tasm2_127-030-drawable-size	tasm2_127	030-drawable-size	video	recorded	real display
+PORT-tasm2_127-031-video-fix-scope	tasm2_127	031-video-fix-scope	video	recorded	backbuffer alpha opt-in and exact-version hooks only
+PORT-tasm2_127-032-native-audio-first	tasm2_127	032-native-audio-first	audio	recorded	OpenSL game mixer retained
+PORT-tasm2_127-033-audio-fallback-condition	tasm2_127	033-audio-fallback-condition	audio	recorded	Pulse inherited first, ALSA only after failure; Box32 route separate
+PORT-tasm2_127-034-realtime-safety	tasm2_127	034-realtime-safety	audio	recorded	callback mutex handoff and external join scoped to exact destructor
+PORT-tasm2_127-035-portmaster-mapping	tasm2_127	035-portmaster-mapping	input	recorded	PortMaster controller path to Android HID events
+PORT-tasm2_127-036-input-hotplug	tasm2_127	036-input-hotplug	input	recorded	firmware controller path
+PORT-tasm2_127-037-cursor-context	tasm2_127	037-cursor-context	input	recorded	native game input; no generic cursor
+PORT-tasm2_127-038-single-instance	tasm2_127	038-single-instance	lifecycle	recorded	foreground launcher and runtime isolation
+PORT-tasm2_127-039-save-pause-exit	tasm2_127	039-save-pause-exit	lifecycle	recorded	gameplay/save/reload/exit validated on v1.1.7/v1.1.8 line
+PORT-tasm2_127-040-physical-stacks	tasm2_127	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.1.7/v1.1.8 loader line","result":"gameplay, save and reload","stack":"NextOS Mali-450"},{"level":"physical-full","release":"v1.1.7/v1.1.8 loader line","result":"gameplay, audio, save and exit","stack":"R36S/ArkOS"},{"level":"physical-full","release":"v1.1.7/v1.1.8 loader line","result":"i386 loader, controls, audio, save and exit","stack":"NextOS X5M Box32"},{"level":"physical-subsystem","release":"v1.1.7","result":"ARMHF audio correction","stack":"RG40XX-H/muOS"},{"level":"physical-full","release":"v1.1.7","result":"final candidate and ALSA audio","stack":"RG-DS/ROCKNIX Panfrost/Wayland"},{"level":"physical-subsystem","release":"v1.1.9","result":"clean install, title and campaign start; loaders byte-identical to v1.1.8","stack":"NextOS Mali-450"}]
+PORT-tasm2_127-041-limitations	tasm2_127	041-limitations	evidence	recorded	["v1.1.9 is not a new full multi-device regression","ports/tasm2 is abandoned and negative-only"]
+PORT-tasm2_127-042-generalization	tasm2_127	042-generalization	generalization	recorded	{"allowed":["ARMHF/i386 runtime separation","Pulse-to-ALSA failure-driven fallback","audio callback ownership"],"forbidden":["seed settings to skip legal/update/cloud dialogs","copy exact offsets","use ports/tasm2 code","skip native boot flow"]}
+PORT-terraria-001-canonical-id	terraria	001-canonical-id	identity	recorded	terraria
+PORT-terraria-002-title	terraria	002-title	identity	recorded	Terraria Android
+PORT-terraria-003-support-scope	terraria	003-support-scope	classification	recorded	single-full-plus-hardware-fixes
+PORT-terraria-004-publication	terraria	004-publication	classification	recorded	current-public
+PORT-terraria-005-positive-reference	terraria	005-positive-reference	classification	recorded	true
+PORT-terraria-006-local-path	terraria	006-local-path	source	recorded	ports/terraria
+PORT-terraria-007-remote-url	terraria	007-remote-url	source	recorded	https://github.com/NextOs-Ports/terraria-nextos
+PORT-terraria-008-source-snapshot	terraria	008-source-snapshot	source	recorded	f022caa285474da3b03b7e217196902f24857b64
+PORT-terraria-009-release-tag	terraria	009-release-tag	release	recorded	v1.1.4
+PORT-terraria-010-release-commit	terraria	010-release-commit	release	recorded	f022caa285474da3b03b7e217196902f24857b64
+PORT-terraria-011-release-asset	terraria	011-release-asset	release	recorded	terraria.zip
+PORT-terraria-012-release-sha256	terraria	012-release-sha256	release	recorded	2dcc71cbcdd28e79366b0eae68474185e946508b23337f3bd2caa34621ec5f6d
+PORT-terraria-013-data-policy	terraria	013-data-policy	data	recorded	BYO only
+PORT-terraria-014-package-identity	terraria	014-package-identity	data	recorded	com.and.games505.TerrariaPaid 1.4.5.6.4 AArch64
+PORT-terraria-015-version-rule	terraria	015-version-rule	data	recorded	exact ABI, sizes, hashes and Unity generation
+PORT-terraria-016-transactional-install	terraria	016-transactional-install	data	recorded	NXExtract transactional GLES2 data preparation
+PORT-terraria-017-guest-abi	terraria	017-guest-abi	abi	recorded	Android AArch64
+PORT-terraria-018-host-abi	terraria	018-host-abi	abi	recorded	Linux AArch64
+PORT-terraria-019-elf-class	terraria	019-elf-class	abi	recorded	ELF64
+PORT-terraria-020-float-abi	terraria	020-float-abi	abi	recorded	AAPCS64
+PORT-terraria-021-interpreter	terraria	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-terraria-022-glibc-ceiling	terraria	022-glibc-ceiling	abi	recorded	loader <= GLIBC_2.27; NXExtract UI <= GLIBC_2.17
+PORT-terraria-023-loader-family	terraria	023-loader-family	loader	recorded	Unity 2021.3.56f2 IL2CPP so-loader
+PORT-terraria-024-init-array	terraria	024-init-array	loader	recorded	constructors preserved
+PORT-terraria-025-jni-onload	terraria	025-jni-onload	loader	recorded	Unity registration preserved
+PORT-terraria-026-native-lifecycle	terraria	026-native-lifecycle	loader	recorded	creation, naming, world generation, gameplay and exit flow
+PORT-terraria-027-video-ownership	terraria	027-video-ownership	video	recorded	SDL/KMSDRM or vendor EGL after actual backend init
+PORT-terraria-028-backend-detection	terraria	028-backend-detection	video	recorded	capability-driven
+PORT-terraria-029-gles-probe	terraria	029-gles-probe	video	recorded	GLES2 path
+PORT-terraria-030-drawable-size	terraria	030-drawable-size	video	recorded	real 640x480 or target drawable
+PORT-terraria-031-video-fix-scope	terraria	031-video-fix-scope	video	recorded	Knulli creation and X55 weapon-effect fixes narrow to reproduced faults
+PORT-terraria-032-native-audio-first	terraria	032-native-audio-first	audio	recorded	Unity audio retained through host bridge
+PORT-terraria-033-audio-fallback-condition	terraria	033-audio-fallback-condition	audio	recorded	host output selected from available real backend
+PORT-terraria-034-realtime-safety	terraria	034-realtime-safety	audio	recorded	full ArkOS lifecycle includes audio
+PORT-terraria-035-portmaster-mapping	terraria	035-portmaster-mapping	input	recorded	Xbox/InControl native path
+PORT-terraria-036-input-hotplug	terraria	036-input-hotplug	input	recorded	SDL controller path
+PORT-terraria-037-cursor-context	terraria	037-cursor-context	input	recorded	gamepad-operated polished keyboard only in naming context
+PORT-terraria-038-single-instance	terraria	038-single-instance	lifecycle	recorded	foreground process
+PORT-terraria-039-save-pause-exit	terraria	039-save-pause-exit	lifecycle	recorded	game quit or SELECT+START; player/world saves proven
+PORT-terraria-040-physical-stacks	terraria	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.0.2","result":"boot, audio, control, keyboard, player/world save, gameplay and exit","stack":"R36S/ArkOS Mali-G31/KMSDRM"},{"level":"release-fix","release":"v1.1.4","result":"real character crash reproduced and fixed","stack":"Knulli character-creation route"},{"level":"release-fix","release":"v1.1.4","result":"weapon-effect corruption reproduced and fixed","stack":"Powkiddy X55"}]
+PORT-terraria-041-limitations	terraria	041-limitations	evidence	recorded	["Release body does not document a complete post-fix lifecycle on Knulli or X55","NextOS path is designed but not promoted from similarity"]
+PORT-terraria-042-generalization	terraria	042-generalization	generalization	recorded	{"allowed":["managed keyboard context","exact pthread/JNI bridge patterns","low-glibc gate"],"forbidden":["claim v1.1.4 full lifecycle on fix-only devices","copy Unity offsets"]}
+PORT-tightrope-001-canonical-id	tightrope	001-canonical-id	identity	recorded	tightrope
+PORT-tightrope-002-title	tightrope	002-title	identity	recorded	Tightrope Theatre
+PORT-tightrope-003-support-scope	tightrope	003-support-scope	classification	recorded	multi-device-version-split
+PORT-tightrope-004-publication	tightrope	004-publication	classification	recorded	current-public
+PORT-tightrope-005-positive-reference	tightrope	005-positive-reference	classification	recorded	true
+PORT-tightrope-006-local-path	tightrope	006-local-path	source	recorded	ports/tightrope
+PORT-tightrope-007-remote-url	tightrope	007-remote-url	source	recorded	https://github.com/NextOs-Ports/tightrope-nextos
+PORT-tightrope-008-source-snapshot	tightrope	008-source-snapshot	source	recorded	00ae4dbd3c1451d5c5f2ddd4662d996f19329814
+PORT-tightrope-009-release-tag	tightrope	009-release-tag	release	recorded	v1.0.1
+PORT-tightrope-010-release-commit	tightrope	010-release-commit	release	recorded	00ae4dbd3c1451d5c5f2ddd4662d996f19329814
+PORT-tightrope-011-release-asset	tightrope	011-release-asset	release	recorded	Tightrope.Theatre.NextOS-v1.0.1.zip
+PORT-tightrope-012-release-sha256	tightrope	012-release-sha256	release	recorded	441e6c58b1077c5228ef93faf7ff5c559a9ec235dffec9abf59b4fda8b32cfb3
+PORT-tightrope-013-data-policy	tightrope	013-data-policy	data	recorded	BYO only
+PORT-tightrope-014-package-identity	tightrope	014-package-identity	data	recorded	Tightrope Theatre 1.0.5 with arm64 split
+PORT-tightrope-015-version-rule	tightrope	015-version-rule	data	recorded	matching base and config.arm64_v8a
+PORT-tightrope-016-transactional-install	tightrope	016-transactional-install	data	recorded	release recovery tools prepare legal package
+PORT-tightrope-017-guest-abi	tightrope	017-guest-abi	abi	recorded	Android AArch64
+PORT-tightrope-018-host-abi	tightrope	018-host-abi	abi	recorded	Linux AArch64
+PORT-tightrope-019-elf-class	tightrope	019-elf-class	abi	recorded	ELF64
+PORT-tightrope-020-float-abi	tightrope	020-float-abi	abi	recorded	AAPCS64
+PORT-tightrope-021-interpreter	tightrope	021-interpreter	abi	recorded	host AArch64 dynamic loader
+PORT-tightrope-022-glibc-ceiling	tightrope	022-glibc-ceiling	abi	recorded	public package low-glibc gate
+PORT-tightrope-023-loader-family	tightrope	023-loader-family	loader	recorded	Stencyl/Haxe/OpenFL/Lime two-object loader
+PORT-tightrope-024-init-array	tightrope	024-init-array	loader	recorded	both original objects relocated and initialized
+PORT-tightrope-025-jni-onload	tightrope	025-jni-onload	loader	recorded	SDLActivity JNI setup preserved
+PORT-tightrope-026-native-lifecycle	tightrope	026-native-lifecycle	loader	recorded	SDLActivity, audio and controller setup in native order
+PORT-tightrope-027-video-ownership	tightrope	027-video-ownership	video	recorded	firmware SDL/EGL/GLES2
+PORT-tightrope-028-backend-detection	tightrope	028-backend-detection	video	recorded	actual firmware path
+PORT-tightrope-029-gles-probe	tightrope	029-gles-probe	video	recorded	Mali GLES2 target plus Ark path evidence
+PORT-tightrope-030-drawable-size	tightrope	030-drawable-size	video	recorded	real drawable
+PORT-tightrope-031-video-fix-scope	tightrope	031-video-fix-scope	video	recorded	pointer/touch only where the engine ignores proven gamepad input
+PORT-tightrope-032-native-audio-first	tightrope	032-native-audio-first	audio	recorded	engine SDL audio path
+PORT-tightrope-033-audio-fallback-condition	tightrope	033-audio-fallback-condition	audio	recorded	inherited firmware output
+PORT-tightrope-034-realtime-safety	tightrope	034-realtime-safety	audio	recorded	target sessions include audio
+PORT-tightrope-035-portmaster-mapping	tightrope	035-portmaster-mapping	input	recorded	system SDL2 controller database
+PORT-tightrope-036-input-hotplug	tightrope	036-input-hotplug	input	recorded	SDL controller path
+PORT-tightrope-037-cursor-context	tightrope	037-cursor-context	input	recorded	right-stick finger only in touch-only menu; game controls remain mapped to original on-screen actions
+PORT-tightrope-038-single-instance	tightrope	038-single-instance	lifecycle	recorded	foreground loader
+PORT-tightrope-039-save-pause-exit	tightrope	039-save-pause-exit	lifecycle	recorded	frontend exit physically validated
+PORT-tightrope-040-physical-stacks	tightrope	040-physical-stacks	evidence	recorded	[{"level":"physical-full","release":"v1.0.0","result":"full target session","stack":"NextOS Mali-450/fbdev"},{"level":"physical-full","release":"v1.0.0","result":"full target session","stack":"R36S/ArkOS"},{"level":"physical-full","release":"v1.0.1","result":"pointer fix installed and validated","stack":"NextOS Mali-450/fbdev"}]
+PORT-tightrope-041-limitations	tightrope	041-limitations	evidence	recorded	["Exact v1.0.1 R36S regression is not explicitly documented"]
+PORT-tightrope-042-generalization	tightrope	042-generalization	generalization	recorded	{"allowed":["SDLActivity native-order bootstrap","context-only touch cursor"],"forbidden":["claim latest R36S retest","turn touch synthesis into gameplay default"]}

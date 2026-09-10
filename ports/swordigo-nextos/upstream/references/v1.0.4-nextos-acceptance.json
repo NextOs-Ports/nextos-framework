@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "port": "swordigo",
+  "release": "1.0.4",
+  "date": "2026-08-09",
+  "package": {
+    "name": "Swordigo.NextOS-v1.0.4.zip",
+    "sha256": "8f2934deb8d258a895db55db317d04f847db570cd7a5f78ffac88a7c939cbb89",
+    "launcher_chain": [
+      "Swordigo.sh",
+      "swordigo/nxbootstrap.sh",
+      "swordigo/swordigo"
+    ],
+    "run_sh_present": false,
+    "max_glibc": "2.27"
+  },
+  "device_class": {
+    "firmware": "NextOS Elite",
+    "architecture": "aarch64",
+    "video_driver": "mali",
+    "renderer": "Mali-450 MP",
+    "gles": "OpenGL ES-CM 1.1",
+    "drawable": "1280x720"
+  },
+  "acceptance": {
+    "nxbootstrap_version": "0.4.0",
+    "nxextract_version": "1.2.6",
+    "nxextract_fast_validation": true,
+    "owner_data_modified": false,
+    "game_boot_completed": true,
+    "frame_rgb_non_black_percent": 78.3,
+    "frame_alpha255_percent": 99.0,
+    "openal_opened": true,
+    "openal_rate_hz": 48000,
+    "portmaster_controller_mapping_loaded": true,
+    "physical_input_exercised": false,
+    "term_exit_status": 0,
+    "portmaster_finish_completed": true,
+    "remaining_processes": 0,
+    "frontend_service_left_masked_inactive": true
+  },
+  "privacy": {
+    "test_ip_recorded": false,
+    "hostname_recorded": false,
+    "personal_path_recorded": false,
+    "raw_logs_public": false
+  }
+}

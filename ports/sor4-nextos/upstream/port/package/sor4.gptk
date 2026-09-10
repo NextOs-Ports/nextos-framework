@@ -1,0 +1,30 @@
+# Streets of Rage 4 -- mapa do controle (gptokeyb -> teclado, lido pelo MonoGame/SDL).
+# SOR4 usa teclado por padrao; aqui o pad do CFW vira teclas. SAIR: SELECT+START
+# (back=esc + start=enter) -- o gptokeyb mata o processo E o binario detecta o combo
+# (garantia dupla, ver SDLGamePlatform.CheckQuitCombo). Outros devices editam SO ESTE
+# arquivo p/ remapear -- o resto do port nao muda.
+back = esc
+start = enter
+guide = esc
+
+a = space
+b = left ctrl
+x = left shift
+y = left alt
+
+up = up
+down = down
+left = left
+right = right
+
+l1 = q
+r1 = e
+l2 = z
+r2 = c
+l3 = f
+r3 = v
+
+left_analog_up = up
+left_analog_down = down
+left_analog_left = left
+left_analog_right = right

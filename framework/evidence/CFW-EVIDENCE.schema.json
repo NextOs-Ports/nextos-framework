@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.invalid/schemas/CFW-EVIDENCE.schema.json",
+  "title": "NX CFW evidence catalog v1",
+  "$comment": "Sanitized evidence catalog: one independent claim per CFW+stack, no grouping and no inheritance between claims. The companion gate (framework/tests/test_cfw_evidence.py) additionally rejects IPv4 literals, personal paths (/home/, /Users/), root@ logins and mDNS-style hostnames anywhere in the catalog text; such patterns are forbidden even where this schema would accept a plain string.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_version", "generated_note", "claims"],
+  "properties": {
+    "schema": {"const": "nx-cfw-evidence-v1"},
+    "schema_version": {"const": 1},
+    "generated_note": {"type": "string", "minLength": 1},
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/claim"}
+    }
+  },
+  "$defs": {
+    "honest_string": {
+      "type": "string",
+      "minLength": 1,
+      "$comment": "The literal value \"unknown\" is allowed and honest; inventing a value is not."
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "cfw", "hardware", "runtime", "frontend", "framework_ref",
+        "level", "scope", "scenarios", "receipt", "gaps"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "$comment": "kebab-case, unique across the catalog (uniqueness enforced by the gate)."
+        },
+        "cfw": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version_or_build", "origin"],
+          "properties": {
+            "name": {"$ref": "#/$defs/honest_string"},
+            "version_or_build": {"$ref": "#/$defs/honest_string"},
+            "origin": {
+              "enum": ["official-image", "contract", "release-notes", "none"]
+            }
+          }
+        },
+        "hardware": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vendor_model", "soc", "gpu_driver", "display_compositor",
+            "resolution", "orientation"
+          ],
+          "properties": {
+            "vendor_model": {"$ref": "#/$defs/honest_string"},
+            "soc": {"$ref": "#/$defs/honest_string"},
+            "gpu_driver": {"$ref": "#/$defs/honest_string"},
+            "display_compositor": {"$ref": "#/$defs/honest_string"},
+            "resolution": {"$ref": "#/$defs/honest_string"},
+            "orientation": {"$ref": "#/$defs/honest_string"}
+          }
+        },
+        "runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "host_abi", "guest_abi", "libc", "filesystem_semantics", "ram_free"
+          ],
+          "properties": {
+            "host_abi": {"$ref": "#/$defs/honest_string"},
+            "guest_abi": {"$ref": "#/$defs/honest_string"},
+            "libc": {"$ref": "#/$defs/honest_string"},
+            "filesystem_semantics": {"$ref": "#/$defs/honest_string"},
+            "ram_free": {"$ref": "#/$defs/honest_string"}
+          }
+        },
+        "frontend": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "portmaster_version", "control_mapping_source"],
+          "properties": {
+            "name": {"$ref": "#/$defs/honest_string"},
+            "portmaster_version": {"$ref": "#/$defs/honest_string"},
+            "control_mapping_source": {"$ref": "#/$defs/honest_string"}
+          }
+        },
+        "framework_ref": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tag_or_commit", "components_note"],
+          "properties": {
+            "tag_or_commit": {"$ref": "#/$defs/honest_string"},
+            "components_note": {"$ref": "#/$defs/honest_string"}
+          }
+        },
+        "level": {
+          "enum": [
+            "design-only", "synthetic", "image-backed", "community",
+            "physical-subsystem", "physical-full"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "$comment": "Names exactly what the level covers. Must never delegate to another claim (no inheritance wording; enforced by the gate)."
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "$comment": "May be empty only when level is design-only (enforced by the gate)."
+        },
+        "receipt": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["present", "sanitized_ref", "private_manifest_sha256"],
+          "properties": {
+            "present": {"type": "boolean"},
+            "sanitized_ref": {"type": ["string", "null"]},
+            "private_manifest_sha256": {
+              "type": ["string", "null"],
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "$comment": "Explicit missing proof; never hidden. physical-* claims without receipt.present=true must name the missing receipt here (enforced by the gate)."
+        }
+      }
+    }
+  }
+}

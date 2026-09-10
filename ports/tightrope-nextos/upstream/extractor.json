@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "id": "tightrope-nextos",
+  "version": "1.0.5-universal-1",
+  "title": "TIGHTROPE THEATRE",
+  "abi_order": ["arm64-v8a"],
+
+  "input": {
+    "packages": ["com.adventureislands.tightropetheatre"],
+    "search_dirs": ["gamedata", "."],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "extensions": [".apk", ".apkm", ".apks", ".xapk", ".zip"],
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 2147483648,
+    "max_bundle_bytes": 4294967296
+  },
+
+  "extract": [
+    {
+      "id": "engine-lime-arm64",
+      "source": { "kind": "entry", "patterns": ["lib/{abi}/liblime.so"] },
+      "destination": "lib/liblime.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 9000000,
+        "max_size": 13000000,
+        "sha256": "7d69dca48cfafd4078c0faccaec4edea739d9ebe5cfea1b85601713ef623add5"
+      }
+    },
+    {
+      "id": "game-applicationmain-arm64",
+      "source": { "kind": "entry", "patterns": ["lib/{abi}/libApplicationMain.so"] },
+      "destination": "lib/libApplicationMain.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 30000000,
+        "max_size": 40000000,
+        "sha256": "4b142b66f33aca60d4890f1869591744ef38d94bc1ffcd0b9201342761d07bd7"
+      }
+    },
+    {
+      "id": "pairip-interpreter-arm64",
+      "source": { "kind": "entry", "patterns": ["lib/{abi}/libpairipcore.so"] },
+      "destination": "lib/libpairipcore.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "min_size": 300000,
+        "max_size": 900000,
+        "sha256": "00ce21fb2f87b2b5ac3f0db270d99d47aea06bf4b63a4491e0a81be5da900c53"
+      }
+    },
+    {
+      "id": "game-assets",
+      "source": {
+        "kind": "entries",
+        "patterns": ["assets/**"],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": { "type": "tree", "min_entries": 1200 }
+    }
+  ],
+
+  "validate": [
+    { "path": "lib/liblime.so", "type": "file", "elf_machine": "arm64-v8a" },
+    { "path": "lib/libApplicationMain.so", "type": "file", "elf_machine": "arm64-v8a" },
+    {
+      "path": "assets/manifest/default.json",
+      "type": "file",
+      "min_size": 16,
+      "sha256": "35881c3a08f486e4872b9b24ef99a4f21d01cd0d48f8e9be1939bab0050ccb11"
+    }
+  ],
+
+  "commit": ["lib", "assets"],
+  "mutable": ["assets/mySave.sol"],
+  "marker": ".tightrope-data.json",
+  "space": { "safety_bytes": 268435456 },
+  "log": "nxextract.log"
+}

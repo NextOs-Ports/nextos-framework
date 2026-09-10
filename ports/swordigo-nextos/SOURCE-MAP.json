@@ -1,0 +1,404 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/swordigo-nextos",
+  "observed_commit": "28b315f08652db71f35158ae3af454d470ae624f",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Swordigo"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "13219df8cf7ee13464867247f3602b84d6ae727f",
+      "sha256": "75f796e0b8ea5737ebdd321683e8669ead2feea81b0165d7a0008d929ce99d6e"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "0o644",
+      "upstream_blob": "56f9d3d06fe9d09c610a3b79813a2395e5e91dfb",
+      "sha256": "588d9f5cc07e302b300120929ef907bed7e51ced5f4a3c675c2a7152f3c42cb5"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "mode": "0o644",
+      "upstream_blob": "00b66c786c67d055a997b555d6e756110bf1fd01",
+      "sha256": "59f3feeecfa000fed58f7caf69881ad030e018ed557e3e3670c9637d6a6f240a"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "3591fc99178d402c60dc00c0e44246942a1fd848",
+      "sha256": "84a8d9128a3943ac63b845d33dc267c8eeb34a6d87d8fa0e28f50a276d1a7524"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "e717dd76f91f1513ce9097bb188f1f367e1e0c11",
+      "sha256": "ab92e6e36737c266edafafaf6faac6bd62fa9535e44702e57ac90f7eb728b267"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "ae09ffe93c9600aa67714f9d5d2dbc70a3767747",
+      "sha256": "0be48e3c8565ff56fe739660eb4e426a51045d6aab9e07323c7bfdd91ca1c4ff"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "mode": "0o644",
+      "upstream_blob": "76985826665d4ad5248e4a8b9c15b9825872edaf",
+      "sha256": "02e1b40e8bb06ccb34164dddb24f3f1c1002e3474dd7f9282e964388fc310379"
+    },
+    {
+      "path": "STUDY.md",
+      "mode": "0o644",
+      "upstream_blob": "d073b36e16a8f99bfb98d4b2e4ff9c9f0ff12478",
+      "sha256": "7852b5b833b53b5aa3f424bdecb495a61e7fcba91c6bdd7eb473355116da0d9c"
+    },
+    {
+      "path": "Swordigo.sh",
+      "mode": "0o755",
+      "upstream_blob": "96ac269c7d1e683b52b263a48b559c494c38d2c7",
+      "sha256": "a25139fe8388dd583423eee61bb722158ab4cf4dab772af35a3e960980b4094d"
+    },
+    {
+      "path": "alsoft.conf",
+      "mode": "0o644",
+      "upstream_blob": "5ce7ec1ea03dd82e38075c387a906d200584e416",
+      "sha256": "826695ec530e9c557ae3d04820baf145b6efd284121fc9807e9646aa1d08d7e1"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "4c06d44aec60f6525ed0358063bf403822a4a6e5",
+      "sha256": "b0af1e28929e8c4c7b3d355ce5b682ec2da66d029dbb0eee50000f202439eba8"
+    },
+    {
+      "path": "gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "328130b1c99d3c654575994eb43c0443c5799fe6",
+      "sha256": "e10e3273b99f8f18cde5c06cf212b4806ba23897dab3efd862182e16f214f8b4"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "licenses/mpg123-LGPL-2.1-or-later.txt",
+      "mode": "0o644",
+      "upstream_blob": "14e14f01cfc70ab24e95ad6be4fd7d6bbc1126de",
+      "sha256": "c22482728a634a8dfdb4ff72a96d4c1ed64cd8f3e79335c401751ac591609366"
+    },
+    {
+      "path": "licenses/nxsplash-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "0f7e58e3385946596c883aeb554de08321bcb90f",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    },
+    {
+      "path": "nxextract-runtime-env.sh",
+      "mode": "0o755",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "963ed7cf3714d8edd6b4c2956526079af0bc9065",
+      "sha256": "4304275f30e076c76abdc0f280f0fdd5537f1ac700953ba1908e29a64d531919"
+    },
+    {
+      "path": "nxextract.py",
+      "mode": "0o755",
+      "upstream_blob": "aa14274b5c30e5b197cafa2f0dba30f4f77b256c",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "path": "nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "609c871ba128fd874999da9f8451998106c93b56",
+      "sha256": "bcd16110729de2c4d0a73809d94fdcbec466200b2a91b0623b095b50841fbda1"
+    },
+    {
+      "path": "package/GAMEDATA.txt",
+      "mode": "0o644",
+      "upstream_blob": "792e3647b9dd6c5e40ac926e97eae612d3294c7f",
+      "sha256": "95acef711be398464c2e22a51e96380898cf815365f64761541c0039ae66c82d"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "307a4f16fff2a8340cc700b18b53b7baf9fe2fe5",
+      "sha256": "1bb05a98efad14fc6bafd026377343df53f9ca5f6c42c481fab575df748117ae"
+    },
+    {
+      "path": "package/nxrelease-vendor/nxabi/policy-v1.json",
+      "mode": "0o644",
+      "upstream_blob": "f399a1f22031425b70ad223f9a01c75feb1ab0b7",
+      "sha256": "1addd3056022ce80c54391ff09e21ad5370f87ffd2451ed2b30fad854780b873"
+    },
+    {
+      "path": "package/nxrelease-vendor/nxcompat/capabilities-v1.json",
+      "mode": "0o644",
+      "upstream_blob": "a808115794d7278b91654d2aeda896beca937bcf",
+      "sha256": "0f302c49572c34e57448342cf0ecf605c96c9af2b02d5a2adccfa5dc93d75b4c"
+    },
+    {
+      "path": "package/nxrelease-vendor/nxcompat/quirk-registry-v1.json",
+      "mode": "0o644",
+      "upstream_blob": "6ab90e90c9c187752ee6518a6df8586509cd8afc",
+      "sha256": "b356f42988ca80971d7e5a4e257767bf71a86ffdeb0d0548e9345d4f3c6c4365"
+    },
+    {
+      "path": "package/nxrelease-vendor/nxrelease/nxrelease.py",
+      "mode": "0o644",
+      "upstream_blob": "ebfd804d49dfe84f9f767ce68df9443a5a41805a",
+      "sha256": "3f9db950e5f5c606544f53bf104170bfebba6850fae7814cba3971daff182751"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "0c34598b62802e8a4ae57767162eea847560317f",
+      "sha256": "36eba29ee86ffac45589f426f8e5fa11bd8e1aedd6199ada9ed2b60fb61d0f72"
+    },
+    {
+      "path": "references/v1.0.4-arkos-real-extraction.json",
+      "mode": "0o644",
+      "upstream_blob": "9d4689b38382b05ebb11563451761368d5e03c34",
+      "sha256": "bb715fd24c07ab1a286a03e2cd5bd7d44f5f4fd2fb917fa5f6fc259f043686f7"
+    },
+    {
+      "path": "references/v1.0.4-nextos-acceptance.json",
+      "mode": "0o644",
+      "upstream_blob": "e63c99fc5649f12d48d14d9ce64733b1a8137e08",
+      "sha256": "370466a8b5f1b860451211f22b46bd3e1f77515905b50b37987795f111cfeedc"
+    },
+    {
+      "path": "references/v1.0.5-multi-device-acceptance.json",
+      "mode": "0o644",
+      "upstream_blob": "eb05237f3fd1c921fe4ce65995d0cd8998c12193",
+      "sha256": "059e1b96d2e6c2e579f4e2931cb3b23dea7238745f09a113db26f6ca611799b3"
+    },
+    {
+      "path": "run-extractor.sh",
+      "mode": "0o755",
+      "upstream_blob": "d092f8108f656ea27888fb2885b46726a3d217f2",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "path": "src/contract.c",
+      "mode": "0o644",
+      "upstream_blob": "6ac104c09da68bd2acbd7be5cc609ac101c10a07",
+      "sha256": "3e9fc04d407fe4faddac39d87aab0c34da72395507ea04dbcf5cb94a94f7e26c"
+    },
+    {
+      "path": "src/contract.h",
+      "mode": "0o644",
+      "upstream_blob": "87a2aa55363c06c14c66c4acfbfdb82b5e980470",
+      "sha256": "e19c6867ce39bed42d55bc864319e2368458518c4dd7719b6b43a59443f6eb4a"
+    },
+    {
+      "path": "src/crash_diag.c",
+      "mode": "0o644",
+      "upstream_blob": "0a49c6ca34e2f04c42b5e686f2d7365cf0df18cf",
+      "sha256": "4ab096036132bf4e71252058b1ccd490e315fed90fce3ae2cee6dc0dc86ff1b0"
+    },
+    {
+      "path": "src/crash_diag.h",
+      "mode": "0o644",
+      "upstream_blob": "ba092640d7f3d6bd032e8c669b84c7ac7343bade",
+      "sha256": "d5d7b9db8c30b6885976ed030695de62b8707476addaf959252455c526c91578"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "657acd34d8b35050e31bdb0301518fbf0fda09db",
+      "sha256": "1bc4ccd363c0e181cd3854501fde61117b8efb887b65986510c4e50336691e2d"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "f7030977c14ec8d62e53ed71cd277cd04a95cbf2",
+      "sha256": "8e3787cf76c976577f81bfe0719cb64d028389838d1a21f3dbd0dc2a79b3bc42"
+    },
+    {
+      "path": "src/gl_latebind.c",
+      "mode": "0o644",
+      "upstream_blob": "c0901d227ed3d85d5b31754106209bec9f6c7a34",
+      "sha256": "0c2da168cca63691e819fbb3e69e735ac10025cf04f10f5f380775a94cd63d8f"
+    },
+    {
+      "path": "src/gl_latebind.h",
+      "mode": "0o644",
+      "upstream_blob": "ca7baf063deda0d767766d3729dbd62f5cc4cbd9",
+      "sha256": "627d21a08739b611f570a62d415487362e364af739328ab08be0156e20a8d096"
+    },
+    {
+      "path": "src/gl_provider_policy.c",
+      "mode": "0o644",
+      "upstream_blob": "9221857016a14ea605b4601cb073041b8c89cd7c",
+      "sha256": "9c06633bdb9dc75714963b85164909c68b7d019d7cd45d2fcbf8222ed89892e8"
+    },
+    {
+      "path": "src/gl_provider_policy.h",
+      "mode": "0o644",
+      "upstream_blob": "f20ed73783a500909a043b8bc26d5ba77e7b58d4",
+      "sha256": "7be4482f11d0f4563577f5ae547e36ee07f50b5d0f10878a78715f59e64ff32b"
+    },
+    {
+      "path": "src/glfix.c",
+      "mode": "0o644",
+      "upstream_blob": "a156ae8411019a24fb5cc2e25313780ac423dd43",
+      "sha256": "6c3df633f657595e09b1e1c0c36ed31e50aa3226a861f97e42a3ec44ad36bf83"
+    },
+    {
+      "path": "src/glfix.h",
+      "mode": "0o644",
+      "upstream_blob": "4925c0f77d685da665d141449c2fa8a5f383482c",
+      "sha256": "d3ef453fa9ace052e620476f2bfa6c4d9a9edf5ac26da250666de2da0633c776"
+    },
+    {
+      "path": "src/imports.c",
+      "mode": "0o644",
+      "upstream_blob": "08590b83db323390638e931f9d9298829770b003",
+      "sha256": "0547f363a6d1a77f0aa842056c083667d4e663137919b57a5cecba5e0c1f5b10"
+    },
+    {
+      "path": "src/imports.h",
+      "mode": "0o644",
+      "upstream_blob": "d7d07ee6a96fdc0a8b4f5170fde876c17ea39d13",
+      "sha256": "3b9df1db934e5766d20f08fc6263fac9d597390bf39f7421ae89255a91c29845"
+    },
+    {
+      "path": "src/jni_fake.c",
+      "mode": "0o644",
+      "upstream_blob": "d5d09c49f634e71df4d6b9eb134fd85529bf4c11",
+      "sha256": "04b9e30222cd85881f3d6aff5b3495dda454fc11944fab6ba4a3adc47b6b091d"
+    },
+    {
+      "path": "src/jni_fake.h",
+      "mode": "0o644",
+      "upstream_blob": "d804af78c60deef241571e5aca9cc0d93f68a9f9",
+      "sha256": "ccf1a17d1158ab66d43f836f55f174eab12b7ddfdb091eedd999bcd505a7299f"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "7a70bfa4ca9505775a0b8d74bb88cf0b8887e295",
+      "sha256": "3adfc51778837dc8f98ae6a71238e7d314c71203e5cb3a482b1ac01e12e7efa5"
+    },
+    {
+      "path": "src/music_player.c",
+      "mode": "0o644",
+      "upstream_blob": "b6065702f0d8a8ed9f8b36b3e78a742b7590e9f1",
+      "sha256": "e69c4ecda976c3278999812bde79cf24cd899dc269759f10f9a8ef6238b555f7"
+    },
+    {
+      "path": "src/music_player.h",
+      "mode": "0o644",
+      "upstream_blob": "b4a2709d362e85736d8c210f191dc5b39691530e",
+      "sha256": "de4a8dc1d417b71a0cde4e281041e78b36a552a6e0885c6bdba7e2af7e45b5e5"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.c",
+      "mode": "0o644",
+      "upstream_blob": "de77b23d6e27b946e0075484d83df85d3c93d287",
+      "sha256": "f14139178c2f01717956ef11c7dcd94b6d19ac8228b8ca57f6d303456a55d083"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.h",
+      "mode": "0o644",
+      "upstream_blob": "de48fd75f9c315bc92ecb9558540702400b85051",
+      "sha256": "0e79c6dd61bae4a1817d79f5a26a2a1f6bd3dc16e3a849e9c2c69dea829fe667"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "0d301350ccb26ecd7868c29111cd4eb356f87e5f",
+      "sha256": "45ff0fd13a354f27eca262a65d62be2802c9edfb2841a1c2c418a17dd4b663aa"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "45b525a62b4f7d892618976551a0d18f9477f1a1",
+      "sha256": "8f530cf341821c3a2253e3923d6b56cccdba279f1eb24e108909c3df00d115d5"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "fa08dafda3d6c4fd2df5b51263d43f2b7704458c",
+      "sha256": "92de367afe015da757f9588691e3e40c7c79d0fc9b7427a259ea729dfab506ca"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "ad741398c96af823b69d65012601dfd4485c8d4d",
+      "sha256": "8d71c236a6cdef8037528d131e4eea7a8bd426fc69af368d0482bdc71fd16000"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "a21ac6dacc0ff249669fd72139de2c4c60e52817",
+      "sha256": "24b816bc531bc4c27a36883ac60e471d01d0d791aa6b300316206a37cfc91a54"
+    },
+    {
+      "path": "swordigo/nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "064b65b6e2958e28cf45586c491994f4d5da8a61",
+      "sha256": "fc169472ba8558db7b2be60fffa1c206a0f900fb559ac26ae77497eab7f666d8"
+    },
+    {
+      "path": "tests/launcher_test.sh",
+      "mode": "0o755",
+      "upstream_blob": "60c922a1686bd042bd689278f3f4e69f2ffd8681",
+      "sha256": "f427fbd0be7c39516b7649c702c3d175eed00c3d9ccafed4c4bfb3278786c50f"
+    },
+    {
+      "path": "tests/test_contract.c",
+      "mode": "0o644",
+      "upstream_blob": "d9937da9e1b9c5cac4fbe390db72cbd463b58609",
+      "sha256": "e570f2c2f27b10a1633e6fc7db3a65156944b66a49e97914b3b73dfa2d15102b"
+    },
+    {
+      "path": "tests/test_crash_diag.c",
+      "mode": "0o644",
+      "upstream_blob": "892842021a16f00263afc4569887593761e7013e",
+      "sha256": "5c78185742fb37b018962784bed3050563c5a68c4699f2adc26743c908a29763"
+    },
+    {
+      "path": "tests/test_gl_provider_policy.c",
+      "mode": "0o644",
+      "upstream_blob": "53a4481022ab2b038d3dfd6c29e2706b7ace294d",
+      "sha256": "f1cd4f3d72151c6cf63ad281b08582c12472344d16e4b586991799a65f356abe"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "a9707166ba785cfc8602a5300ae64206bdbd6999",
+      "sha256": "d9c52b6b689187b22333d76269468cec96320d8f28fe074535fb1baca786059a"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "e56367a3589d58459392cc37da3b4abf0f3ea130c8467187e30545f55b2aee5e",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

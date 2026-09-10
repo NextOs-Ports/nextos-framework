@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "pin_id": "nxabi-toolchain-pin-v1",
+  "description": "Pinned toolchains for every Linux ELF the project builds. A build that cannot verify this pin must not produce a public artifact. Verified with: python3 -B framework/nxabi/nxabi.py toolchain",
+  "toolchains": {
+    "armv7-gcc": {
+      "kind": "native-cross",
+      "architecture": "armv7",
+      "role": "primary ARMHF compiler for universal-low-glibc artifacts",
+      "compiler": "/opt/prebuilt/bin/arm-linux-gnueabihf-gcc",
+      "version_string": "8.2.1 20180802",
+      "version_full": "arm-linux-gnueabihf-gcc (GNU Toolchain for the A-profile Architecture 8.2-2018-08 (arm-rel-8.23)) 8.2.1 20180802",
+      "sysroot": "/opt/prebuilt/arm-linux-gnueabihf/libc",
+      "sysroot_glibc": "2.28",
+      "sysroot_libstdcxx": "6.0.25",
+      "sysroot_sha256": {
+        "lib/libc.so.6": "97eaa7f77a6f481cd1ab09634b4bd0850bcaf140174a8c89a80f3f2551953293",
+        "lib/ld-linux-armhf.so.3": "43cbdeefe8dc4b178928a611c94a0ef551c9110c9beab2adcfb136d62c90314c",
+        "../lib/libstdc++.so.6.0.25": "a37408d0398949aaa85f70c958253e88dc81f62e97fd1cb41a06a05fdc08c06c"
+      },
+      "measured_floor": "GLIBC_2.4",
+      "measured_floor_note": "minimal hello/libm fixture links at GLIBC_2.4 with EABI5 hard-float and /lib/ld-linux-armhf.so.3"
+    },
+    "armv7-clang": {
+      "kind": "native-cross",
+      "architecture": "armv7",
+      "role": "second ARMHF compiler; proves the code is not GCC-only",
+      "compiler": "/usr/bin/clang",
+      "version_string": "clang version",
+      "sysroot": "/opt/prebuilt/arm-linux-gnueabihf/libc",
+      "canonical_flags": [
+        "--target=arm-linux-gnueabihf",
+        "-march=armv7-a",
+        "-mfloat-abi=hard",
+        "--gcc-toolchain=/opt/prebuilt",
+        "--sysroot=/opt/prebuilt/arm-linux-gnueabihf/libc",
+        "-fuse-ld=lld"
+      ],
+      "canonical_flags_note": "Clang needs BOTH --gcc-toolchain (for crtbeginS.o and libgcc) and -fuse-ld=lld. Without --gcc-toolchain the link fails with 'cannot find crtbeginS.o'; with the host ld it fails with 'unrecognised emulation mode armelf_linux_eabi'.",
+      "measured_floor": "GLIBC_2.4"
+    },
+    "aarch64-buster-container": {
+      "kind": "container",
+      "architecture": "aarch64",
+      "role": "only local low-glibc AArch64 toolchain; the host aarch64-linux-gnu-gcc requires GLIBC_2.34 and is disqualified",
+      "image": "playfetch-builder:buster",
+      "image_id": "sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf",
+      "gcc_install": "/usr/lib/gcc-cross/aarch64-linux-gnu/8",
+      "sysroot": "/usr/aarch64-linux-gnu",
+      "sysroot_glibc": "2.28",
+      "network": "none",
+      "consumers": [
+        "framework/nxloader/tests/run-aarch64-cross.sh",
+        "framework/nxloader/tests/run-m11-aarch64-lifecycle-cross.sh"
+      ]
+    }
+  },
+  "disqualified": {
+    "host-aarch64-gcc": {
+      "compiler": "/usr/bin/aarch64-linux-gnu-gcc",
+      "reason": "sysroot /usr/aarch64-linux-gnu ships glibc 2.44; a minimal fixture already requires GLIBC_2.34, above the public ceiling 2.30",
+      "measured_floor": "GLIBC_2.34"
+    },
+    "host-gcc": {
+      "compiler": "/usr/bin/gcc",
+      "reason": "x86_64 host compiler; only valid for host-side test builds, never for a packaged artifact"
+    }
+  },
+  "non_hermetic_recipes": {
+    "note": "These historical approved-reference recipes still install compilers over the network or use moving image tags. They are read-only evidence and are not accepted inputs to the closed M17 framework gate. Any future rebuild/public release that touches one must first migrate it to a pinned offline toolchain and produce new bytes for revalidation.",
+    "paths": [
+      "ports/kotor/build_universal.sh",
+      "ports/asm2_127/build_buster_arkos.sh",
+      "ports/bully2/build-glibc230.sh"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "game-dir-and-passthrough",
+  "enabled_quirks": [],
+  "executable": "rcrdx-nextos",
+  "home_mode": "preserve",
+  "id": "rcrdx",
+  "launcher_name": "Retro City Rampage DX.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.10"
+  },
+  "prepare_script": "",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "graphics.gles2",
+    "input.controller-mapping"
+  ],
+  "required_files": [
+    "rcrdx-nextos",
+    "nxsplash-nextos",
+    "lib/libRCRDX.so",
+    "gamedata/gamedata_ios.bfp",
+    "gamedata/audio_music_W32.bap",
+    "gamedata/audio_sfx_W32.bap",
+    "gamedata/api_key.txt"
+  ],
+  "runtime_report": "log",
+  "schema_version": 2,
+  "title": "Retro City Rampage DX"
+}

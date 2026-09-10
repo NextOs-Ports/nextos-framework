@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Sonic4EP2.sh</path>
+    <name>Sonic The Hedgehog 4: Episode II</name>
+    <desc>Sonic The Hedgehog 4: Episode II runs from the Android v3.0.0-109 AArch64 library through a native Linux/SDL2 compatibility loader. V6 provides adaptive display and audio handling, controller input, save support and visible first-run validation. BYO-data: supply a legal ARM64 Android copy on first launch.</desc>
+    <image>./sonic4ep2/cover.png</image>
+    <releasedate>20120516T000000</releasedate>
+    <developer>Dimps / Sonic Team</developer>
+    <publisher>SEGA</publisher>
+    <genre>Platformer</genre>
+  </game>
+</gameList>

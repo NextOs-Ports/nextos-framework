@@ -1,0 +1,29 @@
+{
+    "version": 4,
+    "name": "sor4.zip",
+    "items": [
+        "StreetsOfRage4.sh",
+        "sor4"
+    ],
+    "items_opt": [],
+    "attr": {
+        "title": "Streets of Rage 4",
+        "porter": [
+            "NextOs-Ports",
+            "NextOS"
+        ],
+        "desc": "Streets of Rage 4 Android v1.4.5 through a native AArch64 .NET 9/MonoGame GLES host. Automatic 1GB, 2GB and High profiles provide native ASTC where supported, ETC2/ETC1 fallbacks, bounded on-demand texture streaming and transactional resumable setup. BYO-data; game files are not included.",
+        "inst": "Copy one legal Android v1.4.5 source into sor4/gamedata: a complete merged ARM64 APK, every APK split from the same complete installation, or one complete .apks/.apkm/.xapk bundle. Launch once to validate and install; the original source is preserved.",
+        "genres": [
+            "beatemup",
+            "action"
+        ],
+        "image": {},
+        "rtr": false,
+        "runtime": [],
+        "reqs": [],
+        "arch": [
+            "aarch64"
+        ]
+    }
+}

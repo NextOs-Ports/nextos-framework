@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nextos:schema:port-catalog:1",
+  "title": "NextOS website port catalog entry v1",
+  "x-nextos-semantic-validation": [
+    "plain-text-no-controls-markup-private-literals-or-package-origins",
+    "https-public-dns-no-credentials-port-query-fragment-or-ip",
+    "catalog-id-equals-canonical-nxport-id-plus-nextos",
+    "source-is-github-nextos-ports-and-repository-basename-equals-catalog-id",
+    "latest-release-is-source-releases-latest-download-nxport-id-zip",
+    "images-live-below-port-json-catalog-id-with-safe-posix-paths",
+    "nxextract-installation-names-nxport-id-gamedata"
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "description",
+    "build",
+    "links",
+    "images",
+    "installation"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "type"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^(?:0|[1-9][0-9]*)[.](?:0|[1-9][0-9]*)[.](?:0|[1-9][0-9]*)(?:-(?:0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*)(?:[.](?:0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*))*)?(?:[+][0-9A-Za-z-]+(?:[.][0-9A-Za-z-]+)*)?$"
+        },
+        "type": {
+          "enum": [
+            "alpha",
+            "beta",
+            "rc",
+            "stable"
+          ]
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "latest_release"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "latest_release": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://.+\\.zip$"
+        }
+      }
+    },
+    "images": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cover",
+        "screenshots",
+        "placeholder"
+      ],
+      "properties": {
+        "cover": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^port-json/[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?/[A-Za-z0-9][A-Za-z0-9._/-]*[.](?:svg|png|webp|jpg|jpeg)$"
+        },
+        "screenshots": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^port-json/[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?/[A-Za-z0-9][A-Za-z0-9._/-]*[.](?:svg|png|webp|jpg|jpeg)$"
+          }
+        },
+        "placeholder": {
+          "type": "boolean"
+        }
+      }
+    },
+    "installation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    }
+  }
+}

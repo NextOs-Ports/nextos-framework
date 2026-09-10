@@ -1,0 +1,366 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/suzycube-nextos",
+  "observed_commit": "c3db13c749173e08d33d57839aca961d0a2ab319",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Suzy Cube"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "0a0cf8ac1a0d751059cf33b1e1c343520532e544",
+      "sha256": "4e7ca06ef81d5b4762adc6d84cc707f30ac37e6e1f71aedd0f571ee4bbbb0143"
+    },
+    {
+      "path": "FRAMEWORK-BUILD-PIN.json",
+      "mode": "0o644",
+      "upstream_blob": "33e41eabfca00ac4ad1086b992826eab739d00ee",
+      "sha256": "5c786a8ad3c35fb716dd1e6e0b264b94ca32f1568759592d2251abcc8a4a51b9"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "ce059a9aee34f13e9640caca3038e9a5ffca9171",
+      "sha256": "9095aaac89fa1d2f4b1a66203b58cac84525ec5876d5755be782a2569da05a71"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "9fce650b2eec7aacd488a746c1ad556a8dcadd05",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "16e7fbbc45add59cd0eaff6da8878a8867cbf87a",
+      "sha256": "cfca1bdedd1198934d5b2709ad9af067e2db8cd348350e4f836671ad6bfc0446"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "17f31867439c8f9888713e5a566039a1e089107e",
+      "sha256": "2a839e83d2161ae7b8d3b11f9c045f97440f58474f3a095891de8895ebea0cd2"
+    },
+    {
+      "path": "Suzy Cube.sh",
+      "mode": "0o755",
+      "upstream_blob": "7b46edecfa4b66db458a81780a8c87ee2bf4ea01",
+      "sha256": "d78af8a4b7f1912d6de1c1429a9c22c928d5dbe23ed693edb9b5d6df609f117d"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "92d59f766f70ad0581f374c76793a329f84ddbe5",
+      "sha256": "d0fb1725dca9b2b6cbb8a90f1a829a9c7e999b2f97d8cefb3617cef69edd0781"
+    },
+    {
+      "path": "gamedata-template/README.txt",
+      "mode": "0o644",
+      "upstream_blob": "f35a7a33c341599a08e06bcb482ba9939854026e",
+      "sha256": "90acc8f7dbe53522ef53b1b775fa9b0549455d99200333934d0b7c078de3ddca"
+    },
+    {
+      "path": "gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "a18a1d63de73acf20aa93a103e1c0fef0aba1b77",
+      "sha256": "0c3e5d6a4e4328c370eebbbf96ff2ad63df27c499485961ea364161c3b2bd3d2"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "ca4bbbf5a34b2fb8c2aeac8e60e84cdf5df649c4",
+      "sha256": "6533e8522a36b1a770121f0ff7609748d10551bc28546c6358d27b00e0280531"
+    },
+    {
+      "path": "nxextract/merge-suzycube-data.py",
+      "mode": "0o644",
+      "upstream_blob": "ff63774d39efbfc6c2dce3ceda74e4bdc56e536b",
+      "sha256": "fdf61f62c87fa45e836cca273a1f207134d8e3783adf23008b677196d701d177"
+    },
+    {
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "aa14274b5c30e5b197cafa2f0dba30f4f77b256c",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "path": "nxextract/run-extractor.sh",
+      "mode": "0o644",
+      "upstream_blob": "d092f8108f656ea27888fb2885b46726a3d217f2",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "434f08bb16c3e7818409c0abc3a0d0aadb338c8b",
+      "sha256": "3575064b140be69b4b40ee5b585c83d4b419bf3391e9bd2f0fd2eb7285f1d070"
+    },
+    {
+      "path": "nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "e1f3f3e9470e9ad0ad72e9866a70d2630f712040",
+      "sha256": "880c4d693b9b55a2a8fc0ab7cfe2aebfa985c8634a938aa5ebb682bbfc04da94"
+    },
+    {
+      "path": "nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "34946acb88798d23bb90f769270643402f4cb3e5",
+      "sha256": "d2382c0b8be76bb4594b51910bb9611d7a4c7fbe13c19e8a2a214f64d1f24c6a"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "fb9334b6495b88127dcfc8ddfb7267e83141e46b",
+      "sha256": "158a0ef1afbb8839f4afcc17d327db1bdda1130930c7185e8ddb3003aedc6f58"
+    },
+    {
+      "path": "package/render-manifest.py",
+      "mode": "0o755",
+      "upstream_blob": "f1047e9ebd6bd80cbd41a94081ca54be6cac4584",
+      "sha256": "38f9173704e2570078464cc0c5b95e239d6b3cf4bc35a508eb614786ac901731"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "cebbef8f352767f832f42769126ffd1f322bf6aa",
+      "sha256": "704986bd814d48e692393e6e5b70e4d8857657df52f58b6ae6a1015f80f3f000"
+    },
+    {
+      "path": "src/android.c",
+      "mode": "0o644",
+      "upstream_blob": "a62722fc43157dd3e8ab1369e0268b560abb6533",
+      "sha256": "9bd1561060f296a8a89cd5df75b78926ae4ef90e718035c9705dc8915b633706"
+    },
+    {
+      "path": "src/audio.c",
+      "mode": "0o644",
+      "upstream_blob": "2d484167b270900a6f96951a7d53f9acb7fc1d04",
+      "sha256": "0946e21d6b9a036913e3d9d707c88590b2f7a005352f852fc90d422007623c22"
+    },
+    {
+      "path": "src/bionic.c",
+      "mode": "0o644",
+      "upstream_blob": "a12ce4045981cf264067c61a216cf35717c0366c",
+      "sha256": "3deeb055c62dfc41255116c734717b0c8f7146283a474b364b217331c804a17c"
+    },
+    {
+      "path": "src/egl.c",
+      "mode": "0o644",
+      "upstream_blob": "361351e7098a2aa3e7867f48c543edf24338228e",
+      "sha256": "d454f25d2f640730cc836b6a500aa6f744636e8f86fed9e58b3706ac99eb4033"
+    },
+    {
+      "path": "src/egl_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "42793bc7d7ae67a86534895172043c95ebe99170",
+      "sha256": "bb468c2f8f0c4b145bbd937d970aac6aa5959036e985ae87b232a066eed5c4bb"
+    },
+    {
+      "path": "src/egl_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "f657bfa2b2e3af31b44503d9a7c48b46e000940a",
+      "sha256": "75e6a529f7451021ddaa32202b067541faf3f1e22ea49e366c31fa2ee241167a"
+    },
+    {
+      "path": "src/etc2_decode.c",
+      "mode": "0o644",
+      "upstream_blob": "985e68ebaed74f1be2a5be8d7cda744b5460ae51",
+      "sha256": "5bbda76184b258939d7fa03bb6c0902a677863342a393c9acede7886eb3a2903"
+    },
+    {
+      "path": "src/etc2_decode.h",
+      "mode": "0o644",
+      "upstream_blob": "89f724e20a520573447243b44123743da7fc92b8",
+      "sha256": "2d2965b945114bad0c34cd2f6c1cf1102390d0d45d1ffb262c2b0badf6e14204"
+    },
+    {
+      "path": "src/framework_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "511997361fff9259de84d8d2977aaaa5f6645e9c",
+      "sha256": "e55b07db772ca6de4230c40d5f26f3d7e0165f0a0f5a1daee6d2ffb2631a30d5"
+    },
+    {
+      "path": "src/framework_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "3f6006b3187281bbb7a6f4ecc660904bfab855dd",
+      "sha256": "9351b512f4a786da1368042fbdf95e253793ec0e9dd9ab0a59abf48007a07e0b"
+    },
+    {
+      "path": "src/input.c",
+      "mode": "0o644",
+      "upstream_blob": "2c99a56fd4817f590b1bacee59f052c2fa77199a",
+      "sha256": "d8950a1b1749e67d47481597ba6dc8a69cbf3dc5aa5cd044420346660d45070a"
+    },
+    {
+      "path": "src/input_evdev.c",
+      "mode": "0o644",
+      "upstream_blob": "bf366ce720abcfb7c9e72e44122e4b663537bfa5",
+      "sha256": "bc5ff79a41123136377aea99e9a3da48e0ad26fa6abe7978e4573e54ae820bf7"
+    },
+    {
+      "path": "src/input_evdev.h",
+      "mode": "0o644",
+      "upstream_blob": "216f4ae32ac0d451792789d29174a5dcd5c0c9c1",
+      "sha256": "09befa296336ce5f7a31e5b9df2c8e5aa7bb78ea09cc719f9e2488b8f739167e"
+    },
+    {
+      "path": "src/input_policy.h",
+      "mode": "0o644",
+      "upstream_blob": "a3b4e5b4e267de781d176cbf6b0ce5e633151b18",
+      "sha256": "c0b1968e1689e9ff2c4d34cca8999b3c44124fce802428202d85e5c5e4d26f48"
+    },
+    {
+      "path": "src/jni.c",
+      "mode": "0o644",
+      "upstream_blob": "95c8a04a7ab157ea7a853f9dfc6ace84ba57589d",
+      "sha256": "a53437816f5b1d32599642276f1e4a5a210d1a741af3690a997f3a94c9b44df4"
+    },
+    {
+      "path": "src/jni_slots.h",
+      "mode": "0o644",
+      "upstream_blob": "2bb2f19495cab9939d9af1d6284c52dc31c062ff",
+      "sha256": "7e5d209f4af4743e1073ea3c9cecb45edaf4e9fc6c4798c48c47cb694458bf15"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "f7a670d565137cb17296956501fb4bb26fe41159",
+      "sha256": "7afbb93b6192ba7a948d49be2b7d29ac0f16bb809c90af38c3a7508a79d12e89"
+    },
+    {
+      "path": "src/nx_elf.c",
+      "mode": "0o644",
+      "upstream_blob": "0083fe6bf917994d903851efc3acf8265c197aad",
+      "sha256": "97f37faa20574b4349db89f005809267b2fa3b4c6ebcd6eb89dc6512a33282ac"
+    },
+    {
+      "path": "src/nx_elf.h",
+      "mode": "0o644",
+      "upstream_blob": "8a22f2269747cd87ac6375b3d7a1c3f7e8bcdc66",
+      "sha256": "eb42a15a90295d4cde01fcbe408ea36012cdbf9fd0fde9cb41364e0a53d26438"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.c",
+      "mode": "0o644",
+      "upstream_blob": "de77b23d6e27b946e0075484d83df85d3c93d287",
+      "sha256": "f14139178c2f01717956ef11c7dcd94b6d19ac8228b8ca57f6d303456a55d083"
+    },
+    {
+      "path": "src/nxgl_frame_proof_adapter.h",
+      "mode": "0o644",
+      "upstream_blob": "de48fd75f9c315bc92ecb9558540702400b85051",
+      "sha256": "0e79c6dd61bae4a1817d79f5a26a2a1f6bd3dc16e3a849e9c2c69dea829fe667"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "13845a41f952565846826893b7e94c40ed3256f6",
+      "sha256": "4248b52119eb96e0dcae14017f6f54c6531ee58c6caddf03c8515db9abd0bb9b"
+    },
+    {
+      "path": "src/sc.h",
+      "mode": "0o644",
+      "upstream_blob": "9f413f7151db4b351c1016e29b13fc4b0c2c36ba",
+      "sha256": "2d6f0ca3c0c6cb9f7dfb04467e78ac6ef5682d4769bf00c7e8c0cb0605ad5925"
+    },
+    {
+      "path": "tests/run-host.sh",
+      "mode": "0o755",
+      "upstream_blob": "7e255f9a0a2f5310d39561ecf412dd7c177cb361",
+      "sha256": "e641475a3d634fe73befb785e3a8d9f6dc49618a241249255e4d8f1b1880944e"
+    },
+    {
+      "path": "tests/test_input_evdev.c",
+      "mode": "0o644",
+      "upstream_blob": "97c2922403e75c643a80d3259982bf8a686a3671",
+      "sha256": "e4262ee337dc4514bd5b49c9f6d136d3297479b4123c76ed01e005d0a1a54fbd"
+    },
+    {
+      "path": "tests/test_input_policy.c",
+      "mode": "0o644",
+      "upstream_blob": "000bd2753039e28e0bb025c6897b8aece25ef055",
+      "sha256": "0ce9fcc19103f7afae76b8ea1fda0d2bf2d9038d821a8df0afc52ed2fb42026d"
+    },
+    {
+      "path": "tools/framework-source.sh",
+      "mode": "0o755",
+      "upstream_blob": "cb6efe3126e16e4171d79a900daa0f317554d744",
+      "sha256": "117c5674e9da72242505471463020718cde319faf4f3d38ceb9b90db4dc5aca7"
+    },
+    {
+      "path": "tools/launch_device.sh",
+      "mode": "0o755",
+      "upstream_blob": "258a85759b9cbf2d7354832506ebc02b20e1e88c",
+      "sha256": "64f579aeb7d112f9f95ce5e350434245ff16172d77cc7b03ee404fdaf7c1e0a8"
+    },
+    {
+      "path": "tools/package.sh",
+      "mode": "0o755",
+      "upstream_blob": "fd53e76caf1f9eca02509d0046624ab117503f7d",
+      "sha256": "81b1399056bf565de6729b0b2587c251cf1ed6b786568a8413d3006ced26c4b5"
+    },
+    {
+      "path": "tools/run_device.sh",
+      "mode": "0o755",
+      "upstream_blob": "410746c24eb41bc0ffa7467894bde628f728c7c1",
+      "sha256": "c342057406a1144c307f1fedd206b72b3b1fc08a320a4bdf01b2b75b8035fefc"
+    },
+    {
+      "path": "tools/stage_data.sh",
+      "mode": "0o755",
+      "upstream_blob": "4465c01b243e087eb6bb082687c481d28fe467b3",
+      "sha256": "0f2d252db9b820a2ea2d050036580c6d14ebc7c5177b1915ee01a9cf77d85b70"
+    },
+    {
+      "path": "tools/verify_gameplay.sh",
+      "mode": "0o755",
+      "upstream_blob": "b40c56e2843c9616027cbf962a5e1c198c10629c",
+      "sha256": "a1bd94815db2ef5368ccf77a3ea0e5b74c5a13823e7eff73e9c7ea9177a85cc7"
+    },
+    {
+      "path": "tools/watch_device.sh",
+      "mode": "0o755",
+      "upstream_blob": "614d150dfba163416ae1af636d81d3db395e239e",
+      "sha256": "0335389cc800a69354f24673fd86d15581ce8c176f8e42ad2842d9c6a3fda53b"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "ccad953ac5375f6d52a909edb252beee0cc6fb17",
+      "sha256": "d343770461504b96bbf75486480dcc6840092fe6e29d3e56063b486efb42d819"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "e56367a3589d58459392cc37da3b4abf0f3ea130c8467187e30545f55b2aee5e",
+      "reason": "privacy-review-required; upstream unchanged"
+    },
+    {
+      "path_sha256": "a0d0b0fddd70227f8e24f8cd252dd8902cafd35a9d63078f2d1617f9d2f94fdf",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

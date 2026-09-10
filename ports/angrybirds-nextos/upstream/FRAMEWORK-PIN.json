@@ -1,0 +1,72 @@
+{
+  "schema": "nextos-framework-release-pin-v1",
+  "port_id": "angrybirds",
+  "port_version": "1.1.9",
+  "source_repository": "https://github.com/NextOs-Ports/angrybirds-nextos",
+  "components": {
+    "nxbootstrap": {
+      "version": "0.6.26",
+      "role": "generated runtime launcher",
+      "commit": "54370e9"
+    },
+    "nxloader": {
+      "version": "0.7.1",
+      "role": "linked runtime",
+      "vendored": "vendor/nxloader"
+    },
+    "nxcompat": {
+      "version": "0.4.0",
+      "role": "linked runtime",
+      "vendored": "vendor/nxcompat",
+      "release_ref": "nxcompat-v0.4.0",
+      "commit": "780c0b980bdc692328d121e29f8ed7b3c8bdca1a",
+      "framework_tag": "framework-v4",
+      "framework_commit": "a43e8cb46238975c4fe7fbc8d94722489f813164",
+      "pins": "vendor/nxcompat/PINS.json"
+    },
+    "nxgl": {
+      "version": "0.3.5",
+      "role": "linked runtime",
+      "vendored": "vendor/nxgl",
+      "release_ref": "nxgl-v0.3.5",
+      "commit": "35d4740a0a2db54ec2488ac2ede937c4988c968a",
+      "framework_tag": "framework-v4",
+      "framework_commit": "a43e8cb46238975c4fe7fbc8d94722489f813164",
+      "pins": "vendor/nxgl/PINS.json"
+    },
+    "nxaudio": {
+      "version": "0.2.0",
+      "role": "linked runtime",
+      "vendored": "vendor/nxaudio"
+    },
+    "nxinput": {
+      "version": "0.3.1",
+      "role": "linked runtime",
+      "vendored": "vendor/nxinput"
+    },
+    "nxabi": {
+      "version": "0.1.0",
+      "role": "host build gate (not distributed; set NXABI to run it)"
+    },
+    "nxrelease": {
+      "version": "0.2.25",
+      "role": "packaging",
+      "commit": "54370e9"
+    },
+    "nxextract": {
+      "version": "1.2.12",
+      "role": "setup"
+    }
+  },
+  "not_integrated": {
+    "nxandroid": "the version-pinned Rovio NativeApplication/JNI lifecycle remains adapter-owned",
+    "nxobs": "host-only diagnostics are not linked or shipped; raw support bundles are excluded"
+  },
+  "binary": {
+    "path": "angrybirds-nextos",
+    "sha256": "3255b19c9301ab2c4b2a1586825ba329f7093844a39f9d2ddd13edfc2634c15e",
+    "architecture": "armv7-hard-float",
+    "interpreter": "/lib/ld-linux-armhf.so.3",
+    "max_glibc": "2.17"
+  }
+}

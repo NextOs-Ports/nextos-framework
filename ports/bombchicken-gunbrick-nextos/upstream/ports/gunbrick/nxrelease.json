@@ -1,0 +1,257 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "gunbrick",
+    "version": "0.2.5",
+    "profile": "universal-portmaster",
+    "launcher": "Gunbrick.sh",
+    "launcher_chain": [
+      "Gunbrick.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.3",
+      "config_path": "gunbrick/nxport.json",
+      "config_sha256": "319d6a38453fff7d7417fe773d82b6c1b7120b79b8f93cb1e9b5b69bcab757df"
+    },
+    "port_dir": "gunbrick",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "file": "gunbrick/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786320000,
+    "max_glibc": "2.30",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "gunbrick/nxextract/nxextract.py",
+    "version": "1.2.6",
+    "minimum_version": "1.2.6",
+    "sha256": "a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170",
+    "runner_path": "gunbrick/nxextract/run-extractor.sh",
+    "runner_sha256": "179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2",
+    "runtime_env_path": "gunbrick/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "recipe_path": "gunbrick/extractor.json",
+    "recipe_sha256": "19be8977c7baeca374a4a58ed44f13a2fd8a076da067f4be76302b8ce01fa5b4"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "ld-linux-aarch64.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libgcc_s.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libz.so.1",
+      "provider": "firmware"
+    }
+  ],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "gunbrick/port.json",
+      "sha256": "698f6c59b0208f8678c43b62533f89936b66885a537507810791e76408808cd3"
+    },
+    "images": []
+  },
+  "files": [
+    {
+      "source": "Gunbrick.sh",
+      "target": "Gunbrick.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "cb494d2d1c85fb5983d1eeac8ad5681be8d8f7401bfa3c1ac5ad4780df4d3e9b"
+    },
+    {
+      "source": "nxport.json",
+      "target": "gunbrick/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "319d6a38453fff7d7417fe773d82b6c1b7120b79b8f93cb1e9b5b69bcab757df"
+    },
+    {
+      "source": "build/gunbrick-nextos",
+      "target": "gunbrick/gunbrick-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build_universal.sh; pinned offline Debian Buster image sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf; target sysroot used for headers only",
+      "sha256": "01bcc932a82fecc26d43eb8881d4de11a21b5f9b2cf11fa7a97538d9983a21be",
+      "needed": [
+        "ld-linux-aarch64.so.1",
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "soname": null
+    },
+    {
+      "source": "README.md",
+      "target": "gunbrick/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "f8322c904bc5ca583f72c1f687e31faf4faa7a9baf7e43a2224a5173b4a4468f"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "gunbrick/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "911595d2e9d9e6ff3ca392169dac03c89dceeeda32352cbd18f03291b0770d1d"
+    },
+    {
+      "source": "NOTICE.md",
+      "target": "gunbrick/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "51f0bf7d266432e3486f80155443c773dbf9ac7f1b6f54ea48795451bd9127bc"
+    },
+    {
+      "source": "LICENSE",
+      "target": "gunbrick/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "source": "version.txt",
+      "target": "gunbrick/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "e959f750e92dbb7614ae28ac96f0a37272caed81d8bbb758791af7bfbb6106a0"
+    },
+    {
+      "source": "gamedata-template/README.txt",
+      "target": "gunbrick/gamedata/README.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "2da086cf56105607e1cba3551ae588c4799579127a0fcc7890913ed158dbeb1b"
+    },
+    {
+      "source": "extractor.json",
+      "target": "gunbrick/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "19be8977c7baeca374a4a58ed44f13a2fd8a076da067f4be76302b8ce01fa5b4"
+    },
+    {
+      "source": "nxextract-version.txt",
+      "target": "gunbrick/nxextract-version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "656d5b2e6a16c18a92f7fe3a1566cafd1a02114f1919ea8d14c283e04558e302"
+    },
+    {
+      "source": "nxextract/nxextract.py",
+      "target": "gunbrick/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170"
+    },
+    {
+      "source": "nxextract/nxextract-ui",
+      "target": "gunbrick/nxextract/nxextract-ui",
+      "kind": "third-party-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "unmodified canonical NXExtract 1.2.6 UI from the approved Chrono pilot; MIT; content-pinned AArch64 GLIBC_2.17 build",
+      "sha256": "046afb583f5a211c946495e639409f81d9cfec706788eeccb7924b0e8e5a50b6",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "nxextract/run-extractor.sh",
+      "target": "gunbrick/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2"
+    },
+    {
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "gunbrick/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "gunbrick/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "port.json",
+      "target": "gunbrick/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "698f6c59b0208f8678c43b62533f89936b66885a537507810791e76408808cd3"
+    },
+    {
+      "source": "references/adapter-contract-v1.json",
+      "target": "gunbrick/references/adapter-contract-v1.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "3a439955479e13769b200a3f790d6a4ab9a6ba4cad6323dbc1244e38c9e33f06"
+    },
+    {
+      "source": "references/migration-status-v1.json",
+      "target": "gunbrick/references/migration-status-v1.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "9a035c857ff7f8b0c3d52756ad55b8a50228bbb22b671a6853becef460a41fbb"
+    }
+  ],
+  "exceptions": []
+}

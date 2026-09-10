@@ -1,0 +1,536 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/sonic4ep2-nextos",
+  "observed_commit": "52ec4bfbf51753ccdc0706a901c1412c4a5a61e5",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Sonic the Hedgehog 4: Episode II"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "PLAN_MULTIDEVICE.md",
+      "mode": "0o644",
+      "upstream_blob": "466bcd2f24a6b93120e099d14847fb706c38b2f4",
+      "sha256": "3986f1fdb0fcbe0749450a2a258e9cedbca3b5f0af61a089e8d7848f88513bf0"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "feba20f1f1d0b218154d045bedbfd7a50cb154aa",
+      "sha256": "d8e53c22e96decb6979ce11c2e7b3cea20a46d0bc4c30e247a5cd5da26937f70"
+    },
+    {
+      "path": "SFX_MAP.md",
+      "mode": "0o644",
+      "upstream_blob": "f8bc0d1fae7388f3af584c2e38869ee53f21eb1b",
+      "sha256": "72fb51df98ff604bdfff7d5211bc7b0c337acde2350586de2a1888563fa135cd"
+    },
+    {
+      "path": "STATUS.md",
+      "mode": "0o644",
+      "upstream_blob": "a80c562b07aec3c4269f059969c144bb199241fe",
+      "sha256": "e8edbb51a2cd7f69bfbe12ac95b423fe42eea460af6a89de9027874b735e92de"
+    },
+    {
+      "path": "STUDY.md",
+      "mode": "0o644",
+      "upstream_blob": "939490b1d82ff7a5f470691784b8620889974202",
+      "sha256": "c2e1a1d4120614fa041cf26dd6e2761a590147a62bb9467349538f8a46950790"
+    },
+    {
+      "path": "STUDY_BUGS_s_native.md",
+      "mode": "0o644",
+      "upstream_blob": "681bcbad2c2bec99064e6a35c8928ad0f32e9ecb",
+      "sha256": "c5295006017089269f471d0142065692089fc6ebf38080d4d0a87e4b72d770c8"
+    },
+    {
+      "path": "STUDY_CASSINO_BUG.md",
+      "mode": "0o644",
+      "upstream_blob": "2ecd62623585ce97e86f8d9a1f2c0559d23f287e",
+      "sha256": "6946c3e623fa60078b7657d5bb5e9997298f6d6b41156168f8f443f86dfa704a"
+    },
+    {
+      "path": "STUDY_DEVICE_COMPAT.md",
+      "mode": "0o644",
+      "upstream_blob": "f9ef1b741b5d3879edca54d99073f3b466c9f19b",
+      "sha256": "99e2dd5690c06dfa2948b0c0a163d4743bc9c83b3b67ec0137678f2c9bd8bb8c"
+    },
+    {
+      "path": "STUDY_MUOS_AUDIO.md",
+      "mode": "0o644",
+      "upstream_blob": "86c07e222601cfde8bd6ec517a241d395c6fa6ed",
+      "sha256": "9552d978a8aa439aab496f733aa219609374cf4ba473d7e7fe8f57952fc46ca2"
+    },
+    {
+      "path": "STUDY_WINDOWING_AUDIO.md",
+      "mode": "0o644",
+      "upstream_blob": "51e9731ebf1dafa9fa7d6ea11ad5e45f81fc30e7",
+      "sha256": "6e5eef2d40189de5a42e450331beed56bf9ba5f7c8354b21f8bd24ae38e47bf6"
+    },
+    {
+      "path": "build.sh",
+      "mode": "0o644",
+      "upstream_blob": "2503669bf99c4da8e4f1f5aa36a190daf97aacf6",
+      "sha256": "b35139a0c3ad3ec3ced82c7f957236f647592cc89e08aca6526c446bfd3a5352"
+    },
+    {
+      "path": "build_arm64.sh",
+      "mode": "0o644",
+      "upstream_blob": "dc1e69421693639c2760f34ab5afddb70da8fcb3",
+      "sha256": "e5f8b8ea553aa1002d6235e51588bec49367d6dac47822e977829298b9a41b20"
+    },
+    {
+      "path": "build_arm64_host.sh",
+      "mode": "0o755",
+      "upstream_blob": "df18183d23cf84e0c68f4b37fd10f630ad832b93",
+      "sha256": "aae00139a97dfa94b924068aeb7170867b2f5d6309dbe09fb303e98c172a50f1"
+    },
+    {
+      "path": "build_compat_gcc.sh",
+      "mode": "0o644",
+      "upstream_blob": "af39bd9f4e7444b3e52291acd6d3ab5f61b539dd",
+      "sha256": "ff5263849c9ac4ce005b7daca1775142e43ce37842407a510ee57d9fef3a2ab5"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "f64257fa74d8265349f9cf1531fd58770aa7e495",
+      "sha256": "cef59d6fef4645e01bdefeb62574b93bb7e70d2f42871aa5bea7262fe181019d"
+    },
+    {
+      "path": "package/package-files.txt",
+      "mode": "0o644",
+      "upstream_blob": "a56c924c6b9d6bc429c27c2d7a344fad16da0886",
+      "sha256": "cc5a1c52458c125a667f69515402c4109ab884b47fe94133da30d8c937ae027c"
+    },
+    {
+      "path": "package/ports/Sonic4EP2-arm64.sh",
+      "mode": "0o644",
+      "upstream_blob": "c70a2e2a33592fed906f8f85706329f24f5b4952",
+      "sha256": "6c8d7804f275709777b590e43fc4074c2d256153ed5574c7ef535c54e0d4fc65"
+    },
+    {
+      "path": "package/ports/Sonic4EP2.sh",
+      "mode": "0o755",
+      "upstream_blob": "25a3fbfdaa3992c3e6527f7d93b9bc4c8b70bb37",
+      "sha256": "48e2b316c07be0c02f917626c4620d4678c7e3ac5ae021b839232882e55a96bf"
+    },
+    {
+      "path": "package/ports/sonic4ep2/LICENSE.md",
+      "mode": "0o644",
+      "upstream_blob": "3c20c71baeb796e094819b13d0287c2659d6f879",
+      "sha256": "f326fb6e1af16af09d3e9b97ddb51c5b698449f8aa13c6b1b93c67a4f275296d"
+    },
+    {
+      "path": "package/ports/sonic4ep2/README.md",
+      "mode": "0o644",
+      "upstream_blob": "39ce9dd99542c3db6caed1272b2dfd7fed295857",
+      "sha256": "e34b37610867138bd89f35a2f8a4bb7035dad9cd044804178b47e5a02c8f72cb"
+    },
+    {
+      "path": "package/ports/sonic4ep2/gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "9a385d96c00f0ad5f352529eba3221d09c479924",
+      "sha256": "8d00f656764e3fdc3505a9fe2dbf8462039d5a8e0b4923be0d75436ad88a9915"
+    },
+    {
+      "path": "package/ports/sonic4ep2/licenses/Apache-2.0-NOTICE.txt",
+      "mode": "0o644",
+      "upstream_blob": "7046177d9005abf0bb0a79044214a04a5c3103a6",
+      "sha256": "7b86e15174c127f2ae261e459342f2baa42187fda74da8e7ffbd51af5d129b25"
+    },
+    {
+      "path": "package/ports/sonic4ep2/licenses/LICENSE.md",
+      "mode": "0o644",
+      "upstream_blob": "cf93028047c1a3c05c165d00fa00cc857d8c9341",
+      "sha256": "2a3f579c81e23d06eb8383ca26e561d8fa48d9ce9a98083dffa502e56f0ddfd3"
+    },
+    {
+      "path": "package/ports/sonic4ep2/licenses/PortMaster-progressor.txt",
+      "mode": "0o644",
+      "upstream_blob": "13dfa2f5a5cbc495ffa020a71dcd978af15ce97e",
+      "sha256": "8081d32584c78a3c1e689435f4f6023a81aa33a203811497df6b40b1576a3990"
+    },
+    {
+      "path": "package/ports/sonic4ep2/licenses/SDL2-zlib.txt",
+      "mode": "0o644",
+      "upstream_blob": "66d59ad72a578338d4421e515159c895ecd63414",
+      "sha256": "bfb0739a219eac0f9b6bd3196cc112726ad1fb023771bfc2c1ab0f2be28b1998"
+    },
+    {
+      "path": "package/ports/sonic4ep2/licenses/Xiph-Ogg-Vorbis-BSD.txt",
+      "mode": "0o644",
+      "upstream_blob": "f8e5de281fc41db19093e8c2fbb54b8d57b885c5",
+      "sha256": "4323b16edb8dcb2b801a2359929f7e8863ef250b285f52215aae39f1535511b9"
+    },
+    {
+      "path": "package/ports/sonic4ep2/licenses/game-data-notice.txt",
+      "mode": "0o644",
+      "upstream_blob": "d4561d3df37b3025eb4b28148b8082e3295bd040",
+      "sha256": "e2534afe14ab261e8e53337ec39ee05dd6d567be59e6f72d73ba368955990a5c"
+    },
+    {
+      "path": "package/ports/sonic4ep2/licenses/mpg123-LGPL-NOTICE.txt",
+      "mode": "0o644",
+      "upstream_blob": "011837c21977e9070963a393fdaeb2940d158173",
+      "sha256": "8d98d4902dfa300672929a36f56658c54cb63332515478c077638350df379cde"
+    },
+    {
+      "path": "package/ports/sonic4ep2/port.json",
+      "mode": "0o644",
+      "upstream_blob": "b2935b80fa8dd7988068f131a801fb3fe77bcaa6",
+      "sha256": "660ac0f8266037d67e16a425eb2c63794a73077ca52dff274253fef3fdf5ac93"
+    },
+    {
+      "path": "package/ports/sonic4ep2/sfx_map.tsv",
+      "mode": "0o644",
+      "upstream_blob": "c9eaa315ac690b3524a5491fcd1fb1db5e2db3f0",
+      "sha256": "d2e0efbafe133a0a446aca42f1f987cf2ebb9ae9f73716374b6ecf60f8a35e4c"
+    },
+    {
+      "path": "package/ports/sonic4ep2/sonic4.gptk",
+      "mode": "0o644",
+      "upstream_blob": "7928aa2314eb2a0e4ab4c183ed64605b3d66bcce",
+      "sha256": "b382329ee31109dc4e588fc7eb68c9c3d95ad1fb562509832a53d28d67f5c954"
+    },
+    {
+      "path": "package/ports/sonic4ep2/tools/audio_diag.sh",
+      "mode": "0o755",
+      "upstream_blob": "8918366e3a533418d8c2b4df65038c349eac7323",
+      "sha256": "dc3930fbbf1e19a567859f09d170d4dcc4505f15fa0114d47c5adb7850325986"
+    },
+    {
+      "path": "package/ports/sonic4ep2/tools/extract-sonic4-data.sh",
+      "mode": "0o755",
+      "upstream_blob": "602371ec3fdc4ba347a86212cf42a389f892df75",
+      "sha256": "86acdcaad22759b70fcd8ebb2d7556cde5640520a18ba3a5ee852e310b59a9ac"
+    },
+    {
+      "path": "package/ports/sonic4ep2/version.txt",
+      "mode": "0o644",
+      "upstream_blob": "30a59a8b7a12e719624426bfdc0b0c5a72d36ae6",
+      "sha256": "9e6dccf291cf48fa7e7688b7529a724d6010362ea92dd8e852530f7c23830a20"
+    },
+    {
+      "path": "package/ports_scripts/Sonic4EP2.sh",
+      "mode": "0o755",
+      "upstream_blob": "f5201a6ad8466ba9762150fefaf9bfb569645789",
+      "sha256": "7693f6f63ec73de391fbd5bf7eca91432421acfb6bffbc17476bcb90dc4ef86b"
+    },
+    {
+      "path": "package/sonic4ep2/LICENSE.md",
+      "mode": "0o644",
+      "upstream_blob": "85d94bba64d94f9e8c7051d0993024a84aa4708f",
+      "sha256": "ca4fb65e2865396166ab1de1f6e0bc6268be5fb662202bbe7b7853b737c927b2"
+    },
+    {
+      "path": "package/sonic4ep2/README-pt-BR.md",
+      "mode": "0o644",
+      "upstream_blob": "6fd718a2fb3b274602f7055d08f9ddce8506c926",
+      "sha256": "777da24832439e14db57e487edc81d851e7c0ce2b405e1c55ad2b6d2f4a3dfd7"
+    },
+    {
+      "path": "package/sonic4ep2/README.md",
+      "mode": "0o644",
+      "upstream_blob": "0bc38c13b77db7de69f2b3f804543f4b004561f4",
+      "sha256": "3d05a5fd98a64a95141d5ac3a7adb98ab0bba6df7e8a1b6f95e484cf11cbaf3b"
+    },
+    {
+      "path": "package/sonic4ep2/gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "fc56b84f758810bec256a5ebb7cc674be7402f57",
+      "sha256": "14b901a0c8495f5393e2ed14345b5df51a80a75d1368206ca683a62057ba0cc4"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/Apache-2.0-NOTICE.txt",
+      "mode": "0o644",
+      "upstream_blob": "601d29501e4c45ec5f02a6a00d0613ec1311236e",
+      "sha256": "bccfec6f7680d1a217df8a329225c85a8fd98835b9749d785e719668b7a607c9"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/Apache-2.0.txt",
+      "mode": "0o644",
+      "upstream_blob": "137069b823873b8bcf42979bcf8e9371052d26a2",
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/GPL-3.0.txt",
+      "mode": "0o644",
+      "upstream_blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/LGPL-2.1-or-later.txt",
+      "mode": "0o644",
+      "upstream_blob": "c6487f4fdf701640ac0f559eb0130cdf76c5d3f4",
+      "sha256": "5749785c8bdefafcb5d798270ed0a967036fe2ca63dcedade1627565dfef81d2"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/LICENSE.md",
+      "mode": "0o644",
+      "upstream_blob": "958ef9086b263195081a6971a25ebba0d72633b8",
+      "sha256": "b8bcb65a7bc2851bbc75e77af5f8eb355640ed003b195d94ca1f3d016e0ce454"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/SDL2-zlib.txt",
+      "mode": "0o644",
+      "upstream_blob": "66d59ad72a578338d4421e515159c895ecd63414",
+      "sha256": "bfb0739a219eac0f9b6bd3196cc112726ad1fb023771bfc2c1ab0f2be28b1998"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/Xiph-Ogg-Vorbis-BSD.txt",
+      "mode": "0o644",
+      "upstream_blob": "be660772fa685f618185e9e5799d3c6f3c1ce4be",
+      "sha256": "672151c4377a82113b0358441b8b77814651b7e9c9b50d4d271286fd3eacb145"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/game-data-notice.txt",
+      "mode": "0o644",
+      "upstream_blob": "1346cf4b5f3dc11187749fb6dc9524538d7cf205",
+      "sha256": "a1db06e37b1ed57b99f99c60b1c7ba075d66c5ae4d8a38095c677cfbcdc57285"
+    },
+    {
+      "path": "package/sonic4ep2/licenses/mpg123-LGPL-NOTICE.txt",
+      "mode": "0o644",
+      "upstream_blob": "ffb08f6e1d3904025ae2ad6ea5bfa814474f35c3",
+      "sha256": "722e7239d407bbfff5ed1d219a02b1cf8ef4cc2803707a94ea956b18806d2f9c"
+    },
+    {
+      "path": "package/sonic4ep2/port.json",
+      "mode": "0o644",
+      "upstream_blob": "26415b9751e7d82410393fe3d22399083393a7f3",
+      "sha256": "f3d1134d887628a4f399ebe5d3ef4195e4b678ac631e21d61c069f69de47c460"
+    },
+    {
+      "path": "package/sonic4ep2/sfx_map.tsv",
+      "mode": "0o644",
+      "upstream_blob": "c9eaa315ac690b3524a5491fcd1fb1db5e2db3f0",
+      "sha256": "d2e0efbafe133a0a446aca42f1f987cf2ebb9ae9f73716374b6ecf60f8a35e4c"
+    },
+    {
+      "path": "package/sonic4ep2/tools/sonic4ep2_extract.sh",
+      "mode": "0o755",
+      "upstream_blob": "6362f0afb5ff162551088de58dfbf705f646e26f",
+      "sha256": "ab02dbe9974190301282dab05226d642dc781c583846220ecb0f4477369a7724"
+    },
+    {
+      "path": "package/sonic4ep2/tools/validate-sonic4-data.py",
+      "mode": "0o755",
+      "upstream_blob": "f5cf50a760c7d6f3cc51f0cae747296f7857366c",
+      "sha256": "57436f015e06f0ef98338223ca1d14a34779b2824060b1b3ae9fb17ce1e30ae3"
+    },
+    {
+      "path": "package/sonic4ep2/version.txt",
+      "mode": "0o644",
+      "upstream_blob": "9152c2997529cdcf30613ae55cb0d5b5a11fb622",
+      "sha256": "b5a04e609679111e89f103d093f6e1a66bee18bd3a4ba1cb1be56fa430d91e44"
+    },
+    {
+      "path": "run.sh",
+      "mode": "0o755",
+      "upstream_blob": "313ef9206952a5f9472dd94dd7467bedf141ca69",
+      "sha256": "98cd929e736572c4770b66eaf776453a29ce644afb6ab5e3f05c94f1fb9a949c"
+    },
+    {
+      "path": "runsonic.sh",
+      "mode": "0o755",
+      "upstream_blob": "6cf1211be200710572e6601e9767fae5dc950014",
+      "sha256": "41ff89362f7466ee546cb8cd7f8b356ffc567746a36655968891b3800b8129b4"
+    },
+    {
+      "path": "sfx_map.tsv",
+      "mode": "0o644",
+      "upstream_blob": "c9eaa315ac690b3524a5491fcd1fb1db5e2db3f0",
+      "sha256": "d2e0efbafe133a0a446aca42f1f987cf2ebb9ae9f73716374b6ecf60f8a35e4c"
+    },
+    {
+      "path": "src/android_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "a2b926187e6ba3ef5b140933030f38c60ebf1b93",
+      "sha256": "128133c57d8d81a01928923260d8329007f7d1d3d8c141d11cd75930521f4d76"
+    },
+    {
+      "path": "src/android_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "374fd9d175778fd80b95ec51f4d9b7e1ba8c58c0",
+      "sha256": "717724cfa17aabe570521b6d27fbd374c19a6098a9de23fc4ccaacebba2011bf"
+    },
+    {
+      "path": "src/egl_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "f1fc19213cd898b45acc285d41e418d06b2b66d0",
+      "sha256": "49aa00a8ec31181ce47173a6ae4ce3dd1b2b47d6302d8e608d3f972bc857bc29"
+    },
+    {
+      "path": "src/egl_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "8600c055565b85c0aa3efc2fd71e79684f374268",
+      "sha256": "33604582330f772ae9eedfebf3e9f01d6ba8b5ea3c758fb341b7f5f6de1c6925"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "657acd34d8b35050e31bdb0301518fbf0fda09db",
+      "sha256": "1bc4ccd363c0e181cd3854501fde61117b8efb887b65986510c4e50336691e2d"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "f7030977c14ec8d62e53ed71cd277cd04a95cbf2",
+      "sha256": "8e3787cf76c976577f81bfe0719cb64d028389838d1a21f3dbd0dc2a79b3bc42"
+    },
+    {
+      "path": "src/imports.c",
+      "mode": "0o644",
+      "upstream_blob": "714fc6632b88627a715f44c2036acc7b78aa8104",
+      "sha256": "6e71e23bed9869597d4992358ac738aa6010e32fd717b59c871e55786bb02a91"
+    },
+    {
+      "path": "src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "9346af512067d2aae83aac992312db18fa8c5db1",
+      "sha256": "6e9efd9c0c4920741d6a500650d84e3b2e3ebc75a08c5200512695136b8013d4"
+    },
+    {
+      "path": "src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "90aaef8cc222bf1214b1e9b95ad3252f8da98da6",
+      "sha256": "414bb339666fe93b7191f3b645a3294478379f9733caffc1999d36c53959f804"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "b5b8e8c510c5dffc07b648d9f0208a7bd02db9f0",
+      "sha256": "9553ca7ab027bba8d1c347f26c996d110d1add749a41fd305c7f7c9d0f94649c"
+    },
+    {
+      "path": "src/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "d8cdfe7fb14e4f1b72f567bac417b5002d967e02",
+      "sha256": "56ec8cce3c1a8c9586ae06469191acf51b676d19bb6a7622fb4cbe10bdaee97b"
+    },
+    {
+      "path": "src/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0c4373fe664ee432c21bfd8d7e879d4e51cf6cfb",
+      "sha256": "9ac9bd0bce36d082e3072d36c4d3f6110191d5f8e07ede64a06659be192ae147"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "2f1787b929da05b066575827fea84dc145397cca",
+      "sha256": "f5e875b724987a3d519ccc44d5dc779d73ee5bb2b05ca7a654f4ff51864f96ed"
+    },
+    {
+      "path": "src/setup_splash.c",
+      "mode": "0o644",
+      "upstream_blob": "320466241132ff049186b53dc10d71ac21dbebfb",
+      "sha256": "d0e8c0bcd3a7368edb3cb11c68915f62734ca38d3ff6a4bd87a7ea105b5f70ff"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "e7073e9aa8e01d23626587e84b3f0292e17de72c",
+      "sha256": "beeb821325cfba00b131dbd765f3387c8736d0426547af96528fcc1d74fa1daf"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "1c0da3886454ede6578ff551c5e0574389b4040b",
+      "sha256": "912bddeaca0bfbd5c3791b294334cbfa57a059f4636e84fc07ee1e19e1933dec"
+    },
+    {
+      "path": "src/so_util_arm64.c",
+      "mode": "0o644",
+      "upstream_blob": "0e72aee2a8e384971b473b9df48e637e06398c0e",
+      "sha256": "832089296d98ec2ef4bc742438854478c338ac162be1e536bbc148fa72394144"
+    },
+    {
+      "path": "src/softfp_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "3b973cec327f1594dbe786790abf175c5cd305b2",
+      "sha256": "a64e3eb6f4a3ff83da9ca62929995769998ce5d9088e88c533e040e5ff2ecf45"
+    },
+    {
+      "path": "src/sonic_audio.c",
+      "mode": "0o644",
+      "upstream_blob": "48344a5abff1d576c1aebed3151e1efa22186d36",
+      "sha256": "87ef9388d51ebb1d4fa348eaeded090341ca99da497e3bc19581301018f98aa3"
+    },
+    {
+      "path": "src/sonic_audio.h",
+      "mode": "0o644",
+      "upstream_blob": "6238f34f8f0478ebe921780032ef80ba805c8967",
+      "sha256": "2595204ea3e0c55d4c370d0bcc03e24ffc9a27fa6fc1329097ecee80f9a10215"
+    },
+    {
+      "path": "src/stdio_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "4a6e610bc603b37433a8fd1f3fcb6593b64b61ed",
+      "sha256": "52b7aedb6bbfc83034cee1879aae3e43dea8c64791f0cd2e459c85e2cf804c71"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "99dce9a0bbc1eb48a477bebcb6bb58f63a05bd5a",
+      "sha256": "28871a7873ea1512d74944c76a53fd54d81b0430f2e6067121aae8ef3e0cf4a1"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "a21ac6dacc0ff249669fd72139de2c4c60e52817",
+      "sha256": "24b816bc531bc4c27a36883ac60e471d01d0d791aa6b300316206a37cfc91a54"
+    },
+    {
+      "path": "stop.sh",
+      "mode": "0o644",
+      "upstream_blob": "645647948e5b4e4fba561c209cf301512739f117",
+      "sha256": "814e2e9782a6e34a5bf0aa6232adb716cb8afdae130726ddb8b89dadfb47fbdd"
+    },
+    {
+      "path": "tools/audio_audit/README.md",
+      "mode": "0o644",
+      "upstream_blob": "d645680ef588151bc78bd0cf08f83493b5c83eb3",
+      "sha256": "770d4b8d7d939c973ccf4403d03beede37676ebeae73f84357b741d87f819ecd"
+    },
+    {
+      "path": "tools/audio_audit/audit.py",
+      "mode": "0o644",
+      "upstream_blob": "0b1800b6fd0edbe9311eaf389d16502f52022a9b",
+      "sha256": "4886b1e48ada5bbea102a4e687195fee3008fb56f40ab218efa4fa6010c0cf91"
+    },
+    {
+      "path": "tools/audio_audit/dexparse.py",
+      "mode": "0o644",
+      "upstream_blob": "bd798c052350f58345f8c91d9ed4f1ef9751c906",
+      "sha256": "4e40fba061ffac85d3c3e6fccccfb38de7a3a3a7b2a06afb0d02a55d3a6bf179"
+    },
+    {
+      "path": "tools/test_ctxgles.c",
+      "mode": "0o644",
+      "upstream_blob": "035e708fe19c4c3405a1a0ebf7a0d0670c7bdfa6",
+      "sha256": "4cfeb4c75fe794f9ebd99dda85110cdac6a57aa74e37a138792f10f09c7a9548"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "3a68cd5dc74b5f9fac99a828df991dc0c216c8592c586bb4409fa6f044ab8f7a",
+      "reason": "game-input-distribution-origin omitted from documentation"
+    }
+  ]
+}

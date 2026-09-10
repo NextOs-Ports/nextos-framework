@@ -1,0 +1,307 @@
+{
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "release_ready": true,
+  "identity": {
+    "android_package": "com.coffeestain.huntdown",
+    "guest_abi": "arm64-v8a",
+    "profiles": [
+      {
+        "game_version": "0.1.23",
+        "version_code": 200023,
+        "unity_version": "2022.3.47f1"
+      },
+      {
+        "game_version": "0.1",
+        "version_code": 200036,
+        "unity_version": "6000.2.6f2"
+      }
+    ]
+  },
+  "lifecycle": {
+    "policy": "preserve_native_android_order",
+    "sequence": [
+      "validate-correlated-build-profile",
+      "map-libmain-libunity-libil2cpp",
+      "profile-selected-init-array-and-JNI_OnLoad-order",
+      "Unity6-NativeLoader-requests-libunity-then-libil2cpp",
+      "UnityPlayer-initJni",
+      "surface-created",
+      "surface-changed",
+      "resume",
+      "focus-gained",
+      "nativeRender-loop",
+      "focus-lost",
+      "pause",
+      "terminal"
+    ],
+    "source_evidence": [
+      "src/main.c",
+      "src/jni_shim.c",
+      "src/nx_jni.c"
+    ]
+  },
+  "jni": {
+    "classes": [
+      "UnityPlayer activity and surface bridge",
+      "Android package, storage and preferences bridge",
+      "Android main Looper, HandlerThread and Choreographer bridge",
+      "JNIBridge and ReflectionHelper proxy bridge",
+      "org.fmod.FMODAudioDevice"
+    ],
+    "methods": [
+      "JNI_OnLoad",
+      "NativeLoader.load",
+      "UnityPlayer.initJni",
+      "nativeRender",
+      "fmodGetInfo",
+      "fmodProcess"
+    ],
+    "callbacks": [
+      "nativeRecreateGfxState",
+      "nativeSendSurfaceChangedEvent",
+      "nativeResume",
+      "nativeFocusChanged",
+      "nativePause"
+    ]
+  },
+  "imports": [
+    "Bionic/glibc ABI shims",
+    "Android NDK window and media compatibility surface",
+    "EGL/GLES2 host provider",
+    "bounded Unity 6 GLES3 and shader compatibility surface",
+    "SDL controller, OpenSL ES and AAudio providers"
+  ],
+  "graphics_implementation": {
+    "api": "OpenGL ES 2.0 baseline with bounded Unity 6 GLES3 compatibility",
+    "providers": [
+      "native Mali fbdev EGL",
+      "SDL KMSDRM EGL",
+      "SDL Wayland/Mesa EGL"
+    ],
+    "egl_config": "exact RGBA8888 with coherent real config attributes for Unity 2022.3.47f1 and Unity 6000.2.6f2",
+    "provider_selection": "real GL vendor and renderer decide SDL ownership when a PowerVR firmware labels its SDL driver as mali",
+    "context_ownership": "one real SDL context migrates between Unity main and graphics-worker threads",
+    "video_presenter": "presenter-owned VAO with full Unity GL-state restoration",
+    "global_texture_wrap_override": false
+  },
+  "audio": {
+    "format": "FMOD-selected signed 16-bit PCM queued to SDL without port-side gain; Unity 6 AAudio uses the typed SDL bridge",
+    "callbacks": [
+      "FMODAudioDevice.fmodGetInfo",
+      "FMODAudioDevice.fmodProcess",
+      "SDL_QueueAudio",
+      "AAudioStreamBuilder_openStream"
+    ],
+    "intro_path": "opening movies finish through the native Unity callbacks without presentation by default; HD_PLAY_MOVIES=1 retains the external decoder for diagnostics",
+    "volume_policy": "speaker and mixer volume remain firmware/user controlled",
+    "source_evidence": [
+      "src/main.c",
+      "src/huntdown_audio.c",
+      "src/huntdown_video.c"
+    ]
+  },
+  "input": {
+    "mapping": "firmware/PortMaster SDL mapping first, canonical legacy ordinal correction only for external USB/Bluetooth BTN_C/BTN_Z controllers (never BUS_HOST/I2C/SPI), then semantic SDL GameController state at the profile-selected Huntdown GamePad methods; R2 and R3 feed the live B9 dash slot, and R2 never feeds Fire",
+    "menu_mapping": "A confirms, B cancels, X/Y remain auxiliary menu actions",
+    "touch": "not required for the validated controller flow",
+    "terminal_combo": "Back+Start requests native focus-loss and pause",
+    "source_evidence": [
+      "src/huntdown_input.c",
+      "src/main.c"
+    ],
+    "actions": [
+      {
+        "id": "menu.navigate",
+        "kind": "vector",
+        "sinks": ["engine.ui.navigate"]
+      },
+      {
+        "id": "menu.accept",
+        "kind": "button",
+        "sinks": ["engine.ui.accept"]
+      },
+      {
+        "id": "menu.back",
+        "kind": "button",
+        "sinks": ["engine.ui.cancel"]
+      },
+      {
+        "id": "player.move",
+        "kind": "vector",
+        "sinks": ["engine.game.move"]
+      },
+      {
+        "id": "player.jump",
+        "kind": "button",
+        "sinks": ["engine.game.jump"]
+      },
+      {
+        "id": "player.interact",
+        "kind": "button",
+        "sinks": ["engine.game.interact"]
+      },
+      {
+        "id": "player.fire",
+        "kind": "button",
+        "sinks": ["engine.game.fire"]
+      },
+      {
+        "id": "player.throw",
+        "kind": "button",
+        "sinks": ["engine.game.throw"]
+      },
+      {
+        "id": "player.dash",
+        "kind": "button",
+        "sinks": ["engine.game.dash"]
+      },
+      {
+        "id": "system.pause",
+        "kind": "button",
+        "sinks": ["engine.game.pause"]
+      },
+      {
+        "id": "system.quit",
+        "kind": "button",
+        "sinks": ["adapter.system.quit"]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "player.jump",
+        "B": "player.interact",
+        "LEFT_STICK": "player.move",
+        "R1": "player.fire",
+        "R2": "player.dash",
+        "R3": "player.dash",
+        "SELECT": "system.quit",
+        "START": "system.pause",
+        "X": "player.fire",
+        "Y": "player.throw"
+      },
+      "menu": {
+        "A": "menu.accept",
+        "B": "menu.back",
+        "LEFT_STICK": "menu.navigate",
+        "START": "system.pause"
+      }
+    }
+  },
+  "language_access": {
+    "fallback": "",
+    "mode": "none",
+    "sinks": [],
+    "supported": []
+  },
+  "graphics": null,
+  "persistence": {
+    "paths": [
+      "game-relative home",
+      "game-relative PlayerPrefs"
+    ],
+    "callbacks": [
+      "Android SharedPreferences commit/apply",
+      "nativePause"
+    ],
+    "full_game_entitlement": "profile-selected exact-signature LocalStorage.IsPayed bridge for either validated complete owner payload"
+  },
+  "terminal": {
+    "action": "focus loss and native pause precede bounded adapter shutdown",
+    "evidence": [
+      "src/main.c"
+    ]
+  },
+  "quirks": [
+    {
+      "id": "huntdown.fmod-create-stream-retry",
+      "selector": "pinned FMOD wrapper and error 33 only",
+      "effect": "retry the same sound without CREATESTREAM",
+      "source_evidence": "src/huntdown_audio.c"
+    },
+    {
+      "id": "huntdown.etc2-rgba8-software-decode",
+      "selector": "unsupported ETC2 RGBA8 upload for the pinned texture set",
+      "effect": "decode only the required textures to RGBA8",
+      "source_evidence": "src/etc2_decode.c"
+    },
+    {
+      "id": "huntdown.ffmpeg-child-vulkan-loader-stub",
+      "selector": "regular non-symlink video-compat/libvulkan.so.1",
+      "effect": "prepend the compatibility directory only in movie-decoder children",
+      "source_evidence": "src/huntdown_video.c"
+    },
+    {
+      "id": "huntdown.offline-owner-entitlement",
+      "selector": "one correlated Huntdown 200023 or 200036 libil2cpp payload and its exact LocalStorage.IsPayed signature",
+      "effect": "preserve the complete owner copy when Android Unity IAP restoration is unavailable",
+      "source_evidence": "src/huntdown_entitlement.c"
+    },
+    {
+      "id": "huntdown.unity-rgba8888-egl-config",
+      "selector": "supported Unity EGL minimum-spec enumeration on an SDL-owned backend",
+      "effect": "select an exact real RGBA8888 window+pbuffer configuration instead of the first RGBX candidate",
+      "source_evidence": "src/egl_config_contract.c"
+    },
+    {
+      "id": "huntdown.powervr-sdl-context-ownership",
+      "selector": "SDL reports mali but the real GL vendor/renderer is not ARM Mali",
+      "effect": "keep the PowerVR context under SDL ownership instead of using raw Mali EGL objects",
+      "source_evidence": "src/egl_shim.c"
+    },
+    {
+      "id": "huntdown.unity6-native-loader-order",
+      "selector": "correlated Huntdown 200036 Unity 6000.2.6f2 profile",
+      "effect": "defer Unity and IL2CPP initialization until the registered NativeLoader requests each module",
+      "source_evidence": "src/main.c"
+    },
+    {
+      "id": "huntdown.unity6-reflection-runnable",
+      "selector": "ReflectionHelper Runnable proxy created by the correlated Unity 6 profile",
+      "effect": "dispatch through nativeProxyInvoke and isolate callback JNI exception state",
+      "source_evidence": "src/jni_shim.c"
+    },
+    {
+      "id": "huntdown.unity6-utgard-es2-boundary",
+      "selector": "correlated Huntdown 200036 profile on a fbdev driver that rejects the native Unity 6 GLES3 contract",
+      "effect": "retry EGL as physical ES2, expose only the bounded GLES3 contract to Unity, prefer measured emulation over unusable dispatch thunks, and repack GLES3 texture uploads at the physical API boundary",
+      "source_evidence": "src/main.c and src/gles3.c"
+    }
+  ],
+  "physical_validation": [
+    {
+      "family": "NextOS Mali-450 fbdev",
+      "profile": "200023",
+      "status": "intros-menu-selection-first-level-extended-gameplay-audio-input-persistence-approved"
+    },
+    {
+      "family": "ArkOS Mali-G31 KMSDRM",
+      "profile": "200023",
+      "status": "both-native-intros-first-story-screen-and-r2-b9-dash-route-approved"
+    },
+    {
+      "family": "ArkOS Mali-G31 KMSDRM",
+      "profile": "200036",
+      "status": "unity6-native-loader-both-native-intros-and-main-flow-approved"
+    },
+    {
+      "family": "NextOS Mali-450 fbdev",
+      "profile": "200036",
+      "status": "unity6-1280x720-visible-title-menu-audio-controller-and-native-video-end-callbacks-approved"
+    },
+    {
+      "family": "dArkOSRE Mali-G31 KMSDRM",
+      "profile": "200036",
+      "status": "unity6-640x480-visible-title-menu-audio-controller-and-native-video-end-callbacks-approved"
+    }
+  ],
+  "prohibitions": [
+    "do not reorder or skip the guest lifecycle",
+    "do not expose the ffmpeg-only loader stub to Unity or the launcher",
+    "do not force global NPOT texture wrap",
+    "do not add port-side audio gain without separate physical evidence",
+    "do not package owner-supplied Android data",
+    "do not claim an untested physical device family"
+  ]
+}

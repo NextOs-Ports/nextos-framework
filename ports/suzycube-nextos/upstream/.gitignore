@@ -1,0 +1,23 @@
+# REGRA #14b — dado de jogo NUNCA vai pro repo
+gamedata/
+*.apk
+*.so
+*.obb
+build/
+verify/
+stage/
+logs/
+debug.log
+debug.prev.log
+*.ppm
+*.png
+home/
+
+# ELF construido — nunca no repo (regra #14b / gate do release)
+/suzycube
+/suzycube-nextos
+.build/
+
+# imagens do README podem entrar
+!media/*.png
+__pycache__/

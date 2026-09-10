@@ -1,0 +1,295 @@
+{
+  "artifacts": [
+    {
+      "mode": "0755",
+      "path": "Huntdown.sh",
+      "sha256": "3f2c30f3a3d43cd469c30b6bbc22c9a1dfadc841a9699b8e60b3bfab44880767"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/commit",
+      "sha256": "04462f65ea4b72e67f1ae3e9cfd72ec348143a3a11a432daa21c4a52ac73c8b8"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/components.sha256",
+      "sha256": "3b0cd13df04e3b88887e47ed4e74a6838753eeba41493b68ea3199cfde319c23"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/components.v2",
+      "sha256": "1f52fb4e6610bc88779a03425d6ee2738c64b53320976ae146998c1774ba2126"
+    },
+    {
+      "mode": "0755",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/launcher/Huntdown.sh",
+      "sha256": "3f2c30f3a3d43cd469c30b6bbc22c9a1dfadc841a9699b8e60b3bfab44880767"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/nxport.json",
+      "sha256": "669252b73fe8c7bcdb118031e16220b06ebd876504807d4a94f946d3dabfacae"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/extractor.json",
+      "sha256": "a1a7f85c0637ea3baa8fd104407c8c15de5cf7c6e365b216b25fc58b21f285f1"
+    },
+    {
+      "mode": "0755",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/huntdown-nextos",
+      "sha256": "f519a7a4041d6583a00ab029842573fdb8b4d334e5f25fb9fd4150ae63de37b5"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/nxextract.py",
+      "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxextract/run-extractor.sh",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0755",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/files/runtime/video-compat/libvulkan.so.1",
+      "sha256": "ecaf5c399c670f4addaa2f9a1e2f524318fb039fb76d8059a6c1bbfeaafd4f31"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/format",
+      "sha256": "aac4fb5944aa71482880d8838e4de375fd47c4c9a80b6c17043859aee6e20034"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/identity-runtime.v2",
+      "sha256": "88768800de4bfb603458e0fa1bab72da9682f6c7c41bdad96598411750d8cff2"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/identity.json",
+      "sha256": "4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/.nxruntime/generations/4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992/manifest.json",
+      "sha256": "7d1b94ee0baaa5d576bade51d883332e1844802280ce9a54bfc59a3ee0074834"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/FRAMEWORK-PIN.json",
+      "sha256": "f73f0e87038fb0adc2ed06b38dff9c13078b31d57f5cb710a060dd9a3f83635d"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/INSTALLATION.md",
+      "sha256": "60f4b64a0a629a70ebc76df0deab2293bb6957a889bce7fcd9bc5b01733ac18a"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/LICENSE",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/NOTICE.md",
+      "sha256": "fd1e452aeee08a7863e27a46440192f6cf365d01c89612450cc4683156051b29"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/README.md",
+      "sha256": "3473945a92a6f3f4031d9696843bb2687f0e2cf3033ee3335c2acc6a50c273e6"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/adapter/adapter-contract.json",
+      "sha256": "7e3447d31f6e64b498ab9841d4ccf711c55890537c5e58e0ab311c4424603237"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/defaults/NEXTOSCONTROLLERS.gptk",
+      "sha256": "8d35308d21d63e08c04df3c99e2b229a4de7a1c6d0914acc6793694c4cd50e49"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/defaults/NEXTOSSETTINGS.txt",
+      "sha256": "a4e8b0d06fc11418b4f6ee5f6331752d0a822c26f8d984a9fa6870fe58a5c4c9"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/extractor.json",
+      "sha256": "a1a7f85c0637ea3baa8fd104407c8c15de5cf7c6e365b216b25fc58b21f285f1"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/gamedata/README.txt",
+      "sha256": "463e29bd66063645023a6e5281868e5a8ab7651aa1ae35958a937ba43b34dc43"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/gameinfo.xml",
+      "sha256": "f40cb8fb86258892305d74d768a868b6f2b03e3edb839569d28a173544cd2db1"
+    },
+    {
+      "mode": "0755",
+      "path": "huntdown/huntdown-nextos",
+      "sha256": "f519a7a4041d6583a00ab029842573fdb8b4d334e5f25fb9fd4150ae63de37b5"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/licenses/Apache-2.0.txt",
+      "sha256": "494accc32e50eb523a0e384d0ae6d4b702db867a89d6971216760e92b240ee12"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/licenses/GPL-3.0.txt",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/licenses/Producdevity-MIT.txt",
+      "sha256": "5adbdfa7a83930751bf8ebdca604b926d800da20595b4d984bfc1ec1bbaa3fe1"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/licenses/Unlicense.txt",
+      "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "huntdown/nxextract/nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/nxextract/nxextract.py",
+      "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/nxextract/run-extractor.sh",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/nxport.json",
+      "sha256": "669252b73fe8c7bcdb118031e16220b06ebd876504807d4a94f946d3dabfacae"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/nxproject.json",
+      "sha256": "9dfc38f350fa1f86cfb00e13495f2e793c8031aedd7962ba628f55222483545f"
+    },
+    {
+      "mode": "0755",
+      "path": "huntdown/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/port.json",
+      "sha256": "bcf1af967ddedda20b1f8ce781f5ee26a95cbf5698184abcde8fed3f4f06f900"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/tools/build_unity_asset_pack.py",
+      "sha256": "b0ea25db5d5f53d174f6cc6a614ca7eb89f0f226502f55c2d7b5adbddee7edf7"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/tools/validate_huntdown_data.py",
+      "sha256": "92ef42be496c7945e08c77ce38579dddf4720f3c9e1db7630b171255f35341ce"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/version.txt",
+      "sha256": "6d6b9230dd8b8aac527f8929b7c2fc1fa0365deccca856216de979d6f5c6a6fe"
+    },
+    {
+      "mode": "0644",
+      "path": "huntdown/video-compat/libvulkan.so.1",
+      "sha256": "ecaf5c399c670f4addaa2f9a1e2f524318fb039fb76d8059a6c1bbfeaafd4f31"
+    }
+  ],
+  "claims": {
+    "adapter_lifecycle_implemented": true,
+    "deterministic_scaffold": true,
+    "physical_support_proven": true,
+    "release_ready": true
+  },
+  "generation_id": "4d2cdac339879eb4d03f2fc19a4f9f8daf817576e21ee4f218f8d7900c513992",
+  "generator": {
+    "name": "nxgenerator",
+    "version": "0.2.20"
+  },
+  "project_manifest_sha256": "9dfc38f350fa1f86cfb00e13495f2e793c8031aedd7962ba628f55222483545f",
+  "schema": "nxgenerator-receipt-v1",
+  "schema_version": 1,
+  "source_pins": {
+    "nxbootstrap": {
+      "source_files": {
+        "templates/launcher.sh.in": "273c13dff6f8b2e037d1566758af37b3bba75c0cb6c263bea95496c17db611d7",
+        "tools/generate-port.py": "464659ca14cc9da0f6a4c3ad5c330c7aafddc1cba0e281dea7c06ab934ce7fc8"
+      },
+      "version": "0.6.37"
+    },
+    "nxextract": {
+      "files": {
+        "nxextract-runtime-env.sh": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+        "nxextract-ui": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+        "nxextract.py": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced",
+        "run-extractor.sh": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      "recipe_sha256": "a1a7f85c0637ea3baa8fd104407c8c15de5cf7c6e365b216b25fc58b21f285f1",
+      "ui_artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "ui/release/aarch64/nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      },
+      "ui_release_manifest_sha256": "6620d6dd4f25623cd067a1a036be3624cb8faee1d8eef177b470d8e4c4fc20fc",
+      "ui_source_sha256": "00266e1efeabe2716911ff9c431191944162bb550ebf3674a6d88ef62a194bf0",
+      "ui_version": "1.2.16",
+      "version": "1.2.21"
+    },
+    "nxsplash": {
+      "artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "release/aarch64/nxsplash-nextos",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      },
+      "release_manifest_sha256": "14c9a0ec823eceb6b53620e443821375c0d6c2dbe4004470bcee514bb8e3d118",
+      "source_sha256": "c393afcef644745b9d1e557c9833146e908aee4d4b6bfdb57e64e7d304c8e177",
+      "version": "0.1.2"
+    },
+    "portmaster": {
+      "contract": "v2",
+      "contract_sha256": "bfcdcbb52397168283c9b55e13dca274d7b5f5145ae1531a5ad240f54ebac47b",
+      "metadata_schema": "port-json-supported-v1",
+      "metadata_schema_sha256": "fd029622d67c2f6dc060359dd587894d9c8aa23b63fcf7bc609a6b8e087742c7",
+      "parser_commit": "8f9ddc4b0f75dfe61eb370bd3d1b4ec9d5ef6967",
+      "vendor_provenance_sha256": "15937eb265ccd95ab0e3fce9d0058a5b8849aa3ab4ca536611750bd67028d5ad"
+    }
+  }
+}

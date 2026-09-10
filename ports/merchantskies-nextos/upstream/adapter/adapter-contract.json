@@ -1,0 +1,192 @@
+{
+  "audio": {
+    "callbacks": [
+      "st_audio_start"
+    ],
+    "format": "FMOD -> AudioTrack (Java) -> SDL/pulseaudio, 24000 Hz stereo"
+  },
+  "graphics": {
+    "adopt_single_channel": true,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 8000,
+    "profile": "es",
+    "required_devices": [
+      "mali-450",
+      "mali-g31"
+    ],
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "imports": [
+    {
+      "family": "bionic",
+      "source": "src/bionic.c"
+    },
+    {
+      "family": "libandroid",
+      "source": "src/android.c"
+    },
+    {
+      "family": "egl",
+      "source": "src/egl.c"
+    },
+    {
+      "family": "gles2-runtime",
+      "source": "src/nxgl_graphics_contract.c"
+    }
+  ],
+  "input": {
+    "actions": [
+      {
+        "id": "ms.confirm",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.confirm"
+        ]
+      },
+      {
+        "id": "ms.back",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.back"
+        ]
+      },
+      {
+        "id": "ms.click",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.cursor-click"
+        ]
+      },
+      {
+        "id": "ms.pause",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.pause"
+        ]
+      },
+      {
+        "id": "ms.move",
+        "kind": "vector",
+        "sinks": [
+          "merchantskies.input.navigate"
+        ]
+      },
+      {
+        "id": "cursor.move",
+        "kind": "vector",
+        "sinks": [
+          "merchantskies.input.cursor-move"
+        ]
+      },
+      {
+        "id": "cursor.recenter",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.cursor-recenter"
+        ]
+      }
+    ],
+    "consumer": {
+      "action_sinks": {
+        "ms.back": 97,
+        "ms.click": 96,
+        "ms.confirm": 96
+      },
+      "legacy_suppressed": true,
+      "parser": "nxinput_gptk",
+      "source": "src/gptk_adapter.c"
+    },
+    "contexts": {
+      "cursor": {
+        "A": "ms.click",
+        "R3": "cursor.recenter",
+        "RIGHT_STICK": "cursor.move"
+      },
+      "gameplay": {
+        "A": "ms.click",
+        "B": "ms.back",
+        "L1": "ms.confirm",
+        "LEFT_STICK": "ms.move",
+        "R3": "cursor.recenter",
+        "RIGHT_STICK": "cursor.move",
+        "START": "ms.pause"
+      },
+      "menu": {
+        "A": "ms.confirm",
+        "B": "ms.back",
+        "LEFT_STICK": "ms.move",
+        "START": "ms.pause"
+      }
+    },
+    "mapping": "NEXTOSCONTROLLERS.gptk (parser canonico nxinput_gptk)",
+    "mapping_authority": "gptk-single-authority",
+    "touch": "st_jni_touch_event"
+  },
+  "jni": {
+    "callbacks": [
+      "st_jni_key_event",
+      "st_jni_touch_event"
+    ],
+    "classes": [
+      "com/astralride/mots"
+    ],
+    "methods": [
+      "initJni",
+      "nativeRecreateGfxState",
+      "nativeRender"
+    ]
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "adapter",
+    "sinks": [
+      "unity-i2loc"
+    ],
+    "supported": [
+      "en",
+      "pt-BR"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "JNI_OnLoad",
+      "NativeLoader.load(libunity,libil2cpp)",
+      "initJni(contextType=0)",
+      "nativeRecreateGfxState(surfaceCreated)",
+      "nativeRender"
+    ],
+    "source_evidence": [
+      "src/main.c:JNI_OnLoad",
+      "src/main.c:NativeLoader",
+      "src/jni.c:initJni",
+      "src/main.c:nativeRecreateGfxState",
+      "src/main.c:nativeRender"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "nativeOnPause"
+    ],
+    "paths": [
+      "home/"
+    ]
+  },
+  "prohibitions": [
+    "do not invent lifecycle order",
+    "do not promote offsets or callbacks to defaults"
+  ],
+  "quirks": [],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START closes; _exit(0)",
+    "evidence": [
+      "src/exit_hotkey.c"
+    ]
+  }
+}

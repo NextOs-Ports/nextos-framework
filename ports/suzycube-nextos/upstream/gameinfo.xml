@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Suzy Cube.sh</path>
+    <name>Suzy Cube</name>
+    <desc>Universal AArch64 BYO-data compatibility port of Suzy Cube 1.0.13. It runs the original Unity IL2CPP ARM64 code through a native Linux loader with controller, audio, saves, transactional installation, and no proprietary game data in the package.</desc>
+    <developer>NorthernBytes Software / Noodlecake Studios</developer>
+    <publisher>Noodlecake Studios</publisher>
+    <genre>Platformer</genre>
+    <players>1</players>
+  </game>
+</gameList>

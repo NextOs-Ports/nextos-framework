@@ -1,0 +1,788 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/sor4-nextos",
+  "observed_commit": "3c17968325ec40a3f910ca690ab0b4cab76ae950",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Streets of Rage 4"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "2c34a9b565e530b420b08f4ddb227fa67f880a12",
+      "sha256": "a09a066c31c6b998b2ab56761de8190a3286c3292d496db6568fd60399095e1d"
+    },
+    {
+      "path": "COMMUNITY-TEST-SUMMARY.md",
+      "mode": "0o644",
+      "upstream_blob": "0ac2294174c3f14ddffd0d182046e0f1e57e7a64",
+      "sha256": "5be34e349a94f60c631ad0094fecb269857d85b671e87a0975ecc0222bcf3c8e"
+    },
+    {
+      "path": "ESTUDO-PREPROCESSOR-ETC1.md",
+      "mode": "0o644",
+      "upstream_blob": "ade51c16d5bda0824493b353c447986ea4095ee7",
+      "sha256": "0f0538074bb906178e9c0bae42e101cfca44693b695d5331167555d2075d6478"
+    },
+    {
+      "path": "HANDOFF-AUDIO.md",
+      "mode": "0o644",
+      "upstream_blob": "4751dcc3c8381f6ca902e4ce0a477fa8826817de",
+      "sha256": "5c236000bdf1f1b86da71a5bd9d2db048de6bd437ae005aa6b1a91ff402b3aa5"
+    },
+    {
+      "path": "HANDOFF-MULTIPLAYER-2P3P4P.md",
+      "mode": "0o644",
+      "upstream_blob": "725f63172536cb71a59ab09c4ca7de657d5a8d56",
+      "sha256": "ab7c730e01eb022de73dde312a129485823b7a780aae492997f915b8ed222683"
+    },
+    {
+      "path": "HANDOFF-PACOTE-PROGRESSOR.md",
+      "mode": "0o644",
+      "upstream_blob": "89b01f78dc8e04a91fd89474f1b27380518c6332",
+      "sha256": "5d39c46fddc55fc5bf99737091e6fe8d0c458dbcc1be04c665d507740e091f28"
+    },
+    {
+      "path": "HANDOFF-SAVE-CONTROLES.md",
+      "mode": "0o644",
+      "upstream_blob": "d42ae55ccc9ca97e2ba485877f5f3d6c80305e39",
+      "sha256": "8562f4be5813d283a06073c5fc8205193ebd24e68b3b4918c0e305398bee3749"
+    },
+    {
+      "path": "HANDOFF-TEXTURAS-BRANCAS.md",
+      "mode": "0o644",
+      "upstream_blob": "bf99912f4619920b8c84f5673d9c4a17bed0e06c",
+      "sha256": "4708e02ac8420e80e23fdc79b0ba72a7b3b50ceae08443fe4cc315a64518dabd"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "9c07f76acd947b1c66833cb6fdc16994c55bb1a6",
+      "sha256": "f53f45e84c94542e4f508a755eb2592581d1294acf25d1fca0884d4cbb982527"
+    },
+    {
+      "path": "global.json",
+      "mode": "0o644",
+      "upstream_blob": "60dccc65ff2057839b3b59536def3263fb8fddb6",
+      "sha256": "8d395d7aa97fc38a04b7277fb840a05245bbe862a5db1fb51713875d5b4fa9d6"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "4b53f8ad9e1f1a89e05783957d44ba1a68bb9d9e",
+      "sha256": "9f5c7d9bcff70c28dbb63712c346122344234ca3920749c00a38350179788e94"
+    },
+    {
+      "path": "package/package-files.txt",
+      "mode": "0o644",
+      "upstream_blob": "a02e95e2bdc1d3250d67cd12b8dabd73f0ca00ae",
+      "sha256": "2045682542d84fac159f9951a5adc41b378f92a6fcccd977bc14df6e3b5f603a"
+    },
+    {
+      "path": "port/ANDROID-SURFACE.md",
+      "mode": "0o644",
+      "upstream_blob": "1d8426739e9604c241b2f60d41400fc7bde6233b",
+      "sha256": "33a997d5c74c98e809c4fe5776a5bae28be5c161ff23a30447d08a0e2f18df45"
+    },
+    {
+      "path": "port/ASSEMBLIES.md",
+      "mode": "0o644",
+      "upstream_blob": "f2dbfba2dc7c6b4bbb0209bb3c3d984ab331f685",
+      "sha256": "f1aea2cde996d367e5209534ce3ee0a10ccfb41fe036ba08ee4d4eb8c822b227"
+    },
+    {
+      "path": "port/host/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "49b2ecea8e356ce712d668abf061b72b5f1470b3",
+      "sha256": "83bd5e5a402d3be9dd004d8a6dd00eb906c8303501240cd52d2a77349719efad"
+    },
+    {
+      "path": "port/launch-device.sh",
+      "mode": "0o755",
+      "upstream_blob": "43d27c917af1e4cd90cad538e680b20da2d0c36e",
+      "sha256": "48df41033ca471369368a5c897bbb93571cd50ffc933a6b1f97f76acd2bcf782"
+    },
+    {
+      "path": "port/monogame-gles-patches/README.md",
+      "mode": "0o644",
+      "upstream_blob": "e6dafe092db4f8c13fdbbd1a08558121ce0cf2ac",
+      "sha256": "970f8ea77af4042a2db8a5dd184f4ed7c47340b8fe20d67e6316ab1d7bec2407"
+    },
+    {
+      "path": "port/monogame-gles-patches/SOR4Compat.cs",
+      "mode": "0o644",
+      "upstream_blob": "65648d5f70122b323e9eeff64d252038300ef42a",
+      "sha256": "1489706633f7616fd6552f38706acb3ce0f383bbe4f8c466f79f56c863aed684"
+    },
+    {
+      "path": "port/monogame-gles-patches/SOR4TexturePager.cs",
+      "mode": "0o644",
+      "upstream_blob": "cba2b64ff74bce327a2498d6d2c0535be4ea884f",
+      "sha256": "4cb89fc24367ebb702d5431e4845066e4d511fc84cf69d4127a404b6016f142a"
+    },
+    {
+      "path": "port/monogame-gles-patches/SpriteOESBatch.cs",
+      "mode": "0o644",
+      "upstream_blob": "aea7363b4c72824145ad2c84d9102ee5886c4c71",
+      "sha256": "750bdd24a0969825f9130e79d82a875f24848b737bf7d882dd7e6470fefe1641"
+    },
+    {
+      "path": "port/monogame-gles-patches/SuperVideoPlayer.cs",
+      "mode": "0o644",
+      "upstream_blob": "c3c4601d6798a1b723bae78e7d27178456d33b21",
+      "sha256": "4876ff85296652d0bad3c3140b3911acee9ced236a5c76dbf45ddf4f61f65689"
+    },
+    {
+      "path": "port/monogame-gles-patches/Texture2DReader.SOR4.cs",
+      "mode": "0o644",
+      "upstream_blob": "de00585a5d4763a4f8b08b189dba61c4656aaae0",
+      "sha256": "5a705a8ce6636a9f7a622ff9bdab95b3fbabd13b40edc6f32c600ddbab6ad679"
+    },
+    {
+      "path": "port/monogame-gles-patches/apply.py",
+      "mode": "0o644",
+      "upstream_blob": "771ee148c71c5287e5796a7c23cab62dec87a38b",
+      "sha256": "ca7061e180442ed00cb1fbe6ad162c42b3c468c0bb5affda8e6aad1060fc81f9"
+    },
+    {
+      "path": "port/package/StreetsOfRage4.sh",
+      "mode": "0o644",
+      "upstream_blob": "0cf0243021cbd31cfcba548b28d97fc05198656e",
+      "sha256": "d8da3daf3f59e90a0e6b962e63d1f8a495c6cfde0c94ddeedf6fd3ce5c33533e"
+    },
+    {
+      "path": "port/package/sor4.gptk",
+      "mode": "0o644",
+      "upstream_blob": "ee72f59641bdfe4d00369429c292fa1c3ca8fb24",
+      "sha256": "27d52bacbf0387f6bc941a56fa4373041932a53c7164a802e286efe4b6651975"
+    },
+    {
+      "path": "port/package/sor4/CHANGELOG.md",
+      "mode": "0o644",
+      "upstream_blob": "5bbf77e90b1af29db3e6f3e00670b47194790b1a",
+      "sha256": "e6a82e6856ef5770765c3172f56a4272b74abe465dd379ffe4696ee72621b9a1"
+    },
+    {
+      "path": "port/package/sor4/README.md",
+      "mode": "0o644",
+      "upstream_blob": "16913ab12bf51c88cf46e36c846a34d303ace5c9",
+      "sha256": "58d2e029ff22d7fe24221a74839864b6ff71cf43afcfff43970d91d7995d769a"
+    },
+    {
+      "path": "port/package/sor4/alsoft.conf",
+      "mode": "0o644",
+      "upstream_blob": "e37cbe6ac2c882674c27382097e2e06e98cd74f1",
+      "sha256": "c5365fe86fc3e5102e1e753431e91511441225aa4b0664c09c92818918eec0fe"
+    },
+    {
+      "path": "port/package/sor4/gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "9918f6e1cd5f9e2752587e4685a3165180643499",
+      "sha256": "ae6239a6e1bc73d921db558a55e84c43dc89d5df215bc741dbdcff92799ab034"
+    },
+    {
+      "path": "port/package/sor4/licenses/Apache-2.0-NOTICE.txt",
+      "mode": "0o644",
+      "upstream_blob": "bcc34aeac3d0143e3a10122bb2ec00764de44a47",
+      "sha256": "45fe7006cca171456655cb32bea5827fa148ed2db06f2355869fed6c3d2a64a6"
+    },
+    {
+      "path": "port/package/sor4/licenses/Apache-2.0.txt",
+      "mode": "0o644",
+      "upstream_blob": "137069b823873b8bcf42979bcf8e9371052d26a2",
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff"
+    },
+    {
+      "path": "port/package/sor4/licenses/GPL-3.0.txt",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "port/package/sor4/licenses/LGPL-2.1-or-later.txt",
+      "mode": "0o644",
+      "upstream_blob": "c6487f4fdf701640ac0f559eb0130cdf76c5d3f4",
+      "sha256": "5749785c8bdefafcb5d798270ed0a967036fe2ca63dcedade1627565dfef81d2"
+    },
+    {
+      "path": "port/package/sor4/licenses/LICENSE.md",
+      "mode": "0o644",
+      "upstream_blob": "0db4b97d88170b5da19dd90b047335736fc6f8a0",
+      "sha256": "0202b47dd34636e048b25cf2a0b3262590cc52d6e9f6ac0539093f5cd3cb0896"
+    },
+    {
+      "path": "port/package/sor4/licenses/LZ4-BSD-2-Clause.txt",
+      "mode": "0o644",
+      "upstream_blob": "cca2737e55a3c7b9ddc2178fd8081b785838868d",
+      "sha256": "26061034501973fc28398f247e7ca134e2195739738783047be738bbf725d63f"
+    },
+    {
+      "path": "port/package/sor4/licenses/MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "c467aa33ea17615672494cd43fb7e5699d308a9e",
+      "sha256": "198a11f1695cf2fa78a73c4310ea25886ecc7956df1eb95abebd680b70e93d06"
+    },
+    {
+      "path": "port/package/sor4/licenses/MonoGame-Ms-PL.txt",
+      "mode": "0o644",
+      "upstream_blob": "c86d3ba047aec21fc29bc90281c399b988eb3ed6",
+      "sha256": "fc6d89e6ca1e71bc7fbe15bfd57cea606307647576ee2e9122035e7cfa816788"
+    },
+    {
+      "path": "port/package/sor4/licenses/NVorbis-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "6381052629269b4b052cc5eea1d6b54f984fe021",
+      "sha256": "bb12458f2dc93e4a7d8ceba9f6be652852359ab774770639b508e7b5a66d8d27"
+    },
+    {
+      "path": "port/package/sor4/licenses/NextOS-NOTICE.txt",
+      "mode": "0o644",
+      "upstream_blob": "b479f0591b15d4844c3458ba8998d566083f981c",
+      "sha256": "982434f9450ae8c938ebb2385f439f3886ca1a136a0a4ccfe5cce3488e018549"
+    },
+    {
+      "path": "port/package/sor4/licenses/SDL2-zlib.txt",
+      "mode": "0o644",
+      "upstream_blob": "73e7b064fbc651e553ea649169e3061443b7d219",
+      "sha256": "8b936114afa3848a3d475ddd6f499652dd3bb79768cee037c7ecb4cf829277bd"
+    },
+    {
+      "path": "port/package/sor4/licenses/Xiph-Opus-Ogg-BSD.txt",
+      "mode": "0o644",
+      "upstream_blob": "455b7a3ceab14d202fdb1dfcaaafcbc9f6ea0d1d",
+      "sha256": "d3d312225cc37eec66779a72c37882f633081ff878887f6725e5f807cdb589f6"
+    },
+    {
+      "path": "port/package/sor4/licenses/dotnet-ThirdPartyNotices.txt",
+      "mode": "0o644",
+      "upstream_blob": "f1c3b9cfad54692029d57c879360d8d345d0ca59",
+      "sha256": "e7035d738ba828bc7aa7569913bfb89bab6e852fd6e0ce2f5fbc210c9acfefb3"
+    },
+    {
+      "path": "port/package/sor4/licenses/freetype-FTL.txt",
+      "mode": "0o644",
+      "upstream_blob": "c406d150fa57aaf7a5b950b6cf302daeba1d0bb9",
+      "sha256": "08c135755dd589039470f1fdbb400daaabaaa50d0b366d19cebff4d22986baa1"
+    },
+    {
+      "path": "port/package/sor4/licenses/game-data-notice.txt",
+      "mode": "0o644",
+      "upstream_blob": "f9760d8724945910b9362e22ab81d1528adbec8d",
+      "sha256": "542b413e971435f6f398bf38e0e6081a6c2a57b341e56e373325ac7b68c7579b"
+    },
+    {
+      "path": "port/package/sor4/licenses/harfbuzz-Old-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "0278e60a5c05492cfb64be11515701b482163df5",
+      "sha256": "1b32b6e2fea50440c128c5ba482f7691367c46fd0cd573b80fc863bf07964cea"
+    },
+    {
+      "path": "port/package/sor4/licenses/openal-soft-LGPL-NOTICE.txt",
+      "mode": "0o644",
+      "upstream_blob": "5aa35a0116df44a1d1a98ff281273a4c19bc15cf",
+      "sha256": "baf49b0c758ca0350e3aeef8741b8afa396fd06dec21e5847c4476239b1a85ea"
+    },
+    {
+      "path": "port/package/sor4/licenses/preview-assets-notice.txt",
+      "mode": "0o644",
+      "upstream_blob": "fa611bfe38a86e3608323dd634f376b40bdffb55",
+      "sha256": "8fbf4672e32699da9384f1368de21a9fa441a707b988faf23c9d1e5e8c5abcd5"
+    },
+    {
+      "path": "port/package/sor4/licenses/sdl2-compat-zlib.txt",
+      "mode": "0o644",
+      "upstream_blob": "bb74fbe8592c7cc221261bc7d0b170be9645635f",
+      "sha256": "0164aec3168ca9606c1f6066e879b4e8c7f2e46a838391f284348ab0aa1eabf2"
+    },
+    {
+      "path": "port/package/sor4/port.json",
+      "mode": "0o644",
+      "upstream_blob": "b824209d982969d35110bbeeee6fdc039034834b",
+      "sha256": "f82c3ad84ca0cfe9679da778d7f5abd61387e4a64dc8ea9820d8a5704c99668a"
+    },
+    {
+      "path": "port/package/tools/sor4_apkextract.py",
+      "mode": "0o644",
+      "upstream_blob": "66617b2ded616a1bcd10a277f1d14c217a6f2c74",
+      "sha256": "d0f9937d1a391f3f73809681fe5d73414a93fc774310a99f41aaaf764161c27b"
+    },
+    {
+      "path": "port/package/tools/sor4_apkset.py",
+      "mode": "0o644",
+      "upstream_blob": "29b657ead6b17bcb68c67be7312a918e17ed4065",
+      "sha256": "b3306ae91b6b2c05a72fe5c3501d4fd7b2bcd32b62b4ae4aed28d98c8ace2332"
+    },
+    {
+      "path": "port/package/tools/sor4_profile.sh",
+      "mode": "0o644",
+      "upstream_blob": "84bf19d03cfc3576cd3b3a85576cc76204504c79",
+      "sha256": "c197dcf97f1d574e611f238b59f224903871e82d20aa366671da1b90788d962c"
+    },
+    {
+      "path": "port/package/tools/sor4_setup.sh",
+      "mode": "0o644",
+      "upstream_blob": "d99858d537bb493559449de364ede2f544417214",
+      "sha256": "60cb8aefbc57b61e37e3fd1504993032311419a7040000b602088ba28e6d4a05"
+    },
+    {
+      "path": "port/package/tools/validate-sor4-apk.py",
+      "mode": "0o644",
+      "upstream_blob": "ee10e5e9a4ef36c9cd673280a0bc1aac2c84e98b",
+      "sha256": "0285fe1938670f5e3ff971dcbf4599a98cc0881e67278f02d096c67e4d8f77c0"
+    },
+    {
+      "path": "port/package/tools/wwise_extract.py",
+      "mode": "0o644",
+      "upstream_blob": "3c06fab6a8b7fb11742bc4e52dae7a2038dbe8d9",
+      "sha256": "009d6b1f2cf58d2cc1b40efac2226bb9549644e0e0c47cce01e05e83de2b12f1"
+    },
+    {
+      "path": "port/tools/.gitignore",
+      "mode": "0o644",
+      "upstream_blob": "27c4456dde615003c584d84ff1551a6bf8038274",
+      "sha256": "117f017affb1f27bce274c873c249b392db1a6221731fffe48c3d5e12b4d1314"
+    },
+    {
+      "path": "port/tools/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "17d348b9ae885332cf564ea03254c79b7ef3c11d",
+      "sha256": "7ee1ca031c1e10364b704ee3932afa9884f21465dd6d009874a0fdc97f206ab8"
+    },
+    {
+      "path": "port/tools/README-gl.md",
+      "mode": "0o644",
+      "upstream_blob": "bd1d3e8d3a69f307573f0996e93a0bd584882175",
+      "sha256": "08a61ae2d5c34607831577a3601e14050c02888abd8292e28fd37a82d0efc38e"
+    },
+    {
+      "path": "port/tools/addfwd/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "e7d3f1823a1d8829254207bcc3809d72dc46f374",
+      "sha256": "c018fe1a34e183f0e01bd39df42a825be9be8864cd868b955a12d61bc6692a59"
+    },
+    {
+      "path": "port/tools/autopad.py",
+      "mode": "0o644",
+      "upstream_blob": "2d741c47ede31279b6f125c2813cad64f2740c8d",
+      "sha256": "231fd31153546306359e654f97fc9c1016f0e7d85ddf084056a426c5b3bfaf37"
+    },
+    {
+      "path": "port/tools/bridge/AssetBridge.cs",
+      "mode": "0o644",
+      "upstream_blob": "0a8cc5dbc74ae1579ea6dd344dd59b187eb2d983",
+      "sha256": "24632b90d3382455108f4fa8b6b7230eedbc4cb40a2e5061483482c73f515bef"
+    },
+    {
+      "path": "port/tools/build-fallback-libs.sh",
+      "mode": "0o755",
+      "upstream_blob": "6daeb88b59e2c7d9a6b4aa2be8dc8d187f5d2f05",
+      "sha256": "6813eea55815d87ad987609339431b13a4c69532fa14d0992e4c0d286e3ba0f8"
+    },
+    {
+      "path": "port/tools/build-libsor4astc-glibc230.sh",
+      "mode": "0o644",
+      "upstream_blob": "8b58601a363922cf22e69476d4562eb9be8995bc",
+      "sha256": "54e4e5cb2ebf14b489445bf4e0be34df1975687732e32dbd2880609e5f1ca99e"
+    },
+    {
+      "path": "port/tools/build-managed-release.sh",
+      "mode": "0o755",
+      "upstream_blob": "28e23cdd32f6b232ae8ab6b20af65a12f692cab7",
+      "sha256": "f14f2acb89b7c033b89edc1c9f4c0e2049a529545aa25ad42d810b9b5c7f9918"
+    },
+    {
+      "path": "port/tools/build-native-tools.sh",
+      "mode": "0o755",
+      "upstream_blob": "7487fafe6e4e33f4dd0f8b913a2803e905934d29",
+      "sha256": "8b428dd41ade45c2ca31661a3d5e2e7ed2ce88983e81744f2c2788bcef40f196"
+    },
+    {
+      "path": "port/tools/buildfix.sh",
+      "mode": "0o644",
+      "upstream_blob": "f48bcd0b874e4c2206e7f927ea514b41abcc12a2",
+      "sha256": "b9d0c9a130fec739e53f2bb4c3e14e2ee545906b3b6e86e5a3c4eb2ab366690d"
+    },
+    {
+      "path": "port/tools/coopdiag/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "29c0e0a22f99ed0d6eb7db91c5542ab1964fd5fa",
+      "sha256": "d1c8167004197dee5a7014fddacb1114e3d5152561bde6307d85fa0f8d34d2b9"
+    },
+    {
+      "path": "port/tools/coopsplit/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "a5e5f164704187d71a2ef8a5440d091352d3adb7",
+      "sha256": "7baecde2b42ef597a862becfa17035162bd926e5029b7cf8226640ac998cda6d"
+    },
+    {
+      "path": "port/tools/dumpexc/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "49955a3086113420ac93b55c04cedebd696cd25a",
+      "sha256": "6a8afa50241e87814634f89e7031720a45644e2ccc28f0dcfe87a3037b0f2b78"
+    },
+    {
+      "path": "port/tools/dumpil/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "dfc5f0542333a65bded5cc64d28efca27ea48b9f",
+      "sha256": "fc5127f780c79266ebce4569f7a6660b9aa9bd1d7a67585b73b32b1513776971"
+    },
+    {
+      "path": "port/tools/evcap.py",
+      "mode": "0o644",
+      "upstream_blob": "05211ace6b844f96563dc00b881f00854eb14496",
+      "sha256": "b34584a72fa856e765cd3d5ebf924da412d48ac938ccf88b254afe8eec46426d"
+    },
+    {
+      "path": "port/tools/fixplatform/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "8680dd311fb72346b60cbbe4dacf3c8a6c31147b",
+      "sha256": "1bbbbee89a437f048e1482b19596d850ae84b15eae99e84bd70f2747bd201b64"
+    },
+    {
+      "path": "port/tools/fixsavepath/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "f31f0700e09c8a9b721ddb1b325fb298631511ed",
+      "sha256": "3f59c0f1bd570977c6b1618f99d81548deb571ed0ed1d381f7666bde16c4554c"
+    },
+    {
+      "path": "port/tools/gfxlow/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "51ae8556b10943d626787c94e0eefb20ac795eeb",
+      "sha256": "32c1491c5f1410e89129e73b2bcbfe5ecccae411607ebda70773eca21828cabc"
+    },
+    {
+      "path": "port/tools/glprobe.c",
+      "mode": "0o644",
+      "upstream_blob": "faabc6bb65c7103e5bd2159ccf88f29b59256e4f",
+      "sha256": "cef7ca5496a82bc8682b0808a5c9a8ef7949fcc3730ae62a272e7b70ed8b5e40"
+    },
+    {
+      "path": "port/tools/inject.py",
+      "mode": "0o644",
+      "upstream_blob": "7fbe7a92420079abdacc89f92b8642e5173e3b0f",
+      "sha256": "2ecbb43a9205ccae675007fc8f22634d27345bf14725652667062e3bdab0f096"
+    },
+    {
+      "path": "port/tools/injector/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "8e97b311ad776ff14df1f12a1d6de8e33a58935b",
+      "sha256": "292025058f1a2e66927c1d5db2688984899f9fa0261c3b2b729a349ed1f2b04d"
+    },
+    {
+      "path": "port/tools/injlog/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "59a893c0c0418c01c3a5a1fbee8a6364627dc024",
+      "sha256": "bba062158636d8a77756e02152e061c82571834e8d90919bbdbe5e6821744399"
+    },
+    {
+      "path": "port/tools/navkbd.py",
+      "mode": "0o644",
+      "upstream_blob": "352b59e1076c8fe4ae86e771f73973112ddba35a",
+      "sha256": "4a033fe917c70184e3a99d8211f17ec38cf57729cf2ba3cd7caf6bee791f698c"
+    },
+    {
+      "path": "port/tools/navseq.py",
+      "mode": "0o644",
+      "upstream_blob": "e780501e1ac9ee2e754d99a121e70c8c8294f80d",
+      "sha256": "756a182ee76157d94658a8630663ffb0e49ca90d1ef0c3cf768e08d05d9aa4c7"
+    },
+    {
+      "path": "port/tools/noopm/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "17d348b9ae885332cf564ea03254c79b7ef3c11d",
+      "sha256": "7ee1ca031c1e10364b704ee3932afa9884f21465dd6d009874a0fdc97f206ab8"
+    },
+    {
+      "path": "port/tools/patchgam/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "4a636d8fe829a9705b9455b5fc82ddab8383ca6e",
+      "sha256": "5dc4bec84e75d91749162025014965275f314670dcd0141d220d7d38a85adcb8"
+    },
+    {
+      "path": "port/tools/probe/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "a09d47f81b0300851ea954aa985d368d6af9fd41",
+      "sha256": "2bf5c3ea37b4ecdc4b97ee69c5e8258134f931b9109158acd168353d2d829a01"
+    },
+    {
+      "path": "port/tools/rettrue/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "f156a221461839dbd25b61d98cf302e96d4d9657",
+      "sha256": "e1d5059591759330cb0827a9f9ecc60a8775598a702b81f7687dcd0a82a78267"
+    },
+    {
+      "path": "port/tools/skipcall/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "436250ea37d51a36477cae70d7ec8eed79b0bf8a",
+      "sha256": "e5af4cc9885a14604dcdf1192b09ccefc5589b491af785e44aa7d9c33e1f23bf"
+    },
+    {
+      "path": "port/tools/skipvideo/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "7c769c88f45b448b92a7adebd2bce412cb717b60",
+      "sha256": "90e828f8c93ec93d4f35e000ac8088e23048c9df123a3abd15032b9a24485b47"
+    },
+    {
+      "path": "port/tools/sor4astc.c",
+      "mode": "0o644",
+      "upstream_blob": "a215e609c152486a2ecaf4bb60ab45e725bd2aa2",
+      "sha256": "f5f79ae60f43182a96446ef3cf1c91547b494cd4d62a4e0519ff5cb37afdc2b6"
+    },
+    {
+      "path": "port/tools/sor4probe.c",
+      "mode": "0o644",
+      "upstream_blob": "36d7c6a87bf7ad5d08c679ef1b9a5c6000e85ef0",
+      "sha256": "277c23b71e83001b539ba32c1b1997a6f425863f07935095865b1a93e5a847a6"
+    },
+    {
+      "path": "port/tools/sor4splash.c",
+      "mode": "0o644",
+      "upstream_blob": "bd8fb4015fa50829b6ff9e7d54c7b7ed496a6695",
+      "sha256": "aaeb7c3bcd31896ce3c5fb30fe142bbec9c81771772531e1548996034c79d923"
+    },
+    {
+      "path": "port/tools/stubber/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "7508858980d1844c565f9ffde7e54aab2e960719",
+      "sha256": "217afd601e047a2e241046742f5ef39b8571789900b9cd75a5678ba491e53549"
+    },
+    {
+      "path": "port/tools/texconv/LZ4Codec.Unsafe.cs",
+      "mode": "0o644",
+      "upstream_blob": "4a0e29a367a20723a874c616578ca1185963007e",
+      "sha256": "5acd03d707ed183dbcf20a3adc4c234e88f7c4faf8a18de3b98ed6498ce477f7"
+    },
+    {
+      "path": "port/tools/texconv/LZ4Codec.Unsafe32.Dirty.cs",
+      "mode": "0o644",
+      "upstream_blob": "efb7d85be7d3dcb23222698f36a9a686ce3ccecb",
+      "sha256": "784f26af50fef08b9834596610be085808a2c09c8431569d2bdb714b52ef932d"
+    },
+    {
+      "path": "port/tools/texconv/LZ4Codec.Unsafe32HC.Dirty.cs",
+      "mode": "0o644",
+      "upstream_blob": "67525866702119f474dcdaab6706c8c449052895",
+      "sha256": "46682b69eedb476854b4cadf3c90d3d9c90bb18eed1a47eee78256646986c526"
+    },
+    {
+      "path": "port/tools/texconv/LZ4Codec.Unsafe64.Dirty.cs",
+      "mode": "0o644",
+      "upstream_blob": "266a498755ff7396a4e371cb7a9793e815b5400a",
+      "sha256": "3bec78d0a0c83ef2fb38819f44c4c836db6c41a4b59901683a2ede3ee246f0db"
+    },
+    {
+      "path": "port/tools/texconv/LZ4Codec.Unsafe64HC.Dirty.cs",
+      "mode": "0o644",
+      "upstream_blob": "8fe4246539cc283c5c73746e18f6e641e6baaa12",
+      "sha256": "d3e167f4f44543fbe1f0f9564388d502a7995fc364409bb48ec37410b2ddd4ea"
+    },
+    {
+      "path": "port/tools/texconv/LZ4Codec.cs",
+      "mode": "0o644",
+      "upstream_blob": "793b1882a1f41d7be6f843c769342e03cf1f19e7",
+      "sha256": "85d50bd5c6ab0120e838e58284f4ba73efd82fef96d59bc5d35b88c40294bedc"
+    },
+    {
+      "path": "port/tools/texconv/Lz4DecoderStream.cs",
+      "mode": "0o644",
+      "upstream_blob": "acb3e229aeee121e652eb5d41199e0e49ca54e37",
+      "sha256": "169cbc54259c86b40d0e1bc4487891aae70e32732e85b5d3b4bf50201013ac51"
+    },
+    {
+      "path": "port/tools/texconv/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "e2d7b3d5e0b1536639505fc92ef6a120a5a97ce8",
+      "sha256": "3166140495d23966a86c5f9f1a6abbee62b412a2c71becaf5a129d563d9000bd"
+    },
+    {
+      "path": "port/tools/titleprobe/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "be6ae08b84b6cf82ee0fbda9e6e799a09c929205",
+      "sha256": "632a8ba27d9d9fb09a84f7af8beae3bf0238ba77e28912bcab66c769a3532e16"
+    },
+    {
+      "path": "port/tools/verstub/Program.cs",
+      "mode": "0o644",
+      "upstream_blob": "b24b5051624ea242dc6ee7d4c8f2a8acc29eb05e",
+      "sha256": "3c50252f9ec1ef45555d2e7ef3715eb09fad70d21bf4390421adaacc80fbbf5d"
+    },
+    {
+      "path": "port/tools/vpad.py",
+      "mode": "0o644",
+      "upstream_blob": "fcc4050b32f3808b169e044ca8b11f9da5883f81",
+      "sha256": "b8c19d0d1a8008b42af798e754be7de2f3eb22fe3e80a26a46d22733004e1c44"
+    },
+    {
+      "path": "port/tools/vpadd.py",
+      "mode": "0o644",
+      "upstream_blob": "e9d55b858f6a0b23af1711e3d077a4487f34d2fb",
+      "sha256": "c9e614ab686eef35880ff65f85ef5f2a41585e8ad02316c2bcfde65d2bdde425"
+    },
+    {
+      "path": "port/tools/wwise_extract.py",
+      "mode": "0o644",
+      "upstream_blob": "3c06fab6a8b7fb11742bc4e52dae7a2038dbe8d9",
+      "sha256": "009d6b1f2cf58d2cc1b40efac2226bb9549644e0e0c47cce01e05e83de2b12f1"
+    },
+    {
+      "path": "port/tools/wwise_real.c",
+      "mode": "0o644",
+      "upstream_blob": "435d1039b80da332f69c0bf886782bf765124ce0",
+      "sha256": "77fe352dd95d36ba563702fc2806c53e2c3319aa39682195ac5631bb2a76aa27"
+    },
+    {
+      "path": "port/tools/wwise_stub.c",
+      "mode": "0o644",
+      "upstream_blob": "97e6c780c1ef22149ca47048c111528df594fda8",
+      "sha256": "7641345a9fd8fe87e3e0f6372318b16bb7a1b436eba463f8ddb93169a34ef704"
+    },
+    {
+      "path": "port/wwise-native/android_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "5ca49efe3a542aa6dfc95bc04288bb8cbdc78f7a",
+      "sha256": "2433825c26184d7a9c4f9e5cc3d65e327a5c40b6603357845a698a78bf35b8e9"
+    },
+    {
+      "path": "port/wwise-native/android_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "8fa2ff35eb7726b69a37a3809fe0a7c304fd225b",
+      "sha256": "b702e9f54a78088259bd04eec4616e4639b43742faa26ff57f536cdeac71b170"
+    },
+    {
+      "path": "port/wwise-native/audioout.c",
+      "mode": "0o644",
+      "upstream_blob": "ad59d9c2a80ccf4d79e5f0ec126079663fa51c05",
+      "sha256": "61d7ca0930e9bf3ea328b9b511d4c64c6d9046076bd02de0ac572473eb19d435"
+    },
+    {
+      "path": "port/wwise-native/bionic_shims.c",
+      "mode": "0o644",
+      "upstream_blob": "28663aa943e9ffe1bde3b3cf185dba6b7bd4e3b2",
+      "sha256": "ff9c17cd15924350786c689b52189e2b95e702722ac8fae33a05735d8db624d1"
+    },
+    {
+      "path": "port/wwise-native/build-glibc230.sh",
+      "mode": "0o755",
+      "upstream_blob": "6869cdf9800a1e8b726d93eea0fa83eb8897e4f4",
+      "sha256": "68d491488d5a14c83ea5e0382b219d7cd2eda462124df3258d7aa5fe19554ac1"
+    },
+    {
+      "path": "port/wwise-native/error.c",
+      "mode": "0o644",
+      "upstream_blob": "657acd34d8b35050e31bdb0301518fbf0fda09db",
+      "sha256": "1bc4ccd363c0e181cd3854501fde61117b8efb887b65986510c4e50336691e2d"
+    },
+    {
+      "path": "port/wwise-native/error.h",
+      "mode": "0o644",
+      "upstream_blob": "f7030977c14ec8d62e53ed71cd277cd04a95cbf2",
+      "sha256": "8e3787cf76c976577f81bfe0719cb64d028389838d1a21f3dbd0dc2a79b3bc42"
+    },
+    {
+      "path": "port/wwise-native/hashmap.h",
+      "mode": "0o644",
+      "upstream_blob": "f762dc5b3d5ab301fa9c38d7d24f7167b2478585",
+      "sha256": "0f751037468fd2be581fb7f09dd2fe04e2f93126abb7cfe759b6ac78a8763572"
+    },
+    {
+      "path": "port/wwise-native/imports.gen.c",
+      "mode": "0o644",
+      "upstream_blob": "15a6fbe82d0b992bbda7864a33d2d486c140f217",
+      "sha256": "e07dbdcc7aedbd11ace5a3693cd4c6c7ad66121e881a3c49cb769eee49de99f3"
+    },
+    {
+      "path": "port/wwise-native/imports.h",
+      "mode": "0o644",
+      "upstream_blob": "266a71f30c705547487eb87c51c9820d1c805327",
+      "sha256": "7467418c0db71a934e772077b456a59860baadf8c4ad032bdc80fbb6d08e56ff"
+    },
+    {
+      "path": "port/wwise-native/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "16c9801edd9a3cb9922f98f2df3892659c3610ae",
+      "sha256": "261040c38977fd8b5e694329f9c4431d1726271493f04534296151d623f153a1"
+    },
+    {
+      "path": "port/wwise-native/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "88ad9d6ed6c832788607f4fdaebde29a4056cbb7",
+      "sha256": "b504aff6fdba8e91ccec3716ffc30ace6287462b7bb5c5a90390c377e94394fe"
+    },
+    {
+      "path": "port/wwise-native/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "b9ad75f337e2c1d4ffdfcdd68e68ba1e973e5cda",
+      "sha256": "a5ec29f029a73c985e1c4b651f34baa2014e300af650cb244bc3145834f572c0"
+    },
+    {
+      "path": "port/wwise-native/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0c4373fe664ee432c21bfd8d7e879d4e51cf6cfb",
+      "sha256": "9ac9bd0bce36d082e3072d36c4d3f6110191d5f8e07ede64a06659be192ae147"
+    },
+    {
+      "path": "port/wwise-native/pthread_fake.c",
+      "mode": "0o644",
+      "upstream_blob": "3b116296d0b4d0d1d800b64a3f9e8365da1d9e23",
+      "sha256": "37e450191b17c694a2ea9e1bdfa8a46b2b2f660c65faeff4c978c5ee2bdbbedb"
+    },
+    {
+      "path": "port/wwise-native/sem_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "34f9714ca1daf7c816803aecd2b182d6a545a097",
+      "sha256": "c6a45971e69c9ec5f83af4400f3d9b1203780300e6e3e305554b5e683b42faf2"
+    },
+    {
+      "path": "port/wwise-native/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "a638b8c680ea5f0438828a620c35e1012f387632",
+      "sha256": "7ef9864ed422eb33692dbb5cec54c4f42dc2c4e571385c649c2171f0054049ec"
+    },
+    {
+      "path": "port/wwise-native/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "1a86bfcfb49ae337bcb623786640916c87a09421",
+      "sha256": "7b27520d69e9b440533c24e9eee34d4bafe06536b8a5a94970a5d318d80548de"
+    },
+    {
+      "path": "port/wwise-native/util.c",
+      "mode": "0o644",
+      "upstream_blob": "6d739087be57c2d2fc00f5bf1353b44a66e3fa8e",
+      "sha256": "4ad93c2fd07b733396f8f39bf61c8e1ef4a9bcb261f53c08af3d4bee2809951a"
+    },
+    {
+      "path": "port/wwise-native/util.h",
+      "mode": "0o644",
+      "upstream_blob": "a21ac6dacc0ff249669fd72139de2c4c60e52817",
+      "sha256": "24b816bc531bc4c27a36883ac60e471d01d0d791aa6b300316206a37cfc91a54"
+    },
+    {
+      "path": "port/wwise-native/wwise_native.c",
+      "mode": "0o644",
+      "upstream_blob": "16cc5d908ea88bd03678bd65d516ae15f6f37fbb",
+      "sha256": "e3baa6c70646131a473fc3ede33173d4a5f304dda647f10b23094879a66ae073"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "9ef67db77ea9ef6f5640449875a51dbae4cd670012f5f2d407991299f76ddbf0",
+      "reason": "game-input-distribution-origin omitted from documentation"
+    }
+  ]
+}

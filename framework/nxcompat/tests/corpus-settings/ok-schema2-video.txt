@@ -1,0 +1,8 @@
+# NEXTOS_SETTINGS/2
+language=auto
+quality=auto
+video.authority=nextos
+video.output_size=display
+video.aspect=auto
+video.filter=engine
+video.invalid_policy=package_default

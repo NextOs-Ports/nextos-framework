@@ -1,0 +1,86 @@
+Titan Souls NextOS public build provenance
+===========================================
+
+Artifact name: titansouls-nextos
+Architecture: Linux ARMHF / ARMv7-A hard-float host
+Guest ABI: Android armeabi-v7a softfp call boundaries where required
+Profile: universal-low-glibc
+Builder: codboz-armhf-builder:debian-buster
+Builder image ID: sha256:58e229c82e8270fd69b0c307654e31793b781218884ce868844597ec4b8c9fef
+Source date epoch: 1786406400
+Public GLIBC ceiling: GLIBC_2.30
+PortMaster minimum GLIBC metadata: 2.28
+Current RC4 candidate executable SHA-256: 5fbe3ec54bc709748edc02dbae230f2494de2d190fbb5e76c83e2c31b1642087
+GNU Build-ID: e28a8f192843aa05a506fba19a794d1fc3f9cb5d
+Observed maximum GLIBC symbol: GLIBC_2.28
+Determinism: two clean builds produced the same SHA-256
+
+The pinned Debian Buster toolchain supplies libc and libgcc. The NextOS SDK
+sysroot supplies SDL2/EGL/GLES headers only; its newer libc and runtime objects
+are not linked into the public executable. Firmware libraries are selected at
+runtime and are not bundled.
+
+Runtime framework components:
+- nxloader 0.7.0
+- nxandroid 0.1.0
+- nxcompat 0.2.1
+- nxgl 0.2.2
+- nxinput 0.3.0
+- nxaudio 0.2.0
+
+Product and host gates:
+- nxgenerator 0.2.0
+- nxbootstrap 0.6.5
+- NXExtract 1.2.6
+- nxabi 0.1.0
+- nxrelease 0.2.5
+- nxobs 0.1.0 (host-side sanitized support evidence only)
+
+Candidate DT_NEEDED closure:
+- ld-linux-armhf.so.3
+- libEGL.so.1
+- libGLESv2.so.2
+- libSDL2-2.0.so.0
+- libc.so.6
+- libdl.so.2
+- libgcc_s.so.1
+- libm.so.6
+- libpthread.so.0
+
+Known RC hardening debt:
+- the audited fixed guest resolves only the exact OpenSL ES surface plus
+  __android_log_write through RTLD_DEFAULT, but the dynamic façade still retains
+  a generic host dlopen/dlsym compatibility fallback;
+- a later rebuild should replace that fallback with an exact OpenSL magic
+  handle, an explicit __android_log_write mapping and rejection of all other
+  dynamic requests. This candidate does not claim that stricter closure.
+
+The deterministic release ZIP SHA-256 is written to its adjacent `.sha256`
+file and deliberately is not embedded in the ZIP itself, which would create a
+self-reference. Do not reuse a hash from a diagnostic or baseline binary.
+
+Physical status at candidate time:
+- framework candidate 5b46a16d8f587c7937154fc8bb431d97ff281a3b876d1da496e6bb69fdab3095
+  passed gameplay, video, audio, input and save on ArkOS Mali-G31;
+- the same candidate completed a clean NXExtract 1.2.6 install (15 files,
+  182.1 MiB) and passed gameplay at about 60 fps, audio, input and save on
+  NextOS Mali-450; the one-pixel tile grid persisted with the narrow UV/shader
+  mitigation active;
+- last physically tested hardening rebuild ff934a4aaadd029a68328603037c2c155c800c6fb8965db4e966c682bc25048a
+  had its SHA-256 verified on-device and passed the NXExtract marker fast path,
+  pinned-module load, controller, nxgl, Pulse/ALSA audio, FRAMEWORK READY and
+  native CREATE/START path to the title on both ArkOS Mali-G31 and NextOS
+  Mali-450; both instances then stopped cleanly;
+- RC3 development candidate 81b8a242a9d780656caebd163932440da79dd6b486ac32ed8b7462cd25cfdf31
+  was SHA-verified on NextOS Mali-450; its native menu exposed seven choices,
+  Portuguese was physically accepted, FMOD/SDL reached FRAMEWORK READY, and
+  boss/world music streams opened before a clean native shutdown;
+- RC4 test package `TitanSouls-1.0.0-rc.4.test.1-ROCKNIX-Audio-Test.zip`
+  carried executable 5fbe3ec54bc709748edc02dbae230f2494de2d190fbb5e76c83e2c31b1642087;
+  a tester on ROCKNIX Nightly / Miyoo Flip RK3566 reported working game audio;
+- the RC4 executable passed two byte-identical clean public builds, the focused
+  CPU-feature translation test, the existing native-language and FMOD recovery
+  tests, the nxaudio host gate and the GLIBC_2.30 package gate;
+- the final RC4 ZIP carries that byte-identical tested executable. Installation
+  and full gameplay acceptance of the final ZIP/SHA remain pending. This is a
+  private-test RC, not a universal release claim.

@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "id": "oceanhorn-nextos",
+  "version": "4.0b54-universal-1",
+  "title": "OCEANHORN CHRONOS DUNGEON",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "max_files": 64,
+    "max_bundle_apks": 64,
+    "max_member_bytes": 536870912,
+    "max_bundle_bytes": 1073741824
+  },
+  "extract": [
+    {
+      "id": "android-unity-data-40b54",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/bin/Data/**"
+        ],
+        "strip_prefix": "assets/bin/Data/"
+      },
+      "destination": "bin/Data",
+      "validate": {
+        "type": "tree",
+        "exact_files": 17,
+        "min_bytes": 194640862,
+        "max_bytes": 202585387,
+        "required_paths": [
+          "boot.config",
+          "data.unity3d",
+          "Managed/Metadata/global-metadata.dat",
+          "sharedassets0.resource",
+          "unity default resources",
+          "RuntimeInitializeOnLoads.json",
+          "ScriptingAssemblies.json"
+        ]
+      }
+    },
+    {
+      "id": "android-arm64-libraries-40b54",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "lib/{abi}/libmain.so",
+          "lib/{abi}/libil2cpp.so",
+          "lib/{abi}/libunity.so"
+        ],
+        "strip_prefix": "lib/{abi}/"
+      },
+      "destination": "lib",
+      "validate": {
+        "type": "tree",
+        "min_files": 3,
+        "max_files": 3,
+        "min_bytes": 44782316,
+        "max_bytes": 49496244,
+        "required_paths": [
+          "libmain.so",
+          "libil2cpp.so",
+          "libunity.so"
+        ]
+      }
+    }
+  ],
+  "hooks": [],
+  "validate": [
+    {
+      "path": "lib/libunity.so",
+      "type": "file",
+      "min_size": 15852741,
+      "max_size": 17521450,
+      "elf_machine": "aarch64"
+    },
+    {
+      "path": "lib/libil2cpp.so",
+      "type": "file",
+      "min_size": 28923183,
+      "max_size": 31967728,
+      "elf_machine": "aarch64"
+    },
+    {
+      "path": "lib/libmain.so",
+      "type": "file",
+      "min_size": 6391,
+      "max_size": 7064,
+      "elf_machine": "aarch64"
+    },
+    {
+      "path": "bin/Data/data.unity3d",
+      "type": "file",
+      "min_size": 80048437,
+      "max_size": 88474588,
+      "magic_ascii": "UnityFS"
+    },
+    {
+      "path": "bin/Data/Managed/Metadata/global-metadata.dat",
+      "type": "file",
+      "min_size": 7614671,
+      "max_size": 8416216
+    },
+    {
+      "path": "bin/Data/sharedassets0.resource",
+      "type": "file",
+      "min_size": 98358196,
+      "max_size": 108711691
+    },
+    {
+      "path": "bin/Data/boot.config",
+      "type": "file",
+      "min_size": 162,
+      "max_size": 179
+    }
+  ],
+  "commit": [
+    "bin",
+    "lib"
+  ],
+  "marker": ".nxextract-oceanhorn.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

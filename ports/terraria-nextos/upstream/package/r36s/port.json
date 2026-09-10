@@ -1,0 +1,29 @@
+{
+  "version": 4,
+  "name": "terraria.zip",
+  "items": [
+    "Terraria.sh",
+    "terraria"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "Terraria",
+    "porter": [
+      "NextOS"
+    ],
+    "desc": "Terraria Android 1.4.5.6.4 through a native AArch64 Unity/IL2CPP compatibility loader. One low-glibc loader negotiates the firmware SDL backend at runtime, supports native controllers, sound, persistent saves and lifecycle-aware exit. BYO-data; game files are not included.",
+    "inst": "Place your legal Terraria Android 1.4.5.6.4 APK in terraria/gamedata and launch the port. NXExtract 1.2.0 validates and prepares the arm64 data automatically.",
+    "genres": [
+      "action",
+      "adventure",
+      "sandbox"
+    ],
+    "image": {},
+    "rtr": false,
+    "runtime": [],
+    "reqs": [],
+    "arch": [
+      "aarch64"
+    ]
+  }
+}

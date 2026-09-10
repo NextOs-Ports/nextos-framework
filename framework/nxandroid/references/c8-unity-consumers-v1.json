@@ -1,0 +1,376 @@
+{
+  "schema": "nxandroid-c8-unity-consumers-v1",
+  "schema_version": 1,
+  "mission": "119_C8",
+  "selection_scope": "exactly the 30 most recent R2 port objects inherited from the accepted C7 ledger",
+  "selection_ledger": {
+    "path": "framework/nxandroid/references/c7-android-consumers-v1.json",
+    "sha256": "cbfb00a8e9a2925dfb64bc09433df846d4e37fe504ecbf1fc693a9caa3074a41",
+    "count": 30
+  },
+  "unity_cut_audit": {
+    "unity_candidates": 14,
+    "classified_once": true,
+    "non_unity_or_no_unity_consumer_candidates": 16,
+    "claim": "Every Unity candidate in the frozen last-30 cut is classified exactly once; classification does not promote a profile."
+  },
+  "accepted_parents": {
+    "c7_head": "218197b44619c5f4e5067142950473435f2a1fa3",
+    "c7_tree": "e4a213dab432ba176caa5d8c2bc0b4cacb176766",
+    "c7_marker_sha256": "4fc73655867276c181ddd4ecdafd0d336b2213e2cc52e6f5ba298459f25f7694",
+    "c6_head": "cc9db69be3d98a99f34a53e9d3413b0d7495083c",
+    "c6_tree": "3e35c93e33c5b87ceb6cc2fea96d211de3550f7d"
+  },
+  "policy": {
+    "runtime_profile_requires": [
+      "exact Unity build",
+      "exact plugin or built-in consumer version",
+      "full registration, enumeration, producer, low-level read and action-read signatures",
+      "metadata and runtime hashes",
+      "source commit and tree",
+      "published artifact hash and receipt",
+      "native lifecycle and thread contract",
+      "C3 physical mapping and one frozen GPTK V2 decision per control/context",
+      "consumer receipt after the real API returned"
+    ],
+    "fixture_claim": "FIXTURE only; it proves the framework state machine, not a proprietary Unity/plugin implementation, port or device",
+    "mock_promotes_plugin": false,
+    "pending_profile_deployable": false,
+    "copied_rva_allowed": false,
+    "name_and_arity_resolution_allowed": false,
+    "synthetic_keyboard_fallback_allowed": false,
+    "parallel_touch_or_raw_fallback_allowed": false,
+    "physical_new_bytes": "PENDING_PHYSICAL"
+  },
+  "profiles": [
+    {
+      "id": "unity-legacy-input",
+      "kind": "UNITY_LEGACY_INPUT",
+      "status": "PENDING",
+      "deployable": false,
+      "reason": "Sonic Runners contains installed UnityEngine.Input hooks for joystick names, buttons and axes and has historical physical gameplay, but the published tuple lacks named game-action returns, C3/GPTK V2 exclusivity and proof for these C8 bytes. RETRY is touch-driven and is retained only as a negative classification.",
+      "candidates": [
+        {
+          "id": "sonicrunners",
+          "role": "positive historical lead, not a C8 adapter",
+          "unity_version": "4.7.2f1",
+          "plugin_version": null,
+          "abi": "armeabi-v7a",
+          "source_commit": "33df326b498f3f9bc0e0a2ce3763a377a5ccd182",
+          "source_tree": "7345e60e6081a549c467557f4d16b103f5ce9336",
+          "artifact_sha256": "60a098e2ac273a730c0a9daaf6426fa59e4f089539cd31b8a6f77a516a53043c",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2922",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": [
+            "UnityEngine.Input.GetJoystickNames",
+            "UnityEngine.Input.GetButton/GetButtonDown/GetButtonUp",
+            "UnityEngine.Input.GetAxis/GetAxisRaw"
+          ],
+          "sources": [
+            {"path": "ports/sonicrunners/src/main_sr.c", "sha256": "e72d71a3e0eec0a6b78ee913f003a4d432be0256efd246be7fdadc3d3c3d14e8"}
+          ],
+          "gaps": ["named game-action return receipts", "artifact-bound managed input map", "C3/GPTK V2 exclusivity", "new-byte physical proof"]
+        },
+        {
+          "id": "retry",
+          "role": "negative classification lead",
+          "unity_version": "4.5.4p1",
+          "plugin_version": null,
+          "abi": "armeabi-v7a",
+          "source_commit": "f0b2bcce0975a2d34847e4f29aabf81a05ed8c0e",
+          "source_tree": "ddd4517c0b04fe7250340e18dde97f65ee527de4",
+          "artifact_sha256": "2cf79391daa1bba9f62b4d480b9314cb70dc2bac70c339333b48c0cacca1a38b",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2434",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["generic UnityEngine.Input hooks in source", "production UnityPlayer.nativeInjectEvent touch path"],
+          "sources": [
+            {"path": "ports/retry/src/main.c", "sha256": "937ead8358fa02551144c02c9c8b649bd9d0c1a33380a415418f14f9b530ef82"}
+          ],
+          "gaps": ["published gameplay is touch-to-fly", "no named Legacy action receipt", "parallel touch route", "new-byte physical proof"]
+        }
+      ],
+      "controls": [
+        "A", "B", "X", "Y", "L1", "R1", "L2", "R2", "L3", "R3",
+        "START", "SELECT", "UP", "DOWN", "LEFT", "RIGHT", "LEFT_STICK", "RIGHT_STICK"
+      ],
+      "reachable": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "id": "unity-new-input-system",
+      "kind": "UNITY_NEW_INPUT_SYSTEM",
+      "status": "UNPROVEN",
+      "deployable": false,
+      "reason": "No approved last-30 artifact proves exact Input System package identity plus AddDevice, Gamepad enumeration, QueueEvent/update, control ReadValue and InputAction return in one tuple. Mad Skills has physical controls but its source contains no Input System consumer API, so engine age cannot classify it.",
+      "candidates": [
+        {
+          "id": "madskills",
+          "role": "negative classification lead",
+          "unity_version": "2022.3.62f2",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "4b9b6d55d32deafb7b1bca7f21f12ac798b87a21",
+          "source_tree": "95b83d68b341ee744f9114c762d72122e48dbdde",
+          "artifact_sha256": "0ac1f72472839093068baa5633d9df1e8c13f2228587fa9d2c0c2ba2d4934f49",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2645",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["UnityPlayer.nativeInjectEvent", "inherited InControl RVA hooks disabled unless diagnostic environment enables them"],
+          "sources": [
+            {"path": "ports/madskills/src/input.c", "sha256": "ee4d1cc4810b7d2e56763b9c1fd654c1c6082ea3d0acb8efa2bb56189e417ecc"}
+          ],
+          "gaps": ["no InputSystem package version", "no AddDevice or Gamepad enumeration", "no ReadValue or InputAction return", "source was preserved after the published artifact"]
+        }
+      ],
+      "controls": [
+        "A", "B", "X", "Y", "L1", "R1", "L2", "R2", "L3", "R3",
+        "START", "SELECT", "UP", "DOWN", "LEFT", "RIGHT", "LEFT_STICK", "RIGHT_STICK"
+      ],
+      "reachable": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "id": "rewired",
+      "kind": "REWIRED",
+      "status": "PENDING",
+      "deployable": false,
+      "reason": "Cat Quest proves Rewired discovery and one mapped action historically. Stranger Things 3, Super Mombo and Kingdom prove historical native gamepad behavior but lack exact plugin versions and direct action-return receipts. Daggerhood proves enumeration and low-level GetAnyButton yet also proves that its mobile build has no joystick action map. None closes all 18 controls, exclusive C7 routing or these C8 bytes.",
+      "candidates": [
+        {
+          "id": "catquest",
+          "role": "positive historical lead, not a C8 adapter",
+          "unity_version": "2022.3.14f1",
+          "plugin_version": null,
+          "abi": "armeabi-v7a",
+          "source_commit": "f2b820d544178c6511099c11909543c8a5bcd559",
+          "source_tree": "db0d62aa26b8e9a0f05432e47178af47339669c0",
+          "artifact_sha256": "09f3ea5f5429a34003f9f5204c3778ab1f18b3f35e9ad96fe8042583129a9be4",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2868",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": [
+            "UnityEngine.Input.GetJoystickNames",
+            "Rewired.ReInput.controllers.GetJoysticks",
+            "Rewired.Player.GetButtonDown(String) for Dash"
+          ],
+          "sources": [
+            {"path": "ports/catquest/src/input.c", "sha256": "e2f46dfa8d2cd7b58d735c51e70ad4929d7f10abb56913cd5ca79ae55c2ec4ff"},
+            {"path": "ports/catquest/src/pad.c", "sha256": "e6d384688e69a0a022bb8eddbe246079039389acd18049a6f1a16344698c3533"},
+            {"path": "ports/catquest/src/probe.c", "sha256": "395f3258b0a916167a9399e42049fdb4c9274532cb7ce610bc462df386db410e"}
+          ],
+          "gaps": ["exact Rewired version", "artifact-bound metadata/runtime hashes", "18-control consumer receipt", "C3/GPTK V2 exclusivity", "new-byte physical proof"]
+        },
+        {
+          "id": "merchant",
+          "role": "negative classification lead",
+          "unity_version": "6000.4.2f1",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "2fd6445809f7ffdea9ee6affffb2d5d8523a4f6d",
+          "source_tree": "c4c5e8702fdec2e718cbb07e4d901630026ff9f0",
+          "artifact_sha256": "b585d90b785d5ada66ef8690ee62fe393b37603bb1718193c4d2bca0b57d47bd",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:3158",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["UnityPlayer.nativeInjectEvent"],
+          "sources": [
+            {"path": "ports/merchantskies/src/input.c", "sha256": "1b627208d2f3b2cffab11aa23a75337a06f9adb7e0fcb82e2f4a533c064a9a6e"}
+          ],
+          "gaps": ["exact Rewired version", "direct Rewired read/action receipt", "exclusive route", "new-byte physical proof"]
+        },
+        {
+          "id": "strangerthings3",
+          "role": "positive historical lead, not a C8 adapter",
+          "unity_version": "6000.2.6f2",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "4b523c3243a2946708a35294e48db51e3f2ef57e",
+          "source_tree": "cdc69d3e2ec9354caea34316014f877a8f49fe36",
+          "artifact_sha256": "ff1f884f9433ff4d2f93295a0fd497121133522db678aeae217ce2ec2934b11f",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2771",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["Rewired metadata and controller database in the approved payload", "UnityPlayer.nativeInjectEvent"],
+          "sources": [
+            {"path": "ports/strangerthings3/src/input.c", "sha256": "ba69902f8ee8405e85828e10cccb9beb5c171713f8e79ccdb4fcd7c1b791bacf"}
+          ],
+          "gaps": ["exact Rewired version", "direct Rewired low-level and action-return receipts", "source-to-private-artifact cryptographic binding", "new-byte physical proof"]
+        },
+        {
+          "id": "supermombo",
+          "role": "positive historical lead, not a C8 adapter",
+          "unity_version": "2021.3.15f1",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "8b92536c798fd860cb438d15384414e7cb8a9d70",
+          "source_tree": "95f8d64b9243242dfaea08100262b01beeb0442e",
+          "artifact_sha256": "7ca467a021d980f199892c1b42dcbc67e6b3c3042e628853c1cbff1a0c2089c8",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2826",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["Rewired identified in port-specific source", "UnityPlayer.nativeInjectEvent", "game-owned Xbox prompt observed physically"],
+          "sources": [
+            {"path": "ports/mombo/src/input.c", "sha256": "b5be48e9c1a9e9f0127e6470f23ef7758b8226d6a06231093e85f9dade7648da"}
+          ],
+          "gaps": ["exact Rewired version", "direct Rewired action-return receipt", "disabled inherited RVA code remains negative only", "new-byte physical proof"]
+        },
+        {
+          "id": "daggerhood",
+          "role": "negative consumer proof",
+          "unity_version": "2018.4.28f1",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "67e9fca2347dc9627caeebfdfc953c887d69cc3d",
+          "source_tree": "7a18bbf392d684681414c4fe21d44aad994107b5",
+          "artifact_sha256": "1754c531aad879f3365b965b6826e0d8a01119d97fdf7c71383fcddcabeebe11",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2892",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["UnityEngine.Input.GetJoystickNames", "Rewired.ReInput.controllers.joystickCount", "Rewired.Joystick.GetAnyButton"],
+          "sources": [
+            {"path": "ports/daggerhood/src/input.c", "sha256": "83230bdb9eb226be6f8647980a8b9c544a769f32100056512af6ddecc78e55f7"}
+          ],
+          "gaps": ["mobile build has no joystick action map", "gameplay uses touch bridge", "exact Rewired version", "not a reusable positive profile"]
+        },
+        {
+          "id": "kingdomnewlands",
+          "role": "positive historical lead, not a C8 adapter",
+          "unity_version": "6000.0.60f1",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "37618a10ccb0a60689c185c3c08d1a2b101802e9",
+          "source_tree": "b4fbc1e8212966af90e52da89a8e4e115c62c384",
+          "artifact_sha256": "a80aa93f5c120ec9f72ce11a7f76d27caca952f461fc9ba67f60c6d349d78d70",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:3287",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["Rewired AndroidFallbackSDLGamepad registration observed in the approved run", "game-owned controller prompt", "UnityPlayer.nativeInjectEvent"],
+          "sources": [
+            {"path": "ports/kingdomnl/src/input.c", "sha256": "b2264830d585e0121fc1bb6a704ed741299840a4f957455c072267bfd6d1bb6b"}
+          ],
+          "gaps": ["exact Rewired version", "direct Player.GetButton/GetAxis action-return receipts", "stale inherited comments in source", "new-byte physical proof"]
+        }
+      ],
+      "controls": [
+        "A", "B", "X", "Y", "L1", "R1", "L2", "R2", "L3", "R3",
+        "START", "SELECT", "UP", "DOWN", "LEFT", "RIGHT", "LEFT_STICK", "RIGHT_STICK"
+      ],
+      "reachable": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "id": "incontrol",
+      "kind": "INCONTROL",
+      "status": "PENDING",
+      "deployable": false,
+      "reason": "Suzy Cube has strong historical physical behavior but no artifact-bound exact InControl version or direct ReadRaw/action receipt. Neon has direct ReadRaw hooks but name/arity resolution and a parallel nativeInjectEvent path. Party Hard's InControl functions are dead code.",
+      "candidates": [
+        {
+          "id": "suzycube",
+          "role": "positive historical lead, not a C8 adapter",
+          "unity_version": "2017.4.40f1",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "02b5d57f2d21b644018090c399fcbf53e26df072",
+          "source_tree": "904484e0344c37443768e296b21b197b199f642f",
+          "artifact_sha256": "d5a965f816c3a3871a56414e07d70677725a5cb2332d0dfdd4d115aee6b2bd13",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2386",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["android.view.InputDevice", "KeyEvent", "MotionEvent", "InControl profile enumeration observed historically"],
+          "sources": [
+            {"path": "ports/suzycube/src/input.c", "sha256": "6d6b36792df91ba222fc1fb9e35cbcb79bfa2bcc144645d09df97e95633a695c"},
+            {"path": "ports/suzycube/src/jni.c", "sha256": "a53437816f5b1d32599642276f1e4a5a210d1a741af3690a997f3a94c9b44df4"}
+          ],
+          "gaps": ["exact InControl version", "direct low-level and action-return receipts", "identity override A/B", "C3/GPTK V2 exclusivity", "new-byte physical proof"]
+        },
+        {
+          "id": "neonshadow",
+          "role": "negative classification lead",
+          "unity_version": "2017.4.40f1",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "2c6e87c499dc36df32407a3176280897653b73bd",
+          "source_tree": "21a87b081ef91e7e95fda932d5b748c56742efbe",
+          "artifact_sha256": "b9da7740a12fa0f170b1b2d727f1fb98155a0d0cd9a41ec583ec6570dd94bb30",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2963",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["InControl.UnityInputDevice.ReadRawButtonState", "InControl.UnityInputDevice.ReadRawAnalogValue", "UnityPlayer.nativeInjectEvent"],
+          "sources": [
+            {"path": "ports/neonshadow/src/input.c", "sha256": "bd670013c422748e16fbed70525bb2eda3ebabe79a275470f045897e1fb40f13"}
+          ],
+          "gaps": ["exact InControl version", "full signatures rather than name/arity", "parallel route removal", "new-byte physical proof"]
+        },
+        {
+          "id": "partyhardgo",
+          "role": "negative only",
+          "unity_version": "6000.3.10f1",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "b7f037405bebec34eb3a087763bb2a8fbd01624c",
+          "source_tree": "bcfb87f6dfde83ba319042066a2a0a86914961e9",
+          "artifact_sha256": "2bf32c0d83c14d1fabeba5488953aa20c6271ea56f9cd4328313964498069e7a",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:3374",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["dead st_incontrol_* definitions", "production UnityPlayer.nativeInjectEvent"],
+          "sources": [
+            {"path": "ports/partyhard/src/input.c", "sha256": "7b93c69f8dd0eb615b57316a68bc20483a82f6eaf4f5f492c03f72a9237f22a2"}
+          ],
+          "gaps": ["no installed/called InControl hook", "no exact version", "no consumer receipt"]
+        }
+      ],
+      "controls": [
+        "A", "B", "X", "Y", "L1", "R1", "L2", "R2", "L3", "R3",
+        "START", "SELECT", "UP", "DOWN", "LEFT", "RIGHT", "LEFT_STICK", "RIGHT_STICK"
+      ],
+      "reachable": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      "id": "raw-android-inputdevice",
+      "kind": "RAW_ANDROID",
+      "status": "UNPROVEN",
+      "deployable": false,
+      "reason": "No positive last-30 tuple proves raw InputDevice identity/ranges/generation through a named player action. Vector implements an InputDevice surface but its menus and gameplay are touch/swipe driven; Stranger Things 1984 is game-specific and uses a signal fault probe. Both are negative evidence only.",
+      "candidates": [
+        {
+          "id": "strangerthings1984",
+          "role": "negative only",
+          "unity_version": "6000.2.6f2",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "4727c835790cb3a4ae4bcd1190f901946f7ca0c7",
+          "source_tree": "3d95ca2646e50cd15457d15224c7b16f687f268a",
+          "artifact_sha256": "4d794bc3ae7580f5b1f9e14bfe7109334f0ee0ba9e187fe15349f3bf435d105a",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2720",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["game-specific IL2CPP methods", "touch injection", "signal fault probe"],
+          "sources": [
+            {"path": "ports/strangerthings/src/input.c", "sha256": "2a3e5cb19aac917c3b909bb45d3ed82faebdb569593e3486e373245c8ac6967b"}
+          ],
+          "gaps": ["game ignores gamepad KeyEvent/MotionEvent", "no raw player consumer", "unsafe signal-probe thread workaround", "not a reusable profile"]
+        },
+        {
+          "id": "vector",
+          "role": "negative classification lead",
+          "unity_version": "2022.3.62f2",
+          "plugin_version": null,
+          "abi": "arm64-v8a",
+          "source_commit": "f128d666f74e5458b5e4326e10f46365fcb94b39",
+          "source_tree": "b552598dc56bb5df21f57466a0913c9c357533da",
+          "artifact_sha256": "6be07efd538338aed01fd9ebc6796a6825f5df3dfabfcc6933bd593611fd2b1e",
+          "r2_receipt": "R2-PRIVADO-PROGRESSO.md:2463",
+          "license": "GPL-3.0-only for adapter; proprietary owner-supplied game data",
+          "apis": ["android.view.InputDevice identity and motion ranges", "UnityPlayer.nativeInjectEvent", "touch cursor and bounded swipe"],
+          "sources": [
+            {"path": "ports/vector/src/input.c", "sha256": "916c59ad90ab49889f5be3f1b00d0dbb9a6122b5cccb413484a5ff73e06a3928"},
+            {"path": "ports/vector/src/jni.c", "sha256": "4334fd7b7a7fffcbdc15d043d346683bad45b44f6d9fc180eb930d248ea5fb26"}
+          ],
+          "gaps": ["gameplay actions are touch/swipe", "no named raw player readback", "no generation-to-action receipt", "not a reusable positive profile"]
+        }
+      ],
+      "controls": [
+        "A", "B", "X", "Y", "L1", "R1", "L2", "R2", "L3", "R3",
+        "START", "SELECT", "UP", "DOWN", "LEFT", "RIGHT", "LEFT_STICK", "RIGHT_STICK"
+      ],
+      "reachable": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+  ],
+  "framework_harness": {
+    "class": "FIXTURE",
+    "profiles": 5,
+    "controls_declared": 90,
+    "controls_exercised": 90,
+    "real_plugin_claims": 0,
+    "real_port_claims": 0,
+    "physical_claims_for_new_bytes": 0
+  }
+}

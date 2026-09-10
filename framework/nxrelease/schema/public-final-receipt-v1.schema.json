@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.local/schema/nxrelease-public-final-receipt-v1.json",
+  "title": "NXRelease public-final physical receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "sanitized",
+    "artifact",
+    "run",
+    "integrations"
+  ],
+  "properties": {
+    "schema": {"const": "nxrelease-public-final-receipt-v1"},
+    "schema_version": {"const": 1},
+    "sanitized": {"const": true},
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package_id",
+        "package_version",
+        "port_commit",
+        "zip_sha256",
+        "zip_size",
+        "executable_path",
+        "executable_sha256",
+        "executable_build_id",
+        "generation_id"
+      ],
+      "properties": {
+        "package_id": {"type": "string", "minLength": 1},
+        "package_version": {"type": "string", "minLength": 1},
+        "port_commit": {"type": "string", "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"},
+        "zip_sha256": {"$ref": "#/$defs/sha256"},
+        "zip_size": {"type": "integer", "minimum": 1},
+        "executable_path": {"type": "string", "minLength": 3},
+        "executable_sha256": {"$ref": "#/$defs/sha256"},
+        "executable_build_id": {"type": "string", "pattern": "^[0-9a-f]{8,128}$"},
+        "generation_id": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "device_id", "verdict"],
+      "properties": {
+        "run_id": {"$ref": "#/$defs/identifier"},
+        "device_id": {"$ref": "#/$defs/identifier"},
+        "verdict": {"const": "PASS"}
+      }
+    },
+    "integrations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lifecycle", "graphics", "input", "audio", "terminal"],
+      "properties": {
+        "lifecycle": {"$ref": "#/$defs/lifecycle"},
+        "graphics": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/graphics"}]},
+        "input": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/input"}]},
+        "audio": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/audio"}]},
+        "terminal": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/terminal"}]}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "identifier": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"},
+    "symbols": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["completed", "health_evidence", "symbols", "evidence_sha256"],
+      "properties": {
+        "completed": {"const": true},
+        "health_evidence": {
+          "type": "string",
+          "pattern": "^UPDATE NXU0006: generation [0-9a-f]{64} proved healthy receipt_run=[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+        },
+        "symbols": {"$ref": "#/$defs/symbols"},
+        "evidence_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "graphics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_initialized", "evidence", "evidence_sha256", "frame_proof", "symbols"],
+      "properties": {
+        "contract_initialized": {"const": true},
+        "evidence": {"type": "string", "pattern": "^GRAPHICS-EVIDENCE:"},
+        "evidence_sha256": {"$ref": "#/$defs/sha256"},
+        "symbols": {"$ref": "#/$defs/symbols"},
+        "frame_proof": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["verdict", "sample_count", "non_black_percent"],
+          "properties": {
+            "verdict": {"const": "OK"},
+            "sample_count": {"type": "integer", "minimum": 1},
+            "non_black_percent": {"type": "number", "exclusiveMinimum": 0, "maximum": 100}
+          }
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gptk_loaded",
+        "gptk_sha256",
+        "parser",
+        "dispatcher",
+        "delivery_count",
+        "double_input",
+        "ab_swap_observed",
+        "start_select_observed",
+        "symbols",
+        "sink_symbols",
+        "evidence_sha256"
+      ],
+      "properties": {
+        "gptk_loaded": {"const": true},
+        "gptk_sha256": {"$ref": "#/$defs/sha256"},
+        "parser": {"const": "nxinput_gptk"},
+        "dispatcher": {"const": "nxinput_gptk_dispatcher"},
+        "delivery_count": {"const": 1},
+        "double_input": {"const": false},
+        "ab_swap_observed": {"const": true},
+        "start_select_observed": {"const": true},
+        "symbols": {"$ref": "#/$defs/symbols"},
+        "sink_symbols": {"$ref": "#/$defs/symbols"},
+        "evidence_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["callback_alive", "recovery_state", "symbols", "evidence_sha256"],
+      "properties": {
+        "callback_alive": {"const": true},
+        "recovery_state": {"enum": ["not-needed", "recovered"]},
+        "symbols": {"$ref": "#/$defs/symbols"},
+        "evidence_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "terminal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["independent", "completed", "symbols", "evidence_sha256"],
+      "properties": {
+        "independent": {"const": true},
+        "completed": {"const": true},
+        "symbols": {"$ref": "#/$defs/symbols"},
+        "evidence_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  }
+}

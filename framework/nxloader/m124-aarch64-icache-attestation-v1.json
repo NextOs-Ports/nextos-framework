@@ -1,0 +1,77 @@
+{
+  "schema": "nxloader-m124-attestation-contract-v1",
+  "schema_version": 1,
+  "component_version": "0.9.0",
+  "api": {
+    "major": 1,
+    "minor": 3
+  },
+  "runtime_probe": "tests/test_aarch64_cross.c",
+  "runner": "tests/run_aarch64_icache_attestation.py",
+  "validator_test": "tests/test_m124_attestation.py",
+  "canonical_finalize": "nxloader_module_finalize",
+  "evidence_classes": {
+    "COMPILED_ONLY": {
+      "status": "PENDING",
+      "hardware_ran": false,
+      "emulator": false,
+      "physical_pending": true
+    },
+    "EMULATED": {
+      "status": "PASS",
+      "hardware_ran": false,
+      "emulator": true,
+      "physical_pending": true
+    },
+    "PHYSICAL": {
+      "status": "PENDING",
+      "hardware_ran": false,
+      "emulator": false,
+      "physical_pending": true,
+      "requires_trust_anchor": true,
+      "runner_available": false
+    }
+  },
+  "scenarios": [
+    "entry_rewrite",
+    "veneer_rewrite",
+    "same_mapping_rewrite",
+    "patch_window_rw",
+    "cache_line_boundary",
+    "page_boundary",
+    "range_negative",
+    "alignment_negative",
+    "permission_negative",
+    "finalize_omitted",
+    "finalize_duplicate",
+    "mprotect_failure",
+    "patch_rollback_failure",
+    "maps_wx_absent",
+    "child_deadline",
+    "returncode_exact"
+  ],
+  "required_runtime_tokens": {
+    "entry_rewrite": "owner_finalize_cycles=2",
+    "veneer_rewrite": "hook_veneer=1",
+    "same_mapping_rewrite": "same_mapping_rewrite=1",
+    "patch_window_rw": "patch_window_rw=1",
+    "cache_line_boundary": "cache_line_boundary=1",
+    "page_boundary": "page_boundary_crossing=1",
+    "range_negative": "range_negative=1",
+    "alignment_negative": "alignment_negative=1",
+    "permission_negative": "permission_negative=1",
+    "finalize_omitted": "finalize_omitted=1",
+    "finalize_duplicate": "finalize_duplicate=1",
+    "mprotect_failure": "mprotect_failure=1",
+    "patch_rollback_failure": "patch_rollback_failure=1",
+    "maps_wx_absent": "wx_mapping=0",
+    "child_deadline": "child_deadline=1",
+    "returncode_exact": "returncode_exact=1"
+  },
+  "negative_claims": {
+    "external_guest_elf_loaded": false,
+    "guest_initializers_executed": false,
+    "device_access": false,
+    "classification_in_binary": false
+  }
+}

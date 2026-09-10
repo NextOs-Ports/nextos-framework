@@ -1,0 +1,98 @@
+{
+  "schema": "nxloader-0.9.0-closure-v1",
+  "schema_version": 1,
+  "version": "0.9.0",
+  "api": {
+    "major": 1,
+    "minor": 3
+  },
+  "scope": "M124 same-mapping AArch64 patch/finalize attestation; no port migration, device access, release or integration",
+  "safety": {
+    "device_access": false,
+    "hardware_ran": false,
+    "guest_initializers_executed": false,
+    "ports_migrated": false,
+    "api_080_preserved": true
+  },
+  "requirements": [
+    {
+      "id": "NXL-090-001",
+      "guarantee": "0.9.0 is additive over the complete 0.8.0 public ABI: API 1.3 and all existing numeric values, structs and function signatures remain unchanged",
+      "implementation": [
+        {"path": "framework/nxloader/include/nxloader.h", "token": "#define NXLOADER_API_VERSION_MINOR 3u"},
+        {"path": "framework/nxloader/include/nxloader.h", "token": "NXLOADER_STATE_PATCHING = 10"},
+        {"path": "framework/nxloader/release-0.8.0-closure-v1.json", "token": "\"version\": \"0.8.0\""}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "CHECK(NXLOADER_STATE_READY == 9);"},
+        {"path": "framework/nxloader/tests/test_090_closure.py", "token": "validate_legacy_api"}
+      ]
+    },
+    {
+      "id": "NXL-090-002",
+      "guarantee": "only a FINALIZED module before initializers can enter the explicit PATCHING state, under the documented adapter precondition that every guest-executing thread remains quiescent through the second finalize",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader.c", "token": "if (module->state != NXLOADER_STATE_FINALIZED)"},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "module->state = NXLOADER_STATE_PATCHING;"},
+        {"path": "framework/nxloader/include/nxloader.h", "token": "quiesce every"},
+        {"path": "framework/nxloader/README.md", "token": "mantê-las quiescentes"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "nxloader_module_begin_patch(module) == NXLOADER_ESTATE"}
+      ]
+    },
+    {
+      "id": "NXL-090-003",
+      "guarantee": "the patch boundary preserves the mapping, keeps RELRO and auxiliary pools closed, and converts patchable executable image pages to RW without ever requesting RWX; partial mprotect failure restores completed groups or poisons the module",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader_protect.c", "token": "patch_protections[index] = PROT_READ | PROT_WRITE;"},
+        {"path": "framework/nxloader/src/nxloader_protect.c", "token": "nxloader_close_auxiliary_pool"},
+        {"path": "framework/nxloader/src/nxloader_hooks.c", "token": "module->state = NXLOADER_STATE_ERROR;"},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "else if (!final_protections_restored)"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "info.mapping_base == first_mapping_base"},
+        {"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "The missing RELRO page separates the patch groups"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "NXL090 protection invariant"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "NXL090 auxiliary-pool invariant"},
+        {"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_patch_preserves_executable_relro"}
+      ]
+    },
+    {
+      "id": "NXL-090-004",
+      "guarantee": "entry and veneer writes are accepted only while RESOLVED or PATCHING, and a second canonical finalize performs cache maintenance before restoring RX",
+      "implementation": [
+        {"path": "framework/nxloader/src/nxloader_hooks.c", "token": "module->state != NXLOADER_STATE_PATCHING"},
+        {"path": "framework/nxloader/src/nxloader.c", "token": "module->state != NXLOADER_STATE_PATCHING"},
+        {"path": "framework/nxloader/src/nxloader_protect.c", "token": "__builtin___clear_cache"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "nxloader_module_finalize(module) == NXLOADER_OK"}
+      ]
+    },
+    {
+      "id": "NXL-090-005",
+      "guarantee": "the AArch64 probe executes A, rewrites the already executed cross-page entry and veneer at the same VAs, finalizes again and executes B, with exact-child negative handling and deadlines",
+      "implementation": [
+        {"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "entry_address == first_entry_address"},
+        {"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "(uintptr_t)pool == first_pool_address"},
+        {"path": "framework/nxloader/tests/test_aarch64_cross.c", "token": "nx_wait_for_exact_child"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/run-aarch64-cross.sh", "token": "same_mapping_rewrite=1"},
+        {"path": "framework/nxloader/tests/test_m124_attestation.py", "token": "same_mapping_rewrite"}
+      ]
+    },
+    {
+      "id": "NXL-090-006",
+      "guarantee": "owner-local receipts distinguish COMPILED_ONLY and EMULATED while PHYSICAL remains fail-closed and hardware_ran stays false",
+      "implementation": [
+        {"path": "framework/nxloader/tests/run_aarch64_icache_attestation.py", "token": "PHYSICAL remains PENDING until a trust anchor is implemented"},
+        {"path": "framework/nxloader/m124-aarch64-icache-attestation-v1.json", "token": "\"hardware_ran\": false"}
+      ],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_m124_attestation.py", "token": "owner-local physical receipt emission"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+id	port	abi	check	category	status	value
+ABI-bully2-aarch64-001-variant-id	bully2	aarch64	001-variant-id	identity	recorded	bully2-aarch64
+ABI-bully2-aarch64-002-canonical-port	bully2	aarch64	002-canonical-port	identity	recorded	bully2
+ABI-bully2-aarch64-003-abi	bully2	aarch64	003-abi	identity	recorded	aarch64
+ABI-bully2-aarch64-004-positive-reference	bully2	aarch64	004-positive-reference	evidence	recorded	true
+ABI-bully2-aarch64-005-guest-object	bully2	aarch64	005-guest-object	guest	recorded	ports/bully2/libGame.so sha256=345f6411bebbd2310b2cb5d2a271341847a054c2b7f6d5ffba8030cd53140d76
+ABI-bully2-aarch64-006-guest-elf-class	bully2	aarch64	006-guest-elf-class	guest	recorded	ELF64 little-endian ET_DYN LP64
+ABI-bully2-aarch64-007-guest-machine	bully2	aarch64	007-guest-machine	guest	recorded	EM_AARCH64 with e_flags=0
+ABI-bully2-aarch64-008-eabi-version	bully2	aarch64	008-eabi-version	guest	recorded	not-applicable: AArch64 e_flags=0 and ARM32 EABI version does not apply
+ABI-bully2-aarch64-009-float-abi	bully2	aarch64	009-float-abi	guest	recorded	AAPCS64 unified register convention; no ARM32 softfp/hardfp split
+ABI-bully2-aarch64-010-pcs-boundary	bully2	aarch64	010-pcs-boundary	guest	recorded	AAPCS64 with SP aligned to 16 bytes at public interfaces
+ABI-bully2-aarch64-011-relocation-format	bully2	aarch64	011-relocation-format	relocation	recorded	ELF64 RELA with explicit signed addends; REL rejected
+ABI-bully2-aarch64-012-relocation-inventory	bully2	aarch64	012-relocation-inventory	relocation	recorded	libGame RELATIVE=12127,ABS64=42596,GLOB_DAT=7844,JUMP_SLOT=12466,total=75033
+ABI-bully2-aarch64-013-unsupported-relocations	bully2	aarch64	013-unsupported-relocations	relocation	recorded	unknown, TLS/TLSDESC, IFUNC/IRELATIVE, RELR, Android packed and unobserved instruction relocations fail before any commit
+ABI-bully2-aarch64-014-interpreter-scope	bully2	aarch64	014-interpreter-scope	loader	recorded	Android ET_DYN guest has no PT_INTERP; only the Linux host executable uses the AArch64 interpreter
+ABI-bully2-aarch64-015-host-elf-class	bully2	aarch64	015-host-elf-class	host	recorded	ELF64 little-endian ET_DYN/PIE host executable
+ABI-bully2-aarch64-016-host-machine	bully2	aarch64	016-host-machine	host	recorded	EM_AARCH64 LP64
+ABI-bully2-aarch64-017-host-float-abi	bully2	aarch64	017-host-float-abi	host	recorded	AAPCS64 with SP aligned to 16 bytes at public interfaces
+ABI-bully2-aarch64-018-host-pt-interp	bully2	aarch64	018-host-pt-interp	host	recorded	/lib/ld-linux-aarch64.so.1
+ABI-bully2-aarch64-019-host-glibc-ceiling	bully2	aarch64	019-host-glibc-ceiling	host	recorded	ports/bully2/bully.glibc230 sha256=bd561ad5043e925c24e9fc45901a610df779da1005a43ac4c1e56588314ea228 max GLIBC_2.17; public ceiling GLIBC_2.30
+ABI-bully2-aarch64-020-host-dependencies	bully2	aarch64	020-host-dependencies	host	recorded	all Linux host DT_NEEDED entries must resolve in the pinned low-glibc AArch64 sysroot
+ABI-bully2-aarch64-021-gcc-cross	bully2	aarch64	021-gcc-cross	gate	recorded	nxloader-aarch64-cross builds with pinned GCC AArch64 and an old sysroot
+ABI-bully2-aarch64-022-clang-cross	bully2	aarch64	022-clang-cross	gate	recorded	nxloader-aarch64-cross builds with Clang AArch64 plus LLD and the same old sysroot
+ABI-bully2-aarch64-023-qemu-cross	bully2	aarch64	023-qemu-cross	gate	recorded	cross-safe AAPCS64 and SP16 probes only; no guest ELF execution
+ABI-bully2-aarch64-024-initializer-policy	bully2	aarch64	024-initializer-policy	safety	recorded	guest_initializers_executed=0 and guest_jni_onload_executed=0 in every automatic M10 gate
+ABI-bully2-aarch64-025-approved-reference	bully2	aarch64	025-approved-reference	evidence	recorded	Bully2 is a positive narrow AArch64 loader reference from the canonical local port; its delisted product flow is not promoted
+ABI-bully2-aarch64-026-physical-evidence	bully2	aarch64	026-physical-evidence	evidence	recorded	historical physical-subsystem loader and rendering evidence exists on Mali-450 and R36S; no current public or universal claim
+ABI-bully2-aarch64-027-limitations	bully2	aarch64	027-limitations	limits	recorded	M10 uses ABI and relocation evidence only; Bully2 remains historical, delisted and non-universal
+ABI-bully2-aarch64-028-generalization	bully2	aarch64	028-generalization	limits	recorded	reuse LP64, RELA, load-bias, registry and transaction discipline; never copy Rockstar hooks, offsets or lifecycle shortcuts
+ABI-horizonchase-aarch64-001-variant-id	horizonchase	aarch64	001-variant-id	identity	recorded	horizonchase-aarch64
+ABI-horizonchase-aarch64-002-canonical-port	horizonchase	aarch64	002-canonical-port	identity	recorded	horizonchase
+ABI-horizonchase-aarch64-003-abi	horizonchase	aarch64	003-abi	identity	recorded	aarch64
+ABI-horizonchase-aarch64-004-positive-reference	horizonchase	aarch64	004-positive-reference	evidence	recorded	true
+ABI-horizonchase-aarch64-005-guest-object	horizonchase	aarch64	005-guest-object	guest	recorded	ports/horizonchase/payload/lib/libunity.so sha256=7c46972d06b6b85f953bf61b477fdbf5bf22f7be55b57e4b54b4403f05478359; ports/horizonchase/payload/lib/libil2cpp.so sha256=acf414c77853aa0e7f8d8963f307f65f3d156c8d6d806661b738df3385e48cdc; ports/horizonchase/payload/lib/libmain.so sha256=a2dfe24e0170af0ae90b13630fc6d4e788be2c5216b4bddb17a6e0ca3c4c5af8
+ABI-horizonchase-aarch64-006-guest-elf-class	horizonchase	aarch64	006-guest-elf-class	guest	recorded	ELF64 little-endian ET_DYN LP64 for all three modules
+ABI-horizonchase-aarch64-007-guest-machine	horizonchase	aarch64	007-guest-machine	guest	recorded	EM_AARCH64 with e_flags=0 for all three modules
+ABI-horizonchase-aarch64-008-eabi-version	horizonchase	aarch64	008-eabi-version	guest	recorded	not-applicable: AArch64 e_flags=0 and ARM32 EABI version does not apply
+ABI-horizonchase-aarch64-009-float-abi	horizonchase	aarch64	009-float-abi	guest	recorded	AAPCS64 unified register convention; no ARM32 softfp/hardfp split
+ABI-horizonchase-aarch64-010-pcs-boundary	horizonchase	aarch64	010-pcs-boundary	guest	recorded	AAPCS64 with SP aligned to 16 bytes at public interfaces
+ABI-horizonchase-aarch64-011-relocation-format	horizonchase	aarch64	011-relocation-format	relocation	recorded	ELF64 RELA with explicit signed addends; REL rejected
+ABI-horizonchase-aarch64-012-relocation-inventory	horizonchase	aarch64	012-relocation-inventory	relocation	recorded	libunity RELATIVE=54114,ABS64=50,GLOB_DAT=43,JUMP_SLOT=500,total=54707; libil2cpp RELATIVE=303401,ABS64=1631,GLOB_DAT=152,JUMP_SLOT=566,total=305750; libmain RELATIVE=9,JUMP_SLOT=11,total=20
+ABI-horizonchase-aarch64-013-unsupported-relocations	horizonchase	aarch64	013-unsupported-relocations	relocation	recorded	unknown, TLS/TLSDESC, IFUNC/IRELATIVE, RELR, Android packed and unobserved instruction relocations fail before any commit
+ABI-horizonchase-aarch64-014-interpreter-scope	horizonchase	aarch64	014-interpreter-scope	loader	recorded	all three Android ET_DYN guests have no PT_INTERP; only the Linux host executable uses the AArch64 interpreter
+ABI-horizonchase-aarch64-015-host-elf-class	horizonchase	aarch64	015-host-elf-class	host	recorded	ELF64 little-endian ET_DYN/PIE host executable
+ABI-horizonchase-aarch64-016-host-machine	horizonchase	aarch64	016-host-machine	host	recorded	EM_AARCH64 LP64
+ABI-horizonchase-aarch64-017-host-float-abi	horizonchase	aarch64	017-host-float-abi	host	recorded	AAPCS64 with SP aligned to 16 bytes at public interfaces
+ABI-horizonchase-aarch64-018-host-pt-interp	horizonchase	aarch64	018-host-pt-interp	host	recorded	/lib/ld-linux-aarch64.so.1
+ABI-horizonchase-aarch64-019-host-glibc-ceiling	horizonchase	aarch64	019-host-glibc-ceiling	host	recorded	ports/horizonchase/horizonchase-universal sha256=46a1da200f6e074568e9d1b5e5193b354cf5cbdd239dc7e8e967a26e43d91868 max GLIBC_2.27; public ceiling GLIBC_2.30
+ABI-horizonchase-aarch64-020-host-dependencies	horizonchase	aarch64	020-host-dependencies	host	recorded	all Linux host DT_NEEDED entries must resolve in the pinned low-glibc AArch64 sysroot; host-local RUNPATH does not change the ceiling
+ABI-horizonchase-aarch64-021-gcc-cross	horizonchase	aarch64	021-gcc-cross	gate	recorded	nxloader-aarch64-cross builds with pinned GCC AArch64 and an old sysroot
+ABI-horizonchase-aarch64-022-clang-cross	horizonchase	aarch64	022-clang-cross	gate	recorded	nxloader-aarch64-cross builds with Clang AArch64 plus LLD and the same old sysroot
+ABI-horizonchase-aarch64-023-qemu-cross	horizonchase	aarch64	023-qemu-cross	gate	recorded	cross-safe AAPCS64 and SP16 probes only; no guest ELF execution
+ABI-horizonchase-aarch64-024-initializer-policy	horizonchase	aarch64	024-initializer-policy	safety	recorded	guest_initializers_executed=0 and guest_jni_onload_executed=0 in every automatic M10 gate
+ABI-horizonchase-aarch64-025-approved-reference	horizonchase	aarch64	025-approved-reference	evidence	recorded	Horizon Chase canonical Unity, IL2CPP and main modules provide positive multi-module and large-RELA evidence
+ABI-horizonchase-aarch64-026-physical-evidence	horizonchase	aarch64	026-physical-evidence	evidence	recorded	physical-full same-loader evidence spans Mali-450, ArkOS, X5 and ROCKNIX/Panfrost; M10 still executes no guest code
+ABI-horizonchase-aarch64-027-limitations	horizonchase	aarch64	027-limitations	limits	recorded	M10 proves independent module loading and relocation scale, not Unity constructors, JNI_OnLoad or Activity lifecycle
+ABI-horizonchase-aarch64-028-generalization	horizonchase	aarch64	028-generalization	limits	recorded	reuse multi-module LP64, RELA, load-bias and atomic large-table handling; never copy Unity hooks, GOT patches, offsets or lifecycle shortcuts
+ABI-kotor-armv7-001-variant-id	kotor	armv7	001-variant-id	identity	recorded	kotor-armv7
+ABI-kotor-armv7-002-canonical-port	kotor	armv7	002-canonical-port	identity	recorded	kotor
+ABI-kotor-armv7-003-abi	kotor	armv7	003-abi	identity	recorded	armv7
+ABI-kotor-armv7-004-positive-reference	kotor	armv7	004-positive-reference	evidence	recorded	true
+ABI-kotor-armv7-005-guest-object	kotor	armv7	005-guest-object	guest	recorded	ports/kotor/libKOTOR.so sha256=099c43db23a891a19f40f5805c3582b390de39d96d6e50be52649a40498a68b5
+ABI-kotor-armv7-006-guest-elf-class	kotor	armv7	006-guest-elf-class	guest	recorded	ELF32 little-endian ET_DYN
+ABI-kotor-armv7-007-guest-machine	kotor	armv7	007-guest-machine	guest	recorded	EM_ARM
+ABI-kotor-armv7-008-eabi-version	kotor	armv7	008-eabi-version	guest	recorded	EABI5
+ABI-kotor-armv7-009-float-abi	kotor	armv7	009-float-abi	guest	recorded	EF_ARM_ABI_FLOAT_SOFT
+ABI-kotor-armv7-010-pcs-boundary	kotor	armv7	010-pcs-boundary	guest	recorded	guest base AAPCS through explicit softfp-to-hardfp adapter thunks
+ABI-kotor-armv7-011-relocation-format	kotor	armv7	011-relocation-format	relocation	recorded	ELF32 REL with implicit signed addends; RELA rejected
+ABI-kotor-armv7-012-relocation-inventory	kotor	armv7	012-relocation-inventory	relocation	recorded	ABS32=10971,GLOB_DAT=3228,JUMP_SLOT=9553,RELATIVE=320
+ABI-kotor-armv7-013-unsupported-relocations	kotor	armv7	013-unsupported-relocations	relocation	recorded	unknown, TLS/TLSDESC, IFUNC/IRELATIVE and non-allowlisted text relocations fail before any commit
+ABI-kotor-armv7-014-interpreter-scope	kotor	armv7	014-interpreter-scope	loader	recorded	Android guest metadata is not the Linux host PT_INTERP contract
+ABI-kotor-armv7-015-host-elf-class	kotor	armv7	015-host-elf-class	host	recorded	ELF32 little-endian ET_DYN/PIE host executable
+ABI-kotor-armv7-016-host-machine	kotor	armv7	016-host-machine	host	recorded	EM_ARM EABI5
+ABI-kotor-armv7-017-host-float-abi	kotor	armv7	017-host-float-abi	host	recorded	hard-float with Tag_ABI_VFP_args=VFP registers
+ABI-kotor-armv7-018-host-pt-interp	kotor	armv7	018-host-pt-interp	host	recorded	/lib/ld-linux-armhf.so.3
+ABI-kotor-armv7-019-host-glibc-ceiling	kotor	armv7	019-host-glibc-ceiling	host	recorded	ports/kotor/kotor-universal max GLIBC_2.27; public ceiling GLIBC_2.30
+ABI-kotor-armv7-020-host-dependencies	kotor	armv7	020-host-dependencies	host	recorded	all Linux host DT_NEEDED entries must resolve in the pinned old sysroot
+ABI-kotor-armv7-021-gcc-cross	kotor	armv7	021-gcc-cross	gate	recorded	nxloader-armv7-cross builds with pinned GCC ARMHF and old sysroot
+ABI-kotor-armv7-022-clang-cross	kotor	armv7	022-clang-cross	gate	recorded	nxloader-armv7-cross builds with Clang ARMHF plus LLD and the same old sysroot
+ABI-kotor-armv7-023-qemu-cross	kotor	armv7	023-qemu-cross	gate	recorded	cross-safe ABI and softfp probes only; no guest ELF execution
+ABI-kotor-armv7-024-initializer-policy	kotor	armv7	024-initializer-policy	safety	recorded	guest_initializers_executed=0 in every automatic ARMv7 gate
+ABI-kotor-armv7-025-approved-reference	kotor	armv7	025-approved-reference	evidence	recorded	KOTOR approved source; parser load+relocate inspection is read-only
+ABI-kotor-armv7-026-physical-evidence	kotor	armv7	026-physical-evidence	evidence	recorded	M09-012 ELF32 cache-sync passed on authorized physical ARM hardware; sanitized evidence is framework/nxloader/m09-armv7-physical-evidence-v1.json
+ABI-kotor-armv7-027-limitations	kotor	armv7	027-limitations	limits	recorded	green guest proves only ABS32/GLOB_DAT/JUMP_SLOT/RELATIVE, not branch relocations
+ABI-kotor-armv7-028-generalization	kotor	armv7	028-generalization	limits	recorded	reuse loader/PCS discipline and libm softfp boundary; never copy game offsets or lifecycle shortcuts
+ABI-sonic4ep2-aarch64-001-variant-id	sonic4ep2	aarch64	001-variant-id	identity	recorded	sonic4ep2-aarch64
+ABI-sonic4ep2-aarch64-002-canonical-port	sonic4ep2	aarch64	002-canonical-port	identity	recorded	sonic4ep2
+ABI-sonic4ep2-aarch64-003-abi	sonic4ep2	aarch64	003-abi	identity	recorded	aarch64
+ABI-sonic4ep2-aarch64-004-positive-reference	sonic4ep2	aarch64	004-positive-reference	evidence	recorded	true
+ABI-sonic4ep2-aarch64-005-guest-object	sonic4ep2	aarch64	005-guest-object	guest	recorded	ports/sonic4/device_libs_3.0.0_arm64/libfox.so sha256=ca07163ad1e92d767016d43048a2c13eede7b9d6217ed4f032ca4d6d8e342a1a
+ABI-sonic4ep2-aarch64-006-guest-elf-class	sonic4ep2	aarch64	006-guest-elf-class	guest	recorded	ELF64 little-endian ET_DYN LP64
+ABI-sonic4ep2-aarch64-007-guest-machine	sonic4ep2	aarch64	007-guest-machine	guest	recorded	EM_AARCH64 with e_flags=0
+ABI-sonic4ep2-aarch64-008-eabi-version	sonic4ep2	aarch64	008-eabi-version	guest	recorded	not-applicable: AArch64 e_flags=0 and ARM32 EABI version does not apply
+ABI-sonic4ep2-aarch64-009-float-abi	sonic4ep2	aarch64	009-float-abi	guest	recorded	AAPCS64 unified register convention; no ARM32 softfp/hardfp split
+ABI-sonic4ep2-aarch64-010-pcs-boundary	sonic4ep2	aarch64	010-pcs-boundary	guest	recorded	AAPCS64 with SP aligned to 16 bytes at public interfaces
+ABI-sonic4ep2-aarch64-011-relocation-format	sonic4ep2	aarch64	011-relocation-format	relocation	recorded	ELF64 RELA with explicit signed addends; REL rejected
+ABI-sonic4ep2-aarch64-012-relocation-inventory	sonic4ep2	aarch64	012-relocation-inventory	relocation	recorded	libfox RELATIVE=22970,ABS64=18517,GLOB_DAT=3172,JUMP_SLOT=10303,total=54962
+ABI-sonic4ep2-aarch64-013-unsupported-relocations	sonic4ep2	aarch64	013-unsupported-relocations	relocation	recorded	unknown, TLS/TLSDESC, IFUNC/IRELATIVE, RELR, Android packed and unobserved instruction relocations fail before any commit
+ABI-sonic4ep2-aarch64-014-interpreter-scope	sonic4ep2	aarch64	014-interpreter-scope	loader	recorded	Android ET_DYN guest has no PT_INTERP; only the Linux host executable uses the AArch64 interpreter
+ABI-sonic4ep2-aarch64-015-host-elf-class	sonic4ep2	aarch64	015-host-elf-class	host	recorded	ELF64 little-endian ET_DYN/PIE host executable
+ABI-sonic4ep2-aarch64-016-host-machine	sonic4ep2	aarch64	016-host-machine	host	recorded	EM_AARCH64 LP64
+ABI-sonic4ep2-aarch64-017-host-float-abi	sonic4ep2	aarch64	017-host-float-abi	host	recorded	AAPCS64 with SP aligned to 16 bytes at public interfaces
+ABI-sonic4ep2-aarch64-018-host-pt-interp	sonic4ep2	aarch64	018-host-pt-interp	host	recorded	/lib/ld-linux-aarch64.so.1
+ABI-sonic4ep2-aarch64-019-host-glibc-ceiling	sonic4ep2	aarch64	019-host-glibc-ceiling	host	recorded	ports/sonic4/sonic4.arm64 sha256=c02b250c640e9696718f89dfff217ec7c620be8b028b7c1ede6b60e3a719ea30 max GLIBC_2.27; public ceiling GLIBC_2.30
+ABI-sonic4ep2-aarch64-020-host-dependencies	sonic4ep2	aarch64	020-host-dependencies	host	recorded	all Linux host DT_NEEDED entries must resolve in the pinned low-glibc AArch64 sysroot
+ABI-sonic4ep2-aarch64-021-gcc-cross	sonic4ep2	aarch64	021-gcc-cross	gate	recorded	nxloader-aarch64-cross builds with pinned GCC AArch64 and an old sysroot
+ABI-sonic4ep2-aarch64-022-clang-cross	sonic4ep2	aarch64	022-clang-cross	gate	recorded	nxloader-aarch64-cross builds with Clang AArch64 plus LLD and the same old sysroot
+ABI-sonic4ep2-aarch64-023-qemu-cross	sonic4ep2	aarch64	023-qemu-cross	gate	recorded	cross-safe AAPCS64 and SP16 probes only; no guest ELF execution
+ABI-sonic4ep2-aarch64-024-initializer-policy	sonic4ep2	aarch64	024-initializer-policy	safety	recorded	guest_initializers_executed=0 and guest_jni_onload_executed=0 in every automatic M10 gate
+ABI-sonic4ep2-aarch64-025-approved-reference	sonic4ep2	aarch64	025-approved-reference	evidence	recorded	Sonic 4 Episode II v6 libfox and host are the positive AArch64 line; the older ARMv7 engine stays separate
+ABI-sonic4ep2-aarch64-026-physical-evidence	sonic4ep2	aarch64	026-physical-evidence	evidence	recorded	physical-full evidence exists for v6 on Mali-450 and the prior loader line on ArkOS and X5M; community reports are not promoted
+ABI-sonic4ep2-aarch64-027-limitations	sonic4ep2	aarch64	027-limitations	limits	recorded	M10 proves load and relocation only; constructor filtering and native lifecycle remain outside this ABI gate
+ABI-sonic4ep2-aarch64-028-generalization	sonic4ep2	aarch64	028-generalization	limits	recorded	reuse LP64, RELA and explicit ABI separation; never copy libfox hooks, aliases, offsets or exact-version fixes
+ABI-tasm2_127-armv7-001-variant-id	tasm2_127	armv7	001-variant-id	identity	recorded	tasm2_127-armv7
+ABI-tasm2_127-armv7-002-canonical-port	tasm2_127	armv7	002-canonical-port	identity	recorded	tasm2_127
+ABI-tasm2_127-armv7-003-abi	tasm2_127	armv7	003-abi	identity	recorded	armv7
+ABI-tasm2_127-armv7-004-positive-reference	tasm2_127	armv7	004-positive-reference	evidence	recorded	true
+ABI-tasm2_127-armv7-005-guest-object	tasm2_127	armv7	005-guest-object	guest	recorded	ports/asm2_127/asm2-127-gamefiles/apk/lib/armeabi-v7a/libtasm2.so sha256=d091fe95c56af681f1a06453e9868622935ecbb759c05c340fc16bf8df2ae62e
+ABI-tasm2_127-armv7-006-guest-elf-class	tasm2_127	armv7	006-guest-elf-class	guest	recorded	ELF32 little-endian ET_DYN
+ABI-tasm2_127-armv7-007-guest-machine	tasm2_127	armv7	007-guest-machine	guest	recorded	EM_ARM
+ABI-tasm2_127-armv7-008-eabi-version	tasm2_127	armv7	008-eabi-version	guest	recorded	EABI5
+ABI-tasm2_127-armv7-009-float-abi	tasm2_127	armv7	009-float-abi	guest	recorded	e_flags unspecified and no Tag_ABI_VFP_args; never inferred
+ABI-tasm2_127-armv7-010-pcs-boundary	tasm2_127	armv7	010-pcs-boundary	guest	recorded	adapter explicitly declares guest base AAPCS; difftime and GLES float-by-value remain adapter wrappers
+ABI-tasm2_127-armv7-011-relocation-format	tasm2_127	armv7	011-relocation-format	relocation	recorded	ELF32 REL with implicit signed addends; RELA rejected
+ABI-tasm2_127-armv7-012-relocation-inventory	tasm2_127	armv7	012-relocation-inventory	relocation	recorded	libtasm2 RELATIVE=74548,JUMP_SLOT=387,GLOB_DAT=20,ABS32=15; libgenerator RELATIVE=2237,JUMP_SLOT=80,GLOB_DAT=4
+ABI-tasm2_127-armv7-013-unsupported-relocations	tasm2_127	armv7	013-unsupported-relocations	relocation	recorded	unknown, TLS/TLSDESC, IFUNC/IRELATIVE and non-allowlisted text relocations fail before any commit
+ABI-tasm2_127-armv7-014-interpreter-scope	tasm2_127	armv7	014-interpreter-scope	loader	recorded	guest /system/bin/linker is allowed metadata; Linux host alone must use canonical ARMHF PT_INTERP
+ABI-tasm2_127-armv7-015-host-elf-class	tasm2_127	armv7	015-host-elf-class	host	recorded	ELF32 little-endian ET_DYN/PIE host executable
+ABI-tasm2_127-armv7-016-host-machine	tasm2_127	armv7	016-host-machine	host	recorded	EM_ARM EABI5
+ABI-tasm2_127-armv7-017-host-float-abi	tasm2_127	armv7	017-host-float-abi	host	recorded	hard-float with Tag_ABI_VFP_args=VFP registers
+ABI-tasm2_127-armv7-018-host-pt-interp	tasm2_127	armv7	018-host-pt-interp	host	recorded	/lib/ld-linux-armhf.so.3
+ABI-tasm2_127-armv7-019-host-glibc-ceiling	tasm2_127	armv7	019-host-glibc-ceiling	host	recorded	ports/asm2_127/asm2_127-universal max GLIBC_2.27; public ceiling GLIBC_2.30
+ABI-tasm2_127-armv7-020-host-dependencies	tasm2_127	armv7	020-host-dependencies	host	recorded	all Linux host DT_NEEDED entries must resolve in the pinned old sysroot
+ABI-tasm2_127-armv7-021-gcc-cross	tasm2_127	armv7	021-gcc-cross	gate	recorded	nxloader-armv7-cross builds with pinned GCC ARMHF and old sysroot
+ABI-tasm2_127-armv7-022-clang-cross	tasm2_127	armv7	022-clang-cross	gate	recorded	nxloader-armv7-cross builds with Clang ARMHF plus LLD and the same old sysroot
+ABI-tasm2_127-armv7-023-qemu-cross	tasm2_127	armv7	023-qemu-cross	gate	recorded	cross-safe ABI and softfp probes only; no guest ELF execution
+ABI-tasm2_127-armv7-024-initializer-policy	tasm2_127	armv7	024-initializer-policy	safety	recorded	guest_initializers_executed=0 in every automatic ARMv7 gate
+ABI-tasm2_127-armv7-025-approved-reference	tasm2_127	armv7	025-approved-reference	evidence	recorded	only ports/asm2_127 is positive; abandoned legacy tree is forbidden as implementation source
+ABI-tasm2_127-armv7-026-physical-evidence	tasm2_127	armv7	026-physical-evidence	evidence	recorded	M09-012 ELF32 cache-sync passed on authorized physical ARM hardware; sanitized evidence is framework/nxloader/m09-armv7-physical-evidence-v1.json
+ABI-tasm2_127-armv7-027-limitations	tasm2_127	armv7	027-limitations	limits	recorded	green guests prove only ABS32/GLOB_DAT/JUMP_SLOT/RELATIVE, not REL32 or branch relocations
+ABI-tasm2_127-armv7-028-generalization	tasm2_127	armv7	028-generalization	limits	recorded	reuse minimum-VMA/load-bias and explicit PCS discipline; never copy offsets, skips or exact-version hacks

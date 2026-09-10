@@ -1,0 +1,11 @@
+.build/
+build/
+home/
+*.apk
+*.apkm
+*.apks
+*.xapk
+*.obb
+*.log
+gamedata/*
+!gamedata/README.txt

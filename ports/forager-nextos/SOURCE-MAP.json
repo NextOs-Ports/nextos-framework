@@ -1,0 +1,357 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/forager-nextos",
+  "observed_commit": "89e5c7107889f6b19a705f006f9f492bb0eb80da",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Forager Nuclear"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-2.0",
+    "name": "GNU General Public License v2.0",
+    "nickname": "GNU GPLv2"
+  },
+  "license_review": "NOTICE.md explicitly identifies GPL version 2 only and gmloader-next origin. Do not merge code into GPLv3 components without compatibility resolution.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitattributes",
+      "mode": "0o644",
+      "upstream_blob": "ffbb126107b50f5ab4dcf508dc80811fd9bacdb6",
+      "sha256": "3174ff224edbde93f678ec25ad0c64e8b7aa189145521ef0324226844a3206fb"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "dcc64cc05d4908b308e398803e930de4fb9d5f9e",
+      "sha256": "eea33c51602a7dd74a30acb1304051ca5144d70e81b18f3404f90eb8fbb9e415"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "0o644",
+      "upstream_blob": "28b8b30a3aa684db3ed79af5e23c8b170314d4db",
+      "sha256": "2c950661ca47e9d5614c50bb38d6ce1fa16c598383ffbf236d53e1709c743290"
+    },
+    {
+      "path": "FRAMEWORK-PIN.json",
+      "mode": "0o644",
+      "upstream_blob": "28c26d2054bb1af1817d73b26fe7e5e9573ad515",
+      "sha256": "b720fde3eb4c18c0152df69c1463716ab11301df1065dd8720fba1daefa3fe56"
+    },
+    {
+      "path": "Forager.sh",
+      "mode": "0o755",
+      "upstream_blob": "01220710705b2e625fd4b315b5694c09b98fc71f",
+      "sha256": "7a3a64bd1327c55e65a3d43d12cc7d24a2fc9e9a5ebc9df801090331ad1d96cc"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "2acdd823f2df578ccfac24c91af9faa36a3afb87",
+      "sha256": "e045092c4404c94e5b1a5021e952c00dc8d5f67357ecf80dccc2e248389e34cf"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "d1412480ce80c48f8fcd1cf6eb7226a15b88ccbf",
+      "sha256": "5d05a329bdd65bc1212fda57942ea90a2a810ff7ce192dc38d7042a55caa4a28"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "1f41eddc6c9c0de0561cbce47cee2d632b097a91",
+      "sha256": "e94fee9b5919f1875f86652cf245a4a781ef78da2cdac1f8d5be96301b586526"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "9c492c085246056ad28f84be57914e3d824a3ded",
+      "sha256": "fefc6a4c1b8bd426dfad4aa4c3d66a4de836d1172708501d5ef4d828efae8d2d"
+    },
+    {
+      "path": "adapter/adapter-contract.json",
+      "mode": "0o644",
+      "upstream_blob": "b486789b64fbc6896956d3f6182111aa6d15a423",
+      "sha256": "b81bc1c2845a2c8412830631723c9256067be240dd16cd8cba67c02e32b7a22b"
+    },
+    {
+      "path": "build.sh",
+      "mode": "0o755",
+      "upstream_blob": "4c62a8b64d16d6208e891b279e09238b61882ecf",
+      "sha256": "2e98f957be807864157d93d4de58d3a5ca4cf325aa369b33a31c8ed9ae763361"
+    },
+    {
+      "path": "config.json",
+      "mode": "0o644",
+      "upstream_blob": "bc20f785ba9d63f0400e98e96ac8e9cb51327b5d",
+      "sha256": "fdd94cfe86d7f06fa3c6d454b235ac91af44b0ec864dba88f4cf9dbf6e1e2c4b"
+    },
+    {
+      "path": "defaults/config.txt",
+      "mode": "0o644",
+      "upstream_blob": "5eb4c561054d43c29518b0a936c0483b19e028c2",
+      "sha256": "560941c7ae4c5ebe76e9f16045d5fc55e3f898de61eba470344d81176762a4a2"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "9a4cd3de51a4942be9edec7903282ac5e31c0d58",
+      "sha256": "1c4c9720df2b46148df4256db5a1839fbee9fd19cf7d06835d4343547e76a363"
+    },
+    {
+      "path": "gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "75289b0f321035dd07422b3d356489aa2440b543",
+      "sha256": "dce286d7fba51344599357b368c49464dda4da9f4b4fadde3367b06de3ffc0b5"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "963ed7cf3714d8edd6b4c2956526079af0bc9065",
+      "sha256": "4304275f30e076c76abdc0f280f0fdd5537f1ac700953ba1908e29a64d531919"
+    },
+    {
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "aa14274b5c30e5b197cafa2f0dba30f4f77b256c",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "path": "nxextract/run-extractor.sh",
+      "mode": "0o755",
+      "upstream_blob": "d092f8108f656ea27888fb2885b46726a3d217f2",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "6ed7223ffc32899edeb3ef612c0b66387d8db31f",
+      "sha256": "cffd7ef11983a1827f8f72e543982af97d78faa0829d4dc07653538ba38ea2e6"
+    },
+    {
+      "path": "nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "fe80e00d95211ec95fdd6f939bb7494405ac7e0e",
+      "sha256": "c36daf36825aaff9cd05f9e75eb4cc7a69a0ac0c30c483a4ad9c8dec98861ac3"
+    },
+    {
+      "path": "nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "1ed811867f5e3ff03ac0f4ef1e55689a77e73d1b",
+      "sha256": "ce2a4040e6343d78e9354d9645e26ae6dc6db65d6bb75ddb84e593d5e76d9525"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "82fffbcf1178262b15033ff573aa4b83ee7715e4",
+      "sha256": "4ce8a1a9ffe7c28e0200f3c8c3f4778df77f60b080e63dbbf29d3ff6cb6ffdec"
+    },
+    {
+      "path": "package/build-portmaster-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "425f166679d2b7f7630341f5c0389924ec6ee424",
+      "sha256": "611d89378948b91a3f8738bbbeaae0ec88a9c916461c109458cc388256313234"
+    },
+    {
+      "path": "port-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "23b4e6ed632cac04fa4f2c8a572825016cf45a06",
+      "sha256": "379c18fe2efefdd3442662c451b257707f901068fb95441a7139fc4499ce5edb"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "902b4d781193fc4f0e34a84a16118704263aaf00",
+      "sha256": "404681ba0490f841a5ad76e3ecd2bb0c7805ee02d5f600033c4b03f2086ce386"
+    },
+    {
+      "path": "prepare.sh",
+      "mode": "0o755",
+      "upstream_blob": "5ee400466ef896155b71f09e348b7bdf818accb6",
+      "sha256": "7d6b9c2e45e069c8c3d67a967058c5005904a65e6ed41395d14b8dc80d46aaa9"
+    },
+    {
+      "path": "source/SOURCE-PROVENANCE.json",
+      "mode": "0o644",
+      "upstream_blob": "ebeda19daab3f82379497b2040f078f32fddd1ef",
+      "sha256": "46f1ea3303d9601dcb5cbec3960efca16c43f78e9b14f8a5abbcc16bbcdfe88e"
+    },
+    {
+      "path": "source/build-release.sh",
+      "mode": "0o755",
+      "upstream_blob": "ec40ddac8d27b3e46680395e1e2c2d67558de086",
+      "sha256": "26b0e7794510813f3e4bc6cf9468de40602c878fbbcc66025f112f4962ed58cc"
+    },
+    {
+      "path": "source/overlay/3rdparty/libbsd/src/funopen.c",
+      "mode": "0o644",
+      "upstream_blob": "4da83f3d73444b8ec2a76ea31892dab61d33cabd",
+      "sha256": "99fc993eddb7c2946aa507e4fd5d30054185c6e82ff8bc668f119611dbcd75b5"
+    },
+    {
+      "path": "source/overlay/gmloader/audio_dbg_libm.cpp",
+      "mode": "0o644",
+      "upstream_blob": "fa1c720abe212c7dae0dfe0aab50c1e6ed700ef6",
+      "sha256": "e466e10eaa26f7f74dfe6907220001acad0ac3c337cfa918953fd704d0225369"
+    },
+    {
+      "path": "source/overlay/gmloader/classes/RunnerJNILib.cpp",
+      "mode": "0o644",
+      "upstream_blob": "e2d9acbde5a0ae9000ff6c6f8b31995c71af3e9d",
+      "sha256": "f835166826afe4b5de53ae7dfacfe5fee4efe9792bd2f8d2466852c675ca4ab7"
+    },
+    {
+      "path": "source/overlay/gmloader/classes/RunnerJNILib.h",
+      "mode": "0o644",
+      "upstream_blob": "153e31457069e5685a84591fb7b0bd6cb739ab21",
+      "sha256": "21d0ad3fae6e7e85c27db33c1ee619fe54a66230df9bf758f88e783948ba5f92"
+    },
+    {
+      "path": "source/overlay/gmloader/compat_entropy.cpp",
+      "mode": "0o644",
+      "upstream_blob": "955d592c226e7dfe51ed263311c955ca7f351897",
+      "sha256": "3f39f179d8a953372ffbdb29df2d135cd53e46eace683c10a4db8911953e4a21"
+    },
+    {
+      "path": "source/overlay/gmloader/input.cpp",
+      "mode": "0o644",
+      "upstream_blob": "8aa257e108e5cd6bc0ea2c8e4c48edea837e9e78",
+      "sha256": "c80b70e909d4299351f992a9231e0763c0e1da36c9b2bb956f80a0cc7501eb5f"
+    },
+    {
+      "path": "source/overlay/gmloader/libyoyo.cpp",
+      "mode": "0o644",
+      "upstream_blob": "1dd2456de31ec7f14796a44a166fe341ea427bcc",
+      "sha256": "dc855934be36fce70904ff881acce514b93af9b971119119985d3a5dae78468f"
+    },
+    {
+      "path": "source/overlay/gmloader/main.cpp",
+      "mode": "0o644",
+      "upstream_blob": "9452bddf15adbed6c779e4cac0259c1f4317e9d4",
+      "sha256": "cd75bd75f5e8a9c20a595ad72726ad01504ffbb8929b5190d29a0fe4fdebab48"
+    },
+    {
+      "path": "source/overlay/gmloader/vendor/nxinput_evdev_chord.h",
+      "mode": "0o644",
+      "upstream_blob": "3157df1537c481cb68095d243c8195d8b922c531",
+      "sha256": "813e3e7a43c4a065bad77171e8d290ac451e3098ae0cdf9dc352b72702754625"
+    },
+    {
+      "path": "source/overlay/jni/classes/bytebuffer.cpp",
+      "mode": "0o644",
+      "upstream_blob": "d4c278ced67c244e36e4b3b79668ba9bb5a62745",
+      "sha256": "ee1bc1d4ef3317c499219805a13476c426094edfd3b5482404e9f24d654205d0"
+    },
+    {
+      "path": "source/overlay/jni/classes/lang_Double.cpp",
+      "mode": "0o644",
+      "upstream_blob": "56c6619ab254ec26d81351977cf2b888f67c484e",
+      "sha256": "a9ae7a6455af9c0eb4917a9baca2d231ba83f64c389160fec36ad2bafc010457"
+    },
+    {
+      "path": "source/overlay/jni/classes/lang_Double.h",
+      "mode": "0o644",
+      "upstream_blob": "6029188c90c7320d6f4137f3c9e3fe4b4702da20",
+      "sha256": "225ef7f53856182eb63475ae948874f64041819165a75bd37cacaa106a324b24"
+    },
+    {
+      "path": "source/overlay/jni/classes/lang_Object.cpp",
+      "mode": "0o644",
+      "upstream_blob": "4bf7e0a31702d1a1d83b5e36aa22cc8fa10a4086",
+      "sha256": "bc9a509a048bdbddf9e7b8ecd080182ab4890a07e6ac09f3c258e334700f5f7c"
+    },
+    {
+      "path": "source/overlay/jni/classes/media_AudioTrack.cpp",
+      "mode": "0o644",
+      "upstream_blob": "ec8a39c537c53cc874df4eb9c29b2c42bd7e8b87",
+      "sha256": "48f6ea6af49f05ac0458b151f33596a3377cd6f386d7b782623c5571523a7706"
+    },
+    {
+      "path": "source/overlay/jni/classes/os_Build.cpp",
+      "mode": "0o644",
+      "upstream_blob": "df2b7765227ffc48f86117ecc163d6b0f14f8294",
+      "sha256": "4575fb93150a46d74c33976cf78f4a62c88aca36d0a8fbddfe3eacfa9037b6aa"
+    },
+    {
+      "path": "source/overlay/jni/classes/string.cpp",
+      "mode": "0o644",
+      "upstream_blob": "0d5951f8513a5de9b4bfc68df9ebe0754f4884dd",
+      "sha256": "cd7316d6011acea0379699ad2becaaa1813719c7b00c34cab1091e7eb9ccff1a"
+    },
+    {
+      "path": "source/overlay/jni/jni.cpp",
+      "mode": "0o644",
+      "upstream_blob": "84beae6e301c68e764183a266c92453044d316c3",
+      "sha256": "149833faeaddfb50e774a44658d3ef66b805c0640d76ae577babe3aad8da0eb0"
+    },
+    {
+      "path": "source/overlay/loader/so_util.cpp",
+      "mode": "0o644",
+      "upstream_blob": "3604824f8f282ad892d9c084261ac07938cef979",
+      "sha256": "9d3319568dbd52884cbcbeb1ae493846ae4e308571efe5f784e01fa0ecbdf93c"
+    },
+    {
+      "path": "source/overlay/scripts/generate_libc.py",
+      "mode": "0o644",
+      "upstream_blob": "8f5498b6366fd1d52720670df82bc2cb4b359299",
+      "sha256": "bf579b8842d202f8febb34b839dc1ff4c132ffaedcdac2aff22ff147628cb610"
+    },
+    {
+      "path": "source/overlay/thunks/khronos/gles2.cpp",
+      "mode": "0o644",
+      "upstream_blob": "dc1306b4f71bf19fc1259126651a1912caf6bec3",
+      "sha256": "3b524e095f6e75376f89dcf06bff2786cfd95d25699d48eb6753627e09c1cf21"
+    },
+    {
+      "path": "source/overlay/thunks/libc/misc.cpp",
+      "mode": "0o644",
+      "upstream_blob": "19319c1d3c45bd9f8fe985a1fdf82ae19ee753c0",
+      "sha256": "c7a8e7aa2b8d988084a4653c091a5d39f38898bde016afbc3417ec8f80e6afe0"
+    },
+    {
+      "path": "source/overlay/thunks/openal/openal.cpp",
+      "mode": "0o644",
+      "upstream_blob": "5efbbd44a8dde3485518d415ffc44b6de31ad267",
+      "sha256": "0888bb6ba961625e513d6e2ca968f7114ef4fc6845844a0fe4132176426bdfdc"
+    },
+    {
+      "path": "source/overlay/thunks/thunk_gen.h",
+      "mode": "0o644",
+      "upstream_blob": "b667bc448ce58fae45ebcba3c18f8996edaf387a",
+      "sha256": "d183230fab1f327821044d35c5dc9be847e090aa89a7a28f022da9a62f9cd400"
+    },
+    {
+      "path": "source/overlay/thunks/zlib/zlib.cpp",
+      "mode": "0o644",
+      "upstream_blob": "0d37ad9c83fb4a71d7dad999fbea036fedd15b65",
+      "sha256": "aa3f1c4146fcb37ee8a242c2e8488099f51f9d222b468a6bb01dd75e59fc4120"
+    },
+    {
+      "path": "tools/build_forager_port.py",
+      "mode": "0o755",
+      "upstream_blob": "f13274527b68282e404f2b16aec4e89d0183d8b2",
+      "sha256": "ed440fda628f1ce6c9458aad80a97f67861094a5bcba14f5773f6ac99eba6b40"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "ee90284c27f187a315f1267b063fa81b5b84f613",
+      "sha256": "d1b77b88f4b9f675a900e4143ac768a21218623cfe1703ca43162388c3271bd6"
+    }
+  ],
+  "omitted_selected_files": []
+}

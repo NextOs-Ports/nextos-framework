@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "milestone": "M08",
+  "scope": "host-parser-registry-protection-and-approved-reference-inspection",
+  "physical_device_evidence": false,
+  "guest_initializers_executed": false,
+  "requirements": [
+    {
+      "id": "M08-001",
+      "implementation": [{"path": "framework/nxloader/include/nxloader.h", "token": "#define NXLOADER_API_VERSION_MINOR 3u"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_public_api_contract"}]
+    },
+    {
+      "id": "M08-002",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "ident[EI_OSABI] != ELFOSABI_NONE"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_header_and_segment_contract"}]
+    },
+    {
+      "id": "M08-003",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "int nxloader_u64_mul"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "phoff-overflow64"}]
+    },
+    {
+      "id": "M08-004",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "NX64_SEEN_HASH | NX64_SEEN_GNU_HASH"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "sectionless64"}]
+    },
+    {
+      "id": "M08-005",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "PT_DYNAMIC does not match a file-backed PT_LOAD"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "dynamic-file-map32"}]
+    },
+    {
+      "id": "M08-006",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "PT_LOAD segments overlap or are not VMA-ordered"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "overlap64"}]
+    },
+    {
+      "id": "M08-007",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "MAP_PRIVATE | MAP_ANONYMOUS"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "bytes_are_zero"}]
+    },
+    {
+      "id": "M08-008",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_protect.c", "token": "mprotect("}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "strcmp(permissions, \"r-xp\") == 0"}]
+    },
+    {
+      "id": "M08-009",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "PT_LOAD page would require write+execute access"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "shared-page-wx64"}]
+    },
+    {
+      "id": "M08-010",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_protect.c", "token": "__builtin___clear_cache"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "nxloader_module_install_hook"}]
+    },
+    {
+      "id": "M08-011",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "int nxloader_dynamic_name_valid"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_dynamic_contract"}]
+    },
+    {
+      "id": "M08-012",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "nxloader_registry_lookup(context->registry"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "report.unresolved_strong == 1"}]
+    },
+    {
+      "id": "M08-013",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_registry.c", "token": "nxloader_symbol_strength"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "same-priority-strong"}]
+    },
+    {
+      "id": "M08-014",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_registry.c", "token": "nxloader_registry staged"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "atomic-collision"}]
+    },
+    {
+      "id": "M08-015",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "nxloader_aarch64_tls_relocation"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_unhookable_relocations_and_ifunc"}]
+    },
+    {
+      "id": "M08-016",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "void nxloader_release_image"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "copied-input"}]
+    },
+    {
+      "id": "M08-017",
+      "implementation": [{"path": "framework/nxloader/src/nxloader.c", "token": "nxloader_release_image(module);"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "cleanup-after-map"}]
+    },
+    {
+      "id": "M08-018",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf64.c", "token": "relocation %u at VMA"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_diagnostics_do_not_leak_mapping"}]
+    },
+    {
+      "id": "M08-019",
+      "implementation": [{"path": "framework/nxloader/tests/test_fuzz_nxloader.c", "token": "LLVMFuzzerTestOneInput"}],
+      "tests": [{"path": "framework/nxloader/tests/run-host.sh", "token": "-runs=20000"}]
+    },
+    {
+      "id": "M08-020",
+      "implementation": [{"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "Limite da evidência"}],
+      "tests": [{"path": "framework/nxloader/tests/test_m08_audit.py", "token": "M08 audit gate passed"}]
+    }
+  ]
+}

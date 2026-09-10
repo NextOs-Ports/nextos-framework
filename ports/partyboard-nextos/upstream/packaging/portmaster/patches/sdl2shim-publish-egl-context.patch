@@ -1,0 +1,39 @@
+--- a/src/video/sdl2/SDL_sdl2opengles.c
++++ b/src/video/sdl2/SDL_sdl2opengles.c
+@@ -30,6 +30,7 @@
+ #define SDL_PROP_WINDOW_SDL2_BACKEND_CONTEXT_POINTER "SDL.window.sdl2_backend.context"
+ #define SDL_PROP_WINDOW_SDL2_BACKEND_EGL_DISPLAY_POINTER "SDL.window.sdl2_backend.egl_display"
+ #define SDL_PROP_WINDOW_SDL2_BACKEND_EGL_SURFACE_POINTER "SDL.window.sdl2_backend.egl_surface"
++#define SDL_PROP_WINDOW_SDL2_BACKEND_EGL_CONTEXT_POINTER "SDL.window.sdl2_backend.egl_context"
+ #define SDL_PROP_WINDOW_SDL2_BACKEND_GL_GET_PROC_POINTER "SDL.window.sdl2_backend.gl_get_proc"
+ #define SDL_PROP_WINDOW_SDL2_BACKEND_GL_MAKE_CURRENT_POINTER "SDL.window.sdl2_backend.gl_make_current"
+ #define SDL_PROP_WINDOW_SDL2_BACKEND_GL_SWAP_WINDOW_POINTER "SDL.window.sdl2_backend.gl_swap_window"
+@@ -41,6 +42,7 @@
+ typedef void (*SDL2_GL_SwapWindow_Fn)(void *);
+ typedef void *(*SDL2_EGL_GetCurrentDisplay_Fn)(void);
+ typedef void *(*SDL2_EGL_GetCurrentSurface_Fn)(int);
++typedef void *(*SDL2_EGL_GetCurrentContext_Fn)(void);
+ typedef unsigned int (*SDL2_EGL_MakeCurrent_Fn)(void *, void *, void *, void *);
+ 
+ bool SDL2_GLES_LoadLibrary(SDL_VideoDevice *_this, const char *path)
+@@ -174,6 +176,20 @@
+                                    (void *)egl_make_current);
+         }
+     }
++    /* The borrowed context is current on this thread right now (SDL2_GL_MakeCurrent above), so
++       eglGetCurrentContext returns the firmware EGLContext. Aurora shares its render/compiler
++       contexts with it; without this property the shader-compiler thread is disabled. */
++    if (SDL2_GL_GetProcAddress) {
++        SDL2_EGL_GetCurrentContext_Fn egl_get_current_context =
++            (SDL2_EGL_GetCurrentContext_Fn)SDL2_GL_GetProcAddress("eglGetCurrentContext");
++        if (egl_get_current_context) {
++            void *egl_context = egl_get_current_context();
++            if (egl_context) {
++                SDL_SetPointerProperty(props, SDL_PROP_WINDOW_SDL2_BACKEND_EGL_CONTEXT_POINTER,
++                                       egl_context);
++            }
++        }
++    }
+     if (egl_display) {
+         SDL_SetPointerProperty(props, SDL_PROP_WINDOW_SDL2_BACKEND_EGL_DISPLAY_POINTER, egl_display);
+     }

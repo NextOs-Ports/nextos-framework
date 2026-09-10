@@ -1,0 +1,15 @@
+{
+ "bundle_sha256": "a578a7d82d47e681ad7a1cbe48bb49327dad6dbe1c808e46ca3485dbab0dae43",
+ "claim": "entries limited to the pinned official source; never a universal claim",
+ "conflicts_excluded": [],
+ "contract": "NXCONTROLLER_PROFILES/1",
+ "entries": 526,
+ "foreign_entries_skipped": 2,
+ "license": "MIT/zlib (upstream SDL_GameControllerDB via PortMaster-GUI)",
+ "platform": "Linux",
+ "schema": "nxcontroller-profiles-manifest",
+ "schema_version": 1,
+ "source_sha256": "d8edb600cbdb733e9b3373c3c4a9d082c4b4d935b643b8e332b2a42b90bb97a9",
+ "supplier": "portmaster-gui",
+ "supplier_commit": "285fcd2113303174e62fd8aff35960b859c152b9"
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.local/schemas/firmware-matrix-receipt-v2.schema.json",
+  "title": "NextOS firmware test matrix receipt v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_version", "matrix_contract", "evidence", "profiles", "summary"],
+  "properties": {
+    "schema": {"const": "nxframework-firmware-matrix-receipt-v2"},
+    "schema_version": {"const": 2},
+    "matrix_contract": {"const": "nxframework-firmware-test-matrix-v2"},
+    "evidence": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "hardware_ran", "device_access", "firmware_images_used", "universal_evidence"],
+          "properties": {
+            "kind": {"const": "synthetic"},
+            "hardware_ran": {"const": false},
+            "device_access": {"const": false},
+            "firmware_images_used": {"const": false},
+            "universal_evidence": {"const": false}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "hardware_ran", "device_access", "firmware_images_used", "universal_evidence", "authorization", "artifact_sha256"],
+          "properties": {
+            "kind": {"const": "physical"},
+            "hardware_ran": {"const": true},
+            "device_access": {"const": true},
+            "firmware_images_used": {"type": "boolean"},
+            "universal_evidence": {"const": false},
+            "authorization": {"type": "string", "minLength": 1, "maxLength": 128},
+            "artifact_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        }
+      ]
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "architecture", "cfw_name", "portmaster_root", "data_root", "result", "checks"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"},
+          "architecture": {"enum": ["aarch64", "armv7"]},
+          "cfw_name": {"type": "string", "pattern": "^[A-Za-z0-9._-]{1,64}$"},
+          "portmaster_root": {"type": "string", "pattern": "^/"},
+          "data_root": {"type": "string", "pattern": "^/"},
+          "result": {"const": "synthetic-contract-pass"},
+          "checks": {
+            "type": "object",
+            "additionalProperties": {"const": true},
+            "required": ["root_and_control", "cfw_detection", "path_without_stat", "normal_status", "early_log_0600", "early_log_fields", "early_status", "pm_finish_once_normal", "pm_finish_once_early", "architecture_route", "ui_route", "mapping_and_library_precedence", "synthetic_receipt_boundary"]
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_count", "case_count", "passed", "failed"],
+      "properties": {
+        "profile_count": {"type": "integer", "minimum": 1},
+        "case_count": {"type": "integer", "minimum": 1},
+        "passed": {"type": "integer", "minimum": 1},
+        "failed": {"const": 0}
+      }
+    }
+  }
+}

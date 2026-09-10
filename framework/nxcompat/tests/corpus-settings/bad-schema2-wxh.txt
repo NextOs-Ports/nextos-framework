@@ -1,0 +1,2 @@
+# NEXTOS_SETTINGS/2
+video.output_size=0x0

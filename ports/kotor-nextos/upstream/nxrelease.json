@@ -1,0 +1,276 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "kotor",
+    "version": "1.1.7",
+    "profile": "universal-portmaster",
+    "launcher": "Star Wars KOTOR.sh",
+    "launcher_chain": [
+      "Star Wars KOTOR.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.5",
+      "config_path": "kotor/nxport.json",
+      "config_sha256": "eca7a4cdc56a15b9c66e18e0189321af4645cd8830548c7c55748a7fb304072d"
+    },
+    "port_dir": "kotor",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/kotor-nextos",
+      "file": "kotor/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786320000,
+    "max_glibc": "2.30",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "kotor/nxextract/nxextract.py",
+    "version": "1.2.6",
+    "minimum_version": "1.2.6",
+    "sha256": "a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170",
+    "runner_path": "kotor/nxextract/run-extractor.sh",
+    "runner_sha256": "179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2",
+    "runtime_env_path": "kotor/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "recipe_path": "kotor/extractor.json",
+    "recipe_sha256": "e34903d0af67a30e4713facf2ab1e33d7242da25995b616d8089973bf50194c6"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "ld-linux-armhf.so.3",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "libEGL.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "libGLESv2.so.2",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "armv7",
+      "soname": "libstdc++.so.6",
+      "provider": "firmware"
+    }
+  ],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "kotor/port.json",
+      "sha256": "cc835e8bbe18936a94e8c3417f0276c56eb36c61a6a1901aea9c1b2a3c0416cf"
+    },
+    "images": []
+  },
+  "files": [
+    {
+      "source": "Star Wars KOTOR.sh",
+      "target": "Star Wars KOTOR.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "ff74eb1f8f5b3738afac15528de3cdb44cc592a8ce353f5636e9e3089d0a2561"
+    },
+    {
+      "source": "nxport.json",
+      "target": "kotor/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "eca7a4cdc56a15b9c66e18e0189321af4645cd8830548c7c55748a7fb304072d"
+    },
+    {
+      "source": "kotor-nextos",
+      "target": "kotor/kotor-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "sha256": "6775010055dbfc1d285c64a4410aff9fb520cc9360846e4ca3ad0ced49d5e4a0",
+      "architecture": "armv7",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build_universal.sh; pinned offline Debian Buster image; ARMHF toolchain pinned internally; NextOS sysroot used for headers only",
+      "needed": [
+        "ld-linux-armhf.so.3",
+        "libEGL.so.1",
+        "libGLESv2.so.2",
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libstdc++.so.6"
+      ],
+      "soname": null
+    },
+    {
+      "source": "README.md",
+      "target": "kotor/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "357183c9a945d4a31a72ca8d310b3b38728841fc603d2a23328b91c451479298"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "kotor/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "6b9fba2fb8a079d69308d785238e1753cd4a835146fa52cb5208989f7de9a9a9"
+    },
+    {
+      "source": "CHANGELOG.md",
+      "target": "kotor/CHANGELOG.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "2b84ccd7b9681f722eb09ab3e4b37cd158e1b650c7ff58898f8791c92d43bd23"
+    },
+    {
+      "source": "NOTICE.md",
+      "target": "kotor/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "382977af8289aecd82f72517f2c94b2c9e03b85c589348e27b00ef634fc2a7fd"
+    },
+    {
+      "source": "LICENSE",
+      "target": "kotor/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "source": "version.txt",
+      "target": "kotor/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "f2fb797db5b32c15ac4c67b2180b593bf46c768ba1d69971fecbef1d9afb1975"
+    },
+    {
+      "source": "port-env.sh",
+      "target": "kotor/port-env.sh",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "0494e2c96726622daf4694f1e335d98aaafa8043e6f4067fced2ada5460e4444"
+    },
+    {
+      "source": "gamedata/README.txt",
+      "target": "kotor/gamedata/README.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "8f47681e11b382344506aa8ccb014bd5566f65c7d7bdd3148330233d35236c51"
+    },
+    {
+      "source": "extractor.json",
+      "target": "kotor/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "e34903d0af67a30e4713facf2ab1e33d7242da25995b616d8089973bf50194c6"
+    },
+    {
+      "source": "nxextract-version.txt",
+      "target": "kotor/nxextract-version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "09b045a274c3bd13b49c5dde2ae7c36b5f8aaadb160bc3ee289e4a812fe8c091"
+    },
+    {
+      "source": "nxextract/nxextract.py",
+      "target": "kotor/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170"
+    },
+    {
+      "source": "nxextract/nxextract-ui",
+      "target": "kotor/nxextract/nxextract-ui",
+      "kind": "third-party-linux",
+      "mode": "0755",
+      "sha256": "046afb583f5a211c946495e639409f81d9cfec706788eeccb7924b0e8e5a50b6",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "NXExtract 1.2.6 canonical setup UI, redistributed unmodified (MIT)",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "nxextract/run-extractor.sh",
+      "target": "kotor/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2"
+    },
+    {
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "kotor/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "kotor/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "port.json",
+      "target": "kotor/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "cc835e8bbe18936a94e8c3417f0276c56eb36c61a6a1901aea9c1b2a3c0416cf"
+    }
+  ],
+  "exceptions": []
+}

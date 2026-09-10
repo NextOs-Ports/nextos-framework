@@ -1,0 +1,350 @@
+{
+  "schema": 1,
+  "id": "sallyface-nextos",
+  "version": "arm64-4",
+  "title": "SALLY FACE",
+  "reference_build": {
+    "game_version": "1.5.53",
+    "container_size": 748326788,
+    "container_sha256": "25b912a6db96f9562781ceb851c11bc287c18fc39f6a679a43bf07fd496f68ea",
+    "note": "Documentation-only identity of the tested owner copy; never an acceptance condition"
+  },
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.portablemoose.sallyface"
+    ]
+  },
+  "extract": [
+    {
+      "id": "libmain",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmain.so"
+        ]
+      },
+      "destination": "lib/libmain.so",
+      "validate": {
+        "type": "file",
+        "min_size": 1024,
+        "max_size": 1048576,
+        "magic_hex": "7f454c46",
+        "elf_machine": "arm64-v8a"
+      }
+    },
+    {
+      "id": "libunity",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libunity.so"
+        ]
+      },
+      "destination": "lib/libunity.so",
+      "validate": {
+        "type": "file",
+        "min_size": 1048576,
+        "max_size": 67108864,
+        "magic_hex": "7f454c46",
+        "elf_machine": "arm64-v8a"
+      }
+    },
+    {
+      "id": "libil2cpp",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libil2cpp.so"
+        ]
+      },
+      "destination": "lib/libil2cpp.so",
+      "validate": {
+        "type": "file",
+        "min_size": 1048576,
+        "max_size": 100663296,
+        "magic_hex": "7f454c46",
+        "elf_machine": "arm64-v8a"
+      }
+    },
+    {
+      "id": "unity-data",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/bin/Data/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "source_validate": {
+        "type": "tree",
+        "min_files": 32,
+        "max_files": 2048,
+        "min_bytes": 536870912,
+        "max_bytes": 3221225472,
+        "required_paths": [
+          "bin/Data/boot.config",
+          "bin/Data/data.unity3d",
+          "bin/Data/datapack.unity3d",
+          "bin/Data/resources.resource",
+          "bin/Data/Managed/Metadata/global-metadata.dat"
+        ]
+      },
+      "output_validate": {
+        "type": "tree",
+        "min_files": 300,
+        "min_bytes": 536870912,
+        "required_paths": [
+          ".sallyface-prepare-arm64-4.json",
+          "bin/Data/boot.config",
+          "bin/Data/data.unity3d",
+          "bin/Data/resources.resource",
+          "bin/Data/Managed/Metadata/global-metadata.dat",
+          "bin/Data/sharedassets225.assets"
+        ]
+      }
+    }
+  ],
+  "compatibility": {
+    "package_families": [
+      "com.portablemoose.sallyface"
+    ],
+    "abis": [
+      "arm64-v8a"
+    ],
+    "required_members": [
+      {
+        "member": "lib/arm64-v8a/libmain.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      },
+      {
+        "member": "lib/arm64-v8a/libunity.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      },
+      {
+        "member": "lib/arm64-v8a/libil2cpp.so",
+        "role": "variant_required",
+        "variant": "arm64-v8a"
+      },
+      {
+        "member": "assets/bin/Data/boot.config",
+        "role": "core_required"
+      },
+      {
+        "member": "assets/bin/Data/data.unity3d",
+        "role": "patch_selector"
+      },
+      {
+        "member": "assets/bin/Data/datapack.unity3d",
+        "role": "patch_selector"
+      },
+      {
+        "member": "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "role": "core_required"
+      },
+      {
+        "member": "assets/bin/Data/resources.resource",
+        "role": "core_required"
+      }
+    ],
+    "payload_contracts": [
+      "ELF64 AArch64 Unity engine trio with valid ELF magic and bounded size",
+      "UnityFS data and datapack members consumed by the Sally Face preparation hook",
+      "Unity metadata and resource members required by the native lifecycle"
+    ],
+    "required_symbols_or_interfaces": [
+      "JNI_OnLoad and UnityPlayer native lifecycle",
+      "IL2CPP public runtime exports used by the adapter",
+      "UnityFS directory and serialized Shader objects"
+    ]
+  },
+  "patch_profiles": [
+    {
+      "id": "sf-data-a",
+      "match_internal_payload": {
+        "path": "assets/bin/Data/data.unity3d",
+        "sha256": "707e92d5ef2c47f7e31d25411c685d49f333e201e8f3cabbc28006013385d383"
+      },
+      "fallback": "generic-pass-through"
+    },
+    {
+      "id": "sf-data-b",
+      "match_internal_payload": {
+        "path": "assets/bin/Data/data.unity3d",
+        "sha256": "60a4858e590bb02c0f58e7d693863645040074686cb5d0d216421819a09f0008"
+      },
+      "fallback": "generic-pass-through"
+    },
+    {
+      "id": "sf-datapack-a",
+      "match_internal_payload": {
+        "path": "assets/bin/Data/datapack.unity3d",
+        "sha256": "086baf35d492267a26225ef842b767b2f2204ea7b0225bbfdb4747977bd7b1ac"
+      },
+      "fallback": "generic-pass-through"
+    },
+    {
+      "id": "sf-datapack-b",
+      "match_internal_payload": {
+        "path": "assets/bin/Data/datapack.unity3d",
+        "sha256": "a67e61f52c8e4ca5b6a63a5ae7ce8c533361342b52bb4735cabfe1c653c23b20"
+      },
+      "fallback": "generic-pass-through"
+    }
+  ],
+  "hooks": [
+    {
+      "id": "sallyface-unbundle",
+      "argv": [
+        "python3",
+        "-B",
+        "{game_dir}/nxextract/sf_prepare.py",
+        "{stage}",
+        "{game_dir}"
+      ],
+      "cwd": "{game_dir}",
+      "checkpoint": [
+        {
+          "path": "assets/.sallyface-prepare-arm64-4.json",
+          "type": "file",
+          "min_size": 121,
+          "max_size": 130,
+          "sha256": [
+            "d8c3469830329398c529f478f67c1261dc85b31dc7ff5e88d652c56676c46bcb",
+            "8f18b7b4c01e9772325d31691c47fa4b55d034680e93961c410a43fc0140b666",
+            "4e0b83b05bf6cfc2b7542cebfc08acf318e8f3cebdeccd62e7126d048e3f3f4c"
+          ]
+        },
+        {
+          "path": "assets/bin/Data/boot.config",
+          "type": "file",
+          "min_size": 8
+        },
+        {
+          "path": "assets/bin/Data/resources.resource",
+          "type": "file",
+          "min_size": 1048576
+        },
+        {
+          "path": "assets/bin/Data/sharedassets225.assets",
+          "type": "file",
+          "min_size": 1
+        }
+      ],
+      "limits": {
+        "wall_seconds": 1800,
+        "cpu_seconds": 1800,
+        "memory_bytes": 536870912,
+        "fsize_bytes": 8589934592
+      },
+      "contract": {
+        "schema": "org.nextos.apk-compat.hook-contract",
+        "schema_version": 1,
+        "hook_id": "sallyface-unbundle",
+        "inputs": [
+          "assets/bin/Data/datapack.unity3d"
+        ],
+        "predicates": [
+          {
+            "class": "compatibility",
+            "checks": "o asset pack e um bundle UnityFS legivel: o desmontador le o cabecalho, percorre os nos e grava cada entrada; qualquer build cujo pack nao abra falha aqui, sem olhar nome, tamanho ou hash do container"
+          },
+          {
+            "class": "compatibility",
+            "checks": "a desmontagem tem de aumentar a contagem de entradas da arvore assets/bin/Data; um pack que produza zero entradas novas e recusado"
+          },
+          {
+            "class": "patch_selection",
+            "checks": "perfis conhecidos sao escolhidos somente pelos hashes dos payloads internos data.unity3d e datapack.unity3d autenticados pelo NXExtract; payload desconhecido segue generic-pass-through sem transformacao cega"
+          },
+          {
+            "class": "compatibility",
+            "checks": "o hook publica por ultimo um recibo persistente arm64-4; instalacoes arm64-3 sem esse recibo nao podem ser adotadas e precisam ser reconstruidas a partir dos dados legitimos do dono"
+          }
+        ],
+        "fallback": "generic-pass-through",
+        "error_codes": [
+          "NXE7001"
+        ]
+      }
+    }
+  ],
+  "validate": [
+    {
+      "path": "assets/.sallyface-prepare-arm64-4.json",
+      "type": "file",
+      "min_size": 121,
+      "max_size": 130,
+      "sha256": [
+        "d8c3469830329398c529f478f67c1261dc85b31dc7ff5e88d652c56676c46bcb",
+        "8f18b7b4c01e9772325d31691c47fa4b55d034680e93961c410a43fc0140b666",
+        "4e0b83b05bf6cfc2b7542cebfc08acf318e8f3cebdeccd62e7126d048e3f3f4c"
+      ]
+    },
+    {
+      "path": "lib/libmain.so",
+      "type": "file",
+      "min_size": 1024,
+      "magic_hex": "7f454c46",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "lib/libunity.so",
+      "type": "file",
+      "min_size": 1048576,
+      "magic_hex": "7f454c46",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "lib/libil2cpp.so",
+      "type": "file",
+      "min_size": 1048576,
+      "magic_hex": "7f454c46",
+      "elf_machine": "arm64-v8a"
+    },
+    {
+      "path": "assets/bin/Data/data.unity3d",
+      "type": "file",
+      "min_size": 8388608,
+      "magic_ascii": "Unity"
+    },
+    {
+      "path": "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "type": "file",
+      "min_size": 1048576
+    },
+    {
+      "path": "assets/bin/Data/resources.resource",
+      "type": "file",
+      "min_size": 1048576
+    },
+    {
+      "path": "assets/bin/Data/sharedassets225.assets",
+      "type": "file",
+      "min_size": 1
+    }
+  ],
+  "commit": [
+    "lib",
+    "assets"
+  ],
+  "mutable": [],
+  "marker": ".nxextract-sallyface.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

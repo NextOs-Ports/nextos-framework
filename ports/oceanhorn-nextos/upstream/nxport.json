@@ -1,0 +1,37 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "none",
+  "enabled_quirks": [],
+  "executable": "oceanhorn-nextos",
+  "home_mode": "preserve",
+  "id": "oceanhorn",
+  "launcher_name": "Oceanhorn Chronos Dungeon.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.18"
+  },
+  "prepare_script": "",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "graphics.window",
+    "graphics.gles2",
+    "graphics.egl",
+    "graphics.egl-config",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api"
+  ],
+  "required_files": [
+    "oceanhorn-nextos",
+    "nxsplash-nextos",
+    "lib/libunity.so",
+    "lib/libil2cpp.so",
+    "lib/libmain.so",
+    "bin/Data/data.unity3d"
+  ],
+  "runtime_report": "log",
+  "schema_version": 2,
+  "title": "Oceanhorn Chronos Dungeon"
+}

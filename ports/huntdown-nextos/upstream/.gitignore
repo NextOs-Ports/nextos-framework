@@ -1,0 +1,57 @@
+# BYO game/runtime data
+payload/
+runtime-defaults/
+UnityDataAssetPack.apk
+userdata/
+bin/
+Android/
+
+# Built or third-party runtime binaries
+huntdown
+huntdown-r36s
+huntdown-universal
+huntdown-nextos
+huntdown-diag*
+huntdown-*-diag
+*.test
+*.pyc
+__pycache__/
+libastcUtil.so
+*.apk
+*.so
+video-compat/libvulkan.so.1
+*.tar
+
+# Bring-up diagnostics and captures
+artifacts/
+analysis/
+gdbbt*.sh
+flow*.tmp
+debug.log
+run.out
+*.log
+*.raw
+*.ppm
+*.png
+*.tombstone
+
+# Frontend artwork derived from a legitimate local game installation remains
+# private/BYO together with the proprietary game data.
+
+# Public, reproducible preparation/build helpers (the repository has a broad
+# ports/*/tools ignore for private bring-up artifacts).
+!tools/
+!tools/*.sh
+!tools/*.py
+
+# Canonical public release artifacts built by this repository.
+!huntdown/
+!huntdown-nextos
+!huntdown/huntdown-nextos
+!libvulkan.so.1
+!video-compat/libvulkan.so.1
+!huntdown/video-compat/libvulkan.so.1
+!nxextract/nxextract-ui
+!huntdown/nxextract/nxextract-ui
+!nxsplash-nextos
+!huntdown/nxsplash-nextos

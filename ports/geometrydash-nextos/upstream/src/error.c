@@ -1,0 +1,17 @@
+/* error.c -- fatal error handler. */
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "error.h"
+
+void fatal_error(const char *fmt, ...) {
+  va_list list;
+  va_start(list, fmt);
+  fprintf(stderr, "FATAL ERROR: ");
+  vfprintf(stderr, fmt, list);
+  va_end(list);
+  fprintf(stderr, "\n");
+  fflush(stderr);
+  exit(1);
+}

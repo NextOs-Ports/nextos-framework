@@ -1,0 +1,49 @@
+{
+  "fixture": "nxinput-incident-fixture/1",
+  "id": "incident-fp2-1.1.3-muos-rg40xx-h",
+  "class": "FIELD_INCIDENT / sanitized",
+  "summary": "FP2 1.1.3 on muOS (Anbernic RG40XX-H, Allwinner H700): pad admitted, GPTK alive, controls displaced (confirm on L1, no jump, SELECT+START dead). Receipt: NXC6-DOMAIN ... rewritten=1 rewritten_bindings=15 volume_markers=2 result=rewritten; NXC6-SEAM source_domain=joydev-legacy target_domain=sdl2-evdev.",
+  "device": {
+    "family": "allwinner-h700-gpio-keys",
+    "guid_zero_crc": "19000000010000000100000000010000",
+    "ev_key_codes": ["0x11", "0x72", "0x73", "0x130", "0x131", "0x132", "0x133", "0x134", "0x135", "0x136", "0x137", "0x138", "0x139", "0x13a", "0x13b", "0x13c"],
+    "ev_key_note": "0x130..0x13c and 0x72/0x73 are the vendor gpio-keys table (MustardOS/Knulli DTS, see framework-v4 tests/test_evdev_chord_map.c). The third low key is present on the real node (muOS mapping binds volumedown=b1/volumeup=b2, so exactly ONE key precedes 0x72); its exact code is NOT proven by any pinned source. 0x11 is carried from the V4 fixture as a placeholder < 0x72; the reproduction and the fix do not depend on its value.",
+    "ev_abs_codes": ["0x00", "0x01", "0x02", "0x03", "0x10", "0x11"],
+    "hats": 1
+  },
+  "physical_table": {
+    "trust_root": "vendor DTS gpio-keys (MustardOS internal / knulli-linux boot_package dts), transcribed in framework-v4 tests/test_evdev_chord_map.c lines 3-9",
+    "position_to_ev_key": {
+      "face.south": "0x130", "face.east": "0x131", "face.west": "0x132", "face.north": "0x133",
+      "l1": "0x134", "r1": "0x135", "select": "0x136", "start": "0x137", "guide": "0x138",
+      "l3": "0x139", "l2": "0x13a", "r2": "0x13b", "r3": "0x13c",
+      "volume.down": "0x72", "volume.up": "0x73"
+    },
+    "plastic_legend_note": "muOS offers modern (A=south) and retro (A=east) user preference; the legend is evidence only. The Xbox surface is positional."
+  },
+  "source": {
+    "authority": "env-get-controls (muOS control.txt get_controls -> SDL_GAMECONTROLLERCONFIG)",
+    "provenance": "official muOS line for GUID 1900...0000 as pinned in framework-v4 ports/fp2/controllers-retro.nxb line 14 (seed/counter-proof, not the causal bytes of the field session)",
+    "domain_claimed": "sdl2-batocera-ascending (the muOS SDL2 carries the Batocera patch set; the CFW authors ordinals for its own SDL)",
+    "mapping_retro": "19000000010000000100000000010000,muOS-Keys,a:b3,b:b4,x:b6,y:b5,leftshoulder:b7,rightshoulder:b8,lefttrigger:b13,righttrigger:b14,guide:b11,start:b10,back:b9,dpup:h0.1,dpleft:h0.8,dpright:h0.2,dpdown:h0.4,volumedown:b1,volumeup:b2,leftx:a0,lefty:a1,leftstick:b12,rightx:a2,righty:a3,rightstick:b15,platform:Linux,",
+    "mapping_modern": "19000000010000000100000000010000,muOS-Keys,a:b4,b:b3,x:b5,y:b6,leftshoulder:b7,rightshoulder:b8,lefttrigger:b13,righttrigger:b14,guide:b11,start:b10,back:b9,dpup:h0.1,dpleft:h0.8,dpright:h0.2,dpdown:h0.4,volumedown:b1,volumeup:b2,leftx:a0,lefty:a1,leftstick:b12,rightx:a2,righty:a3,rightstick:b15,platform:Linux,"
+  },
+  "provider_loaded": {
+    "api": "sdl2",
+    "domain": "sdl2-batocera-ascending",
+    "method_in_field": "UNMEASURED (no NXC6-PROVIDER line existed in V4); asserted by the muOS build recipe (Batocera SDL2 patch set) and by the field symptom chain; the Knulli sibling DSO 8c4dc956... is the pinned representative of the same patch set",
+    "note": "The exact muOS DSO sha256 is NOT pinned in this fixture. K7 stays BLOCKED_EXTERNAL_DEVICE until a receipt from the device exists."
+  },
+  "v4_behaviour": {
+    "target_presumed": "sdl2-evdev (upstream high-first) via nxinput_sdl_api_domain(API_2)",
+    "expected_receipt": "NXC6-DOMAIN ... rewritten=1 rewritten_bindings=15 ... volume_markers=2 result=rewritten",
+    "rewritten_retro_expected": "a:b0,b:b1,x:b3,y:b2,leftshoulder:b4,rightshoulder:b5,lefttrigger:b10,righttrigger:b11,guide:b8,start:b7,back:b6,leftstick:b9,rightstick:b12,volumedown:b14,volumeup:b15",
+    "effect_on_ascending_provider": {
+      "a": "0x11 (unknown low key)", "b": "0x72 VOLUMEDOWN", "x": "0x130 (physical A/south)", "y": "0x73 VOLUMEUP",
+      "leftshoulder": "0x131 (physical B/east)", "rightshoulder": "0x132", "back": "0x133 (physical Y/north)",
+      "start": "0x134 (physical L1)", "guide": "0x135 (physical R1)", "leftstick": "0x136 (physical SELECT)",
+      "lefttrigger": "0x137 (physical START)", "righttrigger": "0x138", "rightstick": "0x139 (physical L3)"
+    },
+    "field_symptoms_explained": ["confirm/START answered on physical L1", "no jump (B landed on VOLUMEDOWN)", "SELECT+START became L3+L2 -> chord dead", "after A/B/X/Y=native, physical A still attacked because physical A (0x130) is now 'x'"]
+  }
+}

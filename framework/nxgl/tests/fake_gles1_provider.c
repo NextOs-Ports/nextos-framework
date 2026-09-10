@@ -1,0 +1,51 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+/* Provedor GLES1 falso: so' precisa dos NOMES, porque o resolvedor usa dlsym.
+ * Gerado a partir da mesma tabela de nxgl_gles1.c. */
+
+void glAlphaFunc(void) {}
+void glBindBuffer(void) {}
+void glBindTexture(void) {}
+void glBlendFunc(void) {}
+void glClear(void) {}
+void glClearColor(void) {}
+void glColor4f(void) {}
+void glColor4ub(void) {}
+void glColorPointer(void) {}
+void glCullFace(void) {}
+void glDeleteTextures(void) {}
+void glDepthFunc(void) {}
+void glDepthMask(void) {}
+void glDisable(void) {}
+void glDisableClientState(void) {}
+void glDrawArrays(void) {}
+void glEnable(void) {}
+void glEnableClientState(void) {}
+void glFogf(void) {}
+void glFogfv(void) {}
+void glGenTextures(void) {}
+void glGetBooleanv(void) {}
+void glGetError(void) {}
+void glGetFloatv(void) {}
+void glGetIntegerv(void) {}
+void glGetPointerv(void) {}
+void glLightfv(void) {}
+void glLineWidth(void) {}
+void glLoadIdentity(void) {}
+void glLoadMatrixf(void) {}
+void glMaterialfv(void) {}
+void glMatrixMode(void) {}
+void glMultMatrixf(void) {}
+void glNormalPointer(void) {}
+void glOrthof(void) {}
+void glPopMatrix(void) {}
+void glPushMatrix(void) {}
+void glScissor(void) {}
+void glTexCoordPointer(void) {}
+void glTexImage2D(void) {}
+void glTexParameteri(void) {}
+void glTexSubImage2D(void) {}
+void glTranslatef(void) {}
+void glVertexPointer(void) {}
+void glViewport(void) {}
+void glReadPixels(void) {}
+void glGetString(void) {}

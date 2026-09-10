@@ -1,0 +1,5 @@
+* text=auto eol=lf
+forager-nextos binary
+nxextract/nxextract-ui binary
+LICENSE whitespace=-trailing-space
+source/overlay/** whitespace=-trailing-space

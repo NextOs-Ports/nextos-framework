@@ -1,0 +1,1065 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/prizefighters2-nextos",
+  "observed_commit": "53371b37dc5d01e0a8c09d683536ee1c48f35d6c",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Prizefighters 2"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "c17d71c789a5ada10039c9f440633c0d2c4097bc",
+      "sha256": "e1b179828e87b76f1b0801df0486bda79d4c9f477e322a879b549c338dea23f5"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "0o644",
+      "upstream_blob": "844ab573185f252cb2738405eee35f5a30790b7f",
+      "sha256": "ecd2b26369218d0dea3d245af0cf794252e2255edce15b2716ccc5b80040874b"
+    },
+    {
+      "path": "HANDOFF.md",
+      "mode": "0o644",
+      "upstream_blob": "bfd918cd5051ac76ba7deb62d463397d8debdaad",
+      "sha256": "eb9db2a7ad92564f918ab93d58f36b7bf43293526b0d3a090cb2ad3f8814a82c"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "f063f3700bff270f1adc3ccc1f29e2937fe772a8",
+      "sha256": "da79abe4a200276d5b08dc61dc8913a5255f4ac219fb7b8658e1e092ccca6c25"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "9fce650b2eec7aacd488a746c1ad556a8dcadd05",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "path": "Makefile",
+      "mode": "0o644",
+      "upstream_blob": "8edad6925e20887f87dccd02494ef5de4e64917d",
+      "sha256": "b3fa163b907a5e17fd82cc9d5358e7a7ac40ffe6667c6d25dd48a1122eb5955a"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "40d4ab6ddeeab893a5434589d62c0ade97d20cdb",
+      "sha256": "b12cac70e8bc3f93a8bc18f508bf1acdc552479f3bc155b498f45a07603e56dc"
+    },
+    {
+      "path": "Prizefighters 2.sh",
+      "mode": "0o755",
+      "upstream_blob": "158075c1b774bd86b896fb67f792d7d77f92eeb1",
+      "sha256": "f5b65f8de2662f69bf6cf46bcbee8f0f83875610c88baf07e19ed1d39706db68"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "b8f3080feddb3ac62d91b900df1e0a66ec9a065f",
+      "sha256": "bd0ac6ae1ea11daadae3ef9b016f1c1ba64e48cd50e50dab460e71a1729f2918"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "mode": "0o644",
+      "upstream_blob": "2e43bdff410179b9d82f1c40d70b04ce5a7f33ef",
+      "sha256": "b8cfb8f92fdc4891b1b73064ac62d2ee180a1a3573a7122eb5d32ce46d28ffe1"
+    },
+    {
+      "path": "STUDY.md",
+      "mode": "0o644",
+      "upstream_blob": "e2bcfbd7e256ec85fb82c1b28cd4da3f257932c8",
+      "sha256": "565e96c8739a6dc77e13b7acea94a6d424a1e3c6c75283cf903dd18a1251ddb1"
+    },
+    {
+      "path": "analysis/android_syms.txt",
+      "mode": "0o644",
+      "upstream_blob": "fd2b92d147f084692afcb37489fcc50f7a803355",
+      "sha256": "d23b7f63d67848ce4db12d1115536a27baca677aeafd4f39ac357f2e86b0d5db"
+    },
+    {
+      "path": "analysis/pf2_decrypt_text.py",
+      "mode": "0o644",
+      "upstream_blob": "7800593256ddf5657c880bda8e140aa424fc1b66",
+      "sha256": "cde84e8e14715ea50ce0ff736e314090778d63e12386a631e546b6fdad632ef9"
+    },
+    {
+      "path": "analysis/pf2_enc_surface.py",
+      "mode": "0o644",
+      "upstream_blob": "0d15e628d694a284795f780886fcce1d856b9206",
+      "sha256": "0dead9876b76323e9567b06b27b1e056ae44c619b352c0ecc70a6644903109cb"
+    },
+    {
+      "path": "analysis/pf2_encrypted_text.py",
+      "mode": "0o644",
+      "upstream_blob": "35ff556a7addaf23c1513ca0c7a441572f96a1a8",
+      "sha256": "734d34bf64fa43c71e3fac1ffcfa97984103f6d0a72247332db263baed01b2e2"
+    },
+    {
+      "path": "analysis/pf2_find_aes.py",
+      "mode": "0o644",
+      "upstream_blob": "c79e470a3f4a3438cbeff4a9c4c358c3977f1b3e",
+      "sha256": "7f5c6000bd74808387dd5a31ecb2c1ae5d5f35a5a379131f4ea310fd0da41e5d"
+    },
+    {
+      "path": "analysis/pf2_got_names.py",
+      "mode": "0o644",
+      "upstream_blob": "da8e4d5170f316b394c664c502b96a47da29ce1f",
+      "sha256": "3cd813b2e1ac5ef969bc3d1fc50f1e4b2e71fd68438995c69e748827500ce69b"
+    },
+    {
+      "path": "analysis/pf2_iap_container.py",
+      "mode": "0o644",
+      "upstream_blob": "d216f2a4dc0d43c2f8d4cf54ad0ad2bffc7f4db0",
+      "sha256": "6ef2f7a2d1d454afcde6d2312d207d30c813f846b325d53d5d06b55bc5416274"
+    },
+    {
+      "path": "analysis/pf2_imports.py",
+      "mode": "0o644",
+      "upstream_blob": "229f4df9d7a1a17daf589d318f8ebab8d5d407e0",
+      "sha256": "f9362b3550b3206d4ee703d331f8aac2f7ca6d9369c5fee07ac4d7ff70b2dcb5"
+    },
+    {
+      "path": "analysis/pf2_memwatch.c",
+      "mode": "0o644",
+      "upstream_blob": "e06508f49cc96658811cb732f9cc5e6487c84798",
+      "sha256": "373810639e8ec98f687906477df0ec974c71bc695726ef89586ccc27e7c3727d"
+    },
+    {
+      "path": "analysis/pf2_symnames.py",
+      "mode": "0o644",
+      "upstream_blob": "f8f062d15631a1447e57bc9ce4b8089253fda476",
+      "sha256": "23aa7d8a37bbfdeac1f2870271948bfa7b3711a3b1c9ae69a49107f4726eef60"
+    },
+    {
+      "path": "analysis/pf2_transpile_shaders.py",
+      "mode": "0o644",
+      "upstream_blob": "01f1bf18d681ab00283a6e413da6980e81b85625",
+      "sha256": "6ae3c9c445f6ec0f1a1bf79766ecde62b2755b4a5792a87c9f4707ae54bf09a3"
+    },
+    {
+      "path": "build_universal.sh",
+      "mode": "0o755",
+      "upstream_blob": "89f924f9368a649a47561e05ca0d85f94c0cae0b",
+      "sha256": "f42bcab9b401a28e3506d7322fdb27483aacf75b4369dca7af7b5755bfae1241"
+    },
+    {
+      "path": "docs/OWNED-SAVE-IMPORT.md",
+      "mode": "0o644",
+      "upstream_blob": "181849937a3368c5cb1fbe2c3a7d8355dc1e0f0b",
+      "sha256": "cd025110f72af4cf1dc4f2b96cc323e42d54b0238f68b54b52fb0120aab74161"
+    },
+    {
+      "path": "docs/PROVENANCE.md",
+      "mode": "0o644",
+      "upstream_blob": "eb036e069d0828c1a379c43efed70f21cbe9740e",
+      "sha256": "1e42d33ba495e0d3e0adba935b60c2a3ad1b6ad728c54f8f5e6b7b3b4baefc44"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "3e0e44ea0bdea1e544078eb329a408d370538c1f",
+      "sha256": "1ce6c3ccad9fd829ae8821491e84a1a3777083ca58888baf7374ab309119574e"
+    },
+    {
+      "path": "import-owned-save.sh",
+      "mode": "0o755",
+      "upstream_blob": "06f16be500db6a6be56d912578447daceab903ab",
+      "sha256": "7942b5a76f094dbab31bbe926ecce5d74cca21b0a2ffb036be6f00def8be50cd"
+    },
+    {
+      "path": "licenses/LZ4-BSD-2-Clause.txt",
+      "mode": "0o644",
+      "upstream_blob": "d8c82af7fa25c3f1ff3f69ebe8d07d61d520caed",
+      "sha256": "2dfe2f2b8b93ca5d53f2af10104b5881c6b5648636fe746a81230da9cf807335"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "licenses/UnityPy-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "6bc7be1f70f9465a2d3b3ed29f1ff34b0c58aa38",
+      "sha256": "d86f8e7dd654370bfe954deb63a8fc972a0eaea943880ba691ff540104bd4c8f"
+    },
+    {
+      "path": "licenses/attrs-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "2bd6453d255e19b973f19b128596a8b6dd65b2c3",
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+    },
+    {
+      "path": "nxextract-runtime-env.sh",
+      "mode": "0o755",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract.py",
+      "mode": "0o755",
+      "upstream_blob": "011f1d777af3e96584ce80c4c47eb6b95b357a4c",
+      "sha256": "55664066d2ff0e5b7b83b6285d6606cca74923e80183d2f2e176e6353b93abd5"
+    },
+    {
+      "path": "package/GAMEDATA.txt",
+      "mode": "0o644",
+      "upstream_blob": "a4e53a60a4a7649067fbbee883a811849e27e72c",
+      "sha256": "8277fd3898b7409162f266e803e7a2aa60c8a8a8cb1557e37cf96a3b8791af36"
+    },
+    {
+      "path": "package/LEIA-ME.txt",
+      "mode": "0o644",
+      "upstream_blob": "b14fbc3ce88491ca47a59486ba7787df59fc3bfb",
+      "sha256": "12eef4724b65ccca123fb25cb9f93cccd140aaabafaaa1e36f80016760a6b0fd"
+    },
+    {
+      "path": "package/OWNED-SAVE.txt",
+      "mode": "0o644",
+      "upstream_blob": "f42d99f5d43dd0c94b432bf63c1472f91deafd2e",
+      "sha256": "9d83131e4b3bd44d9d5b3eb2430966a3145ffabc9e98e5590195fcd7758681ff"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "06f8aa886e1e440ec93ce904566f22afb1dd8cf5",
+      "sha256": "c016aa832d2d2cddbffe910f29df543ba5302f3e4a9f88c65d139120c431d0a6"
+    },
+    {
+      "path": "pf2-nextos.sh",
+      "mode": "0o755",
+      "upstream_blob": "5e7859569c60c87d3068c85d34c3c69b0893b617",
+      "sha256": "eb737fa210072f3dd0ff6c5437263c69b897015ddd7d5660037ce76cb48f3b11"
+    },
+    {
+      "path": "run-extractor.sh",
+      "mode": "0o755",
+      "upstream_blob": "0173c4ac3d09fb43b59cdc2a093ec95678e316ce",
+      "sha256": "3c61f638a25f0ca9c5c5a94d33660886aaff17a18347c9e954afd4b0e9b3efba"
+    },
+    {
+      "path": "src/android.c",
+      "mode": "0o644",
+      "upstream_blob": "675e75dfff4b40224a9d4e482a3b6ef24bb84a18",
+      "sha256": "74c874598e14e39d322b851a3b061de1bddbf57147b5dd04465f66e88c6183a2"
+    },
+    {
+      "path": "src/audio.c",
+      "mode": "0o644",
+      "upstream_blob": "896439ae8fb7c2269706447e58673d0b23a9cd2f",
+      "sha256": "98156c9f69f008b3f340027b7f20df5770fde4a8c7d8e3c20dc2f6ce3dca5c5b"
+    },
+    {
+      "path": "src/bionic.c",
+      "mode": "0o644",
+      "upstream_blob": "1e87e573097c4e197f8aee0aacb8cc64d2f75f23",
+      "sha256": "e4d6643141b31987036cc7774782395226d7e6f08f1538f6bbc2f87d0827c25b"
+    },
+    {
+      "path": "src/egl.c",
+      "mode": "0o644",
+      "upstream_blob": "dd64831d28db589cba169210ff22126b01b40d4b",
+      "sha256": "0e8b507f5a72fb2c3945e47f174700ffa8ac3d39a09dfa73dee2437bc67055e3"
+    },
+    {
+      "path": "src/egl_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "82baaa7db956d99e6d4f03d3ac84cd82d4cecc13",
+      "sha256": "791f18628d1af3c81bcd0ae46a6d991fb3d5bd1a688172d890b2edd6f2ffc2ea"
+    },
+    {
+      "path": "src/egl_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "af11db93636e3af914a2bc987fe405fa564b8412",
+      "sha256": "03b9baca0b78284d2095f96f5aab17b8a4da03dd7cdc70b54f061716b22e64c8"
+    },
+    {
+      "path": "src/input.c",
+      "mode": "0o644",
+      "upstream_blob": "923c531fd5fa00e7148c42864d88a41042259ca8",
+      "sha256": "5b998e058e6e26e4349b84cf99f46daa52c339ba25efa66ea410ec49c512e8a3"
+    },
+    {
+      "path": "src/jni.c",
+      "mode": "0o644",
+      "upstream_blob": "7ca429f78a3072a4cca6888b2ea0b9cddf50dbf7",
+      "sha256": "0f156015feb5049c5f4b06500927f3175c05751ca156c8dd42db93144a550cd7"
+    },
+    {
+      "path": "src/jni_slots.h",
+      "mode": "0o644",
+      "upstream_blob": "842c5100b5fdc80b63591000b7646df272e2197f",
+      "sha256": "18a1689ed747467205d5eb4d3c8aa80e15a951539893bad96882c406a384ab77"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "ac089ec8079d3c190e04426e252f66f840c01ff2",
+      "sha256": "a6a7793935ba48290f4cf4fc949f8d4e78efd8d1fa06887f8407f201f0a7ae88"
+    },
+    {
+      "path": "src/nx_elf.c",
+      "mode": "0o644",
+      "upstream_blob": "0284b9633626b45695b26327dbbf29ec8f6d75b5",
+      "sha256": "53c72bc0471b71f5772fbadc19d893bb6d49437512efc2365d18c517c17368cb"
+    },
+    {
+      "path": "src/nx_elf.h",
+      "mode": "0o644",
+      "upstream_blob": "faef22cec97b626a0f28b12e1a0c60c64a995488",
+      "sha256": "52485b86c27f81fe0cfb0779f865c1996dbb438872afb7915fccdd7bc2f318fa"
+    },
+    {
+      "path": "src/pad_ordinal_fix.h",
+      "mode": "0o644",
+      "upstream_blob": "3771dc5be9ad9d49c44535e94f9623a54b426c87",
+      "sha256": "67ebf99f4bac9948e2f67283616a34fd20237dece3a497c74cdc8e92e0785805"
+    },
+    {
+      "path": "src/pairip_capture.c",
+      "mode": "0o644",
+      "upstream_blob": "02394291ecc42f703ffc2a1e6d2346c6929a8c72",
+      "sha256": "8106f8e7da12f5ad22ae1aab8c13501838b6121c720e1a4824ea66076dacf12d"
+    },
+    {
+      "path": "src/pf2.h",
+      "mode": "0o644",
+      "upstream_blob": "3600e5eb12f57ebd585408a3acaa436ac489e62c",
+      "sha256": "04e147c67405905deca0a304f00020d4da55a0a039e25d30c55ee9234397e66c"
+    },
+    {
+      "path": "src/pf2_captured_imports.h",
+      "mode": "0o644",
+      "upstream_blob": "0054a02afe077826ee0ae4ccf9e0c04a22647ff7",
+      "sha256": "5f099c52e3473358f08101df5857030daabf09cb6d2ba5c6481811a221e7a737"
+    },
+    {
+      "path": "src/pf2_il2cpp_imports.h",
+      "mode": "0o644",
+      "upstream_blob": "e1bae291f85672ca257effa7ba0d9df3608d697b",
+      "sha256": "c96a6371b39fd78a324c79da49cbc60cdd34c6ddf24a9346d323ba52161c473f"
+    },
+    {
+      "path": "src/pf2_unity_imports.h",
+      "mode": "0o644",
+      "upstream_blob": "883b1a53d6739fa445a171c213a7967af97267b5",
+      "sha256": "3198b2ff20d92cfa47c618301410e8dae5c149ef0c9618d2dbf5e0de5eaa3ba8"
+    },
+    {
+      "path": "src/protected.c",
+      "mode": "0o644",
+      "upstream_blob": "ae29fe8d08ec58f587f84d30e61b67e73d5e8d7f",
+      "sha256": "ed3e74031d9b61ea474fa225f33406d24a412c645d44217f22ad18008c9cf425"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "6efb371468517d810d52878a6d84fb89d7d7e8c1",
+      "sha256": "15507aa8af054e80e58f1b077f98908cdc7846ee07fcd55e8fba79ba47509690"
+    },
+    {
+      "path": "tests/fixtures/android-save/shared_prefs/com.koalitygame.prizefighters2.v2.playerprefs.xml",
+      "mode": "0o644",
+      "upstream_blob": "28c9292e7811961eecf2d17c643ca347016b7bc4",
+      "sha256": "1771137a1479d3e2bb378995151be01794b0d14e49f5891691cd74c05c7ff3c0"
+    },
+    {
+      "path": "tests/test_import_owned_save.py",
+      "mode": "0o755",
+      "upstream_blob": "d7d8d0d81ffd4eacb5b7d0cefbe75a7e31683385",
+      "sha256": "d052cf0c8237d921ca08185e7b9acee92855b719aed25c0459c83b2e63d97ac9"
+    },
+    {
+      "path": "tests/test_nxextract_runtime_env.sh",
+      "mode": "0o755",
+      "upstream_blob": "430722ea8db9e6766ba7b80b9e114e175505c310",
+      "sha256": "dbbf66931d12f911ffd4cddb49b6bfb1bc1d12f42fa72b8d2cfce758628293f2"
+    },
+    {
+      "path": "tools/dev/generate_pairip_masks.py",
+      "mode": "0o644",
+      "upstream_blob": "8211c751fafca7017ff427192e39390710899dab",
+      "sha256": "405086f2c497433bc6712814d6bafffec8bb96fc4f1f79226f0ad673afb1a4b3"
+    },
+    {
+      "path": "tools/import_owned_android_save.py",
+      "mode": "0o755",
+      "upstream_blob": "779aeaeec810e2951f6f3b9f4a975017fec70604",
+      "sha256": "42e990e404475a1b67c34b4d9f4553aed5b92504d8dd48276ee826c9c0d1df4e"
+    },
+    {
+      "path": "tools/pf2_transpile_shaders.py",
+      "mode": "0o755",
+      "upstream_blob": "01f1bf18d681ab00283a6e413da6980e81b85625",
+      "sha256": "6ae3c9c445f6ec0f1a1bf79766ecde62b2755b4a5792a87c9f4707ae54bf09a3"
+    },
+    {
+      "path": "tools/prepare_pf2_data.py",
+      "mode": "0o755",
+      "upstream_blob": "be430a15db45e40431a2e291fa3ea61e195f3ebc",
+      "sha256": "1d7f7571ba5f90d57f8727ac9510861e62b3e5b5327ae7134a14a2c0fe575fde"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "b8be30ff2151f8b89454b9501b71d1af39f03867",
+      "sha256": "a4c543cf27b066bf8836276a6f70bc963c110f484a64836cbc8607629240eb61"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/ClassIDTypeToClassMap.py",
+      "mode": "0o644",
+      "upstream_blob": "39759d19c3e792a83f9e5d4f15dfc5ca7e0d8695",
+      "sha256": "fca4f8e2f2b62fc5065db69629baba1398a0f3f0fe25aed6eab826f2aeae938f"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/Object.py",
+      "mode": "0o644",
+      "upstream_blob": "0fa91efbb5218bb51167feaad8d65cb1c8d0477e",
+      "sha256": "b3f0c4f8e5b4db3aacdcaaa2f57c65272b4ac834f3a0beee357122c04b63ed4c"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/PPtr.py",
+      "mode": "0o644",
+      "upstream_blob": "1459583f7cf135c3f6b14ad4e55f85a2f05328ce",
+      "sha256": "221c795df92e9d338338944aa8049c53e553f0e232e11179a7d7d4ee6783f289"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/UnknownObject.py",
+      "mode": "0o644",
+      "upstream_blob": "b6a3caa43392acb8fd1d55e39590e520b5953c8f",
+      "sha256": "875e5ddc8a7190bce675b3c2c0e2842d65ced9372759a61cc12452b067e49ba0"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "ec2efb29d1577d49c6779d338dbe9d4442d3319d",
+      "sha256": "94dfe5f423f82a2cfa621f3a9f04295f79a951db368cb71c34df4bd8494ed6cf"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/generated.py",
+      "mode": "0o644",
+      "upstream_blob": "721b1846a7c1b497c27625d10af4e34f5e21063a",
+      "sha256": "3ca5cded6e6bdc2ae1752fa7d59303d7b080789a8247a96907b5b22038308157"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/AudioClip.py",
+      "mode": "0o644",
+      "upstream_blob": "7f74daba4145ad862fed5e6c2651f66b8e31b56e",
+      "sha256": "7e01c4d99a1b48f9e396b540f82e04440ce6c2988d2e9efad4a32976fb1ba47a"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/GameObject.py",
+      "mode": "0o644",
+      "upstream_blob": "5392b1d20e25718224de46679bb361b0acb154cb",
+      "sha256": "d59034675d5ca6f3ce88e89f02c030e94949149ac5a3031acb45acabc069f207"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/Mesh.py",
+      "mode": "0o644",
+      "upstream_blob": "37512d37293703ee7211ce4ba1b93378ecd2049d",
+      "sha256": "5b31a170d9fc3f10fd430c671d8b8f5cdc0d0b0d7ba23ebf420b6f0cba75410e"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/Renderer.py",
+      "mode": "0o644",
+      "upstream_blob": "3f6e9320666470ca749f835cc610697fd6426837",
+      "sha256": "77e86a8c2760d2a862c828175e4b66bc96a52ffdbe6d6670fef9f8d42b65a9f9"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/Shader.py",
+      "mode": "0o644",
+      "upstream_blob": "23b051b7c034e9ebb9282385c309f2299f897fc3",
+      "sha256": "2da3be0bd042bf9824650042352407f2df8b367655430879b6fdf239e8612dce"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/Sprite.py",
+      "mode": "0o644",
+      "upstream_blob": "e12f8477603960bf5e79265df59151a0a4cffea0",
+      "sha256": "abba07535dab473f43f4ff63098cfa5c9bb16355c634c8dd72419dcbbd3feea4"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/Texture2D.py",
+      "mode": "0o644",
+      "upstream_blob": "9b4b2af3c47dab14870b59ca4225e0049b6157d1",
+      "sha256": "e2c25eb45e242d4707000fe2f05c56b70bfee13baaa5e96a73ea023cbb31ef89"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/Texture2DArray.py",
+      "mode": "0o644",
+      "upstream_blob": "e5591bcad2c09cd2d89e3ebcc8bf474fb8e18f8b",
+      "sha256": "e965564116baf0c612c0b1b8d8a4c16bab0189958e62da3a237c129e94f4885c"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/legacy_patch/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "f2f0a9e260f684e6ce211c6629031a44f5436f20",
+      "sha256": "51678183f46cf73309874f944d2c1d48598875059e5b0532f2295c6efac7ba2c"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/classes/math.py",
+      "mode": "0o644",
+      "upstream_blob": "3a69b1b266a398ad2b7a6d1acfe3f2c813bea209",
+      "sha256": "c56f585e070261d823aa5b59ee2b67243526ba9c0351e5097cdf95db3adeba7b"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/config.py",
+      "mode": "0o644",
+      "upstream_blob": "98c5660b548a97a048e75efe37c7ef5808ab2a0e",
+      "sha256": "f61b6631b066ef0d21feb4fb771170ca6eff0758e86968a6cb983a3b7457ee40"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/Audio.py",
+      "mode": "0o644",
+      "upstream_blob": "e97655829c3bd069886258014e55b715cb180a59",
+      "sha256": "cff4a5aed2e9c0452a0ecf2c8b4651c7efa116b7fe3764513ef8c5f37693308f"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/BuildTarget.py",
+      "mode": "0o644",
+      "upstream_blob": "d3e092cdde4d2cc60dfbcfde3efe20819547b862",
+      "sha256": "a2e54831f8cde23bb2516a45df856ced002d41da72f1d0fe7c4fbd39d97f8d99"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/BundleFile.py",
+      "mode": "0o644",
+      "upstream_blob": "d72fdb1625b9e24217e18cefd5cb6ceee31de086",
+      "sha256": "c8b0baf57a8a34bd5890c42e87bd5ed6ad99960ae4a63f48c83099e085b32aa4"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/ClassIDType.py",
+      "mode": "0o644",
+      "upstream_blob": "9168fb8da3e18b2d9115877b527f18d4c9d16b18",
+      "sha256": "dbde0ff24c1ad5fe11abdd19be2ef382cc246d912624a8ce8d91ad9dd288ac10"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/CommonString.py",
+      "mode": "0o644",
+      "upstream_blob": "0491b6607eddca61bc22f1a2b996fa03a4800d24",
+      "sha256": "41ff44c4c5a338e44117250737e1dcbc66cf52d92c2dd915320f57fb6e2140e5"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/ExtendableEnum.py",
+      "mode": "0o644",
+      "upstream_blob": "3e061cf4fcb4a3c884f7bed19b79babd1b59fce0",
+      "sha256": "839da6a558b57a8b3cdc47fcb789d3b3a0f821fdd48a2172f348a2e57bfe5ad2"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/FileType.py",
+      "mode": "0o644",
+      "upstream_blob": "adfb2c96522119de77388b38ad8f76eae7031779",
+      "sha256": "c6a5e4a55e068c9a8919487a5372f441023d47ab400be4892235a3320a2ee3f2"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/GfxPrimitiveType.py",
+      "mode": "0o644",
+      "upstream_blob": "591a7a34ae23f291af3278c11644d6dcdd67ff06",
+      "sha256": "1ea32e36d1057a998280f11043ccb60b89b3f2594477c965fe074fe2fc9e66f1"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/GraphicsFormat.py",
+      "mode": "0o644",
+      "upstream_blob": "07bb568c6a03bd1def94b56352d8bdc40778a63d",
+      "sha256": "120978287103acbcf2dc815f712957dd64616b409bfec15a2abbef5caeed467b"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/MeshTopology.py",
+      "mode": "0o644",
+      "upstream_blob": "0baaedd87cdee148741bb8187f0dfd8fa7fbf9b3",
+      "sha256": "9fbe5da0795333d71b7dc8f332884bdb60c1b2a48f6174540a71e1a20fec6675"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/PassType.py",
+      "mode": "0o644",
+      "upstream_blob": "1b2d1c2e4e722e93f288bf0c5780e27cd1e4d34c",
+      "sha256": "aa8f8307ac3242c0d6e6c6780e2c1c677e9b89999ec6ba2b84338a22e5c60074"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/SerializedPropertyType.py",
+      "mode": "0o644",
+      "upstream_blob": "de7325b871b0770a510aaf327c92ac01938b0bb6",
+      "sha256": "448794bfdf5d2c9d376a54888daf88cd5288c82e5758116e2698b141458ed482"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/ShaderCompilerPlatform.py",
+      "mode": "0o644",
+      "upstream_blob": "f1d075679bee58d5b1d7e5e75de0f81ee1a6da30",
+      "sha256": "c118593dee99440a5e3797511d98062adf6b07ae5b28951a9f53eaf0916e3bbb"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/ShaderGpuProgramType.py",
+      "mode": "0o644",
+      "upstream_blob": "170bf307c52bfcce544ea21b8613fe8b5012ab73",
+      "sha256": "deb222f00ec685e66a28028143364e348a872ed3816f605d07142111654aeeab"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/SpriteMeshType.py",
+      "mode": "0o644",
+      "upstream_blob": "75c282c43a727077b3e6424ef237d151b559195a",
+      "sha256": "577442f60354642eecd0a57fabd81776f34a6b9e9245665607e3882a861e8eed"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/SpritePackingMode.py",
+      "mode": "0o644",
+      "upstream_blob": "e640576e64a9ab54fc1d9e289b4fc4421101a928",
+      "sha256": "4897a1a5047d1bd5368c2ece378bdff352daa77881148198876632331e4d88bd"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/SpritePackingRotation.py",
+      "mode": "0o644",
+      "upstream_blob": "1a361de14fda8b8bfa1886e7890956999c8eab46",
+      "sha256": "4f3684a2541d486b07e67f60c32d5621b71b9ca4f4a5fc67008fb0f28c0faf97"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/TextureDimension.py",
+      "mode": "0o644",
+      "upstream_blob": "044e26262cdc7beed1f34cfdd6ed7184ac8d9c1c",
+      "sha256": "22b4082805b36a134ba3af1edf74a1216e82c461b92618e9b6646e2f9e872e5f"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/TextureFormat.py",
+      "mode": "0o644",
+      "upstream_blob": "68d5dc9928b0a9edd09e1b20bfeedc12b1b45883",
+      "sha256": "481d962a6cf841b926bad37e42976cded5c2a5f3514d119876922b0dbbb53b75"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/VertexFormat.py",
+      "mode": "0o644",
+      "upstream_blob": "ea3350a1a44b849f4da180b59cd672a29977a3fa",
+      "sha256": "5a2ee5b35db68bb3f1b1661d76d6e3f9bed3f208f87d4ef6d574d68e21d4039b"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/enums/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "678d633e1f20ca118cb62809d0a19a0499d730c8",
+      "sha256": "f99eaa2a3248e8f668790b71ca172b0235f315ee8bc347419ff6a9352658575c"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/environment.py",
+      "mode": "0o644",
+      "upstream_blob": "d7d70a776da539d712510c92f1ee742db5c4d320",
+      "sha256": "57d5649da8ea62dca7a5c527cbc993375f8a96cd57ce866fd784995263f60ae7"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/exceptions.py",
+      "mode": "0o644",
+      "upstream_blob": "86bd144d0c53f5eb7176832c642afbd0e36c1535",
+      "sha256": "7b9a556598a18502a60c1140cdb72d436d4ca6b2815d63064ee91675f9ee7708"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/export/AudioClipConverter.py",
+      "mode": "0o644",
+      "upstream_blob": "cd01b1577293c7cf02352343eef905976fc8f9c5",
+      "sha256": "be9c8c70158c3919d7ed07dd40000c245cf1d88e64a69feff74b0709b136b553"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/export/MeshExporter.py",
+      "mode": "0o644",
+      "upstream_blob": "2aba0f7dcee78a02309fa04f51c6750298e8c99f",
+      "sha256": "5a3bc76755488c6e420e1da1b2ddd170f63d547044bbae8f3cf04969f4f602eb"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/export/MeshRendererExporter.py",
+      "mode": "0o644",
+      "upstream_blob": "99d57e05715455fcd34a3631073ad24a87c9ffc6",
+      "sha256": "6599a7d14e48fe6d86b457808153d48d184a0373c95104fffd2fec30e4837cab"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/export/ShaderConverter.py",
+      "mode": "0o644",
+      "upstream_blob": "67d74685c05f70ea736d552f3a30c24cfdd9d4ce",
+      "sha256": "29857ba48161d89fa2f3c1dc20da881e1dd9d72df7c7d02cb2fc92ed0834b484"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/export/SpriteHelper.py",
+      "mode": "0o644",
+      "upstream_blob": "c07c524cebe23ce9584d61a9d766c7b9ad19cf8d",
+      "sha256": "9d8b3a4299ec27ca9cfe46bf55e79d24586accff44c67298b7b13c3ba27a7d5c"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/export/Texture2DConverter.py",
+      "mode": "0o644",
+      "upstream_blob": "a2c335059b6b56fef19cca7d2c6cc24910d1c617",
+      "sha256": "cb8602aa8b9b51b8881d4da6306080555d2d6b5aa20f8ec38b1ef1c08e4ab853"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/export/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "db653dbac9f93c7bda31b93fb97b00df72353b96",
+      "sha256": "97d0f1cc9a5748a74c501cbe66707506368cf27dd30fa33ac4a8c59f2f9959b4"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/files/BundleFile.py",
+      "mode": "0o644",
+      "upstream_blob": "61855e92703f60a8acc40a5fb323f4c976e7fa3c",
+      "sha256": "7aaa2ce223c3a2c49c899a4a4fca772934e8c737f63c225e373296ce685e8312"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/files/File.py",
+      "mode": "0o644",
+      "upstream_blob": "3ede9dee16f5f99b2cc4eb2c15cedfff23056ff4",
+      "sha256": "92a10d45456820228bbd4c9c0bdbf251722649058ac2306d59e4add70d331bf2"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/files/ObjectReader.py",
+      "mode": "0o644",
+      "upstream_blob": "99d00f5457aec81f7d931e769c990c5de2b29760",
+      "sha256": "16a8c79d29b6efdc5773805e958ccb60870812a54d8f26e2180bc78169fc2fbe"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/files/SerializedFile.py",
+      "mode": "0o644",
+      "upstream_blob": "cb91714176babb4966a8803d7ea04ba9e8f8e49e",
+      "sha256": "32f5ad9e7463e6fb1c02d1c3ef3481ee2640b123533b96d9ad579ae946596b6b"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/files/WebFile.py",
+      "mode": "0o644",
+      "upstream_blob": "6355962d3bd96c699e6a0a76fbcc5d99c2cbd8df",
+      "sha256": "8625a5f25a6b0d2e389960bcc53ce87d79c62b68e53e880496d71b153858226d"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/files/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "06aecc69fd87b7f2437c78aedeecf4d389c7c851",
+      "sha256": "9147b6bab0e95e2e37f4b7fe4695f50b07bf67cef61b06e3a6a0b6c1dbca90f2"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/ArchiveStorageManager.py",
+      "mode": "0o644",
+      "upstream_blob": "7b5014ea5591767c9dce741a3d6f0678a1656d88",
+      "sha256": "865b786226eb5080fa1b88ff36f51c90acb02d14d35d17a11de64aca63346083"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/CompressionHelper.py",
+      "mode": "0o644",
+      "upstream_blob": "d69a42de68366a885263190dbe560afa2e679d76",
+      "sha256": "f94b582d2edb79d674fd3bc0d02e0443ccea04fb0316b5c4addda321c66c7598"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/ImportHelper.py",
+      "mode": "0o644",
+      "upstream_blob": "0d50675e08c36b6b92ba3b4152d3d48ff1c74b06",
+      "sha256": "626da76efa2382c5ffda6a19ba9c35b7714b43e7abe0395f593a27af85594bbd"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/MeshHelper.py",
+      "mode": "0o644",
+      "upstream_blob": "aa3426763c58a795bbf3e4d60a527a10094f6aa9",
+      "sha256": "b41fe5230efb9a823fbd0e5f9bd62c7d82347693fc0896026693036ed7f95863"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/PackedBitVector.py",
+      "mode": "0o644",
+      "upstream_blob": "42004a6eb513ead2b7ed8e4055eb7ccda848e100",
+      "sha256": "22f93173c732df044ec0e899eaab3892b2021d4011be7e1720c336992f65a33d"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/ResourceReader.py",
+      "mode": "0o644",
+      "upstream_blob": "70ff7008fc532103ecf31435629349a745695011",
+      "sha256": "cbab051e9de0ac15e34ea0f79e587aa386fe28c9e1480f17f6ff92a77691f265"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/TextureSwizzler.py",
+      "mode": "0o644",
+      "upstream_blob": "f2dfc7358cb007dd65e5b68ba738dc1fa7118e0c",
+      "sha256": "497c619ce62b03fea294de5673f48585d22b5e4c077e559f5ab39e62b91a85c5"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/Tpk.py",
+      "mode": "0o644",
+      "upstream_blob": "94cc5a8c70338907fdaaea809edfe3ad75d4b1d0",
+      "sha256": "ce21c053ab6147e1cc57204246eace7a6fa9f02b514d14e0584c1febc84a7731"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/TypeTreeGenerator.py",
+      "mode": "0o644",
+      "upstream_blob": "398931dca679b2ac8db585e15e1c1153b73e21ec",
+      "sha256": "899cd1dab3319822ce375f1663b45aafc5ff1aafff1bd42a7ec206f80822e0a6"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/TypeTreeHelper.py",
+      "mode": "0o644",
+      "upstream_blob": "1c4e38a064262c74f4677b99d49185846c12882b",
+      "sha256": "c74e27c74e9e879d047365e09734b78df541901d3e9a94cb468c620b75d57e34"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/TypeTreeNode.py",
+      "mode": "0o644",
+      "upstream_blob": "d32aac9013e68f975e4aba0a7038fab997a883bc",
+      "sha256": "7c530e4aa5760c4ef6f01e95dc8ad02f0c49f937b840aef6231a95da03fe6ce0"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/helpers/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "4663d1f5aef695c658d435ea21c28730eb1a4a6c",
+      "sha256": "9dc9b393488e931b54f5e6f648912da550dbe19a60b8e5428671cc5c48508c6a"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/math/Color.py",
+      "mode": "0o644",
+      "upstream_blob": "d8cb29a72effe77c77053cb5ac4cd0e37b90a901",
+      "sha256": "fb63285652e948e1e38d9e59b54fe5ef4441b46d60ed836281f39416d72b520c"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/math/Matrix4x4.py",
+      "mode": "0o644",
+      "upstream_blob": "58a1a90270c11284cb861d5a5c0710d6a91e7810",
+      "sha256": "147fed958d1da314f96f2cbb2ca678204cc91f97d7d234282ac85f4294c23547"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/math/Quaternion.py",
+      "mode": "0o644",
+      "upstream_blob": "6c27afecff1f3a531bbc4ac777150c5ebbf06fa4",
+      "sha256": "3fb2393ea331444715e5032e1005f190e9bdbbda167ba57511153cc714c6e42b"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/math/Rectangle.py",
+      "mode": "0o644",
+      "upstream_blob": "a198ec43447f7b05a313e7a1da07e3f7e133047b",
+      "sha256": "8c4e3d6c54a80b27b5bde13dc6bc353e48a2e404c20cb06fd0d7960759bd5561"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/math/Vector2.py",
+      "mode": "0o644",
+      "upstream_blob": "07a74645b52761c341b46307efc2eb77c665e7ee",
+      "sha256": "baba436d06df939c30e752c09d8a9b1ad5c6d2cb955ca59d46ffa079fbd33c21"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/math/Vector3.py",
+      "mode": "0o644",
+      "upstream_blob": "a5bc1a96661a33fa12820bf9a21f0e8aa1222adc",
+      "sha256": "d2ff60bf7d7e7b710098725b08f713e2409e2cf6256dcd63569b6800d86affaf"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/math/Vector4.py",
+      "mode": "0o644",
+      "upstream_blob": "c3a762f2fb923d17006e5e7bb182bb2f257e13b1",
+      "sha256": "7c03a216953b8e2ee8c512ec7647acaf37bb9d50b8058f74d7f693b402ce732f"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/math/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "6f6e76938de82608a3214d5e6c1e664262e08a21",
+      "sha256": "8a0c5a9b9d1735e2ab7db2a91d7374d18568ea3ea5817df8aa7b7562367235c8"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/resources/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/streams/EndianBinaryReader.py",
+      "mode": "0o644",
+      "upstream_blob": "3ca702be5a4e5d8e378fd48ae663fe0824d8d4e3",
+      "sha256": "e96dd96f0d0b1795066a6d186ae97f06f8f9741f342e58f5a10d7351d3742ecd"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/streams/EndianBinaryWriter.py",
+      "mode": "0o644",
+      "upstream_blob": "ffea1eafb84299929b75af69bb0866791a5ba25f",
+      "sha256": "982644f63a34058e9fc2752fe0d863312e8aaadca2e10069ba1a2da44f4cbf58"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/streams/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "0b713c1ef6a139c73cf596b71eb4fa7e5bff5509",
+      "sha256": "3bbfed2bcff10f0ccce93d780f49e349b7621c1da7dcb90dce7b4d7655011607"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/tools/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/tools/extractor.py",
+      "mode": "0o644",
+      "upstream_blob": "c0a5522c8ac5d6d3091ef2278c70fcd7c4d533c4",
+      "sha256": "95b1d98c4e402cae356f5f8d58856ae9b08e91a4e1ba5a201ea50fe04f5d1787"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/tools/libil2cpp_helper/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "940857d701d2fa44e3d377b7acde80ddbb2890db",
+      "sha256": "885464e215c98c8db03d3ea22e17337c23221b324582a06433a77d7ca891d555"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/tools/libil2cpp_helper/helper.py",
+      "mode": "0o644",
+      "upstream_blob": "be3aa96e7659fa299d3cc66e6d06561ade4065e8",
+      "sha256": "26754e945f8481d4ff092b897190709b189a5675d17991578535f3bab1425ca3"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/tools/libil2cpp_helper/il2cpp.py",
+      "mode": "0o644",
+      "upstream_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/tools/libil2cpp_helper/il2cpp_class.py",
+      "mode": "0o644",
+      "upstream_blob": "010d09fe1ce725cae58f7fd6acb2ebad6da4e2f9",
+      "sha256": "82c46add084a54d0e67f32351eb8c918a98763fcf02c497065e8bbf5a3233a3d"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/tools/libil2cpp_helper/metadata.py",
+      "mode": "0o644",
+      "upstream_blob": "954eecdb60a6c1764380d2a9e6e5aac73aa1a624",
+      "sha256": "a35254e55d23c70ed937ce4716b58366140557d6e3e1925c0e8062271d2a8ef4"
+    },
+    {
+      "path": "tools/vendor/python/UnityPy/tools/libil2cpp_helper/metadata_class.py",
+      "mode": "0o644",
+      "upstream_blob": "bba2c4b5ae301ec93fcd7f89630e70f12b9f9d6b",
+      "sha256": "da9ef1e3af724473c1623715d9440e0e0da2ecc3eb3794d4ff73a6618d1db4df"
+    },
+    {
+      "path": "tools/vendor/python/attr/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "9226258a2d58777f1d5536c5695bbf1b4a635991",
+      "sha256": "5a55c937a20207463f1d9d259ae4d48226b492e49d9f6a7aedde0de9c6313593"
+    },
+    {
+      "path": "tools/vendor/python/attr/_cmp.py",
+      "mode": "0o644",
+      "upstream_blob": "a4a35e08fc9d9b078a11edc3236d7e27027cd28e",
+      "sha256": "39066559d157ef8cf5f1a746114a78d0e8ea9b434dbb5165aa7bf6244f01da78"
+    },
+    {
+      "path": "tools/vendor/python/attr/_compat.py",
+      "mode": "0o644",
+      "upstream_blob": "46b05ca453773da7f2972f023c4a4f447b44e824",
+      "sha256": "426472c628b6f79c1c41f6ae816ab1b88ba600fb0d436f91505f364193ea30ac"
+    },
+    {
+      "path": "tools/vendor/python/attr/_config.py",
+      "mode": "0o644",
+      "upstream_blob": "9c245b1461abd5dc5143f69bc74c75ae50fabdc5",
+      "sha256": "cfcd55b7e19e4ffdad6b1b355d97e61f1f535a54b18cf6fa7991f52d31ac4b9e"
+    },
+    {
+      "path": "tools/vendor/python/attr/_funcs.py",
+      "mode": "0o644",
+      "upstream_blob": "a888991d98fdac72abb6e5ce8ac6d620a8f0e54b",
+      "sha256": "5414d414a2e496c9aac72b37a964932bf01cf59e2cd260095b0816f6703b2e59"
+    },
+    {
+      "path": "tools/vendor/python/attr/_make.py",
+      "mode": "0o644",
+      "upstream_blob": "10b4eca779621c819060c4564379fa2c098c36d5",
+      "sha256": "2e7572d9ed07ca0a2a699927842d7dcfb2663adeea1a401a75fd8b6605952562"
+    },
+    {
+      "path": "tools/vendor/python/attr/_next_gen.py",
+      "mode": "0o644",
+      "upstream_blob": "1fb9f259b53b851336c3135f06cfa377ab3240d7",
+      "sha256": "6acd6fa22f2c88023fa363901bc608899be69f41bbf92dff8ffefbe2b9e867f8"
+    },
+    {
+      "path": "tools/vendor/python/attr/_version_info.py",
+      "mode": "0o644",
+      "upstream_blob": "51a1312f9759f21063caea779a62882d7f7c86ae",
+      "sha256": "7b14aa6f76f913e7cc4ac819025130f5770ba448286cf391099a5c68482500ce"
+    },
+    {
+      "path": "tools/vendor/python/attr/converters.py",
+      "mode": "0o644",
+      "upstream_blob": "2bf4c902a66faeeda4cbae89d75f063df99c5039",
+      "sha256": "2b2c39318d327e7511fd1c0dd55c9d7f412213efbe86d0f13a049cffe3582fa0"
+    },
+    {
+      "path": "tools/vendor/python/attr/exceptions.py",
+      "mode": "0o644",
+      "upstream_blob": "3b7abb8154108aa1d0ae52fa9ee8e489f05b5563",
+      "sha256": "1d116ae22c9b9afefe0dc670ca397a3357ae33661e2552bf845c6e6811809e02"
+    },
+    {
+      "path": "tools/vendor/python/attr/filters.py",
+      "mode": "0o644",
+      "upstream_blob": "a1e40c98db853aa375ab0b24559e0559f91e6152",
+      "sha256": "f6962f5ea760ea6b4bbca2086f9ea800b44ca0716741370608ee045d3735ab23"
+    },
+    {
+      "path": "tools/vendor/python/attr/setters.py",
+      "mode": "0o644",
+      "upstream_blob": "12ed6750df35b96e2ccde24a9752dca22929188d",
+      "sha256": "a5b09943ea44e99c630ea65f59652150579f5eda5e908538a92fd80cc2cf439d"
+    },
+    {
+      "path": "tools/vendor/python/attr/validators.py",
+      "mode": "0o644",
+      "upstream_blob": "34d6b761d37857e876a7d0fd1970a758f8f71981",
+      "sha256": "2c65696e2360fca1b362b2940f924f899931f1331fca70d91a84282c934220ca"
+    },
+    {
+      "path": "tools/vendor/python/attrs/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "0c2481561a93a912503754396782e987fcdd9629",
+      "sha256": "f7fe706956c5b3bacbaad5d9ef7b4d0ebc617b3c99f1565e5f805bbd0dc4789c"
+    },
+    {
+      "path": "tools/vendor/python/attrs/converters.py",
+      "mode": "0o644",
+      "upstream_blob": "7821f6c02cca81277d1ecc87b6bdafad886d8b70",
+      "sha256": "f244258eb5707d24d1bbc20dc0493c488d1e1abce659fb6c4fbaccd04ab2a213"
+    },
+    {
+      "path": "tools/vendor/python/attrs/exceptions.py",
+      "mode": "0o644",
+      "upstream_blob": "3323f9d2112c54b203763d45b455bd5abbe020f6",
+      "sha256": "0020829a0d7dfaf0c56833d8f6f165d7df523d709030dfdb10db380c02e3ce6b"
+    },
+    {
+      "path": "tools/vendor/python/attrs/filters.py",
+      "mode": "0o644",
+      "upstream_blob": "3080f48398e5ed8d3428ca3efeb7500633b0cb0f",
+      "sha256": "54e50c66e83db8453a754b80d1d1758c89d42b43cbddf2e03f45414b977e0831"
+    },
+    {
+      "path": "tools/vendor/python/attrs/setters.py",
+      "mode": "0o644",
+      "upstream_blob": "f3d73bb793dd49c138950961f41943bb26c57fde",
+      "sha256": "78bd5889d6105774f687dfd2608652651d4501c1c66f54ee093cb41342efd925"
+    },
+    {
+      "path": "tools/vendor/python/attrs/validators.py",
+      "mode": "0o644",
+      "upstream_blob": "037e124f29f32d37c1642d159bf828de44f7c349",
+      "sha256": "c5ccbac03e53b5391d086d5fe1759ba1c3d23b47da06393921f5497cfe92523d"
+    },
+    {
+      "path": "tools/vendor/python/lz4/__init__.py",
+      "mode": "0o644",
+      "upstream_blob": "dd576d47850ffc446326a13c4319e1715588ef65",
+      "sha256": "a30af473cdfcb88ed175e7caa89a53d806f2d7d352e20d92d40bf8ac317fcc8d"
+    },
+    {
+      "path": "tools/vendor/python/lz4/block.py",
+      "mode": "0o644",
+      "upstream_blob": "01910cb81251b2660a3c418c5c1747bf4ee05f0b",
+      "sha256": "57dd295be90028601f5af7e9b4abc9f2cc233996ed42d2ad2ed02c1718985903"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "21e8796a09d4f26935ffc4879147879a153f0193",
+      "sha256": "f5e5c9534532840fcd45bb002e69ed85c61dba2753450e26b448b7df1481e24d"
+    }
+  ],
+  "omitted_selected_files": []
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "port": "swordigo",
+  "release": "1.0.5",
+  "date": "2026-08-09",
+  "package": {
+    "name": "Swordigo.NextOS-v1.0.5.zip",
+    "sha256": "aa59275531ecfeb50789d37c416abeed7855519418a65ab3a7db33ba35281146",
+    "loader_sha256": "c1add34c0f815652c21e879d652632dd1e0705cc364088d2b1a59d061e64426c",
+    "launcher_chain": [
+      "Swordigo.sh",
+      "swordigo/nxbootstrap.sh",
+      "swordigo/swordigo-nextos"
+    ],
+    "run_sh_present": false,
+    "max_glibc": "2.27",
+    "all_linux_elfs_audited": true,
+    "physical_runtime_payload_unchanged_after_documentation_only_repack": true
+  },
+  "display_handoff": {
+    "selection_basis": "live PortMaster dialog pipe",
+    "close_api": "PortMasterDialogExit",
+    "firmware_or_device_name_match": false,
+    "foreign_process_signal": false,
+    "hermetic_empty_platform_helper_fixture_passed": true,
+    "physical_darkosre_confirmation_pending": true
+  },
+  "nextos_mali450": {
+    "architecture": "aarch64",
+    "video_driver": "mali",
+    "renderer": "Mali-450 MP",
+    "gles": "OpenGL ES-CM 1.1",
+    "drawable": "1280x720",
+    "nxextract_fast_validation": true,
+    "owner_data_modified": false,
+    "public_loader_name_executed": true,
+    "frame_rgb_non_black_percent": 78.2,
+    "frame_alpha255_percent": 100.0,
+    "finish_before_swap": false,
+    "openal_opened": true,
+    "openal_rate_hz": 48000,
+    "portmaster_controller_mapping_loaded": true,
+    "term_exit_status": 0,
+    "portmaster_finish_completed": true,
+    "remaining_game_processes": 0,
+    "frontend_service_left_masked_inactive": true
+  },
+  "arkos_malig31": {
+    "architecture": "aarch64",
+    "video_driver": "KMSDRM",
+    "renderer": "Mali-G31",
+    "gles": "OpenGL ES-CM 1.1",
+    "drawable": "640x480",
+    "nxextract_fast_validation": true,
+    "owner_data_modified": false,
+    "public_loader_name_executed": true,
+    "frame_rgb_non_black_percent": 76.1,
+    "frame_alpha255_percent": 100.0,
+    "finish_before_swap": true,
+    "openal_opened": true,
+    "openal_rate_hz": 48000,
+    "portmaster_controller_mapping_loaded": true,
+    "term_exit_status": 0,
+    "portmaster_finish_completed": true,
+    "remaining_game_processes": 0,
+    "frontend_restored_active_after_test": true
+  },
+  "scope": {
+    "physical_input_repeated_in_this_release_run": false,
+    "prior_release_input_acceptance_reused": true,
+    "owner_data_extraction_repeated": false
+  },
+  "privacy": {
+    "test_ip_recorded": false,
+    "hostname_recorded": false,
+    "personal_path_recorded": false,
+    "apk_or_owner_data_published": false,
+    "raw_logs_public": false
+  }
+}

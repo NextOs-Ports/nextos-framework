@@ -1,0 +1,1162 @@
+{
+  "artifacts": [
+    {
+      "mode": "0755",
+      "path": "Party Hard GO.sh",
+      "sha256": "66eb471e23d8426ca03a6512c77afd1cd7620c77cf8a7ce2fbda9d03a424cb11"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/commit",
+      "sha256": "f7b18de6c6275cb4f7567406d822c6f28fe5723249129ebf2a3019ef943e33fe"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/components.sha256",
+      "sha256": "5aa73c17fce79b86d04b84b9fdc1011f7082d548b5b2d86610afa8c819e1e665"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/components.v2",
+      "sha256": "8d27412c7c6f4848ad617fb8ae4defd795542982b14040d14952024434b6ae93"
+    },
+    {
+      "mode": "0755",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/launcher/Party Hard GO.sh",
+      "sha256": "66eb471e23d8426ca03a6512c77afd1cd7620c77cf8a7ce2fbda9d03a424cb11"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/nxport.json",
+      "sha256": "a7b7b8704430ea4f9efdb54beb24b0d2e27b7b9224df65722730d5125b69d34e"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/adapter-env.sh",
+      "sha256": "7c148306307e821692c6a29ecd2effb77becb0595f59f3ccf44bffc4ea57aded"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/extractor.json",
+      "sha256": "616ddbccb8c055c4e99a13bb5d72fc1375f15c9a5f7c624a322ee6de87cd961b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/lib/aarch64/liblz4.so.1",
+      "sha256": "a65c53e2e7015b636e4f212449eff2016b99736cdf5798fe2cf3672818b88b8b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/licenses/GPL-3.0.txt",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/licenses/LZ4-BSD-2-Clause.txt",
+      "sha256": "2dfe2f2b8b93ca5d53f2af10104b5881c6b5648636fe746a81230da9cf807335"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/licenses/UnityPy-MIT.txt",
+      "sha256": "d86f8e7dd654370bfe954deb63a8fc972a0eaea943880ba691ff540104bd4c8f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/licenses/attrs-MIT.txt",
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/nxextract.py",
+      "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/prepare_partyhard_data.py",
+      "sha256": "c6ab36a7103eab6e33b2a53ea6529bc903c93ddf87bb26f85efae8a63da8e91a"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/run-extractor.sh",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/__init__.py",
+      "sha256": "a4c543cf27b066bf8836276a6f70bc963c110f484a64836cbc8607629240eb61"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/ClassIDTypeToClassMap.py",
+      "sha256": "fca4f8e2f2b62fc5065db69629baba1398a0f3f0fe25aed6eab826f2aeae938f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/Object.py",
+      "sha256": "b3f0c4f8e5b4db3aacdcaaa2f57c65272b4ac834f3a0beee357122c04b63ed4c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/PPtr.py",
+      "sha256": "221c795df92e9d338338944aa8049c53e553f0e232e11179a7d7d4ee6783f289"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/UnknownObject.py",
+      "sha256": "875e5ddc8a7190bce675b3c2c0e2842d65ced9372759a61cc12452b067e49ba0"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/__init__.py",
+      "sha256": "94dfe5f423f82a2cfa621f3a9f04295f79a951db368cb71c34df4bd8494ed6cf"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/generated.py",
+      "sha256": "3ca5cded6e6bdc2ae1752fa7d59303d7b080789a8247a96907b5b22038308157"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/legacy_patch/Shader.py",
+      "sha256": "2da3be0bd042bf9824650042352407f2df8b367655430879b6fdf239e8612dce"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/legacy_patch/__init__.py",
+      "sha256": "51678183f46cf73309874f944d2c1d48598875059e5b0532f2295c6efac7ba2c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/classes/math.py",
+      "sha256": "c56f585e070261d823aa5b59ee2b67243526ba9c0351e5097cdf95db3adeba7b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/config.py",
+      "sha256": "f61b6631b066ef0d21feb4fb771170ca6eff0758e86968a6cb983a3b7457ee40"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/Audio.py",
+      "sha256": "cff4a5aed2e9c0452a0ecf2c8b4651c7efa116b7fe3764513ef8c5f37693308f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/BuildTarget.py",
+      "sha256": "a2e54831f8cde23bb2516a45df856ced002d41da72f1d0fe7c4fbd39d97f8d99"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/BundleFile.py",
+      "sha256": "c8b0baf57a8a34bd5890c42e87bd5ed6ad99960ae4a63f48c83099e085b32aa4"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/ClassIDType.py",
+      "sha256": "dbde0ff24c1ad5fe11abdd19be2ef382cc246d912624a8ce8d91ad9dd288ac10"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/CommonString.py",
+      "sha256": "41ff44c4c5a338e44117250737e1dcbc66cf52d92c2dd915320f57fb6e2140e5"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/ExtendableEnum.py",
+      "sha256": "839da6a558b57a8b3cdc47fcb789d3b3a0f821fdd48a2172f348a2e57bfe5ad2"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/FileType.py",
+      "sha256": "c6a5e4a55e068c9a8919487a5372f441023d47ab400be4892235a3320a2ee3f2"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/GfxPrimitiveType.py",
+      "sha256": "1ea32e36d1057a998280f11043ccb60b89b3f2594477c965fe074fe2fc9e66f1"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/GraphicsFormat.py",
+      "sha256": "120978287103acbcf2dc815f712957dd64616b409bfec15a2abbef5caeed467b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/PassType.py",
+      "sha256": "aa8f8307ac3242c0d6e6c6780e2c1c677e9b89999ec6ba2b84338a22e5c60074"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/SerializedPropertyType.py",
+      "sha256": "448794bfdf5d2c9d376a54888daf88cd5288c82e5758116e2698b141458ed482"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/ShaderCompilerPlatform.py",
+      "sha256": "c118593dee99440a5e3797511d98062adf6b07ae5b28951a9f53eaf0916e3bbb"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/ShaderGpuProgramType.py",
+      "sha256": "deb222f00ec685e66a28028143364e348a872ed3816f605d07142111654aeeab"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/SpriteMeshType.py",
+      "sha256": "577442f60354642eecd0a57fabd81776f34a6b9e9245665607e3882a861e8eed"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/SpritePackingMode.py",
+      "sha256": "4897a1a5047d1bd5368c2ece378bdff352daa77881148198876632331e4d88bd"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/SpritePackingRotation.py",
+      "sha256": "4f3684a2541d486b07e67f60c32d5621b71b9ca4f4a5fc67008fb0f28c0faf97"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/TextureDimension.py",
+      "sha256": "22b4082805b36a134ba3af1edf74a1216e82c461b92618e9b6646e2f9e872e5f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/TextureFormat.py",
+      "sha256": "481d962a6cf841b926bad37e42976cded5c2a5f3514d119876922b0dbbb53b75"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/enums/__init__.py",
+      "sha256": "f99eaa2a3248e8f668790b71ca172b0235f315ee8bc347419ff6a9352658575c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/environment.py",
+      "sha256": "57d5649da8ea62dca7a5c527cbc993375f8a96cd57ce866fd784995263f60ae7"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/exceptions.py",
+      "sha256": "7b9a556598a18502a60c1140cdb72d436d4ca6b2815d63064ee91675f9ee7708"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/files/BundleFile.py",
+      "sha256": "7aaa2ce223c3a2c49c899a4a4fca772934e8c737f63c225e373296ce685e8312"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/files/File.py",
+      "sha256": "92a10d45456820228bbd4c9c0bdbf251722649058ac2306d59e4add70d331bf2"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/files/ObjectReader.py",
+      "sha256": "16a8c79d29b6efdc5773805e958ccb60870812a54d8f26e2180bc78169fc2fbe"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/files/SerializedFile.py",
+      "sha256": "32f5ad9e7463e6fb1c02d1c3ef3481ee2640b123533b96d9ad579ae946596b6b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/files/WebFile.py",
+      "sha256": "8625a5f25a6b0d2e389960bcc53ce87d79c62b68e53e880496d71b153858226d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/files/__init__.py",
+      "sha256": "9147b6bab0e95e2e37f4b7fe4695f50b07bf67cef61b06e3a6a0b6c1dbca90f2"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/helpers/ArchiveStorageManager.py",
+      "sha256": "865b786226eb5080fa1b88ff36f51c90acb02d14d35d17a11de64aca63346083"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/helpers/CompressionHelper.py",
+      "sha256": "f94b582d2edb79d674fd3bc0d02e0443ccea04fb0316b5c4addda321c66c7598"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/helpers/ImportHelper.py",
+      "sha256": "626da76efa2382c5ffda6a19ba9c35b7714b43e7abe0395f593a27af85594bbd"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/helpers/Tpk.py",
+      "sha256": "ce21c053ab6147e1cc57204246eace7a6fa9f02b514d14e0584c1febc84a7731"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/helpers/TypeTreeHelper.py",
+      "sha256": "c74e27c74e9e879d047365e09734b78df541901d3e9a94cb468c620b75d57e34"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/helpers/TypeTreeNode.py",
+      "sha256": "7c530e4aa5760c4ef6f01e95dc8ad02f0c49f937b840aef6231a95da03fe6ce0"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/helpers/__init__.py",
+      "sha256": "9dc9b393488e931b54f5e6f648912da550dbe19a60b8e5428671cc5c48508c6a"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/math/Color.py",
+      "sha256": "fb63285652e948e1e38d9e59b54fe5ef4441b46d60ed836281f39416d72b520c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/math/Matrix4x4.py",
+      "sha256": "147fed958d1da314f96f2cbb2ca678204cc91f97d7d234282ac85f4294c23547"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/math/Quaternion.py",
+      "sha256": "3fb2393ea331444715e5032e1005f190e9bdbbda167ba57511153cc714c6e42b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/math/Rectangle.py",
+      "sha256": "8c4e3d6c54a80b27b5bde13dc6bc353e48a2e404c20cb06fd0d7960759bd5561"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/math/Vector2.py",
+      "sha256": "baba436d06df939c30e752c09d8a9b1ad5c6d2cb955ca59d46ffa079fbd33c21"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/math/Vector3.py",
+      "sha256": "d2ff60bf7d7e7b710098725b08f713e2409e2cf6256dcd63569b6800d86affaf"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/math/Vector4.py",
+      "sha256": "7c03a216953b8e2ee8c512ec7647acaf37bb9d50b8058f74d7f693b402ce732f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/math/__init__.py",
+      "sha256": "8a0c5a9b9d1735e2ab7db2a91d7374d18568ea3ea5817df8aa7b7562367235c8"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/resources/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/resources/uncompressed.tpk",
+      "sha256": "5c69d22b4baf43d9ec2c011cff4f11ad6176dcf43e73ed901f18d0637bfc198d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/streams/EndianBinaryReader.py",
+      "sha256": "e96dd96f0d0b1795066a6d186ae97f06f8f9741f342e58f5a10d7351d3742ecd"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/streams/EndianBinaryWriter.py",
+      "sha256": "982644f63a34058e9fc2752fe0d863312e8aaadca2e10069ba1a2da44f4cbf58"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/UnityPy/streams/__init__.py",
+      "sha256": "3bbfed2bcff10f0ccce93d780f49e349b7621c1da7dcb90dce7b4d7655011607"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/__init__.py",
+      "sha256": "5a55c937a20207463f1d9d259ae4d48226b492e49d9f6a7aedde0de9c6313593"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/_cmp.py",
+      "sha256": "39066559d157ef8cf5f1a746114a78d0e8ea9b434dbb5165aa7bf6244f01da78"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/_compat.py",
+      "sha256": "426472c628b6f79c1c41f6ae816ab1b88ba600fb0d436f91505f364193ea30ac"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/_config.py",
+      "sha256": "cfcd55b7e19e4ffdad6b1b355d97e61f1f535a54b18cf6fa7991f52d31ac4b9e"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/_funcs.py",
+      "sha256": "5414d414a2e496c9aac72b37a964932bf01cf59e2cd260095b0816f6703b2e59"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/_make.py",
+      "sha256": "2e7572d9ed07ca0a2a699927842d7dcfb2663adeea1a401a75fd8b6605952562"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/_next_gen.py",
+      "sha256": "6acd6fa22f2c88023fa363901bc608899be69f41bbf92dff8ffefbe2b9e867f8"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/_version_info.py",
+      "sha256": "7b14aa6f76f913e7cc4ac819025130f5770ba448286cf391099a5c68482500ce"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/converters.py",
+      "sha256": "2b2c39318d327e7511fd1c0dd55c9d7f412213efbe86d0f13a049cffe3582fa0"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/exceptions.py",
+      "sha256": "1d116ae22c9b9afefe0dc670ca397a3357ae33661e2552bf845c6e6811809e02"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/filters.py",
+      "sha256": "f6962f5ea760ea6b4bbca2086f9ea800b44ca0716741370608ee045d3735ab23"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/setters.py",
+      "sha256": "a5b09943ea44e99c630ea65f59652150579f5eda5e908538a92fd80cc2cf439d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attr/validators.py",
+      "sha256": "2c65696e2360fca1b362b2940f924f899931f1331fca70d91a84282c934220ca"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attrs/__init__.py",
+      "sha256": "f7fe706956c5b3bacbaad5d9ef7b4d0ebc617b3c99f1565e5f805bbd0dc4789c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attrs/converters.py",
+      "sha256": "f244258eb5707d24d1bbc20dc0493c488d1e1abce659fb6c4fbaccd04ab2a213"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attrs/exceptions.py",
+      "sha256": "0020829a0d7dfaf0c56833d8f6f165d7df523d709030dfdb10db380c02e3ce6b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attrs/filters.py",
+      "sha256": "54e50c66e83db8453a754b80d1d1758c89d42b43cbddf2e03f45414b977e0831"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attrs/setters.py",
+      "sha256": "78bd5889d6105774f687dfd2608652651d4501c1c66f54ee093cb41342efd925"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/attrs/validators.py",
+      "sha256": "c5ccbac03e53b5391d086d5fe1759ba1c3d23b47da06393921f5497cfe92523d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/lz4/__init__.py",
+      "sha256": "a30af473cdfcb88ed175e7caa89a53d806f2d7d352e20d92d40bf8ac317fcc8d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxextract/vendor/python/lz4/block.py",
+      "sha256": "57dd295be90028601f5af7e9b4abc9f2cc233996ed42d2ad2ed02c1718985903"
+    },
+    {
+      "mode": "0755",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0755",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/files/runtime/partyhard-nextos",
+      "sha256": "bb3e448476db83c918dd6e8183c3f08fbecebe5055104134c5102968d8e9a8ff"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/format",
+      "sha256": "aac4fb5944aa71482880d8838e4de375fd47c4c9a80b6c17043859aee6e20034"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/identity-runtime.v2",
+      "sha256": "26f9290fc13cc032d1bc14f6855af2cf54acf4ef68cb469953c60cc0dcca45e9"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/identity.json",
+      "sha256": "bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/.nxruntime/generations/bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9/manifest.json",
+      "sha256": "0a1e5e3ea3a0b9dce54a306d864e977c141558fdb912fd8a35ff1ce511e64409"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/CONTROLS-CLOSURE.json",
+      "sha256": "18d206449c7f014c0c4a9eb3d9098f31c2c4f75093386561c3de27a5153d9c6a"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/FRAMEWORK-PIN.json",
+      "sha256": "60e9219557bdd9313b611104ba3efa4a975c4b2f06661b3b8e58a51024afe758"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/INSTALLATION.md",
+      "sha256": "532458cdd738666a0d0accd49b9db4715052ffd2a980b89b7d7a6b37e50e6a99"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/LICENSE",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/NOTICE.md",
+      "sha256": "c665e747d0af5132191e95a32592fa7c0e16eed0e0537ae7454a4eec16fda841"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/NXEXTRACT-LICENSE",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/NXSPLASH-LICENSE",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/OWNERSHIP.json",
+      "sha256": "07d61ff933ff598f554f9f18e64905b54a258e2d63e89ecf5037edeaa899d640"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/README.md",
+      "sha256": "29ab3ed55ffa35b92285e0bbf058afbb8efa386320814be8d20bd4be404c3661"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/RELEASE-METADATA.json",
+      "sha256": "9858109c28b9d6c4c356d309f92b8c7579b7fdf3547e810887c2750d112e908a"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/adapter-env.sh",
+      "sha256": "7c148306307e821692c6a29ecd2effb77becb0595f59f3ccf44bffc4ea57aded"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/adapter/adapter-contract.json",
+      "sha256": "7c4f0b2580a7c6264fae030c0c7124004cdf6ba2686692aa02972219f44e0855"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/controllers.nxb",
+      "sha256": "10feaf41cf8ee6203cf05c4202119e5bdba2dfb22db41e89ab31a5a9bd6eff13"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/defaults/NEXTOSCONTROLLERS.gptk",
+      "sha256": "b0c60416251a1e13aac6ab8a0992ff7d25e683fe9a4d6c0b50d97338c8e6bcbb"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/defaults/NEXTOSSETTINGS.txt",
+      "sha256": "61134ce3c37fe953fefe111d3cf59d7dde6d5960c7005970c53620be1e4f141e"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/defaults/port-env.sh",
+      "sha256": "1574a8a512d2b35fabf295626bb0bf1686955b1cfbe4bad593df1cb639f49e8d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/extractor.json",
+      "sha256": "616ddbccb8c055c4e99a13bb5d72fc1375f15c9a5f7c624a322ee6de87cd961b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/gamedata/README.txt",
+      "sha256": "6e2c88ce6e70df34253d952bcda82ef6a1ec6fc689bd4fa7188073d6ae2c992f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/gameinfo.xml",
+      "sha256": "ceccc7bbbb941ea9ed072019f4ea4f0d0236a58e3cfeb6e2834de1b8b288ce0f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract-version.txt",
+      "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/lib/aarch64/liblz4.so.1",
+      "sha256": "a65c53e2e7015b636e4f212449eff2016b99736cdf5798fe2cf3672818b88b8b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/licenses/GPL-3.0.txt",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/licenses/LZ4-BSD-2-Clause.txt",
+      "sha256": "2dfe2f2b8b93ca5d53f2af10104b5881c6b5648636fe746a81230da9cf807335"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/licenses/UnityPy-MIT.txt",
+      "sha256": "d86f8e7dd654370bfe954deb63a8fc972a0eaea943880ba691ff540104bd4c8f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/licenses/attrs-MIT.txt",
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "partyhard/nxextract/nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/nxextract.py",
+      "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/prepare_partyhard_data.py",
+      "sha256": "c6ab36a7103eab6e33b2a53ea6529bc903c93ddf87bb26f85efae8a63da8e91a"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/run-extractor.sh",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/__init__.py",
+      "sha256": "a4c543cf27b066bf8836276a6f70bc963c110f484a64836cbc8607629240eb61"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/ClassIDTypeToClassMap.py",
+      "sha256": "fca4f8e2f2b62fc5065db69629baba1398a0f3f0fe25aed6eab826f2aeae938f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/Object.py",
+      "sha256": "b3f0c4f8e5b4db3aacdcaaa2f57c65272b4ac834f3a0beee357122c04b63ed4c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/PPtr.py",
+      "sha256": "221c795df92e9d338338944aa8049c53e553f0e232e11179a7d7d4ee6783f289"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/UnknownObject.py",
+      "sha256": "875e5ddc8a7190bce675b3c2c0e2842d65ced9372759a61cc12452b067e49ba0"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/__init__.py",
+      "sha256": "94dfe5f423f82a2cfa621f3a9f04295f79a951db368cb71c34df4bd8494ed6cf"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/generated.py",
+      "sha256": "3ca5cded6e6bdc2ae1752fa7d59303d7b080789a8247a96907b5b22038308157"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/legacy_patch/Shader.py",
+      "sha256": "2da3be0bd042bf9824650042352407f2df8b367655430879b6fdf239e8612dce"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/legacy_patch/__init__.py",
+      "sha256": "51678183f46cf73309874f944d2c1d48598875059e5b0532f2295c6efac7ba2c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/classes/math.py",
+      "sha256": "c56f585e070261d823aa5b59ee2b67243526ba9c0351e5097cdf95db3adeba7b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/config.py",
+      "sha256": "f61b6631b066ef0d21feb4fb771170ca6eff0758e86968a6cb983a3b7457ee40"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/Audio.py",
+      "sha256": "cff4a5aed2e9c0452a0ecf2c8b4651c7efa116b7fe3764513ef8c5f37693308f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/BuildTarget.py",
+      "sha256": "a2e54831f8cde23bb2516a45df856ced002d41da72f1d0fe7c4fbd39d97f8d99"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/BundleFile.py",
+      "sha256": "c8b0baf57a8a34bd5890c42e87bd5ed6ad99960ae4a63f48c83099e085b32aa4"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/ClassIDType.py",
+      "sha256": "dbde0ff24c1ad5fe11abdd19be2ef382cc246d912624a8ce8d91ad9dd288ac10"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/CommonString.py",
+      "sha256": "41ff44c4c5a338e44117250737e1dcbc66cf52d92c2dd915320f57fb6e2140e5"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/ExtendableEnum.py",
+      "sha256": "839da6a558b57a8b3cdc47fcb789d3b3a0f821fdd48a2172f348a2e57bfe5ad2"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/FileType.py",
+      "sha256": "c6a5e4a55e068c9a8919487a5372f441023d47ab400be4892235a3320a2ee3f2"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/GfxPrimitiveType.py",
+      "sha256": "1ea32e36d1057a998280f11043ccb60b89b3f2594477c965fe074fe2fc9e66f1"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/GraphicsFormat.py",
+      "sha256": "120978287103acbcf2dc815f712957dd64616b409bfec15a2abbef5caeed467b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/PassType.py",
+      "sha256": "aa8f8307ac3242c0d6e6c6780e2c1c677e9b89999ec6ba2b84338a22e5c60074"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/SerializedPropertyType.py",
+      "sha256": "448794bfdf5d2c9d376a54888daf88cd5288c82e5758116e2698b141458ed482"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/ShaderCompilerPlatform.py",
+      "sha256": "c118593dee99440a5e3797511d98062adf6b07ae5b28951a9f53eaf0916e3bbb"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/ShaderGpuProgramType.py",
+      "sha256": "deb222f00ec685e66a28028143364e348a872ed3816f605d07142111654aeeab"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/SpriteMeshType.py",
+      "sha256": "577442f60354642eecd0a57fabd81776f34a6b9e9245665607e3882a861e8eed"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/SpritePackingMode.py",
+      "sha256": "4897a1a5047d1bd5368c2ece378bdff352daa77881148198876632331e4d88bd"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/SpritePackingRotation.py",
+      "sha256": "4f3684a2541d486b07e67f60c32d5621b71b9ca4f4a5fc67008fb0f28c0faf97"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/TextureDimension.py",
+      "sha256": "22b4082805b36a134ba3af1edf74a1216e82c461b92618e9b6646e2f9e872e5f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/TextureFormat.py",
+      "sha256": "481d962a6cf841b926bad37e42976cded5c2a5f3514d119876922b0dbbb53b75"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/enums/__init__.py",
+      "sha256": "f99eaa2a3248e8f668790b71ca172b0235f315ee8bc347419ff6a9352658575c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/environment.py",
+      "sha256": "57d5649da8ea62dca7a5c527cbc993375f8a96cd57ce866fd784995263f60ae7"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/exceptions.py",
+      "sha256": "7b9a556598a18502a60c1140cdb72d436d4ca6b2815d63064ee91675f9ee7708"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/files/BundleFile.py",
+      "sha256": "7aaa2ce223c3a2c49c899a4a4fca772934e8c737f63c225e373296ce685e8312"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/files/File.py",
+      "sha256": "92a10d45456820228bbd4c9c0bdbf251722649058ac2306d59e4add70d331bf2"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/files/ObjectReader.py",
+      "sha256": "16a8c79d29b6efdc5773805e958ccb60870812a54d8f26e2180bc78169fc2fbe"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/files/SerializedFile.py",
+      "sha256": "32f5ad9e7463e6fb1c02d1c3ef3481ee2640b123533b96d9ad579ae946596b6b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/files/WebFile.py",
+      "sha256": "8625a5f25a6b0d2e389960bcc53ce87d79c62b68e53e880496d71b153858226d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/files/__init__.py",
+      "sha256": "9147b6bab0e95e2e37f4b7fe4695f50b07bf67cef61b06e3a6a0b6c1dbca90f2"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/helpers/ArchiveStorageManager.py",
+      "sha256": "865b786226eb5080fa1b88ff36f51c90acb02d14d35d17a11de64aca63346083"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/helpers/CompressionHelper.py",
+      "sha256": "f94b582d2edb79d674fd3bc0d02e0443ccea04fb0316b5c4addda321c66c7598"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/helpers/ImportHelper.py",
+      "sha256": "626da76efa2382c5ffda6a19ba9c35b7714b43e7abe0395f593a27af85594bbd"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/helpers/Tpk.py",
+      "sha256": "ce21c053ab6147e1cc57204246eace7a6fa9f02b514d14e0584c1febc84a7731"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/helpers/TypeTreeHelper.py",
+      "sha256": "c74e27c74e9e879d047365e09734b78df541901d3e9a94cb468c620b75d57e34"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/helpers/TypeTreeNode.py",
+      "sha256": "7c530e4aa5760c4ef6f01e95dc8ad02f0c49f937b840aef6231a95da03fe6ce0"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/helpers/__init__.py",
+      "sha256": "9dc9b393488e931b54f5e6f648912da550dbe19a60b8e5428671cc5c48508c6a"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/math/Color.py",
+      "sha256": "fb63285652e948e1e38d9e59b54fe5ef4441b46d60ed836281f39416d72b520c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/math/Matrix4x4.py",
+      "sha256": "147fed958d1da314f96f2cbb2ca678204cc91f97d7d234282ac85f4294c23547"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/math/Quaternion.py",
+      "sha256": "3fb2393ea331444715e5032e1005f190e9bdbbda167ba57511153cc714c6e42b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/math/Rectangle.py",
+      "sha256": "8c4e3d6c54a80b27b5bde13dc6bc353e48a2e404c20cb06fd0d7960759bd5561"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/math/Vector2.py",
+      "sha256": "baba436d06df939c30e752c09d8a9b1ad5c6d2cb955ca59d46ffa079fbd33c21"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/math/Vector3.py",
+      "sha256": "d2ff60bf7d7e7b710098725b08f713e2409e2cf6256dcd63569b6800d86affaf"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/math/Vector4.py",
+      "sha256": "7c03a216953b8e2ee8c512ec7647acaf37bb9d50b8058f74d7f693b402ce732f"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/math/__init__.py",
+      "sha256": "8a0c5a9b9d1735e2ab7db2a91d7374d18568ea3ea5817df8aa7b7562367235c8"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/resources/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/resources/uncompressed.tpk",
+      "sha256": "5c69d22b4baf43d9ec2c011cff4f11ad6176dcf43e73ed901f18d0637bfc198d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/streams/EndianBinaryReader.py",
+      "sha256": "e96dd96f0d0b1795066a6d186ae97f06f8f9741f342e58f5a10d7351d3742ecd"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/streams/EndianBinaryWriter.py",
+      "sha256": "982644f63a34058e9fc2752fe0d863312e8aaadca2e10069ba1a2da44f4cbf58"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/UnityPy/streams/__init__.py",
+      "sha256": "3bbfed2bcff10f0ccce93d780f49e349b7621c1da7dcb90dce7b4d7655011607"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/__init__.py",
+      "sha256": "5a55c937a20207463f1d9d259ae4d48226b492e49d9f6a7aedde0de9c6313593"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/_cmp.py",
+      "sha256": "39066559d157ef8cf5f1a746114a78d0e8ea9b434dbb5165aa7bf6244f01da78"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/_compat.py",
+      "sha256": "426472c628b6f79c1c41f6ae816ab1b88ba600fb0d436f91505f364193ea30ac"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/_config.py",
+      "sha256": "cfcd55b7e19e4ffdad6b1b355d97e61f1f535a54b18cf6fa7991f52d31ac4b9e"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/_funcs.py",
+      "sha256": "5414d414a2e496c9aac72b37a964932bf01cf59e2cd260095b0816f6703b2e59"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/_make.py",
+      "sha256": "2e7572d9ed07ca0a2a699927842d7dcfb2663adeea1a401a75fd8b6605952562"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/_next_gen.py",
+      "sha256": "6acd6fa22f2c88023fa363901bc608899be69f41bbf92dff8ffefbe2b9e867f8"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/_version_info.py",
+      "sha256": "7b14aa6f76f913e7cc4ac819025130f5770ba448286cf391099a5c68482500ce"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/converters.py",
+      "sha256": "2b2c39318d327e7511fd1c0dd55c9d7f412213efbe86d0f13a049cffe3582fa0"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/exceptions.py",
+      "sha256": "1d116ae22c9b9afefe0dc670ca397a3357ae33661e2552bf845c6e6811809e02"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/filters.py",
+      "sha256": "f6962f5ea760ea6b4bbca2086f9ea800b44ca0716741370608ee045d3735ab23"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/setters.py",
+      "sha256": "a5b09943ea44e99c630ea65f59652150579f5eda5e908538a92fd80cc2cf439d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attr/validators.py",
+      "sha256": "2c65696e2360fca1b362b2940f924f899931f1331fca70d91a84282c934220ca"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attrs/__init__.py",
+      "sha256": "f7fe706956c5b3bacbaad5d9ef7b4d0ebc617b3c99f1565e5f805bbd0dc4789c"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attrs/converters.py",
+      "sha256": "f244258eb5707d24d1bbc20dc0493c488d1e1abce659fb6c4fbaccd04ab2a213"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attrs/exceptions.py",
+      "sha256": "0020829a0d7dfaf0c56833d8f6f165d7df523d709030dfdb10db380c02e3ce6b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attrs/filters.py",
+      "sha256": "54e50c66e83db8453a754b80d1d1758c89d42b43cbddf2e03f45414b977e0831"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attrs/setters.py",
+      "sha256": "78bd5889d6105774f687dfd2608652651d4501c1c66f54ee093cb41342efd925"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/attrs/validators.py",
+      "sha256": "c5ccbac03e53b5391d086d5fe1759ba1c3d23b47da06393921f5497cfe92523d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/lz4/__init__.py",
+      "sha256": "a30af473cdfcb88ed175e7caa89a53d806f2d7d352e20d92d40bf8ac317fcc8d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxextract/vendor/python/lz4/block.py",
+      "sha256": "57dd295be90028601f5af7e9b4abc9f2cc233996ed42d2ad2ed02c1718985903"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxport.json",
+      "sha256": "a7b7b8704430ea4f9efdb54beb24b0d2e27b7b9224df65722730d5125b69d34e"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxproject.json",
+      "sha256": "c24521ed5c25a201e65d6f7ee240fa5c89ceb5c015a1c4bf28a299c62a9dbc7d"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/nxruntime-bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9.nxb",
+      "sha256": "50e2c2109de831e89ae74b8e043227ebc999707e0daa0d6153bec3997c294e06"
+    },
+    {
+      "mode": "0755",
+      "path": "partyhard/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0755",
+      "path": "partyhard/partyhard-nextos",
+      "sha256": "bb3e448476db83c918dd6e8183c3f08fbecebe5055104134c5102968d8e9a8ff"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/port.json",
+      "sha256": "947f0fb12bbcb7f242cb11440ad243cda2967f9e16554aba6da4bde3f1d0911b"
+    },
+    {
+      "mode": "0644",
+      "path": "partyhard/version.txt",
+      "sha256": "6d6b9230dd8b8aac527f8929b7c2fc1fa0365deccca856216de979d6f5c6a6fe"
+    }
+  ],
+  "claims": {
+    "adapter_lifecycle_implemented": true,
+    "deterministic_scaffold": true,
+    "physical_support_proven": false,
+    "release_ready": true
+  },
+  "generation_id": "bd8db60230d9ab35971aae3d1a5f414896e07c37c55356ac4711b4f83b760ca9",
+  "generator": {
+    "name": "nxgenerator",
+    "version": "0.4.5"
+  },
+  "project_manifest_sha256": "c24521ed5c25a201e65d6f7ee240fa5c89ceb5c015a1c4bf28a299c62a9dbc7d",
+  "schema": "nxgenerator-receipt-v1",
+  "schema_version": 1,
+  "source_pins": {
+    "nxbootstrap": {
+      "source_files": {
+        "templates/launcher.sh.in": "c276bfac69667fc9fa649d0ad24f65c0b5e4a268bcaa9fe891582c3bb65aed0b",
+        "tools/generate-port.py": "0bffca8e6d83fa72aab2e00db395f7f55df5cdb7e268119201c35b81c146b758"
+      },
+      "version": "0.8.4"
+    },
+    "nxextract": {
+      "files": {
+        "nxextract-runtime-env.sh": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+        "nxextract-ui": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+        "nxextract.py": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7",
+        "run-extractor.sh": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      "recipe_sha256": "616ddbccb8c055c4e99a13bb5d72fc1375f15c9a5f7c624a322ee6de87cd961b",
+      "ui_artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "ui/release/aarch64/nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      },
+      "ui_release_manifest_sha256": "6620d6dd4f25623cd067a1a036be3624cb8faee1d8eef177b470d8e4c4fc20fc",
+      "ui_source_sha256": "00266e1efeabe2716911ff9c431191944162bb550ebf3674a6d88ef62a194bf0",
+      "ui_version": "1.2.16",
+      "version": "1.3.0"
+    },
+    "nxsplash": {
+      "artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "release/aarch64/nxsplash-nextos",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      },
+      "release_manifest_sha256": "14c9a0ec823eceb6b53620e443821375c0d6c2dbe4004470bcee514bb8e3d118",
+      "source_sha256": "c393afcef644745b9d1e557c9833146e908aee4d4b6bfdb57e64e7d304c8e177",
+      "version": "0.1.2"
+    },
+    "portmaster": {
+      "contract": "v3",
+      "contract_sha256": "cfcd2faddd3eddb87106f9821ab78a64728bdc593498529bb26427c37f3c64a6",
+      "legacy_parser_commit": "7471d54c7c6ca57c16dee1b77cdd57d4226a1b86",
+      "legacy_runtime_fixture_sha256": "5d17840297262f23250fbccbefc24fb7e7fb57f4d932402002c1f70ec8e3ce89",
+      "metadata_schema": "port-json-supported-v2",
+      "metadata_schema_sha256": "76350e6794c5c9b980df7cdac74fe42570aa0c66552adf47445c813a7310c21d",
+      "parser_commit": "8f9ddc4b0f75dfe61eb370bd3d1b4ec9d5ef6967",
+      "vendor_provenance_sha256": "15937eb265ccd95ab0e3fce9d0058a5b8849aa3ab4ca536611750bd67028d5ad"
+    }
+  }
+}

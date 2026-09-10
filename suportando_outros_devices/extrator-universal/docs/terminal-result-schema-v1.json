@@ -1,0 +1,320 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.dev/schemas/nxextract/terminal-result-v1.json",
+  "title": "NXExtract terminal result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "nxextract_version",
+    "outcome",
+    "code",
+    "final_phase",
+    "recipe",
+    "package_id",
+    "abi",
+    "container",
+    "validated",
+    "logs",
+    "duration_ms",
+    "completed_unix",
+    "error",
+    "ui"
+  ],
+  "properties": {
+    "schema": {
+      "const": "org.nextos.nxextract.terminal-result"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "nxextract_version": {
+      "const": "1.2.10"
+    },
+    "outcome": {
+      "enum": [
+        "success",
+        "error"
+      ]
+    },
+    "code": {
+      "type": "string",
+      "pattern": "^NXE[0-9]{4}$"
+    },
+    "final_phase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "index",
+        "id",
+        "label"
+      ],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "id": {
+          "enum": [
+            "preparing",
+            "scanning",
+            "validating-packages",
+            "selecting",
+            "extracting",
+            "processing",
+            "validating-data",
+            "installing",
+            "ready"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      }
+    },
+    "recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "digest"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "digest": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "package_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "abi": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[A-Za-z0-9._-]{1,64}$"
+    },
+    "container": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "identity"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "apk-set",
+            "bundle",
+            "companion",
+            "existing",
+            null
+          ]
+        },
+        "identity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "validated": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "items",
+        "bytes",
+        "critical_payloads"
+      ],
+      "properties": {
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "critical_payloads": {
+          "type": "array",
+          "maxItems": 256,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "items",
+              "bytes"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+              },
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "logs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "detail"
+      ],
+      "properties": {
+        "summary": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "detail": {
+          "$ref": "#/$defs/relativePath"
+        }
+      }
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "completed_unix": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "class",
+            "message"
+          ],
+          "properties": {
+            "class": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_]{0,127}$"
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        }
+      ]
+    },
+    "ui": {
+      "type": "object",
+      "description": "P11.7: como a setup UI terminou nesta execucao.",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "renderer",
+        "fallback_reason"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "visible",
+            "headless-fallback",
+            "disabled"
+          ]
+        },
+        "renderer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fallback_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "success"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "error"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000-\\u001f\\\\]+$"
+    }
+  }
+}

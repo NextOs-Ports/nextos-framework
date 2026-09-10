@@ -1,0 +1,632 @@
+{
+  "schema_version": 2,
+  "contract_id": "nxframework-firmware-test-matrix-v2",
+  "purpose": "Run generated-launcher contracts in synthetic firmware roots without turning host results into device evidence",
+  "evidence_boundary": {
+    "result": "synthetic-contract-pass",
+    "evidence_kind": "synthetic",
+    "universal_evidence": false,
+    "hardware_proof": false,
+    "hardware_ran": false,
+    "device_access": false,
+    "firmware_images_used": false
+  },
+  "approved_sources": [
+    {
+      "id": "portmaster-pinned-upstream",
+      "kind": "official-contract",
+      "ref": "framework/portmaster/upstream-sources-v1.json"
+    },
+    {
+      "id": "portmaster-contract",
+      "kind": "official-and-local-contract",
+      "ref": "framework/portmaster/contract-v1.json"
+    },
+    {
+      "id": "approved-port-ledger",
+      "kind": "approved-release-ledger",
+      "ref": "framework/catalog/ports-v1.json"
+    },
+    {
+      "id": "sanitized-device-catalog",
+      "kind": "sanitized-evidence-catalog",
+      "ref": "framework/catalog/devices-v1.json"
+    },
+    {
+      "id": "approved-input-contract",
+      "kind": "approved-adapter-contract",
+      "ref": "framework/nxinput/references/m15-input-contract-v1.json"
+    },
+    {
+      "id": "spruce-firmware-contract",
+      "kind": "official-firmware-contract",
+      "ref": "framework/tests/device-environments/spruce/contract-v1.json"
+    },
+    {
+      "id": "rocknix-firmware-contract",
+      "kind": "official-firmware-contract",
+      "ref": "framework/tests/device-environments/rocknix/contract-v1.json"
+    }
+  ],
+  "shared_contracts": {
+    "generated_launcher_gate": "bootstrap-isolated",
+    "input_gate": "nxinput-m15-contract",
+    "graphics_gate": "nxgl-m13-host",
+    "audio_gate": "nxaudio-m14-host",
+    "nxextract_ui_manifest": "suportando_outros_devices/extrator-universal/ui/release/manifest-v1.json",
+    "nxsplash_manifest": "framework/nxsplash/release/manifest-v1.json",
+    "launcher_expectations": {
+      "external_stat": "absent-from-path-and-not-invoked",
+      "early_log_mode": "0600",
+      "early_log_fields": [
+        "version",
+        "status",
+        "pid",
+        "launcher",
+        "game_dir",
+        "cfw"
+      ],
+      "exit_status_preserved": true,
+      "pm_finish_count": 1,
+      "backend_selected_by_firmware_name": false
+    },
+    "input_expectations": {
+      "mapping_owner": "active-portmaster-control",
+      "focus_loss_releases_state": true,
+      "hotplug_uses_instance_id_and_rescan": true,
+      "disconnect_releases_state": true,
+      "profile_simulation_is_physical_input": false
+    },
+    "gles1_provider_gate": "gles1-profile-matrix"
+  },
+  "profiles": [
+    {
+      "id": "muos",
+      "label": "muOS synthetic contract fixture",
+      "firmware_names": [
+        "muOS"
+      ],
+      "evidence": {
+        "level": "physical-subsystem",
+        "scope": "approved-history-not-replayed-by-this-gate",
+        "refs": [
+          "framework/catalog/devices-v1.json",
+          "suportando_outros_devices/ports-aprovados.md"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/mnt/mmc/MUOS/PortMaster"
+        ],
+        "primary_root": "/mnt/mmc/MUOS/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/mnt/mmc/ports",
+        "data_root": "/mnt/mmc/ports"
+      },
+      "detection": {
+        "method": "control-cfw-name",
+        "accepted_sources": [
+          "regular-control.txt",
+          "regular-home-.OS"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        },
+        {
+          "architecture": "armv7",
+          "port_32bit": true,
+          "library_suffix": "libs.armhf",
+          "nxextract_ui_arch": "armv7",
+          "nxsplash_arch": "armv7"
+        }
+      ],
+      "runtime_fixtures": {
+        "python3-bad-marshal": {
+          "mount": "/usr/bin/python3",
+          "state": "stubbed-per-case",
+          "provenance": "muOS field case: stdlib bytecode cache corrompida ('bad marshal data' em encodings)",
+          "field_bug": "NXExtract morria com erro criptico antes da sonda 6209 + cache privada do 0.6.17"
+        }
+      },
+      "field_cases": [
+        "python-probe"
+      ],
+      "graphics_provider": {
+        "gles1_shape": "unknown",
+        "gles1_evidence": "not-measured",
+        "note": "blob Mali fechado; sem medicao propria"
+      }
+    },
+    {
+      "id": "rocknix-panfrost",
+      "label": "ROCKNIX Panfrost synthetic contract fixture",
+      "firmware_names": [
+        "ROCKNIX"
+      ],
+      "evidence": {
+        "level": "physical-runtime-ui-unverified",
+        "scope": "approved-runtime-history-with-nxextract-ui-explicitly-unverified",
+        "refs": [
+          "framework/catalog/devices-v1.json",
+          "suportando_outros_devices/ports-aprovados.md",
+          "framework/tests/device-environments/rocknix/contract-v1.json"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/opt/system/Tools/PortMaster",
+          "/storage/.config/PortMaster"
+        ],
+        "primary_root": "/opt/system/Tools/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/storage/roms/ports",
+        "data_root": "/storage/roms/ports"
+      },
+      "detection": {
+        "method": "control-cfw-name",
+        "accepted_sources": [
+          "regular-control.txt",
+          "regular-home-.OS"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        },
+        {
+          "architecture": "armv7",
+          "port_32bit": true,
+          "library_suffix": "libs.armhf",
+          "nxextract_ui_arch": "armv7",
+          "nxsplash_arch": "armv7"
+        }
+      ],
+      "runtime_fixtures": {
+        "rocknix-image-rootfs": {
+          "mount": "/usr",
+          "state": "external-firmware",
+          "contract": "framework/tests/device-environments/rocknix/contract-v1.json",
+          "provenance": "official ROCKNIX RK3566-Specific 20260801 image, content-pinned outside Git",
+          "field_bug": "guard Wayland hint isolation and late EGL/GLES provider discovery without device-name selection"
+        }
+      },
+      "graphics_provider": {
+        "gles1_shape": "mesa-frontend-dependent",
+        "gles1_evidence": "inferred-from-family",
+        "note": "quem responde e' a Mesa, e o front-end GLES1 dela e' opcao de compilacao: a imagem pode simplesmente nao expor libGLESv1_CM"
+      }
+    },
+    {
+      "id": "amberelec",
+      "label": "AmberELEC synthetic contract fixture",
+      "firmware_names": [
+        "AmberELEC"
+      ],
+      "evidence": {
+        "level": "design-only",
+        "scope": "official-root-contract-without-physical-claim",
+        "refs": [
+          "framework/portmaster/upstream-sources-v1.json",
+          "framework/catalog/devices-v1.json"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/roms/ports/PortMaster",
+          "/storage/roms/ports/PortMaster"
+        ],
+        "primary_root": "/roms/ports/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/roms/ports",
+        "data_root": "/roms/ports"
+      },
+      "detection": {
+        "method": "control-cfw-name",
+        "accepted_sources": [
+          "regular-control.txt",
+          "regular-home-.OS"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        },
+        {
+          "architecture": "armv7",
+          "port_32bit": true,
+          "library_suffix": "libs.armhf",
+          "nxextract_ui_arch": "armv7",
+          "nxsplash_arch": "armv7"
+        }
+      ],
+      "runtime_fixtures": {
+        "alsoft-conf": {
+          "source": "framework/tests/fixtures/amberelec/etc/openal/alsoft.conf",
+          "mount": "/etc/openal/alsoft.conf",
+          "provenance": "AmberELEC-RG351P.aarch64-20230203 SYSTEM squashfs, byte-identical",
+          "field_bug": "embedded OpenAL-soft reads the HOST alsoft.conf (drivers=alsa) and goes silent (Tightrope)"
+        }
+      },
+      "field_cases": [
+        "embedded-openal-shield"
+      ],
+      "graphics_provider": {
+        "gles1_shape": "unknown",
+        "gles1_evidence": "not-measured",
+        "note": "sem medicao propria"
+      }
+    },
+    {
+      "id": "knulli-batocera",
+      "label": "Knulli Batocera synthetic contract fixture",
+      "firmware_names": [
+        "knulli",
+        "Batocera"
+      ],
+      "evidence": {
+        "level": "release-fix",
+        "scope": "approved-launcher-fix-not-full-device-replay",
+        "refs": [
+          "framework/portmaster/fixtures/contract-cases-v1.json",
+          "suportando_outros_devices/ports-aprovados.md"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/userdata/system/.local/share/PortMaster"
+        ],
+        "primary_root": "/userdata/system/.local/share/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/userdata/roms/ports",
+        "data_root": "/userdata/roms/ports"
+      },
+      "detection": {
+        "method": "control-cfw-name",
+        "accepted_sources": [
+          "regular-control.txt",
+          "regular-home-.OS"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        },
+        {
+          "architecture": "armv7",
+          "port_32bit": true,
+          "library_suffix": "libs.armhf",
+          "nxextract_ui_arch": "armv7",
+          "nxsplash_arch": "armv7"
+        }
+      ],
+      "graphics_provider": {
+        "gles1_shape": "unknown",
+        "gles1_evidence": "not-measured",
+        "note": "varia por imagem; sem medicao propria"
+      }
+    },
+    {
+      "id": "arkos",
+      "label": "ArkOS synthetic contract fixture",
+      "firmware_names": [
+        "ArkOS"
+      ],
+      "evidence": {
+        "level": "physical-full",
+        "scope": "approved-history-not-replayed-by-this-gate",
+        "refs": [
+          "framework/catalog/devices-v1.json",
+          "suportando_outros_devices/ports-aprovados.md"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/roms/tools/PortMaster",
+          "/roms2/tools/PortMaster"
+        ],
+        "primary_root": "/roms/tools/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/roms/ports",
+        "data_root": "/roms/ports"
+      },
+      "detection": {
+        "method": "control-cfw-name",
+        "accepted_sources": [
+          "regular-control.txt",
+          "regular-home-.OS"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        },
+        {
+          "architecture": "armv7",
+          "port_32bit": true,
+          "library_suffix": "libs.armhf",
+          "nxextract_ui_arch": "armv7",
+          "nxsplash_arch": "armv7"
+        }
+      ],
+      "graphics_provider": {
+        "gles1_shape": "unknown",
+        "gles1_evidence": "not-measured",
+        "note": "mesma familia de aparelho do darkosre, mas firmware diferente; sem medicao propria nao se declara a forma"
+      }
+    },
+    {
+      "id": "darkosre",
+      "label": "dArkOSRE synthetic contract fixture",
+      "firmware_names": [
+        "dArkOSRE"
+      ],
+      "evidence": {
+        "level": "field-observation",
+        "scope": "sanitized-field-observation-not-physical-proof",
+        "refs": [
+          "framework/nxbootstrap/tests/test-launcher-behavior.sh",
+          "framework/portmaster/contract-v1.json"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/opt/system/Tools/PortMaster"
+        ],
+        "primary_root": "/opt/system/Tools/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/roms2/ports",
+        "data_root": "/roms2/ports"
+      },
+      "detection": {
+        "method": "dual-regular-marker-fallback",
+        "accepted_sources": [
+          "regular-control.txt",
+          "two-independent-regular-markers"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        },
+        {
+          "architecture": "armv7",
+          "port_32bit": true,
+          "library_suffix": "libs.armhf",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "armv7"
+        }
+      ],
+      "graphics_provider": {
+        "gles1_shape": "crossed-soname",
+        "gles1_evidence": "measured-on-device",
+        "note": "libGLESv1_CM.so.1 resolve para uma Mesa sem driver de 198 KB enquanto o blob Bifrost real de 40 MB fica atras do nome sem versao e de libmali.so; quem se liga ao nome versionado ganha contexto que nao desenha"
+      },
+      "frontend_environment": {
+        "unit": "emulationstation.service",
+        "environment": {
+          "SDL_VIDEO_EGL_DRIVER": "libEGL.so"
+        },
+        "measured": "2026-08-22 live unit read on device",
+        "consequence": "a context created under this hint on the crossed driverless Mesa reports a NULL renderer; the reactive repair must treat the hint as DISPROVEN by that live measurement and re-exec the coherent pair (nxgl 0.2.13); physical proofs for frontend-env firmwares are only valid when launched with the unit environment reproduced (nx-device-launch), never from a bare SSH shell"
+      }
+    },
+    {
+      "id": "nextos-mali450",
+      "label": "NextOS Mali-450 synthetic contract fixture",
+      "firmware_names": [
+        "NextOS"
+      ],
+      "evidence": {
+        "level": "physical-full",
+        "scope": "approved-history-not-replayed-by-this-gate",
+        "refs": [
+          "framework/catalog/devices-v1.json",
+          "suportando_outros_devices/ports-aprovados.md"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/storage/roms/ports/PortMaster"
+        ],
+        "primary_root": "/storage/roms/ports/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/storage/roms/ports",
+        "data_root": "/storage/roms/ports"
+      },
+      "detection": {
+        "method": "control-cfw-name",
+        "accepted_sources": [
+          "regular-control.txt",
+          "regular-home-.OS"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        },
+        {
+          "architecture": "armv7",
+          "port_32bit": true,
+          "library_suffix": "libs.armhf",
+          "nxextract_ui_arch": "armv7",
+          "nxsplash_arch": "armv7"
+        }
+      ],
+      "graphics_provider": {
+        "gles1_shape": "unified-blob",
+        "gles1_evidence": "measured-on-device",
+        "note": "libGLESv1_CM.so, libGLESv1_CM.so.1 e libmali.so resolvem todos para o mesmo blob Utgard; os SONAMEs nao estao cruzados"
+      }
+    },
+    {
+      "id": "trimui",
+      "label": "TrimUI synthetic contract fixture",
+      "firmware_names": [
+        "TrimUI"
+      ],
+      "evidence": {
+        "level": "design-only",
+        "scope": "official-control-contract-without-physical-claim",
+        "refs": [
+          "framework/portmaster/upstream-sources-v1.json",
+          "framework/catalog/devices-v1.json"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/mnt/SDCARD/Apps/PortMaster/PortMaster"
+        ],
+        "primary_root": "/mnt/SDCARD/Apps/PortMaster/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/mnt/SDCARD/Data/ports",
+        "data_root": "/mnt/SDCARD/Data/ports"
+      },
+      "detection": {
+        "method": "control-cfw-name",
+        "accepted_sources": [
+          "regular-control.txt",
+          "regular-home-.OS"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        }
+      ],
+      "graphics_provider": {
+        "gles1_shape": "unknown",
+        "gles1_evidence": "not-measured",
+        "note": "sem medicao propria"
+      }
+    },
+    {
+      "id": "spruce",
+      "label": "spruceOS (Miyoo Flip) synthetic contract fixture",
+      "firmware_names": [
+        "spruce"
+      ],
+      "evidence": {
+        "level": "field-observation",
+        "scope": "Miyoo Flip AArch64 host with an off-path ARMHF loader, persistent ARMHF chroot, reduced muOS roots and a physically proven KMSDRM/dummy target SDL",
+        "refs": [
+          "framework/portmaster/vendor/PortMaster-GUI-8f9ddc4/PortMaster/pylibs/harbourmaster/config.py",
+          "framework/tests/device-environments/spruce/contract-v1.json",
+          "suportando_outros_devices/ports-aprovados.md"
+        ]
+      },
+      "portmaster": {
+        "candidate_roots": [
+          "/mnt/sdcard/Roms/.portmaster/PortMaster"
+        ],
+        "primary_root": "/mnt/sdcard/Roms/.portmaster/PortMaster",
+        "control_relative_path": "control.txt",
+        "launcher_root": "/mnt/sdcard/Roms/PORTS64",
+        "data_root": "/mnt/sdcard/Roms/PORTS64"
+      },
+      "detection": {
+        "method": "control-cfw-name",
+        "accepted_sources": [
+          "regular-control.txt",
+          "regular-home-.OS"
+        ],
+        "unsafe_values_rejected": true
+      },
+      "runtime_fixtures": {
+        "default-armhf-loader-absent": {
+          "mount": "/lib/ld-linux-armhf.so.3",
+          "state": "absent",
+          "provenance": "spruce 4.3.4 keeps the ARMHF interpreter outside the default Linux path",
+          "field_bug": "direct ARMHF exec dies with bare status 127 when the alternate interpreter is not selected"
+        },
+        "alternate-armhf-loader": {
+          "mount": "/mnt/SDCARD/spruce/flip/ld-linux-armhf.so.3",
+          "state": "external-firmware",
+          "contract": "framework/tests/device-environments/spruce/contract-v1.json",
+          "provenance": "spruce 4.3.4 official firmware archive plus physical Titan Souls runtime receipt",
+          "field_bug": "all ARMHF roles must use the off-path interpreter while the AArch64 NXExtract role remains native"
+        },
+        "persistent-armhf-chroot": {
+          "mount": "/mnt/SDCARD/Persistent/.32bit_chroot",
+          "state": "external-firmware",
+          "contract": "framework/tests/device-environments/spruce/contract-v1.json",
+          "provenance": "spruce 4.3.4 miyoo355_rootfs_32 image",
+          "field_bug": "the ARMHF closure must prefer the chroot SDL that reports KMSDRM and dummy without admitting AArch64 libraries"
+        },
+        "muos-mixed-runtime": {
+          "mount": "/mnt/SDCARD/spruce/flip/muOS",
+          "state": "external-firmware",
+          "contract": "framework/tests/device-environments/spruce/contract-v1.json",
+          "provenance": "spruce 4.3.4 reduced muOS image with distinct usr/lib32 and usr/lib worlds",
+          "field_bug": "usr/lib32 is ARMHF while usr/lib is AArch64 and must not contaminate the ARMHF closure"
+        }
+      },
+      "field_cases": [
+        "armhf-interp-preflight",
+        "spruce-mixed-abi-runtime"
+      ],
+      "arch_cases": [
+        {
+          "architecture": "aarch64",
+          "port_32bit": false,
+          "library_suffix": "libs.aarch64",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "aarch64"
+        },
+        {
+          "architecture": "armv7",
+          "port_32bit": true,
+          "library_suffix": "libs.armhf",
+          "nxextract_ui_arch": "aarch64",
+          "nxsplash_arch": "armv7"
+        }
+      ],
+      "graphics_provider": {
+        "gles1_shape": "unknown",
+        "gles1_evidence": "not-measured",
+        "note": "a SDL do sistema so' tem o driver 'mali' e a libEGL.so.1 e' um stub; a forma do provedor GLES1 em si nao foi medida"
+      }
+    }
+  ]
+}

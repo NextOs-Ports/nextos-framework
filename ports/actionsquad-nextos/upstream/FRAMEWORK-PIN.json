@@ -1,0 +1,82 @@
+{
+  "components": {
+    "nxabi": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "ce5dc2155ca32d47edbf8a059906b8a43144d88b0f5cd6149c61b32d005c9f30",
+      "version": "0.1.0"
+    },
+    "nxandroid": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "2559f4f158b9a62f0a78598e7dbaa79031557d16f3156cd9e1575fa975521450",
+      "version": "0.2.1"
+    },
+    "nxaudio": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "021b051c5166b2e4058e89592ac673ad1869ae80fb76aa706c154e615b92c21a",
+      "version": "0.2.0"
+    },
+    "nxbootstrap": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "dd32188e4f5ef712b4732ee2c8cbb926ad5e599c524084043e41d46d73e7124e",
+      "version": "0.6.16"
+    },
+    "nxcompat": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "9449e1a4404cbc5fd12283e531961461e96ca302fa0c39b74568eb4331a73c69",
+      "version": "0.2.1"
+    },
+    "nxextract": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "cc797cbb63456582f5c4cf51cd3c83bcababf4fed23f998aa45c54c1f837ce17",
+      "version": "1.2.10"
+    },
+    "nxgenerator": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "a7af4fad61b88a99d1c930934d8badf45627e65330e26b7323f8cb496c7dc34a",
+      "version": "0.2.10"
+    },
+    "nxgl": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "1da397f0bca03295c4ef76a3ab1d35383219024c0dc92b7d8465124b12c18c03",
+      "version": "0.2.7"
+    },
+    "nxinput": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "57d7a46e92139464e78e08bd6a3a51c99ddb0e5a3445b75b722b0d81b7eb0b5b",
+      "version": "0.3.1"
+    },
+    "nxloader": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "5d7212841a6e6ee2831979ffbc48d93dae9c5503ef7144dfca73bad7159e5b1b",
+      "version": "0.7.2"
+    },
+    "nxobs": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "f3c6d9d53bf2dfd83b3c39ea8c76f2b6c9628bfa880884c2b12c086a93dbe831",
+      "version": "0.2.1"
+    },
+    "nxrelease": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "c1de4c2a06989519af2a478521992c536e00d3fb48831a6fb4b6162a707fa6b9",
+      "version": "0.2.15"
+    },
+    "nxsplash": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "760d567d96f886b365ff160d80d7d4f14ae9bc96095c1a08cf5308b0ee33ff28",
+      "version": "0.1.2"
+    },
+    "portmaster": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "a2da6d09e555368f234dbe4cc76e37fa0ce5f03a0d42876e6d0101e77c24f8ea",
+      "version": "2.0.0"
+    },
+    "tests": {
+      "commit": "010219706f0a19eba2aab1ff9ed0d06013f71b80",
+      "tree_sha256": "26da2cd4fe4179dce707dbb7d3e7e331635f8921beb1c5884910b43bcd20f20f",
+      "version": "1.0.0"
+    }
+  },
+  "schema": "nextos-framework-build-pin-v1",
+  "schema_version": 1,
+  "tree_digest": "nxgenerator-component-tree-sha256-v1"
+}

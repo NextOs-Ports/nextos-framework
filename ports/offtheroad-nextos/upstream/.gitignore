@@ -1,0 +1,11 @@
+offtheroad
+offtheroad-nextos
+.build/
+log.txt
+debug.log
+assets/
+lib/
+userdata/
+gamedata/*
+!gamedata/README.txt
+*.apk

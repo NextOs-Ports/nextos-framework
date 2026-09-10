@@ -1,0 +1,205 @@
+{
+  "schema": "nxframework-abi-variants-v1",
+  "variants": [
+    {
+      "variant_id": "kotor-armv7",
+      "canonical_port": "kotor",
+      "abi": "armv7",
+      "positive_reference": true,
+      "guest": {
+        "object": "ports/kotor/libKOTOR.so sha256=099c43db23a891a19f40f5805c3582b390de39d96d6e50be52649a40498a68b5",
+        "elf_class": "ELF32 little-endian ET_DYN",
+        "machine": "EM_ARM",
+        "eabi": "EABI5",
+        "float_abi": "EF_ARM_ABI_FLOAT_SOFT",
+        "pcs_boundary": "guest base AAPCS through explicit softfp-to-hardfp adapter thunks",
+        "interpreter_scope": "Android guest metadata is not the Linux host PT_INTERP contract"
+      },
+      "relocations": {
+        "format": "ELF32 REL with implicit signed addends; RELA rejected",
+        "observed": "ABS32=10971,GLOB_DAT=3228,JUMP_SLOT=9553,RELATIVE=320",
+        "rejected": "unknown, TLS/TLSDESC, IFUNC/IRELATIVE and non-allowlisted text relocations fail before any commit"
+      },
+      "host": {
+        "elf_class": "ELF32 little-endian ET_DYN/PIE host executable",
+        "machine": "EM_ARM EABI5",
+        "float_abi": "hard-float with Tag_ABI_VFP_args=VFP registers",
+        "pt_interp": "/lib/ld-linux-armhf.so.3",
+        "glibc_ceiling": "ports/kotor/kotor-universal max GLIBC_2.27; public ceiling GLIBC_2.30",
+        "dependencies": "all Linux host DT_NEEDED entries must resolve in the pinned old sysroot"
+      },
+      "gates": {
+        "gcc": "nxloader-armv7-cross builds with pinned GCC ARMHF and old sysroot",
+        "clang": "nxloader-armv7-cross builds with Clang ARMHF plus LLD and the same old sysroot",
+        "qemu": "cross-safe ABI and softfp probes only; no guest ELF execution",
+        "initializers": "guest_initializers_executed=0 in every automatic ARMv7 gate"
+      },
+      "evidence": {
+        "approved_reference": "KOTOR approved source; parser load+relocate inspection is read-only",
+        "physical": "M09-012 ELF32 cache-sync passed on authorized physical ARM hardware; sanitized evidence is framework/nxloader/m09-armv7-physical-evidence-v1.json",
+        "limitations": "green guest proves only ABS32/GLOB_DAT/JUMP_SLOT/RELATIVE, not branch relocations",
+        "generalization": "reuse loader/PCS discipline and libm softfp boundary; never copy game offsets or lifecycle shortcuts"
+      }
+    },
+    {
+      "variant_id": "tasm2_127-armv7",
+      "canonical_port": "tasm2_127",
+      "abi": "armv7",
+      "positive_reference": true,
+      "guest": {
+        "object": "ports/asm2_127/asm2-127-gamefiles/apk/lib/armeabi-v7a/libtasm2.so sha256=d091fe95c56af681f1a06453e9868622935ecbb759c05c340fc16bf8df2ae62e",
+        "elf_class": "ELF32 little-endian ET_DYN",
+        "machine": "EM_ARM",
+        "eabi": "EABI5",
+        "float_abi": "e_flags unspecified and no Tag_ABI_VFP_args; never inferred",
+        "pcs_boundary": "adapter explicitly declares guest base AAPCS; difftime and GLES float-by-value remain adapter wrappers",
+        "interpreter_scope": "guest /system/bin/linker is allowed metadata; Linux host alone must use canonical ARMHF PT_INTERP"
+      },
+      "relocations": {
+        "format": "ELF32 REL with implicit signed addends; RELA rejected",
+        "observed": "libtasm2 RELATIVE=74548,JUMP_SLOT=387,GLOB_DAT=20,ABS32=15; libgenerator RELATIVE=2237,JUMP_SLOT=80,GLOB_DAT=4",
+        "rejected": "unknown, TLS/TLSDESC, IFUNC/IRELATIVE and non-allowlisted text relocations fail before any commit"
+      },
+      "host": {
+        "elf_class": "ELF32 little-endian ET_DYN/PIE host executable",
+        "machine": "EM_ARM EABI5",
+        "float_abi": "hard-float with Tag_ABI_VFP_args=VFP registers",
+        "pt_interp": "/lib/ld-linux-armhf.so.3",
+        "glibc_ceiling": "ports/asm2_127/asm2_127-universal max GLIBC_2.27; public ceiling GLIBC_2.30",
+        "dependencies": "all Linux host DT_NEEDED entries must resolve in the pinned old sysroot"
+      },
+      "gates": {
+        "gcc": "nxloader-armv7-cross builds with pinned GCC ARMHF and old sysroot",
+        "clang": "nxloader-armv7-cross builds with Clang ARMHF plus LLD and the same old sysroot",
+        "qemu": "cross-safe ABI and softfp probes only; no guest ELF execution",
+        "initializers": "guest_initializers_executed=0 in every automatic ARMv7 gate"
+      },
+      "evidence": {
+        "approved_reference": "only ports/asm2_127 is positive; abandoned legacy tree is forbidden as implementation source",
+        "physical": "M09-012 ELF32 cache-sync passed on authorized physical ARM hardware; sanitized evidence is framework/nxloader/m09-armv7-physical-evidence-v1.json",
+        "limitations": "green guests prove only ABS32/GLOB_DAT/JUMP_SLOT/RELATIVE, not REL32 or branch relocations",
+        "generalization": "reuse minimum-VMA/load-bias and explicit PCS discipline; never copy offsets, skips or exact-version hacks"
+      }
+    },
+    {
+      "variant_id": "bully2-aarch64",
+      "canonical_port": "bully2",
+      "abi": "aarch64",
+      "positive_reference": true,
+      "guest": {
+        "object": "ports/bully2/libGame.so sha256=345f6411bebbd2310b2cb5d2a271341847a054c2b7f6d5ffba8030cd53140d76",
+        "elf_class": "ELF64 little-endian ET_DYN LP64",
+        "machine": "EM_AARCH64 with e_flags=0",
+        "eabi": "not-applicable: AArch64 e_flags=0 and ARM32 EABI version does not apply",
+        "float_abi": "AAPCS64 unified register convention; no ARM32 softfp/hardfp split",
+        "pcs_boundary": "AAPCS64 with SP aligned to 16 bytes at public interfaces",
+        "interpreter_scope": "Android ET_DYN guest has no PT_INTERP; only the Linux host executable uses the AArch64 interpreter"
+      },
+      "relocations": {
+        "format": "ELF64 RELA with explicit signed addends; REL rejected",
+        "observed": "libGame RELATIVE=12127,ABS64=42596,GLOB_DAT=7844,JUMP_SLOT=12466,total=75033",
+        "rejected": "unknown, TLS/TLSDESC, IFUNC/IRELATIVE, RELR, Android packed and unobserved instruction relocations fail before any commit"
+      },
+      "host": {
+        "elf_class": "ELF64 little-endian ET_DYN/PIE host executable",
+        "machine": "EM_AARCH64 LP64",
+        "float_abi": "AAPCS64 with SP aligned to 16 bytes at public interfaces",
+        "pt_interp": "/lib/ld-linux-aarch64.so.1",
+        "glibc_ceiling": "ports/bully2/bully.glibc230 sha256=bd561ad5043e925c24e9fc45901a610df779da1005a43ac4c1e56588314ea228 max GLIBC_2.17; public ceiling GLIBC_2.30",
+        "dependencies": "all Linux host DT_NEEDED entries must resolve in the pinned low-glibc AArch64 sysroot"
+      },
+      "gates": {
+        "gcc": "nxloader-aarch64-cross builds with pinned GCC AArch64 and an old sysroot",
+        "clang": "nxloader-aarch64-cross builds with Clang AArch64 plus LLD and the same old sysroot",
+        "qemu": "cross-safe AAPCS64 and SP16 probes only; no guest ELF execution",
+        "initializers": "guest_initializers_executed=0 and guest_jni_onload_executed=0 in every automatic M10 gate"
+      },
+      "evidence": {
+        "approved_reference": "Bully2 is a positive narrow AArch64 loader reference from the canonical local port; its delisted product flow is not promoted",
+        "physical": "historical physical-subsystem loader and rendering evidence exists on Mali-450 and R36S; no current public or universal claim",
+        "limitations": "M10 uses ABI and relocation evidence only; Bully2 remains historical, delisted and non-universal",
+        "generalization": "reuse LP64, RELA, load-bias, registry and transaction discipline; never copy Rockstar hooks, offsets or lifecycle shortcuts"
+      }
+    },
+    {
+      "variant_id": "sonic4ep2-aarch64",
+      "canonical_port": "sonic4ep2",
+      "abi": "aarch64",
+      "positive_reference": true,
+      "guest": {
+        "object": "ports/sonic4/device_libs_3.0.0_arm64/libfox.so sha256=ca07163ad1e92d767016d43048a2c13eede7b9d6217ed4f032ca4d6d8e342a1a",
+        "elf_class": "ELF64 little-endian ET_DYN LP64",
+        "machine": "EM_AARCH64 with e_flags=0",
+        "eabi": "not-applicable: AArch64 e_flags=0 and ARM32 EABI version does not apply",
+        "float_abi": "AAPCS64 unified register convention; no ARM32 softfp/hardfp split",
+        "pcs_boundary": "AAPCS64 with SP aligned to 16 bytes at public interfaces",
+        "interpreter_scope": "Android ET_DYN guest has no PT_INTERP; only the Linux host executable uses the AArch64 interpreter"
+      },
+      "relocations": {
+        "format": "ELF64 RELA with explicit signed addends; REL rejected",
+        "observed": "libfox RELATIVE=22970,ABS64=18517,GLOB_DAT=3172,JUMP_SLOT=10303,total=54962",
+        "rejected": "unknown, TLS/TLSDESC, IFUNC/IRELATIVE, RELR, Android packed and unobserved instruction relocations fail before any commit"
+      },
+      "host": {
+        "elf_class": "ELF64 little-endian ET_DYN/PIE host executable",
+        "machine": "EM_AARCH64 LP64",
+        "float_abi": "AAPCS64 with SP aligned to 16 bytes at public interfaces",
+        "pt_interp": "/lib/ld-linux-aarch64.so.1",
+        "glibc_ceiling": "ports/sonic4/sonic4.arm64 sha256=c02b250c640e9696718f89dfff217ec7c620be8b028b7c1ede6b60e3a719ea30 max GLIBC_2.27; public ceiling GLIBC_2.30",
+        "dependencies": "all Linux host DT_NEEDED entries must resolve in the pinned low-glibc AArch64 sysroot"
+      },
+      "gates": {
+        "gcc": "nxloader-aarch64-cross builds with pinned GCC AArch64 and an old sysroot",
+        "clang": "nxloader-aarch64-cross builds with Clang AArch64 plus LLD and the same old sysroot",
+        "qemu": "cross-safe AAPCS64 and SP16 probes only; no guest ELF execution",
+        "initializers": "guest_initializers_executed=0 and guest_jni_onload_executed=0 in every automatic M10 gate"
+      },
+      "evidence": {
+        "approved_reference": "Sonic 4 Episode II v6 libfox and host are the positive AArch64 line; the older ARMv7 engine stays separate",
+        "physical": "physical-full evidence exists for v6 on Mali-450 and the prior loader line on ArkOS and X5M; community reports are not promoted",
+        "limitations": "M10 proves load and relocation only; constructor filtering and native lifecycle remain outside this ABI gate",
+        "generalization": "reuse LP64, RELA and explicit ABI separation; never copy libfox hooks, aliases, offsets or exact-version fixes"
+      }
+    },
+    {
+      "variant_id": "horizonchase-aarch64",
+      "canonical_port": "horizonchase",
+      "abi": "aarch64",
+      "positive_reference": true,
+      "guest": {
+        "object": "ports/horizonchase/payload/lib/libunity.so sha256=7c46972d06b6b85f953bf61b477fdbf5bf22f7be55b57e4b54b4403f05478359; ports/horizonchase/payload/lib/libil2cpp.so sha256=acf414c77853aa0e7f8d8963f307f65f3d156c8d6d806661b738df3385e48cdc; ports/horizonchase/payload/lib/libmain.so sha256=a2dfe24e0170af0ae90b13630fc6d4e788be2c5216b4bddb17a6e0ca3c4c5af8",
+        "elf_class": "ELF64 little-endian ET_DYN LP64 for all three modules",
+        "machine": "EM_AARCH64 with e_flags=0 for all three modules",
+        "eabi": "not-applicable: AArch64 e_flags=0 and ARM32 EABI version does not apply",
+        "float_abi": "AAPCS64 unified register convention; no ARM32 softfp/hardfp split",
+        "pcs_boundary": "AAPCS64 with SP aligned to 16 bytes at public interfaces",
+        "interpreter_scope": "all three Android ET_DYN guests have no PT_INTERP; only the Linux host executable uses the AArch64 interpreter"
+      },
+      "relocations": {
+        "format": "ELF64 RELA with explicit signed addends; REL rejected",
+        "observed": "libunity RELATIVE=54114,ABS64=50,GLOB_DAT=43,JUMP_SLOT=500,total=54707; libil2cpp RELATIVE=303401,ABS64=1631,GLOB_DAT=152,JUMP_SLOT=566,total=305750; libmain RELATIVE=9,JUMP_SLOT=11,total=20",
+        "rejected": "unknown, TLS/TLSDESC, IFUNC/IRELATIVE, RELR, Android packed and unobserved instruction relocations fail before any commit"
+      },
+      "host": {
+        "elf_class": "ELF64 little-endian ET_DYN/PIE host executable",
+        "machine": "EM_AARCH64 LP64",
+        "float_abi": "AAPCS64 with SP aligned to 16 bytes at public interfaces",
+        "pt_interp": "/lib/ld-linux-aarch64.so.1",
+        "glibc_ceiling": "ports/horizonchase/horizonchase-universal sha256=46a1da200f6e074568e9d1b5e5193b354cf5cbdd239dc7e8e967a26e43d91868 max GLIBC_2.27; public ceiling GLIBC_2.30",
+        "dependencies": "all Linux host DT_NEEDED entries must resolve in the pinned low-glibc AArch64 sysroot; host-local RUNPATH does not change the ceiling"
+      },
+      "gates": {
+        "gcc": "nxloader-aarch64-cross builds with pinned GCC AArch64 and an old sysroot",
+        "clang": "nxloader-aarch64-cross builds with Clang AArch64 plus LLD and the same old sysroot",
+        "qemu": "cross-safe AAPCS64 and SP16 probes only; no guest ELF execution",
+        "initializers": "guest_initializers_executed=0 and guest_jni_onload_executed=0 in every automatic M10 gate"
+      },
+      "evidence": {
+        "approved_reference": "Horizon Chase canonical Unity, IL2CPP and main modules provide positive multi-module and large-RELA evidence",
+        "physical": "physical-full same-loader evidence spans Mali-450, ArkOS, X5 and ROCKNIX/Panfrost; M10 still executes no guest code",
+        "limitations": "M10 proves independent module loading and relocation scale, not Unity constructors, JNI_OnLoad or Activity lifecycle",
+        "generalization": "reuse multi-module LP64, RELA, load-bias and atomic large-table handling; never copy Unity hooks, GOT patches, offsets or lifecycle shortcuts"
+      }
+    }
+  ]
+}

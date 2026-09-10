@@ -1,0 +1,16 @@
+Game data notice
+================
+
+This package does not include Sonic The Hedgehog 4: Episode II runtime game
+code or data. The following files are intentionally supplied by the user from
+a legally obtained Android v3.0.0-109 ARM64 installation:
+
+- `split_config.arm64_v8a.apk`, containing `lib/arm64-v8a/libfox.so`;
+- `split_packs.apk`, containing `assets/data.obb`;
+- an equivalent complete `.apks`, `.apkm` or merged APK export; or
+- the corresponding extracted ARM64 library and `data.obb`.
+
+The release archive rejects APK, OBB, `libfox.so` and extracted game-data paths
+during packaging. Sonic The Hedgehog 4: Episode II is property of SEGA and its
+respective rightsholders. This compatibility package grants no right to
+redistribute the game files.

@@ -1,0 +1,175 @@
+{
+  "artifacts": [
+    {
+      "mode": "0755",
+      "path": "Sally Face.sh",
+      "sha256": "09760003ab68f30214c4205e0b82f48b002b7ba22c9a437bae35c401246693c8"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/.nxruntime/generations/2f74af0457ab3bc4836dc24fca699d3d9bf8e20de25d7d9f77d316396e2d3130/commit",
+      "sha256": "4308726b41e6ee133370eebb7ecc9a3009f6110443b3b57d2d28e25de67ab28b"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/.nxruntime/generations/2f74af0457ab3bc4836dc24fca699d3d9bf8e20de25d7d9f77d316396e2d3130/components.sha256",
+      "sha256": "6b93c367c1d2f5a4257a8d9b26ea5ea45eabe9014c6e4e07db4a78d34ca835f4"
+    },
+    {
+      "mode": "0755",
+      "path": "sallyface/.nxruntime/generations/2f74af0457ab3bc4836dc24fca699d3d9bf8e20de25d7d9f77d316396e2d3130/files/launcher/Sally Face.sh",
+      "sha256": "09760003ab68f30214c4205e0b82f48b002b7ba22c9a437bae35c401246693c8"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/.nxruntime/generations/2f74af0457ab3bc4836dc24fca699d3d9bf8e20de25d7d9f77d316396e2d3130/files/nxport.json",
+      "sha256": "a5c26aa4b1b76833120c916341cdfd6d14ec35cb699ea6bc2f56a16063eabe99"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/.nxruntime/generations/2f74af0457ab3bc4836dc24fca699d3d9bf8e20de25d7d9f77d316396e2d3130/manifest.json",
+      "sha256": "ca2d9ee2ce09621941f0b867421fd50a93a479ac9d57a8b1a963a4a4ce907f2b"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/INSTALLATION.md",
+      "sha256": "33301fd551cb5032db1bb463fb446b571f0be2049c773eb15708de0d707d39e3"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/LICENSE",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/README.md",
+      "sha256": "b48e9bc2bbe5d9b85a219fa8e99924b69246562be0891f82481ffdd0d0ea56b6"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/adapter/adapter-contract.json",
+      "sha256": "434fb950d3371378e22d6810c632e4456cd7a1a5af3098dee23e3c33393da134"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/defaults/NEXTOSCONTROLLERS.gptk",
+      "sha256": "aada47ba22ee2dfdaf64775f0ec553b9a5b0f67aba229bc99a74bc98e98f72ae"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/defaults/NEXTOSSETTINGS.txt",
+      "sha256": "cfe0011dd430a3ce14e285e7924bd4ad1cf4a8dd0a99c21d4ddb7c59ea764a09"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/extractor.json",
+      "sha256": "7bf3e44cf5bcd9d7320c3652599134b4061c86e992d7d4a2202d8da8065b334f"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/gamedata/README.txt",
+      "sha256": "90c252fd071f817e01662a5cc859d1f46927862ec0b61463ab9bcd51bfc0e23b"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/nxextract/nxextract-runtime-env.sh",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "mode": "0755",
+      "path": "sallyface/nxextract/nxextract-ui",
+      "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/nxextract/nxextract.py",
+      "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/nxextract/run-extractor.sh",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/nxport.json",
+      "sha256": "a5c26aa4b1b76833120c916341cdfd6d14ec35cb699ea6bc2f56a16063eabe99"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/nxproject.json",
+      "sha256": "dd6f5a37fd085ff66d7a00168ce36aa415ca2a6344d3b10ed364cac9ad919fa4"
+    },
+    {
+      "mode": "0755",
+      "path": "sallyface/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+    },
+    {
+      "mode": "0644",
+      "path": "sallyface/port.json",
+      "sha256": "320f07fcea8e221d235d36012316851f4a0db839e538641455688121a8ffafb5"
+    }
+  ],
+  "claims": {
+    "adapter_lifecycle_implemented": true,
+    "deterministic_scaffold": true,
+    "physical_support_proven": false,
+    "release_ready": true
+  },
+  "generation_id": "2f74af0457ab3bc4836dc24fca699d3d9bf8e20de25d7d9f77d316396e2d3130",
+  "generator": {
+    "name": "nxgenerator",
+    "version": "0.2.15"
+  },
+  "project_manifest_sha256": "dd6f5a37fd085ff66d7a00168ce36aa415ca2a6344d3b10ed364cac9ad919fa4",
+  "schema": "nxgenerator-receipt-v1",
+  "schema_version": 1,
+  "source_pins": {
+    "nxbootstrap": {
+      "source_files": {
+        "templates/launcher.sh.in": "3558d74de29e9e82e3fd671aaa2b9fb34a8fc4ba07a21919f7a75dead1d328f1",
+        "tools/generate-port.py": "a136c5e09db58ce795792c41e99498767c746ccdadf48eb7ebb46f41352869d7"
+      },
+      "version": "0.6.34"
+    },
+    "nxextract": {
+      "files": {
+        "nxextract-runtime-env.sh": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+        "nxextract-ui": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987",
+        "nxextract.py": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced",
+        "run-extractor.sh": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      "recipe_sha256": "7bf3e44cf5bcd9d7320c3652599134b4061c86e992d7d4a2202d8da8065b334f",
+      "ui_artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "ui/release/aarch64/nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      },
+      "ui_release_manifest_sha256": "6620d6dd4f25623cd067a1a036be3624cb8faee1d8eef177b470d8e4c4fc20fc",
+      "ui_source_sha256": "00266e1efeabe2716911ff9c431191944162bb550ebf3674a6d88ef62a194bf0",
+      "ui_version": "1.2.16",
+      "version": "1.2.21"
+    },
+    "nxsplash": {
+      "artifact": {
+        "architecture": "aarch64",
+        "mode": "0755",
+        "path": "release/aarch64/nxsplash-nextos",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      },
+      "release_manifest_sha256": "14c9a0ec823eceb6b53620e443821375c0d6c2dbe4004470bcee514bb8e3d118",
+      "source_sha256": "c393afcef644745b9d1e557c9833146e908aee4d4b6bfdb57e64e7d304c8e177",
+      "version": "0.1.2"
+    },
+    "portmaster": {
+      "contract": "v2",
+      "contract_sha256": "bfcdcbb52397168283c9b55e13dca274d7b5f5145ae1531a5ad240f54ebac47b",
+      "metadata_schema": "port-json-supported-v1",
+      "metadata_schema_sha256": "fd029622d67c2f6dc060359dd587894d9c8aa23b63fcf7bc609a6b8e087742c7",
+      "parser_commit": "8f9ddc4b0f75dfe61eb370bd3d1b4ec9d5ef6967",
+      "vendor_provenance_sha256": "15937eb265ccd95ab0e3fce9d0058a5b8849aa3ab4ca536611750bd67028d5ad"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+/.build/
+/tmpbuild/
+/build/
+/gamedata/*
+!/gamedata/README.txt
+*.apk
+*.apkm
+*.xapk
+/libAndroidEntryPoint.so
+/assets/
+/game.apk
+dist/

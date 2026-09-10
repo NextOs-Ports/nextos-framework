@@ -1,0 +1,299 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "controls": {
+    "actions": [
+      {
+        "id": "otr.accelerate",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "otr.brake",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "otr.confirm",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "otr.back",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "otr.pause",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "cursor.click",
+        "kind": "button",
+        "sinks": [
+          "offtheroad.input.digital-sink"
+        ]
+      },
+      {
+        "id": "camera.steer",
+        "kind": "vector",
+        "sinks": [
+          "offtheroad.input.vector-sink"
+        ]
+      },
+      {
+        "id": "camera.look",
+        "kind": "vector",
+        "sinks": [
+          "offtheroad.input.vector-sink"
+        ]
+      },
+      {
+        "id": "cursor.move",
+        "kind": "vector",
+        "sinks": [
+          "offtheroad.input.vector-sink"
+        ]
+      }
+    ],
+    "contexts": {
+      "cursor": {
+        "A": "otr.confirm",
+        "B": "otr.back",
+        "R3": "cursor.click",
+        "RIGHT_STICK": "cursor.move",
+        "START": "otr.pause"
+      },
+      "gameplay": {
+        "A": "otr.accelerate",
+        "B": "otr.brake",
+        "LEFT_STICK": "camera.steer",
+        "RIGHT_STICK": "camera.look",
+        "START": "otr.pause"
+      },
+      "menu": {
+        "A": "otr.confirm",
+        "B": "otr.back",
+        "R3": "cursor.click",
+        "RIGHT_STICK": "cursor.move",
+        "START": "otr.pause"
+      }
+    },
+    "tuning": {
+      "camera": {
+        "authority": "native"
+      },
+      "cursor": {
+        "acceleration": 0.35,
+        "deadzone": 0.15,
+        "response_curve": 1.35,
+        "smoothing_ms": 45,
+        "speed": 1.25
+      }
+    }
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "authored"
+  },
+  "graphics": {
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 8000,
+    "profile": "es",
+    "required_devices": [
+      "mali-450",
+      "mali-g31",
+      "mali-g52"
+    ],
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "native-menu",
+    "sinks": [],
+    "supported": [
+      "en"
+    ]
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "none",
+    "enabled_quirks": [],
+    "executable": "offtheroad-nextos",
+    "generation_runtime": [
+      {
+        "mode": "0755",
+        "path": "offtheroad-nextos",
+        "role": "executable",
+        "sha256": "1bfb4185bdbd7795344262b4df41ad08d287d4d4bb59705239531ebe2f11e28e"
+      },
+      {
+        "mode": "0644",
+        "path": "extractor.json",
+        "role": "nxextract-recipe",
+        "sha256": "a654cc1dc8468bcadf825909581f625ecc3f0a9e842c12bc44ee62e7d53264e4"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract.py",
+        "role": "nxextract-engine",
+        "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/run-extractor.sh",
+        "role": "nxextract-runner",
+        "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract-runtime-env.sh",
+        "role": "nxextract-runtime-env",
+        "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+      },
+      {
+        "mode": "0755",
+        "path": "nxextract/nxextract-ui",
+        "role": "nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      }
+    ],
+    "home_mode": "port",
+    "id": "offtheroad",
+    "language": {
+      "default": "en",
+      "supported": [
+        "en"
+      ]
+    },
+    "launcher_name": "Off The Road.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.21"
+    },
+    "prepare_script": "",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "graphics.egl-config",
+      "graphics.drawable",
+      "audio.output-open",
+      "input.controller-mapping",
+      "input.controller-api",
+      "audio.embedded-openal"
+    ],
+    "required_files": [
+      "offtheroad-nextos",
+      "nxsplash-nextos",
+      "lib/libgame.so",
+      "lib/libc++_shared.so"
+    ],
+    "runtime_report": "log",
+    "schema_version": 3,
+    "title": "Off The Road"
+  },
+  "owner_data": {
+    "directory": "gamedata",
+    "formats": [
+      "APK"
+    ],
+    "reference": {
+      "version": "1.18.2"
+    }
+  },
+  "package_payload": [
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "FRAMEWORK-PIN.json",
+      "sha256": "90eedfc90f92b64d14b98586daba8a2405a5c41413255fa89ccd8e6f06cbca90"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "INSTALLATION.md",
+      "sha256": "a497b8baaf61fffc6512c5102d6945683075d481cdab213b7593a52658b0550e"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "NOTICE.md",
+      "sha256": "6444b28836334cfe10564d47766f8be7eb9160df7f5aeec50dbb38fba963b0b2"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "README.md",
+      "sha256": "5079f47bed8f52451a7054ab9eb601fc6e55d0aa9e34c261da8a659191fe4678"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "alsoft.conf",
+      "sha256": "daea2d19e7df20343cf8227b3992b4393b18d49bd527fb6c27f81372400ac55b"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/NXExtract-MIT.txt",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "nxextract-version.txt",
+      "sha256": "595ad39683176a1a97a7243bec5c87bb5de2f2d6a88510e7973958945b978478"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "tools/BUILD-INPUTS.json",
+      "sha256": "4928fa057c4235c431e23baafd876df2d590ff286258dad5eeb6a77b7693d367"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "version.txt",
+      "sha256": "8c54bfab7f1ae9bd1a7148eae41e7b0a8f4ad3726e0cac70f823a2d45db9e60c"
+    }
+  ],
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.27",
+    "runtime": []
+  },
+  "promotion": {
+    "adapter_contract": "adapter/adapter-contract.json",
+    "claims": {
+      "adapter_lifecycle_implemented": true,
+      "physical_support_proven": false,
+      "release_ready": true
+    }
+  },
+  "runtime_root": ".",
+  "schema_version": 3
+}

@@ -1,0 +1,38 @@
+{
+  "audio": {
+    "callbacks": ["ETHScriptWrapper audio hooks", "SDL_mixer update"],
+    "format": "SDL_mixer 44100 Hz stereo; MP3/OGG/WAV read from owner APK"
+  },
+  "imports": [],
+  "input": {
+    "mapping": "SDL GameController to gs2d KeyStateManager at engine-owned update point",
+    "touch": "not used"
+  },
+  "jni": {
+    "callbacks": [],
+    "classes": [],
+    "methods": []
+  },
+  "lifecycle": {
+    "sequence": ["load dependencies", "load libmachine", "init SDL/GLES2", "initialize key provider", "GS2DJNI.start", "engineStartup", "restore", "resize", "resume", "mainLoop"],
+    "source_evidence": ["baseline commits bd60a14 and 1579de2", "Mali-450 physical baseline"]
+  },
+  "persistence": {
+    "callbacks": ["engine-owned save flow"],
+    "paths": ["user", "user-global"]
+  },
+  "prohibitions": [
+    "do not invent lifecycle order",
+    "do not promote offsets or callbacks to defaults",
+    "do not invent save or terminal behavior"
+  ],
+  "quirks": ["adapter-owned one-shot same-DSO EGL/GLES provider retry after real SDL window failure"],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_physical_verified",
+  "terminal": {
+    "action": "engine-safe shutdown followed by bounded _exit terminal",
+    "evidence": ["commit 1579de2; validated return on Mali-450", "R36S ArkOS AArch64 physical test on 2026-08-14"]
+  }
+}

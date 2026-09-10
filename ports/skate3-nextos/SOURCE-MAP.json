@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/skate3-nextos",
+  "observed_commit": "18621e90ce7458c3166aa50d5cc508a13e65ee84",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Skateboard Party 3"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "b14f75a30f56172b39bff1da500301a55d7a656c",
+      "sha256": "ac2f89f1d0935b5f64217146426e19c21f4ba4f1e214e9d2161f699b3b22146f"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "9f2ae7953adae97273471cc149fe0d04845327f7",
+      "sha256": "8ace14328a48029a2ae785c9b1c8e8a77f3300125ff0caf1f0a591e71a29950d"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "f92d4ee16cf69a6989b21666d40f8bc0e610b524",
+      "sha256": "903b5451507ab2fb5d11878c008953fa0705fee3fd7f519418adbb36efcc70ba"
+    },
+    {
+      "path": "package/universal/Skateboard Party 3.sh",
+      "mode": "0o755",
+      "upstream_blob": "21bec8cfbf21220d92609daa9b260365a9a45d83",
+      "sha256": "ded85086bd90eb7c4bdbc3c0169022dcd97cc265932a0d2e5cf730af4d298c3a"
+    },
+    {
+      "path": "src/android.c",
+      "mode": "0o644",
+      "upstream_blob": "b281a1e86d68e078c23575ea8c44ccb194a8f085",
+      "sha256": "6d3eb67a5f6d933bc3e9c8abf6a1ed0538edafc5e46d29f0bbe13bf53db25d2f"
+    },
+    {
+      "path": "src/audio.c",
+      "mode": "0o644",
+      "upstream_blob": "a7232b9903cb6ff3808c4539b392db0b9c3a7fb7",
+      "sha256": "dd72a49fe7216b2297ea63d62b8e0b3c32281e4fde5e5b4839fb4195c4b5f4e8"
+    },
+    {
+      "path": "src/bc.h",
+      "mode": "0o644",
+      "upstream_blob": "bc655f7a5376f0f87e3bbd5bb5b1e12bd8ee76c7",
+      "sha256": "2535d25659c30f1767e635101298031b7a6f43358066348966c17ce5e2bc9f3a"
+    },
+    {
+      "path": "src/bionic.c",
+      "mode": "0o644",
+      "upstream_blob": "c56442d180be08d79747cade10a2c5b5744c470c",
+      "sha256": "f84d0afd9d7ed2349e84ca33f423ed42a4e2ee10c6d46bdb68e5c05dc61059cc"
+    },
+    {
+      "path": "src/egl.c",
+      "mode": "0o644",
+      "upstream_blob": "27d82bf2ba6655e19ddd2e288e8d27af4236b128",
+      "sha256": "a634f7dfd347311adb49f64727edffe83112fc20e33a9a4205467c4694ef004b"
+    },
+    {
+      "path": "src/egl_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "c9f7f56f26fa2a5b6d2b5510d2b572a5199bd97f",
+      "sha256": "1b58775767c44fcf5f6273f376c9947997cd527ee9c2b1680f1f79f6a948b49e"
+    },
+    {
+      "path": "src/egl_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "b4443f54f1b69584913179eb91e140f26648596e",
+      "sha256": "6dd9df669e827a58e1910f4b794b0c5153ab6fb25b1cad9df1f29f3cb0fbc30f"
+    },
+    {
+      "path": "src/etc2_decode.c",
+      "mode": "0o644",
+      "upstream_blob": "985e68ebaed74f1be2a5be8d7cda744b5460ae51",
+      "sha256": "5bbda76184b258939d7fa03bb6c0902a677863342a393c9acede7886eb3a2903"
+    },
+    {
+      "path": "src/etc2_decode.h",
+      "mode": "0o644",
+      "upstream_blob": "89f724e20a520573447243b44123743da7fc92b8",
+      "sha256": "2d2965b945114bad0c34cd2f6c1cf1102390d0d45d1ffb262c2b0badf6e14204"
+    },
+    {
+      "path": "src/input.c",
+      "mode": "0o644",
+      "upstream_blob": "29014d8c37b63a55c84a8f95efa97a738762e60a",
+      "sha256": "6d6fa45e7353d1c1bd26c5c451aecfded840d54b125e2a3e553155d3c967fdf1"
+    },
+    {
+      "path": "src/jni.c",
+      "mode": "0o644",
+      "upstream_blob": "12f345cb93591ccaca55e32d55b921285889f18f",
+      "sha256": "07ca7a956a28d7db4aa6a86df75eb71d8f9f7b3a21d4c794d1c9ef7faa223862"
+    },
+    {
+      "path": "src/jni_slots.h",
+      "mode": "0o644",
+      "upstream_blob": "477ce6e4df70ae5ec56eba6b0a94d302273b84cb",
+      "sha256": "db9115f82cd7cd23b14c92a8eaad96b358ac3948c4a48988426508dc1a28d508"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "48f27de96b372733ccd400bcc54acf22da43d133",
+      "sha256": "1d3a006142a256e50877f1e7cf035e702e3c38dde273e71b84398a0291bcd61e"
+    },
+    {
+      "path": "src/nx_elf.c",
+      "mode": "0o644",
+      "upstream_blob": "c50e7f0ee434e175841e71173c418c824b6b1f87",
+      "sha256": "e677485d5dd45f0aa3c446ba904abef19b5836056fc61b329af20a90af3c9590"
+    },
+    {
+      "path": "src/nx_elf.h",
+      "mode": "0o644",
+      "upstream_blob": "178b58907cd844fa17f4a534ae7fb7e10b3ce958",
+      "sha256": "3cf8dfece699c6cd3c489df7ae987df5802dc411568b1c45db0def0a394cd8e9"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "ac87d63831a1a020fafa8d3cf9915fef3439e5b0",
+      "sha256": "b1b9a2719ee836b6fa9c58b752ea33a76d1593ac397ad0149612d405a671630a"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "4d2a8eefdf2a9783512a35da4dc7676a66404b6f3826a8af9aad038722da6823",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

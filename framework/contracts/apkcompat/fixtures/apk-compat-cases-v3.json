@@ -1,0 +1,741 @@
+{
+  "schema": "org.nextos.apk-compat.fixtures",
+  "schema_version": 3,
+  "note": "Shared fixtures consumed by the nxextract, nxgenerator and nxrelease test suites. Every case runs through the canonical module framework/contracts/apkcompat/apkcompat.py. 'reject' cases name the stable NXA code that must appear in the failure.",
+  "cases": [
+    {
+      "id": "container-structural-accept",
+      "expect": "accept",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "min_size": 1048576,
+              "max_size": 4294967296,
+              "magic_hex": "504b0304"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-single-sha-reject",
+      "expect": "reject",
+      "code": "NXA0001",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "sha256": [
+                "1111111111111111111111111111111111111111111111111111111111111111"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-sha-whitelist-of-two-reject",
+      "expect": "reject",
+      "code": "NXA0001",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "sha256": [
+                "1111111111111111111111111111111111111111111111111111111111111111",
+                "2222222222222222222222222222222222222222222222222222222222222222"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-sha-whitelist-of-three-reject",
+      "expect": "reject",
+      "code": "NXA0001",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "sha256": [
+                "1111111111111111111111111111111111111111111111111111111111111111",
+                "2222222222222222222222222222222222222222222222222222222222222222",
+                "3333333333333333333333333333333333333333333333333333333333333333"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-crc-list-reject",
+      "expect": "reject",
+      "code": "NXA0002",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "crc32": [
+                "deadbeef",
+                "cafebabe"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-exact-size-reject",
+      "expect": "reject",
+      "code": "NXA0003",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "size": 233218800
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "reference-build-documentation-accept",
+      "expect": "accept",
+      "recipe": {
+        "reference_build": {
+          "game_version": "1.4.5.6.4",
+          "version_code": 1465,
+          "container_size": 233218800,
+          "container_sha256": "edd9116404ead3f690c465d78aa2a6b95df7a7d41e9222a9d8aa7c284c269fa1"
+        },
+        "compatibility": {
+          "package_families": [
+            "com.example.game"
+          ],
+          "abis": [
+            "arm64-v8a"
+          ],
+          "required_members": [
+            "lib/arm64-v8a/libgame.so"
+          ],
+          "payload_contracts": [
+            "ELF64-AArch64",
+            "UnityFS"
+          ]
+        },
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "min_size": 1,
+              "max_size": 4294967296
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "compatibility-package-divergence-reject",
+      "expect": "reject",
+      "code": "NXA0023",
+      "recipe": {
+        "compatibility": {
+          "package_families": [
+            "com.other.game"
+          ]
+        },
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "extract": []
+      }
+    },
+    {
+      "id": "compatibility-carries-hash-reject",
+      "expect": "reject",
+      "code": "NXA0027",
+      "recipe": {
+        "compatibility": {
+          "required_members": [
+            "lib/arm64-v8a/libgame.so=1111111111111111111111111111111111111111111111111111111111111111"
+          ]
+        },
+        "extract": []
+      }
+    },
+    {
+      "id": "patch-profile-with-fallback-accept",
+      "expect": "accept",
+      "recipe": {
+        "compatibility": {
+          "required_members": [
+            {
+              "member": "assets/bin/Data/data.unity3d",
+              "role": "patch_selector"
+            }
+          ]
+        },
+        "patch_profiles": [
+          {
+            "id": "known-build",
+            "match_internal_payload": {
+              "path": "assets/bin/Data/data.unity3d",
+              "sha256": "edd9116404ead3f690c465d78aa2a6b95df7a7d41e9222a9d8aa7c284c269fa1"
+            },
+            "fallback": "generic-symbolic-path"
+          }
+        ],
+        "extract": []
+      }
+    },
+    {
+      "id": "patch-profile-without-fallback-reject",
+      "expect": "reject",
+      "code": "NXA0035",
+      "recipe": {
+        "compatibility": {
+          "required_members": [
+            {
+              "member": "assets/bin/Data/data.unity3d",
+              "role": "patch_selector"
+            }
+          ]
+        },
+        "patch_profiles": [
+          {
+            "id": "known-build",
+            "match_internal_payload": {
+              "path": "assets/bin/Data/data.unity3d",
+              "sha256": "edd9116404ead3f690c465d78aa2a6b95df7a7d41e9222a9d8aa7c284c269fa1"
+            }
+          }
+        ],
+        "extract": []
+      }
+    },
+    {
+      "id": "container-signature-reject",
+      "expect": "reject",
+      "code": "NXA0004",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "signature": "AA:BB:CC",
+              "magic_hex": "504b0304"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-cert-sha-reject",
+      "expect": "reject",
+      "code": "NXA0004",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "cert_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-source-validate-sha-reject",
+      "expect": "reject",
+      "code": "NXA0001",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "magic_hex": "504b0304"
+            },
+            "source_validate": {
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-output-validate-sha-reject",
+      "expect": "reject",
+      "code": "NXA0001",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "magic_hex": "504b0304"
+            },
+            "output_validate": {
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-global-output-sha-reject",
+      "expect": "reject",
+      "code": "NXA0001",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "destination": "runtime/game.apk",
+            "validate": {
+              "magic_hex": "504b0304"
+            }
+          }
+        ],
+        "validate": [
+          {
+            "path": "runtime/game.apk",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-basename-destination-reject",
+      "expect": "reject",
+      "code": "NXA0005",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "destination": "runtime/{basename}",
+            "validate": {
+              "magic_hex": "504b0304"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-source-pattern-filename-reject",
+      "expect": "reject",
+      "code": "NXA0005",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container",
+              "patterns": [
+                "MyGame.apk"
+              ]
+            },
+            "validate": {
+              "magic_hex": "504b0304"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "required-signing-member-reject",
+      "expect": "reject",
+      "code": "NXA0004",
+      "recipe": {
+        "compatibility": {
+          "required_members": [
+            "META-INF/CERT.RSA"
+          ]
+        },
+        "extract": []
+      }
+    },
+    {
+      "id": "required-signing-extract-reject",
+      "expect": "reject",
+      "code": "NXA0004",
+      "recipe": {
+        "extract": [
+          {
+            "id": "certificate",
+            "required": false,
+            "source": {
+              "kind": "entry",
+              "patterns": [
+                "**/*.RSA"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-filename-reject",
+      "expect": "reject",
+      "code": "NXA0005",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "filename": "MyGame-1.2.3.apk"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-versioncode-reject",
+      "expect": "reject",
+      "code": "NXA0006",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "version_code": 42
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "container-structural-metamorphic-accept",
+      "expect": "accept",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "extract": [
+          {
+            "id": "owner-apk",
+            "source": {
+              "kind": "container"
+            },
+            "validate": {
+              "min_size": 1048576,
+              "max_size": 4294967296,
+              "magic_hex": "504b0304"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "member-roles-accept",
+      "expect": "accept",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a",
+          "armeabi-v7a"
+        ],
+        "compatibility": {
+          "package_families": [
+            "com.example.game"
+          ],
+          "abis": [
+            "arm64-v8a",
+            "armeabi-v7a"
+          ],
+          "required_members": [
+            "assets/common.bin",
+            {
+              "member": "assets/optional.bin",
+              "role": "optional"
+            },
+            {
+              "member": "lib/armeabi-v7a/libgame.so",
+              "role": "variant_required",
+              "variant": "armeabi-v7a"
+            },
+            {
+              "member": "assets/data.unity3d",
+              "role": "patch_selector"
+            }
+          ]
+        },
+        "patch_profiles": [
+          {
+            "id": "known-unity-data",
+            "match_internal_payload": {
+              "path": "assets/data.unity3d",
+              "sha256": "edd9116404ead3f690c465d78aa2a6b95df7a7d41e9222a9d8aa7c284c269fa1"
+            },
+            "fallback": "generic-symbolic-path"
+          }
+        ]
+      }
+    },
+    {
+      "id": "member-role-unknown-reject",
+      "expect": "reject",
+      "code": "NXA0028",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "compatibility": {
+          "package_families": [
+            "com.example.game"
+          ],
+          "abis": [
+            "arm64-v8a"
+          ],
+          "required_members": [
+            {
+              "member": "lib/x.so",
+              "role": "mandatory"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "member-variant-missing-reject",
+      "expect": "reject",
+      "code": "NXA0029",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "compatibility": {
+          "package_families": [
+            "com.example.game"
+          ],
+          "abis": [
+            "arm64-v8a"
+          ],
+          "required_members": [
+            {
+              "member": "lib/x.so",
+              "role": "variant_required"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "member-hash-reject",
+      "expect": "reject",
+      "code": "NXA0027",
+      "recipe": {
+        "input": {
+          "packages": [
+            "com.example.game"
+          ]
+        },
+        "abi_order": [
+          "arm64-v8a"
+        ],
+        "compatibility": {
+          "package_families": [
+            "com.example.game"
+          ],
+          "abis": [
+            "arm64-v8a"
+          ],
+          "required_members": [
+            {
+              "member": "lib/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.so",
+              "role": "core_required"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "terraria_regression": {
+    "note": "Regression of 2026-08-26: documented version 1.4.5.6.4, internal identifier 1.4.5.6.49, 13 payloads, 233218800 bytes. A validator that searches the literal token 1.4.5.6.4 must be flagged by the static defence; the asset carrying 1.4.5.6.49 must pass the structural contract.",
+    "documented_version": "1.4.5.6.4",
+    "internal_identifier": "1.4.5.6.49",
+    "payload_count": 13,
+    "container_bytes": 233218800,
+    "reference_payload_sha256": "edd9116404ead3f690c465d78aa2a6b95df7a7d41e9222a9d8aa7c284c269fa1",
+    "hook_snippet_that_must_be_flagged": "if b\"1.4.5.6.4\" not in blob: raise SystemExit(\"wrong version\")",
+    "expected_static_code": "NXA0051"
+  }
+}

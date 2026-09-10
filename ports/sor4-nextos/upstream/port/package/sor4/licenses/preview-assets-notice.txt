@@ -1,0 +1,5 @@
+The cover, screenshot and setup placard are frontend metadata used to identify
+Streets of Rage 4 and show installation progress in PortMaster. The depicted
+game, characters, interface and artwork remain property of Dotemu, Lizardcube,
+Guard Crush Games, SEGA and the applicable rightsholders. These preview files
+are not relicensed as part of the compatibility-port source code.

@@ -1,0 +1,81 @@
+{
+ "receipt": "nx-provider-ordinal-probe/1",
+ "class": "PROVIDER_TABLE_MEASURED",
+ "lib_requested": "libSDL2-2.0.so.0",
+ "lib_mapped_class": "system-lib",
+ "lib_sha256": "4fd539cd0e2b2dc883beb8dedffa1f85212276b34e51b2a8bf98b4f8fd4f5cb4",
+ "sdl_version": "2.32.10",
+ "sdl_revision": "SDL-release-2.32.10-0-g5d2495703",
+ "exports_bytable": false,
+ "nbuttons": 16,
+ "naxes": 4,
+ "nhats": 1,
+ "buttons": {
+  "0x11": [
+   13
+  ],
+  "0x72": [
+   14
+  ],
+  "0x73": [
+   15
+  ],
+  "0x130": [
+   0
+  ],
+  "0x131": [
+   1
+  ],
+  "0x132": [
+   2
+  ],
+  "0x133": [
+   3
+  ],
+  "0x134": [
+   4
+  ],
+  "0x135": [
+   5
+  ],
+  "0x136": [
+   6
+  ],
+  "0x137": [
+   7
+  ],
+  "0x138": [
+   8
+  ],
+  "0x139": [
+   9
+  ],
+  "0x13a": [
+   10
+  ],
+  "0x13b": [
+   11
+  ],
+  "0x13c": [
+   12
+  ]
+ },
+ "axes": {
+  "0x0": [
+   0
+  ],
+  "0x1": [
+   1
+  ],
+  "0x2": [
+   2
+  ],
+  "0x3": [
+   3
+  ]
+ },
+ "byid": {},
+ "domain_measured": "sdl2-evdev",
+ "uname": "aarch64",
+ "unix": 1788415947
+}

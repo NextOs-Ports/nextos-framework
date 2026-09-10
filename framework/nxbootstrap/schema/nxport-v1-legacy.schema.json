@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nextos:nxport:schema:1:legacy-input",
+  "title": "Legacy nxport input accepted only for deterministic upgrade",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "title",
+    "launcher_name",
+    "architecture",
+    "executable"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "launcher_name": {
+      "type": "string"
+    },
+    "architecture": {
+      "enum": [
+        "armv7",
+        "aarch64",
+        "i386",
+        "x86_64"
+      ]
+    },
+    "executable": {
+      "type": "string"
+    },
+    "argument_mode": {
+      "type": "string"
+    },
+    "home_mode": {
+      "type": "string"
+    },
+    "nxextract": {
+      "type": "string"
+    },
+    "required_files": {
+      "type": "array"
+    },
+    "extra_library_paths": {
+      "type": "array"
+    },
+    "prepare_script": {
+      "type": "string"
+    }
+  }
+}

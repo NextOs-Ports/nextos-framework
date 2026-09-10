@@ -1,0 +1,17 @@
+# Sally Face physical A/B proof fixture; never shipped as the owner default.
+format = NEXTOS_CONTROLLERS/1
+port = sallyface
+
+[menu]
+A = sf.back
+B = sf.interact
+START = sf.pause
+LEFT_STICK = sf.move
+
+[gameplay]
+A = sf.back
+B = sf.interact
+X = sf.gasmask
+Y = sf.inventory
+START = sf.pause
+LEFT_STICK = sf.move

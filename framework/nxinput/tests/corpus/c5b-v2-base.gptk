@@ -1,0 +1,44 @@
+# NEXTOSCONTROLLERS — controles do NextOS / NextOS controls
+# C5B fixture. Formato próprio do NextOS. NÃO é gptokeyb.
+format = NEXTOS_CONTROLLERS/2
+port = nxc5b-matrix
+
+[menu]
+A = nxc5b.accept
+B = nxc5b.back
+X = null
+Y = null
+L1 = null
+R1 = null
+L2 = null
+R2 = null
+L3 = null
+R3 = null
+START = null
+SELECT = null
+UP = null
+DOWN = null
+LEFT = null
+RIGHT = null
+LEFT_STICK = null
+RIGHT_STICK = null
+
+[gameplay]
+A = nxc5b.accept
+B = nxc5b.cancel
+X = native
+Y = nxc5b.reload
+L1 = nxc5b.aim
+R1 = nxc5b.fire
+L2 = nxc5b.brake
+R2 = nxc5b.boost
+L3 = nxc5b.crouch
+R3 = nxc5b.zoom
+START = nxc5b.pause
+SELECT = nxc5b.map
+UP = nxc5b.up
+DOWN = nxc5b.down
+LEFT = nxc5b.left
+RIGHT = nxc5b.right
+LEFT_STICK = nxc5b.move
+RIGHT_STICK = nxc5b.look

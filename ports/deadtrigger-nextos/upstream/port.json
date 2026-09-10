@@ -1,0 +1,16 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.17",
+    "title": "Dead Trigger"
+  },
+  "items": [
+    "Dead Trigger.sh",
+    "deadtrigger/"
+  ],
+  "items_opt": [],
+  "name": "deadtrigger.zip",
+  "version": 4
+}

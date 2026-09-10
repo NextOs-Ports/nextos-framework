@@ -1,0 +1,313 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "tightrope",
+    "version": "1.0.8",
+    "profile": "universal-portmaster",
+    "launcher": "Tightrope Theatre.sh",
+    "launcher_chain": [
+      "Tightrope Theatre.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.26",
+      "config_path": "tightrope/nxport.json",
+      "config_sha256": "d47283f23a14c0f214582a9bc387490d4fe57d685e47ef3f721baebf4adf837e"
+    },
+    "port_dir": "tightrope",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/tightrope-nextos",
+      "file": "tightrope/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786752000,
+    "max_glibc": "2.30",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "tightrope/nxextract/nxextract.py",
+    "version": "1.2.12",
+    "minimum_version": "1.2.9",
+    "sha256": "8a616b3246250ea976f0935f964d1be31df186836249dfdd061558a3428fea3f",
+    "runner_path": "tightrope/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "tightrope/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "ui_path": "tightrope/nxextract/nxextract-ui",
+    "ui_sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+    "recipe_path": "tightrope/extractor.json",
+    "recipe_sha256": "10271682fa2d2c320f20ebeff7988b34796acd1cf1aaa6e8be370c24eeb7b439"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libEGL.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libGLESv2.so.2",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    }
+  ],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "tightrope/port.json",
+      "sha256": "49110386dcbd1cca1b8d0145423e683aa3c8da9c286b1e6e84bc9df089dfedcc"
+    },
+    "images": [],
+    "gameinfo_xml": {
+      "path": "tightrope/gameinfo.xml",
+      "sha256": "e0c2705c3fd416197de88785fe496fd9ae82980b7dd588eeb888fb823129c980"
+    }
+  },
+  "files": [
+    {
+      "source": "Tightrope Theatre.sh",
+      "target": "Tightrope Theatre.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "e85fb749962edbe164802d92e21d8925d97e956a3df10e482b1d5af7925c90c8"
+    },
+    {
+      "source": "nxport.json",
+      "target": "tightrope/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "d47283f23a14c0f214582a9bc387490d4fe57d685e47ef3f721baebf4adf837e"
+    },
+    {
+      "source": "port-env.sh",
+      "target": "tightrope/port-env.sh",
+      "kind": "script",
+      "mode": "0644",
+      "sha256": "8ca80210c199e8f0992d40fe0fc8267b94f967edea47404e5ed9caaee13a8d5d"
+    },
+    {
+      "source": "prepare.sh",
+      "target": "tightrope/prepare.sh",
+      "kind": "script",
+      "mode": "0644",
+      "sha256": "7e2d968bacf60c4095dfe25d43c659be2573583146ca0b32d1926cb17974002f"
+    },
+    {
+      "source": "tightrope-nextos",
+      "target": "tightrope/tightrope-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build_universal.sh; pinned Debian Buster GCC 8.3 builder sha256:58ce6f1271ae1c8a2006ff7d3e54e9874d839f573d8009c20154ad0f2fb0a225; NextOS sysroot supplies API headers and static zlib only; GLIBC_2.27 audited",
+      "sha256": "9a3868a9b69bc30414e3a362601a94b8311a218ee568aebff3763aaca301954a",
+      "needed": [
+        "libEGL.so.1",
+        "libGLESv2.so.2",
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0"
+      ],
+      "soname": null
+    },
+    {
+      "source": "nxsplash-nextos",
+      "target": "tightrope/nxsplash-nextos",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "nxsplash 0.1.2 immutable AArch64 release from pinned commit 5c4cea0bd59f50ac0729ebf55c3357451bdc1ad2",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "README.md",
+      "target": "tightrope/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "b14e19a3b841017dd0b6cdd7e8a07cf2e20e10d88e45a75c38b3ca1c808a1b0d"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "tightrope/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "8bcac4172d3f6d36e3cd531a6c28e11f3fa5f6699514ac547c3769b0c80900e5"
+    },
+    {
+      "source": "PHYSICAL-TEST-HANDOFF.md",
+      "target": "tightrope/PHYSICAL-TEST-HANDOFF.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "f386e18da9923fe13d4921f63498a91e1fb3ef66b4bf2bb11404eed8ff2dc552"
+    },
+    {
+      "source": "NOTICE.md",
+      "target": "tightrope/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "65089a958bc1414a654516c8171f00fb6a5d0cfeee4727d58bf5deb3885bc886"
+    },
+    {
+      "source": "LICENSE",
+      "target": "tightrope/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "source": "version.txt",
+      "target": "tightrope/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "326dd5d8641f399990de42def50ac29eb4c9222601c0a0a3fc3c947dd3bec65d"
+    },
+    {
+      "source": "FRAMEWORK-PIN.json",
+      "target": "tightrope/FRAMEWORK-PIN.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "dc5132a49e728eef49b58f89d83503b1d74439aea7bdc06692001a6dd7c7349a"
+    },
+    {
+      "source": "gamedata/COLOQUE-O-APK-AQUI.txt",
+      "target": "tightrope/gamedata/COLOQUE-O-APK-AQUI.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "5fe0d12cb417086c0db7cc7f07c1dbf60a23cacb9d7012065f53d99e5d4085d4"
+    },
+    {
+      "source": "extractor.json",
+      "target": "tightrope/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "10271682fa2d2c320f20ebeff7988b34796acd1cf1aaa6e8be370c24eeb7b439"
+    },
+    {
+      "source": "nxextract-version.txt",
+      "target": "tightrope/nxextract-version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "c808fbaccc0ce69f91e3a684328fc872f2212b4233fbd81c40a076e8032e1236"
+    },
+    {
+      "source": "nxextract/nxextract.py",
+      "target": "tightrope/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "8a616b3246250ea976f0935f964d1be31df186836249dfdd061558a3428fea3f"
+    },
+    {
+      "source": "nxextract/nxextract-ui",
+      "target": "tightrope/nxextract/nxextract-ui",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "unmodified canonical NXExtract 1.2.9 graphical SDL2 UI; MIT; content-pinned AArch64 GLIBC_2.17 build",
+      "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "nxextract/run-extractor.sh",
+      "target": "tightrope/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "source": "nxextract/nxextract-runtime-env.sh",
+      "target": "tightrope/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "tightrope/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "licenses/nxsplash-MIT.txt",
+      "target": "tightrope/licenses/nxsplash-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    },
+    {
+      "source": "port.json",
+      "target": "tightrope/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "49110386dcbd1cca1b8d0145423e683aa3c8da9c286b1e6e84bc9df089dfedcc"
+    },
+    {
+      "source": "tools/patches/libApplicationMain.xormask",
+      "target": "tightrope/tools/patches/libApplicationMain.xormask",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "cbdf740c9d22949409558b695b4ece5aec3089c9b3f1997c4a1c6b2ee2fde012"
+    },
+    {
+      "source": "tools/patches/liblime.xormask",
+      "target": "tightrope/tools/patches/liblime.xormask",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "645ba1b62661b358092bd805deadba805fd24ed2a41d3293dc6851948a3ca24c"
+    },
+    {
+      "source": "gameinfo.xml",
+      "target": "tightrope/gameinfo.xml",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "e0c2705c3fd416197de88785fe496fd9ae82980b7dd588eeb888fb823129c980"
+    }
+  ],
+  "exceptions": []
+}

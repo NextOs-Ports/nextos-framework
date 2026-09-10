@@ -1,0 +1,16 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "title": "Nameless Cat"
+  },
+  "items": [
+    "Nameless Cat.sh",
+    "namelesscat/"
+  ],
+  "items_opt": [],
+  "name": "namelesscat.zip",
+  "version": 4
+}

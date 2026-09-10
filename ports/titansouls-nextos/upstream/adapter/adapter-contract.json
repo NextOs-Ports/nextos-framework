@@ -1,0 +1,197 @@
+{
+  "architecture": "armv7-hard-float-host_softfp-guest",
+  "audio": {
+    "callbacks": [
+      "OpenSL BufferQueue Enqueue",
+      "OpenSL BufferQueue RegisterCallback",
+      "SDL output callback"
+    ],
+    "contract": "titansouls-fmodex-opensl-sdl-v2",
+    "implementation": "nxaudio-validated FMOD Ex to OpenSL ES to SDL bridge; FMOD Ex 4.44.17 NOSOUND-to-OpenSL recovery and at most one compatible output retry; SDL default first and compiled ALSA fallback only after a real open failure without an explicit backend; adapter-only translation of proven AArch64 fp/asimd CPU feature names for the legacy ARMv7 FMOD probe",
+    "physical_status": "predecessor audio proven on ArkOS and NextOS; RC4 test executable audio confirmed by tester report on ROCKNIX Nightly / Miyoo Flip RK3566"
+  },
+  "framework": {
+    "host_gates": [
+      "nxgenerator",
+      "nxbootstrap",
+      "NXExtract",
+      "nxabi",
+      "nxrelease"
+    ],
+    "observability": "nxobs is host-side sanitization only and is not linked or packaged",
+    "runtime": [
+      "nxloader",
+      "nxandroid",
+      "nxcompat",
+      "nxgl",
+      "nxinput",
+      "nxaudio"
+    ]
+  },
+  "graphics": {
+    "api": "OpenGL ES 2.0",
+    "global_alpha_override": false,
+    "global_texture_wrap_override": false,
+    "ownership": "nxgl SDL/EGL share root with guest-owned child context and one engine swap"
+  },
+  "identity": {
+    "android_package": "com.devolver.titansouls",
+    "game_version": "1.0.3",
+    "guest_abi": "armeabi-v7a",
+    "guest_library_sha256": "0e67e9a4639fcf6e517c334b74a497c810c511d3dd584639193c0ae1a2be68b5",
+    "guest_uses_jni_onload": false,
+    "guest_uses_nativeactivity": true,
+    "nativeactivity_export_role": "audited stock android_native_app_glue; adapter reproduces its observable setup and delegates directly to android_main"
+  },
+  "input": {
+    "implementation": "nxinput with one adapter-owned SDL_PollEvent loop",
+    "mapping": "firmware SDL GameController mapping to Android key and motion events",
+    "terminal_combo": "Select+Start and SIGTERM request the same focus-loss, save-state and pause path",
+    "touch": null
+  },
+  "language": {
+    "clean_install_default": "english",
+    "implementation": "version-gated hooks complete the original Android System/Titan toggle; ApplyLanguage delegates to native Language::ChangeLanguage and ConfigSave::Save",
+    "italian": "withheld because text data exists but this Android guest does not recognize an Italian language key safely",
+    "launcher_override": false,
+    "order": [
+      "systemlang",
+      "english",
+      "french",
+      "german",
+      "portuguese",
+      "spanish",
+      "titan"
+    ],
+    "surface": "native OptionsMenu toggle"
+  },
+  "dynamic_imports": {
+    "fixed_guest_observed_requests": "exact OpenSL ES surface plus __android_log_write through RTLD_DEFAULT",
+    "rc_implementation": "generic host dlopen/dlsym compatibility fallback remains in the dynamic facade",
+    "post_rc_hardening": "use an exact OpenSL magic handle, map __android_log_write explicitly and reject all other dynamic requests"
+  },
+  "lifecycle": {
+    "policy": "preserve_native_android_order_with_delegated_runtime",
+    "sequence": [
+      "nxcompat-preflight",
+      "nxgl-window-and-share-root",
+      "load-relocate-resolve-fmodex",
+      "load-relocate-resolve-game",
+      "install-version-gated-guest-hooks-before-finalize",
+      "finalize-wx-and-relro",
+      "fmodex-init-array",
+      "game-init-array",
+      "nativeactivity-create",
+      "input-changed",
+      "start",
+      "resume",
+      "init-window",
+      "gained-focus",
+      "android-main-delegated-runtime",
+      "guest-triggered-graphics-ready",
+      "lost-focus",
+      "save-state",
+      "pause",
+      "terminal"
+    ],
+    "source_evidence": [
+      "src/ts_loader.c",
+      "src/lifecycle.c",
+      "src/main.c",
+      "src/android_shim.c",
+      "src/egl_shim.c"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "APP_CMD_SAVE_STATE",
+      "APP_CMD_PAUSE"
+    ],
+    "paths": [
+      "game-relative Android external storage under sdcard/",
+      "game-relative HOME"
+    ]
+  },
+  "physical_validation": [
+    {
+      "default": "enabled only for the pinned Titan Souls FMOD Ex 4.44.17 guest",
+      "effect": "preserve native /proc/cpuinfo and add ARMv7 vfp/vfpv3/vfpv3d16/neon aliases only when AArch64 architecture 8+ exposes the proven equivalent fp/asimd features",
+      "id": "titansouls.fmod-armv7-cpuinfo-aliases",
+      "physical_status": "RC4 test executable restored audio on ROCKNIX Nightly / Miyoo Flip RK3566 according to the physical tester",
+      "selector": "exact /proc/cpuinfo open and first read by the pinned legacy guest",
+      "source_evidence": [
+        "src/imports.c",
+        "src/cpuinfo_compat.c",
+        "tests/test_cpuinfo_compat.c"
+      ]
+    },
+    {
+      "artifact": "framework candidate 5b46a16d8f587c7937154fc8bb431d97ff281a3b876d1da496e6bb69fdab3095",
+      "family": "ArkOS Mali-G31",
+      "status": "boot-title-slot-world-video-audio-input-save-approved"
+    },
+    {
+      "artifact": "framework candidate 5b46a16d8f587c7937154fc8bb431d97ff281a3b876d1da496e6bb69fdab3095",
+      "family": "Mali-450 Utgard",
+      "status": "clean-nxextract-15-files-182.1-MiB-framework-ready-gameplay-60fps-audio-input-save; tile-grid-persists"
+    },
+    {
+      "artifact": "final hardening rebuild ff934a4aaadd029a68328603037c2c155c800c6fb8965db4e966c682bc25048a",
+      "family": "ArkOS Mali-G31",
+      "status": "on-device-sha-verified; nxextract-marker-fast-path; modules-pad1-nxgl-pulse-alsa-framework-ready; native-create-start-title; clean-stop"
+    },
+    {
+      "artifact": "final hardening rebuild ff934a4aaadd029a68328603037c2c155c800c6fb8965db4e966c682bc25048a",
+      "family": "NextOS Mali-450 Utgard",
+      "status": "on-device-sha-verified; nxextract-marker-fast-path; modules-pad1-nxgl-pulse-alsa-framework-ready; native-create-start-title; clean-stop; exact-final-full-gameplay-pending"
+    },
+    {
+      "artifact": "RC3 development candidate 81b8a242a9d780656caebd163932440da79dd6b486ac32ed8b7462cd25cfdf31",
+      "family": "NextOS Mali-450 Utgard",
+      "status": "on-device-sha-verified; seven-choice native language menu physically accepted in Portuguese; FMOD and SDL initialized; FRAMEWORK READY; boss and world music streams opened; clean native shutdown"
+    },
+    {
+      "artifact": "pre-RC3 package",
+      "family": "ROCKNIX Nightly / Miyoo Flip RK3566",
+      "status": "negative baseline: gameplay reached without sound; FMOD Ex reported zero drivers and FMOD_ERR_NEEDSHARDWARE before resolving OpenSL; later streams returned FMOD_ERR_UNINITIALIZED"
+    },
+    {
+      "artifact": "RC4 test executable 5fbe3ec54bc709748edc02dbae230f2494de2d190fbb5e76c83e2c31b1642087",
+      "family": "ROCKNIX Nightly / Miyoo Flip RK3566",
+      "status": "physical tester reported working game audio after the adapter-only legacy FMOD CPU-feature translation"
+    }
+  ],
+  "prohibitions": [
+    "do not reorder or skip the guest lifecycle",
+    "do not package owner-supplied Android data",
+    "do not claim an untested physical device family",
+    "do not promote the tilemap UV correction to a global framework default",
+    "do not package raw logs or nxobs support bundles"
+  ],
+  "quirks": [
+    {
+      "default": "enabled only after structural tilemap match",
+      "effect": "inset each matching 16-by-16 tile UV endpoint by one quarter atlas texel and promote only the hueshift UV varying to mediump",
+      "id": "titansouls.tilemap-quarter-texel",
+      "physical_status": "active on Mali-450 but tile grid persists; mitigation is not a proven fix",
+      "selector": "Titan Souls tilemap VBO layout and exact 16/1024 UV span",
+      "source_evidence": [
+        "src/imports.c",
+        "src/tilemap_uv_fix.h",
+        "tests/test_tilemap_uv_fix.c"
+      ]
+    }
+  ],
+  "release_ready": false,
+  "release_boundary": "private-test RC4; native language and normal FMOD/SDL audio are physically accepted on NextOS Mali-450; RC4 executable audio is tester-confirmed on ROCKNIX Nightly / Miyoo Flip RK3566; complete physical acceptance of the final RC4 ZIP/SHA remains pending",
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_private_test_release_candidate",
+  "terminal": {
+    "action": "native focus-loss, save-state and pause, then bounded _exit without unsafe guest GL destructors",
+    "evidence": [
+      "src/android_shim.c",
+      "src/main.c"
+    ]
+  }
+}

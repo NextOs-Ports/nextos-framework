@@ -1,0 +1,121 @@
+{
+ "receipt": "nx-host-oracle-v5/1",
+ "class": "PROVED_PROVIDER_BY_FIXTURE",
+ "fixture": "incident-blossomtales-1.4.0-knulli-rg-cubexx",
+ "fixture_sha256": "6975a8ede0f7a5b54731d2491e5d532b23857dc0fbeb3847c9b52e0f82ee19eb",
+ "provider": "NXC6-PROVIDER api=sdl2 version=2.30.12 soname=libSDL2-2.0.so.0 path_class=other sha256=8c4dc956e278546c96b06a6a7b0a2b8a1991e877e81e172fa1bed26a9ada453a build_id=none sha_bound=1 static=0 bytable=1 method=exported-api domain=sdl2-ascending-patched pin=pin-8c4dc956-sdl2-2.30.12 driver=unknown confidence=95 provider_generation=1",
+ "domain_lines": [
+  "NXC6-DOMAIN guid=19000000010000000100000000010000 matching=1 rewritten=0 rewritten_bindings=0 native=1 unproven=0 rejected=0 bindings=21 source_domain=sdl2-ascending-patched provider_domain=sdl2-ascending-patched provider_method=exported-api decision=KEEP_EXISTING_BYTE_INTACT result=byte-intact",
+  "NXC6-DOMAIN guid=19000000010000000100000000010000 matching=1 rewritten=0 rewritten_bindings=0 native=1 unproven=0 rejected=0 bindings=21 source_domain=sdl2-ascending-patched provider_domain=sdl2-ascending-patched provider_method=exported-api decision=KEEP_EXISTING_BYTE_INTACT result=byte-intact"
+ ],
+ "verdicts": [
+  {
+   "check": "two clones admitted and opened",
+   "result": "PASS",
+   "detail": "2 OPEN lines"
+  },
+  {
+   "check": "provider receipt emitted once per generation",
+   "result": "PASS",
+   "detail": "NXC6-PROVIDER api=sdl2 version=2.30.12 soname=libSDL2-2.0.so.0 path_class=other sha256=8c4dc956e278546c96b06a6a7b0a2b8a1991e877e81e172fa1bed26a9ada453a build_id"
+  },
+  {
+   "check": "provider sha bound and pinned (not ldconfig)",
+   "result": "PASS",
+   "detail": "8c4dc956e278546c"
+  },
+  {
+   "check": "NXC6-DOMAIN v5 names source and provider domains",
+   "result": "PASS",
+   "detail": "NXC6-DOMAIN guid=19000000010000000100000000010000 matching=1 rewritten=0 rewritten_bindings=0 native=1 unproven=0 rejected=0 bindings=21 source_domain=sdl2-ascending-patched provider_domain=sdl2-ascen"
+  },
+  {
+   "check": "position face.south -> CFW semantic 'b' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['b']"
+  },
+  {
+   "check": "position face.east -> CFW semantic 'a' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['a']"
+  },
+  {
+   "check": "position face.west -> CFW semantic 'x' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['x']"
+  },
+  {
+   "check": "position face.north -> CFW semantic 'y' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['y']"
+  },
+  {
+   "check": "position l1 -> CFW semantic 'leftshoulder' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['leftshoulder']"
+  },
+  {
+   "check": "position r1 -> CFW semantic 'rightshoulder' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['rightshoulder']"
+  },
+  {
+   "check": "position select -> CFW semantic 'back' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['back']"
+  },
+  {
+   "check": "position start -> CFW semantic 'start' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['start']"
+  },
+  {
+   "check": "position l2 -> CFW semantic 'lefttrigger' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['lefttrigger']"
+  },
+  {
+   "check": "position r2 -> CFW semantic 'righttrigger' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['righttrigger']"
+  },
+  {
+   "check": "position l3 -> CFW semantic 'leftstick' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['leftstick']"
+  },
+  {
+   "check": "position r3 -> CFW semantic 'rightstick' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['rightstick']"
+  },
+  {
+   "check": "position guide -> CFW semantic 'guide' exactly once, released",
+   "result": "PASS",
+   "detail": "delivered=['guide']"
+  },
+  {
+   "check": "SELECT+START same instance -> CHORD once",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "SELECT pad0 + START pad1 -> no CHORD",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "L2+R2 -> no CHORD",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "unplug clone 1 -> REMOVED + forget",
+   "result": "PASS",
+   "detail": ""
+  }
+ ],
+ "harness_exit": 0,
+ "fails": 0,
+ "note": "exact Knulli 20250813 DSO (sha256 8c4dc956...) executed on the authorized aarch64 device via LD_LIBRARY_PATH; physical Knulli handheld still PENDING (kit)"
+}

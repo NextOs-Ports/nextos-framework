@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "port": "swordigo",
+  "release": "1.0.4",
+  "date": "2026-08-09",
+  "package": {
+    "name": "Swordigo.NextOS-v1.0.4.zip",
+    "sha256": "8f2934deb8d258a895db55db317d04f847db570cd7a5f78ffac88a7c939cbb89",
+    "launcher_chain": [
+      "Swordigo.sh",
+      "swordigo/nxbootstrap.sh",
+      "swordigo/swordigo"
+    ],
+    "run_sh_present": false,
+    "package_files_compared_after_install": true
+  },
+  "device_class": {
+    "firmware": "ArkOS",
+    "architecture": "aarch64",
+    "libc": "glibc 2.30",
+    "video_driver": "KMSDRM",
+    "renderer": "Mali-G31",
+    "drawable": "640x480"
+  },
+  "extraction": {
+    "nxextract_version": "1.2.6",
+    "source": "user-supplied APK on device",
+    "selected_payload_files": 941,
+    "selected_payload_bytes": 84638799,
+    "transactional_commit": true,
+    "installation_complete": true,
+    "extracted_assets_files": 931,
+    "extracted_music_files": 9,
+    "extracted_outputs_equal_previous_approved_payload": true,
+    "previous_payload_retained_in_private_recoverable_backup": true
+  },
+  "runtime": {
+    "game_boot_completed": true,
+    "gles": "OpenGL ES-CM 1.1",
+    "audio_backend": "alsa via OpenAL Soft",
+    "audio_rate_hz": 48000,
+    "portmaster_controller_mapping_loaded": true,
+    "physical_input_exercised_in_this_run": false,
+    "term_exit_status": 0,
+    "portmaster_finish_completed": true,
+    "remaining_game_processes": 0,
+    "frontend_restored_active_after_test": true
+  },
+  "privacy": {
+    "test_ip_recorded": false,
+    "hostname_recorded": false,
+    "personal_path_recorded": false,
+    "apk_or_owner_data_published": false,
+    "raw_logs_public": false
+  }
+}

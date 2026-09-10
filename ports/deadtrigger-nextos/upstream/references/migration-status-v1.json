@@ -1,0 +1,37 @@
+{
+  "schema": "deadtrigger-migration-status-v1",
+  "schema_version": 1,
+  "port_id": "deadtrigger",
+  "release_version": "1.0.7",
+  "framework": {
+    "nxport_schema": 2,
+    "nxbootstrap": "0.6.4",
+    "nxinput": "0.2.0",
+    "nxextract": "1.2.6",
+    "nxrelease": "0.2.5"
+  },
+  "host_evidence": {
+    "reproducible_build": true,
+    "compiler": "pinned AArch64 GCC 16.1.0",
+    "link_environment": "pinned offline Debian Buster",
+    "maximum_glibc": "2.17",
+    "rwx_load_segment": false,
+    "rpath_or_runpath": false,
+    "proprietary_payload_packaged": false
+  },
+  "physical_device_evidence": true,
+  "validated_flow": [
+    "clean-extraction-ui",
+    "transactional-owner-data-install",
+    "video",
+    "nonzero-pcm-audio",
+    "controller",
+    "rendered-gameplay",
+    "mission-scene-transition",
+    "native-pause-exit"
+  ],
+  "release_blocker": {
+    "active": false,
+    "reason": "The supported APK asset tree and native libraries are content pinned and validated on all target families."
+  }
+}

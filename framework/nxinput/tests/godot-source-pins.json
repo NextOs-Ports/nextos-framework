@@ -1,0 +1,41 @@
+{
+  "engines": {
+    "godot3": {
+      "license": "MIT",
+      "license_path": "LICENSE.txt",
+      "license_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+      "license_spdx": "MIT",
+      "path": "platform/x11/joypad_linux.cpp",
+      "sha256": "3c575ae3e8dce33e18db676daa20a45f938b129b17ebed9362a9762b9579a1ee",
+      "upstream": "https://github.com/godotengine/godot",
+      "upstream_commit": "6c814135b69d4e703956bacc2073b4b179ff5a00",
+      "version": "3.5.3-stable"
+    },
+    "godot4": {
+      "license": "MIT",
+      "license_path": "LICENSE.txt",
+      "license_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+      "license_spdx": "MIT",
+      "path": "platform/linuxbsd/joypad_linux.cpp",
+      "sha256": "c6d45720caa2b90f7b89a57fbb2b206a9fd0cebf9adada803bafe5a820dbd4f1",
+      "upstream": "https://github.com/godotengine/godot",
+      "upstream_commit": "15073afe3856abd2aa1622492fe50026c7d63dc1",
+      "version": "4.2.2-stable"
+    },
+    "sdl2": {
+      "checkout_note": "the audit refused 'vendored-in-nextos-elite-tic80-build' as a provenance: it named no commit and no licence. The commit above is the git HEAD of that vendored SDL2 checkout, and the file this gate reads is pinned by sha256 below.",
+      "license": "Zlib",
+      "license_path": "LICENSE.txt",
+      "license_sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127",
+      "license_spdx": "Zlib",
+      "path": "src/joystick/linux/SDL_sysjoystick.c",
+      "sha256": "62ee387eb3cca342a8081fdf7b875e9c5db120b94e91c6abefd88357e4829cda",
+      "upstream": "https://github.com/libsdl-org/SDL",
+      "upstream_commit": "5d249570393f7a37e037abf22cd6012a4cc56a71",
+      "version": "SDL 2.32.10 (release-2.32.10)"
+    }
+  },
+  "note": "Provenance the C5B gates require. A source file is authoritative only if it matches one of these hashes; a path handed in by the environment is never an authority.",
+  "schema": "org.nextos.c5b.godot-source-pins",
+  "schema_version": 2
+}

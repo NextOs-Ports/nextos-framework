@@ -1,0 +1,80 @@
+{
+  "schema": "nxframework-device-environment-v1",
+  "schema_version": 1,
+  "id": "muos-rg40xx-h-2601.1",
+  "device": "RG40XX-H",
+  "firmware": {
+    "name": "muOS",
+    "version": "2601.1",
+    "archive_name": "MustardOS_RG40XX-H_2601.1_FUNKY_JACARANDA-bc38efa0.img.gz",
+    "archive_size": 4414674412,
+    "archive_sha256": "b52c3b7c7d12549d606dcb06ef5e88dd1569112a5495f1e6914e9fdcbca6468a",
+    "image_name": "MustardOS_RG40XX-H_2601.1_FUNKY_JACARANDA-bc38efa0.img",
+    "image_size": 8769240576,
+    "image_sha256": "e9cc2fabf6e51a401197af6c9fe5e8e69906dd4b5cd0d9b68bcd8c5d2e872540",
+    "stored_in_repository": false,
+    "redistributed_by_framework": false
+  },
+  "evidence": {
+    "source": "official-firmware-image",
+    "hardware_ran_during_pc_verification": false,
+    "device_access_during_pc_verification": false,
+    "result_scope": "host-side ABI, root isolation, interpreter, renderer-provider and compiled-SDL-driver verification only"
+  },
+  "image_layout": {
+    "partition_table": "gpt",
+    "rootfs_partition_name": "rootfs",
+    "rootfs_offset": 163577856,
+    "filesystem": "ext4",
+    "read_method": "debugfs read-only with byte offset; never mounted, never looped, never written"
+  },
+  "topology": {
+    "host_architecture": "aarch64",
+    "roots": {
+      "aarch64": ["/lib", "/lib64", "/usr/lib"],
+      "armv7": ["/lib32", "/usr/lib32"]
+    },
+    "interpreters": {
+      "aarch64": "/lib/ld-linux-aarch64.so.1",
+      "armv7": "/lib32/ld-linux-armhf.so.3"
+    },
+    "isolation_rule": "a 64-bit root never enters a 32-bit closure and vice versa; each root is judged by the runtime ELFs it exposes"
+  },
+  "interpreter_runtime": {
+    "python_path": "/usr/bin/python3.11",
+    "python_version": "3.11",
+    "note": "the environment records what the official image ships. The field failure that matters for muOS -- a firmware python3 that dies with 'bad marshal data' in its own stdlib -- is a per-case fault, not a property of the shipped binary, and stays covered by the synthetic firmware profile 'muos' plus the python-probe gate."
+  },
+  "renderer": {
+    "aarch64_providers": ["/usr/lib/libSDL2-2.0.so.0.2800.5", "/usr/lib/libGLESv2.so"],
+    "armv7_providers": [
+      "/usr/lib32/libSDL2-2.0.so.0.2800.5",
+      "/usr/lib32/libEGL.so",
+      "/usr/lib32/libGLESv2.so",
+      "/usr/lib32/libmali.so"
+    ],
+    "note": "presence is measured from the image; nothing here initializes video or touches DRM/Mali/framebuffer"
+  },
+  "seeds": {
+    "aarch64": [
+      "/lib/ld-linux-aarch64.so.1",
+      "/lib/libc.so.6",
+      "/usr/lib/libSDL2-2.0.so.0.2800.5",
+      "/usr/lib/libGLESv2.so",
+      "/usr/bin/python3.11"
+    ],
+    "armv7": [
+      "/lib32/ld-linux-armhf.so.3",
+      "/lib32/libc.so.6",
+      "/usr/lib32/libSDL2-2.0.so.0.2800.5",
+      "/usr/lib32/libEGL.so",
+      "/usr/lib32/libGLESv2.so",
+      "/usr/lib32/libmali.so"
+    ]
+  },
+  "sdl": {
+    "expected_version": "2.28.5",
+    "compiled_video_drivers_source": "queried from the image's own SDL under qemu user mode; never assumed",
+    "incompatible_hint": "x11"
+  }
+}

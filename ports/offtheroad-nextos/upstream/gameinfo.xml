@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameList>
+  <game>
+    <path>./Off The Road.sh</path>
+    <name>Off The Road</name>
+    <desc>Open-world off-road driving sandbox by DogByte Games, running natively on handheld Linux. The port replaces the Android runtime with a native one: an ELF so-loader, a JNI bridge, OpenSL ES over SDL audio and the game's own xGen/bgfx GLES2 renderer adopting the loader's context. Game data is extracted from the player's own APK on first launch.</desc>
+    <developer>DogByte Games</developer>
+    <publisher>DogByte Games</publisher>
+    <genre>Racing / Driving</genre>
+    <players>1</players>
+  </game>
+</gameList>

@@ -1,0 +1,91 @@
+{
+  "schema": "nxinput-m15-runtime-receipt-v1",
+  "schema_version": 1,
+  "milestone": "M15",
+  "scope": "closed-framework-input-contract-for-five-approved-adapters",
+  "method": "Approved finalized ports retain their prior human acceptance. The additional authorized session proves technical input boundaries without claiming manual gameplay, and stores no address, raw log, controller GUID or universal mapping value.",
+  "session": {
+    "physical_profile_observed": "go_super",
+    "virtual_profile_observed": "xbox_compatible_uinput",
+    "runtime_stack": "arkos_aarch64_armhf_640x480",
+    "frontend_final": "inactive_disabled",
+    "game_processes_final": 0,
+    "approved_runtime_adapters": [
+      "sonic4ep2",
+      "horizonchase",
+      "kotor",
+      "asm2_127"
+    ],
+    "approved_acceptance_adapters": [
+      "bully2",
+      "sonic4ep2",
+      "horizonchase",
+      "kotor",
+      "asm2_127"
+    ],
+    "manual_gameplay_revalidation_claimed": false,
+    "virtual_input_claimed_as_physical": false,
+    "unapproved_sources_used": false
+  },
+  "adapters": [
+    {
+      "id": "bully2",
+      "basis": "approved_final_port_acceptance_not_replayed",
+      "mapping": "approved_adapter_mapping",
+      "controls": "approved_native_controls_and_port_owned_exit",
+      "touch": "adapter_specific_fallback_only",
+      "terminal": "approved_adapter_owned_terminal",
+      "status": "accepted_reference",
+      "gaps": ["No M15 framework blocker; any newly advertised stack still needs its own release acceptance"]
+    },
+    {
+      "id": "sonic4ep2",
+      "basis": "approved_final_port_acceptance_plus_additional_runtime_observation",
+      "mapping": "gamepad_open_observed",
+      "controls": "select_start_exit_observed",
+      "touch": "adapter_specific_callback_not_retested",
+      "terminal": "native_exit_observed",
+      "status": "accepted_reference",
+      "gaps": ["No M15 framework blocker; a new physical profile must not inherit this adapter mapping"]
+    },
+    {
+      "id": "horizonchase",
+      "basis": "approved_final_port_acceptance_plus_go_super_and_virtual_boundary_observation",
+      "mapping": "go_super_mapping_observed",
+      "controls": "dual_stick_face_l3_r3_and_select_start_boundaries_observed",
+      "touch": "not_required_by_the_observed_input_path",
+      "terminal": "native_render_loop_return_observed",
+      "status": "accepted_reference",
+      "gaps": ["Virtual controls prove the software boundary and are not labelled as a second physical controller"]
+    },
+    {
+      "id": "kotor",
+      "basis": "approved_final_port_acceptance_plus_go_super_and_virtual_twin_boundary_observation",
+      "mapping": "go_super_mapping_and_narrow_evdev_boundary_observed",
+      "controls": "approved_twin_profile_and_virtual_select_start_boundaries_exercised",
+      "touch": "not_applicable_to_the_tested_adapter_path",
+      "terminal": "native_sdl_main_return_observed",
+      "status": "accepted_reference",
+      "gaps": ["The virtual Twin-shaped profile is recorded as virtual; physical Twin acceptance comes from the approved adapter record"]
+    },
+    {
+      "id": "asm2_127",
+      "basis": "approved_final_port_acceptance_plus_runtime_hotplug_reconnect_and_clean_exit",
+      "mapping": "go_super_and_virtual_xbox_controller_connections_observed",
+      "controls": "runtime_connect_disconnect_reconnect_and_select_start_observed",
+      "touch": "native_touch_bridge_remains_adapter_specific",
+      "terminal": "native_pause_input_options_video_shutdown_observed",
+      "status": "accepted_reference",
+      "gaps": ["The observed uinput disconnect is a software hotplug proof, not a claim that every physical stack was unplug-tested"]
+    }
+  ],
+  "closure": {
+    "m15_003": "closed_by_deterministic_core_test_and_runtime_hotplug_boundary",
+    "m15_016": "closed_by_approved_adapter_receipts_and_runtime_sdl_evdev_observation",
+    "m15_018": "closed_by_separate_go_super_observation_and_approved_twin_record",
+    "m15_019": "closed_by_disconnect_release_tests_and_runtime_disconnect_reconnect_boundary",
+    "m15_020": "closed_framework_matrix_with_five_approved_adapter_rows",
+    "m15_022": "closed_for_framework",
+    "scope_note": "Closure does not advertise an untested device or turn any physical mapping into a universal default"
+  }
+}

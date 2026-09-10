@@ -1,0 +1,20 @@
+NextOS Framework reference collection
+Project and integration: NextOS
+Official project: https://github.com/NextOs-Ports
+
+This collection contains code from independently licensed projects. The root
+GPLv3 license does not replace component licenses or grant rights to game data.
+Read LICENSING.md and each reference's SOURCE-MAP.json and upstream notices.
+
+The original Android so-loader lineage includes mtojek's syberia_arm64 and
+lswtcs_arm64, under Apache License 2.0. Applicable copyright, license and notice
+files must accompany reused code. PortMaster/HarbourMaster, NXExtract, NXSplash
+and other components retain their own licenses and credits.
+
+Games and their original code, artwork, music and trademarks remain the
+property of their respective rights holders. This source-reference collection
+does not grant permission to redistribute commercial game inputs.
+
+No modified downstream project should be presented as an official NextOS
+release without authorization. This identity notice does not limit rights
+already granted by the applicable software licenses.

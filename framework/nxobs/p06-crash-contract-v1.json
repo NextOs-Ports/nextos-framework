@@ -1,0 +1,46 @@
+{
+  "schema": "nxobs-p06-crash-contract-v1",
+  "schema_version": 1,
+  "component": {"name": "nxobs", "version": "0.3.0"},
+  "status": "closed_component_scope",
+  "scope": "OBS-041 through OBS-054; the transversal P06 checkpoint remains owned by the later NXExtract and nxbootstrap integration",
+  "native_flow": {
+    "signals_re_raised": true,
+    "init_array_or_jni_replaced": false,
+    "draw_order_changed": false,
+    "process_kept_alive": false
+  },
+  "privacy": {
+    "private_runtime_required": true,
+    "receipt_mode": "0600",
+    "maps_paths_included": false,
+    "public_symbols": false
+  },
+  "items": [
+    {"id":"OBS-041","status":"closed","basis":"fatal-signal-and-128-plus-signal-status"},
+    {"id":"OBS-042","status":"closed","basis":"double-buffered-phase-and-frame"},
+    {"id":"OBS-043","status":"closed","basis":"thread-pc-lr-sp-from-linux-ucontext-when-available"},
+    {"id":"OBS-044","status":"closed","basis":"siginfo-fault-address"},
+    {"id":"OBS-045","status":"closed","basis":"dl-phdr-module-build-id-and-relative-offset"},
+    {"id":"OBS-046","status":"closed","basis":"bounded-last-asset-id"},
+    {"id":"OBS-047","status":"closed","basis":"bounded-last-egl-or-gl-call-id"},
+    {"id":"OBS-048","status":"closed","basis":"bounded-effective-provider-id"},
+    {"id":"OBS-049","status":"closed","basis":"private-sanitized-module-map-without-paths"},
+    {"id":"OBS-050","status":"closed","basis":"build-id-locked-addr2line-symbolizer"},
+    {"id":"OBS-051","status":"closed","basis":"atomic-private-symbol-archive-marked-outside-public-zip"},
+    {"id":"OBS-052","status":"closed","basis":"sa-resethand-and-original-signal-re-raise"},
+    {"id":"OBS-053","status":"closed","basis":"observer-setters-only-no-render-or-lifecycle-call"},
+    {"id":"OBS-054","status":"closed","basis":"early-late-segv-and-abrt-subprocess-fixtures"}
+  ],
+  "verification": {
+    "host_crashes": 3,
+    "signals_preserved": 3,
+    "aarch64_compile": true,
+    "offline_symbolization": true,
+    "private_symbol_archive": true,
+    "historical_m12a": true,
+    "device_access": false,
+    "network_access": false,
+    "game_execution": false
+  }
+}

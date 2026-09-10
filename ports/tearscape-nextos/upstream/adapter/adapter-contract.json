@@ -1,0 +1,268 @@
+{
+  "audio": {
+    "callbacks": [],
+    "format": null
+  },
+  "display": {
+    "policy": "game",
+    "remap_input": false
+  },
+  "egl_binding": {
+    "enabled": false,
+    "imports": []
+  },
+  "graphics": {
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 15000,
+    "profile": "es",
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "imports": [],
+  "input": {
+    "actions": [
+      {
+        "id": "menu.accept",
+        "kind": "button",
+        "sinks": [
+          "engine.ui_accept"
+        ]
+      },
+      {
+        "id": "menu.back",
+        "kind": "button",
+        "sinks": [
+          "engine.ui_cancel"
+        ]
+      },
+      {
+        "id": "menu.navigate",
+        "kind": "vector",
+        "sinks": [
+          "engine.ui_direction"
+        ]
+      },
+      {
+        "id": "player.attack",
+        "kind": "button",
+        "sinks": [
+          "engine.input.attack"
+        ]
+      },
+      {
+        "id": "player.heal",
+        "kind": "button",
+        "sinks": [
+          "engine.input.heal"
+        ]
+      },
+      {
+        "id": "player.move",
+        "kind": "vector",
+        "sinks": [
+          "engine.input.move"
+        ]
+      },
+      {
+        "id": "player.open_map",
+        "kind": "button",
+        "sinks": [
+          "engine.input.open_map"
+        ]
+      },
+      {
+        "id": "player.roll",
+        "kind": "button",
+        "sinks": [
+          "engine.input.roll"
+        ]
+      },
+      {
+        "id": "player.select_next",
+        "kind": "button",
+        "sinks": [
+          "engine.input.select_next"
+        ]
+      },
+      {
+        "id": "player.select_previous",
+        "kind": "button",
+        "sinks": [
+          "engine.input.select_prev"
+        ]
+      },
+      {
+        "id": "player.switch_tool",
+        "kind": "button",
+        "sinks": [
+          "engine.input.switch_tool"
+        ]
+      },
+      {
+        "id": "player.use_shield",
+        "kind": "button",
+        "sinks": [
+          "engine.input.use_shield"
+        ]
+      },
+      {
+        "id": "player.use_tool",
+        "kind": "button",
+        "sinks": [
+          "engine.input.use_tool"
+        ]
+      },
+      {
+        "id": "player.zoom_map",
+        "kind": "button",
+        "sinks": [
+          "engine.input.zoom_map"
+        ]
+      },
+      {
+        "id": "system.pause",
+        "kind": "button",
+        "sinks": [
+          "engine.input.pause"
+        ]
+      },
+      {
+        "id": "system.quit",
+        "kind": "button",
+        "sinks": [
+          "adapter.system.quit"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "player.roll",
+        "B": "player.switch_tool",
+        "DOWN": "native",
+        "L1": "player.select_previous",
+        "L2": "player.use_shield",
+        "LEFT": "native",
+        "LEFT_STICK": "player.move",
+        "R1": "player.select_next",
+        "R2": "player.use_tool",
+        "RIGHT": "native",
+        "SELECT": "player.open_map",
+        "START": "system.pause",
+        "UP": "native",
+        "X": "player.attack",
+        "Y": "player.heal",
+        "R3": "null"
+      },
+      "menu": {
+        "A": "menu.accept",
+        "B": "menu.back",
+        "DOWN": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "menu.navigate",
+        "RIGHT": "native",
+        "START": "system.pause",
+        "UP": "native"
+      }
+    },
+    "mapping": "NEXTOSCONTROLLERS.gptk",
+    "mapping_authority": "sdl-portmaster-complete-first",
+    "runtime_contract": {
+      "context_initial": "unproven",
+      "delivery_ack": "required",
+      "schema": "nxinput-gptk-live/1",
+      "sink_coverage": "all-actions-before-activation",
+      "unproven_policy": "native-passthrough"
+    },
+    "runtime_mapping": "nxinput-gptk",
+    "touch": null
+  },
+  "input_controller_profiles": {
+    "bundle": "controllers.nxb",
+    "enabled": true,
+    "sha256": "f94bb577b0d7b2f9dcf8b551807eb400a8141e21c579f22ba07b8bfa0fac2fd8"
+  },
+  "input_sdl3_portmaster": {
+    "enabled": false,
+    "private_sdl3_sha256": ""
+  },
+  "jni": {
+    "callbacks": [],
+    "classes": [],
+    "methods": []
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "native-menu",
+    "sinks": [
+      "engine.locale"
+    ],
+    "supported": [
+      "en"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "launcher verifies authenticated generation and owner-data gate",
+      "NXExtract materializes the owner APK payload when absent",
+      "canonical five-second NXSplash",
+      "port-env selects the GLES2 shim facade and firmware SDL provider",
+      "Godot main initializes the packed project and managed runtime",
+      "SDL gamepad admission applies nxinput normalization before announcement",
+      "GPTK owner/default mapping loads and ACK sinks seal",
+      "the first admitted single-player pad becomes the only GPTK owner while additional pads retain native device identity",
+      "current Tearscape scene plus its UiManager-owned SceneTree paused state proves menu or gameplay context",
+      "when Tearscape creates attack2 for co-op every pad remains on the native device-aware path",
+      "Godot main loop presents frames and publishes health",
+      "SELECT+START requests the normal lifecycle exit"
+    ],
+    "source_evidence": [
+      "ports/tearscape/adapter-env.sh",
+      "ports/tearscape/src/nxinput/nxc6_glue.c",
+      "ports/tearscape/src/nxinput/nxinput_portmaster.c",
+      "ports/tearscape/src/godot_engine/godot-4.6.1-nextos.patch",
+      "ports/tearscape/src/godot_engine/v4-universal/drivers/sdl/joypad_sdl.cpp",
+      "ports/tearscape/src/godot_engine/v4-universal/drivers/sdl/nxinput_gptk_godot.cpp",
+      "ports/tearscape/src/godot_engine/v4-universal/platform/linuxbsd/fbdev/display_server_fbdev.cpp"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "Godot project save path under NXCOMPAT_HOME"
+    ],
+    "paths": [
+      "saves",
+      "NEXTOSCONTROLLERS.gptk",
+      "NEXTOSSETTINGS.txt"
+    ]
+  },
+  "prohibitions": [
+    "never suppress native input before sink coverage and scene context are proven",
+    "never replay a physical event natively after a sink ACK failure",
+    "never synthesize start_coop or co-op player events because Tearscape derives P1/P2 from the physical event class and device",
+    "never replace the proven GLES2 facade with native GLES3 on the universal path",
+    "never bypass Godot main-loop lifecycle order"
+  ],
+  "quirks": [
+    "Tearscape UI uses custom focus; UI scene paths and the UiManager-owned SceneTree paused state prove menu context",
+    "player movement InputMap actions use the assembly-confirmed move_up move_down move_left move_right names",
+    "system.pause delivers the assembly-confirmed menu action consumed by UiManager, not the unrelated pause action",
+    "zoom_map is a button action; the generated default leaves RIGHT_STICK native and legacy owner stick mappings emit one radial edge",
+    "NEXTOSCONTROLLERS governs one primary pad only outside co-op; additional pads and attack2 mode stay native",
+    "every scene source or co-op transition releases GPTK latches and preserves physical state; old ACTION/null stays suppressed while old NONE/native stays native until release or stick center, including consecutive transitions",
+    "Godot embeds the pinned SDL 3.2.30 joystick subset statically; input_sdl3_portmaster stays disabled because the ZIP carries no private libSDL shared object or PortMaster SDL provider"
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START",
+    "evidence": [
+      "ports/tearscape/src/godot_engine/v4-universal/drivers/sdl/joypad_sdl.cpp",
+      "ports/tearscape/src/godot_engine/v4-universal/drivers/sdl/nxinput_gptk_godot.cpp"
+    ]
+  }
+}

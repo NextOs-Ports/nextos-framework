@@ -1,0 +1,8 @@
+gamedata/*
+!gamedata/README.txt
+data/
+study/
+libs_apk/
+*.apk
+*.obb
+*_payload.tar

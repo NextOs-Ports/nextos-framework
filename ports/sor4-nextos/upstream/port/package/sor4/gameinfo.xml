@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gameList>
+  <game>
+    <path>./StreetsOfRage4.sh</path>
+    <name>Streets of Rage 4</name>
+    <desc>Wood Oak City voltou a ferver. Streets of Rage 4 Android v1.4.5 roda nativamente em AArch64/Linux com host .NET 9 e MonoGame GLES. Perfis automaticos para 1 GB, 2 GB e acima usam ASTC nativo quando disponivel, fallback ETC2/ETC1 e streaming limitado de texturas. Instalacao BYO-data transacional; aceita APK ARM64 completo, todos os splits ou bundle APKS/APKM/XAPK legal e nao inclui dados do jogo.</desc>
+    <image>./sor4/cover.png</image>
+    <releasedate>20200430T000000</releasedate>
+    <developer>Dotemu / Lizardcube / Guard Crush Games</developer>
+    <publisher>Dotemu</publisher>
+    <genre>Beat 'em up</genre>
+  </game>
+</gameList>

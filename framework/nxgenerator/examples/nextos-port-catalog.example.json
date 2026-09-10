@@ -1,0 +1,21 @@
+{
+  "id": "nxexample-aarch64-nextos",
+  "name": "NXEXAMPLE AARCH64",
+  "description": "A deterministic example port entry generated for the NextOS website and application catalog.",
+  "build": {
+    "version": "1.0.0",
+    "type": "beta"
+  },
+  "links": {
+    "source": "https://github.com/NextOs-Ports/nxexample-aarch64-nextos",
+    "latest_release": "https://github.com/NextOs-Ports/nxexample-aarch64-nextos/releases/latest/download/nxexample-aarch64.zip"
+  },
+  "images": {
+    "cover": "port-json/nxexample-aarch64-nextos/cover.svg",
+    "screenshots": [
+      "port-json/nxexample-aarch64-nextos/screenshot.svg"
+    ],
+    "placeholder": true
+  },
+  "installation": "Extract the ZIP into your firmware's ports/ folder. Put your own game data in nxexample-aarch64/gamedata/. Launch NXExample AArch64 from the Ports menu; it installs itself on first run."
+}

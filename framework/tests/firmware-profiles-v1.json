@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "contract_id": "nxframework-firmware-contract-simulation-v1",
+  "purpose": "Exercise firmware-facing launcher and package contracts with synthetic files and processes only",
+  "evidence_boundary": {
+    "universal_evidence": false,
+    "hardware_proof": false,
+    "hardware_ran": false,
+    "device_access": false,
+    "firmware_images_used": false,
+    "result": "profile-contract-pass",
+    "meaning": "The declared environment contract passed; no firmware or hardware result was produced"
+  },
+  "shared_synthetic_gates": [
+    {
+      "id": "nxcompat-host",
+      "covers": [
+        "capability-probe",
+        "input-fake-receipts"
+      ],
+      "runs_per_matrix": 1
+    },
+    {
+      "id": "nxgl-m13-host",
+      "covers": [
+        "graphics-fake-provider"
+      ],
+      "runs_per_matrix": 1
+    },
+    {
+      "id": "nxaudio-m14-host",
+      "covers": [
+        "audio-fake-provider"
+      ],
+      "runs_per_matrix": 1
+    }
+  ],
+  "device_variants": [
+    {
+      "id": "nextos-mali450-fbdev",
+      "catalog_family_id": "nextos-mali450-fbdev",
+      "firmware_profile_id": "nextos",
+      "arch_routes": [
+        "aarch64",
+        "armv7"
+      ],
+      "evidence_level": "physical-full",
+      "evidence_scope": "imported-physical-history-not-host-proof",
+      "evidence_refs": [
+        "framework/catalog/devices-v1.json",
+        "suportando_outros_devices/matriz-devices.md",
+        "ports/chrono/references/m22-physical-receipt-v1.json"
+      ],
+      "hardware_proof_from_this_gate": false
+    },
+    {
+      "id": "r36s-arkos-g31-kmsdrm",
+      "catalog_family_id": "r36s-arkos-g31-kmsdrm",
+      "firmware_profile_id": "arkos",
+      "arch_routes": [
+        "aarch64",
+        "armv7"
+      ],
+      "evidence_level": "physical-full",
+      "evidence_scope": "imported-physical-history-not-host-proof",
+      "evidence_refs": [
+        "framework/catalog/devices-v1.json",
+        "suportando_outros_devices/matriz-devices.md"
+      ],
+      "hardware_proof_from_this_gate": false
+    },
+    {
+      "id": "nextos-x5-g310-kmsdrm",
+      "catalog_family_id": "nextos-x5-g310-kmsdrm",
+      "firmware_profile_id": "nextos",
+      "arch_routes": [
+        "aarch64",
+        "i386"
+      ],
+      "evidence_level": "physical-full",
+      "evidence_scope": "imported-physical-history-not-host-proof",
+      "evidence_refs": [
+        "framework/catalog/devices-v1.json",
+        "suportando_outros_devices/matriz-devices.md"
+      ],
+      "hardware_proof_from_this_gate": false
+    },
+    {
+      "id": "rg40xx-muos",
+      "catalog_family_id": "rg40xx-muos",
+      "firmware_profile_id": "muos",
+      "arch_routes": [
+        "aarch64",
+        "armv7"
+      ],
+      "evidence_level": "community-confirmed",
+      "evidence_scope": "imported-community-history-not-host-proof",
+      "evidence_refs": [
+        "framework/catalog/devices-v1.json",
+        "suportando_outros_devices/matriz-devices.md"
+      ],
+      "hardware_proof_from_this_gate": false
+    },
+    {
+      "id": "rgds-rocknix-panfrost-wayland",
+      "catalog_family_id": "rgds-rocknix-panfrost-wayland",
+      "firmware_profile_id": "rocknix",
+      "arch_routes": [
+        "aarch64"
+      ],
+      "evidence_level": "fix-published-retest-pending",
+      "evidence_scope": "imported-fix-history-retest-pending-not-host-proof",
+      "evidence_refs": [
+        "framework/catalog/devices-v1.json",
+        "suportando_outros_devices/matriz-devices.md"
+      ],
+      "hardware_proof_from_this_gate": false
+    },
+    {
+      "id": "knulli-batocera-amberelec-trimui",
+      "catalog_family_id": "knulli-batocera-amberelec-trimui",
+      "firmware_profile_id": "knulli-batocera",
+      "arch_routes": [
+        "aarch64"
+      ],
+      "evidence_level": "design-compatible",
+      "evidence_scope": "designed-route-not-host-proof",
+      "evidence_refs": [
+        "framework/catalog/devices-v1.json",
+        "suportando_outros_devices/matriz-devices.md"
+      ],
+      "hardware_proof_from_this_gate": false
+    },
+    {
+      "id": "darkos-rk3326-g31-kmsdrm",
+      "catalog_family_id": null,
+      "firmware_profile_id": "darkos",
+      "arch_routes": [
+        "aarch64"
+      ],
+      "evidence_level": "field-observation",
+      "evidence_scope": "field-observation-not-static-proof",
+      "evidence_refs": [
+        "framework/nxbootstrap/templates/launcher.sh.in",
+        "framework/portmaster/contract-v1.json"
+      ],
+      "hardware_proof_from_this_gate": false
+    }
+  ],
+  "profiles": [
+    {
+      "id": "arkos",
+      "label": "ArkOS contract fixture",
+      "cfw_name": "ArkOS",
+      "evidence_scope": "official-contract-plus-synthetic",
+      "evidence_refs": [
+        "framework/portmaster/fixtures/contract-cases-v1.json",
+        "framework/catalog/devices-v1.json"
+      ],
+      "portmaster_case_ids": [
+        "official-generic-arkos-family"
+      ],
+      "candidate_roots": [
+        "/roms/tools/PortMaster",
+        "/roms2/tools/PortMaster"
+      ],
+      "launcher_architecture": "aarch64",
+      "port_32bit": false,
+      "arch_library_suffix": "libs.aarch64",
+      "simulated_environment": {
+        "shell": "bash",
+        "external_stat": "absent-by-test",
+        "split_launcher_and_data_roots": true,
+        "graphics": "shared-fake-provider",
+        "audio": "shared-fake-provider",
+        "input": "shared-fake-receipt"
+      },
+      "universal_evidence": false,
+      "hardware_proof": false
+    },
+    {
+      "id": "muos",
+      "label": "muOS ARMHF contract fixture",
+      "cfw_name": "muOS",
+      "evidence_scope": "official-contract-plus-synthetic",
+      "evidence_refs": [
+        "framework/portmaster/fixtures/contract-cases-v1.json",
+        "framework/catalog/devices-v1.json"
+      ],
+      "portmaster_case_ids": [
+        "official-muos-split-root"
+      ],
+      "candidate_roots": [
+        "/mnt/mmc/MUOS/PortMaster"
+      ],
+      "launcher_architecture": "armv7",
+      "port_32bit": true,
+      "arch_library_suffix": "libs.armhf",
+      "simulated_environment": {
+        "shell": "bash",
+        "external_stat": "absent-by-test",
+        "split_launcher_and_data_roots": true,
+        "graphics": "shared-fake-provider",
+        "audio": "shared-fake-provider",
+        "input": "shared-fake-receipt"
+      },
+      "universal_evidence": false,
+      "hardware_proof": false
+    },
+    {
+      "id": "rocknix",
+      "label": "ROCKNIX contract fixture",
+      "cfw_name": "ROCKNIX",
+      "evidence_scope": "official-contract-plus-synthetic",
+      "evidence_refs": [
+        "framework/portmaster/fixtures/contract-cases-v1.json",
+        "framework/catalog/devices-v1.json"
+      ],
+      "portmaster_case_ids": [
+        "official-rocknix-helper"
+      ],
+      "candidate_roots": [
+        "/opt/system/Tools/PortMaster",
+        "/storage/.config/PortMaster"
+      ],
+      "launcher_architecture": "aarch64",
+      "port_32bit": false,
+      "arch_library_suffix": "libs.aarch64",
+      "simulated_environment": {
+        "shell": "bash",
+        "external_stat": "absent-by-test",
+        "split_launcher_and_data_roots": true,
+        "graphics": "shared-fake-provider",
+        "audio": "shared-fake-provider",
+        "input": "shared-fake-receipt"
+      },
+      "universal_evidence": false,
+      "hardware_proof": false
+    },
+    {
+      "id": "darkos",
+      "label": "dArkOS field-observation fixture",
+      "cfw_name": "dArkOSRE",
+      "evidence_scope": "field-observation-not-static-proof",
+      "evidence_refs": [
+        "framework/nxbootstrap/templates/launcher.sh.in",
+        "framework/portmaster/contract-v1.json"
+      ],
+      "portmaster_case_ids": [],
+      "candidate_roots": [
+        "/opt/system/Tools/PortMaster"
+      ],
+      "launcher_architecture": "aarch64",
+      "port_32bit": false,
+      "arch_library_suffix": "libs.aarch64",
+      "simulated_environment": {
+        "shell": "bash",
+        "external_stat": "absent-by-test",
+        "split_launcher_and_data_roots": true,
+        "graphics": "shared-fake-provider",
+        "audio": "shared-fake-provider",
+        "input": "shared-fake-receipt"
+      },
+      "universal_evidence": false,
+      "hardware_proof": false
+    },
+    {
+      "id": "nextos",
+      "label": "NextOS contract fixture",
+      "cfw_name": "NextOS",
+      "evidence_scope": "local-contract-plus-synthetic",
+      "evidence_refs": [
+        "framework/portmaster/fixtures/contract-cases-v1.json",
+        "framework/catalog/devices-v1.json"
+      ],
+      "portmaster_case_ids": [
+        "nextos-portmaster-control-bridge"
+      ],
+      "candidate_roots": [
+        "/storage/roms/ports/PortMaster"
+      ],
+      "launcher_architecture": "aarch64",
+      "port_32bit": false,
+      "arch_library_suffix": "libs.aarch64",
+      "simulated_environment": {
+        "shell": "bash",
+        "external_stat": "absent-by-test",
+        "split_launcher_and_data_roots": true,
+        "graphics": "shared-fake-provider",
+        "audio": "shared-fake-provider",
+        "input": "shared-fake-receipt"
+      },
+      "universal_evidence": false,
+      "hardware_proof": false
+    },
+    {
+      "id": "knulli-batocera",
+      "label": "Knulli Batocera contract fixture",
+      "cfw_name": "Knulli",
+      "evidence_scope": "official-contract-plus-synthetic",
+      "evidence_refs": [
+        "framework/portmaster/fixtures/contract-cases-v1.json",
+        "framework/catalog/devices-v1.json"
+      ],
+      "portmaster_case_ids": [
+        "official-knulli-exfat"
+      ],
+      "candidate_roots": [
+        "/userdata/system/.local/share/PortMaster"
+      ],
+      "launcher_architecture": "aarch64",
+      "port_32bit": false,
+      "arch_library_suffix": "libs.aarch64",
+      "simulated_environment": {
+        "shell": "bash",
+        "external_stat": "absent-by-test",
+        "split_launcher_and_data_roots": true,
+        "graphics": "shared-fake-provider",
+        "audio": "shared-fake-provider",
+        "input": "shared-fake-receipt"
+      },
+      "universal_evidence": false,
+      "hardware_proof": false
+    }
+  ]
+}

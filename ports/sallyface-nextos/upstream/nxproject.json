@@ -1,0 +1,277 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "controls": {
+    "actions": [
+      {
+        "id": "sf.interact",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.interact"
+        ]
+      },
+      {
+        "id": "sf.back",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.back"
+        ]
+      },
+      {
+        "id": "sf.gasmask",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.gasmask"
+        ]
+      },
+      {
+        "id": "sf.inventory",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.inventory"
+        ]
+      },
+      {
+        "id": "sf.pause",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.pause"
+        ]
+      },
+      {
+        "id": "sf.move",
+        "kind": "vector",
+        "sinks": [
+          "sallyface.input.move"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "sf.interact",
+        "B": "sf.back",
+        "LEFT_STICK": "sf.move",
+        "START": "sf.pause",
+        "X": "sf.gasmask",
+        "Y": "sf.inventory"
+      },
+      "menu": {
+        "A": "sf.interact",
+        "B": "sf.back",
+        "LEFT_STICK": "sf.move",
+        "START": "sf.pause"
+      }
+    }
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "authored"
+  },
+  "graphics": {
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 8000,
+    "profile": "es",
+    "required_devices": [
+      "mali-450",
+      "mali-g31"
+    ],
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "adapter",
+    "sinks": [
+      "unity-i2loc"
+    ],
+    "supported": [
+      "en",
+      "pt-BR"
+    ]
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor/sallyface-nextos.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "game-dir-and-passthrough",
+    "enabled_quirks": [],
+    "executable": "sallyface-nextos",
+    "generation_runtime": [
+      {
+        "mode": "0755",
+        "path": "sallyface-nextos",
+        "role": "executable",
+        "sha256": "73a74ede15bdbe07ee84b2666da234e9244e24594f8e6011b174a7b311bfbfc3"
+      },
+      {
+        "mode": "0644",
+        "path": "port-env.sh",
+        "role": "runtime-hook",
+        "sha256": "bc896a4d10593204abf11d588c7cdb77fa834f0f239ea2a00d9ba7959958ddb8"
+      },
+      {
+        "mode": "0644",
+        "path": "extractor.json",
+        "role": "nxextract-recipe",
+        "sha256": "bb14301ad27fa4dbe7b8fa6e35d05a1bb29045b7afc5713426808de53a4310eb"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract.py",
+        "role": "nxextract-engine",
+        "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/run-extractor.sh",
+        "role": "nxextract-runner",
+        "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract-runtime-env.sh",
+        "role": "nxextract-runtime-env",
+        "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+      },
+      {
+        "mode": "0755",
+        "path": "nxextract/nxextract-ui",
+        "role": "nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/sf_prepare.py",
+        "role": "nxextract-helper",
+        "sha256": "31131aa26295bdabf8a286ed104270e5922ae0bdf1a0882c472454924185908b"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/sf_retag.py",
+        "role": "nxextract-helper",
+        "sha256": "980f8d1e8bd50d2bd29ea0604596ec8ee448c6bbb5ddaa6ea19a5c96b85eac47"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/sf_unbundle.py",
+        "role": "nxextract-helper",
+        "sha256": "47f7db918df57a006e59bd9a78032074a1da6fd2ccc2d6747181de4164294fc8"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/sf_retag_spec.json",
+        "role": "nxextract-spec",
+        "sha256": "584b3660614f30f8649933fb21d5334d0e0917f9dca2587c0159cc576762cfb2"
+      },
+      {
+        "mode": "0755",
+        "path": "nxsplash-nextos",
+        "role": "nxsplash",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      }
+    ],
+    "home_mode": "port",
+    "id": "sallyface",
+    "launcher_name": "Sally Face.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.21"
+    },
+    "prepare_script": "",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "graphics.egl-config",
+      "graphics.drawable",
+      "audio.output-open",
+      "input.controller-mapping",
+      "input.controller-api"
+    ],
+    "required_files": [
+      "sallyface-nextos",
+      "nxsplash-nextos",
+      "port-env.sh",
+      "lib/libmain.so",
+      "lib/libunity.so",
+      "lib/libil2cpp.so",
+      "assets/.sallyface-prepare-arm64-4.json",
+      "assets/bin/Data/boot.config",
+      "assets/bin/Data/data.unity3d",
+      "assets/bin/Data/resources.resource",
+      "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "assets/bin/Data/sharedassets225.assets"
+    ],
+    "runtime_report": "log",
+    "schema_version": 3,
+    "title": "Sally Face"
+  },
+  "owner_data": {
+    "directory": "gamedata",
+    "formats": [
+      "APK",
+      "APKM",
+      "APKS",
+      "XAPK"
+    ],
+    "reference": {
+      "version": "1.5.53 reference only"
+    }
+  },
+  "package_payload": [
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "FRAMEWORK-PIN.json",
+      "sha256": "812f404f583316502f6472cce4d2e25d54e59b318766117f7a49e1446dc2d531"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "INSTALLATION.md",
+      "sha256": "2e6b425097cdccb8b5b7c387324487e7c7f2a2020e7f34ef4674d1b68a38b704"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "NOTICE.md",
+      "sha256": "92fd851aabf76bfcdd5492156cf6f9a77c0827212430519de41ce33b159a1b6a"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "README.md",
+      "sha256": "908e3bbe70125e085a41522fd004331e2e8f03ad6eb54336b18681adb862c7c0"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "version.txt",
+      "sha256": "558599c80ef20b6840d8e90aab39fe2242bead7f42e6e2da9d6d1c9a0cf7cfee"
+    }
+  ],
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.27",
+    "runtime": []
+  },
+  "promotion": {
+    "adapter_contract": "adapter/adapter-contract.json",
+    "claims": {
+      "adapter_lifecycle_implemented": true,
+      "physical_support_proven": false,
+      "release_ready": true
+    }
+  },
+  "runtime_root": ".",
+  "schema_version": 3
+}

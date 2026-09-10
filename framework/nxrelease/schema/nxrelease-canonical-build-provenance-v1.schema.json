@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.local/schema/nxrelease-canonical-build-provenance-v1.json",
+  "title": "NXRelease canonical build/bundle provenance v1",
+  "description": "Emitted by nxrelease build/bundle. Integrity binds the staged ELF inventory to the single reopened archive. Human authority does not fabricate a device receipt; legacy candidate-lock mode remains available explicitly.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "sanitized",
+    "mode",
+    "tool",
+    "release",
+    "toolchain",
+    "verification",
+    "diagnostic_restage"
+  ],
+  "properties": {
+    "schema": {
+      "const": "nxrelease-canonical-build-provenance-v1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "sanitized": {
+      "const": true
+    },
+    "mode": {
+      "enum": [
+        "build",
+        "bundle"
+      ]
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "const": "nxrelease"
+        },
+        "version": {
+          "const": "0.4.11"
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package_id",
+        "package_version",
+        "archive_sha256",
+        "max_glibc",
+        "ceiling"
+      ],
+      "properties": {
+        "package_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "package_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "archive_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "max_glibc": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ceiling": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python",
+        "platform",
+        "source_date_epoch",
+        "umask",
+        "tz",
+        "lc_all"
+      ],
+      "properties": {
+        "python": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "source_date_epoch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "umask": {
+          "type": "string"
+        },
+        "tz": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lc_all": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "mandatory",
+        "release_authority",
+        "archive_sha256",
+        "elf_count",
+        "elfs"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "stage-archive-integrity",
+            "candidate-lock-stage-archive-reopen"
+          ]
+        },
+        "mandatory": {
+          "const": true
+        },
+        "release_authority": {
+          "enum": [
+            "human",
+            "candidate-lock"
+          ]
+        },
+        "archive_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "candidate_document_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "executable": {
+          "type": "string",
+          "minLength": 3
+        },
+        "executable_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "elf_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "elfs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        }
+      },
+      "allOf": [{
+        "if": {
+          "properties": {
+            "method": {"const": "candidate-lock-stage-archive-reopen"}
+          }
+        },
+        "then": {
+          "required": [
+            "candidate_document_sha256",
+            "executable",
+            "executable_sha256"
+          ],
+          "properties": {
+            "release_authority": {"const": "candidate-lock"}
+          }
+        },
+        "else": {
+          "properties": {
+            "release_authority": {"const": "human"}
+          }
+        }
+      }]
+    },
+    "diagnostic_restage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["performed", "archive_sha256"],
+      "properties": {
+        "performed": {"type": "boolean"},
+        "archive_sha256": {
+          "oneOf": [
+            {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            {"type": "null"}
+          ]
+        }
+      },
+      "allOf": [{
+        "if": {"properties": {"performed": {"const": true}}},
+        "then": {"properties": {"archive_sha256": {
+          "type": "string", "pattern": "^[0-9a-f]{64}$"
+        }}},
+        "else": {"properties": {"archive_sha256": {"type": "null"}}}
+      }]
+    }
+  }
+}

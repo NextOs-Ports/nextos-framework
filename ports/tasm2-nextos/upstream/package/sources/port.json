@@ -1,0 +1,39 @@
+{
+  "version": 4,
+  "name": "asm2.zip",
+  "items": [
+    "The Amazing Spider-Man 2.sh",
+    "asm2_127"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "The Amazing Spider-Man 2",
+    "porter": [
+      "NextOS"
+    ],
+    "desc": "Clean-room BYO-data loader for The Amazing Spider-Man 2 Android 1.2.7d/1.2.8d. Includes proven ARMHF routes plus a scoped AArch64 X5M/Box32 route, native controls and audio, persistent saves, the original first-run flow and transactional setup. Executable game data is not included.",
+    "desc_md": null,
+    "inst": "Put a supported legal Android 1.2.7d/1.2.8d input in asm2_127/gamedata. A loose APK needs the matching intact cache ZIP or main.12032 plus patch.12723 OBB; patch.12438 is optional. The self-contained 1.2.8d installer needs no separate cache but is ARM32-only. Launch once and let NXExtract validate everything.",
+    "inst_md": null,
+    "genres": [
+      "action",
+      "adventure"
+    ],
+    "image": {
+      "screenshot": "screenshot.png",
+      "covers": [],
+      "thumbnail": "screenshot.png",
+      "video": null
+    },
+    "rtr": false,
+    "exp": false,
+    "runtime": [],
+    "store": [],
+    "availability": "paid",
+    "reqs": [],
+    "arch": [
+      "aarch64",
+      "armhf"
+    ]
+  }
+}

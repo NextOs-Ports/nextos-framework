@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Door Kickers: Action Squad"
+  },
+  "items": [
+    "Action Squad.sh",
+    "actionsquad/"
+  ],
+  "items_opt": [],
+  "name": "actionsquad.zip",
+  "version": 4
+}

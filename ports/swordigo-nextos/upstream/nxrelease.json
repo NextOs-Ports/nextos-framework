@@ -1,0 +1,328 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "swordigo",
+    "version": "1.0.15",
+    "profile": "universal-portmaster",
+    "launcher": "Swordigo.sh",
+    "launcher_chain": [
+      "Swordigo.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.16",
+      "config_path": "swordigo/nxport.json",
+      "config_sha256": "fc169472ba8558db7b2be60fffa1c206a0f900fb559ac26ae77497eab7f666d8"
+    },
+    "port_dir": "swordigo",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/swordigo-nextos",
+      "file": "swordigo/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786492800,
+    "max_glibc": "2.30",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "swordigo/nxextract/nxextract.py",
+    "version": "1.2.10",
+    "minimum_version": "1.2.10",
+    "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5",
+    "runner_path": "swordigo/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "swordigo/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "recipe_path": "swordigo/extractor.json",
+    "recipe_sha256": "b0af1e28929e8c4c7b3d355ce5b682ec2da66d029dbb0eee50000f202439eba8",
+    "ui_path": "swordigo/nxextract/nxextract-ui",
+    "ui_sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libgcc_s.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libmpg123.so.0",
+      "provider": "package",
+      "path": "swordigo/libmpg123.so.0"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libopenal.so.1",
+      "provider": "firmware"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libz.so.1",
+      "provider": "firmware"
+    }
+  ],
+  "files": [
+    {
+      "source": "Swordigo.sh",
+      "target": "Swordigo.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "a25139fe8388dd583423eee61bb722158ab4cf4dab772af35a3e960980b4094d"
+    },
+    {
+      "source": "swordigo/nxport.json",
+      "target": "swordigo/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "fc169472ba8558db7b2be60fffa1c206a0f900fb559ac26ae77497eab7f666d8"
+    },
+    {
+      "source": "swordigo-nextos",
+      "target": "swordigo/swordigo-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build_universal.sh; pinned offline Debian Buster image sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf; target sysroot used for headers only",
+      "sha256": "41bb2461e09e97faa10db0bfe4f97bf6254e9cbfa28bf0f5fcfeaf8a2b2bd33f",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libmpg123.so.0",
+        "libopenal.so.1",
+        "libpthread.so.0",
+        "libz.so.1"
+      ],
+      "soname": null
+    },
+    {
+      "source": "libmpg123.so.0",
+      "target": "swordigo/libmpg123.so.0",
+      "kind": "third-party-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "mpg123 1.31.3 official source https://downloads.sourceforge.net/sourceforge/mpg123/mpg123-1.31.3.tar.bz2 sha256:1ca77d3a69a5ff845b7a0536f783fee554e1041139a6b978f6afe14f5814ad1a; LGPL-2.1-or-later; pinned offline Debian Buster builder",
+      "sha256": "0934e5561276e2642e2a17ce96ad9d94cf3237a4bbe8790a3ad1c7e47caf8b25",
+      "needed": [
+        "libc.so.6",
+        "libm.so.6"
+      ],
+      "soname": "libmpg123.so.0"
+    },
+    {
+      "source": "README.md",
+      "target": "swordigo/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "0be48e3c8565ff56fe739660eb4e426a51045d6aab9e07323c7bfdd91ca1c4ff"
+    },
+    {
+      "source": "INSTALLATION.md",
+      "target": "swordigo/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "84a8d9128a3943ac63b845d33dc267c8eeb34a6d87d8fa0e28f50a276d1a7524"
+    },
+    {
+      "source": "NOTICE.md",
+      "target": "swordigo/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "ab92e6e36737c266edafafaf6faac6bd62fa9535e44702e57ac90f7eb728b267"
+    },
+    {
+      "source": "LICENSE",
+      "target": "swordigo/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "source": "version.txt",
+      "target": "swordigo/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "d9c52b6b689187b22333d76269468cec96320d8f28fe074535fb1baca786059a"
+    },
+    {
+      "source": "package/GAMEDATA.txt",
+      "target": "swordigo/gamedata/PUT-THE-APK-HERE.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "95acef711be398464c2e22a51e96380898cf815365f64761541c0039ae66c82d"
+    },
+    {
+      "source": "alsoft.conf",
+      "target": "swordigo/alsoft.conf",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "826695ec530e9c557ae3d04820baf145b6efd284121fc9807e9646aa1d08d7e1"
+    },
+    {
+      "source": "extractor.json",
+      "target": "swordigo/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "b0af1e28929e8c4c7b3d355ce5b682ec2da66d029dbb0eee50000f202439eba8"
+    },
+    {
+      "source": "nxextract-version.txt",
+      "target": "swordigo/nxextract-version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "4304275f30e076c76abdc0f280f0fdd5537f1ac700953ba1908e29a64d531919"
+    },
+    {
+      "source": "nxextract.py",
+      "target": "swordigo/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "b1b46ecdf1336b1412d7d3a3d291220aca4834a47730a5545afb382dae6036b5"
+    },
+    {
+      "source": "run-extractor.sh",
+      "target": "swordigo/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "source": "nxextract-runtime-env.sh",
+      "target": "swordigo/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "nxextract-ui",
+      "target": "swordigo/nxextract/nxextract-ui",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "unmodified canonical NXExtract 1.2.6 UI; MIT; content-pinned low-glibc AArch64 build",
+      "sha256": "7ca901d8515ab9a084be81e05888e1fd03cec80fb03896df6331c1c95698ef56",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "licenses/NXExtract-MIT.txt",
+      "target": "swordigo/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "licenses/mpg123-LGPL-2.1-or-later.txt",
+      "target": "swordigo/licenses/mpg123-LGPL-2.1-or-later.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "c22482728a634a8dfdb4ff72a96d4c1ed64cd8f3e79335c401751ac591609366"
+    },
+    {
+      "source": "nxsplash-nextos",
+      "target": "swordigo/nxsplash-nextos",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "NXSplash 0.1.2 canonical AArch64 release",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "port.json",
+      "target": "swordigo/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "36eba29ee86ffac45589f426f8e5fa11bd8e1aedd6199ada9ed2b60fb61d0f72"
+    },
+    {
+      "source": "gameinfo.xml",
+      "target": "swordigo/gameinfo.xml",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "e10e3273b99f8f18cde5c06cf212b4806ba23897dab3efd862182e16f214f8b4"
+    },
+    {
+      "source": "cover.png",
+      "target": "swordigo/cover.png",
+      "kind": "portmaster-image",
+      "mode": "0644",
+      "sha256": "83e621736b5f28ac8cdda3b285b38ab1e3bf78b6178b01d5f3cb80abe85c1fef"
+    },
+    {
+      "source": "licenses/nxsplash-MIT.txt",
+      "target": "swordigo/licenses/nxsplash-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    }
+  ],
+  "exceptions": [],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "swordigo/port.json",
+      "sha256": "36eba29ee86ffac45589f426f8e5fa11bd8e1aedd6199ada9ed2b60fb61d0f72"
+    },
+    "gameinfo_xml": {
+      "path": "swordigo/gameinfo.xml",
+      "sha256": "e10e3273b99f8f18cde5c06cf212b4806ba23897dab3efd862182e16f214f8b4"
+    },
+    "images": [
+      {
+        "path": "swordigo/cover.png",
+        "role": "cover",
+        "sha256": "83e621736b5f28ac8cdda3b285b38ab1e3bf78b6178b01d5f3cb80abe85c1fef"
+      }
+    ]
+  }
+}

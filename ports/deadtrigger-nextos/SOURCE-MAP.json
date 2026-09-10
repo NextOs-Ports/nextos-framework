@@ -1,0 +1,290 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/deadtrigger-nextos",
+  "observed_commit": "8fe021e4188db177a074547473d7723e060748fe",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Dead Trigger"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "a6cdfb5f7e186956de537de8363a5c20507228a8",
+      "sha256": "ad38612e96129a9cc9efe8878419e82242588077c814365543f928c99e2bd5ce"
+    },
+    {
+      "path": "DATA-NOTICE.txt",
+      "mode": "0o644",
+      "upstream_blob": "2002b7d5caa2fdd74375d085550471cc4ddf0968",
+      "sha256": "b94525099f4d7e029e43df931940c065718ef6ea1ea04ebd76f47305f70a295e"
+    },
+    {
+      "path": "Dead Trigger.sh",
+      "mode": "0o755",
+      "upstream_blob": "2205e85c33b797216f7249741e6c104c9921d96d",
+      "sha256": "2b38e7cd0c263756638b0b5bda36b762bb7009e867984a86de350cc589f2fa8e"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "d1ac35b98393b30fb313bda46c3f6aa95a1afbc7",
+      "sha256": "aadfdbaa93f98af68122a30dfd405e24b09909a061cc9ebf0ca92a5812a1787c"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "9fce650b2eec7aacd488a746c1ad556a8dcadd05",
+      "sha256": "fd48a1afc565e3b27d07ca190012389f5c0f377abd7285e779c75c58540171ce"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "81ff8bbec604f8aac4dedcce822934958b50ce98",
+      "sha256": "5722117b89cbede7ce30c83d464f5a2960a50f7a7624551ef8f95b681f91377f"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "e2fa0de8c87d5534fc739d03d36d340f70f3d989",
+      "sha256": "4a9b22897ab01bead4765d1c05e543a4b1bf0d67505cc6acc606f7b886b9291e"
+    },
+    {
+      "path": "audit-data.sh",
+      "mode": "0o755",
+      "upstream_blob": "ffd6d03d8869761db61ddf091a8ce81e4a12096b",
+      "sha256": "08ba3d44ce70be0ff1692a45b0fe3c84d9a95a88abea88b869f50ccf2aeb6fc0"
+    },
+    {
+      "path": "build.sh",
+      "mode": "0o755",
+      "upstream_blob": "4b24b1686b6790acc97897483713940f277041f3",
+      "sha256": "676bdd1e70d33ba82af8f2454103bc08cba30abf1aa391967048cc0c86024f49"
+    },
+    {
+      "path": "extract-data.sh",
+      "mode": "0o755",
+      "upstream_blob": "50c488a12186af315fe6d39164378926e82a5ee5",
+      "sha256": "0d52e69583cae1bbcbf1734571f1019a2e2fcd73c09a6e12a2257ea949280b81"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "1edbeb9bbc2b58bdbdfdedd7f5fdca246c16ef13",
+      "sha256": "03361a5efc93bcc87709bc5fe7aa3dbb1f855e74c4cccb2f5e534dd7c668ee79"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "d48c1f03ef63e2b20b2562db0361fcb540c1f3be",
+      "sha256": "24ee9a7c3f775326bb14c39083745d29f873f21319f1207c06e1f6e9552a720d"
+    },
+    {
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "ae6bbb348d7894974047718a58429dccaa090532",
+      "sha256": "a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170"
+    },
+    {
+      "path": "nxextract/run-extractor.sh",
+      "mode": "0o644",
+      "upstream_blob": "f67deba5f4f4cb9335b52b9e5f6696b11c31c206",
+      "sha256": "179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "4cdf3d146034dbe4b5a34839c49664074a16558e",
+      "sha256": "3e8132eb25c638f87c725f0282249e3aa96248d460ace18744ced128af02f8e9"
+    },
+    {
+      "path": "nxrelease.json",
+      "mode": "0o644",
+      "upstream_blob": "8255ae4f234abbaece24579d5a289991f9b8a9d0",
+      "sha256": "4c7dadddfa02e1afab5a8f4f0759ab640e7caba3f1b1d49e4d260fa43896172e"
+    },
+    {
+      "path": "package/build-package.sh",
+      "mode": "0o755",
+      "upstream_blob": "dd646b77a065f8277b85cbb9b59760899212ddf0",
+      "sha256": "55aef0172d6835f58217f73935b33211cefdb9897d167a1574e26b0079b59cce"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "ed771b8c7708e4c1f6785d12adc5bb4b5931ade3",
+      "sha256": "a18a2905c7e6c7ea626911f48f2924db8133a64d8a7903ccc2b47400dc60cd1f"
+    },
+    {
+      "path": "references/adapter-contract-v1.json",
+      "mode": "0o644",
+      "upstream_blob": "3c9ada03e35bedf2eb7177c6cf95b26f7c02acd9",
+      "sha256": "bfb9a3ed82b4638d4b41b2cc580fedcb193a1dc9b3ff15cfe4e94b96ea980794"
+    },
+    {
+      "path": "references/migration-status-v1.json",
+      "mode": "0o644",
+      "upstream_blob": "46e161ff9fb709388859fc5a3cfd04b4f5717d03",
+      "sha256": "0580c702c48cf8a81b4cd846c71042e069055433528e5cc445ec3127612ab3d2"
+    },
+    {
+      "path": "src/dt.h",
+      "mode": "0o644",
+      "upstream_blob": "cda485bee20441e4e6ff8a71b01a3018690bbcbd",
+      "sha256": "7d6fb8b0f330b6c6c80ce2bffb7709eeb55891b404b32addf79e2dcd8534a61c"
+    },
+    {
+      "path": "src/egl_sdl.c",
+      "mode": "0o644",
+      "upstream_blob": "f0a99c35564c7af3e62df7908b41876a7ebb1fd9",
+      "sha256": "f92c0ba350aed6b4c06e63e0b5847d409c5134acdb7a26016047dfed09c51398"
+    },
+    {
+      "path": "src/egl_sdl.h",
+      "mode": "0o644",
+      "upstream_blob": "93e198c4ce1478ea8f192fd0654b7adecd1321c8",
+      "sha256": "cb383e4234bfac53bdb4f57ddb055e173530c133cb4056287c6d459dccfc99ff"
+    },
+    {
+      "path": "src/falsojni_dt.c",
+      "mode": "0o644",
+      "upstream_blob": "973308481caa3fe67c6c2cf14824462bd526adf9",
+      "sha256": "fd09e449fc131d484cac7f04bb937b56aecb98465ec0611b648e37f958b5c106"
+    },
+    {
+      "path": "src/framework_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "86f168894b3727b19cf5eb89a7f5f94beded0b99",
+      "sha256": "269362e071105a3a1249f13a55ae0da2fb6c6467ea72d78a8a242d32668af7d4"
+    },
+    {
+      "path": "src/framework_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "fb488120332d93f381ff39cd0e9b44c9ad5ce6dd",
+      "sha256": "bfda12438101ac04a9d760a03ea549541281f45ee1ea9b6eb61cd53d458de6c5"
+    },
+    {
+      "path": "src/gamepad_dt.c",
+      "mode": "0o644",
+      "upstream_blob": "c199d0d04b99b1878e827ad952e0abac6c1ce9c9",
+      "sha256": "651b83668ed0850a1cb67932cbd6d075adc995121f1ccab9bfa06de4065d78ea"
+    },
+    {
+      "path": "src/gamepad_dt.h",
+      "mode": "0o644",
+      "upstream_blob": "10f7626cc57584706288b44bc891c21e3bc08074",
+      "sha256": "588212295db54cb3c191febfa0bc58e7c6f694013ec2bed3b9cef50f7836d3ba"
+    },
+    {
+      "path": "src/loader.c",
+      "mode": "0o644",
+      "upstream_blob": "1c5d095257455bcdeca419cceea56b3f42e508b4",
+      "sha256": "31992e63141b48eda7197cd11a6397861fa08f8fbd81c1789328027ff3d8b3d6"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "f32a5b3008a101b94f082bdaf466151882d84273",
+      "sha256": "ec4778f3b4a38a227ddc334ec865318d8d4e704fc4c4f3caccff10803adf7d82"
+    },
+    {
+      "path": "src/media_dt.c",
+      "mode": "0o644",
+      "upstream_blob": "35bdba10826de245c5cfe37da6855723ef5c1521",
+      "sha256": "a499f80bffd0e36b6d293b84d13cbee49701472d271853b288a32b3dbb0c4555"
+    },
+    {
+      "path": "src/media_dt.h",
+      "mode": "0o644",
+      "upstream_blob": "da32d25fb7bcf0ae386d38c4656843a22bfb7243",
+      "sha256": "2b69e13eb7950459a800ec370b7748982e0b4bee70028fd0e76e17f59e47a669"
+    },
+    {
+      "path": "src/opensles_dt.c",
+      "mode": "0o644",
+      "upstream_blob": "a440b274921ee14edadb3edceaf36f5ceda640ab",
+      "sha256": "72608cd60cba7fc50e4865ebfb02f673488976fe2fd313ef8a37f942e4e9d60a"
+    },
+    {
+      "path": "src/opensles_dt.h",
+      "mode": "0o644",
+      "upstream_blob": "f0990df3a7276d4a069c867f6d64ebe483532224",
+      "sha256": "3f9397d62106daa6b29f5d2d277ef69b3215f262366036f9c7396dde755fcdb0"
+    },
+    {
+      "path": "src/pad_ordinal_fix.h",
+      "mode": "0o644",
+      "upstream_blob": "e2e14e48ae9e238686362eb74a7ffb01463cd2a5",
+      "sha256": "e8bed528ba393a48b30267b8a16b33b4c84d9ba4554e204ab9c354a99df49904"
+    },
+    {
+      "path": "src/prefs_dt.c",
+      "mode": "0o644",
+      "upstream_blob": "44a47262f205d6d8d9e2029c31226be72c2665d2",
+      "sha256": "5de9882f1cb72d214ee57399c014321de49f46067e4a7d59070757707849583c"
+    },
+    {
+      "path": "src/prefs_dt.h",
+      "mode": "0o644",
+      "upstream_blob": "61d1a170025ea494f05cfe6d23c20613c8f004e7",
+      "sha256": "6b549e5839ae0f0f37a2818b341a48310c96659f0a3ba49e3aebfe1911c2b4b7"
+    },
+    {
+      "path": "src/sem_shim_dt.c",
+      "mode": "0o644",
+      "upstream_blob": "f2f14c86e4aa23e87f5a4f9a1c7fb3e175166af2",
+      "sha256": "cd758412c15ef58f76e75f39fd2f817d89365bdf7fe6f2ec8d5e817eda858ae8"
+    },
+    {
+      "path": "src/shims.c",
+      "mode": "0o644",
+      "upstream_blob": "5778513866b67c95bc70e2362136b81178383750",
+      "sha256": "b41034c743df8c90976345003b55269790bb4f2843c3c8321543659ec1819cec"
+    },
+    {
+      "path": "tests/run-host.sh",
+      "mode": "0o755",
+      "upstream_blob": "04856fe54289b13ecf70f71dc7aee909ca37e930",
+      "sha256": "4ceeb7717785ead6797f847c0a6896f28e92a51288928f2b15263ed43632ca87"
+    },
+    {
+      "path": "tests/test_deadtrigger_contract.py",
+      "mode": "0o755",
+      "upstream_blob": "8fcbd2744616ec487ff58380230315b78d8a23bd",
+      "sha256": "4bf5bc68fc046a7ee04ce46aa29188d831bed56429ec8d7400a5fa5c0bd96f5d"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "524cb55242b53f6a64cc646ea05db6acc7696d2d",
+      "sha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "e56367a3589d58459392cc37da3b4abf0f3ea130c8467187e30545f55b2aee5e",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

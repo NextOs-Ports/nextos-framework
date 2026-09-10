@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Off The Road"
+  },
+  "items": [
+    "Off The Road.sh",
+    "offtheroad/"
+  ],
+  "items_opt": [],
+  "name": "offtheroad.zip",
+  "version": 4
+}

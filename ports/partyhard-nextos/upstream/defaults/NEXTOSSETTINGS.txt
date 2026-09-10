@@ -1,0 +1,20 @@
+# NEXTOS_SETTINGS/2
+# Party Hard GO — ajustes do dono / owner settings
+# Edite os valores; chaves desconhecidas sao REJEITADAS (fail-closed).
+# Edit the values; unknown keys are REJECTED fail-closed.
+# language: auto ou uma tag como pt-BR, en, es (o port lista as suportadas).
+# quality: auto|low|medium|high (so aparece quando o adapter declara perfis).
+language=auto
+# --- video (NEXTOS_SETTINGS/2) ---
+# video.authority: quem governa o video / who owns video: nextos|engine|synchronized
+# video.output_size: auto|display|640x480|1280x720|1920x1080|WxH (display = modo fisico atual)
+# video.aspect: politicas implementadas por este port / policies this port implements: auto|engine|preserve|stretch
+#   preserve = mantem proporcao (barras) / keeps ratio (bars); stretch = preenche esticando / fills by stretching
+#   engine = deixa a engine decidir / engine decides; auto = algoritmo total declarado pelo port / port's declared total algorithm
+# video.filter: engine|nearest|linear
+# video.invalid_policy: fail_closed|last_known_good|package_default (o que fazer com valor invalido; este arquivo NUNCA e reescrito)
+video.authority=nextos
+video.output_size=display
+video.aspect=auto
+video.filter=engine
+video.invalid_policy=package_default

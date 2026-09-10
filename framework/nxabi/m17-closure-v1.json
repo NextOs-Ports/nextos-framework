@@ -1,0 +1,381 @@
+{
+  "schema": "nxabi-m17-closure-v1",
+  "schema_version": 1,
+  "milestone": "M17",
+  "status": "closed_for_framework_and_new_public_artifacts",
+  "scope": "ARMHF and AArch64 Linux ELFs built for new public multi-device releases",
+  "method": "Each item is closed by repository-owned policy, implementation and deterministic host gates. Historical approved binaries are audited report-only and do not become release-eligible merely because they are useful loader references.",
+  "safety": {
+    "inspected_elf_execution": false,
+    "guest_code_execution": false,
+    "device_access": false,
+    "network_access": false,
+    "reference_ports_modified": false
+  },
+  "items": [
+    {
+      "id": "M17-001",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/TOOLCHAIN-PIN.json:4",
+        "framework/nxabi/tools/nx-abi-gate.sh:62"
+      ],
+      "guarantees": [
+        "ARMHF GCC and Clang plus the AArch64 container image and sysroots are versioned or hash pinned",
+        "the release-facing toolchain command fails when an exact pin is unavailable"
+      ],
+      "residual_scope": [
+        "historical non-hermetic recipes are read-only evidence and cannot produce a new public artifact"
+      ],
+      "tests": [
+        "mutate a compiler version, sysroot hash or image digest and require the gate to fail"
+      ]
+    },
+    {
+      "id": "M17-002",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/policy-v1.json:7",
+        "framework/nxabi/include/nx_symver.h:52",
+        "framework/nxabi/tools/nx-abi-gate.sh:78"
+      ],
+      "guarantees": [
+        "GLIBC 2.17 is the preferred public floor",
+        "owned libm fixtures bind the oldest viable exported symbols instead of accepting a 2.27 floor silently"
+      ],
+      "residual_scope": [
+        "an approved historical binary is not rebuilt solely to lower its floor; touching it requires new bytes and physical revalidation"
+      ],
+      "tests": [
+        "build with and without nx_symver and verify the preferred-floor warning disappears only for the pinned variant"
+      ]
+    },
+    {
+      "id": "M17-003",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/policy-v1.json:5",
+        "framework/nxabi/nxabi.py:494"
+      ],
+      "guarantees": [
+        "GLIBC 2.30 is an absolute ceiling for a public universal profile",
+        "private and unsupported GLIBC tokens fail independently of the numeric ceiling"
+      ],
+      "residual_scope": [
+        "a lower per-release ceiling may be requested, never a higher one"
+      ],
+      "tests": [
+        "inject GLIBC 2.31 and GLIBC_PRIVATE fixtures and require errors"
+      ]
+    },
+    {
+      "id": "M17-004",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/policy-v1.json:151",
+        "framework/nxrelease/README.md:79"
+      ],
+      "guarantees": [
+        "nextos-current is a named non-public profile",
+        "a current-glibc artifact cannot silently enter the universal-low-glibc package path"
+      ],
+      "residual_scope": [
+        "a NextOS-only artifact is separate output and never satisfies a public universal release gate"
+      ],
+      "tests": [
+        "label a current-host ELF as universal and require rejection"
+      ]
+    },
+    {
+      "id": "M17-005",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:583",
+        "framework/nxrelease/README.md:54"
+      ],
+      "guarantees": [
+        "inventory discovers every ELF under declared files and directories",
+        "an ELF hidden in generic payload is rejected as unclassified"
+      ],
+      "residual_scope": [
+        "only allowlisted stage inputs are in scope; undeclared host files are neither copied nor audited as package members"
+      ],
+      "tests": [
+        "place an auxiliary ELF below a payload directory and require fail-closed classification"
+      ]
+    },
+    {
+      "id": "M17-006",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:385",
+        "framework/nxrelease/README.md:10"
+      ],
+      "guarantees": [
+        "Android-namespace BYO ELFs are identified separately and never counted as Linux builds",
+        "an Android-tagged ELF that imports GLIBC is rejected"
+      ],
+      "residual_scope": [
+        "redistribution eligibility is an M18 package concern, separate from M17 ABI classification"
+      ],
+      "tests": [
+        "audit Android linker and Linux linker fixtures with crossed namespaces"
+      ]
+    },
+    {
+      "id": "M17-007",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:405",
+        "framework/nxabi/policy-v1.json:21"
+      ],
+      "guarantees": [
+        "ELF class, endianness, machine and ARM EABI hard-float flags are checked against the declared architecture"
+      ],
+      "residual_scope": [
+        "Android ARM soft-float calling conventions remain loader/adapter contracts and are not relabelled as Linux ARMHF"
+      ],
+      "tests": [
+        "mutate class, endian, machine and float flags independently"
+      ]
+    },
+    {
+      "id": "M17-008",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:125",
+        "framework/nxabi/nxabi.py:430"
+      ],
+      "guarantees": [
+        "at least one PT_LOAD is mandatory",
+        "PT_INTERP is unique, absolute and exact for the ABI; executable stacks are rejected or reported"
+      ],
+      "residual_scope": [
+        "static ELFs may legitimately omit PT_INTERP but still require a loadable ELF type and PT_LOAD"
+      ],
+      "tests": [
+        "exercise missing PT_LOAD, duplicate or wrong PT_INTERP and executable GNU stack"
+      ]
+    },
+    {
+      "id": "M17-009",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:136",
+        "framework/nxabi/nxabi.py:457"
+      ],
+      "guarantees": [
+        "DT_NEEDED and SONAME multiplicity are checked",
+        "public universal ELFs reject RPATH and RUNPATH and audit dependency names against policy"
+      ],
+      "residual_scope": [
+        "the approved Horizon artifact keeps its historical RUNPATH error and is never a packaging reference"
+      ],
+      "tests": [
+        "inject duplicate DT_NEEDED, noncanonical SONAME, RPATH and RUNPATH"
+      ]
+    },
+    {
+      "id": "M17-010",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:142",
+        "framework/nxabi/nxabi.py:494"
+      ],
+      "guarantees": [
+        "GLIBC, GLIBCXX and CXXABI maxima are extracted and compared with policy ceilings",
+        "GLIBC_PRIVATE and ABI-only tokens fail"
+      ],
+      "residual_scope": [
+        "unversioned third-party ABI compatibility still requires its dependency contract and target acceptance"
+      ],
+      "tests": [
+        "audit independent over-ceiling GLIBCXX and CXXABI fixtures"
+      ]
+    },
+    {
+      "id": "M17-011",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/policy-v1.json:45",
+        "framework/nxabi/nxabi.py:583"
+      ],
+      "guarantees": [
+        "SDL, OpenAL and every auxiliary Linux ELF are subject to the same recursive inventory and dependency policy",
+        "development-symlink SONAMEs are rejected for new builds"
+      ],
+      "residual_scope": [
+        "firmware availability is still a declared dependency-provider contract rather than an invented bundled library"
+      ],
+      "tests": [
+        "package an auxiliary SDL or OpenAL library above the ceiling and require the whole release to fail"
+      ]
+    },
+    {
+      "id": "M17-012",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/TOOLCHAIN-PIN.json:6",
+        "framework/nxabi/tests/test_nxabi.py:211"
+      ],
+      "guarantees": [
+        "GCC 8.2.1 ARMHF compiler and its sysroot files are pinned by version and SHA-256"
+      ],
+      "residual_scope": [
+        "a historical script that downloads another compiler is outside the closed toolchain path"
+      ],
+      "tests": [
+        "verify the compiler banner and each pinned sysroot hash"
+      ]
+    },
+    {
+      "id": "M17-013",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/TOOLCHAIN-PIN.json:24",
+        "framework/nxabi/tests/test_nxabi.py:211"
+      ],
+      "guarantees": [
+        "the supported ARMHF Clang target, sysroot, GCC toolchain and linker flags are explicit"
+      ],
+      "residual_scope": [
+        "host Clang without the pinned target/sysroot flags is not a public artifact compiler"
+      ],
+      "tests": [
+        "compile the same contract with GCC and Clang and reject missing hard-float or linker flags"
+      ]
+    },
+    {
+      "id": "M17-014",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/policy-v1.json:110",
+        "framework/nxabi/nxabi.py:536",
+        "framework/nxabi/tests/test_nxabi.py:200"
+      ],
+      "guarantees": [
+        "SDL 2.0.4 is the explicit symbol floor",
+        "symbols introduced later fail unless an exact historical artifact waiver records the limitation"
+      ],
+      "residual_scope": [
+        "a waiver never applies to rebuilt bytes and never changes the default floor"
+      ],
+      "tests": [
+        "import a post-2.0.4 SDL symbol and mutate a waived artifact hash"
+      ]
+    },
+    {
+      "id": "M17-015",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/policy-v1.json:80",
+        "framework/nxabi/nxabi.py:523"
+      ],
+      "guarantees": [
+        "newer libc/POSIX wrapper imports are machine-audited against a finite blacklist",
+        "wrappers through the public GLIBC 2.30 ceiling remain visible warnings while wrappers introduced later fail and direct the target to a syscall or project shim"
+      ],
+      "residual_scope": [
+        "a null-version review entry is informational until policy can prove an introduction version"
+      ],
+      "tests": [
+        "audit memfd_create as a warning, close_range as an error and a safe legacy wrapper without a finding"
+      ]
+    },
+    {
+      "id": "M17-016",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:175",
+        "framework/nxabi/nxabi.py:583",
+        "framework/nxabi/nxabi.py:623"
+      ],
+      "guarantees": [
+        "inventory JSON records hashes, ELF headers, segments, dynamic tags, version ceilings and toolchain notes",
+        "audit JSON records deterministic findings and counts"
+      ],
+      "residual_scope": [
+        "reference reports omit embedded inventory by design; release inventories embed every packaged ELF"
+      ],
+      "tests": [
+        "round-trip the JSON schema and reject missing or duplicated facts"
+      ]
+    },
+    {
+      "id": "M17-017",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:494",
+        "framework/nxabi/nxabi.py:660",
+        "framework/nxrelease/README.md:8"
+      ],
+      "guarantees": [
+        "any public ELF above GLIBC, GLIBCXX or CXXABI ceilings produces a failing exit status",
+        "nxrelease repeats the audit on the final package"
+      ],
+      "residual_scope": [
+        "report-only approved references may contain recorded errors but cannot pass as new release artifacts"
+      ],
+      "tests": [
+        "add one over-ceiling auxiliary ELF among otherwise clean files and require release failure"
+      ]
+    },
+    {
+      "id": "M17-018",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/nxabi.py:568",
+        "framework/nxabi/nxabi.py:723",
+        "framework/nxabi/tools/nx-abi-gate.sh:92"
+      ],
+      "guarantees": [
+        "every inventory record carries SHA-256 and build-id when present",
+        "owned builds embed a toolchain provenance note derived from the pin"
+      ],
+      "residual_scope": [
+        "missing notes on historical approved bytes remain warnings and do not authorize their reuse in a fresh public package"
+      ],
+      "tests": [
+        "strip ordinary comments and verify the project toolchain note remains recoverable"
+      ]
+    },
+    {
+      "id": "M17-019",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/tools/check-determinism.sh:3",
+        "framework/nxabi/tools/check-determinism.sh:85",
+        "framework/nxabi/tools/nx-abi-gate.sh:104"
+      ],
+      "guarantees": [
+        "owned ARMHF and AArch64 fixtures are each built twice in distinct temporary trees",
+        "the AArch64 build runs in the exact pinned image with networking disabled and all declared artifacts must have identical SHA-256"
+      ],
+      "residual_scope": [
+        "each actual port recipe must use the same gate when it starts producing new release bytes"
+      ],
+      "tests": [
+        "embed a build path or current timestamp and require the double-build comparison to fail"
+      ]
+    },
+    {
+      "id": "M17-020",
+      "status": "closed",
+      "evidence_refs": [
+        "framework/nxabi/tools/nx-abi-gate.sh:3",
+        "framework/nxabi/tools/nx-abi-gate.sh:132",
+        "framework/nxabi/m17-reference-audit-v1.json:15"
+      ],
+      "guarantees": [
+        "one fail-closed gate verifies pins, units, deterministic build, owned-fixture ABI and the exact sanitized reference receipt",
+        "the checked-in report contains only approved relative paths and one documented non-packaging error"
+      ],
+      "residual_scope": [
+        "M17 closure covers the framework and new public artifacts; it does not rewrite or falsely certify historical approved binaries"
+      ],
+      "tests": [
+        "run the closure validator and the complete nx-abi-gate from a clean temporary work tree"
+      ]
+    }
+  ]
+}

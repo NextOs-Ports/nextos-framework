@@ -1,0 +1,32 @@
+format = NEXTOS_CONTROLLERS/1
+port = offtheroad
+
+[menu]
+A = otr.back
+B = otr.confirm
+START = otr.pause
+RIGHT_STICK = cursor.move
+R3 = cursor.click
+
+[gameplay]
+A = otr.brake
+B = otr.accelerate
+START = otr.pause
+LEFT_STICK = camera.steer
+RIGHT_STICK = camera.look
+
+[cursor]
+A = otr.back
+B = otr.confirm
+START = otr.pause
+RIGHT_STICK = cursor.move
+R3 = cursor.click
+
+speed = 1.25
+deadzone = 0.15
+response_curve = 1.35
+acceleration = 0.35
+smoothing_ms = 45
+
+[camera]
+authority = native

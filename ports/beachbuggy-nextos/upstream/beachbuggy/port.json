@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Beach Buggy Racing"
+  },
+  "items": [
+    "Beach Buggy Racing.sh",
+    "beachbuggy/"
+  ],
+  "items_opt": [],
+  "name": "beachbuggy.zip",
+  "version": 4
+}

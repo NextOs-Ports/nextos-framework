@@ -1,0 +1,11 @@
+{
+  "schema": "blossomtales-nxcompat-vendor-pins/1",
+  "nxcompat_version": "0.5.3",
+  "framework_commit": "275a8fb47c2f2bf9a452734dec5c33ceb4bd549f",
+  "files": {
+    "src/nxcompat_settings.c": "eab8e418e38582770c3227164e42e9996448380fb8b7b9992cb98bc63775d416",
+    "src/nxcompat_video.c": "b3bfbd1417a6e05371b66b2fa460805810696cac99cc04fa646ff9b96015390a",
+    "include/nxcompat_settings.h": "8b5742ee68f3d41969494e3c3b583ba15d7f00f015ec7353b6c09b04ec204252",
+    "include/nxcompat_video.h": "5f5733261d731b95498fe9b5f3c1594dbebffc63bfe1a472c0e41aa74e9f7b0b"
+  }
+}

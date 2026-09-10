@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "title": "Tightrope Theatre",
+    "runtime": []
+  },
+  "items": [
+    "Tightrope Theatre.sh",
+    "tightrope/"
+  ],
+  "items_opt": [],
+  "name": "tightrope.zip",
+  "version": 4
+}

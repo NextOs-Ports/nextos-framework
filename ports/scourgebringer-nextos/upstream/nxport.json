@@ -1,0 +1,59 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "game-dir-and-passthrough",
+  "enabled_quirks": [],
+  "executable": "scourgebringer-nextos",
+  "home_mode": "port",
+  "id": "scourgebringer",
+  "language": {
+    "default": "auto",
+    "supported": [
+      "en",
+      "fr",
+      "it",
+      "de",
+      "es",
+      "ru",
+      "pt-br",
+      "zh-cn",
+      "ja",
+      "ko",
+      "pl",
+      "zh-tw"
+    ]
+  },
+  "launcher_name": "ScourgeBringer.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.10"
+  },
+  "prepare_script": "",
+  "private_library_paths": [
+    "runtime-libs"
+  ],
+  "required_capabilities": [
+    "host.portmaster",
+    "graphics.window",
+    "graphics.gles2",
+    "graphics.egl",
+    "graphics.egl-config",
+    "graphics.drawable",
+    "audio.output-open",
+    "input.controller-mapping",
+    "input.controller-api"
+  ],
+  "required_files": [
+    "scourgebringer-nextos",
+    "nxsplash-nextos",
+    "assemblies.apk",
+    "assets/Content/common_0.xnb",
+    "assets/Content/Sounds/Master.bank",
+    "runtime-libs/libmonosgen-2.0.so",
+    "runtime-libs/libmonodroid.so",
+    "runtime-libs/libxamarin-app.so",
+    "runtime-libs/libfmod.so"
+  ],
+  "runtime_report": "log-and-logo",
+  "schema_version": 2,
+  "title": "ScourgeBringer"
+}

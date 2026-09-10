@@ -1,0 +1,513 @@
+{
+  "schema": "nxgl-m13-video-evidence-v1",
+  "schema_version": 1,
+  "milestone": "M13",
+  "scope": "sanitized-video-stack-provenance-and-generalization-boundaries",
+  "source_of_truth_for": [
+    "M13-020",
+    "M13-022"
+  ],
+  "evidence_policy": {
+    "principle": "detect the opened stack, preserve its owner, and never promote a game quirk into a framework default",
+    "m13_physical_device_evidence": false,
+    "m13_device_access": false,
+    "m13_network_access": false,
+    "m13_external_guest_code_executed": false,
+    "imported_physical_history_is_not_m13_execution": true,
+    "support_claims_created_by_this_file": false
+  },
+  "source_pins": [
+    {
+      "path": "framework/catalog/port-checks-v1.tsv",
+      "sha256": "eb4365bce0f100b1e15f7eaed4d8a932bdcebda0a5c8db439fe51f03e4bcfec0",
+      "role": "canonical-port-evidence-ledger",
+      "tokens": [
+        "PORT-bully2-010-release-commit",
+        "delisted by 79561e7a05d377c4479c9ee42a635ae2bec72b73",
+        "PORT-castleofillusion-040-physical-stacks",
+        "PORT-horizonchase-040-physical-stacks",
+        "v1.2.x same loader SHA",
+        "PORT-sonic4ep2-040-physical-stacks"
+      ]
+    },
+    {
+      "path": "suportando_outros_devices/video-backend.md",
+      "sha256": "3a9882406c221ca4af4935f4fee496a573e23a12477c2bbc9e795c2c61bdd3c0",
+      "role": "canonical-video-contract",
+      "tokens": [
+        "Depois da inicialização, consulte `SDL_GetCurrentVideoDriver()`.",
+        "O **drawable real** substitui toda estimativa anterior",
+        "salve scissor, color mask e clear color",
+        "O default para ports novos é OFF"
+      ]
+    },
+    {
+      "path": "suportando_outros_devices/ports-aprovados.md",
+      "sha256": "d14f4d434f8247fa13e3629e60cfd4052ac416063d1a12ecba33e3ddc6540108",
+      "role": "approved-reference-policy",
+      "tokens": [
+        "Somente ports concluídos e executados em hardware podem fornecer soluções",
+        "Horizon Chase",
+        "Castle of Illusion",
+        "Referências arquiteturais complementares"
+      ]
+    },
+    {
+      "path": "suportando_outros_devices/padrao-universal.md",
+      "sha256": "229516359c692ab6f9ffc0468f15d9ba4734d1bc4bc1c32a6a01e6d2f9d7fcfd",
+      "role": "pilot-and-baseline-policy",
+      "tokens": [
+        "O piso gráfico obrigatório é Mali-450/Utgard com OpenGL ES 2.0 real.",
+        "Chrono Trigger é o primeiro piloto planejado",
+        "é uma declaração de release"
+      ]
+    },
+    {
+      "path": "ports/horizonchase/README.md",
+      "sha256": "407e39544cf5067faefe4d0f1843b9126fa576ea6a933aa8134b1dba4469b8a9",
+      "role": "horizon-release-evidence",
+      "tokens": [
+        "One low-glibc AArch64 loader now runs unchanged",
+        "Mali-450, SDL `mali`/fbdev, GLES2",
+        "Mali-G31, KMSDRM, GLES3",
+        "Mali-G310, KMSDRM, GLES3.2"
+      ]
+    },
+    {
+      "path": "ports/horizonchase/src/egl_shim.c",
+      "sha256": "70f4b3b36ba7c3cd63bc2416bf5a09b8efdc5a148d2e11fe3824835a8c059bba",
+      "role": "horizon-video-source",
+      "tokens": [
+        "mali/fbdev          -> raw EGL ownership and swap",
+        "KMSDRM/Wayland/etc. -> SDL owns bind, unbind and page-flip",
+        "SDL_GetCurrentVideoDriver()",
+        "SDL_GL_GetDrawableSize"
+      ]
+    },
+    {
+      "path": "ports/castleofillusion/README.md",
+      "sha256": "d276255ecc0d567a2bf561f8498224656a93459df7c1cd8f735065adcf24539b",
+      "role": "castle-release-evidence",
+      "tokens": [
+        "Only physically tested combinations are listed as supported.",
+        "R36T/K36S clone — ArkOS, Mali-G31",
+        "NextOS Amlogic (Mali-450, fbdev)",
+        "real drawable adopted"
+      ]
+    },
+    {
+      "path": "ports/castleofillusion/src/imports.c",
+      "sha256": "30b3218a4258e42e9a00686034a933f8ed8cf60a1afabe478eaeaf9d18a64cb5",
+      "role": "castle-sampler-source",
+      "tokens": [
+        "RAIZ DO MICKEY/PORTA PRETOS",
+        "default OFF (ligar: COI_NPOT_FIX=1)",
+        "getenv(\"COI_NPOT_FIX\") ? 1 : 0",
+        "WRAP=CLAMP_TO_EDGE em toda textura"
+      ]
+    },
+    {
+      "path": "ports/sonic4/package/sonic4ep2/README.md",
+      "sha256": "3d05a5fd98a64a95141d5ac3a7adb98ab0bba6df7e8a1b6f95e484cf11cbaf3b",
+      "role": "sonic4ep2-release-scope",
+      "tokens": [
+        "AArch64 PortMaster compatibility package",
+        "older Android 2.0.0",
+        "not compatible with this V6 package",
+        "selects a real GLES context"
+      ]
+    },
+    {
+      "path": "ports/sonic4/src/egl_shim.c",
+      "sha256": "49aa00a8ec31181ce47173a6ae4ce3dd1b2b47d6302d8e608d3f972bc857bc29",
+      "role": "sonic4ep2-video-source",
+      "tokens": [
+        "SDL_GL_CONTEXT_PROFILE_ES",
+        "ctx_is_gles",
+        "SDL_GL_GetDrawableSize",
+        "GL context OK"
+      ]
+    },
+    {
+      "path": "ports/bully2/src/egl_shim.c",
+      "sha256": "95145c9949486fee01501f18f67f423f53a2f771c062b7b69ceab1f5e3d17216",
+      "role": "bully2-historical-narrow-source",
+      "tokens": [
+        "SDL2/Mali fbdev EGL bridge for Bully2",
+        "Resolve egl* na MESMA libEGL que o SDL carregou",
+        "ctx_is_gles",
+        "SDL_GetCurrentVideoDriver"
+      ]
+    },
+    {
+      "path": "ports/lswtfa/src/hooks/egl.c",
+      "sha256": "4c19c2f8d765fbd6e5408b31dd5f74dff7714e047b346532e3706e98a2cda2fc",
+      "role": "lego-alpha-quirk-provenance-only",
+      "tokens": [
+        "Amlogic fbdev OSD blends fb0 by PIXEL ALPHA",
+        "glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_TRUE)",
+        "glClearColor(0.f, 0.f, 0.f, 1.f)",
+        "glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE)"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "canonical_id": "horizonchase",
+      "title": "Horizon Chase",
+      "reference_class": "positive_multi_stack_strong",
+      "positive_reference": true,
+      "approved_scope": "strong ownership, drawable, capability and same-loader multi-stack evidence",
+      "source_snapshot": "59d2d38dc496ae0a71726181d3ccc80923e4144d",
+      "source_paths": [
+        "framework/catalog/port-checks-v1.tsv",
+        "ports/horizonchase/README.md",
+        "ports/horizonchase/src/egl_shim.c"
+      ],
+      "physical_evidence_imported": true,
+      "physical_stacks": [
+        {
+          "release_line": "v1.2.x",
+          "stack_key": "sdl-mali-fbdev",
+          "backend": "mali/fbdev",
+          "ownership": "raw EGL only after the opened SDL mali stack is proven",
+          "gles": "GLES2 measured",
+          "evidence_level": "physical-full-imported",
+          "result_scope": "race, audio, controls, save, reload and exit",
+          "same_artifact_group": "horizon-v1.2x-loader"
+        },
+        {
+          "release_line": "v1.2.x",
+          "stack_key": "sdl-kmsdrm",
+          "backend": "KMSDRM",
+          "ownership": "SDL window, context, make-current and present",
+          "gles": "GLES3 measured",
+          "evidence_level": "physical-full-imported",
+          "result_scope": "complete race and frontend return",
+          "same_artifact_group": "horizon-v1.2x-loader"
+        },
+        {
+          "release_line": "v1.2.x",
+          "stack_key": "sdl-kmsdrm",
+          "backend": "KMSDRM",
+          "ownership": "SDL window, context, make-current and present",
+          "gles": "GLES3.2 measured",
+          "evidence_level": "physical-full-imported",
+          "result_scope": "1080p gameplay, save and exit",
+          "same_artifact_group": "horizon-v1.2x-loader"
+        }
+      ],
+      "allowed_reuse": [
+        "select ownership from the backend SDL actually opened",
+        "keep KMSDRM and Wayland presentation inside SDL ownership",
+        "treat the positive drawable and real GL strings as runtime facts"
+      ],
+      "forbidden_generalization": [
+        "copy Unity hooks, offsets or lifecycle shortcuts",
+        "choose a path from a device name",
+        "make Horizon texture or shader fixes framework defaults"
+      ],
+      "limitations": [
+        "Imported release history is not a device run by M13.",
+        "The GLES version order remains an engine declaration, not a universal ladder order."
+      ]
+    },
+    {
+      "canonical_id": "castleofillusion",
+      "title": "Castle of Illusion",
+      "reference_class": "positive_multi_device_scoped",
+      "positive_reference": true,
+      "approved_scope": "multi-device drawable/config evidence and sampler-root-cause rule",
+      "source_snapshot": "46ffe044818d08c59af25b456f8fa0f40c9ba951",
+      "source_paths": [
+        "framework/catalog/port-checks-v1.tsv",
+        "ports/castleofillusion/README.md",
+        "ports/castleofillusion/src/imports.c"
+      ],
+      "physical_evidence_imported": true,
+      "physical_stacks": [
+        {
+          "release_line": "v1.0.1",
+          "stack_key": "sdl-mali-fbdev",
+          "backend": "mali/fbdev",
+          "ownership": "firmware SDL/EGL/GLES",
+          "gles": "GLES2 measured",
+          "evidence_level": "physical-full-imported",
+          "result_scope": "gameplay, audio, controls, save, reload and exit",
+          "same_artifact_group": "castle-v1.0.1"
+        },
+        {
+          "release_line": "v1.0.1",
+          "stack_key": "sdl-kmsdrm",
+          "backend": "KMSDRM",
+          "ownership": "SDL-owned display path",
+          "gles": "GLES2 measured",
+          "evidence_level": "physical-full-imported",
+          "result_scope": "BYO install, gameplay, audio, controls, save, reload and exit",
+          "same_artifact_group": "castle-v1.0.1"
+        }
+      ],
+      "allowed_reuse": [
+        "leave global NPOT wrap rewriting disabled by default",
+        "audit sampler and wrap before shader when a silhouette is geometrically correct",
+        "adopt a positive real drawable instead of the requested size"
+      ],
+      "forbidden_generalization": [
+        "enable CLAMP_TO_EDGE globally",
+        "copy Castle shader or texture conversion patches",
+        "announce support on an untested firmware"
+      ],
+      "limitations": [
+        "The NPOT lesson proves a default-off safety rule, not that every dark object has the same cause."
+      ]
+    },
+    {
+      "canonical_id": "sonic4ep2",
+      "title": "Sonic the Hedgehog 4 Episode II",
+      "reference_class": "positive_release_scoped_by_abi_and_line",
+      "positive_reference": true,
+      "approved_scope": "AArch64 V6 real-GLES selection and drawable measurement, with older lines kept separate",
+      "source_snapshot": "e162654d074dc2f98185a4cf65c1ec47513146bc",
+      "source_paths": [
+        "framework/catalog/port-checks-v1.tsv",
+        "ports/sonic4/package/sonic4ep2/README.md",
+        "ports/sonic4/src/egl_shim.c"
+      ],
+      "physical_evidence_imported": true,
+      "physical_stacks": [
+        {
+          "release_line": "v6-aarch64",
+          "stack_key": "sdl-mali-fbdev",
+          "backend": "mali/fbdev",
+          "ownership": "firmware EGL/GLES",
+          "gles": "real GLES selected",
+          "evidence_level": "physical-full-imported",
+          "result_scope": "end-to-end playable AArch64 release",
+          "same_artifact_group": "sonic4ep2-v6-aarch64"
+        },
+        {
+          "release_line": "v5-loader-line",
+          "stack_key": "sdl-kmsdrm",
+          "backend": "KMSDRM",
+          "ownership": "historical SDL path",
+          "gles": "real GLES path",
+          "evidence_level": "physical-full-imported-separate-line",
+          "result_scope": "runtime, save and audio",
+          "same_artifact_group": "sonic4ep2-v5-separate"
+        }
+      ],
+      "allowed_reuse": [
+        "request an ES profile and reject a measured desktop GL context",
+        "recreate the window when depth or stencil attributes change",
+        "use a positive drawable after compositor configuration"
+      ],
+      "forbidden_generalization": [
+        "merge ARMv7 and AArch64 evidence",
+        "promote a different loader line into same-artifact proof",
+        "copy engine-specific audio, FBO, scene or texture fixes"
+      ],
+      "limitations": [
+        "The separate older loader line is not same-artifact multi-device proof for V6.",
+        "Community-only reports are intentionally absent from physical-full rows."
+      ]
+    },
+    {
+      "canonical_id": "bully2",
+      "title": "Bully Anniversary Edition",
+      "reference_class": "historical_delisted_narrow_fact_only",
+      "positive_reference": false,
+      "approved_scope": "historical fact that one loader resolved EGL entry points from the SDL-owned stack and rejected desktop GL",
+      "source_snapshot": "historical-delisted-ledger-79561e7a05d377c4479c9ee42a635ae2bec72b73",
+      "source_paths": [
+        "framework/catalog/port-checks-v1.tsv",
+        "ports/bully2/src/egl_shim.c"
+      ],
+      "physical_evidence_imported": true,
+      "physical_stacks": [
+        {
+          "release_line": "historical-delisted",
+          "stack_key": "historical-mixed",
+          "backend": "Mali fbdev and KMSDRM studies",
+          "ownership": "narrow subsystem evidence only",
+          "gles": "GLES2/Mali route observed historically",
+          "evidence_level": "physical-subsystem-imported",
+          "result_scope": "loader and rendering mechanics only",
+          "same_artifact_group": "not-current-public-evidence"
+        }
+      ],
+      "allowed_reuse": [
+        "cross-check same-stack EGL symbol resolution as a historical fact"
+      ],
+      "forbidden_generalization": [
+        "claim current publication or universal support",
+        "copy Rockstar offsets, memory tiers or controller heuristics",
+        "treat the historical package as a positive whole-port base"
+      ],
+      "limitations": [
+        "This M13 ledger deliberately downgrades Bully2 to a narrow historical fact because the product line was delisted.",
+        "No Bully2 source code is adopted by nxgl from this evidence record."
+      ]
+    },
+    {
+      "canonical_id": "lego_star_wars_tfa_alpha_quirk",
+      "title": "LEGO Star Wars TFA alpha-one provenance",
+      "reference_class": "narrow_quirk_provenance_only",
+      "positive_reference": false,
+      "approved_scope": "Amlogic fbdev default-backbuffer alpha-one symptom and A-only clear provenance only",
+      "source_snapshot": "historical-commit-3572b18fa2c416ba4086dcfce397ffd662a113ee",
+      "source_paths": [
+        "ports/lswtfa/src/hooks/egl.c"
+      ],
+      "physical_evidence_imported": true,
+      "physical_stacks": [
+        {
+          "release_line": "historical-quirk-source",
+          "stack_key": "sdl-mali-fbdev",
+          "backend": "Amlogic fbdev",
+          "ownership": "SDL window with default-backbuffer alpha workaround",
+          "gles": "GLES2 source path",
+          "evidence_level": "physical-quirk-provenance-imported",
+          "result_scope": "RGB present with alpha zero became visible after A-only clear",
+          "same_artifact_group": "lego-quirk-only"
+        }
+      ],
+      "allowed_reuse": [
+        "name the observed alpha-zero scanout symptom",
+        "require an opt-in adapter quirk for FBO zero only"
+      ],
+      "forbidden_generalization": [
+        "claim LEGO support from this source pin",
+        "enable alpha-one on KMSDRM, Wayland or unknown stacks",
+        "copy the source restoration sequence verbatim"
+      ],
+      "limitations": [
+        "The pinned source preserves scissor enablement and clear color but restores color mask to all-true instead of restoring the prior mask.",
+        "nxgl must save and restore the full color mask independently."
+      ]
+    },
+    {
+      "canonical_id": "chrono_pilot",
+      "title": "Chrono Trigger framework pilot",
+      "reference_class": "negative_designed_only",
+      "positive_reference": false,
+      "approved_scope": "future pilot target and negative boundary only",
+      "source_snapshot": "designed-only-no-framework-release",
+      "source_paths": [
+        "suportando_outros_devices/padrao-universal.md"
+      ],
+      "physical_evidence_imported": false,
+      "physical_stacks": [],
+      "allowed_reuse": [
+        "use as a future pilot only after framework, release and physical gates"
+      ],
+      "forbidden_generalization": [
+        "treat the old local package as M13 evidence",
+        "claim a physical stack, framework migration or universal release",
+        "copy a WIP workaround into nxgl"
+      ],
+      "limitations": [
+        "Chrono remains designed-only and supplies no positive evidence to M13.",
+        "No guest initializer, JNI entry point or game code was executed by this evidence gate."
+      ]
+    }
+  ],
+  "backend_matrix": [
+    {
+      "stack_key": "sdl-mali-fbdev",
+      "opened_backend": "mali or separately proven fbdev integration",
+      "selection_fact": "the backend SDL actually opened plus a proven present surface",
+      "ownership_policy": "SDL opens integration; raw EGL may be used only when its current display, surface and present reach fbdev",
+      "entry_point_policy": "resolve EGL and GLES entry points from the same stack that owns the current context",
+      "present_policy": "real eglSwapBuffers only for the proven display surface",
+      "drawable_policy": "positive runtime drawable overrides requested size",
+      "baseline": "GLES2",
+      "evidence_sources": [
+        "horizonchase",
+        "castleofillusion",
+        "lego_star_wars_tfa_alpha_quirk"
+      ],
+      "evidence_level": "imported-physical-plus-host-boundary",
+      "m13_physical_validation": false
+    },
+    {
+      "stack_key": "sdl-kmsdrm",
+      "opened_backend": "KMSDRM",
+      "selection_fact": "case-insensitive opened SDL backend capability",
+      "ownership_policy": "SDL owns window, context, make-current and page-flip",
+      "entry_point_policy": "SDL_GL_GetProcAddress and SDL-owned context stack",
+      "present_policy": "SDL_GL_SwapWindow",
+      "drawable_policy": "positive SDL drawable after modeset/configure",
+      "baseline": "measure GLES version; never assume GLES3",
+      "evidence_sources": [
+        "horizonchase",
+        "castleofillusion"
+      ],
+      "evidence_level": "imported-physical-plus-host-boundary",
+      "m13_physical_validation": false
+    },
+    {
+      "stack_key": "sdl-wayland",
+      "opened_backend": "Wayland",
+      "selection_fact": "opened SDL backend capability after video initialization",
+      "ownership_policy": "SDL owns window, configure, context and compositor present",
+      "entry_point_policy": "SDL_GL_GetProcAddress and SDL-owned context stack",
+      "present_policy": "SDL_GL_SwapWindow",
+      "drawable_policy": "pump configure events and require a positive stabilized drawable",
+      "baseline": "measure GLES profile and reject desktop GL for GLES guests",
+      "evidence_sources": [
+        "horizonchase",
+        "sonic4ep2"
+      ],
+      "evidence_level": "source-contract-and-host-boundary-only",
+      "m13_physical_validation": false
+    },
+    {
+      "stack_key": "sdl-unknown",
+      "opened_backend": "unknown or newly observed SDL backend",
+      "selection_fact": "opened backend remains diagnostic and cannot create a capability by name",
+      "ownership_policy": "fail closed to SDL ownership until contrary present evidence exists",
+      "entry_point_policy": "use only entry points returned by the current SDL context stack",
+      "present_policy": "SDL_GL_SwapWindow while SDL owns the window",
+      "drawable_policy": "require a positive runtime drawable or report failure",
+      "baseline": "GLES2 is required; optional capabilities are measured",
+      "evidence_sources": [],
+      "evidence_level": "designed-boundary-only",
+      "m13_physical_validation": false
+    }
+  ],
+  "quirk_boundaries": [
+    {
+      "quirk": "amlogic-default-backbuffer-alpha-one",
+      "default_enabled": false,
+      "activation": "adapter opt-in plus observed alpha-zero scanout on a proven Amlogic fbdev path",
+      "scope": "FBO zero immediately before present",
+      "required_state_restore": [
+        "framebuffer",
+        "scissor enablement",
+        "color mask",
+        "clear color"
+      ],
+      "provenance": [
+        "horizonchase",
+        "lego_star_wars_tfa_alpha_quirk"
+      ]
+    },
+    {
+      "quirk": "global-npot-wrap-rewrite",
+      "default_enabled": false,
+      "activation": "adapter proof of a real NPOT sampling artifact",
+      "scope": "only the proven texture or sampler class",
+      "required_state_restore": [],
+      "provenance": [
+        "castleofillusion"
+      ]
+    }
+  ],
+  "global_prohibitions": [
+    "no global glFinish",
+    "no global FBO clear",
+    "no global shader substitution",
+    "no global texture conversion",
+    "no support inference from a GPU, firmware or device name"
+  ]
+}

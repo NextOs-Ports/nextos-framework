@@ -1,0 +1,3 @@
+# NEXTOS_SETTINGS/1
+language=en
+language=pt-BR

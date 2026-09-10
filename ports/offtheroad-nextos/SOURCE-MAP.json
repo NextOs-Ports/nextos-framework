@@ -1,0 +1,429 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/offtheroad-nextos",
+  "observed_commit": "2bfb806d92c64edaf9f3383ab9edc55a37f97fcd",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Off The Road"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "019289c637aa1c88d187cf03af79dcf9dd9d3dd5",
+      "sha256": "dd60d64b10a1d84ea26c7a389c757a5eb43a54fcc64d622259e9f754fdd3d429"
+    },
+    {
+      "path": "FRAMEWORK-PIN.json",
+      "mode": "0o644",
+      "upstream_blob": "a2f13ef935af681d02336af56bb6d401f8604592",
+      "sha256": "90eedfc90f92b64d14b98586daba8a2405a5c41413255fa89ccd8e6f06cbca90"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "mode": "0o644",
+      "upstream_blob": "cd2cab4fbf9b314ca3ce63c386bfd1aec1da0a04",
+      "sha256": "a497b8baaf61fffc6512c5102d6945683075d481cdab213b7593a52658b0550e"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "7b57c42478d2017001382f0f66c1f0c6958f93d8",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "path": "NOTICE.md",
+      "mode": "0o644",
+      "upstream_blob": "491c9a2c4527dd8c09da5d0618fae34303951141",
+      "sha256": "6444b28836334cfe10564d47766f8be7eb9160df7f5aeec50dbb38fba963b0b2"
+    },
+    {
+      "path": "Off The Road.sh",
+      "mode": "0o755",
+      "upstream_blob": "413bb29f7281e96c2fc0b5c5cea8a936de630b45",
+      "sha256": "687afe1db9339a27c80a9926cf70f6c831644ff09fe7552606979ebe2ec82ff2"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "e2f608aec20d1196c456a4924245e12f0a49cf13",
+      "sha256": "5079f47bed8f52451a7054ab9eb601fc6e55d0aa9e34c261da8a659191fe4678"
+    },
+    {
+      "path": "adapter/adapter-contract.json",
+      "mode": "0o644",
+      "upstream_blob": "807f558ca752db6230fa8f98bd18c4e442a4d329",
+      "sha256": "33731e035c734798e4677f9390c4db88dde8526d8f336bf322d0e20010955344"
+    },
+    {
+      "path": "alsoft.conf",
+      "mode": "0o644",
+      "upstream_blob": "035479ee9fa9137adbd376e484ac4765cb7180c0",
+      "sha256": "daea2d19e7df20343cf8227b3992b4393b18d49bd527fb6c27f81372400ac55b"
+    },
+    {
+      "path": "build.sh",
+      "mode": "0o755",
+      "upstream_blob": "107ae525b58c13c97f9011fcc560715637072563",
+      "sha256": "7626b4025adf62786cb493bab2bdce1edab9dbafd4cc3610ec56ca2411ab7a47"
+    },
+    {
+      "path": "build_universal.sh",
+      "mode": "0o755",
+      "upstream_blob": "4a0872dea37fc7aa38611cf8cdf3c765d0d05f07",
+      "sha256": "c02269f0a65b283b33c77b83762631c3c80c57c751be09e01f474ebf554c7e09"
+    },
+    {
+      "path": "defaults/NEXTOSCONTROLLERS.gptk",
+      "mode": "0o644",
+      "upstream_blob": "06c00a50ebf6d25d6174f2204ec0bfd76d5e7bc0",
+      "sha256": "0ca51bdbeef1622108cb4d7be07ba975180233f05e7450e1c6e688ac5c09c42b"
+    },
+    {
+      "path": "defaults/NEXTOSSETTINGS.txt",
+      "mode": "0o644",
+      "upstream_blob": "1fb3cecc5419cf916cdd2c6b009903cac945de4d",
+      "sha256": "3bffca0abd4fb775c7a71f1d5c6ba10b4669d02bd66a03ff564bbd1712a39449"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "f6338cfb24a156d56eaea875ecf9b12b18648e6d",
+      "sha256": "a654cc1dc8468bcadf825909581f625ecc3f0a9e842c12bc44ee62e7d53264e4"
+    },
+    {
+      "path": "gameinfo.xml",
+      "mode": "0o644",
+      "upstream_blob": "60cbcc4ee34586608555f49ebf892a18bef4bd14",
+      "sha256": "0c6700ed0c761184cf65242ca26342d43f8d9da12ca6dcc389f04c01211c9e88"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "nxextract-version.txt",
+      "mode": "0o644",
+      "upstream_blob": "9728bd69ac835b82788f22282e0d9a440973dce1",
+      "sha256": "595ad39683176a1a97a7243bec5c87bb5de2f2d6a88510e7973958945b978478"
+    },
+    {
+      "path": "nxextract/nxextract-runtime-env.sh",
+      "mode": "0o644",
+      "upstream_blob": "db4ceafac1eddcfc210b85b178dacc8f73b20bb0",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "path": "nxextract/nxextract.py",
+      "mode": "0o644",
+      "upstream_blob": "6e97aae65a8738370e9d876c227ff9f938b1796f",
+      "sha256": "af0477e8c468330d4e52e8a93e253485e7af2e1f9bfb9ae080614afe15d8aced"
+    },
+    {
+      "path": "nxextract/run-extractor.sh",
+      "mode": "0o644",
+      "upstream_blob": "72cc36a5b45a40ef4286937ea9615fcdb1a61801",
+      "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+    },
+    {
+      "path": "nxport.json",
+      "mode": "0o644",
+      "upstream_blob": "e9b74888489c5474362aefdf05ea29ba327365c4",
+      "sha256": "aeab12e5de9ee77dd15c8acdfceb7d31af47a6b636b3a250296eb34ae7914de9"
+    },
+    {
+      "path": "nxproject.json",
+      "mode": "0o644",
+      "upstream_blob": "2a6a327597a3c5e21d76261c421256a5468379f3",
+      "sha256": "a0c16efb122570859e21550230f5e86c1683a3f0ab2958fad7a6080871370568"
+    },
+    {
+      "path": "port.json",
+      "mode": "0o644",
+      "upstream_blob": "3d64d3985d8e6cae1ca32c9c12bd2dff09e09413",
+      "sha256": "b71214145ab36ae377573f3569288e44e8e95eaea7c3beae5bf0f51b23ee6594"
+    },
+    {
+      "path": "references/egl-import-contract-v1.json",
+      "mode": "0o644",
+      "upstream_blob": "9395936a8aafc205d894112386d9e9dcb52ff8cf",
+      "sha256": "0af94833b2cd3a4f20060e637170fc34f8a48084673d48a6e5bbbfe04f4527cc"
+    },
+    {
+      "path": "references/graphics-contract-static-v1.json",
+      "mode": "0o644",
+      "upstream_blob": "73f5b197375c5d76ca7fc3d6232e7c7126e60e42",
+      "sha256": "7fa736f9c552a44ffc36fba4e4d50b8f98285d3efa08f1fc089f4b006b94bd72"
+    },
+    {
+      "path": "src/egl_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "9d1ef955add0e00c1927e93de2ebb9075a64310f",
+      "sha256": "c8838c971e0ef68c4b0b180d08fe8841f1da6d21d2931e68374ea5ab163d79dd"
+    },
+    {
+      "path": "src/egl_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "363038b23e82e94507cd68d980e4759b540953d2",
+      "sha256": "bbd2836445e42b9c78eaeac10fe9f4eb56850651418cf1c23e66f214aee07079"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "1fa7618fe512423f5ee40a71ad2bd696c9bf7627",
+      "sha256": "288ee2b02a3791875d6d89942475d0e3f2a28bd36a29f9b0e1c4923249dab668"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "72cdb608014b25f5cd7e1f50a4878a537a81e76e",
+      "sha256": "030953068c7677b011d4491e2460e07941896cb41123a7adf866dc0eb5c4d44c"
+    },
+    {
+      "path": "src/imports.c",
+      "mode": "0o644",
+      "upstream_blob": "c8a2e1a13797f0dad9d9fe681f0c59ed2685c9f9",
+      "sha256": "f55afbc010cedb35d5ea880b2105889f7845e5c7c8e3bd88b509fb523db7e112"
+    },
+    {
+      "path": "src/imports.h",
+      "mode": "0o644",
+      "upstream_blob": "4633e9f8c667a8feeaf6cc27abf66c217391e89f",
+      "sha256": "f5d82e15599ed632ac5040687759f1c4627d9210bec7c7635bca18a8255463ce"
+    },
+    {
+      "path": "src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "2be1aba945ca72b9689feb20d673f967c6c4daf3",
+      "sha256": "03699a0626e2c23bedd3acaf3e08696a79291d949856cfdf8136b4609bd79a55"
+    },
+    {
+      "path": "src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "02becac5b1c757ba227f73bb4535c356427917f1",
+      "sha256": "9637c409ce15e88a95a6e8f8f9361731ab332cda98bce5a38d38b8e2c08f989b"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "fc6f1d621a11eb7b063bdc6c320e0a2584d75c3d",
+      "sha256": "9e5ab7a5bf8667d05465fe6fd5bb956d252bdaa16a488e4b19b66a453f71ca43"
+    },
+    {
+      "path": "src/opensles_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "988fdb3704d3d29697d4d96e9bc9d772479aa41e",
+      "sha256": "51f31c24b0bdd46a2a4973bbb96c9a5e13bf0b42464d7872f86b123d382b40ec"
+    },
+    {
+      "path": "src/opensles_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "183c9bce4408425dab4f4742e9627093ef47db69",
+      "sha256": "563c8e7173f8692a82901466d93f29f6bb275eb108511d80356a6c6181d5b622"
+    },
+    {
+      "path": "src/ot_bionic.c",
+      "mode": "0o644",
+      "upstream_blob": "324814d61e525d032bcaea8e7ef29bf9f84889e5",
+      "sha256": "346693ccc9b7012c40039fb0607fe185203863b2e86f3efd0cf8569f78860c43"
+    },
+    {
+      "path": "src/ot_setjmp.S",
+      "mode": "0o644",
+      "upstream_blob": "d356efd1d1f2d9b0bc4810f4bafb16e98e1e1ff0",
+      "sha256": "cee8d3efff7cf92e057e4ebbe62af0cd755901c61d7311fda7993e613c3986be"
+    },
+    {
+      "path": "src/otr_audio_recovery.c",
+      "mode": "0o644",
+      "upstream_blob": "f54742ffa9826adf13666cea9a067c40cbdaa908",
+      "sha256": "cf38f4e6b439bf3f68d033417d91e4cb6f5608a102e5dad2e23a1f842494b152"
+    },
+    {
+      "path": "src/otr_audio_recovery.h",
+      "mode": "0o644",
+      "upstream_blob": "02d153664349bfb7daacde5b4279160400f6ba27",
+      "sha256": "44c9c33824f2ef87efd68f09cb1d03ff62d5a92ecbf8daf9476d6d67ef93b414"
+    },
+    {
+      "path": "src/otr_egl_imports.c",
+      "mode": "0o644",
+      "upstream_blob": "e0772a101c8a7b3f78597606578e2885385a382e",
+      "sha256": "94a0bcfb1455dfdd7e8eded0375e7359df2f48a3b7c9e704bb3947e29a54baf6"
+    },
+    {
+      "path": "src/otr_egl_imports.h",
+      "mode": "0o644",
+      "upstream_blob": "59f99da9815ac0f710016b0741cffa273b774777",
+      "sha256": "0aa0c0887e882117da585d1f5065e7695b96efca27e8c6ec133ccd7e0f5e23ab"
+    },
+    {
+      "path": "src/otr_evdev_chord.c",
+      "mode": "0o644",
+      "upstream_blob": "06ecf9a140c4f8269926fcdd46d2a5cd43af400c",
+      "sha256": "30917cfd4bf71eaef918d135ec42c97eb7c2da74bc1f1e9242135eae9ddc7385"
+    },
+    {
+      "path": "src/otr_exit_monitor.c",
+      "mode": "0o644",
+      "upstream_blob": "04383788126bb08a93bf56903a56a9b9c533128d",
+      "sha256": "3d40913f8aadc6b811518d024afd03cd16485ddb7e7e8a325f5c77995c1bcaa5"
+    },
+    {
+      "path": "src/otr_exit_monitor.h",
+      "mode": "0o644",
+      "upstream_blob": "a7a8c100bb6faa0fa6da3cdfcba36f8778eb87d6",
+      "sha256": "be0b493d1d2347cf091b9cddf2bcd4b69e67cedcaaeddb387ba439dfdcaf2d34"
+    },
+    {
+      "path": "src/otr_gptk.c",
+      "mode": "0o644",
+      "upstream_blob": "4bc5021257d3dea1451bc814ca0f7072555a061b",
+      "sha256": "f964a3b9a590993cb9e65366696e8af181a34b8d0b2e4d91abaa508fff8fe9fa"
+    },
+    {
+      "path": "src/otr_gptk.h",
+      "mode": "0o644",
+      "upstream_blob": "4df658d249689e5553b2b8dd37656ef45f690c1a",
+      "sha256": "ec28b83d297585d2b0d9117f0c80b205836c7fcc985d0569d125f26b087591dc"
+    },
+    {
+      "path": "src/otr_runtime_evidence.c",
+      "mode": "0o644",
+      "upstream_blob": "2a0bc2a8670f12d9c54cbcc76e7b6b56b618aaee",
+      "sha256": "9e253dfffa32d721645b29b1224a7841ecacb707ebc8790845cad15be8444fb5"
+    },
+    {
+      "path": "src/otr_runtime_evidence.h",
+      "mode": "0o644",
+      "upstream_blob": "a95f9dd736af9c5a6915486f37826ccefb261fa8",
+      "sha256": "583e0cd390b889456a2e79c65373ab7f9dd351cc3fcb91d70cf9b709fda68e49"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "0d301350ccb26ecd7868c29111cd4eb356f87e5f",
+      "sha256": "45ff0fd13a354f27eca262a65d62be2802c9edfb2841a1c2c418a17dd4b663aa"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "daa7415219ac2de2f7c13185f19da721b43566b6",
+      "sha256": "d96587c9c91d5ae037d5f69dfbb956d4b68340bbf0983560d84e9a80976df408"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "8ee7aef9496056a5d31713bab251ad9a7ca65ace",
+      "sha256": "66a8129f48c2c68a6935b0bd6d06631104ea327d486bc5628da314332a622286"
+    },
+    {
+      "path": "src/text_render.c",
+      "mode": "0o644",
+      "upstream_blob": "db87c6dc64e8e1d3139ca1b4881cbd121382923f",
+      "sha256": "b75f7bd9506d9a1f5125c6af8ae522fcf4a0dcee0c6228a88e7c52f9d7f3d7f1"
+    },
+    {
+      "path": "src/und_symbols.txt",
+      "mode": "0o644",
+      "upstream_blob": "c4c6c408cd5e9046082c61751972ebc4f380a187",
+      "sha256": "e387198053e1c331b1635af133cd5cd421b1a2efc26f502a72d901cc6d020456"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "f6a438b5e3fd7f10032fb39b64a62b8e721fb1ca",
+      "sha256": "a8a61499795647144102e039b281202e8850a6958fb24308254b4310a00b50af"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "19db4a41bf236f81aa67bb1f8ba7895f8d8123dc",
+      "sha256": "c6aa34b0983fb99733cc0d2d3a4a709e65c198474eaf7fbf3de1acb2dcb711b2"
+    },
+    {
+      "path": "tests/egl_provider_fixture.c",
+      "mode": "0o644",
+      "upstream_blob": "a24fb846f07be6a3b4f3a5f42123bd6e79208bbf",
+      "sha256": "b09c62c4d96c6b92ffc2e227b3ab25a51fd524bff3052724854edc77ece89a5c"
+    },
+    {
+      "path": "tests/fixtures/NEXTOSCONTROLLERS-swapped.gptk",
+      "mode": "0o644",
+      "upstream_blob": "4a82b7f9407484784b408880b1765e5df596cdf3",
+      "sha256": "2e9225a03f985eed1fd07e590e70b04d8f64aa2b11a9174e8006655ce1260273"
+    },
+    {
+      "path": "tests/run-host.sh",
+      "mode": "0o755",
+      "upstream_blob": "c853e250c7bab5f1e20a61249438de7f23efe1b3",
+      "sha256": "d9dd6ded707997a63230baf8a4770775bf7481105f07fc8f3cfbad598eec8736"
+    },
+    {
+      "path": "tests/test_audio_recovery.c",
+      "mode": "0o644",
+      "upstream_blob": "a07277766142f8c90c66485f9440636ce9d2b6ed",
+      "sha256": "3221897cd04a23ca02a4733ae78564d4e3c9bc2bc788a6abbe9cd863ba2be0af"
+    },
+    {
+      "path": "tests/test_egl_imports.c",
+      "mode": "0o644",
+      "upstream_blob": "81e983cdea0eee7d90899b68a00c39ded4e92302",
+      "sha256": "fd81eda58e8d7766202ace92a7a97b390d790ae019367aaa169131f3a98e19ca"
+    },
+    {
+      "path": "tests/test_exit_monitor.c",
+      "mode": "0o644",
+      "upstream_blob": "94371dfae6d964eb34dcd9d39c01b517bcc033b9",
+      "sha256": "339984f01e4bc95780ed07151372f55196002678666c7c64f8cc41cdc6c64a0c"
+    },
+    {
+      "path": "tests/test_gptk_adapter.c",
+      "mode": "0o644",
+      "upstream_blob": "8e467b5fe0122d453f9671a93c4740eb3c9678a5",
+      "sha256": "3a99206c79351610e3cb18cd7d09de06091e6d3efcefd16da9fab91c58b28f46"
+    },
+    {
+      "path": "tests/test_graphics_receipt.c",
+      "mode": "0o644",
+      "upstream_blob": "ee1130b986c1419f0d5a41d0141c5940dbf9e81d",
+      "sha256": "dce1d6d0b9597878a7ddae5c0dfea308980dfab6d3cf4c6a2f57ed3688468f05"
+    },
+    {
+      "path": "tests/test_static_contract.py",
+      "mode": "0o644",
+      "upstream_blob": "453ffd8c9845e4dcf71a6347faddc0f4db388029",
+      "sha256": "81ce1c6c383730d3defed797df6e5a6b3da24e26dcc3632cd0685a0eadd1333a"
+    },
+    {
+      "path": "tests/test_util_cache.c",
+      "mode": "0o644",
+      "upstream_blob": "f48417c3f3b2094271ed11ada9ae8ce4b1d6f797",
+      "sha256": "3dab6f108722256eecde0091334424254fc87f743cd14ce6ea42afc9bce8f7bb"
+    },
+    {
+      "path": "tools/BUILD-INPUTS.json",
+      "mode": "0o644",
+      "upstream_blob": "15a8dc53bcc167985254cf5aea9ee239c223974d",
+      "sha256": "4928fa057c4235c431e23baafd876df2d590ff286258dad5eeb6a77b7693d367"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "90a27f9cea6e8f02e05a8bbab5d14650e3e932af",
+      "sha256": "8c54bfab7f1ae9bd1a7148eae41e7b0a8f4ad3726e0cac70f823a2d45db9e60c"
+    }
+  ],
+  "omitted_selected_files": []
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Retro City Rampage DX.sh</path>
+    <name>Retro City Rampage DX</name>
+    <desc>Retro City Rampage DX is an open-world action-adventure parody of 8-bit games, with driving, shooting and arcade challenges.</desc>
+    <developer>Vblank Entertainment</developer>
+    <publisher>Vblank Entertainment</publisher>
+    <genre>Action, Adventure, Open World</genre>
+  </game>
+</gameList>

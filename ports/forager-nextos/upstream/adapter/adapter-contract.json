@@ -1,0 +1,120 @@
+{
+  "architecture": "armv7-hard-float-host_softfp-guest",
+  "audio": {
+    "implementation": "original GameMaker OpenAL path through the host provider; Android AudioTrack compatibility through SDL when requested",
+    "music_policy": "approved volume defaults are installed once on a clean data directory and never overwrite player settings",
+    "physical_status": "music, effects and audio group 1 physically validated"
+  },
+  "graphics": {
+    "api": "OpenGL ES 2.0",
+    "backend_policy": "inherit firmware selection; use a coherent unversioned ARMHF EGL/GLES provider pair only after proving a versioned-provider conflict",
+    "global_alpha_override": false,
+    "global_texture_wrap_override": false,
+    "physical_status": "native-resolution menu and gameplay physically validated on Mali-450 and Mali-G31"
+  },
+  "identity": {
+    "android_package": "com.humblebundle.forager",
+    "android_version": "1.0.13",
+    "guest_abi": "armeabi-v7a",
+    "guest_library_sha256": "6aa08df5ed5f8144da77aba71ee04c704996e7ea635e40926e256090eb583fb1",
+    "runtime_archive_sha256": "fffd65030db5b3ec37474960f03c50575070c6519f22ffac74eeaef956e9645f"
+  },
+  "input": {
+    "implementation": "adapter-owned SDL GameController event and state loop",
+    "mapping": "firmware and PortMaster mappings first, followed by exact observed-controller fallbacks embedded in the generated owner runtime",
+    "terminal_combo": "Select+Start requests the same terminal path as SDL_QUIT",
+    "touch": null
+  },
+  "jni": {
+    "classes": [
+      "java/lang/Object",
+      "java/lang/Double",
+      "java/lang/String",
+      "java/nio/ByteBuffer",
+      "android/media/AudioTrack",
+      "android/os/Build"
+    ],
+    "extension_policy": "recognized mobile-only services return typed inert success values; unknown behavior is not promoted",
+    "source_evidence": [
+      "source/overlay/jni",
+      "source/overlay/gmloader/classes/RunnerJNILib.cpp"
+    ]
+  },
+  "language": {
+    "implementation": "launcher selection plus version-specific hook of the exported GameMaker gml_Script_SelectLanguage boundary",
+    "native_flow": "the hook replaces only the language RValue, calls the original function in full, restores the caller argument and releases temporary storage",
+    "supported": [
+      "pt-br",
+      "en",
+      "es",
+      "fr",
+      "de",
+      "ru",
+      "tr",
+      "th",
+      "ja",
+      "ko",
+      "zh-cn",
+      "zh-tw"
+    ]
+  },
+  "lifecycle": {
+    "policy": "preserve_native_gamemaker_android_order",
+    "sequence": [
+      "open-owner-runtime",
+      "load-libcxx-shared",
+      "load-libyoyo",
+      "resolve-bionic-and-engine-imports",
+      "run-guest-initializers",
+      "create-sdl-gles2-window",
+      "register-runner-jni-services",
+      "runner-startup",
+      "init-graphics",
+      "game-main-loop",
+      "terminal-request"
+    ],
+    "source_evidence": [
+      "source/overlay/gmloader/main.cpp",
+      "source/overlay/gmloader/libyoyo.cpp"
+    ]
+  },
+  "persistence": {
+    "paths": [
+      "data/config.txt",
+      "data/language.txt",
+      "data/saveData0"
+    ],
+    "policy": "all writable owner state is outside the NXExtract runtime seal; legacy saves are imported once and never overwrite newer data"
+  },
+  "physical_validation": [
+    {
+      "artifact_sha256": "2f7fe91d188070a5b61e282ae085c7251110471165bd71ae78252ff90b5e9353",
+      "family": "NextOS Amlogic Mali-450 GLES2",
+      "status": "video-music-effects-controller-gameplay-save-language-and-clean-exit-approved"
+    },
+    {
+      "artifact_sha256": "2f7fe91d188070a5b61e282ae085c7251110471165bd71ae78252ff90b5e9353",
+      "family": "ArkOS ARMv7-capable Mali-G31",
+      "status": "on-device-sha-verified; Run_Start and native Portuguese language selection approved"
+    }
+  ],
+  "prohibitions": [
+    "do not reorder or skip the original GameMaker startup",
+    "do not package owner APK, extracted runtime, saves or raw logs",
+    "do not promote game offsets or language hooks to framework defaults",
+    "do not force an EGL/GLES provider without a proven object mismatch",
+    "do not claim an untested physical device family"
+  ],
+  "release_boundary": "version 1.0.0; exact final artifact physically approved on the Mali-450 baseline and by bounded ArkOS startup/language smoke",
+  "release_ready": true,
+  "schema": "nxadapter-contract-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "after the game has persisted during gameplay, Select+Start or SDL_QUIT ends the process without running unsafe guest audio/GL destructors",
+    "source_evidence": [
+      "source/overlay/gmloader/input.cpp",
+      "source/overlay/gmloader/main.cpp"
+    ]
+  }
+}

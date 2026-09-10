@@ -1,0 +1,16 @@
+# Terceiros do decodificador de musica interno (substitui ffmpeg/ffprobe).
+# Conferidos por SHA-256 antes de compilar.
+
+fdk-aac  2.0.3
+  url     https://github.com/mstorsjo/fdk-aac/archive/refs/tags/v2.0.3.tar.gz
+  sha256  e25671cd96b10bad896aa42ab91a695a9e573395262baed4e4a2ff178d6a3a78
+  licenca Software License for The Fraunhofer FDK AAC Codec Library for Android
+          (arquivo NOTICE do proprio pacote; permite redistribuicao em fonte e
+          binario mantido o aviso). Nao e' GPL.
+  uso     somente o decodificador, ligado estaticamente.
+
+minimp4  (revisao master, arquivo unico minimp4.h, vendorizado em src/)
+  url     https://github.com/lieff/minimp4
+  sha256  <ver src/minimp4.h; o arquivo esta versionado junto com o port>
+  licenca CC0-1.0 (dominio publico)
+  uso     demux do container MP4/M4A.

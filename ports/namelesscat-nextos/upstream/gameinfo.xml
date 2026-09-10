@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameList>
+  <game>
+    <path>./Nameless Cat.sh</path>
+    <name>Nameless Cat</name>
+    <desc>A gentle puzzle platformer about a little cat crossing a strange dream world, running natively on handheld Linux with the NextOS Unity 6 host and a right-stick pointer for its touch dialogs.</desc>
+    <developer>Kotoba Games</developer>
+    <publisher>Kotoba Games</publisher>
+    <genre>Platformer</genre>
+    <players>1</players>
+  </game>
+</gameList>

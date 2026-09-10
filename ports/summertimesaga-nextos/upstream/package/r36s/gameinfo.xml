@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gameList>
+  <game>
+    <path>./Summertime Saga.sh</path>
+    <name>Summertime Saga</name>
+    <desc>Port universal AArch64 da Preview Android gratuita, usando loader nativo Ren'Py. Compativel com NextOS atual e sistemas ArkOS/R36S de classe GLIBC 2.30. Tem ponteiro por controle, audio, saves e saida limpa. Conteudo adulto; requer APK legal do usuario, preparado automaticamente pelo NXExtract.</desc>
+    <developer>Kompas Productions</developer>
+    <publisher>Kompas Productions</publisher>
+    <genre>Visual Novel / Aventura</genre>
+  </game>
+</gameList>

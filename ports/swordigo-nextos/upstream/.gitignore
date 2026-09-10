@@ -1,0 +1,12 @@
+.build/
+*.log
+gamedata/*
+!gamedata/LEIA-ME.txt
+assets/
+res/
+libswordigo.so
+build/
+swordigo-nextos
+swordigo-nextos-v108
+swordigo-nextos-v108-*
+swordigo-universal

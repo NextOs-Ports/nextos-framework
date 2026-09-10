@@ -1,0 +1,112 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "controls": {
+    "actions": [
+      {
+        "id": "example.accept",
+        "kind": "button",
+        "sinks": [
+          "adapter.menu.accept"
+        ]
+      },
+      {
+        "id": "example.back",
+        "kind": "button",
+        "sinks": [
+          "adapter.menu.back"
+        ]
+      },
+      {
+        "id": "example.drive",
+        "kind": "vector",
+        "sinks": [
+          "adapter.game.drive"
+        ]
+      },
+      {
+        "id": "example.pause",
+        "kind": "button",
+        "sinks": [
+          "adapter.game.pause"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "LEFT_STICK": "example.drive",
+        "START": "example.pause"
+      },
+      "menu": {
+        "A": "example.accept",
+        "B": "example.back"
+      }
+    }
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "scaffold"
+  },
+  "graphics": {
+    "uses_gl": false
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "adapter",
+    "sinks": [
+      "unity-i2loc"
+    ],
+    "supported": [
+      "en",
+      "pt-BR"
+    ]
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "suportando_outros_devices/extrator-universal/examples/recipe-minimal.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "game-dir-and-passthrough",
+    "enabled_quirks": [],
+    "executable": "bin/aarch64/nxexample-loader",
+    "home_mode": "preserve",
+    "id": "nxexample-aarch64",
+    "launcher_name": "NXExample AArch64.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.21"
+    },
+    "prepare_script": "",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "graphics.gles2",
+      "input.controller-mapping"
+    ],
+    "required_files": [
+      "bin/aarch64/nxexample-loader"
+    ],
+    "runtime_report": "log-and-logo",
+    "schema_version": 2,
+    "title": "NXExample AArch64"
+  },
+  "owner_data": {
+    "directory": "gamedata",
+    "formats": [
+      "APK",
+      "XAPK"
+    ],
+    "reference": {
+      "version": "9.9.9-test"
+    }
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.17",
+    "runtime": []
+  },
+  "schema_version": 3
+}

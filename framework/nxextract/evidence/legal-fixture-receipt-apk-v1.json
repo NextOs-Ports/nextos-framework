@@ -1,0 +1,49 @@
+{
+  "recipe": {
+    "id": "chrono-nextos",
+    "version": "2.x-universal-2"
+  },
+  "reference_copy": {
+    "container_sha256": "f77d7c6793201a776c62655b98161fdb0bdc91cd3407a8dd0860d87730f57762",
+    "container_size": 557501557,
+    "note": "documentation only: identity of the container never decides compatibility"
+  },
+  "resolved": {
+    "abi": "arm64-v8a",
+    "payload_count": 17,
+    "total_bytes": 563731640
+  },
+  "sanitized": true,
+  "schema": "org.nextos.nxextract.legal-fixture-receipt",
+  "schema_version": 1,
+  "variants": [
+    {
+      "result": "accepted",
+      "variant": "as-provided"
+    },
+    {
+      "result": "accepted",
+      "variant": "renamed"
+    },
+    {
+      "result": "accepted",
+      "variant": "repacked-stored-reordered"
+    },
+    {
+      "result": "accepted",
+      "variant": "bundle-xapk"
+    },
+    {
+      "result": "refused",
+      "variant": "foreign-package"
+    },
+    {
+      "result": "refused",
+      "variant": "missing-required-payload"
+    },
+    {
+      "result": "refused",
+      "variant": "undeclared-abi"
+    }
+  ]
+}

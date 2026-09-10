@@ -1,0 +1,16 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "title": "Party Hard GO"
+  },
+  "items": [
+    "Party Hard GO.sh",
+    "partyhard/"
+  ],
+  "items_opt": [],
+  "name": "partyhard.zip",
+  "version": 4
+}

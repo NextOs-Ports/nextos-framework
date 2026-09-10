@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "policy_id": "nxabi-public-universal-v1",
+  "description": "Single source of truth for the M17 ABI/toolchain gate. Every checker in the repository must read the ceilings from here instead of hardcoding them.",
+  "ceilings": {
+    "glibc_max": "2.30",
+    "glibc_preferred": "2.17",
+    "glibcxx_max": "3.4.25",
+    "cxxabi_max": "1.3.11"
+  },
+  "ceiling_rationale": {
+    "glibc_max": "public multi-device floor agreed for ArkOS/R36S class firmware",
+    "glibc_preferred": "ports/bully2/bully.glibc230 and ports/kotor/nxextract-ui already build at 2.17",
+    "glibcxx_max": "libstdc++.so.6.0.25 shipped by the pinned GCC 8.2.1 ARMHF sysroot",
+    "cxxabi_max": "libstdc++.so.6.0.25 shipped by the pinned GCC 8.2.1 ARMHF sysroot"
+  },
+  "forbidden_version_tokens": [
+    "GLIBC_PRIVATE",
+    "GLIBC_ABI_DT_RELR"
+  ],
+  "architectures": {
+    "armv7": {
+      "elf_class": "ELF32",
+      "machine": "ARM",
+      "interpreter": "/lib/ld-linux-armhf.so.3",
+      "required_flags": ["Version5 EABI", "hard-float ABI"]
+    },
+    "aarch64": {
+      "elf_class": "ELF64",
+      "machine": "AArch64",
+      "interpreter": "/lib/ld-linux-aarch64.so.1",
+      "required_flags": []
+    }
+  },
+  "android_interpreters": {
+    "armv7": "/system/bin/linker",
+    "aarch64": "/system/bin/linker64"
+  },
+  "search_paths": {
+    "allow_rpath": false,
+    "allow_runpath": false,
+    "allow_origin_only": false,
+    "note": "nxrelease.py rejects any RPATH/RUNPATH. ports/horizonchase/horizonchase-universal carries RUNPATH=[$ORIGIN] and therefore is a loader/relocation reference only, never a packaging reference."
+  },
+  "soname_allowlist": {
+    "libc.so.6": "glibc-base",
+    "libm.so.6": "glibc-base",
+    "libdl.so.2": "glibc-base",
+    "libpthread.so.0": "glibc-base",
+    "librt.so.1": "glibc-base",
+    "libresolv.so.2": "glibc-base",
+    "libutil.so.1": "glibc-base",
+    "libanl.so.1": "glibc-base",
+    "libnsl.so.1": "glibc-base",
+    "libBrokenLocale.so.1": "glibc-base",
+    "ld-linux-armhf.so.3": "glibc-base",
+    "ld-linux-aarch64.so.1": "glibc-base",
+    "libgcc_s.so.1": "toolchain",
+    "libstdc++.so.6": "toolchain",
+    "libSDL2-2.0.so.0": "firmware",
+    "libEGL.so.1": "firmware",
+    "libGLESv2.so.2": "firmware",
+    "libGLESv1_CM.so.1": "firmware",
+    "libopenal.so.1": "firmware",
+    "libasound.so.2": "firmware",
+    "libmpg123.so.0": "firmware",
+    "libvorbisfile.so.3": "firmware",
+    "libvorbis.so.0": "firmware",
+    "libogg.so.0": "firmware",
+    "libz.so.1": "firmware"
+  },
+  "soname_forbidden": {
+    "libEGL.so": "development symlink; devices ship libEGL.so.1",
+    "libGLESv2.so": "development symlink; devices ship libGLESv2.so.2",
+    "libGLESv1_CM.so": "development symlink; devices ship libGLESv1_CM.so.1",
+    "libSDL2.so": "development symlink; devices ship libSDL2-2.0.so.0",
+    "libopenal.so": "development symlink; devices ship libopenal.so.1",
+    "libz.so": "development symlink; devices ship libz.so.1"
+  },
+  "wrapper_blacklist": {
+    "reallocarray": "2.26",
+    "copy_file_range": "2.27",
+    "memfd_create": "2.27",
+    "getrandom": "2.25",
+    "getentropy": "2.25",
+    "statx": "2.28",
+    "renameat2": "2.28",
+    "gettid": "2.30",
+    "pthread_cond_clockwait": "2.30",
+    "sem_clockwait": "2.30",
+    "pthread_mutex_clocklock": "2.30",
+    "twalk_r": "2.30",
+    "close_range": "2.34",
+    "execveat": "2.34",
+    "pthread_attr_setsigmask_np": "2.32",
+    "sigabbrev_np": "2.32",
+    "sigdescr_np": "2.32",
+    "strerrorname_np": "2.32",
+    "epoll_pwait2": "2.35",
+    "pidfd_open": "2.36",
+    "pidfd_send_signal": "2.36",
+    "arc4random": "2.36",
+    "arc4random_buf": "2.36",
+    "strlcpy": "2.38",
+    "strlcat": "2.38",
+    "fchmodat2": "2.39",
+    "pthread_getattr_np": null
+  },
+  "wrapper_blacklist_note": "Symbols whose glibc wrapper appeared after the preferred floor. Use a direct syscall() or a project shim instead. A null value means the symbol is only listed for review and never fails on its own.",
+  "sdl": {
+    "floor": "2.0.4",
+    "floor_rationale": "oldest SDL2 shipped by the supported multi-device firmware set",
+    "table": "sdl2-symbol-floor.tsv"
+  },
+  "exceptions_note": "Waivers are keyed by artifact sha256, so they die the moment the binary is rebuilt. A waiver never hides a finding; it downgrades it to a warning for an artifact that already carries physical evidence. Never add one for an artifact that has not been validated on hardware.",
+  "exceptions": {
+    "b5558457f7d778146b744111aeee7e73447f08e83b33bcaa6000fd013e0631b0": {
+      "artifact": "ports/asm2_127/asm2_127-universal",
+      "checks": ["soname-forbidden"],
+      "reason": "approved ARMHF reference physically validated on R36S/ArkOS, where libEGL.so and libGLESv2.so exist; the canonical SONAME is required for any new build",
+      "evidence": "framework/catalog/abi-checks-v1.tsv ABI-tasm2_127-armv7-026-physical-evidence"
+    },
+    "c02b250c640e9696718f89dfff217ec7c620be8b028b7c1ede6b60e3a719ea30": {
+      "artifact": "ports/sonic4/sonic4.arm64",
+      "checks": ["soname-forbidden"],
+      "reason": "approved AArch64 reference physically validated on Mali-450 and ArkOS with libGLESv2.so present",
+      "evidence": "framework/catalog/abi-checks-v1.tsv ABI-sonic4ep2-aarch64-026-physical-evidence"
+    },
+    "bd561ad5043e925c24e9fc45901a610df779da1005a43ac4c1e56588314ea228": {
+      "artifact": "ports/bully2/bully.glibc230",
+      "checks": ["sdl-floor"],
+      "reason": "historical, delisted and explicitly non-universal artifact; kept only as a narrow AArch64 loader reference at GLIBC_2.17",
+      "evidence": "framework/catalog/abi-checks-v1.tsv ABI-bully2-aarch64-027-limitations"
+    },
+    "c50fa28454a5555788a272a85e6ee7b8b6ccfccfec8ccf56fba07903012c91cc": {
+      "artifact": "ports/kotor/libkotor_input-universal.so",
+      "checks": ["sdl-floor"],
+      "reason": "approved pad normaliser physically validated on R36S/ArkOS, whose SDL2 is newer than 2.0.6; the SDL floor still applies to any new port",
+      "evidence": "framework/catalog/abi-checks-v1.tsv ABI-kotor-armv7-026-physical-evidence"
+    }
+  },
+  "open_policy_questions": {
+    "horizonchase-runpath-origin": {
+      "artifact": "ports/horizonchase/horizonchase-universal",
+      "sha256": "46a1da200f6e074568e9d1b5e5193b354cf5cbdd239dc7e8e967a26e43d91868",
+      "question": "ports/horizonchase/horizonchase-universal carries RUNPATH=[$ORIGIN] and is recorded as a positive reference in framework/catalog/abi-checks-v1.tsv, but nxrelease.py rejects any RPATH/RUNPATH. It is deliberately NOT waived here.",
+      "default_answer": "strict: horizonchase stays a loader/relocation reference and is never a packaging reference; a public ZIP still may not contain any RPATH/RUNPATH",
+      "owner": "NextOS"
+    }
+  },
+  "build_profiles": {
+    "universal-low-glibc": {
+      "public": true,
+      "glibc_max": "2.30"
+    },
+    "nextos-current": {
+      "public": false,
+      "glibc_max": null,
+      "note": "NextOS/NextOS Elite exclusive artifact. Never a silent universal path; must be named <port>-nextos and must never enter a public ZIP."
+    }
+  }
+}

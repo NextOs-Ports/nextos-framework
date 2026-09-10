@@ -1,0 +1,124 @@
+{
+  "schema": "nxandroid-jni-adapter-primitives-v1",
+  "schema_version": 1,
+  "component_version": "0.2.0",
+  "scope": "static-approved-source-and-host-contract-evidence",
+  "public_contract": {
+    "core_api_version": 1,
+    "adapter_api_version": 1,
+    "opt_in": true,
+    "java_vm_owned": false,
+    "jni_env_owned": false,
+    "vtable_installed": false,
+    "java_dispatch_implemented": false,
+    "store_lock_owned": false,
+    "port_specific_workaround_promoted": false
+  },
+  "sources": [
+    {
+      "id": "bombchicken-1.1.6",
+      "classification": "approved-positive-bounded",
+      "repository": "https://github.com/NextOs-Ports/bombchicken-gunbrick-nextos",
+      "commit": "bef5828eb4cb7d874bebca412497619ba364c949",
+      "evidence": [
+        {
+          "path": "ports/bombchicken/src/jni.c",
+          "sha256": "485e5ed8d6d26a3c93df61f48cf12dc8b9439c8593bd55e911a4e068da5ff49d",
+          "lines": "669-729,2812-2821",
+          "proves": "JNI slots 220 and 221 require distinct UTF-16 and UTF-region callbacks"
+        },
+        {
+          "path": "ports/bombchicken/src/input.c",
+          "sha256": "ee5f050cc1581bc07d3fae27bc3328313b2f469ce2c9de1040eb47fa41c7cfb8",
+          "lines": "930-1015",
+          "proves": "a game-specific persisted-store GetString return is required by resume, Continue and Rewired paths"
+        }
+      ],
+      "limits": [
+        "The released GetStringRegion16 callback widens bytes and is ASCII-only; its implementation is not promoted.",
+        "SharedPreferences.getAll is diagnostic-only and has no handler in this release.",
+        "The working resume fix patches one game-specific RVA and remains adapter-owned."
+      ]
+    },
+    {
+      "id": "asphalt8-90009",
+      "classification": "approved-positive-bounded",
+      "repository": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "commit": "f4353aa3ca884b0ad3ec95ca4bf17f7622753acd",
+      "evidence": [
+        {
+          "path": "ports/asphalt8_90009/src/jni_bridge.c",
+          "sha256": "93564ba83e058c9d94c60966e709450024c95b640cad97d1e23cce67c0e6d0f6",
+          "lines": "329-397,1617-1649,1937-1968,2220-2227,2277-2278",
+          "proves": "canonical UTF-16 storage, code-unit length, overflow-safe region copy and distinct JNI slots"
+        }
+      ],
+      "limits": [
+        "Object handles, exception creation and vtable installation are adapter-specific and are not promoted."
+      ]
+    },
+    {
+      "id": "dtp2",
+      "classification": "approved-positive-bounded",
+      "repository": "https://github.com/NextOs-Ports/nextos_ports_android",
+      "commit": "dc0f4aec0e1055a83eb90a6d8cd2ec5704b31dbf",
+      "evidence": [
+        {
+          "path": "ports/dtp2/src/java/nx/NxPrefs.java",
+          "sha256": "a4491267525fa2b47d0909b4af68d32ba07a6edf64dbebd933d55d65d8794c94",
+          "lines": "42-46",
+          "proves": "getAll returns a fresh map rather than one process-global reused collection"
+        }
+      ],
+      "limits": [
+        "The backing store serializes values as strings and does not prove six-family typed fake-JNI dispatch.",
+        "No trace proves that this getAll method was exercised physically."
+      ]
+    }
+  ],
+  "validation_observations": [
+    {
+      "id": "bombchicken-fresh-process-resume",
+      "classification": "project-observation-not-static-proof",
+      "provenance": "Bomb Chicken 1.1.6 community report and release validation",
+      "observation": "same-session managed caching masked the persisted GetString defect; persistence acceptance must kill the old PID and read in a new PID before any write",
+      "limits": "This observation is not claimed as a fact proved by the pinned source lines or by the nxandroid host gate."
+    }
+  ],
+  "normative_specs": [
+    {
+      "title": "Java Native Interface Specification - JNI Functions",
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/specs/jni/functions.html",
+      "proves": "GetStringRegion uses UTF-16 jchar code units at slot 220 and appends no terminator"
+    },
+    {
+      "title": "Android Dalvik Jni.cpp",
+      "url": "https://android.googlesource.com/platform/dalvik/+/bbf31b58c50fb892423b7fef0d8c1093bd0c1a6c/vm/Jni.cpp",
+      "proves": "zero-length-at-end bounds and len*sizeof(u2) copy semantics"
+    },
+    {
+      "title": "Android SharedPreferences API",
+      "url": "https://developer.android.com/reference/android/content/SharedPreferences",
+      "proves": "getAll value families and caller non-mutation contract"
+    },
+    {
+      "title": "AOSP SharedPreferencesImpl",
+      "url": "https://android.googlesource.com/platform/frameworks/base/+/0e2d281/core/java/android/app/SharedPreferencesImpl.java",
+      "proves": "getAll returns a new HashMap snapshot under the store lock"
+    }
+  ],
+  "excluded_positive_sources": [
+    {
+      "id": "angrybirds2",
+      "classification": "wip-negative-only",
+      "reason": "A global reused map can invalidate earlier snapshots/iterators and the implementation does not cover all six value families."
+    }
+  ],
+  "evidence_boundary": {
+    "host_contract_tested": true,
+    "guest_code_executed": false,
+    "jni_vtable_installed": false,
+    "physical_get_all_migration_proven": false,
+    "adopting_port_requires_new_release_and_device_proof": true
+  }
+}

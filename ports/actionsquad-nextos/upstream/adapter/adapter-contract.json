@@ -1,0 +1,38 @@
+{
+  "audio": {
+    "callbacks": [],
+    "format": null
+  },
+  "imports": [],
+  "input": {
+    "mapping": null,
+    "touch": null
+  },
+  "jni": {
+    "callbacks": [],
+    "classes": [],
+    "methods": []
+  },
+  "lifecycle": {
+    "sequence": [],
+    "source_evidence": []
+  },
+  "persistence": {
+    "callbacks": [],
+    "paths": []
+  },
+  "prohibitions": [
+    "do not invent lifecycle order",
+    "do not promote offsets or callbacks to defaults",
+    "do not invent save or terminal behavior"
+  ],
+  "quirks": [],
+  "release_ready": false,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "unimplemented_nonrelease",
+  "terminal": {
+    "action": null,
+    "evidence": []
+  }
+}

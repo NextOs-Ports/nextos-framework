@@ -1,0 +1,3 @@
+# Scratch the C5B projects materialise per run.
+.godot/
+.import/

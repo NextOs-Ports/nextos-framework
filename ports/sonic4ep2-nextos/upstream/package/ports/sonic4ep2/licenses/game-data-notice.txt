@@ -1,0 +1,17 @@
+Game data notice
+================
+
+This package does not include Sonic The Hedgehog 4: Episode II game data.
+
+The following files are intentionally user-supplied and must come from a legal
+copy owned by the user:
+
+- sonic-the-hedgehog-4-episode-ii-2.0.0.apk
+- cache-sonic-the-hedgehog-4-episode-ii-2.0.0.zip
+- main.22.com.sega.sonic4episode2.obb
+- extracted `lib/armeabi-v7a/libfox.so`
+- extracted audio, texture, model, map and save-support data
+
+Sonic The Hedgehog 4: Episode II is property of SEGA and its respective
+rightsholders. This package is only a compatibility loader and does not grant
+redistribution rights for game assets.

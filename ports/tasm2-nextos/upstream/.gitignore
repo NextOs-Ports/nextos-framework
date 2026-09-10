@@ -1,0 +1,27 @@
+# Proprietary owner-supplied inputs and generated game state
+*.apk
+*.apkm
+*.apks
+*.xapk
+*.obb
+*.so
+**/gamefiles/
+**/gamedata/*
+!**/gamedata/README*
+**/save/
+**/cache/
+
+# Locally built loaders, packages and diagnostics
+asm2_127/asm2_127
+asm2_127/asm2_127-universal
+asm2_127/asm2_127-x86
+*.zip
+*.tar.gz
+*.log
+*.core
+core
+build/
+.build/
+dist/
+package/work/
+package/out/

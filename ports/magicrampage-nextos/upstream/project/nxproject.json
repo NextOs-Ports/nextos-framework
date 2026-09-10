@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "nxport": {
+    "schema_version": 2,
+    "id": "magicrampage",
+    "title": "Magic Rampage",
+    "launcher_name": "Magic Rampage.sh",
+    "architecture": "aarch64",
+    "executable": "bin/aarch64/magicrampage-nextos",
+    "argument_mode": "game-dir-and-passthrough",
+    "home_mode": "port",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.7"
+    },
+    "required_files": [
+      "bin/aarch64/magicrampage-nextos",
+      "game.apk",
+      "libc++_shared.so",
+      "libcrypto.so",
+      "libfmod.so",
+      "libmachine.so"
+    ],
+    "private_library_paths": [],
+    "prepare_script": "port-env.sh",
+    "required_capabilities": [
+      "host.portmaster",
+      "host.aarch64-libs",
+      "graphics.gles2",
+      "audio.output-open",
+      "input.controller-mapping"
+    ],
+    "enabled_quirks": [],
+    "runtime_report": "log"
+  },
+  "nxextract_recipe": "project/extractor.json",
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.17"
+  },
+  "license": {
+    "spdx_id": "GPL-3.0-only",
+    "source": "LICENSE"
+  },
+  "documentation": {
+    "status": "scaffold",
+    "proven_support": []
+  }
+}

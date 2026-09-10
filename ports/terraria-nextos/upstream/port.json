@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Terraria"
+  },
+  "items": [
+    "Terraria.sh",
+    "terraria/"
+  ],
+  "items_opt": [],
+  "name": "terraria.zip",
+  "version": 4
+}

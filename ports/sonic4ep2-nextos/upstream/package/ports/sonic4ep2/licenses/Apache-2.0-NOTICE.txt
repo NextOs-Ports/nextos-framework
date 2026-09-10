@@ -1,0 +1,11 @@
+Port loader and shims
+=====================
+
+SPDX-License-Identifier: Apache-2.0
+
+The Sonic 4 Episode II Linux compatibility loader and local shims are derived
+from the nextos_ports_android so-loader framework and are distributed under
+Apache-2.0 unless an individual source file states otherwise.
+
+The full Apache License 2.0 text is available from:
+https://www.apache.org/licenses/LICENSE-2.0

@@ -1,0 +1,167 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "controls": {
+    "actions": [
+      {
+        "id": "ms.confirm",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.confirm"
+        ]
+      },
+      {
+        "id": "ms.back",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.back"
+        ]
+      },
+      {
+        "id": "ms.click",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.cursor-click"
+        ]
+      },
+      {
+        "id": "ms.pause",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.pause"
+        ]
+      },
+      {
+        "id": "ms.move",
+        "kind": "vector",
+        "sinks": [
+          "merchantskies.input.navigate"
+        ]
+      },
+      {
+        "id": "cursor.move",
+        "kind": "vector",
+        "sinks": [
+          "merchantskies.input.cursor-move"
+        ]
+      },
+      {
+        "id": "cursor.recenter",
+        "kind": "button",
+        "sinks": [
+          "merchantskies.input.cursor-recenter"
+        ]
+      }
+    ],
+    "contexts": {
+      "cursor": {
+        "A": "ms.click",
+        "R3": "cursor.recenter",
+        "RIGHT_STICK": "cursor.move"
+      },
+      "gameplay": {
+        "A": "ms.click",
+        "B": "ms.back",
+        "L1": "ms.confirm",
+        "LEFT_STICK": "ms.move",
+        "R3": "cursor.recenter",
+        "RIGHT_STICK": "cursor.move",
+        "START": "ms.pause"
+      },
+      "menu": {
+        "A": "ms.confirm",
+        "B": "ms.back",
+        "LEFT_STICK": "ms.move",
+        "START": "ms.pause"
+      }
+    }
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "scaffold"
+  },
+  "graphics": {
+    "adopt_single_channel": true,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 8000,
+    "profile": "es",
+    "required_devices": [
+      "mali-450",
+      "mali-g31"
+    ],
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "adapter",
+    "sinks": [
+      "unity-i2loc"
+    ],
+    "supported": [
+      "en",
+      "pt-BR"
+    ]
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor/merchantskies-nextos.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "game-dir-and-passthrough",
+    "enabled_quirks": [],
+    "executable": "merchantskies-nextos",
+    "home_mode": "preserve",
+    "id": "merchantskies",
+    "launcher_name": "Merchant of the Skies.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.2.20"
+    },
+    "prepare_script": "",
+    "private_library_paths": [],
+    "required_capabilities": [
+      "host.portmaster",
+      "host.aarch64-libs",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "graphics.egl-config",
+      "graphics.drawable",
+      "audio.output-open",
+      "input.controller-mapping",
+      "input.controller-api"
+    ],
+    "required_files": [
+      "merchantskies-nextos",
+      "lib/libmain.so",
+      "lib/libunity.so",
+      "lib/libil2cpp.so",
+      "assets/bin/Data/boot.config",
+      "assets/bin/Data/data.unity3d",
+      "assets/bin/Data/Managed/Metadata/global-metadata.dat"
+    ],
+    "runtime_report": "log-and-logo",
+    "schema_version": 2,
+    "title": "Merchant of the Skies"
+  },
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.27",
+    "runtime": []
+  },
+  "promotion": {
+    "adapter_contract": "promotion/adapter-contract.json",
+    "claims": {
+      "adapter_lifecycle_implemented": true,
+      "physical_support_proven": false,
+      "release_ready": true
+    }
+  },
+  "schema_version": 3
+}

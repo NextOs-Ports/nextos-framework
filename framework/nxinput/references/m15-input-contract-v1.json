@@ -1,0 +1,335 @@
+{
+  "schema": "nxinput-m15-input-contract-v1",
+  "schema_version": 1,
+  "milestone": "M15",
+  "contract_version": "1.4.0",
+  "scope": "closed-input-contract-for-five-approved-adapters",
+  "method": "This ledger separates reusable input mechanics from adapter-owned mappings, touch boundaries and terminal behavior. Framework closure combines deterministic tests, sanitized technical observations and the prior acceptance of finalized approved ports; it does not claim new manual gameplay or universal device support.",
+  "approved_adapters": [
+    "bully2",
+    "sonic4ep2",
+    "horizonchase",
+    "kotor",
+    "asm2_127"
+  ],
+  "source_policy": {
+    "positive_evidence": "Only the five approved source trees named above are positive port evidence.",
+    "unapproved_evidence": "WIP, incomplete and unrelated ports are never positive evidence.",
+    "copy_rule": "A mechanism is reusable only after mapping, ownership, lifecycle and license comparison.",
+    "target_edit_rule": "The framework contract is editable; approved reference ports remain read-only evidence.",
+    "private_data_rule": "No address, hostname, credential, personal path or raw device log belongs in this ledger."
+  },
+  "safety": {
+    "static_files_only": true,
+    "validator_process_free": true,
+    "guest_files_opened": false,
+    "guest_code_executed": false,
+    "device_access": false,
+    "network_access": false,
+    "manual_gameplay_revalidation_claimed": false,
+    "virtual_input_claimed_as_physical": false,
+    "runtime_acceptance_items": [
+      "M15-003",
+      "M15-016",
+      "M15-018",
+      "M15-019",
+      "M15-020",
+      "M15-022"
+    ]
+  },
+  "universal_core": {
+    "reusable": [
+      "PortMaster mapping precedence with no hard-coded global GUID",
+      "per-pad D-pad, stick and trigger capabilities derived from complete SDL bindings",
+      "validated host-wide PortMaster stick-count hint kept separate from per-pad truth",
+      "per-read D-pad to left-stick fallback that is disabled unless an adapter opts in",
+      "fail-closed semantic repair selected only by a complete raw binding topology, with near misses untouched",
+      "four bounded slots keyed by SDL instance ID rather than device index",
+      "event observation plus bounded periodic rescan",
+      "focus and disconnect release boundary with no ghost presses",
+      "capacity-aware stick and trigger normalization",
+      "radial deadzone with enter/exit hysteresis and rescale",
+      "press/release latches for taps shorter than the game poll interval",
+      "context gate that leaves D-pad, A and native gameplay controls untouched",
+      "normalized cursor state with frame-time, progressive response and smoothing",
+      "sticky quit request handed to the adapter's normal lifecycle",
+      "bounded symlink-safe owner/default GPTK loader that preserves rejected owner state and records a path-free source/hash/error receipt",
+      "per-control complete SDL or PortMaster primary authority with OR-deduplicated narrow fallback and one logical delivery",
+      "SDL-version-neutral same-pad SELECT plus START state machine independent of the game's semantic sinks"
+    ],
+    "adapter_only": [
+      "identity-specific or partial physical label swaps, GUID fallback profiles and evdev ordinal exceptions",
+      "guest keycodes, HID event IDs, axis order and trigger thresholds",
+      "touch viewport transform, pointer IDs, short-tap policy and multitouch limits",
+      "engine menu proof, arrow asset and paired touch callbacks",
+      "gameplay camera/action routing for the right stick and R3",
+      "SELECT/START/L3/R3 bridge and safe in-process teardown order",
+      "Twin USB, GO-Super and any firmware-specific mapping receipt",
+      "per-game control text and release validation on each stack",
+      "real semantic action sinks and the engine state that selects menu versus gameplay context",
+      "SDL2 GameController or SDL3 Gamepad wrapper that proves complete logical bindings before muting evdev fallback"
+    ],
+    "forbidden_defaults": [
+      "global GUID, device index or firmware-name mapping",
+      "host-wide stick-count hint used as a per-pad capability or automatic fallback switch",
+      "D-pad copied to a mapped physical left stick, even while that stick is centered",
+      "fuzzy or partial mapping repair without the complete binding topology",
+      "cursor driven by D-pad, A, left stick or a debug cross",
+      "cursor active during gameplay without touch UI proof",
+      "R3 click enabled outside a proven menu context",
+      "fixed axis order or trigger range when the mapping declares capacity",
+      "universal touch scale, pointer ID or multitouch sentinel",
+      "process termination, universal save callback or adapter shutdown order",
+      "overwriting or repairing an invalid owner GPTK file instead of session-only fallback",
+      "treating GPTK file presence as proof that the adapter parsed, dispatched or delivered an action",
+      "reading the same authoritative control through SDL and evdev as two independent logical presses"
+    ]
+  },
+  "m15_items": [
+    {
+      "id": "M15-001",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:23", "framework/nxinput/README.md:106", "framework/nxbootstrap/templates/launcher.sh.in:34", "ports/kotor/kotor_input.c:10"],
+      "reusable": ["load the real PortMaster mapping before creating the input context", "repair the one complete contradicted binding topology without consulting device identity", "sanitize the host-wide PortMaster stick-count hint without treating it as per-pad truth"],
+      "adapter_specific": ["the actual mapping string and any identity-specific or partial fallback profile"],
+      "gaps": ["each approved stack still needs its own mapping receipt"],
+      "tests": ["user mapping replaces a database line, the complete contradicted topology normalizes face/R3, and a near miss remains unchanged", "the integrated-stick hint accepts only zero, one or two and is reasserted after mutable port hooks"]
+    },
+    {
+      "id": "M15-002",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:170", "framework/nxinput/include/nxinput.h:166", "framework/nxinput/tests/test_nxinput.c:789"],
+      "reusable": ["four independent slots and instance-ID lookup", "never treat a device index as a persistent identity"],
+      "adapter_specific": ["single-player selection and multiplayer ownership policy"],
+      "gaps": ["the native guest may accept fewer than four pads"],
+      "tests": ["attach two or four virtual pads, reorder indices and preserve every instance ID"]
+    },
+    {
+      "id": "M15-003",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:39", "framework/nxinput/include/nxinput.h:92", "framework/nxinput/tests/test_nxinput.c:867"],
+      "reusable": ["observe add/remove events and recover with a bounded rescan", "keep rescan opt-in at the configured interval"],
+      "adapter_specific": ["the engine callback and timing at which a new pad is announced"],
+      "gaps": ["newly advertised physical stacks still require their own adapter acceptance; this does not weaken the closed framework contract"],
+      "tests": ["drop the add event, recover on rescan, detach during a frame and reject a fifth slot"]
+    },
+    {
+      "id": "M15-004",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:40", "framework/nxinput/include/nxinput.h:162", "framework/nxinput/src/nxinput_core.c:129"],
+      "reusable": ["focus loss and disconnect release every logical state", "preserve releases while clearing pending presses"],
+      "adapter_specific": ["pause/resume callback order and guest focus signal"],
+      "gaps": ["some engines own focus outside SDL and need an explicit bridge call"],
+      "tests": ["hold buttons and axes, lose focus, verify zero state and consume releases without ghost presses"]
+    },
+    {
+      "id": "M15-005",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:185", "framework/nxinput/include/nxinput.h:56", "framework/nxinput/src/nxinput_core.c:150", "framework/nxinput/tests/test_nxinput.c:29"],
+      "reusable": ["normalize sticks to signed one and triggers to zero through one", "keep Y inversion in the adapter that requires it", "report complete per-pad D-pad, stick and trigger bindings without changing the pad-state layout"],
+      "adapter_specific": ["raw axis capacity and guest-specific trigger interpretation"],
+      "gaps": ["raw evdev ranges must be proven per physical stack"],
+      "tests": ["exercise minimum, center, maximum, missing trigger and asymmetric signed ranges", "exercise zero, one and two-stick mappings plus a partial-axis remap"]
+    },
+    {
+      "id": "M15-006",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:43", "framework/nxinput/src/nxinput_core.c:35", "framework/nxinput/tests/test_nxinput.c:39"],
+      "reusable": ["radial magnitude filtering with separate enter and exit thresholds", "rescale the active magnitude instead of clipping each axis independently"],
+      "adapter_specific": ["threshold values when a guest has a demonstrated deadzone contract"],
+      "gaps": ["no single threshold is universal for every physical controller"],
+      "tests": ["test center, diagonal, enter boundary, exit boundary and hysteresis noise"]
+    },
+    {
+      "id": "M15-007",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:50", "framework/nxinput/include/nxinput.h:197", "framework/nxinput/tests/test_nxinput.c:124", "ports/bully2/README.md:150"],
+      "reusable": ["keep D-pad and A in the normal button state", "make cursor code observe only its declared context", "duplicate a complete D-pad into a missing left stick only through a per-read adapter opt-in"],
+      "adapter_specific": ["guest action meaning for face buttons and D-pad"],
+      "gaps": ["a touch-first menu may still need an adapter touch bridge"],
+      "tests": ["move D-pad and press A while cursor is enabled; both native edges must remain observable", "default reads stay raw, opt-in preserves D-pad bits and never overwrites a complete or partial physical stick"]
+    },
+    {
+      "id": "M15-008",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:228", "framework/nxinput/include/nxinput.h:197", "ports/asm2_127/README.md:151"],
+      "reusable": ["require a real MENU context before cursor motion", "keep gameplay input on the native path"],
+      "adapter_specific": ["proof that a particular screen is touch UI and its input handoff"],
+      "gaps": ["no universal touch UI assumption is allowed"],
+      "tests": ["same right-stick input in MENU and GAMEPLAY; only MENU reports cursor motion"]
+    },
+    {
+      "id": "M15-009",
+      "status": "adapter_scoped",
+      "evidence_refs": ["framework/nxinput/README.md:237", "framework/nxinput/include/nxinput.h:136", "ports/asm2_127/README.md:173"],
+      "reusable": ["publish normalized cursor coordinates and movement state", "make the visual asset a port-owned resource"],
+      "adapter_specific": ["polished arrow artwork, anchor and draw layer"],
+      "gaps": ["the framework cannot certify a drawable asset or a target UI"],
+      "tests": ["asset review rejects a debug cross and checks clipped edges at all four corners"]
+    },
+    {
+      "id": "M15-010",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:235", "framework/nxinput/src/nxinput_core.c:167", "framework/nxinput/tests/test_nxinput.c:165"],
+      "reusable": ["use delta seconds with a bounded frame step", "return velocity and normalized position to the adapter"],
+      "adapter_specific": ["speed and viewport convention chosen by the menu"],
+      "gaps": ["device-specific feel still needs acceptance tuning"],
+      "tests": ["compare 30 and 60 Hz steps and clamp a stalled frame without a teleport"]
+    },
+    {
+      "id": "M15-011",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/src/nxinput_core.c:191", "framework/nxinput/src/nxinput_core.c:200", "framework/nxinput/tests/test_nxinput.c:165"],
+      "reusable": ["quadratic near-center response and time-constant smoothing", "retain velocity across frames without exceeding normalized bounds"],
+      "adapter_specific": ["smoothing constant and response preference"],
+      "gaps": ["no game should inherit another game's cursor tuning silently"],
+      "tests": ["verify monotonic response, smoothing convergence and edge clamping"]
+    },
+    {
+      "id": "M15-012",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/include/nxinput.h:197", "framework/nxinput/src/nxinput_core.c:99", "ports/bully2/README.md:157"],
+      "reusable": ["latch R3 as a cursor click only in MENU", "keep the normal R3 edge separately consumable"],
+      "adapter_specific": ["paired touch event and menu activation callback"],
+      "gaps": ["a menu must prove that R3-to-touch is appropriate"],
+      "tests": ["press R3 in MENU and GAMEPLAY; only MENU yields a cursor click"]
+    },
+    {
+      "id": "M15-013",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:244", "ports/bully2/README.md:153", "ports/asm2_127/README.md:211"],
+      "reusable": ["disable cursor effects in GAMEPLAY", "expose right stick and R3 unchanged to the adapter"],
+      "adapter_specific": ["camera/action routing and guest timing"],
+      "gaps": ["a guest can consume right stick through a private bridge"],
+      "tests": ["gameplay camera receives the same right-stick/R3 edges regardless of menu history"]
+    },
+    {
+      "id": "M15-014",
+      "status": "adapter_scoped",
+      "evidence_refs": ["framework/nxinput/README.md:246", "ports/asm2_127/README.md:173", "ports/sonic4/STUDY.md:34"],
+      "reusable": ["keep viewport conversion outside the input core", "pass bounded normalized coordinates to a real touch bridge"],
+      "adapter_specific": ["Android viewport scale, origin, rotation and guest touch sentinel"],
+      "gaps": ["nxinput has no universal Android surface dimensions or pointer format"],
+      "tests": ["map all viewport corners, non-square scale, rotation and letterbox offsets"]
+    },
+    {
+      "id": "M15-015",
+      "status": "adapter_scoped",
+      "evidence_refs": ["framework/nxinput/README.md:189", "ports/asm2_127/src/input.c:221", "ports/asm2_127/README.md:173"],
+      "reusable": ["preserve button latches across a poll boundary", "leave finger ownership and pointer IDs to the touch adapter"],
+      "adapter_specific": ["short-tap duration, multitouch slot count and gesture semantics"],
+      "gaps": ["only ASM2 evidence demonstrates multiple native touch pointers here"],
+      "tests": ["down/up between polls, two fingers, pointer reuse and release on focus loss"]
+    },
+    {
+      "id": "M15-016",
+      "status": "closed_with_evidence",
+      "evidence_refs": ["framework/nxinput/include/nxinput.h:45", "ports/kotor/kotor_input.c:1", "ports/asm2_127/src/input.c:24", "framework/nxinput/references/m15-runtime-receipt-v1.json:1"],
+      "reusable": ["use SDL logical buttons for SELECT/START/L3/R3", "allow a narrow adapter boundary for raw events when the guest demands it"],
+      "adapter_specific": ["evdev/raw ordinal translation, keycode table and trigger-button policy"],
+      "gaps": ["SDL and narrow evdev ownership remain adapter-specific; no single raw mapping is certified for every stack"],
+      "tests": ["exercise each edge through SDL and the narrow raw bridge without global remapping"]
+    },
+    {
+      "id": "M15-017",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/include/nxinput.h:192", "framework/nxinput/src/nxinput_core.c:107", "ports/sonic4/STUDY.md:37"],
+      "reusable": ["detect BACK/SELECT plus START once and publish a sticky request", "never terminate from inside nxinput"],
+      "adapter_specific": ["pause, save/flush, teardown and normal process return order"],
+      "gaps": ["terminal behavior is not a universal callback and needs per-port proof"],
+      "tests": ["hold both buttons, deduplicate the request and verify the adapter owns the full lifecycle"]
+    },
+    {
+      "id": "M15-018",
+      "status": "closed_with_evidence",
+      "evidence_refs": ["ports/bully2/README.md:161", "ports/kotor/kotor_input.c:10", "ports/kotor/CHANGELOG.md:49", "framework/nxinput/references/m15-runtime-receipt-v1.json:1"],
+      "reusable": ["represent Twin USB and GO-Super as adapter profile data, not a global GUID rule", "consume the CFW mapping when present"],
+      "adapter_specific": ["physical profile, label swap, axis order and fallback activation evidence"],
+      "gaps": ["the current virtual Twin-shaped observation is not physical; physical Twin acceptance remains the approved adapter record"],
+      "tests": ["run approved mapping receipts on both pads and reject an unknown GUID without guessing"]
+    },
+    {
+      "id": "M15-019",
+      "status": "closed_with_evidence",
+      "evidence_refs": ["framework/nxinput/src/nxinput_core.c:129", "ports/asm2_127/src/input.c:66", "framework/nxinput/tests/test_nxinput.c:919", "framework/nxinput/references/m15-runtime-receipt-v1.json:1"],
+      "reusable": ["release all buttons, axes and touch latches at disconnect", "bump slot generation so the adapter sees topology change"],
+      "adapter_specific": ["guest pause/menu behavior after the release boundary"],
+      "gaps": ["runtime uinput disconnect proves the SDL/software boundary, not physical unplug coverage for every future stack"],
+      "tests": ["detach during gameplay, detach in menu, reconnect with a new instance ID and check no ghost input"]
+    },
+    {
+      "id": "M15-020",
+      "status": "closed_with_evidence",
+      "evidence_refs": ["framework/nxinput/README.md:279", "ports/horizonchase/README.md:25", "ports/asm2_127/README.md:195", "framework/nxinput/references/m15-runtime-receipt-v1.json:1"],
+      "reusable": ["use one matrix schema with separate adapter and stack rows", "record proof level instead of treating README claims as universal"],
+      "adapter_specific": ["gameplay/menu/touch/audio lifecycle combinations for each approved port"],
+      "gaps": ["the closed framework matrix is not a marketing claim for an untested device or firmware combination"],
+      "tests": ["run mapping, focus, cursor, touch, disconnect and exit rows per approved adapter"]
+    },
+    {
+      "id": "M15-021",
+      "status": "contract_ready",
+      "evidence_refs": ["framework/nxinput/README.md:65", "ports/bully2/README.md:148", "ports/horizonchase/README.md:140"],
+      "reusable": ["document controls with a source and proof level", "keep private environment data out of public port documentation"],
+      "adapter_specific": ["action labels, menu conventions, touch availability and known limits"],
+      "gaps": ["future port documentation still needs its own controls and proof level"],
+      "tests": ["documentation linter rejects private paths, addresses and undocumented controls"]
+    },
+    {
+      "id": "M15-022",
+      "status": "closed",
+      "evidence_refs": ["framework/nxinput/README.md:248", "framework/nxinput/tests/test_nxinput.c:983", "framework/tests/test-matrix-v1.json:595", "framework/nxinput/references/m15-runtime-receipt-v1.json:1"],
+      "reusable": ["machine-checkable M15 contract and pure host gate", "separate static closure from physical acceptance"],
+      "adapter_specific": ["runtime receipts for each stack and final release decision"],
+      "gaps": ["no M15 framework blocker; every new release/device claim remains subject to its own physical acceptance"],
+      "tests": ["run the pure contract gate, native deterministic battery and the explicit hardware matrix"]
+    }
+  ],
+  "adapters": [
+    {
+      "id": "bully2",
+      "port_path": "ports/bully2",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/bully2/README.md:17"],
+      "controls": {"status": "adapter_scoped", "refs": ["ports/bully2/README.md:150", "ports/bully2/README.md:161"], "notes": ["native camera and trigger axes", "Select plus Start is port-owned exit"]},
+      "touch": {"status": "adapter_scoped", "refs": ["ports/bully2/README.md:161"], "notes": ["touch is an explicit fallback, not a cursor default"]},
+      "runtime_status": "approved_reference_acceptance"
+    },
+    {
+      "id": "sonic4ep2",
+      "port_path": "ports/sonic4",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/sonic4/STUDY.md:4"],
+      "controls": {"status": "adapter_scoped", "refs": ["ports/sonic4/STUDY.md:34", "ports/sonic4/STUDY.md:87"], "notes": ["SetPadData and SetTPData are guest contracts", "exit combo remains port-owned"]},
+      "touch": {"status": "adapter_scoped", "refs": ["ports/sonic4/STUDY.md:34"], "notes": ["touch callback is not a framework default"]},
+      "runtime_status": "approved_reference_acceptance_plus_runtime_observation"
+    },
+    {
+      "id": "horizonchase",
+      "port_path": "ports/horizonchase",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/horizonchase/README.md:25"],
+      "controls": {"status": "adapter_scoped", "refs": ["ports/horizonchase/src/native_pad.c:72", "ports/horizonchase/src/native_pad.c:106"], "notes": ["SDL logical pad owns native gameplay controls", "right stick is not repurposed by the framework"]},
+      "touch": {"status": "adapter_scoped", "refs": ["ports/horizonchase/README.md:143"], "notes": ["no cursor claim without menu proof"]},
+      "runtime_status": "approved_reference_acceptance_plus_runtime_observation"
+    },
+    {
+      "id": "kotor",
+      "port_path": "ports/kotor",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/kotor/kotor_input.c:1"],
+      "controls": {"status": "adapter_scoped", "refs": ["ports/kotor/kotor_input.c:10", "ports/kotor/kotor_input.c:175"], "notes": ["dynamic CFW mapping precedes fallback profiles", "raw event translation remains adapter-owned"]},
+      "touch": {"status": "adapter_scoped", "refs": ["ports/kotor/README.md:49"], "notes": ["the guest consumes raw joystick events"]},
+      "runtime_status": "approved_reference_acceptance_plus_runtime_observation"
+    },
+    {
+      "id": "asm2_127",
+      "port_path": "ports/asm2_127",
+      "approved_status": "approved-reference",
+      "identity_refs": ["ports/asm2_127/README.md:34"],
+      "controls": {"status": "adapter_scoped", "refs": ["ports/asm2_127/src/input.c:85", "ports/asm2_127/src/input.c:134"], "notes": ["SDL controller is translated to HID and key callbacks", "guest IDs and callbacks stay adapter-owned"]},
+      "touch": {"status": "adapter_scoped", "refs": ["ports/asm2_127/src/input.c:221", "ports/asm2_127/README.md:173"], "notes": ["native multitouch slots remain in the adapter"]},
+      "runtime_status": "approved_reference_acceptance_plus_runtime_hotplug_observation"
+    }
+  ]
+}

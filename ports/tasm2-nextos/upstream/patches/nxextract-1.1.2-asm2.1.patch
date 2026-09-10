@@ -1,0 +1,30 @@
+--- a/nxextract.py
++++ b/nxextract.py
+@@ -30,7 +30,7 @@
+ from pathlib import Path, PurePosixPath
+ 
+ 
+-NXEXTRACT_VERSION = "1.1.2"
++NXEXTRACT_VERSION = "1.1.2-asm2.1"
+ FORMAT_VERSION = 1
+ CHUNK_SIZE = 1024 * 1024
+ DEFAULT_SAFETY_BYTES = 128 * 1024 * 1024
+@@ -997,11 +997,13 @@
+         elif classification == "archive":
+             result.generic_archives.append(path)
+         else:
+-            suffix = Path(path).suffix.lower()
+-            if suffix in extensions:
+-                result.loose.append(path)
+-            else:
+-                result.skipped.append(path)
++            # Every path in ``unique`` was either supplied explicitly, matched
++            # a configured extension or was deliberately sniffed in the
++            # primary input directory.  A non-ZIP result is therefore a loose
++            # payload candidate even when the owner removed its extension.
++            # Validation in the trusted recipe, rather than the external
++            # filename, decides whether the payload is accepted.
++            result.loose.append(path)
+     logger.log(
+         "content scan: %d APK, %d bundle, %d companion archive, %d loose file"
+         % (

@@ -1,0 +1,7 @@
+format = NEXTOS_CONTROLLERS/1
+[menu]
+A = ui.confirm
+[gameplay]
+A = player.jump
+[keyboard]
+A = key.escape

@@ -1,0 +1,28 @@
+{
+    "version": 4,
+    "name": "sonic4ep2.zip",
+    "items": [
+        "Sonic4EP2.sh",
+        "sonic4ep2"
+    ],
+    "items_opt": [],
+    "attr": {
+        "title": "Sonic The Hedgehog 4: Episode II",
+        "porter": [
+            "NextOS"
+        ],
+        "desc": "Sonic The Hedgehog 4: Episode II through a native AArch64 Android so-loader. V6 supports adaptive video and audio backends, native resolution, controller input and a visible first-run validator. BYO-data: Android v3.0.0-109 game files are not included.",
+        "inst": "Copy the legally obtained Android v3.0.0-109 ARM64 split_config.arm64_v8a.apk and split_packs.apk, or one complete .apks/.apkm/merged APK export, into sonic4ep2 and launch once to validate and extract.",
+        "genres": [
+            "platformer",
+            "action"
+        ],
+        "image": {},
+        "rtr": false,
+        "runtime": [],
+        "reqs": [],
+        "arch": [
+            "aarch64"
+        ]
+    }
+}

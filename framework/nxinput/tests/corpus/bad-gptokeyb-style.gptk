@@ -1,0 +1,5 @@
+format = NEXTOS_CONTROLLERS/1
+[menu]
+back = esc
+[gameplay]
+A = player.jump

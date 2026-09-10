@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Hitman GO.sh</path>
+    <name>Hitman GO</name>
+    <desc>Hitman GO is a turn-based strategy puzzle game set in a diorama-style world. Players guide Agent 47 through grid-based levels, strategically avoiding enemies, dispatching targets, and infiltrating guarded locations.</desc>
+    <developer>Square Enix Montreal</developer>
+    <publisher>Square Enix</publisher>
+    <genre>Puzzle / Strategy</genre>
+    <players>1</players>
+  </game>
+</gameList>

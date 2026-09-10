@@ -1,0 +1,18 @@
+1.2.6
+upstream: nextos_ports_android/suportando_outros_devices/extrator-universal @ 1.2.6
+nxextract/nxextract.py sha256=a4a8e5d3bf2a1344491e27921c54430ee9b4e3fedd0160631da96734fa3d5170
+nxextract/nxextract-ui sha256=046afb583f5a211c946495e639409f81d9cfec706788eeccb7924b0e8e5a50b6
+nxextract/nxextract-runtime-env.sh sha256=332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f
+nxextract/run-extractor.sh sha256=179b72f02b9dfdf3ed1bdc382d074fb4ef07f83e3d62cfccfc74a950e68679c2
+extractor.json sha256=add1a989f9db837c7ac591b95e257714ac508767381e58040e7edf2b17115bb5
+local patches: 0
+
+Accepted owner-data build:
+  Bomb Chicken Android v44 / build 45
+  package=com.nitrome.bombchicken
+  abi=arm64-v8a
+  apk_sha256=0501f71e90412502dfc7c74a0d81adbe822daa3c11fe8f667c0e4e9e6016b32b
+
+The APK hash is an evidence record, not a filename selector. NXExtract first
+checks the package identity, then exact hashes for all three native libraries
+and an exact fingerprint of the complete 11-file Unity assets tree.

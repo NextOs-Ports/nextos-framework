@@ -1,0 +1,1622 @@
+{
+  "adapter": {
+    "skeleton": "contract-only"
+  },
+  "controls": {
+    "actions": [
+      {
+        "id": "menu.accept",
+        "kind": "button",
+        "sinks": [
+          "engine.ui_accept"
+        ]
+      },
+      {
+        "id": "menu.back",
+        "kind": "button",
+        "sinks": [
+          "engine.ui_cancel"
+        ]
+      },
+      {
+        "id": "menu.navigate",
+        "kind": "vector",
+        "sinks": [
+          "engine.ui_direction"
+        ]
+      },
+      {
+        "id": "player.attack",
+        "kind": "button",
+        "sinks": [
+          "engine.input.attack"
+        ]
+      },
+      {
+        "id": "player.heal",
+        "kind": "button",
+        "sinks": [
+          "engine.input.heal"
+        ]
+      },
+      {
+        "id": "player.move",
+        "kind": "vector",
+        "sinks": [
+          "engine.input.move"
+        ]
+      },
+      {
+        "id": "player.open_map",
+        "kind": "button",
+        "sinks": [
+          "engine.input.open_map"
+        ]
+      },
+      {
+        "id": "player.roll",
+        "kind": "button",
+        "sinks": [
+          "engine.input.roll"
+        ]
+      },
+      {
+        "id": "player.select_next",
+        "kind": "button",
+        "sinks": [
+          "engine.input.select_next"
+        ]
+      },
+      {
+        "id": "player.select_previous",
+        "kind": "button",
+        "sinks": [
+          "engine.input.select_prev"
+        ]
+      },
+      {
+        "id": "player.switch_tool",
+        "kind": "button",
+        "sinks": [
+          "engine.input.switch_tool"
+        ]
+      },
+      {
+        "id": "player.use_shield",
+        "kind": "button",
+        "sinks": [
+          "engine.input.use_shield"
+        ]
+      },
+      {
+        "id": "player.use_tool",
+        "kind": "button",
+        "sinks": [
+          "engine.input.use_tool"
+        ]
+      },
+      {
+        "id": "player.zoom_map",
+        "kind": "button",
+        "sinks": [
+          "engine.input.zoom_map"
+        ]
+      },
+      {
+        "id": "system.pause",
+        "kind": "button",
+        "sinks": [
+          "engine.input.pause"
+        ]
+      },
+      {
+        "id": "system.quit",
+        "kind": "button",
+        "sinks": [
+          "adapter.system.quit"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "player.roll",
+        "B": "player.switch_tool",
+        "DOWN": "native",
+        "L1": "player.select_previous",
+        "L2": "player.use_shield",
+        "LEFT": "native",
+        "LEFT_STICK": "player.move",
+        "R1": "player.select_next",
+        "R2": "player.use_tool",
+        "R3": "null",
+        "RIGHT": "native",
+        "SELECT": "player.open_map",
+        "START": "system.pause",
+        "UP": "native",
+        "X": "player.attack",
+        "Y": "player.heal"
+      },
+      "menu": {
+        "A": "menu.accept",
+        "B": "menu.back",
+        "DOWN": "native",
+        "LEFT": "native",
+        "LEFT_STICK": "menu.navigate",
+        "RIGHT": "native",
+        "START": "system.pause",
+        "UP": "native"
+      }
+    },
+    "controller_profiles": {
+      "bundle": "controllers.nxb",
+      "enabled": true,
+      "sha256": "f94bb577b0d7b2f9dcf8b551807eb400a8141e21c579f22ba07b8bfa0fac2fd8"
+    },
+    "proof": {
+      "clones": 2,
+      "navigation": {
+        "gameplay": [
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 6000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 10000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 5000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 5000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 5000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 5000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 5000
+          },
+          {
+            "ms": 150,
+            "press": "A"
+          },
+          {
+            "sleep_ms": 5000
+          },
+          {
+            "timeout_s": 120,
+            "wait_log": "nx/gptk: context proven=gameplay"
+          },
+          {
+            "sleep_ms": 3000
+          }
+        ],
+        "menu": [
+          {
+            "timeout_s": 900,
+            "wait_log": "nx/gptk: context proven=menu"
+          },
+          {
+            "sleep_ms": 6000
+          }
+        ]
+      },
+      "owner_remap": {
+        "context": "gameplay",
+        "move_to": "R3",
+        "null": "A"
+      },
+      "quit_guard": {
+        "context": "menu",
+        "control": "B"
+      }
+    },
+    "runtime_mapping": "nxinput-gptk",
+    "schema": 4
+  },
+  "documentation": {
+    "proven_support": [],
+    "status": "authored"
+  },
+  "graphics": {
+    "api": "gles",
+    "drawable_ready_timeout_ms": 15000,
+    "profile": "es",
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "native-menu",
+    "sinks": [
+      "engine.locale"
+    ],
+    "supported": [
+      "en"
+    ]
+  },
+  "license": {
+    "source": "LICENSE",
+    "spdx_id": "GPL-3.0-only"
+  },
+  "nxextract_recipe": "extractor.json",
+  "nxport": {
+    "architecture": "aarch64",
+    "argument_mode": "none",
+    "enabled_quirks": [],
+    "executable": "tearscape-nextos",
+    "generation_runtime": [
+      {
+        "mode": "0755",
+        "path": "tearscape-nextos",
+        "role": "executable",
+        "sha256": "3b5bceb99f03602574cd135cc82ebe03b87878a17291960591cf0d9fc0a5c00f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libSystem.Globalization.Native.so",
+        "role": "private-library",
+        "sha256": "afe445a4d1d05a53149ac9f588b26819b24bdeee4ea9f3d543864e0ebf33056a"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libSystem.IO.Compression.Native.so",
+        "role": "private-library",
+        "sha256": "60663e948ba0b4cf42cc13ca9d50d45ba84efaeb6f3cfd4b224394d0841f98b0"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libSystem.Native.so",
+        "role": "private-library",
+        "sha256": "7c3c0f59a295af5dffd942700951c1323d7a6a9d291cf38ba009594799bb5957"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libSystem.Net.Security.Native.so",
+        "role": "private-library",
+        "sha256": "911a0f54e08d142fd06cfcf91f1394e9c7052383ed344580d5d8a039598a5325"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libSystem.Security.Cryptography.Native.OpenSsl.so",
+        "role": "private-library",
+        "sha256": "170c1ad501157be1de35cd6763170873350d14e61315a84543609fc1716df378"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libclrgc.so",
+        "role": "private-library",
+        "sha256": "663ab4d340b9541b37fc1d0af71fc0d48ec7a6d07dd3745c61bae2240d425d02"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libclrgcexp.so",
+        "role": "private-library",
+        "sha256": "6d026e5bf2a581c67360ecc0ee4563fa47214a0e8f8dbcd2f503ff3ba2f5e13f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libclrjit.so",
+        "role": "private-library",
+        "sha256": "eaf2eb6008b89c0b36753ebf64f3043edbaa44f86a95cbb35192cca8ef9079d2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libcoreclr.so",
+        "role": "private-library",
+        "sha256": "fca9d1700db17a978028587d9b688492cb505e03b9a942b5d78f27c80e32cfd4"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libhostfxr.so",
+        "role": "private-library",
+        "sha256": "23a95d0965242c1f1af7b6797342bf31b250d1e731eb08bc8c06a14385effcf2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libhostpolicy.so",
+        "role": "private-library",
+        "sha256": "483a341d463ebdb8e6a5666b3771f41739439af440dc081ff29f1b4af5f38256"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/libmscordaccore.so",
+        "role": "private-library",
+        "sha256": "1a96be078bab61e729b95c50da9cca6da2e8b89969a24d76522732ede0e2871e"
+      },
+      {
+        "mode": "0755",
+        "path": "lib/libEGL.so",
+        "role": "private-library",
+        "sha256": "5918de39aebc29b1e3376fa534f3aecaa4c9d170e7ebf5029e3fbfa32807d632"
+      },
+      {
+        "mode": "0755",
+        "path": "lib/libGLESv2.so",
+        "role": "private-library",
+        "sha256": "dba1fabb16fa1cadc3c14f028d6d5ff8c0129d15f3cc3645eab6087f99562d70"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/Microsoft.CSharp.dll",
+        "role": "runtime-data",
+        "sha256": "044886ff98dfab3c1ca7470acadce00714bf6a0104c6a75cf7785c4a9af4b2e7"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/Microsoft.VisualBasic.Core.dll",
+        "role": "runtime-data",
+        "sha256": "15c25fad56bb7a3b81c5f5e4e5b16ec617b97737ecfb3abe140aabf8cdbf6218"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/Microsoft.VisualBasic.dll",
+        "role": "runtime-data",
+        "sha256": "c8a6c0d19562440db7375f5c31c4e16f1f5f75747f8bb95eab2f09b78402ca50"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/Microsoft.Win32.Primitives.dll",
+        "role": "runtime-data",
+        "sha256": "59c5e5b4168f9ca4aa9801225a95b8ed0dc4f7381dee908e7df153b54a1f26fa"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/Microsoft.Win32.Registry.dll",
+        "role": "runtime-data",
+        "sha256": "8ae8c115bee7f6a74259971744b423d9030839a8ff9619487390a5e1c138bdf0"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.AppContext.dll",
+        "role": "runtime-data",
+        "sha256": "1eea0ed0f04ce447167514a75f6d751beb99201ddf2ede5bf5731495eaad0a4f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Buffers.dll",
+        "role": "runtime-data",
+        "sha256": "50edfe7381115303b0b5a5678a996e18e7bad16a43478018f41b69e7a280ba0b"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Collections.Concurrent.dll",
+        "role": "runtime-data",
+        "sha256": "4acf682e785cad12371e418c5aadddb678b28b7eb567ce1122d2f61a7bbf2ade"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Collections.Immutable.dll",
+        "role": "runtime-data",
+        "sha256": "558aa7b50e8a8ed0ee02d752340487e7f41036e2051f9a41751ff6e4beb14cab"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Collections.NonGeneric.dll",
+        "role": "runtime-data",
+        "sha256": "54002f0986486c8487ad20537d74008dd6cfecd132162d66c084731117ff1ce0"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Collections.Specialized.dll",
+        "role": "runtime-data",
+        "sha256": "12781e0643391c7149f3857a1a269f8caae3559019c13df420151a1a95607cbe"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Collections.dll",
+        "role": "runtime-data",
+        "sha256": "7fd139eca9804e850044a7150fce73b8d0c384fe748cd57fe16b4a3b6aec75a2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ComponentModel.Annotations.dll",
+        "role": "runtime-data",
+        "sha256": "c8589a1ff02b00d77d974de561c4fb7b247bf6787551236f3cc5e02486800174"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ComponentModel.DataAnnotations.dll",
+        "role": "runtime-data",
+        "sha256": "f5a9e22365fca74d71f4fe35b786192ebdc37dab80c7225bcab16b92e419b8ef"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ComponentModel.EventBasedAsync.dll",
+        "role": "runtime-data",
+        "sha256": "f6b6ef11e94a29f6e5b298a187c9c73d7f18b35aae6c8e25d6b71d5d70c9ed0b"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ComponentModel.Primitives.dll",
+        "role": "runtime-data",
+        "sha256": "5d3e841396e15c60afe3eead39d5054dfd96c35cb663c01c81f1fbd6e9a38429"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ComponentModel.TypeConverter.dll",
+        "role": "runtime-data",
+        "sha256": "9ca583fc38a8a1d1d7d935d8e7a58b3fd59722b87c9070f0bf83049dfdef13ec"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ComponentModel.dll",
+        "role": "runtime-data",
+        "sha256": "a96cf5580bc5eeb04d277267dd5d073fd052b1eb902a9e9327a2ced38b57fae6"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Configuration.dll",
+        "role": "runtime-data",
+        "sha256": "e11629850e5feea90d15a8c427f561b4038dd1040de94b9788bdf2c9da4d9b0f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Console.dll",
+        "role": "runtime-data",
+        "sha256": "93dfb2592947ab31ed5ad9c758dfcb429bbcbaa295379408932cb061736cfcfd"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Core.dll",
+        "role": "runtime-data",
+        "sha256": "fe76ae8b2f23e9ac964b8fc96e9b0f9db7ad6d9f427aa32cc9a8377530ef9340"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Data.Common.dll",
+        "role": "runtime-data",
+        "sha256": "5b60020476de98b24962ddc1bced156f35b00142dc00d5ffafce6acd67097767"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Data.DataSetExtensions.dll",
+        "role": "runtime-data",
+        "sha256": "9d7da0d4cebe24e1b90e3326f7ba2b074ad2639e50395f500a4658fbb7f8f14e"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Data.dll",
+        "role": "runtime-data",
+        "sha256": "e421395a5fb48cb42fbe1bd314b33f80d634dd29425071501401e2eda219231d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.Contracts.dll",
+        "role": "runtime-data",
+        "sha256": "697bf2340615df6f13bf61a5898e9fd511890a7f066cdc8edd48dad61cc5b044"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.Debug.dll",
+        "role": "runtime-data",
+        "sha256": "25abf91c1b7a3bb0dfd982d057a5a17bd849a7f66286aca082a34e465b2e8ef7"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.DiagnosticSource.dll",
+        "role": "runtime-data",
+        "sha256": "eaee4bb124cf47c24ebf47e2809a9f47a530698d4ae0dadd90837a656232991b"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.FileVersionInfo.dll",
+        "role": "runtime-data",
+        "sha256": "41efa983fc98962dabdbda41cd38ee65f1df77f63bf766750e0cde3d7d41a96f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.Process.dll",
+        "role": "runtime-data",
+        "sha256": "c45ba2e1afdaa0802a83d7edf8332cf6c5b615c4bbbe128477ea979bd623db16"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.StackTrace.dll",
+        "role": "runtime-data",
+        "sha256": "e2f6292fb1f7ae72d3a4458f1ff727fed98f8fdc4905cab9a146b1fcb5c7ae35"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.TextWriterTraceListener.dll",
+        "role": "runtime-data",
+        "sha256": "92e823233878a920a8eaa9165fc537a29ee7ab87ab4dec930e226c985ff69895"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.Tools.dll",
+        "role": "runtime-data",
+        "sha256": "3a2dfc737caba5b5e9fdce7979b5f8f9de0da5e45d86211462f7223daa77cc9e"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.TraceSource.dll",
+        "role": "runtime-data",
+        "sha256": "dd3de9d7bcbd452f6a36ae0efb3ce3f9c66d1d3c5c4c711031dcaf92e899afab"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Diagnostics.Tracing.dll",
+        "role": "runtime-data",
+        "sha256": "6645a8646cc7b7892b636c66342de60277031d8d9f220f68059f185ccd65a45a"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Drawing.Primitives.dll",
+        "role": "runtime-data",
+        "sha256": "fc5affa0a791bf772a01b1bd915f649d482737186a97bcc5762825fc21634d24"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Drawing.dll",
+        "role": "runtime-data",
+        "sha256": "11feb266d7054bbcf15b61c8a117fd97b52a6c1f5b826eef94bb9a1d086b5e9c"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Dynamic.Runtime.dll",
+        "role": "runtime-data",
+        "sha256": "dc508f27e9eb39430fcc0208e4428e98a1863ddcdc4185ba60f166cd8c333ecb"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Formats.Asn1.dll",
+        "role": "runtime-data",
+        "sha256": "67131a690bdeeed9450cd4f356df98f7a408549cef834281f5d807d64c21c75c"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Formats.Tar.dll",
+        "role": "runtime-data",
+        "sha256": "30cce79b00b06a024c9449ec8c58db4c9e0835e2248c772509cae68d276ebebc"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Globalization.Calendars.dll",
+        "role": "runtime-data",
+        "sha256": "d068da1829c2251ec01ce34dd74f53ce2e906a6d098e586a898c00883c3fd84d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Globalization.Extensions.dll",
+        "role": "runtime-data",
+        "sha256": "8c8641fd9ebdc777db6dac19e3aeb8ef52d22dad05847de6b3b12a1530dca97f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Globalization.dll",
+        "role": "runtime-data",
+        "sha256": "a90206a73ee23b403f451445c75e2a7da3952332e776bd1d5ff6d5ff61535d6e"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.Compression.Brotli.dll",
+        "role": "runtime-data",
+        "sha256": "ac092500c1980f11409e36291fdc17fc00e1a005dc4a6bd7ce95c1eb8a73ed85"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.Compression.FileSystem.dll",
+        "role": "runtime-data",
+        "sha256": "efd127b134be54d2ae50f43822d71df954ba33da0d9566da9004ebd0c542a78f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.Compression.ZipFile.dll",
+        "role": "runtime-data",
+        "sha256": "a75e863a7884b77f62ced15fdf7836837c39670f79806b52d5167a8d926e1739"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.Compression.dll",
+        "role": "runtime-data",
+        "sha256": "47514aa654833c25b17c9c7fabecf2fddee1a74943033719887a756b311c1c16"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.FileSystem.AccessControl.dll",
+        "role": "runtime-data",
+        "sha256": "6d3b54414baf1db7d2ecd58e52560f961d38a9cefea40d6eac383c613637c9f2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.FileSystem.DriveInfo.dll",
+        "role": "runtime-data",
+        "sha256": "72096bf7c0731988135a6efc3465427ea20d576fe970077768d35cd3ad8f55f4"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.FileSystem.Primitives.dll",
+        "role": "runtime-data",
+        "sha256": "7cd43da80df28ee19bbaddb6ea4b92224921fa035c84f29808303b571baf041c"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.FileSystem.Watcher.dll",
+        "role": "runtime-data",
+        "sha256": "46dc0b256ae72527092c8ac6014c2bf81dcc6bc3e25e6622ef9b7d6667e15201"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.FileSystem.dll",
+        "role": "runtime-data",
+        "sha256": "7a5242a195cb77f7cac3453d26eab2e03027a7c9a59fa1e98401fb933d831e4a"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.IsolatedStorage.dll",
+        "role": "runtime-data",
+        "sha256": "8d28f1ba6a7684f91ad1e83786001836b6d59ee3bbd744f3982a4f2027ff2049"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.MemoryMappedFiles.dll",
+        "role": "runtime-data",
+        "sha256": "1adf115d206890df2dcac12e089e3f23d7ca6fa71a769a7472af4169cb3b6a90"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.Pipelines.dll",
+        "role": "runtime-data",
+        "sha256": "3549143f4aa372cb413c0de4489ad84f31b70519e6123fd95b750199154cb749"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.Pipes.AccessControl.dll",
+        "role": "runtime-data",
+        "sha256": "6cd211edb3e5a8ab203594cca30e17fca367dbf88ce4519a01330cf453aa7c38"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.Pipes.dll",
+        "role": "runtime-data",
+        "sha256": "2dc5e4e7ac0798980af73954c5a3212e8189eccd7eb11dee5aade5b39b1d6786"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.UnmanagedMemoryStream.dll",
+        "role": "runtime-data",
+        "sha256": "1dd3017fa006cd995541b7e12f45f2c090fa0aa48e13573e0e387731e49661ef"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.IO.dll",
+        "role": "runtime-data",
+        "sha256": "37bb07d4363b3de77a89757e40012a13555058e171c45cfbdecb43fac7cdcb02"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Linq.AsyncEnumerable.dll",
+        "role": "runtime-data",
+        "sha256": "678fb0c79c80ca0eb494327dfc20ec70bb6c9792ea1dfae8eb95713376b994d0"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Linq.Expressions.dll",
+        "role": "runtime-data",
+        "sha256": "4872859b1853f29be0429dc4dcf77746d55620549c0dadd9beb6c554153b93ce"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Linq.Parallel.dll",
+        "role": "runtime-data",
+        "sha256": "1595a7a0328c5118090b5b032405d4db3976e0c829644f37d26b252193c1c19e"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Linq.Queryable.dll",
+        "role": "runtime-data",
+        "sha256": "493d3be2e00a49609722a984ababe417583062c70c2db93225feb47d3d6a855a"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Linq.dll",
+        "role": "runtime-data",
+        "sha256": "b70fdefe9a927982a086259081a7673e0470502a866985248f79cfdbb5c7f2cb"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Memory.dll",
+        "role": "runtime-data",
+        "sha256": "ee1700446a1c377924df1d2fc6e3f972ebc28c04c08036bda730733597faae60"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Http.Json.dll",
+        "role": "runtime-data",
+        "sha256": "8c9b2d849907d28285708ee01b2bd3daf0eb2ffada08a05016b66dd106d96eb8"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Http.dll",
+        "role": "runtime-data",
+        "sha256": "ef3d55301f4ae3983b03ce3c7d6ea06ceccf5ad35bc3b63252410d0598f4cfaa"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.HttpListener.dll",
+        "role": "runtime-data",
+        "sha256": "ccb2abf7bf894c3ba7b855371a42d256c125dae81feb71e856c79eacf5803a0d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Mail.dll",
+        "role": "runtime-data",
+        "sha256": "19c5daf704dc62d08b836e4f8c9f0456b5fef2c0c213faaa676132591d1d3161"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.NameResolution.dll",
+        "role": "runtime-data",
+        "sha256": "43248eaf4ef8ea3965f0d7eae62ad301a9c5d7c482fc69ca19edc6578c0511c1"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.NetworkInformation.dll",
+        "role": "runtime-data",
+        "sha256": "c0dff3ef840d1b081b1ed9f20163d4ec0a6d5f7035202f4368cc775dd9562fc9"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Ping.dll",
+        "role": "runtime-data",
+        "sha256": "6f4728d1e288356ae8d3d837c6915bc7f29e7a798575e51e3950433ba61b1850"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Primitives.dll",
+        "role": "runtime-data",
+        "sha256": "b5e56572a26f0f264b137231187b64c52ce75a49e0084c6620152dc38539ea84"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Quic.dll",
+        "role": "runtime-data",
+        "sha256": "25b600e1367658d0913ea4266bef521390c8d64df0a7ad45bd79c3d3cc010567"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Requests.dll",
+        "role": "runtime-data",
+        "sha256": "9d004c755e7bb629304ef8d289e413ce4721ee2664eabb59998afc3d7ee770e9"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Security.dll",
+        "role": "runtime-data",
+        "sha256": "cb0713d3a09f67b46a72e02c852a3fce0bf8a032dc94186721e4327cd639b95f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.ServerSentEvents.dll",
+        "role": "runtime-data",
+        "sha256": "555ad36a046f41f5322b4f82b27ca9414c81d3183c6879193ed99799daa436a2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.ServicePoint.dll",
+        "role": "runtime-data",
+        "sha256": "ec6aba9aa558ca80bccedaabd4aaff930601df10ca8f9bf8f9fe6784809d9747"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.Sockets.dll",
+        "role": "runtime-data",
+        "sha256": "c2ecd907376c14abb042ccd462beeb8b125b103fd1344d750e694058191cedba"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.WebClient.dll",
+        "role": "runtime-data",
+        "sha256": "7a084059c1eafc718d5813ba89d5874508ac318e88d99cd5ae40d2eb3e5c4183"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.WebHeaderCollection.dll",
+        "role": "runtime-data",
+        "sha256": "0bc390cb1ca70411c7f57dba69f45d751490285a01b645d36520380fd5adf7ef"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.WebProxy.dll",
+        "role": "runtime-data",
+        "sha256": "e92410b5d26d613af8fc9e5bc5e411fdb9f70b124adc787bfe5176665b0a8cec"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.WebSockets.Client.dll",
+        "role": "runtime-data",
+        "sha256": "979601095961fe403818bc693eeb3d1b10e788ad917e8b02a7d80a3f3977b8a1"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.WebSockets.dll",
+        "role": "runtime-data",
+        "sha256": "164cb9421544459f99662b8a75f5891992a92c84abd99d408c1cbf07b4bb3a92"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Net.dll",
+        "role": "runtime-data",
+        "sha256": "75f24eec2a0b7ffe711e2b95af1eb56c5fe1888962a611d0b681defb94104af7"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Numerics.Vectors.dll",
+        "role": "runtime-data",
+        "sha256": "dc198106d5c4a2a3567682fa292103ce2625c8d08aaf1d1320cc1f010491248b"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Numerics.dll",
+        "role": "runtime-data",
+        "sha256": "18cd963031b74db494195e321baa9164944fc26bfe2094f60767fa02cd575a08"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ObjectModel.dll",
+        "role": "runtime-data",
+        "sha256": "3f215edd92cd9d9e619c6f23f7a84b051705135baccf7177f16fb4bad4e03b65"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Private.CoreLib.dll",
+        "role": "runtime-data",
+        "sha256": "c7f3f6d31d3b80158005163faca722017405ec4ccae2a7f4c2d9f74577a0993d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Private.DataContractSerialization.dll",
+        "role": "runtime-data",
+        "sha256": "de54630e44441378b27a11c33e2b99779b81b64e454484ed26c0e863c3e34ef9"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Private.Uri.dll",
+        "role": "runtime-data",
+        "sha256": "7a7d89d5506b22ad818da138f0bf274e4c53b236ed871e412b18577490b1e49e"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Private.Xml.Linq.dll",
+        "role": "runtime-data",
+        "sha256": "73d8a38db1312fd4d4d203346c73a2f43e2ae3bf61da15bcbd78e0382329c0d1"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Private.Xml.dll",
+        "role": "runtime-data",
+        "sha256": "6b7bd7322089e4e6986fdcf9018749981d575d5874575c99ac850134b202ffd2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.DispatchProxy.dll",
+        "role": "runtime-data",
+        "sha256": "2694a4028a8a8682e2963afe8e2f1e8c0ed4fda66d836b40c7c4b90c35b2c968"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.Emit.ILGeneration.dll",
+        "role": "runtime-data",
+        "sha256": "6fae6f88414a6197b7c956a413b06657fda761accc698bc24e8285465e929b42"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.Emit.Lightweight.dll",
+        "role": "runtime-data",
+        "sha256": "ba5a74d50034ce30d68df05139475050c194f3140c19616262147cc7ffb132f9"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.Emit.dll",
+        "role": "runtime-data",
+        "sha256": "bd4228ed0d70d58c289d23004d3f11620a3745f93cd39836d8064b2febd46ec2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.Extensions.dll",
+        "role": "runtime-data",
+        "sha256": "0f386fe2189e71dbf82f4e662e0c3be2e9b9adffefa84d0e68d5ab2971f7194d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.Metadata.dll",
+        "role": "runtime-data",
+        "sha256": "7d7d6972ea18d3ce4e58138e2055b4c2e87c64a22bb2583e95b9cfdf8157815d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.Primitives.dll",
+        "role": "runtime-data",
+        "sha256": "4ad588e32f18b55d8207cccce844d0e0fa2350372805bc4c35b9a5a0cb5f581d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.TypeExtensions.dll",
+        "role": "runtime-data",
+        "sha256": "f0ab659703c126821a26eaf68a8c6997b3328bc800e2189503c481989a54eb3d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Reflection.dll",
+        "role": "runtime-data",
+        "sha256": "2a450fc576b2c917b8f7f9dc44482eeace053d6cdca191a65bb087b35fcd93c2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Resources.Reader.dll",
+        "role": "runtime-data",
+        "sha256": "69aaaa9b266d500dbe5a0267fa493cfa4c6feaf233c03ddc709980b11963e723"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Resources.ResourceManager.dll",
+        "role": "runtime-data",
+        "sha256": "3d49db3b4eeac7b865384f91b35b543351f98ec7d91549f47c5de3773379f9f1"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Resources.Writer.dll",
+        "role": "runtime-data",
+        "sha256": "c7072985511a3aac9a8aded3ce969b44a5130314ebf79a002f2cc463a1b966a2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.CompilerServices.Unsafe.dll",
+        "role": "runtime-data",
+        "sha256": "1d8a93db58e92e1e36849336de10bd5e1cbd55dd5e4f870953beac404da751a7"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.CompilerServices.VisualC.dll",
+        "role": "runtime-data",
+        "sha256": "152ebf708022827631a700b04521f918545603627174ba18257935098f9d6429"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Extensions.dll",
+        "role": "runtime-data",
+        "sha256": "4fa01d865b7f13c56059bf53706d875cd2ce1d78e5b3421cbc080bbf9109782b"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Handles.dll",
+        "role": "runtime-data",
+        "sha256": "aaff3f2e129d8086deccf0846593c7bfbc47a28488fcf5f72f3cb75176594f82"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.InteropServices.JavaScript.dll",
+        "role": "runtime-data",
+        "sha256": "653eae5d6347652bc268cf5f9d3a03aa5ca107afd073bef1fee3d354cd9186a1"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.InteropServices.RuntimeInformation.dll",
+        "role": "runtime-data",
+        "sha256": "4e7461e3f0d3fe9d9e00bab73d2cf3eb6cea841e4cfd926bec76ecad629bd891"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.InteropServices.dll",
+        "role": "runtime-data",
+        "sha256": "927d5e75e440e56695636032c1cf972d121e3bb4f6f8a9712645d3a291cf40e6"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Intrinsics.dll",
+        "role": "runtime-data",
+        "sha256": "3cdec2c7014f658fc8afeb10be6270c4e7faa3a7fff3d2a0376719acd13390bf"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Loader.dll",
+        "role": "runtime-data",
+        "sha256": "210b4e0365a96edc5934660ce0a4854711120207a88706aa2fe0b75f225ddc8a"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Numerics.dll",
+        "role": "runtime-data",
+        "sha256": "d3b0ce2871ce541e3caeebaebe17ec5b048939d5d70998c2af2d2e6fbe5748fd"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Serialization.Formatters.dll",
+        "role": "runtime-data",
+        "sha256": "8ad2611fcaa34f5e9601c133dd3ce79cf16b8ff3924a4a02618caa1ff646460c"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Serialization.Json.dll",
+        "role": "runtime-data",
+        "sha256": "e5ac623c471e5a9ded8ab63f2914fc948c8bfcd63353cb94a13dd5e1e4863c07"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Serialization.Primitives.dll",
+        "role": "runtime-data",
+        "sha256": "953bfdfed07c5f56a8d29304b1087f6b319e7d67cb148c4fdd2686800ab52445"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Serialization.Xml.dll",
+        "role": "runtime-data",
+        "sha256": "c06455d6b6040ba9d111ac4adf31952b7c76076af09d764d1e41d72ff13489af"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.Serialization.dll",
+        "role": "runtime-data",
+        "sha256": "d621d8edcd130a715f8ea61783371c7b882f3a0ba0ddaeb435ba3d6c910891f5"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Runtime.dll",
+        "role": "runtime-data",
+        "sha256": "5daf3fce37e9a0f26d5a2c721232b645c61897026e179b5833890b3ef179ae23"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.AccessControl.dll",
+        "role": "runtime-data",
+        "sha256": "edcbe383f75c47906d7f3f5b4c2a627c30c9ba20f2e8dbb8fe1e56e34acec3ec"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Claims.dll",
+        "role": "runtime-data",
+        "sha256": "bc9710786b7418cbcc9e1ef839de70082a0b40d951e3e39c28b7902da8128c95"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Cryptography.Algorithms.dll",
+        "role": "runtime-data",
+        "sha256": "5d6db1a18f7f52ef74f7b652c2d59e211f9359d13ef7c9d4629dc87550721a02"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Cryptography.Cng.dll",
+        "role": "runtime-data",
+        "sha256": "cc4d4bf8fee66318e261038174f7bd3b5eb39545c7ba0cdabf23a9f5e2af3f38"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Cryptography.Csp.dll",
+        "role": "runtime-data",
+        "sha256": "fa38dc1df4a616ee7ec926bebbb394abccc746710465b067086b6b4188b0fe8d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Cryptography.Encoding.dll",
+        "role": "runtime-data",
+        "sha256": "f8ff509f2fdcf1be346b33f7ce06dd641c57829d6273a00c06422e9d0c5c94c3"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Cryptography.OpenSsl.dll",
+        "role": "runtime-data",
+        "sha256": "9421ad164d176e35361f8add4505a54f274ecd34445ef8c2fdfdf8564c958f41"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Cryptography.Primitives.dll",
+        "role": "runtime-data",
+        "sha256": "d8d045ca0d31064cc33122f6c8812531772a56983aca248e3804e62d576b264b"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Cryptography.X509Certificates.dll",
+        "role": "runtime-data",
+        "sha256": "4f9c088e73cbb386740503f81baf9a142f72e1e7c3b1ed7d573fa7962ca15fb2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Cryptography.dll",
+        "role": "runtime-data",
+        "sha256": "ad9776383bea3d15b1a2ec34dfd71ae1e2fca0f58c2462a506608d6019df96ea"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Principal.Windows.dll",
+        "role": "runtime-data",
+        "sha256": "dfd179d8a56f8cc6aa83c626e1b814cca2b461a39beaa8530065336f73993af0"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.Principal.dll",
+        "role": "runtime-data",
+        "sha256": "283b1486a51605da494ff2748e4dab82c89eaeb6bb98a7e462624f80440c7557"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.SecureString.dll",
+        "role": "runtime-data",
+        "sha256": "8522aa510d4bdd94ae79586c4de747a75a309ba55fbb69f603df26e3964c71c0"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Security.dll",
+        "role": "runtime-data",
+        "sha256": "ec77df8d868212b211255a627148f16736ab17159451bc714da991d63ebc2d66"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ServiceModel.Web.dll",
+        "role": "runtime-data",
+        "sha256": "58de46ab259ab4a7d04dddcfd1ff1211566483dbe8c4d15762651c2df84ed412"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ServiceProcess.dll",
+        "role": "runtime-data",
+        "sha256": "c5c352a44cfff14599d5895f445a492554e0fb9166b49b8afd87b829445b4fc9"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Text.Encoding.CodePages.dll",
+        "role": "runtime-data",
+        "sha256": "0b8f6bf71f75c4245aa64a74955cec63e1687d33991f9434dd3507e92a117ca4"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Text.Encoding.Extensions.dll",
+        "role": "runtime-data",
+        "sha256": "36138328aebd095ddfdb3ae31070bc75df79a50e3ccf3c81d028dd563abb3517"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Text.Encoding.dll",
+        "role": "runtime-data",
+        "sha256": "1b30a036bdbead6b3909220ee2762c848faeed378399a9e25b0ffffebfb7906f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Text.Encodings.Web.dll",
+        "role": "runtime-data",
+        "sha256": "2060c3196515a953f87ce21ea589aeb4bf9762d87d76beee42372bd8bbb03440"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Text.Json.dll",
+        "role": "runtime-data",
+        "sha256": "7c9a0e7cc7cb615d92dd42a6d8df174534925aa2aa5c010c8b4cd243c80f08d4"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Text.RegularExpressions.dll",
+        "role": "runtime-data",
+        "sha256": "6dd42ae79754b52a975dd2273f390920c8884fef2d60e06ae58fd1154b6c5b85"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.AccessControl.dll",
+        "role": "runtime-data",
+        "sha256": "d3251e89dc630852739b089af423f78658b783209ff01f928af0885f0edfdc6f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.Channels.dll",
+        "role": "runtime-data",
+        "sha256": "2efe3d59704f8c319a4d4d0310790c23440f549a784b287344f692a913bfd202"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.Overlapped.dll",
+        "role": "runtime-data",
+        "sha256": "19ccf43c3e3e674612616d6e364dc48b59ddd3d4d4bd7914d6cf6546619e17d1"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.Tasks.Dataflow.dll",
+        "role": "runtime-data",
+        "sha256": "08bbda4422e2d37c32d6209250de6a53bf469afe3c4e072dcf9768d4869f109d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.Tasks.Extensions.dll",
+        "role": "runtime-data",
+        "sha256": "380783554ed495585714502821238ee6c04a8e958929b219bd3e3ae776eb5f63"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.Tasks.Parallel.dll",
+        "role": "runtime-data",
+        "sha256": "45819f8d07236374d29edf65f300b51abdd8c9da801967c0fe4a9390672e58ce"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.Tasks.dll",
+        "role": "runtime-data",
+        "sha256": "b10ad7e2e9cb49ab3d916543cce7fff356ee91061dc46654658f43056abe393d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.Thread.dll",
+        "role": "runtime-data",
+        "sha256": "f998e072831b98d551f53f6c14d3d87e175f439b05a5e70d80e8b00a7952deb1"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.ThreadPool.dll",
+        "role": "runtime-data",
+        "sha256": "8cdfce31f8e229dc433ebd8fd076a815556c87596367840d95b3b2a1f18ca5d1"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.Timer.dll",
+        "role": "runtime-data",
+        "sha256": "eadaf5c075e7c504a7901495db0487a2ea2b0b80d713791331d173f540af2e80"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Threading.dll",
+        "role": "runtime-data",
+        "sha256": "5a8607afbfbe6b42c4495789550f73456c2f62a763ac1550ff0b563d01ccd86b"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Transactions.Local.dll",
+        "role": "runtime-data",
+        "sha256": "2b985ced428c2d08d1de10d99f58c7564c776fe0ce226be63dec5438a1f9435f"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Transactions.dll",
+        "role": "runtime-data",
+        "sha256": "f151bd25a3dbfde264313c65089ce5c60c18117d5fa75c25d7d4b0ca693150a5"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.ValueTuple.dll",
+        "role": "runtime-data",
+        "sha256": "a5e012794dfc3c2ab807bf484f435d09421047b2050bc5d9e15e2aec67fae4cf"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Web.HttpUtility.dll",
+        "role": "runtime-data",
+        "sha256": "19bc0e0e193ce30eaf8ecb2c227bd69bf50410c2c16c20448220cc9368f0d785"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Web.dll",
+        "role": "runtime-data",
+        "sha256": "a820bf6d2cca2a231f957aa9467162af6c350c907c307c3c229b9711025b99ac"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Windows.dll",
+        "role": "runtime-data",
+        "sha256": "abdefaf3ba47ffcfa8dba40bc0125499c0ca32887c8cd2ef9064c43099033a75"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.Linq.dll",
+        "role": "runtime-data",
+        "sha256": "0af869584be58106aa9d35adc6907591e26e0e25e32c6d1a9388bcef00aaf5d4"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.ReaderWriter.dll",
+        "role": "runtime-data",
+        "sha256": "ffcb3bb173e4c2bb47852984c70ea33e3815e989cafb5194432ecebac455b71d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.Serialization.dll",
+        "role": "runtime-data",
+        "sha256": "abbcf2b4155bd142e8be2978f711c0442585087c470302c18c0d519de8f52476"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.XDocument.dll",
+        "role": "runtime-data",
+        "sha256": "f8c3a68eed99d840c70ea5cbca49b87437be417a18f034d0d967342097fe2d4d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.XPath.XDocument.dll",
+        "role": "runtime-data",
+        "sha256": "4ecd2bc7f704c14c859b0ce33b81324b80e1593a95d29be09318975fe8af1a32"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.XPath.dll",
+        "role": "runtime-data",
+        "sha256": "4ed25abd15ee40a08a5546b99ae6d83e2625dc2630720bd7cf387941f7623ce2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.XmlDocument.dll",
+        "role": "runtime-data",
+        "sha256": "a368b798fba06d35bc9430da058070af4da64e282623cc3a2237ecfd64a9e3f7"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.XmlSerializer.dll",
+        "role": "runtime-data",
+        "sha256": "036f8c5491f4ec8a8b2c668f0be1e714af215ff6e360ef992360fb104b3638d8"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.Xml.dll",
+        "role": "runtime-data",
+        "sha256": "5e4424cc2e80c6c3d178b994ec73edc22ff434a9060ffe4a98c1681a1acbb919"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/System.dll",
+        "role": "runtime-data",
+        "sha256": "d2f21a96ad7de549f4f3166193446fc7b18d77136f311749c273d77239a05d4d"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/Tearscape.deps.json",
+        "role": "runtime-data",
+        "sha256": "9a608ca3c77120c1a6910e34b6d68e4780aa28b453c6e3311e589de95dadc2c2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/WindowsBase.dll",
+        "role": "runtime-data",
+        "sha256": "7a013e1c48266ee693dc6c3b2a6c3d3b40c6688849fa22075a1b4fb767e02685"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/mscorlib.dll",
+        "role": "runtime-data",
+        "sha256": "646ac42bfff306266edca8577c6a5b5ceddddc6d56b13cbddf24c890ec62e9d2"
+      },
+      {
+        "mode": "0644",
+        "path": "game/.godot/mono/publish/arm64/netstandard.dll",
+        "role": "runtime-data",
+        "sha256": "271010de481ae149407927aa08c96f0cb771b8cfc67a1ed38a7157f085f8240c"
+      },
+      {
+        "mode": "0644",
+        "path": "adapter-env.sh",
+        "role": "runtime-hook",
+        "sha256": "9b4673232ea6ae780f648edb5b639a6e3131b2d0347f7247c0288542c9af8d6e"
+      },
+      {
+        "mode": "0644",
+        "path": "extractor.json",
+        "role": "nxextract-recipe",
+        "sha256": "97ab07d6edb49e173228915b61046e8355ee1bb4ff464b075de6544fc9b71713"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract.py",
+        "role": "nxextract-engine",
+        "sha256": "e59a1e525ea475635c2e8f51bff3c6fff8cdaad406c158e3dad011cdd96876a7"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/run-extractor.sh",
+        "role": "nxextract-runner",
+        "sha256": "583d046d4d95a2d15d66f0aee35911097698b34b0bd33732b2a517e6408bf9d0"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/nxextract-runtime-env.sh",
+        "role": "nxextract-runtime-env",
+        "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+      },
+      {
+        "mode": "0755",
+        "path": "nxextract/nxextract-ui",
+        "role": "nxextract-ui",
+        "sha256": "8e4a68ae0a611096d23b04628b4f2e8b5cf34755fe9b71d134bc0d7ea6ccf987"
+      },
+      {
+        "mode": "0644",
+        "path": "nxextract/patch-camera-touch-thresholds.py",
+        "role": "nxextract-helper",
+        "sha256": "4e943650ab467785c23b48435f7dee20665c9341f781899655feded591987342"
+      },
+      {
+        "mode": "0755",
+        "path": "nxsplash-nextos",
+        "role": "nxsplash",
+        "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97"
+      }
+    ],
+    "home_mode": "preserve",
+    "id": "tearscape",
+    "launcher_name": "Tearscape.sh",
+    "nxextract": {
+      "mode": "yes",
+      "version": "1.3.0"
+    },
+    "owner_runtime": "1",
+    "prepare_script": "",
+    "private_library_paths": [
+      "lib",
+      "game/.godot/mono/publish/arm64"
+    ],
+    "required_capabilities": [
+      "host.portmaster",
+      "host.aarch64-libs",
+      "graphics.window",
+      "graphics.gles2",
+      "graphics.egl",
+      "graphics.egl-config",
+      "graphics.drawable",
+      "audio.output-open",
+      "input.controller-mapping",
+      "input.controller-api"
+    ],
+    "required_files": [
+      "tearscape-nextos",
+      "adapter-env.sh"
+    ],
+    "runtime_report": "log-and-logo",
+    "schema_version": 3,
+    "title": "Tearscape",
+    "video_proof": "required"
+  },
+  "owner_runtime": {
+    "hook_seed": "defaults-src/port-env.sh"
+  },
+  "package_payload": [
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "BUILD-PROVENANCE.json",
+      "sha256": "0ca6af1bea1bf7c48190c8f0371fbcf10abfea45a65c95a390a5daae9430c9ab"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "FRAMEWORK-PIN.json",
+      "sha256": "3ff5dbb0049461dce554178be599c1638b8647bfd1141c360fbcab5cee30620d"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "INSTALLATION.md",
+      "sha256": "269e0332fa06473b35a76f72fb5feaeb1b1f75a00e8918b9cf7c40c907bff054"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "NOTICE.md",
+      "sha256": "35bd2bea9575feed5775fe32a67bf80b68dd2dfbf62301aed22c5f8c6d338020"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "PROJECT-BUILD-PIN.json",
+      "sha256": "241c1aad1ec9f032c0eecfc47d5d4842dc8e18edcb4e6cde113ad75ab96e9fac"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "README.md",
+      "sha256": "8d17bca69270768aba7462b228d94ee1e3365b01f335587cfe59ce0f723fdae4"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "controllers.nxb",
+      "sha256": "f94bb577b0d7b2f9dcf8b551807eb400a8141e21c579f22ba07b8bfa0fac2fd8"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "game/override.cfg",
+      "sha256": "e33a77dcdae7a4f30c9cc8833f445bbbd817fa3c2a3c1755ac27080af69fcc8e"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/DOTNET-10.0.3-LICENSE.txt",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/DOTNET-10.0.3-THIRD-PARTY-NOTICES.txt",
+      "sha256": "66f1d4e44973185519bb4aa8a9718eb22fc7af2cc532e3ae9cfc4c127ee7fc54"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/GODOT-4.6.1-COPYRIGHT.txt",
+      "sha256": "dc043a7dbf69632560219e72fbc61ef9fa7338c7a773660acd81b51590b69104"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/GODOT-4.6.1-LICENSE.txt",
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/KHRONOS-APACHE-2.0.txt",
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/KHRONOS-MIT.txt",
+      "sha256": "5461c16e1ce5528ce44d2bdc7bd6d57286c57c8ddab28de9852f47f169c7ce7a"
+    },
+    {
+      "kind": "license-notice",
+      "mode": "0644",
+      "path": "licenses/SDL-3.2.30-LICENSE.txt",
+      "sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127"
+    },
+    {
+      "kind": "payload",
+      "mode": "0644",
+      "path": "version.txt",
+      "sha256": "d8f3e6b0f7817c4ad634608dc673833c04c255c7ad2ef87ece9a443579553d25"
+    }
+  ],
+  "portmaster": {
+    "metadata_version": 4,
+    "min_glibc": "2.28",
+    "runtime": []
+  },
+  "promotion": {
+    "adapter_contract": "adapter/adapter-contract.json",
+    "claims": {
+      "adapter_lifecycle_implemented": true,
+      "physical_support_proven": false,
+      "release_ready": true
+    }
+  },
+  "runtime_root": ".",
+  "schema_version": 3,
+  "video": {
+    "aspect": "auto",
+    "aspect_policies": [
+      "auto",
+      "engine",
+      "preserve",
+      "stretch"
+    ],
+    "authority": "nextos",
+    "auto_algorithm": "stretch",
+    "filter": "engine",
+    "invalid_policy": "package_default",
+    "native_config": "game/override.cfg",
+    "output_size": "display"
+  }
+}

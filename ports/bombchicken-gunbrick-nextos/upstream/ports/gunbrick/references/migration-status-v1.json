@@ -1,0 +1,51 @@
+{
+  "schema": "gunbrick-migration-status-v1",
+  "schema_version": 1,
+  "port_id": "gunbrick",
+  "release_version": "0.2.5",
+  "framework": {
+    "nxport_schema": 2,
+    "nxbootstrap": "0.6.3",
+    "nxextract": "1.2.6",
+    "nxrelease": "0.2.5",
+    "nxcompat_contract": "1.0.10",
+    "nxgl": "0.2.1"
+  },
+  "host_evidence": {
+    "strict_cross_compile": true,
+    "universal_elf_aarch64": true,
+    "maximum_glibc": "2.27",
+    "rwx_load_segment": false,
+    "rpath_or_runpath": false,
+    "proprietary_payload_packaged": false,
+    "simultaneous_guest_semaphores": 4096,
+    "repeated_guest_semaphore_operations": 100000,
+    "jni_local_scope_regression": 100000,
+    "jni_live_after_regression": 0,
+    "android_low_memory_before_render": true,
+    "file_backed_guest_text": true
+  },
+  "physical_device_evidence": true,
+  "physical_baseline_release": "0.2.5",
+  "validated_targets": [
+    "NextOS Mali-450 framebuffer",
+    "NextOS X5M KMSDRM Mali-G310",
+    "NextOS Ark KMSDRM Mali-G31"
+  ],
+  "validated_flow": [
+    "clean-extraction-ui",
+    "transactional-owner-data-install",
+    "video",
+    "audible-audio",
+    "controller",
+    "raw-left-stick-and-dpad",
+    "bonus-phase-3-transition-without-oom",
+    "bonus-3d-two-axis-left-stick",
+    "rendered-gameplay",
+    "clean-exit"
+  ],
+  "release_blocker": {
+    "active": false,
+    "reason": "Resolved: physical Ark/Mali-G31 validation crossed the bonus/phase-3 transition without OOM and confirmed the restored two-axis left stick in 3D bonus gameplay."
+  }
+}

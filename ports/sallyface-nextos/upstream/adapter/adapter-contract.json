@@ -1,0 +1,202 @@
+{
+  "audio": {
+    "callbacks": [
+      "org/fmod/FMODAudioDevice.run",
+      "fmod_process"
+    ],
+    "format": "signed-16-bit-stereo-runtime-rate"
+  },
+  "graphics": {
+    "adapter": "nxgl-frame-proof-0.2.17+sallyface-present-fill",
+    "adopt_single_channel": false,
+    "api": "gles",
+    "drawable_ready_timeout_ms": 8000,
+    "profile": "es",
+    "required_devices": [
+      "mali-450",
+      "mali-g31"
+    ],
+    "shader_dialect": "essl100",
+    "uses_gl": true,
+    "version": "2.0",
+    "version_policy": "minimum"
+  },
+  "imports": [],
+  "input": {
+    "actions": [
+      {
+        "id": "sf.interact",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.interact"
+        ]
+      },
+      {
+        "id": "sf.back",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.back"
+        ]
+      },
+      {
+        "id": "sf.gasmask",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.gasmask"
+        ]
+      },
+      {
+        "id": "sf.inventory",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.inventory"
+        ]
+      },
+      {
+        "id": "sf.pause",
+        "kind": "button",
+        "sinks": [
+          "sallyface.input.pause"
+        ]
+      },
+      {
+        "id": "sf.move",
+        "kind": "vector",
+        "sinks": [
+          "sallyface.input.move"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "A": "sf.interact",
+        "B": "sf.back",
+        "LEFT_STICK": "sf.move",
+        "START": "sf.pause",
+        "X": "sf.gasmask",
+        "Y": "sf.inventory"
+      },
+      "menu": {
+        "A": "sf.interact",
+        "B": "sf.back",
+        "LEFT_STICK": "sf.move",
+        "START": "sf.pause"
+      }
+    },
+    "mapping": "NEXTOSCONTROLLERS.gptk",
+    "mapping_authority": "gptk-single-authority",
+    "touch": null
+  },
+  "jni": {
+    "callbacks": [
+      "nativeRecreateGfxState",
+      "nativeSendSurfaceChangedEvent",
+      "nativeFocusChanged",
+      "nativeResume",
+      "nativeRender",
+      "nativePause"
+    ],
+    "classes": [
+      "com/unity3d/player/NativeLoader",
+      "com/unity3d/player/UnityPlayer",
+      "org/fmod/FMODAudioDevice"
+    ],
+    "methods": [
+      "NativeLoader.load",
+      "UnityPlayer.initJni",
+      "UnityPlayer.nativeInjectEvent"
+    ]
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "adapter",
+    "sinks": [
+      "unity-i2loc"
+    ],
+    "supported": [
+      "en",
+      "pt-BR"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [
+      "sf_jni_init",
+      "sf_egl_init",
+      "sf_load_modules",
+      "nx_run_init(libmain.so)",
+      "JNI_OnLoad(libmain.so)",
+      "NativeLoader.load(libunity.so -> libil2cpp.so)",
+      "UnityPlayer.initJni",
+      "sf_input_init",
+      "nativeRecreateGfxState(surfaceCreated)",
+      "nativeRecreateGfxState(surfaceChanged)",
+      "nativeSendSurfaceChangedEvent",
+      "nativeFocusChanged(true)",
+      "nativeResume",
+      "nativeRender loop",
+      "nativeFocusChanged(false)",
+      "nativePause",
+      "sf_audio_stop",
+      "sf_sdl_video_shutdown",
+      "_exit(0)"
+    ],
+    "source_evidence": [
+      "ports/sallyface/src/main.c",
+      "ports/sallyface/src/nx_elf.c",
+      "ports/sallyface/src/bionic.c"
+    ]
+  },
+  "persistence": {
+    "callbacks": [
+      "SharedPreferences.apply",
+      "SharedPreferences.commit",
+      "nativePause-before-exit"
+    ],
+    "paths": [
+      "home/shared-preferences.bin",
+      "NEXTOSCONTROLLERS.gptk",
+      "NEXTOSSETTINGS.txt"
+    ]
+  },
+  "memory_policy": {
+    "default_action": "observe-only",
+    "forced_exit": false,
+    "receipt": "[sf/mem] PRESSAO observada"
+  },
+  "prohibitions": [
+    "never patch the Unity shader platform table from 5 to 9",
+    "never bypass init arrays, JNI_OnLoad or NativeLoader.load",
+    "never deliver a GPTK-owned physical control through the raw path",
+    "never terminate the game because MemAvailable or swap crossed an arbitrary default threshold"
+  ],
+  "quality": {
+    "profiles": [
+      "auto",
+      "low",
+      "medium",
+      "high"
+    ],
+    "settings_parser": "nxcompat_settings API 1 fail-closed",
+    "unity_presets": {
+      "high": "High",
+      "low": "Low",
+      "medium": "Low"
+    }
+  },
+  "quirks": [
+    "4:3 fill crops the centered 16:9 final backbuffer and scales once before swap",
+    "16:9 output keeps the identity presentation route",
+    "GLES shader data is retagged transactionally by NXExtract"
+  ],
+  "release_ready": true,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "terminal": {
+    "action": "SELECT+START",
+    "evidence": [
+      "ports/sallyface/src/input.c: exit request",
+      "ports/sallyface/src/main.c: focus(false) -> pause -> audio stop -> _exit"
+    ]
+  }
+}

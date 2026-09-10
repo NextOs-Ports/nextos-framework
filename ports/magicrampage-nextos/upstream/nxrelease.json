@@ -1,0 +1,288 @@
+{
+  "schema_version": 2,
+  "source_root": ".",
+  "package": {
+    "id": "magicrampage",
+    "version": "1.1.1",
+    "profile": "universal-portmaster",
+    "launcher": "Magic Rampage.sh",
+    "launcher_chain": [
+      "Magic Rampage.sh"
+    ],
+    "launcher_contract": {
+      "generator": "nxbootstrap",
+      "version": "0.6.12",
+      "config_path": "magicrampage/nxport.json",
+      "config_sha256": "55a231ff050416b51de4286c506534bd37a2a0bdf653bc2b7bdb116692685811"
+    },
+    "port_dir": "magicrampage",
+    "license": {
+      "spdx_id": "GPL-3.0-only",
+      "source_url": "https://github.com/NextOs-Ports/magicrampage-nextos",
+      "file": "magicrampage/LICENSE"
+    }
+  },
+  "release": {
+    "source_date_epoch": 1786665600,
+    "max_glibc": "2.17",
+    "compression": "deflated"
+  },
+  "nxextract": {
+    "path": "magicrampage/nxextract/nxextract.py",
+    "version": "1.2.7",
+    "minimum_version": "1.2.7",
+    "sha256": "e6dac6e116eb0f4431a2585e3ec5ff5785a660fbf5e54f6047fdef13cbe5f3e8",
+    "runner_path": "magicrampage/nxextract/run-extractor.sh",
+    "runner_sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a",
+    "runtime_env_path": "magicrampage/nxextract/nxextract-runtime-env.sh",
+    "runtime_env_sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f",
+    "ui_path": "magicrampage/nxextract/nxextract-ui",
+    "ui_sha256": "b4daf1bdffe4f1623752742bc6b796f93a203f8e4cba4c39f62dfcfd37cc2d72",
+    "recipe_path": "magicrampage/extractor.json",
+    "recipe_sha256": "f6ba35d482551c383ad6a99241e5d4bbf740b232e858c175ba9ee9476561dcf2"
+  },
+  "dependencies": [
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2_mixer-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libSDL2-2.0.so.0",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libzip.so.5",
+      "provider": "portmaster"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libc.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libdl.so.2",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libm.so.6",
+      "provider": "glibc-base"
+    },
+    {
+      "namespace": "linux",
+      "architecture": "aarch64",
+      "soname": "libpthread.so.0",
+      "provider": "glibc-base"
+    }
+  ],
+  "portmaster_metadata": {
+    "port_json": {
+      "path": "magicrampage/port.json",
+      "sha256": "d1e085c96ec8b697595a5c1284a421ae9e83096208d1388c256f61da1c6b20b7"
+    },
+    "images": []
+  },
+  "files": [
+    {
+      "source": "Magic Rampage.sh",
+      "target": "Magic Rampage.sh",
+      "kind": "launcher",
+      "mode": "0755",
+      "sha256": "0ebf6730a579c2c4929cdc68fff8c3be9b8575192ff764778f57409b4282b476"
+    },
+    {
+      "source": "magicrampage/nxport.json",
+      "target": "magicrampage/nxport.json",
+      "kind": "nxbootstrap-config",
+      "mode": "0644",
+      "sha256": "55a231ff050416b51de4286c506534bd37a2a0bdf653bc2b7bdb116692685811"
+    },
+    {
+      "source": "magicrampage/nxsplash-nextos",
+      "target": "magicrampage/nxsplash-nextos",
+      "kind": "nxsplash-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "nxsplash-v0.1.1 immutable release",
+      "sha256": "4ccfc3ce1222be4b93577ba104742ed3a0df3cf6b5c5e9b334771f25f0988bf4",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "build/magicrampage-nextos",
+      "target": "magicrampage/bin/aarch64/magicrampage-nextos",
+      "kind": "project-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "build-glibc230.sh; Debian Buster image sha256:58ce6f1271ae1c8a2006ff7d3e54e9874d839f573d8009c20154ad0f2fb0a225; AArch64 SDK-linked SDL2, SDL2_mixer and libzip",
+      "sha256": "237f83b37363365c73780e3176c554b12af64032cc4889c182e6c1cb761bf7d4",
+      "needed": [
+        "libSDL2-2.0.so.0",
+        "libSDL2_mixer-2.0.so.0",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0",
+        "libzip.so.5"
+      ],
+      "soname": null
+    },
+    {
+      "source": "magicrampage/nxproject.json",
+      "target": "magicrampage/nxproject.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "34034b3999fb67b63998a010f1ecad8ab143b15f5ad3f8901cea569a157f41c0"
+    },
+    {
+      "source": "magicrampage/port-env.sh",
+      "target": "magicrampage/port-env.sh",
+      "kind": "script",
+      "mode": "0644",
+      "sha256": "7442a7d635e7d453d0ae9da7a4234b3562905d1b02257ed962b256dea379b95d"
+    },
+    {
+      "source": "magicrampage/extractor.json",
+      "target": "magicrampage/extractor.json",
+      "kind": "nxextract-recipe",
+      "mode": "0644",
+      "sha256": "f6ba35d482551c383ad6a99241e5d4bbf740b232e858c175ba9ee9476561dcf2"
+    },
+    {
+      "source": "magicrampage/nxextract/nxextract.py",
+      "target": "magicrampage/nxextract/nxextract.py",
+      "kind": "nxextract",
+      "mode": "0644",
+      "sha256": "e6dac6e116eb0f4431a2585e3ec5ff5785a660fbf5e54f6047fdef13cbe5f3e8"
+    },
+    {
+      "source": "magicrampage/nxextract/run-extractor.sh",
+      "target": "magicrampage/nxextract/run-extractor.sh",
+      "kind": "nxextract-runner",
+      "mode": "0644",
+      "sha256": "c931427c7226d22d7e30eee8549b50f0621dca1c9d0336634aca08631f454d7a"
+    },
+    {
+      "source": "magicrampage/nxextract/nxextract-runtime-env.sh",
+      "target": "magicrampage/nxextract/nxextract-runtime-env.sh",
+      "kind": "nxextract-runtime-env",
+      "mode": "0644",
+      "sha256": "332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f"
+    },
+    {
+      "source": "magicrampage/nxextract/nxextract-ui",
+      "target": "magicrampage/nxextract/nxextract-ui",
+      "kind": "nxextract-ui-linux",
+      "mode": "0755",
+      "architecture": "aarch64",
+      "build_profile": "universal-low-glibc",
+      "provenance": "NXExtract 1.2.7 canonical attested UI",
+      "sha256": "b4daf1bdffe4f1623752742bc6b796f93a203f8e4cba4c39f62dfcfd37cc2d72",
+      "needed": [
+        "libc.so.6",
+        "libdl.so.2"
+      ],
+      "soname": null
+    },
+    {
+      "source": "magicrampage/port.json",
+      "target": "magicrampage/port.json",
+      "kind": "portmaster-metadata",
+      "mode": "0644",
+      "sha256": "d1e085c96ec8b697595a5c1284a421ae9e83096208d1388c256f61da1c6b20b7"
+    },
+    {
+      "source": "magicrampage/README.md",
+      "target": "magicrampage/README.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "0a9c71ddf4889d49b701f017c84b564883022fb71499bb7f824675174bab7a4a"
+    },
+    {
+      "source": "magicrampage/INSTALLATION.md",
+      "target": "magicrampage/INSTALLATION.md",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "d9772911aa89574d5b98be82682fc7cbe701b817c9d34b3e49f7013beeb23d7b"
+    },
+    {
+      "source": "magicrampage/LICENSE",
+      "target": "magicrampage/LICENSE",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "27f055d4954a0c97aec8bb455c0d6b20c54f60d53c885aef36f86b5793ecd87a"
+    },
+    {
+      "source": "magicrampage/NOTICE.md",
+      "target": "magicrampage/NOTICE.md",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "f06b39b40563d59674bb37ec125b43b445aa30fa37cbb68080d2bda3cc17c211"
+    },
+    {
+      "source": "magicrampage/version.txt",
+      "target": "magicrampage/version.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989"
+    },
+    {
+      "source": "magicrampage/FRAMEWORK-PIN.json",
+      "target": "magicrampage/FRAMEWORK-PIN.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "562f3ed2293303be9b343ade35aeb692d7cab27c5303b3e20c5cb097dbb7fa3c"
+    },
+    {
+      "source": "magicrampage/GENERATION.json",
+      "target": "magicrampage/GENERATION.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "8a2de36987bf5d2c6c587ae6dc3fdab5c31da3195ae7864e0564aae17a079cae"
+    },
+    {
+      "source": "magicrampage/adapter/adapter-contract.json",
+      "target": "magicrampage/adapter/adapter-contract.json",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "ce6b54269f004be78b7ab61c4af242aae9052798facb18d47b5f8a7beed6ece6"
+    },
+    {
+      "source": "magicrampage/gamedata/README.txt",
+      "target": "magicrampage/gamedata/README.txt",
+      "kind": "payload",
+      "mode": "0644",
+      "sha256": "76179a923b3d571ff0910b7d81f5f32afade7b85a9af2028b49d3bf8f180a276"
+    },
+    {
+      "source": "magicrampage/licenses/NXExtract-MIT.txt",
+      "target": "magicrampage/licenses/NXExtract-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "source": "magicrampage/licenses/NXSplash-MIT.txt",
+      "target": "magicrampage/licenses/NXSplash-MIT.txt",
+      "kind": "license-notice",
+      "mode": "0644",
+      "sha256": "2a0c79bd1d79caed6f7a56fb37a3b4a07aa1dacba7d764022dbf0679e9469a08"
+    }
+  ],
+  "exceptions": []
+}

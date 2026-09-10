@@ -1,0 +1,1980 @@
+{
+ "note": "GUID -> capabilities for the C5B positive control. The capability of a GUID is the answer the KERNEL gave on the evdev node it created for a device carrying that GUID's own bus/vendor/product/version, shaped by a declared hardware catalogue. It is never derived from the mapping. Shapes differ on purpose, so an official line CAN be refused.",
+ "records": [
+  {
+   "bustype": 0,
+   "capabilities": {
+    "absinfo": {},
+    "ev_abs": [],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "00000000526574726f53746f6e653200",
+   "name": "RetroStone 2 Controller",
+   "official_line_bytes": 218,
+   "official_line_sha256": "9e1260c94afbd4f6dca593a005a15c532b3f17618955e7b3a89c1481eb2ea877",
+   "product": 21359,
+   "selected_because": "official a:b1,b:b0",
+   "shape": "digital-only-dpad-buttons",
+   "shape_assignment": "declared catalogue, index 0 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "no stick and no hat: the D-pad is four keys",
+   "vendor": 25938,
+   "version": 25966
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000021000000090000011010000",
+   "name": "8BitDo FC30 Pro",
+   "official_line_bytes": 281,
+   "official_line_sha256": "b9edf608f6a9e69d2e1227c963eb1164d65b8579e90bd352f9d2a767b04bf300",
+   "product": 36864,
+   "selected_because": "official a:b1,b:b0",
+   "shape": "digital-only-hat",
+   "shape_assignment": "declared catalogue, index 1 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "no stick at all: a hat and eight keys",
+   "vendor": 4098,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     3,
+     4,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     317,
+     318
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000022000000090000011010000",
+   "name": "8BitDo NES30 Pro",
+   "official_line_bytes": 282,
+   "official_line_sha256": "61f882bc490f1ccb2505aa5de0955b90a6534ccc408af08db7fd37b7e186a001",
+   "product": 36864,
+   "selected_because": "official a:b1,b:b0",
+   "shape": "dual-analog-digital-triggers",
+   "shape_assignment": "declared catalogue, index 2 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "two sticks, a hat, and triggers that are KEYS not axes",
+   "vendor": 8194,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000030000000300000002000000",
+   "name": "Miroof",
+   "official_line_bytes": 143,
+   "official_line_sha256": "d337e87aa087e04b487c354beb006244db09f42fbe86298c67f4ad4ae9617e68",
+   "product": 3,
+   "selected_because": "official a:b1,b:b0",
+   "shape": "dual-analog-dpad-buttons",
+   "shape_assignment": "declared catalogue, index 3 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "same, but the D-pad is four keys and there is no hat",
+   "vendor": 3,
+   "version": 2
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     316,
+     317,
+     318
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "0300000025090000e803000001010000",
+   "name": "Mayflash Wii Classic Adapter",
+   "official_line_bytes": 273,
+   "official_line_sha256": "a1766d1c1fac6edc822e5b8135f25d5ed9b599d220bc61f0a4a801ced5ed0c9d",
+   "product": 1000,
+   "selected_because": "official a:b1,b:b0",
+   "shape": "dual-analog-hat",
+   "shape_assignment": "declared catalogue, index 4 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "the common USB pad: two sticks, analog triggers, one hat",
+   "vendor": 2341,
+   "version": 257
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "030000003512000021ab000010010000",
+   "name": "8BitDo SFC30",
+   "official_line_bytes": 198,
+   "official_line_sha256": "16c6dd8fd50c16b32fa3f982f21cd2f687776622929e9199940d79c1f78c0125",
+   "product": 43809,
+   "selected_because": "official a:b1,b:b0",
+   "shape": "full-analog-hat-and-dpad",
+   "shape_assignment": "declared catalogue, index 5 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "a rich pad: two sticks, analog triggers, a hat AND four D-pad keys, the shape most gamecontrollerdb lines assume",
+   "vendor": 4661,
+   "version": 272
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "ev_key": [
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "030000005e0400000a0b000005040000",
+   "name": "Xbox One Controller",
+   "official_line_bytes": 283,
+   "official_line_sha256": "05c9111b6c0bf0c40d6249f6b9eee7387177ad5ad1c77a5f56f4860112f606f1",
+   "product": 2826,
+   "selected_because": "official a:b1,b:b0",
+   "shape": "full-analog-no-hat",
+   "shape_assignment": "declared catalogue, index 6 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "the same rich pad without a hat: the D-pad is keys only",
+   "vendor": 1118,
+   "version": 1029
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000790000004318000010010000",
+   "name": "Mayflash GameCube Adapter",
+   "official_line_bytes": 236,
+   "official_line_sha256": "2d7dcef0edf6eb382f57c1697fd84824a026c0c22327a03ff750b5c4137d77ff",
+   "product": 6211,
+   "selected_because": "official a:b1,b:b0",
+   "shape": "single-analog-hat",
+   "shape_assignment": "declared catalogue, index 7 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "one stick and a hat: handhelds and older pads",
+   "vendor": 121,
+   "version": 272
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {},
+    "ev_abs": [],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000242e0000ff0b000011010000",
+   "name": "Hyperkin N64 Adapter",
+   "official_line_bytes": 221,
+   "official_line_sha256": "d74cfab1fdbf560cf744db59235a3a7d81fc849b0453f1539c340e041e452972",
+   "product": 3071,
+   "selected_because": "Nintendo layout",
+   "shape": "digital-only-dpad-buttons",
+   "shape_assignment": "declared catalogue, index 0 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "no stick and no hat: the D-pad is four keys",
+   "vendor": 11812,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000260900008888000000010000",
+   "name": "Cyber Gadget GameCube Controller",
+   "official_line_bytes": 244,
+   "official_line_sha256": "64e359921918037bbe5ea6d415d9ec50ec4939272e7eb0002957902cecb017d4",
+   "product": 34952,
+   "selected_because": "Nintendo layout",
+   "shape": "digital-only-hat",
+   "shape_assignment": "declared catalogue, index 1 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "no stick at all: a hat and eight keys",
+   "vendor": 2342,
+   "version": 256
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     3,
+     4,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     317,
+     318
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000341a000005f7000010010000",
+   "name": "HuiJia GameCube Controller Adapter",
+   "official_line_bytes": 241,
+   "official_line_sha256": "f72b23062a8a3b9702b3dcd2673d2ec7496400a59a5cd646f44d1f9a91c0ad2c",
+   "product": 63237,
+   "selected_because": "Nintendo layout",
+   "shape": "dual-analog-digital-triggers",
+   "shape_assignment": "declared catalogue, index 2 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "two sticks, a hat, and triggers that are KEYS not axes",
+   "vendor": 6708,
+   "version": 272
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "030000006f0e00008001000011010000",
+   "name": "PDP Faceoff Nintendo Switch Pro Controller",
+   "official_line_bytes": 316,
+   "official_line_sha256": "4284f2d515aaa328519e1dc05fa6fabfc069fcdafd42c1f09c351a074577303e",
+   "product": 384,
+   "selected_because": "Nintendo layout",
+   "shape": "dual-analog-dpad-buttons",
+   "shape_assignment": "declared catalogue, index 3 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "same, but the D-pad is four keys and there is no hat",
+   "vendor": 3695,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     316,
+     317,
+     318
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "030000006f0e00008501000011010000",
+   "name": "PDP Nintendo Switch Fightpad Pro",
+   "official_line_bytes": 306,
+   "official_line_sha256": "eef6312d1fa8e8a121bcfe7d7dfc2e25f3c016c64e0492e0d23a4507f59b84e9",
+   "product": 389,
+   "selected_because": "Nintendo layout",
+   "shape": "dual-analog-hat",
+   "shape_assignment": "declared catalogue, index 4 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "the common USB pad: two sticks, analog triggers, one hat",
+   "vendor": 3695,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "030000006f0e00008701000011010000",
+   "name": "PDP Rock Nintendo Switch Candy Controller",
+   "official_line_bytes": 315,
+   "official_line_sha256": "37c3a83e74e637cf25872d24e11e7cf6f085fbf03bd599fb4744ec6aeba96fb3",
+   "product": 391,
+   "selected_because": "Nintendo layout",
+   "shape": "full-analog-hat-and-dpad",
+   "shape_assignment": "declared catalogue, index 5 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "a rich pad: two sticks, analog triggers, a hat AND four D-pad keys, the shape most gamecontrollerdb lines assume",
+   "vendor": 3695,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "ev_key": [
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000790000000318000011010000",
+   "name": "Mayflash Wii DolphinBar",
+   "official_line_bytes": 268,
+   "official_line_sha256": "35420c54b216b125fbec4e2f3721d064b64eb5a6fc2c74c94aa70895c390496c",
+   "product": 6147,
+   "selected_because": "Nintendo layout",
+   "shape": "full-analog-no-hat",
+   "shape_assignment": "declared catalogue, index 6 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "the same rich pad without a hat: the D-pad is keys only",
+   "vendor": 121,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000790000004418000010010000",
+   "name": "Mayflash GameCube Controller",
+   "official_line_bytes": 235,
+   "official_line_sha256": "a908c2b49f2d1721dff4a47b860c1108e2f9e534ca7962b0abc52de11d831d20",
+   "product": 6212,
+   "selected_because": "Nintendo layout",
+   "shape": "single-analog-hat",
+   "shape_assignment": "declared catalogue, index 7 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "one stick and a hat: handhelds and older pads",
+   "vendor": 121,
+   "version": 272
+  },
+  {
+   "bustype": 0,
+   "capabilities": {
+    "absinfo": {},
+    "ev_abs": [],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "0000000058626f782033363020576900",
+   "name": "Xbox 360 Controller",
+   "official_line_bytes": 287,
+   "official_line_sha256": "3e0a7cd5664e06069ae7bb35b65b3a79a0e800cfe49b12b743764786001384e6",
+   "product": 13088,
+   "selected_because": "ordinary line",
+   "shape": "digital-only-dpad-buttons",
+   "shape_assignment": "declared catalogue, index 0 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "no stick and no hat: the D-pad is four keys",
+   "vendor": 25176,
+   "version": 22304
+  },
+  {
+   "bustype": 0,
+   "capabilities": {
+    "absinfo": {
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "0000000058626f782047616d65706100",
+   "name": "Xbox Gamepad",
+   "official_line_bytes": 284,
+   "official_line_sha256": "27df02947281869fcf2080c441dce347ab07ee05a220b322b3adbbfdb4fc22a8",
+   "product": 18208,
+   "selected_because": "ordinary line",
+   "shape": "digital-only-hat",
+   "shape_assignment": "declared catalogue, index 1 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "no stick at all: a hat and eight keys",
+   "vendor": 25176,
+   "version": 28773
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     3,
+     4,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     317,
+     318
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000008000000210000011010000",
+   "name": "8BitDo NES30",
+   "official_line_bytes": 205,
+   "official_line_sha256": "a18e08e88faaa88cdecfb919de7157ffb1291fa8091326cc6004a42657992611",
+   "product": 4098,
+   "selected_because": "ordinary line",
+   "shape": "dual-analog-digital-triggers",
+   "shape_assignment": "declared catalogue, index 2 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "two sticks, a hat, and triggers that are KEYS not axes",
+   "vendor": 32768,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "0300000000f000000300000000010000",
+   "name": "RetroPad",
+   "official_line_bytes": 145,
+   "official_line_sha256": "9857e9ccd3fa67662752b7bf3ba6e24320b21ad0c884674242ca379499fca456",
+   "product": 3,
+   "selected_because": "ordinary line",
+   "shape": "dual-analog-dpad-buttons",
+   "shape_assignment": "declared catalogue, index 3 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "same, but the D-pad is four keys and there is no hat",
+   "vendor": 61440,
+   "version": 256
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315,
+     316,
+     317,
+     318
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "0300000000f00000f100000000010000",
+   "name": "Super RetroPort",
+   "official_line_bytes": 177,
+   "official_line_sha256": "eee1fd78151bef436360d4f396ce75bbd9056951ab6de413e99463c8d51a1e58",
+   "product": 241,
+   "selected_because": "ordinary line",
+   "shape": "dual-analog-hat",
+   "shape_assignment": "declared catalogue, index 4 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "the common USB pad: two sticks, analog triggers, one hat",
+   "vendor": 61440,
+   "version": 256
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000050b00000579000011010000",
+   "name": "ASUS ROG Kunai 3",
+   "official_line_bytes": 326,
+   "official_line_sha256": "014d851bd0d57fa06bfd7297c164a08a9535f28ae2058a35a2f4ebc387e29f77",
+   "product": 30981,
+   "selected_because": "ordinary line",
+   "shape": "full-analog-hat-and-dpad",
+   "shape_assignment": "declared catalogue, index 5 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "a rich pad: two sticks, analog triggers, a hat AND four D-pad keys, the shape most gamecontrollerdb lines assume",
+   "vendor": 2821,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "2": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     },
+     "3": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "4": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "5": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 255,
+      "minimum": 0,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "ev_key": [
+     304,
+     305,
+     306,
+     307,
+     308,
+     309,
+     310,
+     311,
+     312,
+     313,
+     314,
+     315,
+     316,
+     317,
+     318,
+     544,
+     545,
+     546,
+     547
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "03000000091200000031000011010000",
+   "name": "OpenSimHardware OSH PB Controller",
+   "official_line_bytes": 309,
+   "official_line_sha256": "fa9224ada7c6d598bdc94cc8097d28032230d3374a1a95741cd1af4475c9bac7",
+   "product": 12544,
+   "selected_because": "ordinary line",
+   "shape": "full-analog-no-hat",
+   "shape_assignment": "declared catalogue, index 6 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "the same rich pad without a hat: the D-pad is keys only",
+   "vendor": 4617,
+   "version": 273
+  },
+  {
+   "bustype": 3,
+   "capabilities": {
+    "absinfo": {
+     "0": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "1": {
+      "flat": 128,
+      "fuzz": 0,
+      "maximum": 32767,
+      "minimum": -32768,
+      "resolution": 0,
+      "value": 0
+     },
+     "16": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     },
+     "17": {
+      "flat": 0,
+      "fuzz": 0,
+      "maximum": 1,
+      "minimum": -1,
+      "resolution": 0,
+      "value": 0
+     }
+    },
+    "ev_abs": [
+     0,
+     1,
+     16,
+     17
+    ],
+    "ev_key": [
+     304,
+     305,
+     307,
+     308,
+     310,
+     311,
+     314,
+     315
+    ],
+    "evdev_node_kind": "uinput-materialised, read back from the kernel node the driver created",
+    "kernel_node": "event30"
+   },
+   "guid": "030000000b0400003365000000010000",
+   "name": "Competition Pro",
+   "official_line_bytes": 109,
+   "official_line_sha256": "448c35d796ed254450c0d0b1c7a5c4796321262ea14d9bc73bebcdc9f08f664b",
+   "product": 25907,
+   "selected_because": "ordinary line",
+   "shape": "single-analog-hat",
+   "shape_assignment": "declared catalogue, index 7 of 8 in sorted shape order; the mapping's bytes take no part in it",
+   "shape_why": "one stick and a hat: handhelds and older pads",
+   "vendor": 1035,
+   "version": 256
+  }
+ ],
+ "schema": "org.nextos.c5b.guid-capabilities",
+ "schema_version": 2,
+ "shape_catalogue": {
+  "digital-only-dpad-buttons": "no stick and no hat: the D-pad is four keys",
+  "digital-only-hat": "no stick at all: a hat and eight keys",
+  "dual-analog-digital-triggers": "two sticks, a hat, and triggers that are KEYS not axes",
+  "dual-analog-dpad-buttons": "same, but the D-pad is four keys and there is no hat",
+  "dual-analog-hat": "the common USB pad: two sticks, analog triggers, one hat",
+  "full-analog-hat-and-dpad": "a rich pad: two sticks, analog triggers, a hat AND four D-pad keys, the shape most gamecontrollerdb lines assume",
+  "full-analog-no-hat": "the same rich pad without a hat: the D-pad is keys only",
+  "single-analog-hat": "one stick and a hat: handhelds and older pads"
+ },
+ "source_bundle_sha256": "a578a7d82d47e681ad7a1cbe48bb49327dad6dbe1c808e46ca3485dbab0dae43"
+}

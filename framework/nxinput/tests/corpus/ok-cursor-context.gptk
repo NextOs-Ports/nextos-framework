@@ -1,0 +1,11 @@
+format = NEXTOS_CONTROLLERS/1
+[menu]
+A = ui.confirm
+[gameplay]
+A = player.jump
+[cursor]
+A = cursor.click
+B = cursor.cancel
+LEFT_STICK = cursor.move
+speed = 2.0
+deadzone = 0.05

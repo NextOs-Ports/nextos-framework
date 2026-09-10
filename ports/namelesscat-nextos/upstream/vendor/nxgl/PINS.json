@@ -1,0 +1,10 @@
+{
+  "component_commit": "84ebc8b66c7a3b6e1ba837955fdfc4e44581c2d1",
+  "files": {
+    "adapters/nxgl_frame_proof_adapter.c": "975d80004dd4b18384e566a72bc9d550f4db5de8c011324a96aea3f9ca874df9",
+    "adapters/nxgl_frame_proof_adapter.h": "c6267cab34e34483a4d9b348da64ccf00704c2472ff9e0ad8010e0d060e6c8b7"
+  },
+  "framework_commit": "84ebc8b66c7a3b6e1ba837955fdfc4e44581c2d1",
+  "nxgl_version": "0.3.5",
+  "schema": "namelesscat-nxgl-vendor-pin/1"
+}

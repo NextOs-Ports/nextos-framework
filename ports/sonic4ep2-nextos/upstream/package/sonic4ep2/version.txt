@@ -1,0 +1,2 @@
+V6
+Required Android data: 3.0.0-109 (arm64-v8a)

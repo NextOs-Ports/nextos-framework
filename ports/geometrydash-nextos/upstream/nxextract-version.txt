@@ -1,0 +1,31 @@
+upstream: nextos_ports_android/suportando_outros_devices/extrator-universal @ 1.2.4
+nxextract.py sha256=dcf2dbd27facadf9110d18fd721b277b34ea1164bd1e77dfe69b2507939b4f08
+nxextract-ui sha256=046afb583f5a211c946495e639409f81d9cfec706788eeccb7924b0e8e5a50b6
+nxextract-runtime-env.sh sha256=332919a9960d4317563b647f9932d1a4367da147a425fe2f78eafd706f01563f
+run-extractor.sh sha256=3c61f638a25f0ca9c5c5a94d33660886aaff17a18347c9e954afd4b0e9b3efba
+games/geometrydash/extractor.json sha256=56ef6b074862b02a6f2bc9a0e41ac87226c40ea315d0876d24eaaa39b89c8bc4
+games/gdsubzero/extractor.json sha256=08548ec8565e75eb4396a0579cc29b7cfc2d1373e5063526f15c6aa9baf2c82a
+tools/make-game-apk.py sha256=18b490506c4fef7ce97ec17fb4f72324f81649d00a3c5accf3f836368eaa78d8
+patches locais: 0
+
+Builds conhecidas e validadas para estas receitas (sha256 da lib nativa,
+registro de suporte — NAO sao gate: a receita valida por ESTRUTURA e pelo
+pacote Android, e aceita builds novas sem mudanca de codigo):
+  Geometry Dash 2.2.144  libcocos2dcpp.so=dda3752ab3a912fd2293561e157ecc98eca799056abd9223a331c1c514175df7
+                         libfmod.so=69e6e1a89ab863ddaf75cb6ba7705eed510da019d4ce6d3e3cbc61adc640c2eb
+  Geometry Dash SubZero 2.2.147
+                         libcocos2dcpp.so=6e8fd2712c5377e9dcd7444560bd070e5ff632f8654b6670a097668bac384f9b
+                         libfmod.so=69e6e1a89ab863ddaf75cb6ba7705eed510da019d4ce6d3e3cbc61adc640c2eb
+
+Formas de entrada validadas nestas receitas:
+  - APK solto da Play (Geometry Dash 2.2.144) ............ aceito
+  - XAPK com base + splits (SubZero 2.2.147) ............. aceito, base escolhida
+  - APK do OUTRO jogo da mesma serie ..................... RECUSADO, com o
+      pacote que chegou e o pacote esperado escritos no log
+  - APK BASE de um split, sozinho (sem `lib/`) ........... RECUSADO, dizendo que
+      e' so' a parte base e que falta o .xapk inteiro ou o config.arm64_v8a.apk
+  - APK base + config.arm64_v8a.apk soltos, lado a lado .. aceito
+  - APK base + config.armeabi_v7a.apk (so' 32-bit) ....... RECUSADO, dizendo
+      qual ABI o pacote traz e qual este port precisa
+  - segunda abertura sem o APK em gamedata/ .............. marcador aceito, vai
+      direto para o jogo

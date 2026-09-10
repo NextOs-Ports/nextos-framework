@@ -1,0 +1,18 @@
+This package contains compatibility work derived in part from:
+
+  syberia_arm64 and lswtcs_arm64
+  Copyright mtojek
+  Licensed under the Apache License, Version 2.0
+
+Subsequent Streets of Rage 4 host, setup, graphics, texture and audio
+compatibility work is maintained by NextOs-Ports / NextOS. Copyright and
+licensing notices in the source repository remain applicable. The Apache
+License text is provided in Apache-2.0.txt.
+
+Project-wide NextOS credits retained with this distribution:
+
+  initdream — crazytaxi-aarch64 compatibility-loader work
+  Producdevity — Call of Duty: Black Ops Zombies compatibility work (MIT)
+
+These project-wide credits do not imply that code or game data from those
+titles is bundled in this Streets of Rage 4 package.

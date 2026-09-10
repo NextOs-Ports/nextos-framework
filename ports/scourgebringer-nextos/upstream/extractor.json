@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "id": "scourgebringer-nextos",
+  "version": "apk-1.61.x-flex-language-save-exit-r4",
+  "title": "ScourgeBringer (APK 1.61.x: classic / blob)",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "max_files": 32,
+    "max_bundle_apks": 32,
+    "max_member_bytes": 1073741824,
+    "max_bundle_bytes": 2147483648,
+    "packages": [
+      "com.pid.scourgebringer"
+    ]
+  },
+  "extract": [
+    {
+      "id": "monogame-content",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/Content/*"
+        ],
+        "strip_prefix": "assets/Content/"
+      },
+      "destination": "assets/Content",
+      "validate": {
+        "type": "tree",
+        "min_files": 70,
+        "max_files": 96,
+        "min_bytes": 100000000,
+        "max_bytes": 180000000,
+        "required_paths": [
+          "common_0.xnb",
+          "feedback.xnb",
+          "Sounds/Master.bank",
+          "Sounds/Master.strings.bank",
+          "Localizations/EN",
+          "Localizations/FR",
+          "Localizations/IT",
+          "Localizations/DE",
+          "Localizations/SP",
+          "Localizations/RU",
+          "Localizations/PB",
+          "Localizations/CN",
+          "Localizations/JP",
+          "Localizations/KR",
+          "Localizations/PL",
+          "Localizations/CHT"
+        ]
+      }
+    },
+    {
+      "id": "android-runtime-libraries",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "lib/{abi}/libSystem.IO.Compression.Native.so",
+          "lib/{abi}/libSystem.Native.so",
+          "lib/{abi}/libSystem.Security.Cryptography.Native.Android.so",
+          "lib/{abi}/libfmod.so",
+          "lib/{abi}/libfmodstudio.so",
+          "lib/{abi}/libmono-component-marshal-ilgen.so",
+          "lib/{abi}/libmonodroid.so",
+          "lib/{abi}/libmonosgen-2.0.so",
+          "lib/{abi}/libopenal32.so",
+          "lib/{abi}/libpairipcore.so",
+          "lib/{abi}/libxamarin-app.so",
+          "lib/{abi}/libSystem.Globalization.Native.so",
+          "lib/{abi}/libassemblies.arm64-v8a.blob.so"
+        ],
+        "strip_prefix": "lib/{abi}/"
+      },
+      "destination": "runtime-libs",
+      "validate": {
+        "type": "tree",
+        "min_files": 11,
+        "max_files": 13,
+        "min_bytes": 7500000,
+        "max_bytes": 12000000,
+        "required_paths": [
+          "libmonosgen-2.0.so",
+          "libmonodroid.so",
+          "libxamarin-app.so",
+          "libfmod.so",
+          "libfmodstudio.so"
+        ]
+      }
+    },
+    {
+      "id": "android-assembly-container",
+      "source": {
+        "kind": "container"
+      },
+      "destination": "assemblies.apk",
+      "validate": {
+        "type": "file"
+      }
+    }
+  ],
+  "hooks": [
+    {
+      "id": "aligned-assembly-apk",
+      "argv": [
+        "python3",
+        "{game_dir}/nxextract/make-assembly-apk.py",
+        "{stage}/assemblies.apk",
+        "{stage}/assemblies.apk"
+      ],
+      "cwd": "{game_dir}",
+      "checkpoint": [
+        {
+          "path": "assemblies.apk",
+          "type": "file",
+          "min_size": 1000000,
+          "max_size": 8388608,
+          "magic_ascii": "PK"
+        }
+      ]
+    }
+  ],
+  "validate": [
+    {
+      "path": "assets/Content",
+      "type": "tree",
+      "min_files": 70,
+      "max_files": 96,
+      "min_bytes": 100000000,
+      "max_bytes": 180000000,
+      "required_paths": [
+        "common_0.xnb",
+        "Sounds/Master.bank",
+        "Localizations/EN",
+        "Localizations/FR",
+        "Localizations/IT",
+        "Localizations/DE",
+        "Localizations/SP",
+        "Localizations/RU",
+        "Localizations/PB",
+        "Localizations/CN",
+        "Localizations/JP",
+        "Localizations/KR",
+        "Localizations/PL",
+        "Localizations/CHT"
+      ]
+    },
+    {
+      "path": "runtime-libs",
+      "type": "tree",
+      "min_files": 11,
+      "max_files": 13,
+      "min_bytes": 7500000,
+      "max_bytes": 12000000,
+      "required_paths": [
+        "libmonosgen-2.0.so",
+        "libmonodroid.so",
+        "libxamarin-app.so",
+        "libfmod.so"
+      ]
+    },
+    {
+      "path": "assemblies.apk",
+      "type": "file",
+      "min_size": 1000000,
+      "max_size": 8388608,
+      "magic_ascii": "PK"
+    }
+  ],
+  "commit": [
+    "assets",
+    "runtime-libs",
+    "assemblies.apk"
+  ],
+  "marker": ".nxextract-scourgebringer.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

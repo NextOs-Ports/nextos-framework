@@ -1,0 +1,10 @@
+# nxinput 0.11.1 (B8): the CLASSIC SDL2 used to prove real SDL2+SDL3 isolation on the host.
+# Hosts whose libSDL2-2.0.so.0 is sdl2-compat (a shim over the SDL3 core) can only prove the
+# SHARED-CORE case; this build gives the SEPARATE case. Joystick-only, no video/audio.
+source_url = https://github.com/libsdl-org/SDL/releases/download/release-2.32.10/SDL2-2.32.10.tar.gz
+version = 2.32.10 (SDL-release-2.32.10-0-g5d2495703)
+license = zlib
+tarball_sha256 = 5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165
+build = cmake -DSDL_SHARED=ON -DSDL_STATIC=OFF -DSDL_TEST=OFF -DSDL_AUDIO=OFF -DSDL_VIDEO=OFF -DSDL_RENDER=OFF -DSDL_HAPTIC=OFF -DSDL_SENSOR=OFF -DSDL_POWER=OFF -DSDL_FILESYSTEM=OFF -DSDL_JOYSTICK=ON -DSDL_HIDAPI=ON && make
+run = NXINPUT_CLASSIC_SDL2_DIR=<build dir with libSDL2-2.0.so.0> tests/run-v5-host.sh
+built_lib_sha256 = a91c9d3b4b217745c0d80502e8e26adb2827f46adbcb80f68d57c0aad49fee57 (host x86_64 build; not a pin, the domain is sdl2-evdev by source)

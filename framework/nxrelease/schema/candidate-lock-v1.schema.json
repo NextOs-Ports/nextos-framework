@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.invalid/schema/nxrelease-candidate-lock-v1.schema.json",
+  "title": "NXRelease external candidate lock v1",
+  "description": "Procedural trust anchor written outside the port: it binds exact executable and producer-receipt bytes. It is not by itself cryptographic proof that a human observed a physical display.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "executable",
+    "sha256"
+  ],
+  "properties": {
+    "schema": {
+      "const": "nxrelease-candidate-lock-v1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "executable": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 512,
+      "pattern": "^[A-Za-z0-9._+-]+(?:/[A-Za-z0-9._+-]+)+$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "video_proof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "schema_version",
+        "run_id",
+        "generation",
+        "port_id",
+        "verdict",
+        "reason"
+      ],
+      "properties": {
+        "schema": {"const": "org.nextos.nxruntime.video-proof"},
+        "schema_version": {"const": 1},
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._-]{1,192}$"
+        },
+        "generation": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{32}|[0-9a-f]{64})$"
+        },
+        "port_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "verdict": {"const": "OK"},
+        "reason": {"const": "non-black"}
+      }
+    },
+    "video_proof_receipt_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "input_proof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema", "schema_version", "run_id", "generation", "port_id",
+        "mapping_sha256", "adapter_contract_sha256", "verdict", "runtime",
+        "contexts", "sinks", "cases", "safety"
+      ],
+      "properties": {
+        "schema": {"const": "nxinput-gptk-event-evidence/1"},
+        "schema_version": {"const": 1},
+        "run_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._-]{1,192}$"
+        },
+        "generation": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{32}|[0-9a-f]{64})$"
+        },
+        "port_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "mapping_sha256": {"$ref": "#/$defs/sha256"},
+        "adapter_contract_sha256": {"$ref": "#/$defs/sha256"},
+        "verdict": {"const": "OK"},
+        "runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["marker", "evidence_schema", "symbols"],
+          "properties": {
+            "marker": {"const": "nxinput-gptk-runtime/3"},
+            "evidence_schema": {"const": "nxinput-gptk-event-evidence/1"},
+            "godot_marker": {"const": "nxinput-godot-runtime/1"},
+            "frame_proof_marker": {"const": "nxgl-godot-frame-proof/2"},
+            "symbols": {
+              "type": "array", "minItems": 1, "uniqueItems": true,
+              "items": {"$ref": "#/$defs/symbol"}
+            }
+          },
+          "dependentRequired": {
+            "godot_marker": ["frame_proof_marker"],
+            "frame_proof_marker": ["godot_marker"]
+          }
+        },
+        "contexts": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["context", "source", "observed"],
+            "properties": {
+              "context": {"enum": ["menu", "gameplay", "cursor"]},
+              "source": {
+                "type": "string", "pattern": "^[A-Za-z0-9_.:/-]{1,95}$"
+              },
+              "observed": {"const": true}
+            }
+          }
+        },
+        "sinks": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["sink", "symbol", "method", "targets", "exists"],
+            "properties": {
+              "sink": {"$ref": "#/$defs/sink"},
+              "symbol": {"$ref": "#/$defs/symbol"},
+              "method": {
+                "enum": ["runtime-action-registry", "contract-artifact"]
+              },
+              "targets": {
+                "type": "array", "minItems": 1, "uniqueItems": true,
+                "items": {
+                  "type": "string", "pattern": "^[A-Za-z0-9_./:-]{1,192}$"
+                }
+              },
+              "exists": {"const": true},
+              "artifact": {"type": "string", "minLength": 1, "maxLength": 512},
+              "artifact_sha256": {"$ref": "#/$defs/sha256"}
+            }
+          }
+        },
+        "cases": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": [
+              "context", "context_source", "control", "event", "decision",
+              "action", "sink", "delivery_count"
+            ],
+            "properties": {
+              "context": {"enum": ["menu", "gameplay", "cursor"]},
+              "context_source": {
+                "type": "string", "pattern": "^[A-Za-z0-9_.:/-]{1,95}$"
+              },
+              "control": {"type": "string", "pattern": "^[A-Z0-9_]{1,32}$"},
+              "event": {"enum": ["press", "axis", "motion"]},
+              "decision": {"const": "ACTION"},
+              "action": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*(?:[.][a-z][a-z0-9_]*)+$"
+              },
+              "sink": {"$ref": "#/$defs/sink"},
+              "delivery_count": {"const": 1}
+            }
+          }
+        },
+        "safety": {
+          "type": "object", "additionalProperties": false,
+          "required": ["unknown_context", "missing_sink", "failed_ack"],
+          "properties": {
+            "unknown_context": {"$ref": "#/$defs/passthrough"},
+            "missing_sink": {"$ref": "#/$defs/passthrough"},
+            "failed_ack": {
+              "type": "object", "additionalProperties": false,
+              "required": ["result", "native_replay"],
+              "properties": {
+                "result": {"const": "FATAL"},
+                "native_replay": {"const": false}
+              }
+            }
+          }
+        }
+      }
+    },
+    "input_proof_receipt_sha256": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "dependentRequired": {
+    "video_proof": ["video_proof_receipt_sha256"],
+    "video_proof_receipt_sha256": ["video_proof"],
+    "input_proof": ["input_proof_receipt_sha256"],
+    "input_proof_receipt_sha256": ["input_proof"]
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "symbol": {
+      "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,191}$"
+    },
+    "sink": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]*(?:[.][a-z][a-z0-9_-]*)+$"
+    },
+    "passthrough": {
+      "type": "object", "additionalProperties": false,
+      "required": ["result", "suppressed", "delivery_count"],
+      "properties": {
+        "result": {"const": "PASSTHROUGH"},
+        "suppressed": {"const": false},
+        "delivery_count": {"const": 0}
+      }
+    }
+  }
+}

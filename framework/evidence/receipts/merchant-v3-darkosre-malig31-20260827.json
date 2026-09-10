@@ -1,0 +1,176 @@
+{
+  "schema": "nx-v3-physical-receipt-v1",
+  "schema_version": 1,
+  "claim_id": "darkosre-rk3326-mali-g31",
+  "evidence_level": "physical-full-scoped",
+  "evidence_index_ref": "receipts/merchant-v3-evidence-index-20260827.sha256",
+  "evidence_index_sha256": "574353701afa3c8ee9a83da117b56316dfc32f83875872c33697e4bcd251b523",
+  "evidence_path_prefix": "ark-mali-g31",
+  "framework": {
+    "tested_commit": "699723e6e84ad7f50d16aeb98d94b6c9e3c9701b",
+    "tested_tag": "framework-v3-rc2-20260827",
+    "aggregate_release_tag": null,
+    "composition": "base-tag-plus-pinned-components",
+    "components_sha256": "9411d154b59d21c697f0de7c06d4cc6989b444cdce6bcff739650081e0d0536e",
+    "nxrelease_manifest_file_sha256": "13fb3270e442799246ca57fe9e68935604876173411074398b11de9339f10380",
+    "component_commits": {
+      "nxgenerator": "8d70b241722d2cec9ef78f9f68cb57cc91b38ae2",
+      "nxgl": "f721af2cc657b3cbd24e8f64b0b61cf8b03aa762"
+    }
+  },
+  "port": {
+    "id": "merchantskies",
+    "version": "1.0",
+    "commit": "09371aff9889e2efac111bd048db3c93b6690970"
+  },
+  "artifact": {
+    "zip_sha256": "341ddacde6384f76f16c233491d8735d25e5af5c72a81269414b85e9ba991700",
+    "zip_size": 390027,
+    "executable_member": "merchantskies/merchantskies-nextos",
+    "executable_sha256": "8cd5de6ae7c4508c56e98de4d08892f812658db617998b265cd442ab0d9f24fa",
+    "executable_build_id": "bc98d01198c65ddd32cd5e36e251086296552939",
+    "generation_id": "953db3e23ccde1134881d4fd3d2a940a2684dc4eaf4c30bbaa778e45742618b0"
+  },
+  "artifact_proofs": {
+    "candidate_manifest": {
+      "evidence_ref": "candidate/CANDIDATE.sha256",
+      "evidence_sha256": "5c6609c73b27d39b4d3b273ab6d4f89e426959bcd58d4586a82d88807b3bb5a4"
+    },
+    "freeze": {
+      "evidence_ref": "candidate/FREEZE.json",
+      "evidence_sha256": "031459b94436f754ca2ebf19254a2ef60b79d86bcd076e24c2838eb3614ae931"
+    }
+  },
+  "stack": {
+    "cfw": "dArkOSRE",
+    "hardware_class": "RK3326 Mali-G31 handheld",
+    "renderer": "Mali-G31",
+    "graphics_api": "OpenGL ES 3.2",
+    "drawable": "640x480"
+  },
+  "scenarios": {
+    "portmaster_install": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/portmaster-install-retry.log",
+      "evidence_sha256": "51924a865d3b7a80a983c3a9304bff4d968672b08037094c90782ffb6eadb75d"
+    },
+    "clean_extract": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/nxextract.log",
+      "evidence_sha256": "6559f4f93bb38c4c16a73a8a7e15f02ae473934253c2daf58a2a4d86cecc1865"
+    },
+    "nxextract_graphical_runtime": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/nxextract.log",
+      "evidence_sha256": "6559f4f93bb38c4c16a73a8a7e15f02ae473934253c2daf58a2a4d86cecc1865"
+    },
+    "nxsplash_five_seconds_runtime": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/framework-success.log",
+      "evidence_sha256": "3c1fbe22bd79ade9f0bf33d138e010302f52074de38fb3e32eac94097f02ca17"
+    },
+    "frontend_environment_runtime": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/artifact-and-environment-proof.txt",
+      "evidence_sha256": "2286f2c9731a4c6e9944bfe4fc74e5997d6ad6c3bf08e9171b097b52d6811b3b"
+    },
+    "graphics_and_single_channel": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/framework-success.log",
+      "evidence_sha256": "3c1fbe22bd79ade9f0bf33d138e010302f52074de38fb3e32eac94097f02ca17"
+    },
+    "game_fonts_visible": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/game-r2.png",
+      "evidence_sha256": "47149a6784e8887366793ddcbcf8e04b4ba643055bcfbddbdf80f506f9db0f6a"
+    },
+    "audio_controls_select_start": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/OPERATOR-OBSERVATION.txt",
+      "evidence_sha256": "43f0c76ec5d1e4e0b66f3d4d8ecf0a615302d282eb7a35a3ef07ac90052b2fe1"
+    },
+    "clean_exit_nxu0006": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/framework-success.log",
+      "evidence_sha256": "3c1fbe22bd79ade9f0bf33d138e010302f52074de38fb3e32eac94097f02ca17"
+    },
+    "owner_state_restored": {
+      "passed": true,
+      "evidence_ref": "ark-mali-g31/postrestore-owner-final.txt",
+      "evidence_sha256": "e49119e881fc7078e34d05b325d5a0e003934287d8782dfc13747e25088c54f2"
+    }
+  },
+  "claim_bindings": {
+    "PortMaster install and clean NXExtract": [
+      "portmaster_install",
+      "clean_extract"
+    ],
+    "graphical NXExtract recorded in runtime log": [
+      "nxextract_graphical_runtime"
+    ],
+    "timed NXSplash runtime": [
+      "nxsplash_five_seconds_runtime"
+    ],
+    "dArkOSRE frontend graphics environment": [
+      "frontend_environment_runtime"
+    ],
+    "Mali-G31 GLES 3.2 native R8/RED swizzle": [
+      "graphics_and_single_channel"
+    ],
+    "game and fonts visible": [
+      "game_fonts_visible"
+    ],
+    "audio, controls and SELECT+START": [
+      "audio_controls_select_start"
+    ],
+    "clean exit with NXU0006": [
+      "clean_exit_nxu0006"
+    ],
+    "owner state restored": [
+      "owner_state_restored"
+    ]
+  },
+  "single_channel": {
+    "route": "native-r8-swizzle",
+    "evidence_ref": "ark-mali-g31/framework-success.log",
+    "evidence_sha256": "3c1fbe22bd79ade9f0bf33d138e010302f52074de38fb3e32eac94097f02ca17"
+  },
+  "owner_state": {
+    "before_evidence": {
+      "evidence_ref": "ark-mali-g31/prestate.txt",
+      "evidence_sha256": "3f978aeb66ef4d5c8d05f051c768e772ba05e623a19720692ac5a3660bdcde9d"
+    },
+    "after_evidence": {
+      "evidence_ref": "ark-mali-g31/postrestore-owner-final.txt",
+      "evidence_sha256": "e49119e881fc7078e34d05b325d5a0e003934287d8782dfc13747e25088c54f2"
+    },
+    "compared": {
+      "home": {
+        "before_sha256": "01708c42238aa8b85ffbc8f77b08f0b737a84a72e0e5f30ec82737b351a42724",
+        "after_sha256": "01708c42238aa8b85ffbc8f77b08f0b737a84a72e0e5f30ec82737b351a42724"
+      },
+      "gamedata": {
+        "before_sha256": "f30bdf51896eada1b62422cb37cfe5f8b60a0dc6a247676588832c05b18d7b6a",
+        "after_sha256": "f30bdf51896eada1b62422cb37cfe5f8b60a0dc6a247676588832c05b18d7b6a"
+      },
+      "gptk": {
+        "before_sha256": "45725a36c6c2a9c54472d51a9630bb7e508001b3fdb320a8a69098b411ed8094",
+        "after_sha256": "45725a36c6c2a9c54472d51a9630bb7e508001b3fdb320a8a69098b411ed8094"
+      },
+      "settings": {
+        "before_sha256": "a1da8b2085fd40aa5548bfc49606a8257e4f8f9a6a282830702dbad21f77c98f",
+        "after_sha256": "a1da8b2085fd40aa5548bfc49606a8257e4f8f9a6a282830702dbad21f77c98f"
+      }
+    },
+    "byte_identical": true
+  },
+  "gaps": [
+    "o launch aprovado herdou o ambiente grafico do frontend, mas nao ha receipt de clique no EmulationStation",
+    "nao ha captura valida da NXExtract nem da NXSplash; logs e observacao fisica provam os processos",
+    "rollback, singleton, troca A/B e ausencia isolada de duplo input nao foram exercitados nesta classe",
+    "o diretorio de update foi verificado vazio antes, nao depois do teste",
+    "o build exato da imagem dArkOSRE nao foi identificado no bundle"
+  ],
+  "private_manifest_sha256": "e6e8cf20bcb3a6aae3ccaf364364acdf06016be60b184692e2cf6fcfc5a2212e",
+  "sanitized": true
+}

@@ -1,0 +1,19 @@
+# NEXTOSCONTROLLERS — controles do NextOS / NextOS controls
+# Formato próprio do NextOS. NÃO é gptokeyb: nunca vira teclado.
+# NextOS own format. NOT gptokeyb: never becomes a keyboard.
+#
+# Mapa estático dos controles nativos. Este port NÃO carrega edições deste
+# arquivo em runtime; SDL/PortMaster permanece a fonte dos controles.
+# Static map of native controls. This port does NOT load edits from this
+# file at runtime; SDL/PortMaster remains the controls source.
+
+format = NEXTOS_CONTROLLERS/1
+port = nxexample-aarch64
+
+[menu]
+A = example.accept
+B = example.back
+
+[gameplay]
+START = example.pause
+LEFT_STICK = example.drive

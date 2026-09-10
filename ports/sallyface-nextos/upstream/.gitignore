@@ -1,0 +1,30 @@
+# Dado de jogo NUNCA entra no repositorio -- barrar por DIRETORIO, nao por extensao.
+byo/
+stage/
+payload/
+gamedata/*
+!gamedata/README.txt
+gamedata_staging/
+apk_data/
+apk_extract/
+extracted/
+smali_out/
+dump/
+work/
+shots/
+
+# Artefatos de build e execucao
+build/
+.build/
+*.o
+*.zip
+*.sha256
+sallyface-nextos
+log.txt
+nxextract.log
+*.log
+__pycache__/
+.nxextract/
+.nxruntime/
+home/
+assets/

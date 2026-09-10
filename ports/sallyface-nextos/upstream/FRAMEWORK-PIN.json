@@ -1,0 +1,22 @@
+{
+  "components": {
+    "nxcompat": {
+      "commit": "fa3637fad1ce3b9991d0cd9f312671f62dc8f42f",
+      "tree_sha256": "49bf638f63e386a4fd4eb33e233df04de1d9e5209764f1afa0fbdf0ca4de58a7",
+      "version": "0.3.0"
+    },
+    "nxgl": {
+      "commit": "fa3637fad1ce3b9991d0cd9f312671f62dc8f42f",
+      "tree_sha256": "50b002bdca0e6370f190589998129e159c8f4e516b25d31c5040292c43818c23",
+      "version": "0.2.17"
+    },
+    "nxinput": {
+      "commit": "e81e8af9d1f95a9be1baacd95035a0a3715bbf6f",
+      "tree_sha256": "05890441ce05769a1b33101081b271c421f6dae27b1403d5039560cc2d68ec72",
+      "version": "0.5.1"
+    }
+  },
+  "schema": "nextos-framework-build-pin-v1",
+  "schema_version": 1,
+  "tree_digest": "nxgenerator-component-tree-sha256-v1"
+}

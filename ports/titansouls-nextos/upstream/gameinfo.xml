@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<game>
+  <name>Titan Souls</name>
+  <desc>Port de compatibilidade ARMv7 BYO-data da versão Android (engine da Abstraction Games, GLES2 e FMOD Ex) para firmwares PortMaster.</desc>
+  <developer>Acid Nerve / Abstraction Games</developer>
+  <publisher>Devolver Digital</publisher>
+  <genre>Adventure</genre>
+  <players>1</players>
+</game>

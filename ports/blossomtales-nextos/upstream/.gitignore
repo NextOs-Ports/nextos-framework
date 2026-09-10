@@ -1,0 +1,30 @@
+# binario do loader (regeneravel via build.sh) e libs/dados BYO
+blossomtales
+*.so
+assets/
+libs/
+work/
+*.apk
+*.obb
+*.dll
+*.blob
+*.log
+!screenshots/
+bin/
+obj/
+smali/
+byo
+nxsplash-nextos
+shots/*.raw   # (a raiz ja barra ports/*/shots/ inteiro)
+
+# Fonte de terceiros baixada e compilada pelo build publico. Fica FORA do Git:
+# o que e' autoritativo aqui e' o pin (URL + versao + SHA-256) em
+# vendor/PINS.txt, conferido pelo build_buster.sh.
+vendor/fdk-aac-*.tar.gz
+vendor/fdk-aac-*/
+vendor/build/
+.build_inner.sh
+blossomtales-nextos
+blossomtales-nextos.dbg
+shots/
+nxextract/

@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "armhf"
+    ],
+    "min_glibc": "2.17",
+    "runtime": [],
+    "title": "Angry Birds Classic"
+  },
+  "items": [
+    "Angry Birds Classic.sh",
+    "angrybirds/"
+  ],
+  "items_opt": [],
+  "name": "angrybirds.zip",
+  "version": 4
+}

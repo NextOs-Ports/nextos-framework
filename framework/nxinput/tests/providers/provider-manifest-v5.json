@@ -1,0 +1,231 @@
+{
+ "manifest": "nxinput-provider-manifest/1",
+ "generated": "2026-09-03",
+ "rule": "A row pins BYTES to a TABLE. The table must be reproduced by an independent tool from a pinned source/patch (domain_source) and, where a device or host was available, measured by a uinput ordinal probe against the exact library (measured_by). CFW name, device name and GUID appear as evidence only; they never select a row.",
+ "domains": {
+  "sdl2-evdev": "upstream SDL2 Linux backend: buttons [BTN_JOYSTICK,KEY_MAX) then [0,BTN_JOYSTICK); axes [0,ABS_MAX) minus detected hat pairs",
+  "sdl2-ascending-patched": "Batocera/RetroArch patched SDL2: buttons [0,KEY_MAX) in one sweep; axes [0,ABS_MISC) minus detected hat pairs",
+  "sdl3-evdev": "upstream SDL3 Linux backend (measured equal to sdl2-evdev at the pinned 3.2.30)",
+  "undeclared": "bytes pinned, table NOT measured: UNKNOWN for rewrite"
+ },
+ "providers": [
+  {
+   "id": "pin-8c4dc956-sdl2-2.30.12",
+   "api": "sdl2",
+   "sha256": "8c4dc956e278546c96b06a6a7b0a2b8a1991e877e81e172fa1bed26a9ada453a",
+   "build_id": "none",
+   "soname": "libSDL2-2.0.so.0",
+   "file": "libSDL2-2.0.so.0.3000.12",
+   "version": "2.30.12",
+   "revision": "SDL-2.30.12-no-vcs",
+   "exports_bytable": true,
+   "domain": "sdl2-ascending-patched",
+   "domain_source": {
+    "kind": "source-patch-transcription",
+    "repo": "https://github.com/knulli-cfw/distribution",
+    "commit": "ab3a6809286b3cff1648fb8c96a0200bc869beb6",
+    "license": "GPL-2.0 (buildroot distribution patches); SDL zlib",
+    "patches": {
+     "sdl2_input_as_retroarch_udev.patch": "99f8cf82726e8ed1e7574546d3486f94208bc11c480ef03f16eaf4c004a0926e",
+     "sdl2_input_p007_udev_buttons.patch": "97960e50dd92536a08ac3313db0e695847ef9d66af982d51394b0a9e1095edad",
+     "sdl2_input_p005_limit_ABS_max.patch": "bcf434729ece856e11ac0a0fd22ff408041963c9bd7cb635ce1c8fc0a71877bd",
+     "sdl2_input_p003_extra_functions.patch": "bcb71437ee707e958d8af6da4593b59c810d76a00e58d2f30c6e5922f823a9cc",
+     "sdl2_input_p009_hat_definition.patch": "d46e0f420a575d1f5091ed069086dfde3f430ec9763b768bc51b69a4a8c8bc35"
+    }
+   },
+   "image": {
+    "name": "knulli-h700-rg-cubexx-gladiator-ii-20250813.img.gz",
+    "sha256": "87f886e02553387f0cf71ceecec2b3d9e472f2d1d4fa8e69e3435e8d01ea7175",
+    "origin": "official Knulli GitHub release 20250813 (sha256 verified again 2026-09-03 on re-download); only libSDL2, os-release and es_input.cfg were audited; nothing redistributed"
+   },
+   "measured_by": "receipts/probe-knulli-sdl2-2.30.12-on-aarch64.json (exact DSO executed on the aarch64 dArkOS device with the incident keyset: 0x11->b0 0x72->b1 0x73->b2 0x130->b3 ... ; SDL_JoystickButtonEventCodeById b3=0x130 b9=0x136 b10=0x137 agree with es_input.cfg ids)",
+   "claim": "PROVED_PROVIDER (table + composed harness session with the exact DSO on the authorized aarch64 device: receipts/../tests/v5/receipts/device-oracle-cfw20250813-dso-on-aarch64-blossom-knulli-cubexx.json, 21/21 byte-intact) / physical Knulli handheld PENDING (kit)",
+   "label": "Knulli 2.30.12 (RG CubeXX image 20250813)"
+  },
+  {
+   "id": "pin-40d0616f-sdl2-2.28.5-cfw2601",
+   "api": "sdl2",
+   "sha256": "40d0616f6b97d447f47e1e77c116d84bc4d3d7a5e33a50e2f4f472f9b250f46d",
+   "build_id": "none",
+   "soname": "libSDL2-2.0.so.0",
+   "file": "libSDL2-2.0.so.0.2800.5",
+   "version": "2.28.5",
+   "revision": "SDL-2.28.5-gd4a7d7503",
+   "exports_bytable": true,
+   "domain": "sdl2-ascending-patched",
+   "domain_source": {
+    "kind": "device-measurement",
+    "receipt": "receipts/probe-cfw2601-sdl2-2.28.5-on-aarch64.json",
+    "note": "muOS 2601.1 system SDL2 (/usr/lib/libSDL2-2.0.so.0.2800.5, aarch64, with debug_info): exports SDL_Joystick{Button,Axis,Hat}EventCodeById + DevicePathById (Batocera/RetroArch patch family). The EXACT DSO was executed on the authorized aarch64 device against a uinput clone with the incident keyset (0x11,0x72,0x73,0x130-0x13c): one ascending sweep 0x11->b0 0x72->b1 0x73->b2 0x130->b3 ... 0x13c->b15; ById agrees (b3=0x130 b9=0x136 b10=0x137). A 32-bit copy (/usr/lib32, sha256 4e95cde5...) exists in the same image and is pinned separately as UNDECLARED (not executed)."
+   },
+   "image": {
+    "name": "MustardOS_RG40XX-H_2601.1_FUNKY_JACARANDA-bc38efa0.img.gz",
+    "sha256": "b52c3b7c7d12549d606dcb06ef5e88dd1569112a5495f1e6914e9fdcbca6468a",
+    "origin": "official muOS release page (release/current/2601_1); only libSDL2, os-release, the device control tables (gamecontrollerdb modern/retro, Deeplay-keys.cfg) and the DTS were audited; nothing redistributed"
+   },
+   "cfw_tables": {
+    "modern": "19000000010000000100000000010000,muOS-Keys,a:b4,b:b3,x:b5,y:b6,leftshoulder:b7,rightshoulder:b8,lefttrigger:b13,righttrigger:b14,guide:b11,start:b10,back:b9,dpup:h0.1,dpleft:h0.8,dpright:h0.2,dpdown:h0.4,volumedown:b1,volumeup:b2,leftx:a0,lefty:a1,leftstick:b12,rightx:a2,righty:a3,rightstick:b15,platform:Linux,",
+    "retro": "19000000010000000100000000010000,muOS-Keys,a:b3,b:b4,x:b6,y:b5,leftshoulder:b7,rightshoulder:b8,lefttrigger:b13,righttrigger:b14,guide:b11,start:b10,back:b9,dpup:h0.1,dpleft:h0.8,dpright:h0.2,dpdown:h0.4,volumedown:b1,volumeup:b2,leftx:a0,lefty:a1,leftstick:b12,rightx:a2,righty:a3,rightstick:b15,platform:Linux,",
+    "note": "opt/muos/device/control/gamecontrollerdb/{modern,retro}.txt of the image: both are AUTHORED for this ascending provider (b3=0x130 south, b9=0x136 SELECT, b10=0x137 START). DTS gpio-keys: Key A=0x130, Key B=0x131, Key X=0x132, Key Y=0x133, L1=0x134, R1=0x135, Select=0x136, Start=0x137, Menu=0x138, L3=0x139, L2=0x13a, R2=0x13b, R3=0x13c, VolUp=0x73, VolDown=0x72."
+   },
+   "measured_by": "receipts/probe-cfw2601-sdl2-2.28.5-on-aarch64.json (2026-09-03, exact DSO executed on the authorized aarch64 device)",
+   "claim": "PROVED_PROVIDER (table) / physical profile on a muOS handheld PENDING (no muOS device authorized in this session)",
+   "label": "muOS 2601.1 (RG40XX-H image) 2.28.5 patched"
+  },
+  {
+   "id": "pin-4e95cde5-sdl2-2.28.5-cfw2601-arm32",
+   "api": "sdl2",
+   "sha256": "4e95cde522cc7d355e9e93dc3763b831f962ac37f6967a77500991e998606504",
+   "build_id": "none",
+   "soname": "libSDL2-2.0.so.0",
+   "file": "libSDL2-2.0.so.0.2800.5 (usr/lib32, ARM EABI5)",
+   "version": "2.28.5",
+   "revision": "SDL-2.28.5-gd4a7d7503",
+   "exports_bytable": null,
+   "domain": "undeclared",
+   "domain_source": {
+    "kind": "none",
+    "note": "32-bit copy in the same muOS image; bytes pinned, table NOT measured (no 32-bit executor on the authorized devices): UNKNOWN for rewrite."
+   },
+   "image": {
+    "name": "MustardOS_RG40XX-H_2601.1_FUNKY_JACARANDA-bc38efa0.img.gz",
+    "sha256": "b52c3b7c7d12549d606dcb06ef5e88dd1569112a5495f1e6914e9fdcbca6468a",
+    "origin": "official muOS release page (release/current/2601_1); only libSDL2, os-release, the device control tables (gamecontrollerdb modern/retro, Deeplay-keys.cfg) and the DTS were audited; nothing redistributed"
+   },
+   "claim": "UNPROVEN (bytes only)",
+   "label": "muOS 2601.1 32-bit SDL2"
+  },
+  {
+   "id": "pin-4fd539cd-sdl2-2.32.10",
+   "api": "sdl2",
+   "sha256": "4fd539cd0e2b2dc883beb8dedffa1f85212276b34e51b2a8bf98b4f8fd4f5cb4",
+   "build_id": "fafa5c9e7d32d68702b5ab77925d7e564a110bdb",
+   "soname": "libSDL2-2.0.so.0",
+   "file": "libSDL2-2.0.so.0.3200.10",
+   "version": "2.32.10",
+   "revision": "SDL-release-2.32.10-0-g5d2495703",
+   "exports_bytable": false,
+   "domain": "sdl2-evdev",
+   "domain_source": {
+    "kind": "upstream-tag",
+    "repo": "https://github.com/libsdl-org/SDL",
+    "tag": "release-2.32.10",
+    "file": "src/joystick/linux/SDL_sysjoystick.c",
+    "license": "zlib",
+    "pinned_in": "tests/sdl-source-pins.json (C6 gate)"
+   },
+   "measured_by": "receipts/probe-darkos-k36s-sdl2-2.32.10.json (K8, 2026-09-03, device .137 class dArkOS K36S): 0x130->b0, 0x72->b14",
+   "claim": "PROVED_PROVIDER",
+   "label": "dArkOS K36S upstream 2.32.10"
+  },
+  {
+   "id": "pin-5da9fd36-sdl2-2.32.70",
+   "api": "sdl2",
+   "sha256": "5da9fd36889d02cb7271ff525c329189d390a8da489a25cb58e219fcbb3bfb54",
+   "build_id": "host",
+   "soname": "libSDL2-2.0.so.0",
+   "version": "2.32.70",
+   "revision": "SDL-release-2.32.70-0-ga53b6ad",
+   "exports_bytable": false,
+   "domain": "sdl2-evdev",
+   "domain_source": {
+    "kind": "upstream-tag",
+    "repo": "https://github.com/libsdl-org/SDL",
+    "tag": "release-2.32.70",
+    "license": "zlib"
+   },
+   "measured_by": "receipts/probe-host-sdl2-2.32.70.json",
+   "claim": "PROVED_SOFTWARE_CONSISTENCY (host harness only)",
+   "label": "host Arch upstream 2.32.70"
+  },
+  {
+   "id": "pin-1ac99b5c-sdl2-fork",
+   "api": "sdl2",
+   "sha256": "1ac99b5cea2844c7faa20d043811e8409ccfb30724a7314222a555b45a1917b6",
+   "build_id": "none",
+   "soname": "libSDL2-2.0.so.0",
+   "file": "libSDL2-2.0.so.0.3200.71",
+   "revision": "SDL-nextos-milestone-20260716-126-g8e2ec58ddd",
+   "exports_bytable": false,
+   "domain": "sdl2-evdev",
+   "domain_source": {
+    "kind": "device-measurement",
+    "receipt": "receipts/probe-nextos-elite-4.9-sdl2-fork.json",
+    "note": "NextOS private fork: no source pin; the table was MEASURED in-process on the authorized device (uinput clone, 16 keys incl. 0x11/0x72/0x73): 0x130->b0, 0x72->b14 = upstream high-first. Absence of ById symbols was NOT the reason; the measurement was."
+   },
+   "measured_by": "receipts/probe-nextos-elite-4.9-sdl2-fork.json (K9, 2026-09-03, device .101 class NextOS Elite 4.9)",
+   "claim": "PROVED_PROVIDER (table measured on the device); physical profile of the USB pad 0810:0001 PENDING",
+   "version": "2.32.71",
+   "label": "NextOS Elite 4.9 private SDL2 fork"
+  },
+  {
+   "id": "pin-eceaf5f9-sdl3-3.5.0",
+   "api": "sdl3",
+   "sha256": "eceaf5f97ca778ccb86e0389153c9a0a333557c338183123dc05f63a73912fbf",
+   "build_id": "none",
+   "soname": "libSDL3.so.0",
+   "file": "libSDL3.so.0.5.0",
+   "revision": "SDL-3.5.0-mali-350-improvements-v1-691-g7e9b0b082",
+   "exports_bytable": false,
+   "domain": "undeclared",
+   "domain_source": {
+    "kind": "none"
+   },
+   "claim": "UNPROVEN_PROVIDER_DOMAIN",
+   "label": "NextOS Elite 4.9 SDL3 3.5.0"
+  }
+ ],
+ "physical_profiles": [
+  {
+   "id": "knulli-cubexx-dts",
+   "trust_root": "DTS gpio-keys-polled of image 87f886e0... (fdt_boot_package.fex_0.dts, node 'Anbernic RG CubeXX Controller')",
+   "ev_key": {
+    "face.south": "0x130",
+    "face.east": "0x131",
+    "face.west": "0x132",
+    "face.north": "0x133",
+    "l1": "0x134",
+    "r1": "0x135",
+    "select": "0x136",
+    "start": "0x137",
+    "guide": "0x138",
+    "l3": "0x139",
+    "l2": "0x13a",
+    "r2": "0x13b",
+    "r3": "0x13c",
+    "volume.up": "0x73",
+    "volume.down": "0x72"
+   },
+   "hat": {
+    "dpad": "ABS_HAT0X/ABS_HAT0Y"
+   },
+   "legend_note": "DTS labels x=0x132,y=0x133; es_input.cfg y=0x132,x=0x133"
+  }
+ ],
+ "builtin_databases": [
+  {
+   "file": "builtin-gamecontrollerdb-sdl2-2.32.10-linux.txt",
+   "origin": "SDL release-2.32.10 src/joystick/SDL_gamecontrollerdb.h (zlib), Linux lines",
+   "use": "V5 device oracle last resort (--builtin-db) for providers whose DSO does not expose the database as plain strings; the pinned NextOS fork derives from the 2.32 line (SDL_GetVersion 2.32.71)"
+  }
+ ],
+ "static_sources": [
+  {
+   "id": "pin-static-sdl3-3.2.30-nxc6-seam",
+   "api": "sdl3",
+   "domain": "sdl3-evdev",
+   "method": "declared-static-source",
+   "source": {
+    "repo": "https://github.com/libsdl-org/SDL",
+    "commit": "f5e5f6588921eed3d7d048ce43d9eb1ff0da0ffc",
+    "tarball_sha256": "7f80bce51b7179bab472e75b90ce8ac06b162b3da8e19feadecee5acea07dbfb",
+    "seam_patch": "engine-patches/sdl3-3.2.30-nxc6-seam.patch",
+    "seam_patch_sha256": "25023f6c1dd1e91987224e689d1f6a57b33e723f60ef3ed5504661d2f6954692",
+    "license": "zlib"
+   },
+   "table": "upstream SDL3 Linux evdev backend at 3.2.30 (measured equal to sdl2-evdev high-first; see providers pin-eceaf5f9 note and tests/sdl-source-pins.json)",
+   "consumer": "Godot 4.6.1 engine with SDL3 built in (Tearscape 0.2.17); the engine declares it via nxc6_declare_static_provider before SDL init",
+   "claim": "PROVED_SOFTWARE_CONSISTENCY (source pinned; table by upstream backend); physical profile per device as for any provider"
+  }
+ ]
+}

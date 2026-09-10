@@ -1,0 +1,27 @@
+# BYO game data — nunca versionado
+bin/
+userdata/
+*.apk
+*.obb
+*.unity3d
+*.resource
+libunity.so
+libil2cpp.so
+libmain.so
+*.so
+
+!nxextract.py
+!nxextract-ui
+# artefatos de build e capturas de bring-up
+oceanhorn
+oceanhorn-universal
+package/dist/
+*.log
+*.raw
+*.tar.gz
+
+# Bytecode Python (gerado por py_compile/execucao local)
+__pycache__/
+*.pyc
+oceanhorn-nextos
+.build/

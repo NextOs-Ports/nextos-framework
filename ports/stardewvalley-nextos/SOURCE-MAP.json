@@ -1,0 +1,356 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/NextOs-Ports/stardewvalley-nextos",
+  "observed_commit": "7ac80b7648dca62f33594becef74d6d4d89f3b36",
+  "selection": "source-reference-snapshot; not a rebuilt release",
+  "games": [
+    "Stardew Valley"
+  ],
+  "platform": "Android",
+  "framework_migration_performed": false,
+  "github_license_detection": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "nickname": "GNU GPLv3"
+  },
+  "license_review": "Preserve per-file licenses; complete publication review pending.",
+  "public_release_review_pending": true,
+  "included": [
+    {
+      "path": ".gitignore",
+      "mode": "0o644",
+      "upstream_blob": "9ed41a651ef34987bb50cb705753c25d595aff23",
+      "sha256": "9c592cd2892c4942135d93b2282e39292f6c9bbd2e626cbd5568f7d3899a9959"
+    },
+    {
+      "path": "HANDOFF.md",
+      "mode": "0o644",
+      "upstream_blob": "6d9ece21b669146b40bdc9d030ad806a5426a5e7",
+      "sha256": "e97e3cccbbbafc4497c780ea6185014ebb0f59e9833d484b65a92917f86edf43"
+    },
+    {
+      "path": "INSTALAR.md",
+      "mode": "0o644",
+      "upstream_blob": "e54b1f80c6fecafda901c9dc41d6f911f23dbdbb",
+      "sha256": "43b0729b494642879fe6254d58d72b2edc241a34f77508eadf44a1d227c2b512"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "0o644",
+      "upstream_blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "LZ4-PROVENANCE.md",
+      "mode": "0o644",
+      "upstream_blob": "3f03c8949aab0619ff835bba5a1aca7dbe59037f",
+      "sha256": "ffe4800e5eeb7d375cbc478e232ccb0b3c66552d02bac59c2ceec72505b6a1c5"
+    },
+    {
+      "path": "README.md",
+      "mode": "0o644",
+      "upstream_blob": "897d71ae66bb3b2380397642c9f7436657c931c1",
+      "sha256": "7ad68ebdb76b47616fcf20debc0ea61e8f382a71d45aad410993fb15ee0b2cfe"
+    },
+    {
+      "path": "arkos/Stardew Valley (NextOS).sh",
+      "mode": "0o755",
+      "upstream_blob": "79789c70fa83f4abb51b363c5f777c1d42c0dbb6",
+      "sha256": "a6e2b6d742a94b356589ca45cf142e0de430532125c3a5e4505b9ce00dd1f0c7"
+    },
+    {
+      "path": "arkos/alsoft.conf",
+      "mode": "0o644",
+      "upstream_blob": "31afcb0a581c5b4ae8a3cebcaf0d8e598707d5f4",
+      "sha256": "31a5d488f77f0e2231d618280fae9b6e9948137c2ea0162b5e626ddd2342a890"
+    },
+    {
+      "path": "arkos/sdv_test.sh",
+      "mode": "0o644",
+      "upstream_blob": "9f0c42052107c5371b4b1392c674b42eef6f9ce4",
+      "sha256": "ab2b23ad64f841d8318da1898ef37264a2b38ee030cc4c3f52ef9de3d0c5277c"
+    },
+    {
+      "path": "build.sh",
+      "mode": "0o644",
+      "upstream_blob": "995ccd19507d4ba861a2098345b1881a9cb53e0c",
+      "sha256": "42bd320a94a2b187da7564fac1c8f50457a9d04c51362768ca178c091ab61839"
+    },
+    {
+      "path": "build_buster.sh",
+      "mode": "0o755",
+      "upstream_blob": "358e496397351d893d9ee804af42e2daf613b8d4",
+      "sha256": "94ef987459b60202e7c45906273dcd2e26774e35b0974090061c7cea6ded5d78"
+    },
+    {
+      "path": "buster_compat.h",
+      "mode": "0o644",
+      "upstream_blob": "1eea0cd7ba17c569fbdd3115efce35b034c50cfd",
+      "sha256": "a8932307163df77958a9c07a362da7a649df334f41c9064fb6de9d20eb08b82e"
+    },
+    {
+      "path": "extractor.json",
+      "mode": "0o644",
+      "upstream_blob": "7de4fe6dbc244e969857f969629b283aa4675bbc",
+      "sha256": "921494e1641c4dff2e8fdec4812368d722d69726ce6a845eeb3046e4f26ddf22"
+    },
+    {
+      "path": "licenses/LZ4-BSD-2-Clause.txt",
+      "mode": "0o644",
+      "upstream_blob": "d8c82af7fa25c3f1ff3f69ebe8d07d61d520caed",
+      "sha256": "2dfe2f2b8b93ca5d53f2af10104b5881c6b5648636fe746a81230da9cf807335"
+    },
+    {
+      "path": "licenses/NXExtract-MIT.txt",
+      "mode": "0o644",
+      "upstream_blob": "7eeafc7738119b83edd01ca06447e8825ef4b6a9",
+      "sha256": "74d7d9d40e27fbfe23cb462f9608fa07cbe53ffb0b88a0da9e85dda240c2c788"
+    },
+    {
+      "path": "nxextract-runtime-env.sh",
+      "mode": "0o755",
+      "upstream_blob": "c60abbdad4ff7934d0f024aa573419bad61c2d07",
+      "sha256": "79205f458c39dc1502d6ae314fcf439e27fc5dc4631e016f1cd40c310dd116ce"
+    },
+    {
+      "path": "nxextract.py",
+      "mode": "0o755",
+      "upstream_blob": "457fd54aea3d649921299b4836ba593de7a0367d",
+      "sha256": "93c7ce0432f7f4e065155336eaec090c5e12d4dc4dec66a2883c1a5d668065a1"
+    },
+    {
+      "path": "package/LEIA-ME.md",
+      "mode": "0o644",
+      "upstream_blob": "0d7d2c2f41d6b4fcbb8614042b6aba9ffbdbeafe",
+      "sha256": "961f24016c9420b4d6a390cd959aa4492fff4070dc8480a891e4e2db36a656c2"
+    },
+    {
+      "path": "package/package-files.txt",
+      "mode": "0o644",
+      "upstream_blob": "05c3815fc40aff5b35e2f16d9237da67c4e068da",
+      "sha256": "9e224dfa02383cae7757dbc198e46668ba7c03922e36de8e7b33147c88c38b41"
+    },
+    {
+      "path": "run-extractor.sh",
+      "mode": "0o755",
+      "upstream_blob": "09ae3056346cf98ab6d5ee65d0835bdc1e08eab8",
+      "sha256": "cab440bad274db26fe558abbcbddd539992045629f34ab7d1c4746244f8b063e"
+    },
+    {
+      "path": "run.sh",
+      "mode": "0o755",
+      "upstream_blob": "0f1aed51ed26c41b8a48f6f4e9d339281047375b",
+      "sha256": "45f15b86cff6470af931b5486e0dcfa83b49d1b39ca054082d0775b060b46919"
+    },
+    {
+      "path": "src/android_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "ddc1b80af1014d33eaf385a0ff204a05cd02c8b6",
+      "sha256": "134371db623b4e6086733955dc7aa8c9652d64d4b2cf4c4d644c0c535a09607e"
+    },
+    {
+      "path": "src/android_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "8fa2ff35eb7726b69a37a3809fe0a7c304fd225b",
+      "sha256": "b702e9f54a78088259bd04eec4616e4639b43742faa26ff57f536cdeac71b170"
+    },
+    {
+      "path": "src/bionic_shims.c",
+      "mode": "0o644",
+      "upstream_blob": "aace4ae6c8f1d6efd416be8e40d37a384a802599",
+      "sha256": "308284a030558fc2211d27188e4442c551589d5598edc920989052f5c33d536e"
+    },
+    {
+      "path": "src/egl_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "74e6ca80baafe41556e440a38552304e590f047e",
+      "sha256": "62f6fad025b808173a7512610886a9735845906e10c1a40867ee8c0c6a3da56c"
+    },
+    {
+      "path": "src/egl_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "0e530fa062f727d9f3ee8733918c942627174147",
+      "sha256": "21b531dcdb2a1508f6a649556a15d8f5c73c23028c5fd6f259a2fdf168d142d4"
+    },
+    {
+      "path": "src/error.c",
+      "mode": "0o644",
+      "upstream_blob": "657acd34d8b35050e31bdb0301518fbf0fda09db",
+      "sha256": "1bc4ccd363c0e181cd3854501fde61117b8efb887b65986510c4e50336691e2d"
+    },
+    {
+      "path": "src/error.h",
+      "mode": "0o644",
+      "upstream_blob": "f7030977c14ec8d62e53ed71cd277cd04a95cbf2",
+      "sha256": "8e3787cf76c976577f81bfe0719cb64d028389838d1a21f3dbd0dc2a79b3bc42"
+    },
+    {
+      "path": "src/imports.gen.c",
+      "mode": "0o644",
+      "upstream_blob": "7bf4ddf8088583303163076dab9db2654d30e262",
+      "sha256": "e8e69fa562ace41d4d8df43aa5b9238127e6c0b50705eb74f8f0d7ad5a27cbce"
+    },
+    {
+      "path": "src/imports.h",
+      "mode": "0o644",
+      "upstream_blob": "ee7e1400b0b26678d32e35789b7543e9e2661e90",
+      "sha256": "f9317c4e496f00c657bd552ebeaa1f7bf3c5c55c4d2bf8673f2371fd2ce3bfa6"
+    },
+    {
+      "path": "src/jni_shim.c",
+      "mode": "0o644",
+      "upstream_blob": "cfb05926e07e9b2ff17b28821d68c823e12e4aaf",
+      "sha256": "4658d96b34b0b7749b44969f59fcddc0a25f6aa81b42f55b44216ce7eb94590d"
+    },
+    {
+      "path": "src/jni_shim.h",
+      "mode": "0o644",
+      "upstream_blob": "57cfeadaf3739ae68e26e959d9a7e6f7abec552f",
+      "sha256": "6493215db87735cd1c9681f91ec0c948a18767a1448a7d17b8cdf60804f3ee82"
+    },
+    {
+      "path": "src/main.c",
+      "mode": "0o644",
+      "upstream_blob": "48c411f0695c43a7f194cece1d4279b4e1f98231",
+      "sha256": "5ed01ec34ef73dc6635f2cdf21a483073e505721031ba2aa86d168549ab24d7a"
+    },
+    {
+      "path": "src/nx_jni.c",
+      "mode": "0o644",
+      "upstream_blob": "792890213f3acd7a59e8484fd6ae3827c4547a31",
+      "sha256": "51023496ddf8edbbc1bd47dc93e8c692f4d5029a6b9985b71ded358aa8d638ae"
+    },
+    {
+      "path": "src/nx_jni.h",
+      "mode": "0o644",
+      "upstream_blob": "79ca173837cdd7da8e2b9cbfb61000c7cddd687a",
+      "sha256": "de030e2c1232519658ee7a04a17be87e7b385f01a19d39f2863264f49f2872d9"
+    },
+    {
+      "path": "src/pthread_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "0d301350ccb26ecd7868c29111cd4eb356f87e5f",
+      "sha256": "45ff0fd13a354f27eca262a65d62be2802c9edfb2841a1c2c418a17dd4b663aa"
+    },
+    {
+      "path": "src/sdv_egl_bridge.c",
+      "mode": "0o644",
+      "upstream_blob": "73c9db08324b48000fe472b726068fbc224b45e8",
+      "sha256": "ca6727c6f27c7c36a9d36baaf59a2d3a1b0f33593faa5f1fbdf634f5ff839a92"
+    },
+    {
+      "path": "src/sdv_egl_bridge.h",
+      "mode": "0o644",
+      "upstream_blob": "115505857507cfd7e5eeda1d959e23aef9632966",
+      "sha256": "a6ee50128775c3f962e69c53b0b04e7bfc249a05c473d1865946722cd6af145f"
+    },
+    {
+      "path": "src/sdv_monogame_gl_policy.h",
+      "mode": "0o644",
+      "upstream_blob": "2ea2ce439e2953c6cb1149cc14beb828edb2104f",
+      "sha256": "686348c62559381036f70d8a421028e43852a4c79bd87ad0aa9d8e2a187d564b"
+    },
+    {
+      "path": "src/so_util.c",
+      "mode": "0o644",
+      "upstream_blob": "1c74f8e1b95714a2d749bc5366e61657a58a83cd",
+      "sha256": "e4b4f78f54a3a6612f6a5d67258ee964dc858ff1142c6bf728606c47b9b7fdde"
+    },
+    {
+      "path": "src/so_util.h",
+      "mode": "0o644",
+      "upstream_blob": "1c0da3886454ede6578ff551c5e0574389b4040b",
+      "sha256": "912bddeaca0bfbd5c3791b294334cbfa57a059f4636e84fc07ee1e19e1933dec"
+    },
+    {
+      "path": "src/util.c",
+      "mode": "0o644",
+      "upstream_blob": "d1bbcdb246d6f03e00fdf3d934a27e3e5cc60bae",
+      "sha256": "8f3f778f84b974846e1af3de7f5d4540067512789d60666515b17caebe740bc9"
+    },
+    {
+      "path": "src/util.h",
+      "mode": "0o644",
+      "upstream_blob": "287fa816c9ef6282612a59c9b6082b63516d6d85",
+      "sha256": "59ec9c41d8f25d278345422eb3137b878b629e3c9a3258b1e9ac7036fb202611"
+    },
+    {
+      "path": "tests/launcher_permissions_test.sh",
+      "mode": "0o755",
+      "upstream_blob": "2181ad78966a066b275af78e31b8cbe2df6d0fd2",
+      "sha256": "1e1c5c365154f3790a353b1a35c0c8868c085f4708f548855b4d2baacafd4d0a"
+    },
+    {
+      "path": "tests/launcher_wrapper_test.sh",
+      "mode": "0o755",
+      "upstream_blob": "e1f3b112b5c10263e34a66485430861030cc0d68",
+      "sha256": "9873dfc2361560583cf0d3075a72eac85866b7bd406ce619230af73358dcfe71"
+    },
+    {
+      "path": "tests/monogame_gl_policy_test.c",
+      "mode": "0o644",
+      "upstream_blob": "3c9183f66046ee76d68a9059c7879e6af0fffabf",
+      "sha256": "613aaa38ad97f17378b805ff0fb8edcedec80f278c7a0ce607c70e191ca85724"
+    },
+    {
+      "path": "tests/run.sh",
+      "mode": "0o755",
+      "upstream_blob": "7588036c7b30880ed85947f1d6ddf6d2764f4285",
+      "sha256": "9e7505d221404e18c8b805907bb0de8d429defd2f8ca47699a8697cd43f2cf2c"
+    },
+    {
+      "path": "tests/runtime_environment_test.sh",
+      "mode": "0o644",
+      "upstream_blob": "8b185e553bacc002c9cb079dd4e2567ae21140de",
+      "sha256": "5201ef794ed4245c710efdd80016ab526dd006af1bce94568e59cc4a15b835b6"
+    },
+    {
+      "path": "tools/PatchMonoGameAudio.cs",
+      "mode": "0o644",
+      "upstream_blob": "b32dea58c6b5c4d185db9579afe7747cb3c92c3e",
+      "sha256": "bb38e3a8ecc781fac5a4debb945d2304648b45214559cfc1812fb1bdb60fd78f"
+    },
+    {
+      "path": "tools/PatchStardewOsk.cs",
+      "mode": "0o644",
+      "upstream_blob": "ab00826c942cab8ba1ee3a4b2773f373e8ce8637",
+      "sha256": "7388cc3b4d5b532fe544fc3be7228b717cce7f07eff31d978a2da8cdafe1df2f"
+    },
+    {
+      "path": "tools/build_provenance.py",
+      "mode": "0o755",
+      "upstream_blob": "e2c53be044874c6245d252573cea3b179f79c23c",
+      "sha256": "9688e57bfb8fdcfdbe17be27cb4aab046ce68b6d6644b476b1c221d7755bc014"
+    },
+    {
+      "path": "tools/prepare_stardew_data.py",
+      "mode": "0o755",
+      "upstream_blob": "633b35e49352f13ab975696d3a1059ee3cb23068",
+      "sha256": "c71e2ee556486b75f97dddcd88dbf89fb072de9f432a85498ef0e529ebe92bdc"
+    },
+    {
+      "path": "tools/replace_xaba_entry.py",
+      "mode": "0o755",
+      "upstream_blob": "c7f82bbe332d6520076308523d9086c66352e0ed",
+      "sha256": "ef8ab98181c032b8421354daeea78b9dc714001a5c916122f174749ffbf510fe"
+    },
+    {
+      "path": "tools/stardew_extract.sh",
+      "mode": "0o644",
+      "upstream_blob": "945e7033cf9c896d44402ae9e34c300533a47ad9",
+      "sha256": "fc920ecef58df2443ebc1a8165e8b7c6b01a33d323028367c88e4b48fe39fdbe"
+    },
+    {
+      "path": "version.txt",
+      "mode": "0o644",
+      "upstream_blob": "18efdb9ae67a363598be48f21356657f831557a5",
+      "sha256": "333d89aa068c7ab9eb7fe7ba55387e02b26fafdcfa06b62d2e45e3d0a43c3b9a"
+    }
+  ],
+  "omitted_selected_files": [
+    {
+      "path_sha256": "a324d1b5070434aefadbb798607f25484a8ec182cd2708358440503ed4aeb07e",
+      "reason": "privacy-review-required; upstream unchanged"
+    }
+  ]
+}

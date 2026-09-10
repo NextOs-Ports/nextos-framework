@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.local/schemas/nxsplash-release-v1.json",
+  "title": "nxsplash immutable release manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "component", "version", "duration_ms", "source_sha256", "toolchain", "artifacts"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "component": {"const": "nxsplash"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "duration_ms": {"const": 5000},
+    "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "archive_sha256"],
+      "properties": {
+        "name": {"const": "zig"},
+        "version": {"const": "0.16.0"},
+        "archive_sha256": {"const": "70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00"}
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aarch64", "armv7", "x86_64", "i386"],
+      "properties": {
+        "aarch64": {"$ref": "#/$defs/artifact"},
+        "armv7": {"$ref": "#/$defs/artifact"},
+        "x86_64": {"$ref": "#/$defs/artifact"},
+        "i386": {"$ref": "#/$defs/artifact"}
+      }
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size", "mode", "glibc_max"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^release/(aarch64|armv7|x86_64|i386)/nxsplash-nextos$"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "size": {"type": "integer", "minimum": 1},
+        "mode": {"const": "0755"},
+        "glibc_max": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+$"}
+      }
+    }
+  }
+}

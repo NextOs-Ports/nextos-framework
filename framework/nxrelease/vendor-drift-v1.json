@@ -1,0 +1,17 @@
+{
+  "schema": "nxrelease-vendor-drift/1",
+  "why": "Estado MEDIDO do vendor dos pilotos no momento em que o gate de vendor byte a byte nasceu (auditoria de 03/09, item E3/d). Cada arquivo aqui e uma copia do framework que ficou para tras do pin declarado no FRAMEWORK-PIN.json do port. Zerar uma entrada exige revendorizar o port e atualizar este registro no mesmo commit: e por isso que o registro existe, para que a divida seja visivel e so saia por ato deliberado, nunca por acidente. 0.4.3 (revisao 2, F5): a medida passou a ser contra a ARVORE DO COMMIT que o FRAMEWORK-PIN.json declara (git), nao contra o checkout; o FP2 revendorizado zerou; Nameless Cat e Blossom carregam a divida ate a M3.",
+  "recorded": "2026-09-04 (remedido: Nameless Cat 1.2.8 revendorizou nxinput 0.11.8 no pin 73ad79bd; resta o adaptador nxgl local — ELF aprovado ao vivo, revendor do nxgl fica para a próxima revisão)",
+  "ports": {
+    "blossomtales": [
+      "nxinput/engine-glue/nxc6_glue.c",
+      "nxinput/engine-glue/nxc6_glue.h",
+      "nxinput/include/nxinput_provider.h",
+      "nxinput/src/nxinput_provider.c"
+    ],
+    "namelesscat": [
+      "nxgl/adapters/nxgl_frame_proof_adapter.c",
+      "nxgl/adapters/nxgl_frame_proof_adapter.h"
+    ]
+  }
+}

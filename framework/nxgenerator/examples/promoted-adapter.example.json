@@ -1,0 +1,36 @@
+{
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "implemented_release",
+  "release_ready": true,
+  "lifecycle": {"sequence": ["JNI_OnLoad"], "source_evidence": ["src/main.c"]},
+  "jni": {"classes": [], "methods": [], "callbacks": []},
+  "imports": [],
+  "audio": {"format": "example", "callbacks": []},
+  "input": {
+    "mapping": "gptk",
+    "touch": null,
+    "actions": [
+      {"id": "example.accept", "kind": "button", "sinks": ["adapter.menu.accept"]},
+      {"id": "example.back", "kind": "button", "sinks": ["adapter.menu.back"]},
+      {"id": "example.drive", "kind": "vector", "sinks": ["adapter.game.drive"]},
+      {"id": "example.pause", "kind": "button", "sinks": ["adapter.game.pause"]}
+    ],
+    "contexts": {
+      "menu": {"A": "example.accept", "B": "example.back"},
+      "gameplay": {"LEFT_STICK": "example.drive", "START": "example.pause"}
+    },
+    "mapping_authority": "gptk-single-authority"
+  },
+  "language_access": {
+    "mode": "adapter",
+    "supported": ["en", "pt-BR"],
+    "fallback": "en",
+    "sinks": ["unity-i2loc"]
+  },
+  "graphics": {"uses_gl": false},
+  "persistence": {"paths": [], "callbacks": []},
+  "terminal": {"action": null, "evidence": []},
+  "quirks": [],
+  "prohibitions": []
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Geometry Dash SubZero.sh</path>
+    <name>Geometry Dash SubZero</name>
+    <desc>Geometry Dash SubZero: rhythm-based auto-runner platforming, run natively from the owner's copy.</desc>
+    <developer>RobTop Games</developer>
+    <publisher>RobTop Games</publisher>
+    <genre>Rhythm, Platformer</genre>
+  </game>
+</gameList>

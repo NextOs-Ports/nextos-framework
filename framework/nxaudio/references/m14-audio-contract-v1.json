@@ -1,0 +1,374 @@
+{
+  "schema_version": 1,
+  "contract": "nxaudio-m14-v1",
+  "component_version": "0.4.0",
+  "parent_integrated_component_version": "0.3.1",
+  "owner_reseal": {
+    "scope": "nxaudio-0.4.0-runtime-attestation",
+    "runtime_api_version": 2,
+    "integration_status": "OWNER_READY_NOT_INTEGRATED",
+    "evidence_class": "FIXTURE",
+    "physical_device_evidence_in_this_change": false,
+    "legacy_api_version_preserved": 1,
+    "legacy_public_layouts_preserved": true
+  },
+  "closure": {
+    "requirements": 20,
+    "completed": 20,
+    "master_complete": true,
+    "host_gate_closed": true,
+    "physical_device_evidence_in_m14_run": false,
+    "imported_approved_physical_evidence": true
+  },
+  "stacks": [
+    {
+      "id": "sdl2",
+      "contract": "nxcompat-sdl2-audio-v2",
+      "policy": "inherited_then_one_autodetect_real_open"
+    },
+    {
+      "id": "opensl-es",
+      "contract": "tasm2-opensl-sdl-v1",
+      "policy": "exact_adapter"
+    },
+    {
+      "id": "opensl-es",
+      "contract": "castle-opensl-sdl-v1",
+      "policy": "exact_adapter"
+    },
+    {
+      "id": "aaudio",
+      "contract": null,
+      "policy": "fail_closed_until_guest_proven"
+    },
+    {
+      "id": "openal",
+      "contract": "bully2-openal-v1",
+      "policy": "firmware_provider_only"
+    },
+    {
+      "id": "fmod",
+      "contract": "horizon-fmod-sdl-v1",
+      "policy": "exact_adapter"
+    },
+    {
+      "id": "fmod-ex",
+      "contract": "castle-fmodex-v1",
+      "policy": "exact_adapter"
+    },
+    {
+      "id": "fmod-ex",
+      "contract": "titansouls-fmodex-opensl-sdl-v1",
+      "policy": "exact_guest_fmodex_opensl_sdl_no_external_provider"
+    },
+    {
+      "id": "fmod-ex",
+      "contract": "titansouls-fmodex-opensl-sdl-v2",
+      "policy": "v1_boundary_plus_fail_closed_one_retry_backend_plan_and_exact_fmodex_4_44_17_recovery"
+    },
+    {
+      "id": "wwise",
+      "contract": "sor4-wwise-openal-glibc230-v1",
+      "policy": "canonical_recipe_only"
+    }
+  ],
+  "source_scoped_additions": [
+    {
+      "version": "0.1.1",
+      "contract": "titansouls-fmodex-opensl-sdl-v1",
+      "stack": "fmod-ex",
+      "boundary": "android_guest_fmodex_to_exact_opensl_buffer_queue_adapter_to_real_sdl_device",
+      "external_provider_forbidden": true,
+      "physical_device_evidence_in_this_change": false,
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:32",
+        "framework/nxaudio/tests/test_nxaudio.c:285",
+        "framework/nxaudio/README.md:63",
+        "ports/titansouls/adapter/adapter-contract.json:10",
+        "ports/titansouls/build_universal.sh:191",
+        "ports/titansouls/build_universal.sh:257",
+        "ports/titansouls/src/imports.c:201",
+        "ports/titansouls/src/imports.c:215",
+        "ports/titansouls/src/framework_bridge.c:149",
+        "ports/titansouls/src/framework_bridge.c:424",
+        "ports/titansouls/src/opensles_shim.c:541",
+        "ports/titansouls/src/opensles_shim.c:615",
+        "ports/titansouls/src/opensles_shim.c:914",
+        "ports/titansouls/src/opensles_shim.c:1000"
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "contract": "titansouls-fmodex-opensl-sdl-v2",
+      "stack": "fmod-ex",
+      "boundary": "v1_guest_fmodex_opensl_sdl_boundary_plus_adapter_owned_bounded_recovery",
+      "api_version": 1,
+      "api_change": "additive_existing_layouts_entry_points_and_numeric_values_preserved",
+      "retry_policy": "fail_closed_real_failure_only_explicit_backend_preserved_compiled_available_nonfake_different_fallback_retry_count_zero",
+      "exact_guest_fmodex_version": "4.44.17",
+      "external_provider_forbidden": true,
+      "physical_device_target": "ROCKNIX",
+      "physical_device_evidence_in_this_change": false,
+      "evidence": [
+        "framework/contracts/declarative-v1.json:87",
+        "framework/nxaudio/include/nxaudio.h:12",
+        "framework/nxaudio/include/nxaudio.h:137",
+        "framework/nxaudio/src/nxaudio.c:34",
+        "framework/nxaudio/src/nxaudio.c:342",
+        "framework/nxaudio/tests/test_nxaudio.c:153",
+        "framework/nxaudio/tests/test_nxaudio.c:289",
+        "framework/nxaudio/README.md:25",
+        "framework/nxaudio/README.md:64",
+        "framework/nxaudio/README.md:72",
+        "ports/titansouls/adapter/adapter-contract.json:9",
+        "ports/titansouls/build_universal.sh:191",
+        "ports/titansouls/src/framework_bridge.c:15",
+        "ports/titansouls/src/main.c:317",
+        "ports/titansouls/src/main.c:334",
+        "ports/titansouls/src/audio_recovery_policy.c:8",
+        "ports/titansouls/src/audio_recovery_policy.c:16",
+        "ports/titansouls/src/audio_recovery_policy.h:4",
+        "ports/titansouls/tests/test_audio_recovery_policy.c:5",
+        "ports/titansouls/src/opensles_shim.c:571"
+      ]
+    }
+  ],
+  "approved_physical_evidence": [
+    {
+      "port": "horizonchase",
+      "refs": [
+        "ports/horizonchase/README.md:25",
+        "ports/horizonchase/README.md:115"
+      ]
+    },
+    {
+      "port": "asm2_127",
+      "refs": [
+        "ports/asm2_127/README.md:34",
+        "ports/asm2_127/README.md:201",
+        "ports/asm2_127/README.md:214"
+      ]
+    },
+    {
+      "port": "sor4",
+      "refs": [
+        "ports/sor4/README.md:21",
+        "ports/sor4/COMMUNITY-TEST-SUMMARY.md:8"
+      ]
+    },
+    {
+      "port": "castleofillusion",
+      "refs": [
+        "ports/castleofillusion/README.md:41",
+        "ports/castleofillusion/README.md:55",
+        "ports/castleofillusion/README.md:59"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "M14-001",
+      "status": "verified",
+      "evidence": [
+        "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.h:25",
+        "framework/nxcompat/tests/test_sdl2_adapter.c:122"
+      ]
+    },
+    {
+      "id": "M14-002",
+      "status": "verified",
+      "evidence": [
+        "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.c:54",
+        "framework/nxaudio/tests/test_nxaudio.c:116"
+      ]
+    },
+    {
+      "id": "M14-003",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:318",
+        "framework/nxaudio/tests/test_nxaudio.c:123"
+      ]
+    },
+    {
+      "id": "M14-004",
+      "status": "verified",
+      "evidence": [
+        "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.c:97",
+        "framework/nxcompat/tests/test_sdl2_adapter.c:124"
+      ]
+    },
+    {
+      "id": "M14-005",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:400",
+        "framework/nxaudio/tests/test_nxaudio.c:216"
+      ]
+    },
+    {
+      "id": "M14-006",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/include/nxaudio.h:55",
+        "framework/nxaudio/tests/test_nxaudio.c:79"
+      ]
+    },
+    {
+      "id": "M14-007",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:26",
+        "ports/asm2_127/README.md:87",
+        "ports/castleofillusion/README.md:55"
+      ]
+    },
+    {
+      "id": "M14-008",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:461",
+        "framework/nxaudio/tests/test_nxaudio.c:273"
+      ]
+    },
+    {
+      "id": "M14-009",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:29",
+        "framework/nxaudio/tests/test_nxaudio.c:277"
+      ]
+    },
+    {
+      "id": "M14-010",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:30",
+        "ports/horizonchase/README.md:115",
+        "ports/castleofillusion/README.md:55"
+      ]
+    },
+    {
+      "id": "M14-011",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:32",
+        "ports/sor4/README.md:77",
+        "ports/sor4/COMMUNITY-TEST-SUMMARY.md:9"
+      ]
+    },
+    {
+      "id": "M14-012",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/include/nxaudio.h:98",
+        "framework/nxaudio/src/nxaudio.c:199",
+        "ports/asm2_127/README.md:87"
+      ]
+    },
+    {
+      "id": "M14-013",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/include/nxaudio.h:99",
+        "framework/nxaudio/src/nxaudio.c:163"
+      ]
+    },
+    {
+      "id": "M14-014",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/tests/test_nxaudio.c:60",
+        "framework/nxaudio/tests/test_nxaudio.c:69"
+      ]
+    },
+    {
+      "id": "M14-015",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:271",
+        "framework/nxcompat/tests/test_sdl2_adapter.c:130",
+        "ports/castleofillusion/README.md:59"
+      ]
+    },
+    {
+      "id": "M14-016",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/src/nxaudio.c:477",
+        "framework/nxaudio/tests/test_nxaudio.c:324",
+        "ports/asm2_127/README.md:201",
+        "ports/sor4/COMMUNITY-TEST-SUMMARY.md:8"
+      ]
+    },
+    {
+      "id": "M14-017",
+      "status": "verified",
+      "evidence": [
+        "ports/horizonchase/README.md:25",
+        "ports/asm2_127/README.md:34",
+        "ports/sor4/README.md:21",
+        "ports/castleofillusion/README.md:41"
+      ]
+    },
+    {
+      "id": "M14-018",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/README.md:55",
+        "framework/nxaudio/references/m14-audio-contract-v1.json:13"
+      ]
+    },
+    {
+      "id": "M14-019",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/README.md:40",
+        "framework/nxaudio/src/nxaudio.c:497"
+      ]
+    },
+    {
+      "id": "M14-020",
+      "status": "verified",
+      "evidence": [
+        "framework/nxaudio/tests/run-host.sh:1",
+        "framework/nxaudio/tests/test_m14_audio_contract.py:1"
+      ]
+    }
+  ],
+  "evidence_pins": {
+    "framework/contracts/declarative-v1.json": "586ad707fe32b3e5aa75e5def26c2f61cc71f3c35307aee0bace2bd575ea661f",
+    "framework/nxaudio/CHANGELOG.md": "4477e994f4ed33472d977eaa1f6f9c9d26c78c29e5475eb5e7e6177a7f280cfd",
+    "framework/nxaudio/CMakeLists.txt": "b8c5ff5dd3b67573140320c7c8574356b56a44b6e40a9a94bef9999de8b73e02",
+    "framework/nxaudio/README.md": "7897502f159af94ffcfdd366ee060526fde153eebf50c5a9c6acaa5799f19f98",
+    "framework/nxaudio/REGRESSION-MATRIX.md": "30eaba8e51b9497bc7823a159e25d345d257556ea06c172a3ca005092ae09fa8",
+    "framework/nxaudio/VERSION": "40b8eb4000a913a7791090535f291d3d369874162a89ef3c9e3d4e887a1b9e79",
+    "framework/nxaudio/include/nxaudio.h": "52557d252dbd563caa1ac4f9750ad55c51220fe46426c37111cb155acc10eeb1",
+    "framework/nxaudio/include/nxaudio_runtime.h": "f2e387af46ccdd37bbe28b7a7f4635803297d2952927c86511baac948f07035e",
+    "framework/nxaudio/src/nxaudio.c": "09ef716b7b162f2913999554ff313fc414560df77652f1724adf0692f469aaaa",
+    "framework/nxaudio/src/nxaudio_runtime.c": "037f9fac2aa58006be39e06ea5665844d5140693f64740fef6aa2cbc11c87110",
+    "framework/nxaudio/tests/run-host.sh": "5dfe33acf50e95303919dde673bcf770bb9715ff5fa1f052cc814f724580b19d",
+    "framework/nxaudio/tests/run-owner-final.sh": "db48b3d255f0a078e5268b5f3658164e71490c4c7c00020282b378d15218579b",
+    "framework/nxaudio/tests/run-runtime-host.sh": "46923e70e24ea23e1fb38b9a54d1b23e48a0224e7b490432c8c4f41cf7a905e5",
+    "framework/nxaudio/tests/test_m14_audio_contract.py": "267a11c7beafe7451291bb3240b279bf9862f69923b562098c74ce7b138d84b5",
+    "framework/nxaudio/tests/test_nxaudio.c": "ad8f3fbb0dc6901715a8bd9a903825b49a635255b1fedb0116d6ba11489098c9",
+    "framework/nxaudio/tests/test_runtime.c": "12c978c58a31517d416577c21cdf1c48624d0a520e161a5a43acaec32327d3c4",
+    "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.h": "d572db5a6671dff066a5d769066a50323f1ccfef0227f652eac2f80f32c21bc7",
+    "framework/nxcompat/adapters/sdl2/nxcompat_sdl2.c": "c0c9c7d7879e87e0aa1516b9e2b93db5742707e84e1a4129da91f2dc236d8559",
+    "framework/nxcompat/tests/test_sdl2_adapter.c": "ec1247343963f58ccf85631a3ec9f0ecf4bbc0c7000b36b2b5a0091777c45724",
+    "ports/horizonchase/README.md": "407e39544cf5067faefe4d0f1843b9126fa576ea6a933aa8134b1dba4469b8a9",
+    "ports/asm2_127/README.md": "7d2f5673a8022a22a4224473110c6a174236deebfe0ba3bde9562c03c16df250",
+    "ports/sor4/README.md": "c2d78e08bd2493074ac604b91e8689ec110fb932bee604f41c1d57319357275f",
+    "ports/sor4/COMMUNITY-TEST-SUMMARY.md": "5498551d153e093a0511f010448d33723a6a8936eea3c9f19d02eeeb4d19b666",
+    "ports/castleofillusion/README.md": "d276255ecc0d567a2bf561f8498224656a93459df7c1cd8f735065adcf24539b",
+    "ports/titansouls/adapter/adapter-contract.json": "4e8c133acfb42798930e489ef54b1d4ecbd1aa6e146f69b838e062b6037382b1",
+    "ports/titansouls/build_universal.sh": "504b9360eb47ff944d2aa7f0cff560c6de0a3fc5a4354d96fecc36df675788e9",
+    "ports/titansouls/src/imports.c": "dfda4d46c478465fd3918a2be786d8b0bbd46b520489a5d10ce98edf695024ae",
+    "ports/titansouls/src/framework_bridge.c": "e599e6374ec73ded8298910d2fb2174017043ea8d564628f36683668aabe6e31",
+    "ports/titansouls/src/opensles_shim.c": "d89b4e7389e09a9420e8acd912183c527cba62951d2f1474ddf1cd6d14592c37",
+    "ports/titansouls/src/main.c": "b8a64e017dd327e55f948ea866e55de3c06430a98375ac1ff25308761bb814b6",
+    "ports/titansouls/src/audio_recovery_policy.c": "6e74a894e00e82144eac57d2cbeeec486056ce74295ed8dc9832bc17974dab26",
+    "ports/titansouls/src/audio_recovery_policy.h": "fcb342dff9a0138cac3e0fdc254734218e3c2c9c77264dc71c5dfc059a318462",
+    "ports/titansouls/tests/test_audio_recovery_policy.c": "a2a81595f3e75d03cf2776a6d9136ecb90a3e127d39137ffd2c4613f8e85bb02"
+  }
+}

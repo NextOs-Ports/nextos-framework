@@ -1,0 +1,281 @@
+{
+ "compiler": "cc (GCC) 16.2.1 20260810",
+ "note": "Chain source -> licence -> patch -> binary -> execution for the SDL libraries the C6 seam was linked into. Reproduce: check out <upstream_commit>, copy the framework sources listed in framework_sources_vendored into src/joystick/linux/ (that directory is globbed by both majors' CMake, so nothing else has to be taught about them), apply <seam_patch>, build with <build_command>. A path handed in by the environment is never an authority: c6_provenance_gate.py must match these hashes and must recover the pristine upstream bytes by reversing the patch.",
+ "schema": "org.nextos.c6.sdl-provenance",
+ "schema_version": 1,
+ "sdl": {
+  "sdl2-2.28.5": {
+   "binary": "libSDL2-2.0.so.0.2800.5",
+   "binary_bytes": 2088928,
+   "binary_sha256": "6de7d344c1c0ffce27e77a59962b1ecc4c44f6f267d2ea4f75edf8825e988926",
+   "build_command": "cmake -S <tree> -B <tree>/build-final -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=<prefix> -DSDL_SHARED=ON -DSDL_STATIC=OFF -DSDL_X11=OFF -DSDL_WAYLAND=OFF -DSDL_OPENGL=OFF -DSDL_OPENGLES=OFF -DSDL_VULKAN=OFF -DSDL_RENDER=OFF -DSDL_PULSEAUDIO=OFF -DSDL_ALSA=OFF -DSDL_LIBUDEV=OFF (SDL3 adds -DSDL_UNIX_CONSOLE_BUILD=ON; SDL2 2.28.5 disables PIPEWIRE/JACK/SNDIO/DBUS/IBUS) && cmake --build <tree>/build-final -j2 && cmake --install <tree>/build-final",
+   "framework_sources_vendored": {
+    "nxc6_glue.c": {
+     "framework_path": "engine-glue/nxc6_glue.c",
+     "sha256": "2b18de720ed127433fdacbd68e590cf075e14d443253d28ac1df10ed672db742"
+    },
+    "nxc6_glue.h": {
+     "framework_path": "engine-glue/nxc6_glue.h",
+     "sha256": "c3234135eecc9d5d63ad370061ed23c3d5dabb872b6cb0401d9096327a555c0d"
+    },
+    "nxinput_authority.c": {
+     "framework_path": "src/nxinput_authority.c",
+     "sha256": "74abae2b89e94d390f1f2735935409bc275043d12d0291ff02a8deebe7aaf9d5"
+    },
+    "nxinput_authority.h": {
+     "framework_path": "include/nxinput_authority.h",
+     "sha256": "4715b4f4d791e12346d91162e3700a57af68fc7c897d6528630f63d509f1f714"
+    },
+    "nxinput_godot.c": {
+     "framework_path": "src/nxinput_godot.c",
+     "sha256": "73c62672402adb3604672890f43e31af32ebfc32e9e8ebb78fdb1db066e68a7a"
+    },
+    "nxinput_godot.h": {
+     "framework_path": "include/nxinput_godot.h",
+     "sha256": "d543fad6c01d5f5625f180a7f9370d6f79bc963d5cc4c776e16b3fd1ea094d36"
+    },
+    "nxinput_livedb.c": {
+     "framework_path": "src/nxinput_livedb.c",
+     "sha256": "05b6a3febc8753c467f176323debf0a35a575618360d17bf134acb0fa351b73a"
+    },
+    "nxinput_livedb.h": {
+     "framework_path": "include/nxinput_livedb.h",
+     "sha256": "0f72d7024bf027f9f516750a0184e56a0a3a1e20a56b9587fc37274f8acbe530"
+    },
+    "nxinput_portmaster.c": {
+     "framework_path": "src/nxinput_portmaster.c",
+     "sha256": "6e6e677595413072d712ad43318dcf52ac5e4d0cace791a73afb02749236fa05"
+    },
+    "nxinput_portmaster.h": {
+     "framework_path": "include/nxinput_portmaster.h",
+     "sha256": "d9a8bc31b5a8d509d4d3e58d20222cb9761e0180a43370298e6eb0adc04ce5f3"
+    },
+    "nxinput_sdl.c": {
+     "framework_path": "src/nxinput_sdl.c",
+     "sha256": "5adadc572818ad5d2173beafb52dbf9ca227edc3c7e658289ef6a9a63180b2a9"
+    },
+    "nxinput_sdl.h": {
+     "framework_path": "include/nxinput_sdl.h",
+     "sha256": "bfd269b0b9ea222b8988802472ae8d63d83ed74cc0c60ba3eebceaf19cd1debf"
+    },
+    "nxinput_sdl_seam.c": {
+     "framework_path": "src/nxinput_sdl_seam.c",
+     "sha256": "eddbc89e778f8f62e91e5d71f2db7632b0e49e4fcc9b56f0844f0a12b046734d"
+    },
+    "nxinput_sdl_seam.h": {
+     "framework_path": "include/nxinput_sdl_seam.h",
+     "sha256": "7e520014542705946f1e8227c74df365207e9298b24b3944b99c463c4087ca7a"
+    },
+    "nxinput_sovereign.c": {
+     "framework_path": "src/nxinput_sovereign.c",
+     "sha256": "10edcbf9573a26bfd7ed72a2f06c4a2a538f57efcaa08c20ed994e976d4dd67d"
+    },
+    "nxinput_sovereign.h": {
+     "framework_path": "include/nxinput_sovereign.h",
+     "sha256": "b07b83acabe61732ed88a486ae51453ae79741e1d1a96f60964e0ef9f5462167"
+    }
+   },
+   "license_path": "LICENSE.txt",
+   "license_sha256": "9928507f684c1965d07f2b6ef4b4723d5efc2f6b4ab731f743a413c51c319927",
+   "license_spdx": "Zlib",
+   "link_evidence": {
+    "NXC6-SEAM_format_string_in_binary": 1,
+    "runtime_proof": "the seam receipts in the attempt's evidence directory carry this library's own pid and tid",
+    "seam_entry_point_symbol_visible": true
+   },
+   "link_method": "symbol-table",
+   "patched_sha256": "cdaf223044ac2ed64a53fa38276913f5e73f991d163f1651d35a0e0abac7c5d9",
+   "path": "src/joystick/linux/SDL_sysjoystick.c",
+   "pristine_sha256": "937963ce0ccd241c4b33bcb8b84bcb7546af2985972b7c1d71a90011a2e8a552",
+   "role": "MINIMUM_SUPPORTED_EXECUTED",
+   "seam_patch": "engine-patches/sdl2-2.28.5-nxc6-seam.patch",
+   "seam_patch_sha256": "ed9464dd25313a2f030e3448c52c86a1e651da58ba0566f5b991c84393bce00d",
+   "upstream": "https://github.com/libsdl-org/SDL",
+   "upstream_commit": "15ead9a40d09a1eb9972215cceac2bf29c9b77f6",
+   "upstream_tag": "release-2.28.5",
+   "version": "SDL 2.28.5"
+  },
+  "sdl2-2.32.10": {
+   "binary": "libSDL2-2.0.so.0.3200.10",
+   "binary_bytes": 2083560,
+   "binary_sha256": "e1c7a0eaec641270232c06034c0bc71d10390861926f86b5ef4ebf9286cbfb05",
+   "build_command": "cmake -S <tree> -B <tree>/build-final -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=<prefix> -DSDL_SHARED=ON -DSDL_STATIC=OFF -DSDL_X11=OFF -DSDL_WAYLAND=OFF -DSDL_OPENGL=OFF -DSDL_OPENGLES=OFF -DSDL_VULKAN=OFF -DSDL_RENDER=OFF -DSDL_PULSEAUDIO=OFF -DSDL_ALSA=OFF -DSDL_LIBUDEV=OFF (SDL3 adds -DSDL_UNIX_CONSOLE_BUILD=ON; SDL2 2.28.5 disables PIPEWIRE/JACK/SNDIO/DBUS/IBUS) && cmake --build <tree>/build-final -j2 && cmake --install <tree>/build-final",
+   "framework_sources_vendored": {
+    "nxc6_glue.c": {
+     "framework_path": "engine-glue/nxc6_glue.c",
+     "sha256": "2b18de720ed127433fdacbd68e590cf075e14d443253d28ac1df10ed672db742"
+    },
+    "nxc6_glue.h": {
+     "framework_path": "engine-glue/nxc6_glue.h",
+     "sha256": "c3234135eecc9d5d63ad370061ed23c3d5dabb872b6cb0401d9096327a555c0d"
+    },
+    "nxinput_authority.c": {
+     "framework_path": "src/nxinput_authority.c",
+     "sha256": "74abae2b89e94d390f1f2735935409bc275043d12d0291ff02a8deebe7aaf9d5"
+    },
+    "nxinput_authority.h": {
+     "framework_path": "include/nxinput_authority.h",
+     "sha256": "4715b4f4d791e12346d91162e3700a57af68fc7c897d6528630f63d509f1f714"
+    },
+    "nxinput_godot.c": {
+     "framework_path": "src/nxinput_godot.c",
+     "sha256": "73c62672402adb3604672890f43e31af32ebfc32e9e8ebb78fdb1db066e68a7a"
+    },
+    "nxinput_godot.h": {
+     "framework_path": "include/nxinput_godot.h",
+     "sha256": "d543fad6c01d5f5625f180a7f9370d6f79bc963d5cc4c776e16b3fd1ea094d36"
+    },
+    "nxinput_livedb.c": {
+     "framework_path": "src/nxinput_livedb.c",
+     "sha256": "05b6a3febc8753c467f176323debf0a35a575618360d17bf134acb0fa351b73a"
+    },
+    "nxinput_livedb.h": {
+     "framework_path": "include/nxinput_livedb.h",
+     "sha256": "0f72d7024bf027f9f516750a0184e56a0a3a1e20a56b9587fc37274f8acbe530"
+    },
+    "nxinput_portmaster.c": {
+     "framework_path": "src/nxinput_portmaster.c",
+     "sha256": "6e6e677595413072d712ad43318dcf52ac5e4d0cace791a73afb02749236fa05"
+    },
+    "nxinput_portmaster.h": {
+     "framework_path": "include/nxinput_portmaster.h",
+     "sha256": "d9a8bc31b5a8d509d4d3e58d20222cb9761e0180a43370298e6eb0adc04ce5f3"
+    },
+    "nxinput_sdl.c": {
+     "framework_path": "src/nxinput_sdl.c",
+     "sha256": "5adadc572818ad5d2173beafb52dbf9ca227edc3c7e658289ef6a9a63180b2a9"
+    },
+    "nxinput_sdl.h": {
+     "framework_path": "include/nxinput_sdl.h",
+     "sha256": "bfd269b0b9ea222b8988802472ae8d63d83ed74cc0c60ba3eebceaf19cd1debf"
+    },
+    "nxinput_sdl_seam.c": {
+     "framework_path": "src/nxinput_sdl_seam.c",
+     "sha256": "eddbc89e778f8f62e91e5d71f2db7632b0e49e4fcc9b56f0844f0a12b046734d"
+    },
+    "nxinput_sdl_seam.h": {
+     "framework_path": "include/nxinput_sdl_seam.h",
+     "sha256": "7e520014542705946f1e8227c74df365207e9298b24b3944b99c463c4087ca7a"
+    },
+    "nxinput_sovereign.c": {
+     "framework_path": "src/nxinput_sovereign.c",
+     "sha256": "10edcbf9573a26bfd7ed72a2f06c4a2a538f57efcaa08c20ed994e976d4dd67d"
+    },
+    "nxinput_sovereign.h": {
+     "framework_path": "include/nxinput_sovereign.h",
+     "sha256": "b07b83acabe61732ed88a486ae51453ae79741e1d1a96f60964e0ef9f5462167"
+    }
+   },
+   "license_path": "LICENSE.txt",
+   "license_sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127",
+   "license_spdx": "Zlib",
+   "link_evidence": {
+    "NXC6-SEAM_format_string_in_binary": 1,
+    "runtime_proof": "the seam receipts in the attempt's evidence directory carry this library's own pid and tid",
+    "seam_entry_point_symbol_visible": true
+   },
+   "link_method": "symbol-table",
+   "patched_sha256": "b22d3ccc508a4494d7be3f01aa72f570587b62de87530aaf28981613c18600ef",
+   "path": "src/joystick/linux/SDL_sysjoystick.c",
+   "pristine_sha256": "62ee387eb3cca342a8081fdf7b875e9c5db120b94e91c6abefd88357e4829cda",
+   "role": "CURRENT_EXECUTED",
+   "seam_patch": "engine-patches/sdl2-2.32.10-nxc6-seam.patch",
+   "seam_patch_sha256": "39470691346a124b774b112351c2cd9fba1d4f4a49664bb0dfc031edebc54e6e",
+   "upstream": "https://github.com/libsdl-org/SDL",
+   "upstream_commit": "5d249570393f7a37e037abf22cd6012a4cc56a71",
+   "upstream_tag": "release-2.32.10",
+   "version": "SDL 2.32.10"
+  },
+  "sdl3-3.2.30": {
+   "binary": "libSDL3.so.0.2.30",
+   "binary_bytes": 3103120,
+   "binary_sha256": "e9c529774bf994d6eecd09d1c3c98ef63d71e28b7ff3592130fe3292ad1c8dea",
+   "build_command": "cmake -S <tree> -B <tree>/build-final -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=<prefix> -DSDL_SHARED=ON -DSDL_STATIC=OFF -DSDL_X11=OFF -DSDL_WAYLAND=OFF -DSDL_OPENGL=OFF -DSDL_OPENGLES=OFF -DSDL_VULKAN=OFF -DSDL_RENDER=OFF -DSDL_PULSEAUDIO=OFF -DSDL_ALSA=OFF -DSDL_LIBUDEV=OFF (SDL3 adds -DSDL_UNIX_CONSOLE_BUILD=ON; SDL2 2.28.5 disables PIPEWIRE/JACK/SNDIO/DBUS/IBUS) && cmake --build <tree>/build-final -j2 && cmake --install <tree>/build-final",
+   "framework_sources_vendored": {
+    "nxc6_glue.c": {
+     "framework_path": "engine-glue/nxc6_glue.c",
+     "sha256": "2b18de720ed127433fdacbd68e590cf075e14d443253d28ac1df10ed672db742"
+    },
+    "nxc6_glue.h": {
+     "framework_path": "engine-glue/nxc6_glue.h",
+     "sha256": "c3234135eecc9d5d63ad370061ed23c3d5dabb872b6cb0401d9096327a555c0d"
+    },
+    "nxinput_authority.c": {
+     "framework_path": "src/nxinput_authority.c",
+     "sha256": "74abae2b89e94d390f1f2735935409bc275043d12d0291ff02a8deebe7aaf9d5"
+    },
+    "nxinput_authority.h": {
+     "framework_path": "include/nxinput_authority.h",
+     "sha256": "4715b4f4d791e12346d91162e3700a57af68fc7c897d6528630f63d509f1f714"
+    },
+    "nxinput_godot.c": {
+     "framework_path": "src/nxinput_godot.c",
+     "sha256": "73c62672402adb3604672890f43e31af32ebfc32e9e8ebb78fdb1db066e68a7a"
+    },
+    "nxinput_godot.h": {
+     "framework_path": "include/nxinput_godot.h",
+     "sha256": "d543fad6c01d5f5625f180a7f9370d6f79bc963d5cc4c776e16b3fd1ea094d36"
+    },
+    "nxinput_livedb.c": {
+     "framework_path": "src/nxinput_livedb.c",
+     "sha256": "05b6a3febc8753c467f176323debf0a35a575618360d17bf134acb0fa351b73a"
+    },
+    "nxinput_livedb.h": {
+     "framework_path": "include/nxinput_livedb.h",
+     "sha256": "0f72d7024bf027f9f516750a0184e56a0a3a1e20a56b9587fc37274f8acbe530"
+    },
+    "nxinput_portmaster.c": {
+     "framework_path": "src/nxinput_portmaster.c",
+     "sha256": "6e6e677595413072d712ad43318dcf52ac5e4d0cace791a73afb02749236fa05"
+    },
+    "nxinput_portmaster.h": {
+     "framework_path": "include/nxinput_portmaster.h",
+     "sha256": "d9a8bc31b5a8d509d4d3e58d20222cb9761e0180a43370298e6eb0adc04ce5f3"
+    },
+    "nxinput_sdl.c": {
+     "framework_path": "src/nxinput_sdl.c",
+     "sha256": "5adadc572818ad5d2173beafb52dbf9ca227edc3c7e658289ef6a9a63180b2a9"
+    },
+    "nxinput_sdl.h": {
+     "framework_path": "include/nxinput_sdl.h",
+     "sha256": "bfd269b0b9ea222b8988802472ae8d63d83ed74cc0c60ba3eebceaf19cd1debf"
+    },
+    "nxinput_sdl_seam.c": {
+     "framework_path": "src/nxinput_sdl_seam.c",
+     "sha256": "eddbc89e778f8f62e91e5d71f2db7632b0e49e4fcc9b56f0844f0a12b046734d"
+    },
+    "nxinput_sdl_seam.h": {
+     "framework_path": "include/nxinput_sdl_seam.h",
+     "sha256": "7e520014542705946f1e8227c74df365207e9298b24b3944b99c463c4087ca7a"
+    },
+    "nxinput_sovereign.c": {
+     "framework_path": "src/nxinput_sovereign.c",
+     "sha256": "10edcbf9573a26bfd7ed72a2f06c4a2a538f57efcaa08c20ed994e976d4dd67d"
+    },
+    "nxinput_sovereign.h": {
+     "framework_path": "include/nxinput_sovereign.h",
+     "sha256": "b07b83acabe61732ed88a486ae51453ae79741e1d1a96f60964e0ef9f5462167"
+    }
+   },
+   "license_path": "LICENSE.txt",
+   "license_sha256": "97f35b302b361680ec1e891e95d2d52097bb95abff361434916d99dc1305f127",
+   "license_spdx": "Zlib",
+   "link_evidence": {
+    "NXC6-SEAM_format_string_in_binary": 1,
+    "runtime_proof": "the seam receipts in the attempt's evidence directory carry this library's own pid and tid",
+    "seam_entry_point_symbol_visible": true
+   },
+   "link_method": "symbol-table",
+   "patched_sha256": "062752c3baa14179c0e7de5e432bb47bdd3a3652a3e4793ef892c4f4ba27a5d5",
+   "path": "src/joystick/linux/SDL_sysjoystick.c",
+   "pristine_sha256": "1336500e21c7dfae9c7f8373684360d0b786ef3c90f912559ce388d11c3bc4ce",
+   "role": "PRIVATE_SDL3_EXECUTED",
+   "seam_patch": "engine-patches/sdl3-3.2.30-nxc6-seam.patch",
+   "seam_patch_sha256": "25023f6c1dd1e91987224e689d1f6a57b33e723f60ef3ed5504661d2f6954692",
+   "upstream": "https://github.com/libsdl-org/SDL",
+   "upstream_commit": "f5e5f6588921eed3d7d048ce43d9eb1ff0da0ffc",
+   "upstream_tag": "release-3.2.30",
+   "version": "SDL 3.2.30"
+  }
+ }
+}

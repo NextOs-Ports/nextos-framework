@@ -1,0 +1,1668 @@
+{
+  "schema": "nxgl-m13-master-audit-v1",
+  "schema_version": 1,
+  "milestone": "M13",
+  "scope": "nxgl-video-context-present-diagnostics-stack-provenance-and-process-free-host-evidence",
+  "closure": {
+    "state": "host_closed_physical_deferred",
+    "requirements_accounted": 24,
+    "modeled_requirement_count": 24,
+    "completed_requirement_count": 24,
+    "pending_requirement_count": 0,
+    "master_milestone_complete": true,
+    "host_gate_closed": true,
+    "evidence_pins_frozen": true,
+    "physical_device_evidence": false,
+    "physical_followup_milestones": [
+      "M22"
+    ]
+  },
+  "execution_claims": {
+    "automatic_gate_scope": "process-free JSON, source-token and pure or sealed host evidence; native SDL video, EGL/GLES drivers, windows and guest code remain outside this gate",
+    "historical_physical_evidence_imported": true,
+    "process_free_gate": true,
+    "physical_device_evidence": false,
+    "real_gpu_or_display_opened": false,
+    "real_egl_or_gles_driver_opened": false,
+    "external_guest_code_executed": false,
+    "hardware_ran": false,
+    "device_access": false,
+    "network_access": false,
+    "sdl_video_initialized": false,
+    "window_created": false,
+    "context_created": false
+  },
+  "evidence_pins": [
+    {
+      "path": "framework/contracts/declarative-v1.json",
+      "sha256": "586ad707fe32b3e5aa75e5def26c2f61cc71f3c35307aee0bace2bd575ea661f",
+      "role": "framework-contract"
+    },
+    {
+      "path": "framework/nxbootstrap/tests/test-manifest-contract.py",
+      "sha256": "76d549ee3f6cf3fed7da294e483828aa7b3ac46e8085eebeb5ff52ca7a992354",
+      "role": "declarative-contract-version-parser"
+    },
+    {
+      "path": "framework/tests/test-matrix-v1.json",
+      "sha256": "b1addf7f618fb30387e763d14c108f92c0713df4a2955a6d3b7b4faed7e9e649",
+      "role": "automatic-gate-matrix"
+    },
+    {
+      "path": "framework/tests/run-safe-gates.sh",
+      "sha256": "db9d5d6b046a07eff4b60e4b8c7a34d792b8ad5a383a85bd446a374b093d6078",
+      "role": "canonical-safe-runner"
+    },
+    {
+      "path": "framework/tests/test_infrastructure.py",
+      "sha256": "bc582e5f74da48f50cbd36438dede8cff7d3234b214c40c355983ace1349ea6e",
+      "role": "infrastructure-policy-gate"
+    },
+    {
+      "path": "framework/nxcompat/tests/run-host.sh",
+      "sha256": "cb6d84826efc2a721ab17cc0e6252191b493ca24f8cb2e8656dc8bf2c05c1aed",
+      "role": "hermetic-host-gate"
+    },
+    {
+      "path": "framework/nxgl/tests/run-m13-host.sh",
+      "sha256": "cd73dc0704f9e20e73510a407bf03f2cb136fd9fc78ccda82b526f673f55b6b6",
+      "role": "canonical-m13-host-runner"
+    },
+    {
+      "path": "framework/nxgl/VERSION",
+      "sha256": "d5d1d767be9218f02ebda081a83a2b2fede85055e910e5a94a09329966486fcc",
+      "role": "version"
+    },
+    {
+      "path": "framework/nxgl/CMakeLists.txt",
+      "sha256": "303627b5c769d9cae260c08764cffcb47b19a584f8d927c15a53b02958cecd58",
+      "role": "build-contract"
+    },
+    {
+      "path": "framework/nxgl/CHANGELOG.md",
+      "sha256": "729e337a4a420f1e07ae49d0a52977aefe2c9b0cd7a3aa9ed5b56bd4e0eadcad",
+      "role": "component-changelog"
+    },
+    {
+      "path": "framework/nxgl/REGRESSION-MATRIX.md",
+      "sha256": "54c9ac7e506a8a63006306bf8b77ab9375ebab49f2d6988ea378951d606a2e5c",
+      "role": "regression-matrix"
+    },
+    {
+      "path": "framework/nxgl/README.md",
+      "sha256": "fe7f26ba4b566b1392a9d9be6a30bb49f4855b6b77506f59d392cf702676c80b",
+      "role": "public-documentation"
+    },
+    {
+      "path": "framework/nxgl/include/nxgl.h",
+      "sha256": "f35b609664eca079ec4a9df2631e6545e382801601eca6b581db4f3d16d72c7f",
+      "role": "public-api"
+    },
+    {
+      "path": "framework/nxgl/include/nxgl_provider_recovery.h",
+      "sha256": "3d5fa856eb1e479bff4d257c6c0f138a20c02a35248e13683e7ba64486c0617e",
+      "role": "opt-in-provider-recovery-api"
+    },
+    {
+      "path": "framework/nxgl/include/nxgl_nxcompat.h",
+      "sha256": "5fc6891da225ec8859ab255d4d0a38994978cc7f29bad89dcf7cb778c06fbdb5",
+      "role": "nxcompat-bridge-api"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_internal.h",
+      "sha256": "5556a43bee784e9ca16a37ccf3956aab5248405c6a907b8bad9ebbf0b2aeb584",
+      "role": "private-state-and-boundary"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_arbiter.c",
+      "sha256": "27f19e5f34378cb0f226758c56f43eaec2486d1b8cee755baadc69104ebdc011",
+      "role": "shared-process-arbiter"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_logic.c",
+      "sha256": "b487cb4ba40d7df721c7f73996151e8da9b4ac25a3e65ef64cdd4e8033a52a6a",
+      "role": "pure-policy"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_sdl2.c",
+      "sha256": "e0daed4a05c2c07269a23230d3041befa56b9fceb0f871f1f1228eda05fd2022",
+      "role": "sdl-egl-runtime-boundary"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_present.c",
+      "sha256": "bd4ebcfd4d8f8afc816b5c062a03d0f9991b0684ca9ab41996706cc8bbc4ab8b",
+      "role": "opt-in-present-policy"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_diagnostics.c",
+      "sha256": "b8dded5248974fedf88369c634513e045f7e4b364ce8b630e28d0b213dbe2363",
+      "role": "passive-lifecycle-diagnostics"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_sdl_hint.c",
+      "sha256": "6568ef795c2321b54d87b3fe3960298dad0832e6d81a50ff7cd93836e0fe3e23",
+      "role": "opt-in-target-sdl-hint-sanitizer"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_metrics.c",
+      "sha256": "cacec008e5efe6fd961ae58b97fb1dc9861d6d15ead9ade3c3be93b99cfc28a4",
+      "role": "surface-metrics"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_nxcompat.c",
+      "sha256": "2971cb98a7e72a66de35eacaf4e58805786e14cecafc4adc772fceab220008bd",
+      "role": "typed-capability-bridge"
+    },
+    {
+      "path": "framework/nxgl/src/nxgl_provider_recovery.c",
+      "sha256": "ac36ab300571d90a9b211184c3c5c349e9d8be16212b4a4a010339a0448a8051",
+      "role": "opt-in-provider-recovery-transaction"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl.c",
+      "sha256": "1550c1257573f39683d2a7273d0858309890704c5dcb58fc07098e7769ce8c4f",
+      "role": "core-and-present-host-tests"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_environment.c",
+      "sha256": "187edecf5c75c587dce2fb2de488e20e68f9ec1c43a9d73cbc766a76a7cd4fed",
+      "role": "sealed-environment-test"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+      "sha256": "b7376a5ee0be4b2c6bbc2105bb1dae13d344d432bd4d2ed66492ac4d6d459509",
+      "role": "hermetic-open-v2-transaction-tests"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_diagnostics.c",
+      "sha256": "52dbd22277ef61d911b8ed5623e6fde3974ad05d8871a1a918e58084d9020f4c",
+      "role": "pure-lifecycle-diagnostic-tests"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_sdl_hint.c",
+      "sha256": "d1e6e5b472c6eed4d8955edef63b96f64072643124a081e745c6368341a8fb3b",
+      "role": "target-sdl-hint-sanitizer-tests"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_metrics.c",
+      "sha256": "cac4dc0a7dd6fd491a951b9d9913f8bb68348bb5ae378d535f37465496fccb83",
+      "role": "pure-metrics-tests"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_present_v2.c",
+      "sha256": "188e2ed1eee3f80b69352d59b7052ca1f8b68fd997acb11c6f17a3fb517654a7",
+      "role": "sealed-present-state-tests"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_nxcompat.c",
+      "sha256": "a97b0c74cc49fed91bc37a18484135c11950de2ef84aefaf730728fabd36b178",
+      "role": "fake-graphics-boundary-tests"
+    },
+    {
+      "path": "framework/nxgl/tests/test_nxgl_provider_recovery.c",
+      "sha256": "b53e0ffd8adeded2d7ae25a76ef12ea89aca217b60ea56dc8d8d044d57da2706",
+      "role": "provider-recovery-transaction-tests"
+    },
+    {
+      "path": "framework/nxgl/tests/fake_provider_good.c",
+      "sha256": "04a4782b9b13b8f04228cda06b6c7364ad96d30b7e812880158574c9fda6ae3d",
+      "role": "coherent-fake-provider"
+    },
+    {
+      "path": "framework/nxgl/tests/fake_provider_dependency.c",
+      "sha256": "8a1ae720ddab0d319bd70828f75bbe522784a1d137acf976f88a67eb204c3756",
+      "role": "mixed-provider-dependency"
+    },
+    {
+      "path": "framework/nxgl/tests/fake_provider_mixed.c",
+      "sha256": "726a3427d83ef43cebddf4010973a2bd413fb7a47912d967a7182fa39d879775",
+      "role": "mixed-provider-fixture"
+    },
+    {
+      "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+      "sha256": "0d11781a26c07b0ce3aad3083d480455b367e6489c41ee3cedd078c16e1cc8e9",
+      "role": "sanitized-stack-and-provenance-source"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "M13-001",
+      "requirement": "adotar Mali-450/GLES2 como piso real",
+      "disposition": "verified_static_only",
+      "status": "verified",
+      "claim": "The default requirement floor is real GLES2 with RGB888 and double buffering; nxgl does not inject GLES3 or Mesa as a baseline.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "Mali-450/GLES2-friendly",
+            "minimum_gles_major"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_v2_actual_valid",
+            "actual->gles_major >= 2",
+            "SDL_GL_CONTEXT_PROFILE_ES"
+          ]
+        },
+        {
+          "path": "framework/nxgl/README.md",
+          "tokens": [
+            "real baseline is **Mali-450 with",
+            "does not require Mesa, desktop OpenGL, or GLES 3.x"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl.c",
+          "tokens": [
+            "requirements.minimum_gles_major == 2",
+            "4.6 (Core Profile) Mesa"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "fake->actual_gles_major > 0 ? fake->actual_gles_major : 2",
+            "test_egl_renderable_bit_tracks_requested_api",
+            "run_renderable_request_case(2, 3, 0x0004, NXGL_SUCCESS)"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "sdl-mali-fbdev",
+            "GLES2 is required; optional capabilities are measured"
+          ]
+        }
+      ],
+      "limitations": [
+        "This host gate does not open a Mali-450 driver or prove a physical GLES2 context."
+      ]
+    },
+    {
+      "id": "M13-002",
+      "requirement": "distinguir ownership SDL e EGL raw",
+      "disposition": "verified_boundary_only",
+      "status": "verified",
+      "claim": "API v2 distinguishes typed SDL_EGL and RAW_EGL stack owners, validates owner-coherent handles, freezes one complete provider through close and reports that owner; raw EGL is never inferred as a universal path.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "nxgl_stack_owner_v2",
+            "NXGL_STACK_OWNER_V2_SDL_EGL",
+            "NXGL_STACK_OWNER_V2_RAW_EGL",
+            "nxgl_stack_handles_v2",
+            "stack_userdata must remain alive and valid",
+            "until nxgl_close_v2()"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_v2_handles_valid",
+            "context->stack_owner = context->stack_ops.owner",
+            "report_v2.stack_owner"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl.c",
+          "tokens": [
+            "test_present_is_opt_in",
+            "present.owner == NXGL_PRESENT_ENGINE_OWNED"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "report.stack_owner == NXGL_STACK_OWNER_V2_RAW_EGL",
+            "nxgl_stack_owner(context) == NXGL_STACK_OWNER_V2_RAW_EGL"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "raw EGL may be used only",
+            "SDL owns window, context, make-current and page-flip"
+          ]
+        }
+      ],
+      "limitations": [
+        "The automatic evidence uses caller-owned fake callbacks and userdata with the declared lifetime; it does not open fbdev, KMSDRM or Wayland."
+      ]
+    },
+    {
+      "id": "M13-003",
+      "requirement": "resolver entry points do mesmo stack que abriu o contexto",
+      "disposition": "verified_boundary_only",
+      "status": "verified",
+      "claim": "The SDL provider resolves through SDL_GL_GetProcAddress while its context is current; a raw provider must inject get-proc, actual-config, current-validation and present callbacks from its own frozen stack, preventing silent cross-stack linkage.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "nxgl_stack_get_proc_callback_v2",
+            "get_proc_address",
+            "query_actual",
+            "validate_current",
+            "present"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "context->stack_ops.get_proc_address",
+            "SDL_GL_GetProcAddress(name)",
+            "nxgl_v2_resolve_gl"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_nxcompat.c",
+          "tokens": [
+            "SDL_GL_GetProcAddress",
+            "eglGetCurrentDisplay"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_nxcompat.c",
+          "tokens": [
+            "SDL_GL_GetProcAddress",
+            "fake_gl_get_string"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "ops->get_proc_address = fake_get_proc",
+            "fake_gl_get_string",
+            "test_current_is_validated_before_and_after_provider_queries"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "resolve EGL and GLES entry points from the same stack",
+            "same-stack EGL symbol resolution"
+          ]
+        }
+      ],
+      "limitations": [
+        "The sealed boundary owns every fake function and does not load a host EGL or GLES provider."
+      ]
+    },
+    {
+      "id": "M13-004",
+      "requirement": "rejeitar desktop GL quando guest exige GLES",
+      "disposition": "verified_synthetic_only",
+      "status": "verified",
+      "claim": "Version parsing accepts OpenGL ES spellings, records an exact desktop-GL rejection reason and allows only one scoped, transactional GLES/EGL hint recovery whose absent, empty or full prior values must be restored; on an SDL without SDL_ResetHint, an absent prior hint disables only that optional recovery and never blocks the ordinary candidate round.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_logic.c",
+          "tokens": [
+            "nxgl_parse_gles_version",
+            "strstr(version, \"OpenGL ES\")"
+          ]
+        },
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "NXGL_OPEN_REASON_V2_DESKTOP_GL_REJECTED",
+            "hints_restored"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "NXGL_OPEN_REASON_V2_DESKTOP_GL_REJECTED",
+            "nxgl_prepare_hint_recovery",
+            "nxgl_test_v2_hint_recovery_transaction"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl.c",
+          "tokens": [
+            "test_gles_and_ladder_policy",
+            "NXGL_ERROR_NO_GLES_CONFIG"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "test_exact_hint_retry_transaction",
+            "test_old_sdl_without_reset_keeps_normal_round",
+            "normal_round == 1",
+            "hint_recovery == 0",
+            "NXGL_OPEN_REASON_V2_HINT_APPLY_FAILED",
+            "NXGL_OPEN_REASON_V2_SNAPSHOT_FAILED"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "request an ES profile and reject a measured desktop GL context"
+          ]
+        }
+      ],
+      "limitations": [
+        "No Mesa, GLX, Wayland, Panfrost or historical SDL shared library is loaded by the synthetic test; ResetHint availability is injected in memory."
+      ]
+    },
+    {
+      "id": "M13-005",
+      "requirement": "recriar janela por tentativa de depth/stencil quando necessário",
+      "disposition": "verified_synthetic_only",
+      "status": "verified",
+      "claim": "Each declared candidate reapplies every framebuffer attribute, creates its own window and drops both context and window before another candidate is attempted.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_v2_attempt_candidate",
+            "context->stack_ops.set_config",
+            "context->stack_ops.create_window",
+            "nxgl_v2_fail_attempt"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl.c",
+          "tokens": [
+            "nxgl_config_candidate gles2",
+            "test_context_ops_are_atomic"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "fake.window_calls == 2u",
+            "fake.context_calls == 2u",
+            "fake.release_calls == 1u"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "recreate the window when depth or stencil attributes change"
+          ]
+        }
+      ],
+      "limitations": [
+        "Preflight pins the production transaction while the final synthetic retry seam remains subject to core freeze."
+      ]
+    },
+    {
+      "id": "M13-006",
+      "requirement": "obter EGLConfig realmente entregue",
+      "disposition": "verified_boundary_only",
+      "status": "verified",
+      "claim": "The selected provider returns a typed actual GLES/config receipt; nxgl validates its positive EGLConfig ID, the EGL renderable bit required by the requested GLES major, window capability, bounded bit fields and current-handle coherence instead of echoing the request.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "nxgl_egl_actual_v2",
+            "config_id",
+            "renderable_type",
+            "surface_type"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_v2_sdl_query_actual",
+            "nxgl_v2_egl_valid",
+            "required_renderable_bit",
+            "requested->gles_major >= 3",
+            "egl->config_id > 0"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_nxcompat.c",
+          "tokens": [
+            "EGL_CONFIG_ID",
+            "eglGetConfigAttrib"
+          ]
+        },
+        {
+          "path": "framework/nxgl/include/nxgl_nxcompat.h",
+          "tokens": [
+            "requeries GL strings/config/drawable",
+            "SDL's own proc-address stack"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_nxcompat.c",
+          "tokens": [
+            "EGL_CONFIG_ID",
+            "receipt.egl_config_id == 7"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "report.egl.observed == 1 && report.egl.config_id == 7",
+            "FAKE_BAD_CONFIG_ID",
+            "test_egl_renderable_bit_tracks_requested_api",
+            "run_renderable_request_case(3, 3, 0x0040, NXGL_SUCCESS)"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "The automatic EGLConfig is supplied by a sealed fake boundary, not a physical display driver."
+      ]
+    },
+    {
+      "id": "M13-007",
+      "requirement": "obter drawable real positivo",
+      "disposition": "verified_boundary_only",
+      "status": "verified",
+      "claim": "Opening succeeds only after the selected provider yields bounded positive window/drawable dimensions; the SDL provider uses SDL_GL_GetDrawableSize, and nxgl also requires the drawable to equal the observed EGL surface.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_v2_observe_positive_surface",
+            "SDL_GL_GetDrawableSize",
+            "egl.surface_width != drawable_width"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_nxcompat.c",
+          "tokens": [
+            "SDL_GL_GetDrawableSize",
+            "NXCOMPAT_GRAPHICS_PROOF_DRAWABLE_POSITIVE"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_nxcompat.c",
+          "tokens": [
+            "fake_drawable_valid = 0",
+            "NXCOMPAT_CAPABILITY_GRAPHICS_DRAWABLE"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "report.legacy.drawable_width == 1280",
+            "report.legacy.drawable_height == 720"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "Positive dimensions are injected by the host fixture and are not physical scanout proof."
+      ]
+    },
+    {
+      "id": "M13-008",
+      "requirement": "usar drawable real como dimensão de render/present",
+      "disposition": "verified_boundary_only",
+      "status": "verified",
+      "claim": "The selected report stores the final positive drawable independently from the requested window, and downstream metrics keep display, drawable, viewport and render target dimensions distinct.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "context->report.drawable_width",
+            "context->report.drawable_height"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_metrics.c",
+          "tokens": [
+            "drawable_width",
+            "render_target_width"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_metrics.c",
+          "tokens": [
+            "test_dimensions_remain_distinct",
+            "metrics.drawable_width == 1280"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl.c",
+          "tokens": [
+            "drawable 1280x720"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "report.legacy.drawable_width == 1280",
+            "report.legacy.drawable_height == 720"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "The adapter remains responsible for applying the measured dimensions to its guest callbacks and viewport."
+      ]
+    },
+    {
+      "id": "M13-009",
+      "requirement": "manter ladder RGBA/depth/stencil explícita",
+      "disposition": "verified_host_only",
+      "status": "verified",
+      "claim": "The engine adapter supplies a finite ordered candidate array; nxgl validates every requested RGBA, depth, stencil and double-buffer field and never invents a GLES3 rung.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "NXGL_MAX_CONFIG_CANDIDATES",
+            "nxgl_config_candidate",
+            "candidate_count"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_logic.c",
+          "tokens": [
+            "nxgl_candidate_compatible",
+            "candidate->stencil_bits"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "request.candidate = options->candidates[candidate_index]",
+            "requested->gles_major >= 3",
+            "required_renderable_bit"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl.c",
+          "tokens": [
+            "nxgl_config_candidate no_alpha",
+            "!nxgl_candidate_compatible",
+            "single-buffer"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "report.legacy.attempt_count == 2u",
+            "report.legacy.selected_candidate_index == 1u",
+            "test_egl_renderable_bit_tracks_requested_api"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "Candidate ordering is an engine contract; Horizon, Castle or Sonic ordering is not copied globally."
+      ]
+    },
+    {
+      "id": "M13-010",
+      "requirement": "preservar scissor/masks/state em fixes de present",
+      "disposition": "verified_synthetic_only",
+      "status": "verified",
+      "claim": "The alpha-only present path reads framebuffer, scissor, the four-component color mask and clear color, rejects nonzero FBOs and restores the captured values after its clear.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_present.c",
+          "tokens": [
+            "nxgl_present_v2_snapshot_state",
+            "nxgl_present_v2_restore_state",
+            "nxgl_present_v2_apply_alpha_one"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_internal.h",
+          "tokens": [
+            "nxgl_gl_get_booleanv_fn",
+            "nxgl_gl_get_floatv_fn"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_present_v2.c",
+          "tokens": [
+            "test_alpha_one_success_preserves_all_tracked_state",
+            "test_each_alpha_mutation_failure_rolls_back",
+            "test_restore_and_verification_failures_are_detected"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "required_state_restore",
+            "nxgl must save and restore the full color mask independently"
+          ]
+        }
+      ],
+      "limitations": [
+        "The state fixture is sealed and synthetic; it does not present a frame through a physical compositor."
+      ]
+    },
+    {
+      "id": "M13-011",
+      "requirement": "implementar alpha-one como quirk Amlogic opt-in comprovado",
+      "disposition": "verified_synthetic_only",
+      "status": "verified",
+      "claim": "Opaque backbuffer alpha is disabled by default, requires explicit adapter selection, and in v2 accepts only the exact Amlogic quirk plus its observed alpha-zero reason, a real alpha channel and FBO zero; it is never selected from a device name.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "NXGL_PRESENT_QUIRK_V2_AMLOGIC_OSD_ALPHA_ONE",
+            "NXGL_PRESENT_REASON_V2_OBSERVED_OSD_ZERO_ALPHA"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_present.c",
+          "tokens": [
+            "nxgl_present_v2_apply_alpha_one",
+            "actual.alpha_bits <= 0",
+            "requires the default backbuffer"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_present_v2.c",
+          "tokens": [
+            "test_alpha_one_requires_exact_quirk_and_reason",
+            "test_alpha_one_rejects_nondefault_fbo_without_mutation",
+            "NXGL_PRESENT_REASON_V2_OBSERVED_OSD_ZERO_ALPHA"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "amlogic-default-backbuffer-alpha-one",
+            "default_enabled",
+            "adapter opt-in plus observed alpha-zero scanout"
+          ]
+        }
+      ],
+      "limitations": [
+        "No Amlogic compositor or framebuffer is touched; physical activation remains an adapter/device follow-up."
+      ]
+    },
+    {
+      "id": "M13-012",
+      "requirement": "deixar NPOT wrap fix desligado por padrão",
+      "disposition": "verified_static_only",
+      "status": "verified",
+      "claim": "nxgl exposes no texture hook and does not rewrite wrap modes; any NPOT workaround remains an adapter-local, evidence-gated opt-in.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/README.md",
+          "tokens": [
+            "nxgl does not hook texture calls",
+            "**off by construction**"
+          ]
+        },
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "NXGL_PRESENT_ENGINE_OWNED"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "global-npot-wrap-rewrite",
+            "default_enabled",
+            "castleofillusion"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "default OFF (ligar: COI_NPOT_FIX=1)",
+            "leave global NPOT wrap rewriting disabled by default"
+          ]
+        }
+      ],
+      "limitations": [
+        "This gate establishes a default-off framework boundary; it does not diagnose every individual texture artifact."
+      ]
+    },
+    {
+      "id": "M13-013",
+      "requirement": "detectar silhueta preta e auditar sampler/wrap antes de shader",
+      "disposition": "verified_synthetic_only",
+      "status": "verified",
+      "claim": "A pure passive classifier routes a geometrically intact black silhouette to sampler, wrap and atlas inspection before shader or lighting speculation, without changing GL state.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_diagnostics.c",
+          "tokens": [
+            "nxgl_classify_black_silhouette_v2",
+            "NXGL_SILHOUETTE_V2_AUDIT_SAMPLER_WRAP_ATLAS",
+            "classifier is pure and cannot change GL state"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_diagnostics.c",
+          "tokens": [
+            "test_silhouette_prioritizes_sampler_wrap_atlas",
+            "repeating_or_mirrored_uv",
+            "forced_clamp_to_edge"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "RAIZ DO MICKEY/PORTA PRETOS",
+            "audit sampler and wrap before shader"
+          ]
+        }
+      ],
+      "limitations": [
+        "The classifier prioritizes investigation; it does not assert sampler root cause without game evidence."
+      ]
+    },
+    {
+      "id": "M13-014",
+      "requirement": "não aplicar glFinish globalmente",
+      "disposition": "verified_static_only",
+      "status": "verified",
+      "claim": "The default presentation owner is a strict no-op; glFinish can run only behind an explicit adapter-selected present flag and is never injected merely by linking nxgl.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_present.c",
+          "tokens": [
+            "linking nxgl cannot inject glFinish",
+            "NXGL_PRESENT_FINISH_BEFORE_SWAP",
+            "context->gl.finish()"
+          ]
+        },
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "Default: the engine/its EGL adapter owns presentation"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_present_v2.c",
+          "tokens": [
+            "test_glfinish_is_only_an_explicit_policy",
+            "gl_state.finish_calls == 0u",
+            "NXGL_PRESENT_FINISH_BEFORE_SWAP"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "no global glFinish"
+          ]
+        }
+      ],
+      "limitations": [
+        "An adapter may still opt in after its own narrow evidence; that decision is outside the common default."
+      ]
+    },
+    {
+      "id": "M13-015",
+      "requirement": "não limpar FBO, trocar shader ou converter textura globalmente",
+      "disposition": "verified_static_only",
+      "status": "verified",
+      "claim": "nxgl owns neither engine shaders nor texture uploads, default presentation is a no-op, and the only built-in clear rejects off-screen FBOs and requires explicit alpha-one opt-in.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_present.c",
+          "tokens": [
+            "if (framebuffer != 0)",
+            "policy->owner == NXGL_PRESENT_ENGINE_OWNED",
+            "nxgl_present_v2_stack_valid"
+          ]
+        },
+        {
+          "path": "framework/nxgl/README.md",
+          "tokens": [
+            "never enables an FBO clear",
+            "alters a",
+            "shader"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_present_v2.c",
+          "tokens": [
+            "test_engine_owned_is_strict_no_action",
+            "test_alpha_one_rejects_nondefault_fbo_without_mutation",
+            "provider.present_calls == 0u"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "no global FBO clear",
+            "no global shader substitution",
+            "no global texture conversion"
+          ]
+        }
+      ],
+      "limitations": [
+        "Game adapters retain responsibility for any narrowly proven shader or texture workaround."
+      ]
+    },
+    {
+      "id": "M13-016",
+      "requirement": "validar perda/recriação de contexto e resize/focus",
+      "disposition": "verified_synthetic_only",
+      "status": "verified",
+      "claim": "A passive versioned state machine records focus, minimize, resize, context loss and explicit recreation atomically; it never creates, destroys or shortcuts a native engine context.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_diagnostics.c",
+          "tokens": [
+            "NXGL_SURFACE_EVENT_V2_CONTEXT_LOST",
+            "NXGL_SURFACE_EVENT_V2_CONTEXT_RECREATED",
+            "no transition in this module creates or destroys"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_diagnostics.c",
+          "tokens": [
+            "test_observations_are_monotonic_and_passive",
+            "test_failed_observations_are_atomic",
+            "CONTEXT_RECREATED observation"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "The state machine validates observation order only; physical context recreation remains owned by the engine adapter."
+      ]
+    },
+    {
+      "id": "M13-017",
+      "requirement": "validar SDL/fbdev, KMSDRM e Wayland por capacidade",
+      "disposition": "verified_boundary_only",
+      "status": "verified",
+      "claim": "The video matrix keys policy from the backend SDL actually opened, keeps KMSDRM and Wayland under SDL ownership, allows raw fbdev EGL only after present-surface proof and fails unknown stacks closed to SDL. Its passive provider-name prefilter classifies explicit transport capabilities instead of rejecting a GBM-capable object merely because its filename also carries a Wayland token. The opt-in pre-video sanitizer asks the loaded target-ABI SDL which drivers it compiled, preserves supported or absent hints and removes only an unsupported inherited SDL_VIDEODRIVER without selecting a replacement.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "sdl-mali-fbdev",
+            "sdl-kmsdrm",
+            "sdl-wayland",
+            "sdl-unknown"
+          ]
+        },
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "NXGL_STACK_OWNER_V2_SDL_EGL",
+            "NXGL_STACK_OWNER_V2_RAW_EGL",
+            "nxgl_provider_name_compatible",
+            "wayland-gbm"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "SDL_GetCurrentVideoDriver",
+            "nxgl_stack_ops_v2_init_sdl",
+            "ops->owner = NXGL_STACK_OWNER_V2_SDL_EGL"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_diagnostics.c",
+          "tokens": [
+            "nxgl_provider_name_compatible",
+            "has_direct",
+            "has_wayland"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl_hint.c",
+          "tokens": [
+            "SDL_GetNumVideoDrivers",
+            "SDL_GetVideoDriver",
+            "unsetenv(\"SDL_VIDEODRIVER\")",
+            "nxgl_complete_sdl_video_hint_receipt_v2"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl.c",
+          "tokens": [
+            "test_resolution_order",
+            "NXGL_RESOLUTION_DRM_FACT",
+            "NXGL_RESOLUTION_FBDEV_FACT"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "ops->owner = NXGL_STACK_OWNER_V2_RAW_EGL",
+            "report.stack_owner == NXGL_STACK_OWNER_V2_RAW_EGL"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_diagnostics.c",
+          "tokens": [
+            "test_provider_name_prefilter_is_transport_aware",
+            "libmali-bifrost-g31-rxp0-wayland-gbm.so"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_sdl_hint.c",
+          "tokens": [
+            "test_no_hint_keeps_autodetection",
+            "test_supported_hint_is_preserved_and_completed",
+            "test_unsupported_hint_is_cleared",
+            "test_another_supported_backend_is_never_forced",
+            "test_only_canonical_hint_may_change"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "fail closed to SDL ownership",
+            "m13_physical_validation"
+          ]
+        }
+      ],
+      "limitations": [
+        "Wayland is a source contract and host boundary in M13; no compositor is opened by the automatic gate.",
+        "The sanitizer gate injects the target-SDL inventory and never opens video; each opt-in port still owns physical proof on every claimed firmware and device."
+      ]
+    },
+    {
+      "id": "M13-018",
+      "requirement": "registrar vendor/renderer/version/extensions relevantes",
+      "disposition": "verified_boundary_only",
+      "status": "verified",
+      "claim": "After a current GLES context exists, bounded sanitized report fields capture backend, GL vendor/renderer/version/GLSL/extensions plus EGL vendor/version/client APIs; malformed, unterminated or private provider data fail closed or are redacted.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_v2_capture_gl_strings",
+            "nxgl_v2_sanitize_egl_identity",
+            "NXGL_GL_VENDOR",
+            "NXGL_GL_EXTENSIONS"
+          ]
+        },
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "char vendor",
+            "char renderer",
+            "char extensions",
+            "char client_apis"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_nxcompat.c",
+          "tokens": [
+            "Mali-450 MP fixture",
+            "oversized_renderer",
+            "GL_OES_compressed_ETC1_RGB8_texture"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "!text_private(report.legacy.vendor)",
+            "[redacted-path]",
+            "[redacted-ip]"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "All GL strings in the automatic test are fake bounded values, not a host or device renderer fingerprint."
+      ]
+    },
+    {
+      "id": "M13-019",
+      "requirement": "criar testes de state preservation e present",
+      "disposition": "verified_synthetic_only",
+      "status": "verified",
+      "claim": "The host suite exercises strict engine-owned no-op behavior, explicit adapter presentation, context-version and policy rejection, the alpha-one state transaction and cross-API present reentry blocking through injected providers and GL functions.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_present.c",
+          "tokens": [
+            "nxgl_present_v2_stack_valid",
+            "nxgl_present_v2_snapshot_state",
+            "nxgl_present_v2_restore_state",
+            "nxgl_present_v2_apply_alpha_one"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_present_v2.c",
+          "tokens": [
+            "test_present_v2_callback_cannot_reenter_v1",
+            "test_v1_rejects_v2_context_when_uncontended",
+            "provider.reentry_result == NXGL_ERROR_BUSY",
+            "adapter_calls == 0u",
+            "test_current_validation_precedes_every_graphics_touch",
+            "test_alpha_one_success_preserves_all_tracked_state",
+            "test_restore_and_verification_failures_are_detected",
+            "test_present_failure_occurs_after_state_restore"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "The dedicated fixture injects every GL/provider function and has no real graphics dependency."
+      ]
+    },
+    {
+      "id": "M13-020",
+      "requirement": "cruzar Bully2/Sonic4/Chrono/Castle/LEGO sem generalizar quirks",
+      "disposition": "verified_static_only",
+      "status": "verified",
+      "claim": "The sanitized provenance source admits Horizon, Castle and Sonic only within their recorded scopes, restricts Bully2 to one historical delisted fact, restricts LEGO to alpha-quirk provenance and keeps Chrono negative/designed-only.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "positive_multi_stack_strong",
+            "historical_delisted_narrow_fact_only",
+            "narrow_quirk_provenance_only",
+            "negative_designed_only"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "positive_reference",
+            "support_claims_created_by_this_file",
+            "No guest initializer, JNI entry point or game code was executed"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "horizonchase",
+            "castleofillusion",
+            "sonic4ep2",
+            "bully2",
+            "lego_star_wars_tfa_alpha_quirk",
+            "chrono_pilot"
+          ]
+        }
+      ],
+      "limitations": [
+        "Imported physical history is provenance only and is explicitly not execution performed by M13."
+      ]
+    },
+    {
+      "id": "M13-021",
+      "requirement": "medir escala/textura sem assumir resolução",
+      "disposition": "verified_synthetic_only",
+      "status": "verified",
+      "claim": "A pure metrics API preserves display, drawable, viewport and render-target dimensions separately and computes floating-point ratios without assuming an integer scale or fixed resolution.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/src/nxgl_metrics.c",
+          "tokens": [
+            "nxgl_calculate_surface_metrics_v2",
+            "drawable_per_display_scale_x",
+            "render_target_per_viewport_scale_x"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_metrics.c",
+          "tokens": [
+            "test_no_resolution_or_integer_scale_assumption",
+            "input.display_width = 854",
+            "input.render_target_width = 777"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "The metrics describe dimensions and scale only; texture memory format and engine quality policy remain adapter-owned."
+      ]
+    },
+    {
+      "id": "M13-022",
+      "requirement": "expandir matriz de vídeo por stack",
+      "disposition": "verified_static_only",
+      "status": "verified",
+      "claim": "A finite four-row source of truth records opened-backend selection, ownership, entry-point source, present path, drawable rule, baseline, provenance and M13 physical-validation status for fbdev, KMSDRM, Wayland and unknown SDL stacks.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "backend_matrix",
+            "selection_fact",
+            "entry_point_policy",
+            "present_policy",
+            "drawable_policy"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "source-contract-and-host-boundary-only",
+            "designed-boundary-only",
+            "m13_physical_validation"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "path": "framework/nxgl/references/m13-video-evidence-v1.json",
+          "tokens": [
+            "source_of_truth_for",
+            "M13-022"
+          ]
+        }
+      ],
+      "limitations": [
+        "The matrix separates policy and imported provenance from support; every M13 physical-validation field remains false."
+      ]
+    },
+    {
+      "id": "M13-023",
+      "requirement": "documentar fallback e motivo observado",
+      "disposition": "verified_host_only",
+      "status": "verified",
+      "claim": "A bounded attempt journal records finite allowlisted stages and reasons; provider text is excluded, hint recovery is transactional, and the terminal status callback runs under the arbiter before caller outputs are published so reentrant open, close or present returns byte-atomic BUSY.",
+      "implementation": [
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "NXGL_ATTEMPT_JOURNAL_MAX",
+            "nxgl_attempt_entry_v2",
+            "journal_dropped"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_sdl2.c",
+          "tokens": [
+            "nxgl_v2_record",
+            "Journal text is selected only from this finite table",
+            "The terminal callback is part of the open transaction",
+            "both caller outputs unpublished"
+          ]
+        },
+        {
+          "path": "framework/nxgl/README.md",
+          "tokens": [
+            "Status/logo callback",
+            "inside the",
+            "transaction and arbiter",
+            "before either output is published"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxgl/tests/test_nxgl_environment.c",
+          "tokens": [
+            "test_exact_video_environment_transaction",
+            "cleared == expected_cleared"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl.c",
+          "tokens": [
+            "test_profile_format",
+            "video mali"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "fake_terminal_status_locked",
+            "acquired == 0",
+            "NXGL_ERROR_BUSY",
+            "terminal.context_canary",
+            "report.journal[1].reason == NXGL_OPEN_REASON_V2_SELECTED"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_present_v2.c",
+          "tokens": [
+            "test_busy_is_byte_atomic_and_callback_free",
+            "test_present_v2_callback_cannot_reenter_v1",
+            "test_v1_rejects_v2_context_when_uncontended",
+            "provider.reentry_result == NXGL_ERROR_BUSY",
+            "memcmp(&result, &before_result",
+            "adapter_calls == 0u",
+            "provider.validate_calls == 0u",
+            "fake_arbiter_busy == 1"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "The terminal callback must return promptly; the host assertions use deterministic fake providers and contain no physical driver error."
+      ]
+    },
+    {
+      "id": "M13-024",
+      "requirement": "fechar gate nxgl",
+      "disposition": "verified_host_only",
+      "status": "verified",
+      "claim": "The dedicated M13 runner closes the host boundary under GCC and Clang sanitizers with pure and sealed nxgl tests, including the default-off target-SDL hint sanitizer plus a separately linked default-off provider probe and one-shot coherent SDL pair transaction; forbidden-symbol, dependency, install-link, infrastructure and frozen-pin barriers remain explicit while physical evidence stays zero.",
+      "implementation": [
+        {
+          "path": "framework/contracts/declarative-v1.json",
+          "tokens": [
+            "\"contract_version\": \"",
+            "\"current_version\": \"0.3.5\"",
+            "API 2 is additive",
+            "SDL_ResetHint optional",
+            "separately linked, default-off",
+            "live EGL initialize/terminate requires explicit completed-video-teardown attestation",
+            "lifecycle teardown remain adapter-owned",
+            "target-ABI pre-video SDL_VIDEODRIVER sanitizer"
+          ]
+        },
+        {
+          "path": "framework/nxgl/VERSION",
+          "tokens": [
+            "0.3.5"
+          ]
+        },
+        {
+          "path": "framework/nxgl/include/nxgl.h",
+          "tokens": [
+            "#define NXGL_API_VERSION 1u",
+            "#define NXGL_API_CURRENT_VERSION NXGL_API_VERSION_V2",
+            "#define NXGL_VERSION \"0.3.5\"",
+            "nxgl_plan_sdl_precontext_recovery_v2",
+            "nxgl_sanitize_sdl_video_hint_v2",
+            "nxgl_complete_sdl_video_hint_receipt_v2"
+          ]
+        },
+        {
+          "path": "framework/nxgl/include/nxgl_provider_recovery.h",
+          "tokens": [
+            "callers must set enabled=1",
+            "NXGL_PROVIDER_RECOVERY_MARKER",
+            "nxgl_probe_sdl_provider_v2",
+            "nxgl_reexec_sdl_provider_pair_v2",
+            "video_torn_down",
+            "This function never changes LD_PRELOAD",
+            "not adversarial TOCTOU protection"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_provider_recovery.c",
+          "tokens": [
+            "RTLD_NOLOAD",
+            "dladdr",
+            "nxgl_provider_symbol_from_object",
+            "SDL_VIDEO_EGL_DRIVER",
+            "SDL_VIDEO_GL_DRIVER",
+            "nxgl_provider_execv(\"/proc/self/exe\"",
+            "retain_handle = 1",
+            "nxgl_provider_process_poisoned"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_internal.h",
+          "tokens": [
+            "NXGL_PROVIDER_RECOVERY_TESTING",
+            "nxgl_test_provider_recovery_set_exec_hook",
+            "nxgl_test_provider_recovery_set_environment_hooks"
+          ]
+        },
+        {
+          "path": "framework/nxgl/src/nxgl_arbiter.c",
+          "tokens": [
+            "one non-blocking process-global arbiter",
+            "nxgl_arbiter_try_acquire",
+            "nxgl_arbiter_release"
+          ]
+        },
+        {
+          "path": "framework/nxgl/CMakeLists.txt",
+          "tokens": [
+            "project(nxgl VERSION 0.3.5 LANGUAGES C)",
+            "add_library(nxgl-provider-recovery STATIC",
+            "nxgl::provider-recovery",
+            "NXGL_ENABLE_SANITIZERS",
+            "NXGL_BUILD_NATIVE_TESTS",
+            "add_executable(test-nxgl-sdl-hint"
+          ]
+        },
+        {
+          "path": "framework/nxgl/README.md",
+          "tokens": [
+            "Version 0.2.17",
+            "default-off startup helper",
+            "SDL_GetNumVideoDrivers()",
+            "unsupported by the target SDL is removed",
+            "does not force KMSDRM",
+            "Version 0.2.6",
+            "separate archive",
+            "re-executes `/proc/self/exe` once"
+          ]
+        },
+        {
+          "path": "framework/nxgl/CHANGELOG.md",
+          "tokens": [
+            "# 0.2.17",
+            "target-ABI SDL video-hint sanitizer",
+            "removes only an unsupported inherited value",
+            "never selects KMSDRM",
+            "## 0.2.6",
+            "default-off `nxgl-provider-recovery`",
+            "restores all introduced variables",
+            "never scans by device/CFW name"
+          ]
+        },
+        {
+          "path": "framework/nxgl/REGRESSION-MATRIX.md",
+          "tokens": [
+            "nxgl 0.3.5 regression matrix",
+            "Target-SDL sanitizer disabled",
+            "No inherited `SDL_VIDEODRIVER`",
+            "Unsupported inherited hint",
+            "Other supported backend",
+            "Opt-in provider recovery archive",
+            "same-DSO EGL/GLES ownership",
+            "no real EGL/GPU/device"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "path": "framework/nxbootstrap/tests/test-manifest-contract.py",
+          "tokens": [
+            "contract.get(\"contract_version\")",
+            "NXGL_API_CURRENT_VERSION"
+          ]
+        },
+        {
+          "path": "framework/tests/test-matrix-v1.json",
+          "tokens": [
+            "nxgl-m13-host",
+            "nxgl-m13-audit",
+            "framework/nxgl/tests/run-m13-host.sh",
+            "framework/nxgl/tests/test_m13_audit.py",
+            "framework/nxgl/tests/test_nxgl_sdl_hint.c",
+            "framework/nxgl/tests/test_nxgl_provider_recovery.c"
+          ]
+        },
+        {
+          "path": "framework/tests/run-safe-gates.sh",
+          "tokens": [
+            "run_gate nxgl-m13-host",
+            "run_gate nxgl-m13-audit",
+            "bash framework/nxgl/tests/run-m13-host.sh",
+            "python3 -B framework/nxgl/tests/test_m13_audit.py"
+          ]
+        },
+        {
+          "path": "framework/tests/test_infrastructure.py",
+          "tokens": [
+            "check_m13_host_gate",
+            "M13 host source classification changed",
+            "test-nxgl-sdl-hint",
+            "test-nxgl-provider-recovery",
+            "check_provider_recovery_archive",
+            "physical_device_evidence=0"
+          ]
+        },
+        {
+          "path": "framework/nxcompat/tests/run-host.sh",
+          "tokens": [
+            "nxgl-$compiler",
+            "nm -u",
+            "ctest --test-dir"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/run-m13-host.sh",
+          "tokens": [
+            "m13_executables=(",
+            "check_provider_recovery_archive",
+            "sdl_hint=1",
+            "provider_recovery=1",
+            "for compiler in gcc clang",
+            "physical_device_evidence=0",
+            "device_access=0",
+            "network_access=0"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_sdl_hint.c",
+          "tokens": [
+            "test_disabled_is_inert",
+            "test_no_hint_keeps_autodetection",
+            "test_supported_hint_is_preserved_and_completed",
+            "test_unsupported_hint_is_cleared",
+            "test_another_supported_backend_is_never_forced",
+            "test_only_canonical_hint_may_change",
+            "test_selected_driver_must_belong_to_target_sdl"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_provider_recovery.c",
+          "tokens": [
+            "test_probe_is_explicit_and_fail_closed",
+            "NXGL_PROVIDER_RECOVERY_V2_MIXED_OBJECTS",
+            "NXGL_ERROR_BUSY",
+            "memcmp(&receipt",
+            "test_partial_environment_failure_rolls_back",
+            "nxgl-test-preload-sentinel",
+            "test_terminate_failure_poison",
+            "unexpected_exec_calls == 0"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/fake_provider_good.c",
+          "tokens": [
+            "eglGetDisplay",
+            "eglInitialize",
+            "eglTerminate",
+            "glCreateShader",
+            "glGetString"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/fake_provider_dependency.c",
+          "tokens": [
+            "glCreateShader"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/fake_provider_mixed.c",
+          "tokens": [
+            "dlsym(handle, \"glCreateShader\")",
+            "another DSO owns it",
+            "nxgl_test_force_dependency"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_open_v2.c",
+          "tokens": [
+            "test_success_ladder_reentry_privacy_and_close",
+            "test_fail_closed_provider_contracts"
+          ]
+        },
+        {
+          "path": "framework/nxgl/tests/test_nxgl_present_v2.c",
+          "tokens": [
+            "test_v1_abi_canary_and_v2_initializers",
+            "test_busy_is_byte_atomic_and_callback_free",
+            "test_present_v2_callback_cannot_reenter_v1",
+            "test_v1_rejects_v2_context_when_uncontended",
+            "provider.reentry_result == NXGL_ERROR_BUSY"
+          ]
+        }
+      ],
+      "references": [],
+      "limitations": [
+        "The closed automatic gate is host-only and uses test-owned fake DSOs; it opens no physical GPU, display, firmware EGL/GLES driver or guest, so physical validation remains assigned to M22.",
+        "Version 0.2.17 does not migrate Titan Souls, Swordigo, Bomb Chicken or any other approved port; each adapter must opt in and pass its own firmware and package gates.",
+        "The receipt identity recheck detects accidental operational replacement only; it is not a security boundary against malicious or uncoordinated writers during probe-to-reexec."
+      ]
+    }
+  ]
+}

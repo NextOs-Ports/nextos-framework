@@ -1,0 +1,13 @@
+# =====================================================================
+#  SENSIBILIDADE DO ANALOGICO ESQUERDO  /  LEFT-STICK SENSITIVITY
+# ---------------------------------------------------------------------
+#  Troque APENAS a palavra na ultima linha deste arquivo.
+#  Change ONLY the word on the LAST line of this file.
+#
+#  Opcoes / Options:
+#    low     = mira precisa (mais suave)  / precise aiming (smoother)
+#    normal  = padrao, classico           / default, classic feel
+#    high    = mais rapido                / snappier
+#    ...ou um numero / or a number: 0.30 - 1.50
+# =====================================================================
+normal

@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Sally Face"
+  },
+  "items": [
+    "Sally Face.sh",
+    "sallyface/"
+  ],
+  "items_opt": [],
+  "name": "sallyface.zip",
+  "version": 4
+}

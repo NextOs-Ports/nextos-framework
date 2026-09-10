@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "purpose": "Freedom Planet 2 owner-data Vulkan SMOL-V to exact GLES2 preparation",
+  "translator": {
+    "artifact": {
+      "build_id": "bbe061b4c4fe789954a68bea6d14bd009c2fbf23",
+      "elf_class": "ELF64",
+      "machine": "AArch64",
+      "max_glibc": "2.17",
+      "mode": "0755",
+      "needed": [
+        "libm.so.6",
+        "libpthread.so.0",
+        "libc.so.6"
+      ],
+      "path": "nxextract/bin/fp2-smolv-cross-nextos",
+      "sha256": "4f04aa2cd721dfd3fd23a5567f9ef821d1308a21d8b3fde2b7baaff678ad1267",
+      "size": 4242712
+    },
+    "build": {
+      "builder_image": "playfetch-builder:buster",
+      "builder_image_id": "sha256:036c7910ea53bc78cc213452afa92fa83d55de1c51ae54f315af58b5a41a45cf",
+      "compiler": "GCC (Debian 8.3.0-2) 8.3.0",
+      "network": "none",
+      "static_runtime": [
+        "libstdc++",
+        "libgcc"
+      ]
+    },
+    "source_inputs": {
+      "adapter": {
+        "path": "ports/fp2/tools/unity_smolv_cross.cpp",
+        "sha256": "9d369a24e97f7cd903e67348a32d425cb7f4cb88b549b13cd1728db26bbd700e"
+      },
+      "smol_v": {
+        "cpp_sha256": "d6fae91910dda8d0a5f9cc863829bb686815e0fab57235f78cd24ef2f75d72f1",
+        "header_sha256": "679e0eb13942d84ef56f1924d239eb93ab3d072a443b968097dd445aa51907e1",
+        "license": "nxextract/licenses/SMOL-V-MIT-or-Unlicense.txt"
+      },
+      "spirv_cross": {
+        "license": "nxextract/licenses/SPIRV-Cross-Apache-2.0.txt",
+        "revision": "eb32b288ea553e938005fcfd819a2290b1c8032d"
+      },
+      "spirv_headers": {
+        "license": "nxextract/licenses/SPIRV-Headers.txt",
+        "revision": "29981f65241605e08b0ede4cfeb999fe3b723c6a"
+      },
+      "spirv_tools": {
+        "license": "nxextract/licenses/SPIRV-Tools-Apache-2.0.txt",
+        "revision": "9a49b0883b9b635689a85b5647dbfcb223268151"
+      }
+    }
+  },
+  "lz4": {
+    "artifact": {
+      "build_id": "8443b1c764d6eecc20507b9da6a5ca1b03cb358b",
+      "elf_class": "ELF64",
+      "machine": "AArch64",
+      "max_glibc": "2.17",
+      "mode": "0644",
+      "needed": [
+        "libc.so.6",
+        "ld-linux-aarch64.so.1"
+      ],
+      "path": "nxextract/lib/aarch64/liblz4.so.1",
+      "sha256": "a65c53e2e7015b636e4f212449eff2016b99736cdf5798fe2cf3672818b88b8b",
+      "size": 108824,
+      "soname": "liblz4.so.1"
+    },
+    "license": "nxextract/licenses/LZ4-BSD-2-Clause.txt",
+    "package": "Debian Buster arm64 liblz4-1 1.8.3-1+deb10u1",
+    "version": "1.8.3"
+  }
+}

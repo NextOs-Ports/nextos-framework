@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "armhf"
+    ],
+    "min_glibc": "2.28",
+    "title": "Forager Nuclear",
+    "runtime": []
+  },
+  "items": [
+    "Forager.sh",
+    "nxforager/"
+  ],
+  "items_opt": [],
+  "name": "nxforager.zip",
+  "version": 4
+}

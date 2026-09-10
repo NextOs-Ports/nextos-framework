@@ -1,0 +1,42 @@
+{
+  "artifacts": {
+    "aarch64": {
+      "glibc_max": "2.17",
+      "mode": "0755",
+      "path": "release/aarch64/nxsplash-nextos",
+      "sha256": "d85d896a906a778c9af250e5617d45d085a98b18552cb0254addbbc626036c97",
+      "size": 23920
+    },
+    "armv7": {
+      "glibc_max": "2.4",
+      "mode": "0755",
+      "path": "release/armv7/nxsplash-nextos",
+      "sha256": "88a2b39be45826348375f966af536e976b37eefd18a88c8fcff75f6fd08015d8",
+      "size": 23768
+    },
+    "i386": {
+      "glibc_max": "2.3",
+      "mode": "0755",
+      "path": "release/i386/nxsplash-nextos",
+      "sha256": "e0683efcf89f13b0c73c9d88fd670dfd5749ac3908a543cfac06fbe0d01b4f9f",
+      "size": 22792
+    },
+    "x86_64": {
+      "glibc_max": "2.14",
+      "mode": "0755",
+      "path": "release/x86_64/nxsplash-nextos",
+      "sha256": "d4b92bcb84b150262ef7499572b1c05337646b09ba5ab3e7a2bc211207fea20c",
+      "size": 25448
+    }
+  },
+  "component": "nxsplash",
+  "duration_ms": 5000,
+  "schema_version": 1,
+  "source_sha256": "c393afcef644745b9d1e557c9833146e908aee4d4b6bfdb57e64e7d304c8e177",
+  "toolchain": {
+    "archive_sha256": "70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00",
+    "name": "zig",
+    "version": "0.16.0"
+  },
+  "version": "0.1.2"
+}

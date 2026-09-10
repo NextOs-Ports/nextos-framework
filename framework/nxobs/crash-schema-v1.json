@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.local/schema/nx-crash-v1.json",
+  "title": "NXObs native crash receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "signal",
+    "status",
+    "phase",
+    "frame",
+    "thread",
+    "pc",
+    "lr",
+    "sp",
+    "fault_address",
+    "module",
+    "build_id",
+    "module_offset",
+    "last_asset",
+    "last_graphics_call",
+    "provider",
+    "maps"
+  ],
+  "properties": {
+    "schema": {"const": "nx-crash-v1"},
+    "schema_version": {"const": 1},
+    "signal": {"type": "integer", "minimum": 1, "maximum": 64},
+    "status": {"type": "integer", "minimum": 129, "maximum": 192},
+    "phase": {"$ref": "#/$defs/safe_text"},
+    "frame": {"type": "integer", "minimum": 0},
+    "thread": {"type": "integer", "minimum": 0},
+    "pc": {"$ref": "#/$defs/address"},
+    "lr": {"$ref": "#/$defs/address"},
+    "sp": {"$ref": "#/$defs/address"},
+    "fault_address": {"$ref": "#/$defs/address"},
+    "module": {"$ref": "#/$defs/safe_text"},
+    "build_id": {"$ref": "#/$defs/build_id"},
+    "module_offset": {"$ref": "#/$defs/address"},
+    "last_asset": {"$ref": "#/$defs/safe_text"},
+    "last_graphics_call": {"$ref": "#/$defs/safe_text"},
+    "provider": {"$ref": "#/$defs/safe_text"},
+    "maps": {"$ref": "#/$defs/safe_text"}
+  },
+  "$defs": {
+    "address": {"type": "string", "pattern": "^0x[0-9a-f]+$"},
+    "build_id": {
+      "oneOf": [
+        {"type": "string", "pattern": "^[0-9a-f]{8,128}$"},
+        {"const": "unavailable"}
+      ]
+    },
+    "safe_text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 63,
+      "pattern": "^[A-Za-z0-9._:+@-]+$"
+    }
+  }
+}

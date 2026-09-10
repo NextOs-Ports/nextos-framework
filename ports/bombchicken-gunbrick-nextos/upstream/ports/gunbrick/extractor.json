@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "id": "gunbrick-nextos",
+  "version": "v10-flex-2",
+  "title": "GUNBRICK RELOADED",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.nitrome.Gunbrick"
+    ],
+    "max_files": 64,
+    "max_bundle_apks": 32,
+    "max_member_bytes": 536870912,
+    "max_bundle_bytes": 1073741824
+  },
+  "extract": [
+    {
+      "id": "android-unity-assets",
+      "source": {
+        "kind": "entries",
+        "patterns": [
+          "assets/**"
+        ],
+        "strip_prefix": "assets/"
+      },
+      "destination": "assets",
+      "validate": {
+        "type": "tree",
+        "exact_files": 13,
+        "exact_bytes": 114848937,
+        "required_paths": [
+          "bin/Data/boot.config",
+          "bin/Data/data.unity3d",
+          "bin/Data/ScriptingAssemblies.json",
+          "bin/Data/Managed/Metadata/global-metadata.dat",
+          "bin/Data/unity_app_guid"
+        ],
+        "tree_fingerprint": "427bda5093c4d60bb01f3b39ab0b5e289716db8b56d9a7b98690521f0162ab07"
+      }
+    },
+    {
+      "id": "android-native-loader",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmain.so"
+        ]
+      },
+      "destination": "lib/libmain.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 6728,
+        "sha256": "6c75c14ca2e3933c545bde758e2d6a009b5eed8d689d789a70ba2c7ef198b9b6"
+      }
+    },
+    {
+      "id": "android-unity-player",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libunity.so"
+        ]
+      },
+      "destination": "lib/libunity.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 15846704,
+        "sha256": "1a8b6025395e2ea5eb93a2eae2c0909f775e2730a449d690f79e8e2bd47f8c0e"
+      }
+    },
+    {
+      "id": "android-il2cpp-runtime",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libil2cpp.so"
+        ]
+      },
+      "destination": "lib/libil2cpp.so",
+      "validate": {
+        "type": "file",
+        "elf_machine": "{abi}",
+        "size": 114824672,
+        "sha256": "da0bc61dae55907028aa9ff8d47c77841b6821869935c933489b52384c93191e"
+      }
+    }
+  ],
+  "hooks": [],
+  "validate": [
+    {
+      "path": "assets",
+      "type": "tree",
+      "exact_files": 13,
+      "exact_bytes": 114848937,
+      "required_paths": [
+        "bin/Data/boot.config",
+        "bin/Data/data.unity3d",
+        "bin/Data/ScriptingAssemblies.json",
+        "bin/Data/Managed/Metadata/global-metadata.dat",
+        "bin/Data/unity_app_guid"
+      ],
+      "tree_fingerprint": "427bda5093c4d60bb01f3b39ab0b5e289716db8b56d9a7b98690521f0162ab07"
+    },
+    {
+      "path": "lib/libmain.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 6728,
+      "sha256": "6c75c14ca2e3933c545bde758e2d6a009b5eed8d689d789a70ba2c7ef198b9b6"
+    },
+    {
+      "path": "lib/libunity.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 15846704,
+      "sha256": "1a8b6025395e2ea5eb93a2eae2c0909f775e2730a449d690f79e8e2bd47f8c0e"
+    },
+    {
+      "path": "lib/libil2cpp.so",
+      "type": "file",
+      "elf_machine": "arm64-v8a",
+      "size": 114824672,
+      "sha256": "da0bc61dae55907028aa9ff8d47c77841b6821869935c933489b52384c93191e"
+    }
+  ],
+  "commit": [
+    "assets",
+    "lib"
+  ],
+  "marker": ".nxextract-gunbrick.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 8
+}

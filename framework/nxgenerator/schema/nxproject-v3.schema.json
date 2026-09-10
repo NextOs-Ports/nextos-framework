@@ -1,0 +1,741 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextos.local/schema/nxproject-v3.schema.json",
+  "title": "NXGenerator project manifest v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "nxport",
+    "nxextract_recipe",
+    "adapter",
+    "portmaster",
+    "license",
+    "documentation",
+    "language_access",
+    "controls"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 3
+    },
+    "nxport": {
+      "type": "object",
+      "description": "Canonical nxport schema v2 or v3 object validated by the pinned nxbootstrap generator. The closed sdl_provider=system and video_proof=required fields are optional and remain absent when undeclared. nxport v3 generation_runtime is an explicit generation-v2 opt-in and requires the project runtime_root build input."
+    },
+    "runtime_root": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "description": "Source-root-relative directory containing the exact files pinned by nxport schema v3 generation_runtime. Required only for nxport v3 and never serialized as a host-absolute path."
+    },
+    "nxextract_recipe": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "adapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "skeleton"
+      ],
+      "properties": {
+        "skeleton": {
+          "const": "contract-only"
+        }
+      }
+    },
+    "portmaster": {
+      "type": "object",
+      "description": "PortMaster metadata input. nxgenerator derives canonical gameinfo.xml path/name from nxport.launcher_name and nxport.title without another host-side file.",
+      "additionalProperties": false,
+      "required": [
+        "metadata_version",
+        "min_glibc",
+        "runtime"
+      ],
+      "properties": {
+        "metadata_version": {
+          "const": 4
+        },
+        "min_glibc": {
+          "type": "string",
+          "pattern": "^[0-9]+(?:[.][0-9]+)+$"
+        },
+        "runtime": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        }
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "spdx_id",
+        "source"
+      ],
+      "properties": {
+        "spdx_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "documentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "proven_support"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "scaffold",
+            "authored"
+          ]
+        },
+        "proven_support": {
+          "type": "array",
+          "maxItems": 0
+        }
+      }
+    },
+    "package_payload": {
+      "type": "array",
+      "description": "Ordered author-owned files copied from the same source-root-relative path into the generated port. README.md and INSTALLATION.md may replace scaffold bytes only when documentation.status is authored and both records use kind payload.",
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "mode",
+          "sha256",
+          "kind"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "mode": {
+            "enum": [
+              "0644",
+              "0755"
+            ]
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "kind": {
+            "enum": [
+              "payload",
+              "license-notice"
+            ]
+          }
+        }
+      }
+    },
+    "owner_data": {
+      "type": "object",
+      "description": "V3 (GAMEDATA-DIR-01): single source for the owner-data folder; the generator derives the physical gamedata/README.txt marker, accepted formats and the INSTALLATION.md path text from this block. directory is canonical.",
+      "additionalProperties": false,
+      "required": [
+        "directory",
+        "formats",
+        "reference"
+      ],
+      "properties": {
+        "directory": {
+          "const": "gamedata"
+        },
+        "formats": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z0-9]{2,8}$"
+          }
+        },
+        "reference": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "version"
+          ],
+          "properties": {
+            "version": {
+              "type": "string",
+              "maxLength": 64
+            }
+          }
+        }
+      }
+    },
+    "language_access": {
+      "type": "object",
+      "description": "V3-SETTINGS-01: how the player reaches languages. Required for schema_version 3.",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "supported",
+        "fallback",
+        "sinks"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "native-menu",
+            "first-run-native",
+            "adapter",
+            "single-language",
+            "none"
+          ]
+        },
+        "supported": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z]{2,3}([-_][A-Za-z0-9]{2,8})*$"
+          }
+        },
+        "fallback": {
+          "type": "string"
+        },
+        "sinks": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "graphics": {
+      "type": "object",
+      "description": "V3-GRAPHICS-02: the declared graphics CONTEXT contract the vendored nxgl_graphics_contract_adapter measures at runtime. Optional; when present with uses_gl true it mirrors the C contract exactly (enums must match nxgl_graphics_contract.h). Never decided by device/CFW/game name.",
+      "additionalProperties": false,
+      "required": [
+        "uses_gl"
+      ],
+      "properties": {
+        "egl_binding": {
+          "type": "object",
+          "description": "V4-GRAPHICS-03. Absence is disabled. When enabled, the exact EGL import inventory of the guest, lexicographically ordered and including eglGetCurrentContext, which is the symbol that proves ownership of the current context.",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "imports"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "imports": {
+              "type": "array",
+              "maxItems": 64,
+              "items": {
+                "type": "string",
+                "pattern": "^egl[A-Za-z0-9_]+$"
+              }
+            }
+          }
+        },
+        "uses_gl": {
+          "type": "boolean",
+          "description": "Whether the port drives OpenGL/GLES. When true the context contract fields are required and nxrelease makes a graphics proof mandatory for a release claim."
+        },
+        "evidence_boundary": {
+          "enum": [
+            "post-first-present"
+          ],
+          "description": "V4-GRAPHICS-04 opt-in. Absence preserves the previous boundary and the exact bytes of every existing port. post-first-present declares that the port's wrapper calls the vendored adapter's pre_present/after_present pair: the final GRAPHICS-EVIDENCE receipt is only emitted after the guest's first real present, and nxrelease then requires phase=post-first-present and first_present=1 in the linked proof. Never enabled by CFW or Wayland autodetection."
+        },
+        "api": {
+          "enum": [
+            "gles",
+            "gl"
+          ]
+        },
+        "profile": {
+          "enum": [
+            "es",
+            "core",
+            "compat"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+$"
+        },
+        "version_policy": {
+          "enum": [
+            "exact",
+            "minimum",
+            "range"
+          ]
+        },
+        "version_max": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+$"
+        },
+        "shader_dialect": {
+          "enum": [
+            "essl100",
+            "essl300",
+            "essl310",
+            "glsl-any"
+          ]
+        },
+        "drawable_ready_timeout_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 60000
+        },
+        "adopt_single_channel": {
+          "type": "boolean",
+          "description": "Opt-in to the nxgl_single_channel route (R8/RED vs LUMINANCE_ALPHA by measured capability). Default false preserves current behavior."
+        },
+        "required_devices": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Physical devices a release claim must prove graphics on (coverage). Naming a device here is release-proof metadata, never a runtime decision. nxrelease requires a GRAPHICS-EVIDENCE proof for each."
+        }
+      }
+    },
+    "display": {
+      "type": "object",
+      "description": "V4-DISPLAY-01 presentation policy. ABSENCE IS `game`: the framework installs nothing and every approved port keeps byte-identical behaviour. `preserve` letterboxes, which changes pixels, so it is an explicit opt-in and never a default. Nothing is decided by device, CFW, GPU or game name; the runtime measures the real drawable.",
+      "additionalProperties": false,
+      "required": [
+        "policy"
+      ],
+      "properties": {
+        "policy": {
+          "enum": [
+            "game",
+            "preserve",
+            "adaptive",
+            "fill",
+            "stretch"
+          ]
+        },
+        "internal_width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "internal_height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "min_width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "min_height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "max_width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "max_height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "remap_input": {
+          "type": "boolean"
+        }
+      }
+    },
+    "controls": {
+      "type": "object",
+      "description": "Port-specific semantic controls. The generator renders NEXTOSCONTROLLERS.gptk only from these declared actions and requires every action to have at least one adapter sink.",
+      "additionalProperties": false,
+      "required": [
+        "actions",
+        "contexts"
+      ],
+      "properties": {
+        "schema": {
+          "type": "integer",
+          "enum": [1, 2, 3],
+          "description": "V4-CONTROLLERS-03/C4: NEXTOSCONTROLLERS format schema. Absent means 1 and preserves the format-1 binding body; nxgenerator 0.3.12 separately renders a truthful static header when no live runtime is declared. 2 is opt-in per port: the default lists all 18 controls per context, with `null` for what the port does not use and the explicit `native` for a declared passthrough. It never migrates an approved package on its own. 3 (nxinput 0.10.0) inherits the complete V2 semantics and adds the mandatory FACE_LAYOUT preamble line."
+        },
+        "face_layout": {
+          "type": "string",
+          "enum": ["auto", "modern", "retro"],
+          "description": "nxinput 0.10.0 (controls.schema 3 only): the default FACE_LAYOUT the generated NEXTOS_CONTROLLERS/3 file ships. It selects only which bundle variant may serve as authority 3; live mapping sources always win. Absent means auto."
+        },
+        "controller_profiles": {
+          "type": "object",
+          "description": "V4-CONTROLLERS-03/C3. Absence is disabled and preserves previous bytes. When enabled, the port pins the SHA-256 of the canonical controllers.nxb NXCONTROLLER_PROFILES/1 bundle it ships (authority 3 of the sovereign mapping order); never `latest`, never a runtime download.",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "bundle",
+            "sha256"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "bundle": {
+              "type": "string",
+              "enum": ["", "controllers.nxb"]
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{64})?$"
+            },
+            "face_layout_variants": {
+              "type": "object",
+              "description": "nxinput 0.10.0 (controls.schema 3 only): the complete modern/retro variant pair, each a full NXCONTROLLER_PROFILES/1 bundle of its own with a fixed name and its own SHA-256. Variants are only ever authority 3.",
+              "additionalProperties": false,
+              "required": [
+                "modern",
+                "retro"
+              ],
+              "properties": {
+                "modern": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["bundle", "sha256"],
+                  "properties": {
+                    "bundle": {"type": "string", "const": "controllers-modern.nxb"},
+                    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+                  }
+                },
+                "retro": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["bundle", "sha256"],
+                  "properties": {
+                    "bundle": {"type": "string", "const": "controllers-retro.nxb"},
+                    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sdl3_portmaster": {
+          "type": "object",
+          "description": "V4-CONTROLLERS-02. Absence is disabled. When enabled, the port pins the SHA-256 of the private SDL3 it ships.",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "private_sdl3_sha256"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "private_sdl3_sha256": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{64})?$"
+            }
+          }
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "kind",
+              "sinks"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 64,
+                "pattern": "^[a-z][a-z0-9_]*(?:[.][a-z][a-z0-9_]*)+$"
+              },
+              "kind": {
+                "enum": [
+                  "button",
+                  "axis",
+                  "vector"
+                ]
+              },
+              "sinks": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 8,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "maxLength": 96,
+                  "pattern": "^[a-z][a-z0-9_-]*(?:[.][a-z][a-z0-9_-]*)+$"
+                }
+              }
+            }
+          }
+        },
+        "contexts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "menu",
+            "gameplay"
+          ],
+          "properties": {
+            "menu": {
+              "$ref": "#/$defs/controlContext"
+            },
+            "gameplay": {
+              "$ref": "#/$defs/controlContext"
+            },
+            "cursor": {
+              "$ref": "#/$defs/controlContext"
+            }
+          }
+        },
+        "tuning": {
+          "type": "object",
+          "description": "Optional GPTK cursor/camera tuning. Every individual key is opt-in; absence preserves the prior bytes and runtime defaults.",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "cursor": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "properties": {
+                "speed": {
+                  "type": "number",
+                  "minimum": 0.05,
+                  "maximum": 8
+                },
+                "deadzone": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 0.9
+                },
+                "response_curve": {
+                  "type": "number",
+                  "minimum": 0.25,
+                  "maximum": 4
+                },
+                "acceleration": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4
+                },
+                "smoothing_ms": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 500
+                }
+              }
+            },
+            "camera": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "properties": {
+                "sensitivity_x": {
+                  "type": "number",
+                  "minimum": 0.05,
+                  "maximum": 8
+                },
+                "sensitivity_y": {
+                  "type": "number",
+                  "minimum": 0.05,
+                  "maximum": 8
+                },
+                "deadzone": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 0.9
+                },
+                "response_curve": {
+                  "type": "number",
+                  "minimum": 0.25,
+                  "maximum": 4
+                },
+                "invert_x": {
+                  "type": "boolean"
+                },
+                "invert_y": {
+                  "type": "boolean"
+                },
+                "authority": {
+                  "enum": [
+                    "nextos",
+                    "native"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "video": {
+      "type": "object",
+      "description": "V5 7A.3 owner video contract (NEXTOS_SETTINGS/2). ABSENCE IS NO-OP (the /1 settings seed stays byte-identical). Declares which aspect policies the port really implements and the total auto algorithm; the runtime measures the real drawable; nothing is decided by device, CFW or model.",
+      "additionalProperties": false,
+      "required": ["authority", "aspect_policies", "invalid_policy"],
+      "properties": {
+        "authority": {"enum": ["nextos", "engine", "synchronized"]},
+        "aspect": {"enum": ["auto", "engine", "preserve", "stretch", "crop", "integer"]},
+        "aspect_policies": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["auto", "engine", "preserve", "stretch", "crop", "integer"]}},
+        "auto_algorithm": {"enum": ["stretch", "ratio-threshold", "epsilon", "none"]},
+        "output_size": {"type": "string", "pattern": "^(auto|display|[1-9][0-9]{0,3}x[1-9][0-9]{0,3})$"},
+        "filter": {"enum": ["engine", "nearest", "linear"]},
+        "invalid_policy": {"enum": ["fail_closed", "last_known_good", "package_default"]},
+        "native_config": {"type": "string", "minLength": 1}
+      }
+    },
+    "owner_runtime": {
+      "type": "object",
+      "description": "V5 7A.1 owner runtime: the SEED of the live port-env.sh (copied to defaults/port-env.sh, never to the live path). Requires nxport.owner_runtime \"1\" (nxbootstrap 0.8.0).",
+      "additionalProperties": false,
+      "required": ["hook_seed"],
+      "properties": {"hook_seed": {"type": "string", "minLength": 1}}
+    },
+    "promotion": {
+      "type": "object",
+      "description": "Explicit opt-in that materializes a real, port-owned implemented adapter contract. It never invents lifecycle or physical evidence; nxrelease validates receipts for the exact generated artifact.",
+      "additionalProperties": false,
+      "required": [
+        "adapter_contract",
+        "claims"
+      ],
+      "properties": {
+        "adapter_contract": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "claims": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "release_ready",
+            "physical_support_proven",
+            "adapter_lifecycle_implemented"
+          ],
+          "properties": {
+            "release_ready": {
+              "const": true
+            },
+            "physical_support_proven": {
+              "type": "boolean"
+            },
+            "adapter_lifecycle_implemented": {
+              "const": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "nxport"
+        ],
+        "properties": {
+          "nxport": {
+            "type": "object",
+            "required": [
+              "schema_version"
+            ],
+            "properties": {
+              "schema_version": {
+                "const": 3
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "runtime_root"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "runtime_root"
+          ]
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "controlContext": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 18,
+      "propertyNames": {
+        "enum": [
+          "A",
+          "B",
+          "X",
+          "Y",
+          "L1",
+          "R1",
+          "L2",
+          "R2",
+          "L3",
+          "R3",
+          "START",
+          "SELECT",
+          "UP",
+          "DOWN",
+          "LEFT",
+          "RIGHT",
+          "LEFT_STICK",
+          "RIGHT_STICK"
+        ]
+      },
+      "additionalProperties": {
+        "type": "string",
+        "maxLength": 64,
+        "pattern": "^[a-z][a-z0-9_]*(?:[.][a-z][a-z0-9_]*)+$"
+      }
+    }
+  }
+}

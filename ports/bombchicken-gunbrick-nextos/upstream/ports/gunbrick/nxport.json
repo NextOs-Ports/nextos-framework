@@ -1,0 +1,39 @@
+{
+  "architecture": "aarch64",
+  "argument_mode": "game-dir-and-passthrough",
+  "enabled_quirks": [],
+  "executable": "gunbrick-nextos",
+  "home_mode": "port",
+  "id": "gunbrick",
+  "launcher_name": "Gunbrick.sh",
+  "nxextract": {
+    "mode": "yes",
+    "version": "1.2.6"
+  },
+  "prepare_script": "",
+  "private_library_paths": [],
+  "required_capabilities": [
+    "host.portmaster",
+    "host.aarch64-libs",
+    "graphics.window",
+    "graphics.gles2",
+    "graphics.egl",
+    "graphics.egl-config",
+    "graphics.drawable",
+    "input.controller-mapping",
+    "input.controller-api"
+  ],
+  "required_files": [
+    "gunbrick-nextos",
+    "lib/libmain.so",
+    "lib/libunity.so",
+    "lib/libil2cpp.so",
+    "assets/bin/Data/boot.config",
+    "assets/bin/Data/ScriptingAssemblies.json",
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+    "assets/bin/Data/unity_app_guid"
+  ],
+  "runtime_report": "log-and-logo",
+  "schema_version": 2,
+  "title": "Gunbrick Reloaded"
+}

@@ -1,0 +1,105 @@
+{
+  "audio": {
+    "callbacks": [],
+    "format": null
+  },
+  "display": {
+    "policy": "game",
+    "remap_input": false
+  },
+  "egl_binding": {
+    "enabled": false,
+    "imports": []
+  },
+  "graphics": {
+    "uses_gl": false
+  },
+  "imports": [],
+  "input": {
+    "actions": [
+      {
+        "id": "example.accept",
+        "kind": "button",
+        "sinks": [
+          "adapter.menu.accept"
+        ]
+      },
+      {
+        "id": "example.back",
+        "kind": "button",
+        "sinks": [
+          "adapter.menu.back"
+        ]
+      },
+      {
+        "id": "example.drive",
+        "kind": "vector",
+        "sinks": [
+          "adapter.game.drive"
+        ]
+      },
+      {
+        "id": "example.pause",
+        "kind": "button",
+        "sinks": [
+          "adapter.game.pause"
+        ]
+      }
+    ],
+    "contexts": {
+      "gameplay": {
+        "LEFT_STICK": "example.drive",
+        "START": "example.pause"
+      },
+      "menu": {
+        "A": "example.accept",
+        "B": "example.back"
+      }
+    },
+    "mapping": null,
+    "mapping_authority": "sdl-portmaster-complete-first",
+    "touch": null
+  },
+  "input_sdl3_portmaster": {
+    "enabled": false,
+    "private_sdl3_sha256": ""
+  },
+  "jni": {
+    "callbacks": [],
+    "classes": [],
+    "methods": []
+  },
+  "language_access": {
+    "fallback": "en",
+    "mode": "adapter",
+    "sinks": [
+      "unity-i2loc"
+    ],
+    "supported": [
+      "en",
+      "pt-BR"
+    ]
+  },
+  "lifecycle": {
+    "sequence": [],
+    "source_evidence": []
+  },
+  "persistence": {
+    "callbacks": [],
+    "paths": []
+  },
+  "prohibitions": [
+    "do not invent lifecycle order",
+    "do not promote offsets or callbacks to defaults",
+    "do not invent save or terminal behavior"
+  ],
+  "quirks": [],
+  "release_ready": false,
+  "schema": "nxadapter-skeleton-v1",
+  "schema_version": 1,
+  "status": "unimplemented_nonrelease",
+  "terminal": {
+    "action": null,
+    "evidence": []
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-08-08T15:23:09Z",
+  "sources": [
+    {
+      "id": "portmaster-gui-main-8f9ddc4",
+      "kind": "official-core",
+      "repository": "https://github.com/PortsMaster/PortMaster-GUI",
+      "commit": "8f9ddc4b0f75dfe61eb370bd3d1b4ec9d5ef6967",
+      "commit_date_utc": "2026-07-28T12:10:17Z",
+      "scope": "PortMaster runtime, HarbourMaster installer and platform integration",
+      "files": [
+        {
+          "path": "PortMaster/PortMaster.sh",
+          "sha256": "554c92cf5ea6656a6bfbd1ddd81619fdf4ff0524ac40d14c19193f2aa33da804"
+        },
+        {
+          "path": "PortMaster/control.txt",
+          "sha256": "4ad2d8973d8967972efa9ac557ac06a82d1231c02e3d87e8cd8edf1450a56c83"
+        },
+        {
+          "path": "PortMaster/funcs.txt",
+          "sha256": "f72b9971c2964e44592dd3ffca1b3ccf0ae31e9c4dd2cb32508a6990f81a5d22"
+        },
+        {
+          "path": "PortMaster/device_info.txt",
+          "sha256": "00b8a728d2e36bfadbf44cfbafb83ed349dd4e0eb97fe7657154151f6feea56f"
+        },
+        {
+          "path": "PortMaster/batocera/control.txt",
+          "sha256": "acba4551149ded6fc2c17217b13d7ff2bb51651f3c560a0d79698b4af36b1cf1"
+        },
+        {
+          "path": "PortMaster/knulli/control.txt",
+          "sha256": "399551c99775be34a1608b9cce68ce0346efd7d48d279f52b775ef4489864cd2"
+        },
+        {
+          "path": "PortMaster/miyoo/control.txt",
+          "sha256": "70149810902cf291d72268af95bca6ca4b86cfe32fbd008b0ce5ad5ca0c3ea81"
+        },
+        {
+          "path": "PortMaster/muos/control.txt",
+          "sha256": "de61f331d553ea041a2a38fec7f0e417b90b241d9321951d818c201d6a0b30fd"
+        },
+        {
+          "path": "PortMaster/retrodeck/control.txt",
+          "sha256": "2118e4be98bceb63fd1fc461d3e5b96c8f353f4e7b044be89b2dc1eae4090c7e"
+        },
+        {
+          "path": "PortMaster/trimui/control.txt",
+          "sha256": "6b210fdc66db01c4e4fd1997102dc146d9a4ed9cf1dcf5f0a7efcadd0ccb7306"
+        },
+        {
+          "path": "PortMaster/mod_Batocera.txt",
+          "sha256": "3a5c183d0055118b32183d9ed4671c01f4a5d007a44b4e2345b913c02fcce2f4"
+        },
+        {
+          "path": "PortMaster/mod_JELOS.txt",
+          "sha256": "7c30196e7fc2b1e613d68c5e60b99ee7ad02f9262cdd38e66b6ad1886d271869"
+        },
+        {
+          "path": "PortMaster/mod_REGLinux.txt",
+          "sha256": "3a5c183d0055118b32183d9ed4671c01f4a5d007a44b4e2345b913c02fcce2f4"
+        },
+        {
+          "path": "PortMaster/mod_ROCKNIX.txt",
+          "sha256": "8eaf22ed31bbf446c5113b56b55666f42317f8f81d96e1c86a0f04dde07277a1"
+        },
+        {
+          "path": "PortMaster/mod_UnofficialOS.txt",
+          "sha256": "8eaf22ed31bbf446c5113b56b55666f42317f8f81d96e1c86a0f04dde07277a1"
+        },
+        {
+          "path": "PortMaster/mod_knulli.txt",
+          "sha256": "8286a4077e24fcf47121861c7e19995aba18478e2c2d61b1f98d0af2e21c25b5"
+        },
+        {
+          "path": "PortMaster/pylibs/harbourmaster/config.py",
+          "sha256": "cfc567d39c5bae4e9ed007b78cfba8e9f44e2cd77284b08eb923ff14a6bd6719"
+        },
+        {
+          "path": "PortMaster/pylibs/harbourmaster/info.py",
+          "sha256": "0ef2b86c908fedf8ec79b8ef012fd95b1da2870d5322b17a9998570a14f91603"
+        },
+        {
+          "path": "PortMaster/pylibs/harbourmaster/captain.py",
+          "sha256": "372eab5088d046d5920c9f4e8f40137b5e21d2831c678af0ac81ca56165c9181"
+        },
+        {
+          "path": "PortMaster/pylibs/harbourmaster/harbour.py",
+          "sha256": "f30ec0bfa03b1b1dd4284482a336b33cc018615b609400853c52e452d1c7d975"
+        },
+        {
+          "path": "PortMaster/pylibs/harbourmaster/platform.py",
+          "sha256": "81fb93cddef2f0501ef964d68837cde1646bc2eae2573aa344e5366baf9201ff"
+        }
+      ]
+    },
+    {
+      "id": "portmaster-gui-2024.03.10-0841-7471d54",
+      "kind": "official-legacy-core",
+      "repository": "https://github.com/PortsMaster/PortMaster-GUI",
+      "tag": "2024.03.10-0841",
+      "commit": "7471d54c7c6ca57c16dee1b77cdd57d4226a1b86",
+      "scope": "legacy HarbourMaster empty-runtime metadata compatibility",
+      "files": [
+        {
+          "path": "PortMaster/pylibs/harbourmaster/info.py",
+          "sha256": "610d03359a9a737ed99743a0af73a88020ff50d7aca27d545c6f3564c8057d64"
+        },
+        {
+          "path": "PortMaster/pylibs/harbourmaster/harbour.py",
+          "sha256": "575380639e99969abb8c7f0ac85215b2f25855debaf5160339b46be3039d1b02"
+        },
+        {
+          "path": "PortMaster/pylibs/harbourmaster/util.py",
+          "sha256": "bc12abbdc14ffac161d8440b8cfaae397c99543be68d49379ebe8950a1b2d1d8"
+        }
+      ]
+    },
+    {
+      "id": "portmaster-new-main-df98059",
+      "kind": "official-policy",
+      "repository": "https://github.com/PortsMaster/PortMaster-New",
+      "commit": "df9805908db41b32c18532e78b9844ebe8c0a768",
+      "commit_date_utc": "2026-08-08T08:32:26Z",
+      "scope": "current submission policy, release validation and runtime registry",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "a38abeb48b40d370208a94b4e3ec61a23ad519fdd3d6faa6321f4369d8101b2c"
+        },
+        {
+          "path": "tools/build_release.py",
+          "sha256": "5d404ad7f0e8e378457927346d16fc70f129c2e8f42827f038461969397058b6"
+        },
+        {
+          "path": "runtimes/runtimes.json",
+          "sha256": "7e32b1f4948cef18cffc72f59bb85913ba5de3424f9da8aa1e97f25bbdf208a1"
+        }
+      ]
+    },
+    {
+      "id": "portmaster-docs-current",
+      "kind": "official-policy",
+      "scope": "public packaging, installation and HarbourMaster behavior",
+      "urls": [
+        "https://portmaster.games/packaging.html",
+        "https://portmaster.games/faq.html",
+        "https://portmaster.games/installation.html",
+        "https://portmaster.games/harbourmaster.html"
+      ]
+    },
+    {
+      "id": "nextos-portmaster-2026.07.05-0600",
+      "kind": "local-firmware-integration",
+      "scope": "NextOS capability and integration evidence only; never universal game evidence",
+      "release_version": "2026.07.05-0600",
+      "release_archive_sha256": "ad7011cf4b8778bf3f43757a62b4ef3e5d7df092d0a508ceec30216b28204776",
+      "universal_evidence": false,
+      "files": [
+        {
+          "path": "package.mk",
+          "sha256": "5aeafb814050ecf01aaa13e3d7cc15919d3dd15a4cec943bc2bd20d42defb661"
+        },
+        {
+          "path": "sources/control.txt",
+          "sha256": "e92242fbb07b0fef5289c5bbd3b11a67d5edf7afa261b2680abf4f0959e16494"
+        },
+        {
+          "path": "scripts/nextos-portmaster-sync",
+          "sha256": "d79ab26c61e45ea8fdeb05dd29ec74573424e4b998268de7ff5494683d11932c"
+        },
+        {
+          "path": "scripts/portmaster_compatibility.sh",
+          "sha256": "c38946345d8d73566f2ab22b53b35f0132de333904f789f1520e2983398ffd4d"
+        },
+        {
+          "path": "scripts/start_portmaster.sh",
+          "sha256": "9a388fbf65b64be81148645d8e98349af7b0c2a58e0f88af3a4889de3b1dcc5c"
+        },
+        {
+          "path": "tests/test_nextos_portmaster_sync.py",
+          "sha256": "b8edd73059a53fb7b1619d645fbfe39e3a4055d519c0dd5f4c98d95afa31e626"
+        }
+      ]
+    }
+  ],
+  "funcs_history": [
+    {
+      "id": "portmaster-funcs-v1-7bdefd3",
+      "version": 1,
+      "commit": "7bdefd37f1d8e83b6988d6d784c399c25bf9d726",
+      "commit_date_utc": "2024-08-13T09:53:45Z",
+      "path": "PortMaster/funcs.txt",
+      "sha256": "93822da94683202614315d471a9d76bd28cd3f06e0d0e75b2c052c01fc6429b2"
+    },
+    {
+      "id": "portmaster-funcs-v2-f47c3cf",
+      "version": 2,
+      "commit": "f47c3cf689d818227225937165aea4a935f422a5",
+      "commit_date_utc": "2024-12-08T07:58:03Z",
+      "path": "PortMaster/funcs.txt",
+      "sha256": "5a6b3ec6663c7c9dce12eb59593b6859f4376a9f06a72f70ae87b07c4455566d"
+    },
+    {
+      "id": "portmaster-funcs-v3-bfa72ee",
+      "version": 3,
+      "commit": "bfa72ee9ab0b82e9bd033d564ac2b2f721a40e73",
+      "commit_date_utc": "2025-10-25T11:07:06Z",
+      "path": "PortMaster/funcs.txt",
+      "sha256": "ecddf320bd05dbd5b858a3442dcb05b7f75da3b46f9db32b9bb48ae1bc15dd10"
+    }
+  ],
+  "negative_evidence": [
+    {
+      "id": "nextos-global-port-rewrite",
+      "source_id": "nextos-portmaster-2026.07.05-0600",
+      "path": "scripts/portmaster_compatibility.sh",
+      "scope": "negative-only",
+      "observations": [
+        "rewrites every top-level port launcher according to DEVICE",
+        "injects SDL video driver paths globally",
+        "deletes bundled libEGL/libGL providers from port directories"
+      ],
+      "reuse_forbidden": true,
+      "replacement_principle": "the shim probes one port at runtime and never mutates sibling ports"
+    }
+  ],
+  "reference_policy": {
+    "fixture_sources": [
+      "official-core",
+      "official-policy",
+      "local-firmware-integration"
+    ],
+    "game_ports_used_as_m03_fixtures": [],
+    "wip_sources_allowed": false,
+    "limited_references_never_universal": [
+      "Pikmin",
+      "PartyBoard",
+      "GTA ports",
+      "Bully",
+      "Dysmantle",
+      "LIMBO",
+      "Chrono Trigger"
+    ]
+  }
+}

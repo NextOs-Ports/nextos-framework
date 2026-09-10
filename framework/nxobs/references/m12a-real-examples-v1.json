@@ -1,0 +1,32 @@
+{
+  "schema": "nxobs-m12a-real-examples-v1",
+  "schema_version": 1,
+  "artifact_sha256": "886cefaef1a2be2ff276c4d276d430e35ce2162bd47c4af5d29a62863638b27a",
+  "device_contacted_by_m12a": false,
+  "physical_evidence_inherited_from_m22": true,
+  "raw_logs_published": false,
+  "examples": [
+    {
+      "stack_id": "nextos-mali450-fbdev",
+      "run_id": "support-m22-nextos-final-v4",
+      "bundle_manifest_sha256": "af8bc5bbbafd2baded61c29192c1d3fc0f7fe56cb134a52da4a894bb4cd62ce9",
+      "event_count": 44,
+      "timed_event_count": 0,
+      "runtime_sha256": "5548157db5df0ead08ff4d442e2c75db49f1277ecb2a1d599cf041497e32f119",
+      "extractor_sha256": "ae6347fe0281d9fa7bb551dd92e3fd07d4b357224da64bafe7687a3548a2ad11",
+      "categories": ["audio", "bootstrap", "diagnostic", "extractor", "graphics", "lifecycle", "loader"],
+      "last_runtime_milestone": "lifecycle/shutdown/ok"
+    },
+    {
+      "stack_id": "arkos-rk3326-kmsdrm",
+      "run_id": "support-m22-arkos-final-v4",
+      "bundle_manifest_sha256": "2448f11f96f06b1db6f9018c6b9bff2930946837f365393a8cbb72f0e24ab508",
+      "event_count": 45,
+      "timed_event_count": 0,
+      "runtime_sha256": "941eb169223500bdbe13472b88a181b0c7dc343fbd3b9a8381126d64befaabbd",
+      "extractor_sha256": "2c83bfe4c195678b96ed56d93491512aaa80151fb97809f505604c1bcefcc1a2",
+      "categories": ["audio", "bootstrap", "diagnostic", "extractor", "graphics", "lifecycle", "loader"],
+      "last_runtime_milestone": "lifecycle/shutdown/ok"
+    }
+  ]
+}

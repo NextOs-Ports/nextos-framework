@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "name": "partyboard.zip",
+  "items": [
+    "PartyBoard.sh",
+    "partyboard"
+  ],
+  "items_opt": null,
+  "attr": {
+    "title": "PartyBoard",
+    "desc": "Native AArch64 port of the PartyBoard (Mario Party 4) reconstruction, running on OpenGL ES 2.0 through the firmware's SDL2. No game data included.",
+    "inst": "Place a supported Mario Party 4 (GMPE01) .rvz, .iso or .gcm in partyboard/assets. Launch PartyBoard.sh from PortMaster.",
+    "genres": [
+      "party",
+      "strategy"
+    ],
+    "porter": [],
+    "image": {},
+    "rtr": false,
+    "runtime": null,
+    "reqs": [],
+    "arch": [
+      "aarch64"
+    ]
+  }
+}

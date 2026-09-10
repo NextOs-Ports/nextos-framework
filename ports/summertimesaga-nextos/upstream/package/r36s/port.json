@@ -1,0 +1,28 @@
+{
+  "version": 4,
+  "name": "summertimesaga.zip",
+  "items": [
+    "Summertime Saga.sh",
+    "summertimesaga"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "Summertime Saga",
+    "porter": [
+      "NextOS"
+    ],
+    "desc": "Universal AArch64 port of the free Summertime Saga Android Preview through a native Ren'Py compatibility loader. Supports current NextOS and GLIBC 2.30-class ArkOS/R36S systems, controller pointer, audio, saves and clean exit. Adult content; BYO-data, game files are not included.",
+    "inst": "For adults only. Place the official free Android Preview APK or bundle in summertimesaga/gamedata and launch the port. NXExtract validates and prepares compatible current or future 21.x/8.5.x builds automatically.",
+    "genres": [
+      "visual-novel",
+      "adventure"
+    ],
+    "image": {},
+    "rtr": false,
+    "runtime": [],
+    "reqs": [],
+    "arch": [
+      "aarch64"
+    ]
+  }
+}

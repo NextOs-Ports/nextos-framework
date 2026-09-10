@@ -1,0 +1,1225 @@
+{
+  "schema": "org.nextos.catalog.port-taxonomy",
+  "schema_version": 1,
+  "principle": "Uma entrada por diretorio de port RASTREADO. O eixo primario e' STATUS (muda com o tempo e por isso NUNCA vira pasta fisica); engine e integracao sao os eixos de consulta. ports/INDEX.md e' GERADO desta taxonomia e o gate do catalog trava: todo port tem entrada, valores validos, INDEX identico ao gerado. Editar a taxonomia ao promover/rebaixar um port faz parte do fechamento daquele trabalho.",
+  "ports": {
+    "acpirates": {
+      "status": "parado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Travou no muro de permissoes/servicos que exigiriam camada Java."
+    },
+    "actionsquad": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Versoes 1.0.3+ com fixes de pad por familia de CFW; menu depende do canal de input oficial da engine."
+    },
+    "ageofzombies": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Muro no 'Touch to Start': toque precisa de objeto JNI proprio."
+    },
+    "akxolotl": {
+      "status": "nao-triado",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Apenas scaffold gerado, imports UNKNOWN nao resolvidos."
+    },
+    "akxolotl2": {
+      "status": "publicado",
+      "engine": "unity-2022.3.62f2",
+      "integration": "so-loader",
+      "note": "Venceu PairIP bravo ate gameplay; referencia canonica de esqueleto."
+    },
+    "amongus": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Boot OK, muro no carregamento assincrono do MainMenu e texturas."
+    },
+    "angrybirds2": {
+      "status": "jogavel",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Chega a interface jogavel; pendencias de RAM 1GB, ASTC->ETC1 e flicker."
+    },
+    "aom": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine MCF/SiLibrary; gameplay completo a 58.8fps, ja distribuido."
+    },
+    "arranger": {
+      "status": "em-andamento",
+      "engine": "unity-2021.3.33f1",
+      "integration": "so-loader",
+      "note": "Em gameplay com pad e alpha resolvidos; falta shader texture2DLod no vertex, som e controle final."
+    },
+    "asm2_127": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Clean-room 1.2.7d ARMv7 + rota x86 Box32; crash em um device especifico pendente."
+    },
+    "asphalt7_1124": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine Gameloft GLF/Glitch ARMv7 softfp; menu e save OK, gameplay pendente."
+    },
+    "asphalt8": {
+      "status": "parado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Tentativa antiga travada em tela preta; substituida pela linha 9.0.0i."
+    },
+    "asphalt8_90009": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Corrida, audio, controle e ciclo de vida validados em hardware."
+    },
+    "avpevolution": {
+      "status": "completo",
+      "engine": "unity-5.3",
+      "integration": "so-loader",
+      "note": "Unity Mono ARMv7 rodando pelo lifecycle nativo; primeira prova de Mono sob so-loader."
+    },
+    "badland": {
+      "status": "publicado",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Jogavel e distribuido; FMOD ligado por padrao, ETC2 tratado no hook de textura."
+    },
+    "balatro": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Primeiro port LOVE2D da casa; runtime liblove reutilizavel para qualquer love-android."
+    },
+    "battleship": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "standalone",
+      "note": "Decomp com libultraship e backend GLES2 proprio; luta, audio e save validados."
+    },
+    "bbracing2": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine Vector Unit + SDL3 mapeada para SDL2; ponte ETC2->ETC1 dupla camada em pe."
+    },
+    "bf4c": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Primeira imagem e ~60fps atingidos; muro real e autenticacao online."
+    },
+    "bfbc2": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Jogavel com bug conhecido no veiculo da missao 2."
+    },
+    "bgda": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Baseline jogavel multi-device com build GLIBC 2.27 para firmwares antigos."
+    },
+    "blasphemous": {
+      "status": "completo",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Tela rosa era APK so com variantes GLES3; referencia URP+GLES3->GLES2 (2D)."
+    },
+    "blossomtales": {
+      "status": "completo",
+      "engine": "mono-xna-fna",
+      "integration": "so-loader",
+      "note": "1.4.0: GPTK vivo em runtime (bt_input/padset sobre a SDL2 do firmware), prova ON_DEVICE 3/3 no dArkOS/K36S; ZIP 79038b80… congelado local; V4 aberta."
+    },
+    "bombchicken": {
+      "status": "completo",
+      "engine": "unity-2022.3.39f1",
+      "integration": "so-loader",
+      "note": "Gameplay, som e pad validados no Mali-450; empacotamento BYO pronto. Referência de implementação so-loader Unity; a variante universal (glibc baixa) NÃO tem prova física no Mali-G31 -- esse teste segue ABERTO (auditoria V3, ponto 11)."
+    },
+    "bully": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Primeiro Bully aarch64/Linux; streaming assincrono de textura resolveu o paging."
+    },
+    "bully2": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Scaffold separado mantendo assets e streaming originais; testes de EGL dual-stack em curso."
+    },
+    "carrion": {
+      "status": "em-andamento",
+      "engine": "mono-xna-fna",
+      "integration": "so-loader",
+      "note": "MonoGame/.NET com shaders ES2 nativos; chegou a renderizar o loading."
+    },
+    "castleofillusion": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Multi-device publicado; pretos resolvidos por npot_fix, UI de fase so por toque."
+    },
+    "chameleon": {
+      "status": "em-andamento",
+      "engine": "unity-2022.3.62f2",
+      "integration": "so-loader",
+      "note": "Ciclo completo ate gameplay, mas cena preta na fase segue aberta; proibido usar como fonte."
+    },
+    "chrono": {
+      "status": "completo",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Gameplay, audio, save e instalacao aprovados; cutscenes .dat sao MP4 com XOR."
+    },
+    "ci3": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine UVE com BASS; boot, menus, gameplay, audio e controles validados."
+    },
+    "codboz": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Marmalade s3e adaptado; boot, New Game e audio OK, falta confirmar movimentacao."
+    },
+    "crash1": {
+      "status": "jogavel",
+      "engine": "recomp",
+      "integration": "recomp",
+      "note": "Recompilacao estatica PS1->C# com runtime .NET e backend GLES2; alvo de 30fps estaveis."
+    },
+    "crashlands2": {
+      "status": "em-andamento",
+      "engine": "gamemaker",
+      "integration": "so-loader",
+      "note": "Boot ate o menu com ASTC decodificado na CPU e texcache em disco."
+    },
+    "crazytaxi": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Adaptacao de loader upstream para fbdev Mali com mapeamento teclado->keycode."
+    },
+    "cuphead": {
+      "status": "jogavel",
+      "engine": "unity-2017.4",
+      "integration": "so-loader",
+      "note": "Boss a 56-57fps; pendencias de sprites invisiveis flaky e consumo de RAM."
+    },
+    "cvgos": {
+      "status": "parado",
+      "engine": "unity-2018.4",
+      "integration": "so-loader",
+      "note": "Linha ARMv7 pausada em excecao de reflexao IL2CPP; substituida pela versao ARM64."
+    },
+    "cvgos64": {
+      "status": "completo",
+      "engine": "unity-2018.4",
+      "integration": "so-loader",
+      "note": "Port offline funcional completo: fases, combate, progressao e equipamentos validados."
+    },
+    "danman": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine Halfbrick Mortar com gamepad nativo; falta aceite fisico final."
+    },
+    "ddtrilogy": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Os tres jogos ARMv7 chegam a gameplay com audio, save e pad nativo."
+    },
+    "deadcells": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Loader inicial com wrappers GLES3 parciais e reducao de textura no upload."
+    },
+    "deadspace": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Multi-device fechado; controle nativo por hook e launcher escolhe build pela glibc real."
+    },
+    "deadtrigger": {
+      "status": "publicado",
+      "engine": "unity-2019.4",
+      "integration": "so-loader",
+      "note": "Release universal finalizado; DT2 e NO-GO por ser server-authoritative."
+    },
+    "deathsdoor": {
+      "status": "em-andamento",
+      "engine": "unity-2021.3.35f1",
+      "integration": "so-loader",
+      "note": "Estavel na title screen; faltam fonte do menu, som, controles e gameplay."
+    },
+    "dkr": {
+      "status": "completo",
+      "engine": "recomp",
+      "integration": "recomp",
+      "note": "Recompilacao N64 com fast3d GLES2 proprio; corrida, audio, save e rumble aprovados."
+    },
+    "dontstarve": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Imagem, chao, audio e controles OK; custo aberto e ETC2 com alpha virando RGBA4444."
+    },
+    "dq8": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Engine sobe em ingles ate criacao de diario; bloqueio na confirmacao do diario."
+    },
+    "dr2c": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Missao real de combate validada; falta sessao longa com pad fisico e retomada de campanha."
+    },
+    "drastic": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Emulador ARMv7 jogando com som a 60fps; falta virar o NDS padrao do sistema."
+    },
+    "driveahead": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Boot estavel; muro no blob de shader sem fonte."
+    },
+    "dtp2": {
+      "status": "publicado",
+      "engine": "java-dalvik",
+      "integration": "standalone",
+      "note": "Jogavel e no R2; rota dex R8 para JVM aarch64 com shim android.*."
+    },
+    "ducktales": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Menu e controle OK; pendente flicker preto entre logos e gameplay."
+    },
+    "dysmantle": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Gameplay validado; linha v5 de cache/ETC1 e perf em 1GB segue aberta."
+    },
+    "elderand": {
+      "status": "parado",
+      "engine": "unity-2021.3.45f1",
+      "integration": "so-loader",
+      "note": "Primeira tentativa abandonada; refeita do zero em elderand2."
+    },
+    "elderand2": {
+      "status": "publicado",
+      "engine": "unity-2021.3.45f1",
+      "integration": "so-loader",
+      "note": "Finalizado com gamepad nativo por Input System e renderScale 0.60."
+    },
+    "ff3": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Jogavel no pad; engine Matrix/NITRO GLES1 escrita do zero."
+    },
+    "ff4": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Jogavel com controles resolvidos; engine Matrix GLES1."
+    },
+    "ff4a": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Finalizado e no R2; so-loader arm64 GLES1 a 30fps."
+    },
+    "ff5": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Roda mas falta controle; missao de texturas ETC1 dupla camada em curso."
+    },
+    "ff7": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fluxo nativo completo ate o campo em ingles, ~28fps."
+    },
+    "ff8": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine SDL2 sobe mas muro em cena vazia e shader GLES3-only ausente."
+    },
+    "ff9": {
+      "status": "em-andamento",
+      "engine": "unity-2022.3.62f3",
+      "integration": "so-loader",
+      "note": "Avancado: titulo, menu e campo em ingles pelo caminho nativo."
+    },
+    "ffpr1": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Chega a criacao de personagem; frentes abertas sao controle e teto de RAM."
+    },
+    "ffpr6": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Recon e plano fechados, codigo do loader ainda nao escrito."
+    },
+    "fft": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Batalha no pad, audio e ingles a 30fps."
+    },
+    "fifa12": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Drop-in do fifa14; muro em device GL NULL."
+    },
+    "fifa14": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Partida completa pelo pad; pendencia nos rotulos do menu Opcoes."
+    },
+    "fp2": {
+      "status": "completo",
+      "engine": "unity-2018.4",
+      "integration": "so-loader",
+      "note": "1.1.3: GPTK V3 vivo (nxinput 0.10.2) na frente do consumidor nativo, prova ON_DEVICE 3/3 no dArkOS/K36S; ZIP 1826eb9c… congelado local; prompts humanos do título em aberto; V4 aberta."
+    },
+    "gangstar": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Campanha estavel sem crash; muro atual e tela preta no render."
+    },
+    "gangstarrio": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Finalizado no device com controle nativo, som e saves."
+    },
+    "gdsubzero": {
+      "status": "publicado",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "No R2, jogavel com som a ~60fps."
+    },
+    "geometrydash": {
+      "status": "completo",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Finalizado reusando o loader do SubZero; pacote universal."
+    },
+    "graveyardkeeper": {
+      "status": "jogavel",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Gameplay alcancado no hardware; ainda sem release publico ou multi-device."
+    },
+    "gta3": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Gameplay, audio, video, controles e save validados."
+    },
+    "gta3de": {
+      "status": "em-andamento",
+      "engine": "unreal",
+      "integration": "so-loader",
+      "note": "Boota, mas faltam paks/OBB e os shaders em ES2."
+    },
+    "gtactw": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Jogavel de ponta a ponta com save."
+    },
+    "gtaiv": {
+      "status": "nao-triado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Total conversion irma do gtasa, sem registro de estado no device."
+    },
+    "gtalcs2": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Rodando em 640x480 a ~57fps no alvo ARM64."
+    },
+    "gtasa": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Framework novo com OBB e APK provado; empacotamento em evolucao."
+    },
+    "gtasaf": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Versao classica jogavel."
+    },
+    "gtavc": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Jogavel; fix de radios aguardando validacao auditiva."
+    },
+    "gunbrick": {
+      "status": "jogavel",
+      "engine": "unity-2022.3.39f1",
+      "integration": "so-loader",
+      "note": "Audio, video e controles OK; cutscenes ainda em stub de video."
+    },
+    "gungeon": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Primeira imagem na tela; faltam audio, controle Rewired, launcher e textura."
+    },
+    "hamsandwich": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "standalone",
+      "note": "No R2 privado: 10 jogos numa entrada unica; nao buildar SDL3 proprio."
+    },
+    "happywheels": {
+      "status": "publicado",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Finalizado e no R2; fluxo completo a 60fps."
+    },
+    "hitman": {
+      "status": "em-andamento",
+      "engine": "unity-2020.3.41f1",
+      "integration": "so-loader",
+      "note": "Scaffold IL2CPP armv7 clonado de outro port; bring-up em curso."
+    },
+    "hitmango": {
+      "status": "publicado",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Release publica universal AArch64 finalizada."
+    },
+    "hl2": {
+      "status": "nao-triado",
+      "engine": "desconhecido",
+      "integration": "desconhecido",
+      "note": ""
+    },
+    "hlm2": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Hotline Miami 2; origem do fix de alpha do backbuffer/OSD Amlogic (doc da tela preta)."
+    },
+    "horizonchase": {
+      "status": "publicado",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Versao publica validada; falta confirmar o pisca-preto num SoC especifico."
+    },
+    "huntdown": {
+      "status": "jogavel",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Completo no alvo Mali-450; build universal com tela preta no blit final."
+    },
+    "infinityblade": {
+      "status": "em-andamento",
+      "engine": "unreal",
+      "integration": "so-loader",
+      "note": "WIP avancado; muros sao texturas ASTC e input so-toque."
+    },
+    "jsr": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Finalizado com pad, camera e save."
+    },
+    "katanazero": {
+      "status": "completo",
+      "engine": "gamemaker",
+      "integration": "standalone",
+      "note": "Binario universal glibc antiga com fill automatico e 60fps."
+    },
+    "kof2012a": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Jogavel e empacotado; controles lidos direto do dispositivo de joystick."
+    },
+    "kotor": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Release publica universal validada; pad derivado do mapping do firmware."
+    },
+    "kotor2": {
+      "status": "parado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "WIP preservado e nao aprovado: faltam controles e transicoes de camera."
+    },
+    "kz_gen": {
+      "status": "parado",
+      "engine": "gamemaker",
+      "integration": "so-loader",
+      "note": "Apenas scaffold gerado, com 160 simbolos por resolver e nunca testado."
+    },
+    "l4d2": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Scaffold ARM32 Mono compila; falta primeiro run com dados no device."
+    },
+    "lcs": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fechado no device, mas superado pelo port mais novo do mesmo jogo."
+    },
+    "legendofmana": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Finalizado e no R2, com knobs de ajuste proprios."
+    },
+    "legobatman": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Jogavel de ponta a ponta; referencia da engine Fusion na casa."
+    },
+    "legobatman2": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "No R2; hook de GOT com stride 0x14."
+    },
+    "legohp1": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "No R2; unico com cursor no analogico direito."
+    },
+    "legohp2": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "No R2; pause por latch de Start; engine Fusion antiga em GLES1."
+    },
+    "legomovie": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine Fusion (WB Games) armhf softfp; release full-data no R2, OBB BYO."
+    },
+    "limbo": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "NativeActivity/Wwise; chega a GAME ON e PRESS START, falta validacao final em device limpo."
+    },
+    "ljw": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fusion WB Games; boot -> menu -> primeira fase com gameplay."
+    },
+    "lotr": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Validado no device e em R36S/ArkOS; zoom LEGO era 1280x720 cravado no loader."
+    },
+    "lswtfa": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fusion WB Games; release limpo, ingles forcado, saida por Select+Start."
+    },
+    "madskills": {
+      "status": "nao-triado",
+      "engine": "unity-2022.3.62f2",
+      "integration": "so-loader",
+      "note": "IL2CPP arm64 + fisica nativa por P/Invoke; arquitetura documentada mas sem estado declarado."
+    },
+    "magicrampage": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "v1.1.4 noite 18/08: som Mix_PlayChannelTimed, chord nxinput; fechado na memoria da casa."
+    },
+    "marvel": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fusion WB Games; OBB de 1.9GB montado em C, fase de intro jogavel com pad e cursor."
+    },
+    "marvelcosmic": {
+      "status": "completo",
+      "engine": "mono-xna-fna",
+      "integration": "standalone",
+      "note": "Build FNA/Mono via FNA3D GLES2; jogavel e validado no hardware."
+    },
+    "masseffect": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Loader ARMHF com guest ARMv5TE softfp; fluxo Title->Play->Resume validado ponta a ponta."
+    },
+    "mc4": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Gamepad nativo destravado pelo flag MOGA modo 3; validado ate combate."
+    },
+    "mcpe": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Versao historica 1.16.201 jogavel em tela cheia e aprovada."
+    },
+    "megaman1": {
+      "status": "jogavel",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Cocos2d-x 3.9 armhf softfp; gameplay com controle, audio e ingles."
+    },
+    "megaman2": {
+      "status": "nao-triado",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Fork da base megaman1, sem documento de estado."
+    },
+    "megaman3": {
+      "status": "nao-triado",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Fork da base megaman1, sem documento de estado."
+    },
+    "megaman4": {
+      "status": "nao-triado",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Fork da base megaman1 com launcher, sem documento de estado."
+    },
+    "megaman5": {
+      "status": "nao-triado",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Fork da base megaman1, sem documento de estado."
+    },
+    "megaman6": {
+      "status": "nao-triado",
+      "engine": "cocos2dx",
+      "integration": "so-loader",
+      "note": "Fork da base megaman1, sem documento de estado."
+    },
+    "megamanx": {
+      "status": "em-andamento",
+      "engine": "unity-2021.3.39f1",
+      "integration": "so-loader",
+      "note": "PIOR PORT da casa, jamais referencia (regra #16b); so 1a fase joga."
+    },
+    "millikan": {
+      "status": "completo",
+      "engine": "unity-2022.3",
+      "integration": "so-loader",
+      "note": "IL2CPP arm64 jogavel; renderiza 960x540 com escalador de hardware, ~37fps."
+    },
+    "minecraft126": {
+      "status": "parado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Investigacao pausada; zero draws porque graphics_mode deferred nao serve para GLES2."
+    },
+    "mmx4": {
+      "status": "em-andamento",
+      "engine": "recomp",
+      "integration": "recomp",
+      "note": "Recompilacao estatica de PS1 via psxrecomp; nada do kit so-loader se aplica."
+    },
+    "moonlighter": {
+      "status": "parado",
+      "engine": "unity-2019.4.14f1",
+      "integration": "so-loader",
+      "note": "Recon fechada e port nao iniciado; muros = shim ES3->ES2 e conversao ETC1 em massa."
+    },
+    "namelesscat": {
+      "status": "completo",
+      "engine": "unity-6000",
+      "integration": "so-loader",
+      "note": "1.2.7: GPTK V3 vivo (nxinput 0.10.2), prova ON_DEVICE_AUTOMATED_INPUT_PROOF 3/3 no dArkOS/K36S; ZIP 6b346a0d… congelado local; V4 aberta, aguarda ordem do NextOS."
+    },
+    "neighbours": {
+      "status": "parado",
+      "engine": "unity-2020.3.49f1",
+      "integration": "so-loader",
+      "note": "Pausado a pedido; video e alpha/ETC1 validados, falta camada de controle."
+    },
+    "nexomon": {
+      "status": "em-andamento",
+      "engine": "unity-2020.3.15f2",
+      "integration": "so-loader",
+      "note": "IL2CPP GLES2; falha do CanvasScaler que zerava a raiz do titulo ja diagnosticada."
+    },
+    "nfs": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine Ironmonkey armhf softfp; jogavel com pendencias de fontes de menu e audio."
+    },
+    "nfsedge": {
+      "status": "nogo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Online-only com servidores mortos: gate de login e muro permanente, nao retriar."
+    },
+    "nfshp": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Ironmonkey GLES1; EULA, menus, carreira, corridas e saves fechados."
+    },
+    "nfsnl": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Boot completo ate asset-loading; crash em CopyFile por lookup nulo no indice FMOBB."
+    },
+    "nfsshift": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Marmalade s3e/Airplay; ja renderiza corrida apos servir o derbh e corrigir viewport."
+    },
+    "nfstest": {
+      "status": "nao-triado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Andaime de teste armhf para a familia Ironmonkey, sem documento de estado."
+    },
+    "nier": {
+      "status": "em-andamento",
+      "engine": "unreal",
+      "integration": "so-loader",
+      "note": "UE4 Development; para no registro de UObjects e o render e muro arquitetural."
+    },
+    "ninjago": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fusion WB Games; jogavel e aprovado no device."
+    },
+    "ninjagotournament": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fusion WB Games com decodificacao DXT propria."
+    },
+    "nolimits": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Startup offline completo ate Running; crash apos o estado 29 no Mali."
+    },
+    "nova3": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Finalizado e no R2; modo gamepad faz o engine ignorar toque para camera."
+    },
+    "oceanhorn": {
+      "status": "publicado",
+      "engine": "unity-2022.3.61f1",
+      "integration": "so-loader",
+      "note": "IL2CPP arm64 publicado e validado; 25-30fps sem reduzir framebuffer."
+    },
+    "onlinerp": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Cliente SA-MP arm64; HUD, controle nativo, menu R3 e audio OpenSL ja funcionam."
+    },
+    "otherworld": {
+      "status": "em-andamento",
+      "engine": "unity-2022.3.62f2",
+      "integration": "so-loader",
+      "note": "IL2CPP+HybridCLR; muro e corrotina de rede no launcher, mais ASTC->ETC1 por RAM."
+    },
+    "pacman256": {
+      "status": "jogavel",
+      "engine": "unity-2022.3.62f2",
+      "integration": "so-loader",
+      "note": "IL2CPP arm64 com cursor no stick e R3; falta validar swipe no device e empacotar."
+    },
+    "pes2012": {
+      "status": "parado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Marmalade s3e: boot e runNative limpos, mas o modulo XE3U do jogo nunca e carregado."
+    },
+    "pf2": {
+      "status": "publicado",
+      "engine": "unity-2022.3.62f2",
+      "integration": "so-loader",
+      "note": "Venceu PairIP bravo ate gameplay; referencia canonica de esqueleto."
+    },
+    "pikmin": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "standalone",
+      "note": "Decomp pura sem camada de plataforma: todo o backend fora do console teve de ser escrito."
+    },
+    "pixelcup": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "IL2CPP com fluxo Android real ate menu e perfil; bloqueio no backend de video AMediaCodec."
+    },
+    "pixelshooter": {
+      "status": "jogavel",
+      "engine": "java-dalvik",
+      "integration": "standalone",
+      "note": "libGDX sobre JVM aarch64 com shim android.*; pendencia de fps por passes de FBO."
+    },
+    "portalknights": {
+      "status": "parado",
+      "engine": "desconhecido",
+      "integration": "so-loader",
+      "note": "Recon fechada, port nao iniciado; origem e um repack que precisa ser desmontado."
+    },
+    "pvz2": {
+      "status": "parado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "SexyAppFramework: muro do RSB caiu mas nao chega a menu; nao usar como referencia."
+    },
+    "rcrdx": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "SDL2 arm64; fluxo nativo inteiro ate a cidade a ~60fps, verify verde."
+    },
+    "re4": {
+      "status": "completo",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Unity 2018 Mono ARM32; gameplay, saves, cutscenes e controle validados."
+    },
+    "retrohighway": {
+      "status": "jogavel",
+      "engine": "gamemaker",
+      "integration": "so-loader",
+      "note": "Gameplay a ~60fps; pendencias de steering assimetrico e aspect 4:3 no surface-draw."
+    },
+    "retry": {
+      "status": "publicado",
+      "engine": "unity-4.5-mono",
+      "integration": "so-loader",
+      "note": "Fechado com controle nativo, audio limpo e ponte online desligada por callback de erro."
+    },
+    "revc": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine open-source rodando 100% jogavel em GPU GLES2-only via loader de 2 modulos."
+    },
+    "ridgeracer": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Controles fechados apos medir absinfo; container do pacote de dados foi remontado do zero."
+    },
+    "rockmanxdive": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Gameplay visivel e ponte de input estrutural pronta, mas RAM no limite e ensaio de movimento pendente."
+    },
+    "scourgebringer": {
+      "status": "completo",
+      "engine": "mono-xna-fna",
+      "integration": "so-loader",
+      "note": "Aprovado a 720p/40fps com pad nativo e audio FMOD."
+    },
+    "secretofmana": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine GLES1.1 sem shader; estudo e scaffold prontos, falta boot/controle/audio no device."
+    },
+    "sevensirens": {
+      "status": "parado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine renderiza so por Vulkan, sem backend nem shader GL; inviavel no alvo GLES2, so em GPU com Vulkan."
+    },
+    "sf4ce": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fluxo completo validado: logos, lutas, audio, save e controle fisico."
+    },
+    "shadowfight2": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Caminho GLES2 ja vem no pacote; no host sobe a UI, no device ainda zero pixel."
+    },
+    "shantae": {
+      "status": "jogavel",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Loader ELF32-ARM proprio com imagem, audio e 60fps travados."
+    },
+    "sinemora": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Recon verde, rota SDL2 nativa ARMHF; risco amarelo em trial/compra interna."
+    },
+    "skate3": {
+      "status": "publicado",
+      "engine": "unity-2022.3.45f1",
+      "integration": "so-loader",
+      "note": "Suposto hang era log de diagnostico mais laco de analytics; pacote auditado 1:1 contra o original."
+    },
+    "skul": {
+      "status": "em-andamento",
+      "engine": "unity-2022.3.62f3",
+      "integration": "so-loader",
+      "note": "Unity sobe e shaders/texturas ja convertidos, mas ainda falta imagem na tela."
+    },
+    "sm2dw": {
+      "status": "parado",
+      "engine": "gamemaker",
+      "integration": "so-loader",
+      "note": "Parado em checkpoint: frame verde/corrompido no lugar do splash, sem gameplay validado."
+    },
+    "sm4j": {
+      "status": "nao-triado",
+      "engine": "gamemaker",
+      "integration": "so-loader",
+      "note": "So ha overlay de build do loader e config-probe, sem estudo nem estado registrado."
+    },
+    "smhd": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Finalizado com stick como touchpad e atualizacao multi-device."
+    },
+    "smhp": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Engine Irrlicht GLES1.1 pura; receita de swap por frame resolveu o piscar."
+    },
+    "sonic": {
+      "status": "completo",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Validado do boot a corrida completa, save/reload e saida limpa; exige a build exata do blob."
+    },
+    "sonic4": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Pacote arm64 v5 aprovado por testers em varios firmwares."
+    },
+    "sonic4ep1": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Destrave foi emular thread-local por mapa global, consertando surface/fibre/threadcore de uma vez."
+    },
+    "sonic4ep1_bootstrap": {
+      "status": "nao-triado",
+      "engine": "desconhecido",
+      "integration": "so-loader",
+      "note": "Apenas esqueleto de loader gerado, sem documentacao de estado."
+    },
+    "sonicmania": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Fluxo inteiro jogavel com som; blit GLES2 proprio porque a engine nao trazia shaders nativos."
+    },
+    "sonicrunnersadv": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Triagem medida concluida; port iniciado com simbolos por resolver."
+    },
+    "sor4": {
+      "status": "publicado",
+      "engine": "mono-xna-fna",
+      "integration": "standalone",
+      "note": "Host .NET autocontido para aparelhos de pouca RAM, versao 2.0 multi-device."
+    },
+    "sor4wwise": {
+      "status": "nao-triado",
+      "engine": "desconhecido",
+      "integration": "so-loader",
+      "note": "Pasta auxiliar so com esqueleto do modulo de audio."
+    },
+    "sotn": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Gameplay, audio e controle completos; loader universal para duas familias de aparelho."
+    },
+    "soulknight": {
+      "status": "em-andamento",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Esqueleto com shims de textura e audio iniciados, sem teste no device registrado."
+    },
+    "stardewvalley": {
+      "status": "publicado",
+      "engine": "mono-xna-fna",
+      "integration": "so-loader",
+      "note": "Publicado com ajuste de zoom pelo direcional; clone de memoria alto exige cuidado com RAM."
+    },
+    "summertimesaga": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Validado multi-device; publicacao do repositorio ficou pendente."
+    },
+    "supermario2": {
+      "status": "jogavel",
+      "engine": "unity-mono",
+      "integration": "so-loader",
+      "note": "Jogavel apos corrigir menu e corrida, mas sem distribuicao publica por direitos autorais."
+    },
+    "suzycube": {
+      "status": "publicado",
+      "engine": "unity-2017.4",
+      "integration": "so-loader",
+      "note": "Pad reconhecido de fabrica como dispositivo real; shaders e texturas ja compativeis, sem conversao extra."
+    },
+    "swordigo": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Pacote universal provado ponta a ponta; muro era o canario de seguranca da libc do Android."
+    },
+    "tasm2": {
+      "status": "nogo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Tentativa abandonada: a UI vetorial nunca emitia desenho no menu; existe outra pasta que deu certo."
+    },
+    "tdkr": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Gameplay validado multi-device; tesselador vetorial do menu exigiu coletor descartavel."
+    },
+    "tearscape": {
+      "status": "completo",
+      "engine": "godot-4.6.1-mono",
+      "integration": "standalone",
+      "note": "0.2.16: display server Wayland por capacidade (nx_sdl2_geometry, recibo nx-geometry-proof/1), GPTK vivo com pad-set e recibo NXGPTK_RECEIPT, prova ON_DEVICE 3/3 no dArkOS/K36S (fbdev); RP5/ROCKNIX = BLOCKED_DEVICE (kit de um comando); ZIP beb8f1d5… congelado local; V4 aberta."
+    },
+    "terraria": {
+      "status": "publicado",
+      "engine": "unity-2021.3.56f2",
+      "integration": "so-loader",
+      "note": "Controles reescritos 100% nativos, licao reusavel para outros ports Unity."
+    },
+    "tightrope": {
+      "status": "completo",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Jogavel com audio e cursor; protecao do binario publicavel so como mascara XOR, nunca texto claro."
+    },
+    "tintin": {
+      "status": "nao-triado",
+      "engine": "desconhecido",
+      "integration": "desconhecido",
+      "note": ""
+    },
+    "titansouls": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Publicado a ~58fps; grade de 1px nos tiles segue aberta e nao se reescreve precisao em massa no shader."
+    },
+    "tmntsr": {
+      "status": "completo",
+      "engine": "mono-xna-fna",
+      "integration": "so-loader",
+      "note": "Jogavel com co-op local; destrave foi pre-decodificar texturas comprimidas offline."
+    },
+    "vector": {
+      "status": "completo",
+      "engine": "unity",
+      "integration": "so-loader",
+      "note": "Travas eram licenca, consentimento e telemetria mais resolucao de nomes e certificados."
+    },
+    "vp": {
+      "status": "publicado",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "30fps cravado via render em resolucao menor com upscale de hardware."
+    },
+    "wildblood": {
+      "status": "completo",
+      "engine": "unreal",
+      "integration": "so-loader",
+      "note": "Jogavel a ~40fps seguindo o ciclo de vida original em vez de chamar a entrada da engine fora de ordem."
+    },
+    "zenonia1": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Titulo renderiza estavel, audio ainda nao implementado."
+    },
+    "zenonia2": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Cena de titulo e menu funcionam com controle; audio pendente."
+    },
+    "zenonia3": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Menus originais eram camadas de interface do sistema e ficam invisiveis."
+    },
+    "zenonia4": {
+      "status": "em-andamento",
+      "engine": "native-cpp",
+      "integration": "so-loader",
+      "note": "Titulo e save de opcoes funcionam; audio e validacao de gameplay pendentes."
+    }
+  }
+}

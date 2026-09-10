@@ -1,0 +1,90 @@
+{
+  "schema": "nxframework-device-environment-v1",
+  "schema_version": 1,
+  "id": "crossmix-trimui-v1.3.0",
+  "device": "TrimUI (Smart Pro / Brick)",
+  "firmware": {
+    "name": "CrossMix-OS",
+    "version": "v1.3.0",
+    "archive_name": "CrossMix-OS_v1.3.0.zip",
+    "archive_size": 2115685177,
+    "archive_sha256": "6705c3bd9a66fd1a6ee9065d9c03477b6f3b0323462740dcad392d69b9958b44",
+    "distribution": "card-tree-zip",
+    "stored_in_repository": false,
+    "redistributed_by_framework": false
+  },
+  "scope": {
+    "covers": "card roots, shipped libraries, the SDL/runtime declaration and the controller-discovery chain",
+    "not_covered": "the controller table itself is not re-derived here: it is the already validated case trimui-smartpro-crossmix in fixtures/controls"
+  },
+  "evidence": {
+    "source": "official-firmware-distribution",
+    "hardware_ran_during_pc_verification": false,
+    "device_access_during_pc_verification": false,
+    "result_scope": "host-side reading of the shipped tree: roots, ELF ABI, declarations and the controller database"
+  },
+  "topology": {
+    "card_root": "/mnt/SDCARD",
+    "roots": {
+      "system_libraries": "/System/lib",
+      "portmaster": "/Apps/PortMaster/PortMaster",
+      "data": "/Data"
+    },
+    "port_abi": "aarch64",
+    "runtime_library_suffix": "libs.aarch64",
+    "data_root": "/mnt/SDCARD/Data",
+    "ports_root": "/mnt/SDCARD/Data/ports"
+  },
+  "runtime": {
+    "control": "/Apps/PortMaster/PortMaster/control.txt",
+    "modular": "/Apps/PortMaster/PortMaster/mod_TrimUI.txt",
+    "device_info": "/Apps/PortMaster/PortMaster/device_info.txt",
+    "gl_defaults": "/Apps/PortMaster/PortMaster/libgl_default.txt",
+    "declared_controlfolder": "/mnt/SDCARD/Apps/PortMaster/PortMaster",
+    "declared_data_directory": "mnt/SDCARD/Data",
+    "gl4es_defaults": [
+      "LIBGL_ES=2",
+      "LIBGL_GL=21",
+      "LIBGL_FB=4"
+    ],
+    "device_variant_control": "/Apps/PortMaster/PortMaster/trimui/control.txt",
+    "control_note": "o control.txt REALMENTE executado e o da raiz do PortMaster ($controlfolder/control.txt); o de trimui/ e variante e nao substitui a prova"
+  },
+  "libraries": {
+    "aarch64": [
+      "/System/lib/libEGL.so.1",
+      "/System/lib/libGLESv1_CM.so.1",
+      "/System/lib/libdrm.so.2",
+      "/System/lib/libSDL2_mixer-2.0.so.0",
+      "/System/lib/libSDL2_gfx-1.0.so.0",
+      "/System/lib/libSDL2_net-2.0.so.0"
+    ],
+    "runtime_probe": "/Apps/PortMaster/PortMaster/runtimes/love_11.5/libs.aarch64/libluajit-5.1.so.2",
+    "audited_directory": "/System/lib",
+    "audit_abi": "aarch64"
+  },
+  "controller_discovery": {
+    "environment_variable": "SDL_GAMECONTROLLERCONFIG_FILE",
+    "database": "/Apps/PortMaster/PortMaster/gamecontrollerdb.txt",
+    "validated_case": "trimui-smartpro-crossmix",
+    "expected_absent_identities": [
+      "Deeplay",
+      "Miyoo"
+    ],
+    "rule": "with no entry for this pad in the shipped database, the authority is the raw evdev fallback; the button table itself is the already validated fixture case and is not re-derived here",
+    "exported_value": "/$controlfolder/gamecontrollerdb.txt",
+    "resolved_database": "//mnt/SDCARD/Apps/PortMaster/PortMaster/gamecontrollerdb.txt",
+    "expected_mapping_suffix": null,
+    "expected_authority": "evdev-fallback",
+    "expected_source": "raw-select-start",
+    "expected_select": "0x13a",
+    "expected_start": "0x13b"
+  },
+  "profile_cross_check": {
+    "trimui": {
+      "launcher_root": "/mnt/SDCARD/Data/ports",
+      "data_root": "/mnt/SDCARD/Data/ports",
+      "primary_root": "/mnt/SDCARD/Apps/PortMaster/PortMaster"
+    }
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "actions": [
+    {
+      "id": "partyhard.action1",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "partyhard.action2",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "partyhard.action3",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "partyhard.action4",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "partyhard.bumper_left",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "partyhard.bumper_right",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    },
+    {
+      "id": "partyhard.click",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.cursor-click"
+      ]
+    },
+    {
+      "id": "partyhard.cursor",
+      "kind": "vector",
+      "sinks": [
+        "adapter.input.cursor"
+      ]
+    },
+    {
+      "id": "partyhard.move",
+      "kind": "vector",
+      "sinks": [
+        "adapter.input.android-motion"
+      ]
+    },
+    {
+      "id": "partyhard.pause",
+      "kind": "button",
+      "sinks": [
+        "adapter.input.android-keyevent"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "action": "partyhard.action1",
+      "context": "gameplay",
+      "control": "A",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.action2",
+      "context": "gameplay",
+      "control": "B",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.bumper_left",
+      "context": "gameplay",
+      "control": "L1",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.move",
+      "context": "gameplay",
+      "control": "LEFT_STICK",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "motion",
+      "sink": "adapter.input.android-motion"
+    },
+    {
+      "action": "partyhard.bumper_right",
+      "context": "gameplay",
+      "control": "R1",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.pause",
+      "context": "gameplay",
+      "control": "START",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.action3",
+      "context": "gameplay",
+      "control": "X",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.action4",
+      "context": "gameplay",
+      "control": "Y",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.action1",
+      "context": "menu",
+      "control": "A",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.action2",
+      "context": "menu",
+      "control": "B",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.bumper_left",
+      "context": "menu",
+      "control": "L1",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.move",
+      "context": "menu",
+      "control": "LEFT_STICK",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "motion",
+      "sink": "adapter.input.android-motion"
+    },
+    {
+      "action": "partyhard.bumper_right",
+      "context": "menu",
+      "control": "R1",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.click",
+      "context": "menu",
+      "control": "R3",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.cursor-click"
+    },
+    {
+      "action": "partyhard.cursor",
+      "context": "menu",
+      "control": "RIGHT_STICK",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "motion",
+      "sink": "adapter.input.cursor"
+    },
+    {
+      "action": "partyhard.pause",
+      "context": "menu",
+      "control": "START",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.action3",
+      "context": "menu",
+      "control": "X",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    },
+    {
+      "action": "partyhard.action4",
+      "context": "menu",
+      "control": "Y",
+      "decision": "ACTION",
+      "delivery_count": 1,
+      "event": "press",
+      "sink": "adapter.input.android-keyevent"
+    }
+  ],
+  "declared_contexts": [
+    "gameplay",
+    "menu"
+  ],
+  "generated_by": "nxgenerator 0.4.5",
+  "gptk_schema": 4,
+  "port_id": "partyhard",
+  "schema": "nx-controls-closure/1",
+  "schema_version": 1
+}

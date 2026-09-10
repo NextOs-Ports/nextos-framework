@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "milestone": "M09",
+  "scope": "armv7-rel-softfp-cross-abi-and-authorized-physical-cache-sync",
+  "physical_device_evidence": true,
+  "guest_initializers_executed": false,
+  "requirements": [
+    {
+      "id": "M09-001",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "EF_ARM_EABI_VER5"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "eabi32"}]
+    },
+    {
+      "id": "M09-002",
+      "implementation": [{"path": "framework/nxloader/include/nxloader.h", "token": "NXLOADER_ARM_FLOAT_ABI_UNSPECIFIED"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_arm_float_abi_contract"}]
+    },
+    {
+      "id": "M09-003",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "nxloader_arm_supported_relocation"}],
+      "tests": [{"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "Inventário exato das relocações"}]
+    },
+    {
+      "id": "M09-004",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "nxloader_arm_decode_branch"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_arm_branch_textrel_and_codecs"}]
+    },
+    {
+      "id": "M09-005",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "nxloader_arm_stage_veneer"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_arm_veneer_capacity_is_atomic"}]
+    },
+    {
+      "id": "M09-006",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_softfp.c", "token": "nxloader_softfp_add_libm"}],
+      "tests": [{"path": "framework/nxloader/tests/test_armv7_cross.c", "token": "softfp_float=1 softfp_double=1"}]
+    },
+    {
+      "id": "M09-007",
+      "implementation": [{"path": "framework/nxloader/tests/test_armv7_cross.c", "token": "nx_vfp_d8_preserved"}],
+      "tests": [{"path": "framework/nxloader/tests/run-armv7-cross.sh", "token": "vfp_disassembly=2"}]
+    },
+    {
+      "id": "M09-008",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "NX32_SEEN_RELA | NX32_SEEN_RELASZ | NX32_SEEN_RELAENT"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "wrong-rela-model32"}]
+    },
+    {
+      "id": "M09-009",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "case R_ARM_REL32:"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_arm_data_relocations"}]
+    },
+    {
+      "id": "M09-010",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "type == R_ARM_IRELATIVE"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "expect_arm_relocation_not_hookable(R_ARM_IRELATIVE"}]
+    },
+    {
+      "id": "M09-011",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_elf32.c", "token": "if (!nxloader_arm_supported_relocation(type))"}],
+      "tests": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "arm-unknown-hook-skip"}]
+    },
+    {
+      "id": "M09-012",
+      "implementation": [{"path": "framework/nxloader/src/nxloader_protect.c", "token": "__builtin___clear_cache"}],
+      "tests": [
+        {"path": "framework/nxloader/tests/test_armv7_cache_sync.c", "token": "armv7-cache-sync: PASS"},
+        {"path": "framework/nxloader/m09-armv7-physical-evidence-v1.json", "token": "\"physical_arm_execution\": true"}
+      ]
+    },
+    {
+      "id": "M09-013",
+      "implementation": [{"path": "framework/nxloader/tests/run-armv7-cross.sh", "token": "ARMHF_INTERPRETER=/lib/ld-linux-armhf.so.3"}],
+      "tests": [{"path": "framework/nxloader/tests/run-armv7-cross.sh", "token": "audit_final_executable"}]
+    },
+    {
+      "id": "M09-014",
+      "implementation": [{"path": "framework/nxloader/tests/run-armv7-cross.sh", "token": "version_is_above \"$version\" 2.30"}],
+      "tests": [{"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "GLIBC_2.27"}]
+    },
+    {
+      "id": "M09-015",
+      "implementation": [{"path": "framework/nxloader/tests/run-armv7-cross.sh", "token": "CMAKE_C_COMPILER_TARGET=arm-linux-gnueabihf"}],
+      "tests": [{"path": "framework/nxloader/tests/run-armv7-cross.sh", "token": "PASS gcc=1 clang=1 lld=1 qemu=1"}]
+    },
+    {
+      "id": "M09-016",
+      "implementation": [{"path": "framework/catalog/abi-check-definitions-v1.json", "token": "\"checks_per_variant\": 28"}],
+      "tests": [{"path": "framework/catalog/tests/test_catalog.py", "token": "abi_rows"}]
+    },
+    {
+      "id": "M09-017",
+      "implementation": [{"path": "framework/nxloader/tests/test_nxloader.c", "token": "test_arm_relocation_rejection_is_atomic"}],
+      "tests": [{"path": "framework/nxloader/tests/run-host.sh", "token": "-runs=20000"}]
+    },
+    {
+      "id": "M09-018",
+      "implementation": [{"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "Stardew Valley"}],
+      "tests": [
+        {"path": "framework/catalog/abi-variants-v1.json", "token": "KOTOR approved source"},
+        {"path": "framework/catalog/abi-variants-v1.json", "token": "only ports/asm2_127 is positive"}
+      ]
+    },
+    {
+      "id": "M09-019",
+      "implementation": [{"path": "framework/nxloader/README.md", "token": "O pool atual é único"}],
+      "tests": [{"path": "framework/nxloader/REFERENCE-AUDIT.md", "token": "Não alegamos que um"}]
+    },
+    {
+      "id": "M09-020",
+      "implementation": [{"path": "framework/nxloader/m09-audit-v1.json", "token": "\"id\": \"M09-020\""}],
+      "tests": [{"path": "framework/nxloader/tests/test_m09_audit.py", "token": "M09 audit gate passed"}]
+    }
+  ]
+}

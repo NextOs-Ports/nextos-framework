@@ -1,0 +1,102 @@
+{
+ "receipt": "nx-provider-ordinal-probe/1",
+ "class": "PROVIDER_TABLE_MEASURED",
+ "lib_requested": "libSDL2-2.0.so.0.3000.12",
+ "lib_mapped_class": "other",
+ "lib_sha256": "8c4dc956e278546c96b06a6a7b0a2b8a1991e877e81e172fa1bed26a9ada453a",
+ "sdl_version": "2.30.12",
+ "sdl_revision": "SDL-2.30.12-no-vcs",
+ "exports_bytable": true,
+ "nbuttons": 16,
+ "naxes": 4,
+ "nhats": 1,
+ "buttons": {
+  "0x11": [
+   0
+  ],
+  "0x72": [
+   1
+  ],
+  "0x73": [
+   2
+  ],
+  "0x130": [
+   3
+  ],
+  "0x131": [
+   4
+  ],
+  "0x132": [
+   5
+  ],
+  "0x133": [
+   6
+  ],
+  "0x134": [
+   7
+  ],
+  "0x135": [
+   8
+  ],
+  "0x136": [
+   9
+  ],
+  "0x137": [
+   10
+  ],
+  "0x138": [
+   11
+  ],
+  "0x139": [
+   12
+  ],
+  "0x13a": [
+   13
+  ],
+  "0x13b": [
+   14
+  ],
+  "0x13c": [
+   15
+  ]
+ },
+ "axes": {
+  "0x0": [
+   0
+  ],
+  "0x1": [
+   1
+  ],
+  "0x2": [
+   2
+  ],
+  "0x3": [
+   3
+  ]
+ },
+ "byid": {
+  "b0": "0x11",
+  "b1": "0x72",
+  "b2": "0x73",
+  "b3": "0x130",
+  "b4": "0x131",
+  "b5": "0x132",
+  "b6": "0x133",
+  "b7": "0x134",
+  "b8": "0x135",
+  "b9": "0x136",
+  "b10": "0x137",
+  "b11": "0x138",
+  "b12": "0x139",
+  "b13": "0x13a",
+  "b14": "0x13b",
+  "b15": "0x13c",
+  "a0": "0x0",
+  "a1": "0x1",
+  "a2": "0x2",
+  "a3": "0x3"
+ },
+ "domain_measured": "sdl2-batocera-ascending",
+ "uname": "aarch64",
+ "unix": 1788415954
+}

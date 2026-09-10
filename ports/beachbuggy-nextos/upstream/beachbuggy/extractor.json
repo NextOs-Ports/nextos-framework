@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "id": "beachbuggy",
+  "version": "2",
+  "title": "BEACH BUGGY RACING",
+  "abi_order": [
+    "arm64-v8a"
+  ],
+  "input": {
+    "search_dirs": [
+      "gamedata",
+      "."
+    ],
+    "prefer_first_nonempty": true,
+    "sniff_all_in_primary": true,
+    "packages": [
+      "com.vectorunit.purple.googleplay"
+    ]
+  },
+  "extract": [
+    {
+      "id": "engine",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libmain.so"
+        ]
+      },
+      "destination": "gamedata/lib/arm64-v8a/libmain.so",
+      "validate": {
+        "type": "file",
+        "min_size": 4000000,
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "fmod",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libfmod.so"
+        ]
+      },
+      "destination": "gamedata/lib/arm64-v8a/libfmod.so",
+      "validate": {
+        "type": "file",
+        "min_size": 800000,
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "fmodstudio",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libfmodstudio.so"
+        ]
+      },
+      "destination": "gamedata/lib/arm64-v8a/libfmodstudio.so",
+      "validate": {
+        "type": "file",
+        "min_size": 600000,
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "libcxx",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "lib/{abi}/libc++_shared.so"
+        ]
+      },
+      "destination": "gamedata/lib/arm64-v8a/libc++_shared.so",
+      "validate": {
+        "type": "file",
+        "min_size": 500000,
+        "elf_machine": "{abi}"
+      }
+    },
+    {
+      "id": "assets",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/Assets.apf"
+        ]
+      },
+      "destination": "gamedata/assets/Assets.apf",
+      "validate": {
+        "type": "file",
+        "min_size": 30000000,
+        "magic_ascii": "FPUV"
+      }
+    },
+    {
+      "id": "avconfig",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/AVConfig.json"
+        ]
+      },
+      "destination": "gamedata/assets/AVConfig.json",
+      "validate": {
+        "type": "file",
+        "min_size": 1000
+      },
+      "required": false
+    },
+    {
+      "id": "dic",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/dic"
+        ]
+      },
+      "destination": "gamedata/assets/dic",
+      "validate": {
+        "type": "file",
+        "min_size": 1
+      },
+      "required": false
+    },
+    {
+      "id": "dataseed",
+      "source": {
+        "kind": "entry",
+        "patterns": [
+          "assets/data.save"
+        ]
+      },
+      "destination": "gamedata/assets/data.save",
+      "validate": {
+        "type": "file",
+        "min_size": 1
+      },
+      "required": false
+    }
+  ],
+  "validate": [
+    {
+      "path": "gamedata/lib/arm64-v8a/libmain.so",
+      "type": "file",
+      "min_size": 4000000
+    },
+    {
+      "path": "gamedata/lib/arm64-v8a/libfmod.so",
+      "type": "file",
+      "min_size": 800000
+    },
+    {
+      "path": "gamedata/lib/arm64-v8a/libfmodstudio.so",
+      "type": "file",
+      "min_size": 600000
+    },
+    {
+      "path": "gamedata/lib/arm64-v8a/libc++_shared.so",
+      "type": "file",
+      "min_size": 500000
+    },
+    {
+      "path": "gamedata/assets/Assets.apf",
+      "type": "file",
+      "min_size": 30000000
+    }
+  ],
+  "commit": [
+    "gamedata"
+  ],
+  "marker": ".nxextract-beachbuggy.json",
+  "space": {
+    "safety_bytes": 268435456
+  },
+  "log": "nxextract.log",
+  "ui_success_seconds": 1,
+  "ui_error_seconds": 5
+}

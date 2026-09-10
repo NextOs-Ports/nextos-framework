@@ -1,0 +1,17 @@
+{
+  "attr": {
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": "2.27",
+    "runtime": [],
+    "title": "Swordigo"
+  },
+  "items": [
+    "Swordigo.sh",
+    "swordigo/"
+  ],
+  "items_opt": [],
+  "name": "swordigo.zip",
+  "version": 4
+}
