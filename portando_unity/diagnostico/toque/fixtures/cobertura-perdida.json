@@ -1,0 +1,70 @@
+{
+  "schema": "unity-short-press/1",
+  "contract": "stateful-press",
+  "evidence_kind": "synthetic",
+  "executable_sha256": null,
+  "run_id": "fixture-cobertura-perdida",
+  "action": "menu-touch",
+  "native_render_enter_us": [
+    0,
+    66667,
+    133334
+  ],
+  "coverage": {
+    "origin": {
+      "start_us": 0,
+      "end_us": 150000,
+      "dropped": 0,
+      "complete": true,
+      "boundary": "sdl_event"
+    },
+    "delivery": {
+      "start_us": 0,
+      "end_us": 150000,
+      "dropped": 0,
+      "complete": true,
+      "boundary": "native_injection"
+    },
+    "consumer": {
+      "start_us": 0,
+      "end_us": 150000,
+      "dropped": 1,
+      "complete": true,
+      "boundary": "game_press_release_callback"
+    }
+  },
+  "events": [
+    {
+      "stage": "origin",
+      "gesture": "tap-1",
+      "edge": "DOWN",
+      "t_us": 10000,
+      "route": "pad-r3",
+      "owner_context": "menu"
+    },
+    {
+      "stage": "origin",
+      "gesture": "tap-1",
+      "edge": "UP",
+      "t_us": 30000,
+      "route": "pad-r3",
+      "owner_context": "menu"
+    },
+    {
+      "stage": "delivery",
+      "gesture": "tap-1",
+      "edge": "DOWN",
+      "t_us": 68000,
+      "route": "android-touch",
+      "owner_context": "menu"
+    },
+    {
+      "stage": "delivery",
+      "gesture": "tap-1",
+      "edge": "UP",
+      "t_us": 69000,
+      "route": "android-touch",
+      "owner_context": "menu"
+    }
+  ]
+}

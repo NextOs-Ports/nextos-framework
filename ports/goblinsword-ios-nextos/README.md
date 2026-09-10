@@ -1,13 +1,27 @@
-**Goblin Sword — referência NextOS**
+# Goblin Sword — referência NextOS
 
-Fonte: [goblinsword-ios-nextos](https://github.com/NextOs-Ports/goblinsword-ios-nextos), commit `3a0a1a7935a09619347a9bf2d35558be8b3c5e1a`.
+[English](README.en.md)
 
-Plataforma de origem: iOS. Esta pasta contém fontes selecionadas para estudo e reutilização, sem os dados do jogo. Não é um pacote instalável. Nenhum binário aprovado foi reconstruído e nenhum pin foi migrado para V5.
+[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/)
 
-Consulte `SOURCE-MAP.json` para os arquivos preservados, seus hashes e as omissões. Há 49 arquivos incluídos e 0 omissões adicionais de privacidade/conteúdo. Algumas receitas upstream dependem de arquivos fora desta seleção; a compilação autônoma de cada referência ainda será revisada.
+Origem: [goblinsword-ios-nextos](https://github.com/NextOs-Ports/goblinsword-ios-nextos), commit `3a0a1a7935a09619347a9bf2d35558be8b3c5e1a`. Plataforma: iOS.
 
-A IA deve usar esta pasta somente como referência, escrever o novo port em diretório separado e conferir licença, ABI, engine, callbacks e evidência antes de adaptar uma solução. Código presente não certifica gameplay completo nem suporte a todos os aparelhos.
+## Como usar esta referência
 
-Licenças: No root LICENSE in tree metadata; prototype with limited physical evidence according to README. Resolve ownership/license scope before copying; no full-gameplay claim.
+Esta pasta contém uma seleção de fontes públicas de um port criado/integrado por NextOS. Não é um jogo completo nem pacote instalável. Nenhum dado comercial acompanha esta seleção; o novo port precisa da cópia compatível fornecida pelo dono.
 
-Autoria da integração e desta coleção: **NextOS** — https://github.com/NextOs-Ports. Os jogos e componentes de terceiros conservam seus respectivos titulares.
+Leia [SOURCE-MAP.json](SOURCE-MAP.json) antes de copiar código: há 49 arquivos incluídos e 0 omissões adicionais registradas de privacidade/conteúdo. Receitas upstream podem exigir arquivos fora desta seleção; um clone desta pasta não garante build autônomo.
+
+Compare engine/build, ABI, assinatura, dados, renderer, áudio e consumidor de input. Escreva o novo adapter em outro diretório. Registre a fonte/hash/licença da peça e teste seu contrato no destino.
+
+## Status e limites
+
+O snapshot é o commit público observado, não uma nova certificação física. Leia o status da versão exata antes de alegar gameplay, instalação ou suporte a aparelhos. Os próprios pins da referência foram preservados: sua presença junto da V5 não migra V3/V4/V6 nem recompila binários aprovados.
+
+## Licença e autoria
+
+LICENSE ausente na raiz consultada; protótipo com evidência física limitada no README. Resolver escopo de licença antes de copiar; sem alegação de gameplay completo.
+
+Autoria da integração/coleção: **NextOS** — [GitHub oficial](https://github.com/NextOs-Ports). Preserve avisos de licença e créditos de terceiros. Dados, código original e marcas do jogo conservam seus respectivos titulares. [Termos da coleção](../../LICENSING.md).
+
+Os arquivos dentro de `upstream/` preservam seus bytes e idiomas originais. Esta ficha e os guias externos oferecem a navegação bilíngue sem alterar a referência auditada.

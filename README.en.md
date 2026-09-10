@@ -1,17 +1,58 @@
 # NextOS Framework
 
-Private review draft of the NextOS V5 framework, a source-reference collection for 45 game titles, and guides for AI-assisted Android-to-Linux ARM porting.
+[Português](README.md)
 
-Project and integration credit: **NextOS** — https://github.com/NextOs-Ports.
+V5 framework for Android-to-Linux ARM ports, with **complete English and Portuguese guides**, selected sources for **45 titles**, and **2 additional community catalog ports**. AI can lead most investigation, coding, building and verification.
 
-This repository contains selected source snapshots, not commercial game data or 45 newly validated installable ports. Each reference retains its original commit, license scope, framework pins and support limitations. No existing port was rebuilt or migrated.
+**Private review repository. Public visibility requires explicit NextOS approval.** This collection contains no commercial game data and does not represent 47 certified installable packages.
 
-- Read [AGENTS.md](AGENTS.md) before changing code.
-- Browse [the catalog](catalog/README.md) and `catalog/ports.json`.
-- Build the [typed shim example](examples/shims-reference/README.md).
-- Follow the [ARM build guide](docs/pt-BR/COMPILAR-ARM.md) and [AI workflow](docs/pt-BR/PORTAR-COM-IA.md). Full English tutorials are pending editorial review.
-- Read [license and redistribution terms](LICENSING.md).
+Collection/integration author: **NextOS** · [official GitHub](https://github.com/NextOs-Ports).
 
-V5 origin: `657fb65a23b5c3b20040e76307b27e6470b1d17c`. Exact exported-file hashes are recorded in `publication/v5-export.json`. Twelve private-dependent historical tests are omitted; the historical full test result is not claimed for this new collection.
+## Start here
 
-The repository must remain private until NextOS explicitly approves public publication.
+1. [Getting started](docs/en/GETTING-STARTED.md) and [complete guide index](docs/en/README.md).
+2. [Let AI lead the port](docs/en/AI-PORTING.md).
+3. [Build host, AArch64, ARMv7 and an NDK example](docs/en/BUILD-ARM.md).
+4. [Shims](docs/en/SHIMS.md), [NXExtract](docs/en/NXEXTRACT.md) and [testing](docs/en/TESTING.md).
+
+## Engine guides
+
+| Track | What it teaches |
+| --- | --- |
+| [Unity](portando_unity/README.en.md) | Triage, lifecycle, GLES2, ETC1/dual, input, audio and 15 public cases |
+| [Mono Android](docs/en/MONO-ANDROID.md) | Mono/.NET, MonoGame/FNA, assemblies, Bionic and bootstrap |
+| [Godot](docs/en/GODOT.md) | Engine/export, renderer, C#, viewport and InputMap |
+| [Cocos2d-x](docs/en/COCOS2D-X.md) | C++ library, JNI, assets, text, audio and native loop |
+| [Freedom Planet 2: Vulkan → GLES2](portando_unity/en/FP2-VULKAN-GLES2.md) | SMOL-V/SPIR-V, program translation, surgical writes and stencil/alpha |
+
+## First example
+
+```sh
+cmake -S examples/shims-reference -B work/host -DCMAKE_BUILD_TYPE=Release
+cmake --build work/host --parallel 2
+ctest --test-dir work/host --output-on-failure
+```
+
+This is a C contract test on your computer. ARM/NDK builds require explicit tools and sysroots; a host test does not prove a game on hardware.
+
+## Catalog and sources
+
+[47 NextOS titles](catalog/README.en.md): 45 with source selections from 41 public repositories and 2 community cards — Stranger Things 3 and AVGN I & II Deluxe, without imported code yet. Freedom Planet 2 is already among the 45. Each reference retains its own status, origin and limitations.
+
+| Directory | Contents |
+| --- | --- |
+| `framework/` | Preserved V5 components/templates |
+| `suportando_outros_devices/extrator-universal/` | Pinned NXExtract: engine, runner and UI |
+| `ports/` | Code snapshots, PT/EN cards and manifests |
+| `portando_unity/` | Selected bilingual edition, cases and generic tools |
+| `docs/pt-BR/`, `docs/en/` | Complete matching guides |
+| `examples/`, `toolchains/` | Teaching example and cross-compilation settings |
+| `publication/` | Integrity, validation, languages and pending work |
+
+V5: `framework-v5` @ `657fb65a23b5c3b20040e76307b27e6470b1d17c`. [Exported hashes](publication/v5-export.json). Twelve historical tests with private dependencies were omitted; runtime bytes were preserved. Existing ports retain V3/V4/V5/V6 pins; no migration occurred.
+
+## Contribute and redistribute
+
+Read [AGENTS.md](AGENTS.md), [contributing](CONTRIBUTING.en.md) and [licensing/credits](LICENSING.en.md). Prepare data only from the owner's copy; never upload APK, IPA, OBB, original libraries, assets or saves to GitHub/CI. ZIPs follow each component's license and preserve NextOS/third-party credits. The noncommercial proposal remains under review and does not replace existing GPL/MIT permissions.
+
+Editorial guides are bilingual; historical source, comments and normative licenses retain their original language. [What was verified](publication/VALIDATION.en.md) · [Work before publication](publication/REVIEW.en.md).

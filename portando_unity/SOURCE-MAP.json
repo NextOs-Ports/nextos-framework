@@ -1,0 +1,666 @@
+{
+  "schema": 1,
+  "author": "NextOS",
+  "kind": "selected-bilingual-edition",
+  "source_collection": "portando_unity",
+  "source_snapshot_kind": "maintainer-supplied working tree; selected file SHA-256",
+  "public_repository_check_date": "2026-09-10",
+  "v5_runtime_modified": false,
+  "policy": {
+    "pt-BR": "Somente casos NextOS com repositório público ou inclusão de catálogo explicitamente autorizada. Sem dados de jogos, galeria privada ou lista dos casos excluídos.",
+    "en": "Only NextOS cases with public repositories or explicitly authorized catalog inclusion. No game data, private gallery or list of excluded cases."
+  },
+  "case_sources": [
+    {
+      "id": "suzycube",
+      "repository_id": "suzycube-nextos",
+      "title": "Suzy Cube",
+      "engine_version_note": "2017.4.40f1",
+      "original_note": "unity-2017/suzycube.md",
+      "original_note_sha256": "9b26dd9816f8d15928cf76fe22e04a7539c8702feb1270cb1df07b875a30754c",
+      "public_source_commit": "c3db13c749173e08d33d57839aca961d0a2ab319",
+      "public_repository": "https://github.com/NextOs-Ports/suzycube-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "2a839e83d2161ae7b8d3b11f9c045f97440f58474f3a095891de8895ebea0cd2"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "7afbb93b6192ba7a948d49be2b7d29ac0f16bb809c90af38c3a7508a79d12e89"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "a53437816f5b1d32599642276f1e4a5a210d1a741af3690a997f3a94c9b44df4"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "d8950a1b1749e67d47481597ba6dc8a69cbf3dc5aa5cd044420346660d45070a"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "d454f25d2f640730cc836b6a500aa6f744636e8f86fed9e58b3706ac99eb4033"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "fp2",
+      "repository_id": "fp2-nextos",
+      "title": "Freedom Planet 2",
+      "engine_version_note": "2018.4.36f1",
+      "original_note": "unity-2018/fp2.md",
+      "original_note_sha256": "ac0bd04526f349391670e99d7e8e8b9d06dafa61547ea31fe11937e0934c86f8",
+      "public_source_commit": "f8caab9d946c39041fa5cc25cb52621590f82adc",
+      "public_repository": "https://github.com/NextOs-Ports/fp2-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "84f454839d81a9d925f4d167c3f3518f84c0e79b6363a4fe6deeb59227a78dab"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "f76500aadab751ba5c3161613cb3026a43fdb740a3838d1af03c769b6e0ca81a"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "6fd9e26ea34368a26d0d1cdff99dcf747ded53e867164cbd6a281238575d7b3c"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "5e853b6f3fac64be81ad9665b39c671afef43d1f1fc1ea19f0580dd60fc42821"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "fa6f49e94de129b1f56b2dc3909bb74fa162503a97c3a1ef6595ff798ed5cc91"
+        },
+        {
+          "path": "src/gles3.c",
+          "sha256": "69ffd62844f939bf8e5a8aed534c2407151c2b35e45cdba8108b57499136766e"
+        },
+        {
+          "path": "src/unity6_shader.c",
+          "sha256": "a24f7478015a24cbfe5ade49f1de4749d7bfccfa09424379919ae6dfab92364d"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "deadtrigger",
+      "repository_id": "deadtrigger-nextos",
+      "title": "Dead Trigger",
+      "engine_version_note": "2019.4 (patch a confirmar / patch to confirm)",
+      "original_note": "unity-2019/deadtrigger.md",
+      "original_note_sha256": "7f7cfac83337aa214a909268ec627513b81dd26fdaa56beb0247928d3e9e1a1d",
+      "public_source_commit": "8fe021e4188db177a074547473d7723e060748fe",
+      "public_repository": "https://github.com/NextOs-Ports/deadtrigger-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "4a9b22897ab01bead4765d1c05e543a4b1bf0d67505cc6acc606f7b886b9291e"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "ec4778f3b4a38a227ddc334ec865318d8d4e704fc4c4f3caccff10803adf7d82"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "terraria",
+      "repository_id": "terraria-nextos",
+      "title": "Terraria",
+      "engine_version_note": "2021.3.56f2",
+      "original_note": "unity-2021/terraria.md",
+      "original_note_sha256": "eb80adb9f12b139012b8ce6ff940065f17ea98ef878667e0fb8a8d1071b7c0b8",
+      "public_source_commit": "e04f6fe7d3be9591e659f6ecd42355d1b5d2caf6",
+      "public_repository": "https://github.com/NextOs-Ports/terraria-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "375fede6f1f4129fd8d96bb589ca9f67d673df65c535f94a3f5122a746bfddf6"
+        },
+        {
+          "path": "package/universal/README.md",
+          "sha256": "cccd4d57fedc12e9dd4f5072ff767e7418870534c8e50f1caee61d7802442e49"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "e1fa9b70e423099b2e86d306fe6fd2cf5f8c666ea29cea2ce0b00a3e69c198e6"
+        },
+        {
+          "path": "src/jni_shim.c",
+          "sha256": "d09dabc07c8210addb1064caf66ecf225fa649ec290fcb97713ec7bab99215e2"
+        },
+        {
+          "path": "src/egl_shim.c",
+          "sha256": "c8d3eb82df303edb7f134dc97b31f469db96e08d12d8707cd56fd29ce7057e4f"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "horizonchase",
+      "repository_id": "horizonchase-nextos",
+      "title": "Horizon Chase",
+      "engine_version_note": "2022.3.33f1",
+      "original_note": "unity-2022/horizonchase.md",
+      "original_note_sha256": "45cd9d2af5a628c33436edf7e3ee29eca908660d27f5e88ba0e79530c83c0851",
+      "public_source_commit": "59d2d38dc496ae0a71726181d3ccc80923e4144d",
+      "public_repository": "https://github.com/NextOs-Ports/horizonchase-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "5d89f02cdc7f0247d62c5758e1663f036b596023f458f454267dc6431c27e4f6"
+        },
+        {
+          "path": "third_party/NXExtract/README.md",
+          "sha256": "6c3d9c02c28c6acaf8a5c190124ddebf5d696598bd95c13c6ec8307953ac130a"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "309b60506b814805c1515f0a26876fc5e73fcb23d9fd52b395d89d7c308dc37f"
+        },
+        {
+          "path": "src/jni_shim.c",
+          "sha256": "a90a3540971fcccfbbc6f566a1c6ce143dd9721fbd2fb8ccd1bda7da9db77b7c"
+        },
+        {
+          "path": "src/egl_shim.c",
+          "sha256": "eda393397197910ac8785efe771589504f1c46d27124c92e5784a331c6916b34"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "bombchicken",
+      "repository_id": "bombchicken-gunbrick-nextos",
+      "title": "Bomb Chicken",
+      "engine_version_note": "2022.3.39f1",
+      "original_note": "unity-2022/bombchicken.md",
+      "original_note_sha256": "26c0836f4daaa871564ebfd8c4dda9f5e12fdc353ceac26834d194897e833817",
+      "public_source_commit": "53df6041da4ecc4905af5ecd24551034eea21175",
+      "public_repository": "https://github.com/NextOs-Ports/bombchicken-gunbrick-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "87d16dd187b8830f3fe51c84e30ba90fd4408d9c369c981c7e23de8a0e22f128"
+        },
+        {
+          "path": "docs/images/README.md",
+          "sha256": "330b9d6a417e223a9508cfec8b6e1c3ec7faa47a109e6d564fa71be1778f5935"
+        },
+        {
+          "path": "ports/bombchicken/src/main.c",
+          "sha256": "64c8fffee66a9f843890ab718bf2977635b50fc0c4f0a912014d8d9b543dc5a4"
+        },
+        {
+          "path": "ports/gunbrick/src/main.c",
+          "sha256": "45718f878b7e1d7d13a4e0d4a479cb1f071fe764b62802886eb4d41ddbf6bc1d"
+        },
+        {
+          "path": "ports/bombchicken/src/jni.c",
+          "sha256": "485e5ed8d6d26a3c93df61f48cf12dc8b9439c8593bd55e911a4e068da5ff49d"
+        },
+        {
+          "path": "ports/gunbrick/src/jni.c",
+          "sha256": "555b865a9dcd362be49219150b503d21d228ceb9ebf9794aa48f90dda1124120"
+        },
+        {
+          "path": "ports/bombchicken/src/input.c",
+          "sha256": "ee5f050cc1581bc07d3fae27bc3328313b2f469ce2c9de1040eb47fa41c7cfb8"
+        },
+        {
+          "path": "ports/gunbrick/src/input.c",
+          "sha256": "7f2535cc6d1802c833261bc78e0dec6136ad7181c893b4e86b356670a2504a73"
+        },
+        {
+          "path": "ports/bombchicken/src/egl.c",
+          "sha256": "fb5b54328eded712f163e2733aa6d40429e33a217b17362febf6827f6f73c8d7"
+        },
+        {
+          "path": "ports/gunbrick/src/egl.c",
+          "sha256": "af1d7b84bc2119707087415d137769c90a7b702b6a0bf9cfcde7073406e0a0e7"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "pf2",
+      "repository_id": "prizefighters2-nextos",
+      "title": "Prizefighters 2",
+      "engine_version_note": "2022.3.62f2",
+      "original_note": "unity-2022/pf2.md",
+      "original_note_sha256": "b46fdaea9dc11cf4dfd8c17c453de382fd55448cd8eb5745e3d63da878e50914",
+      "public_source_commit": "53371b37dc5d01e0a8c09d683536ee1c48f35d6c",
+      "public_repository": "https://github.com/NextOs-Ports/prizefighters2-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "bd0ac6ae1ea11daadae3ef9b016f1c1ba64e48cd50e50dab460e71a1729f2918"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "a6a7793935ba48290f4cf4fc949f8d4e78efd8d1fa06887f8407f201f0a7ae88"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "0f156015feb5049c5f4b06500927f3175c05751ca156c8dd42db93144a550cd7"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "5b998e058e6e26e4349b84cf99f46daa52c339ba25efa66ea410ec49c512e8a3"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "0e8b507f5a72fb2c3945e47f174700ffa8ac3d39a09dfa73dee2437bc67055e3"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "oceanhorn",
+      "repository_id": "oceanhorn-nextos",
+      "title": "Oceanhorn: Chronos Dungeon",
+      "engine_version_note": "2022.3.61f1",
+      "original_note": "unity-2022/oceanhorn.md",
+      "original_note_sha256": "3d1e064e2e130b6e04c81502ff0bcdc719791447392689194093f76bc0a97317",
+      "public_source_commit": "7cb05cca86afbb4b8a6e76aa251c8f0f8397bc9e",
+      "public_repository": "https://github.com/NextOs-Ports/oceanhorn-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "e4d81319bf7384934ed1edad1dfc4c32761fc2f9fa64a8ee592cdff01f5d6b30"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "50a5d507a5b08d3ad8d9d77adde916b044522cc777b320ddde3332228b261c90"
+        },
+        {
+          "path": "src/jni_shim.c",
+          "sha256": "509efa9cc92e69972cb6c2c261a984f7f6004c59a35d6dbe97517fed00abc328"
+        },
+        {
+          "path": "src/egl_shim.c",
+          "sha256": "a69e065222861b664b80aa73c38fc773c19dbdafb48f69c67876d4f83076b459"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "hitmango",
+      "repository_id": "hitmango-nextos",
+      "title": "Hitman GO",
+      "engine_version_note": "2022.3.67f2",
+      "original_note": "unity-2022/hitmango.md",
+      "original_note_sha256": "c5ece2d0c917c6f1dedcf88e4fbee110abc599dd61c2676d445aeb3fed675979",
+      "public_source_commit": "3f735165348e17d4f9aa20f1d227a9b1ecb4efb8",
+      "public_repository": "https://github.com/NextOs-Ports/hitmango-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "8bc4a3e47866db09a210d8a5832ad5a29190e17cc2f1ab8179848365e05f2f55"
+        },
+        {
+          "path": "hitmango/README.md",
+          "sha256": "bd6f7f4515a8af833ab15056393518223e4c796ecc19fde31ba7b9b15aa37d87"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "aa5a4ca9bfa4cbdd81deff134bec71d60ac641fece59c6177c0d626ba747d21d"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "a2d432ae19ef4e69d08d17409d1f25af28ddc50d28ce2516576f162cdabb4e07"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "657dfecaba2a06082b39c2a1be0711521569881782f3c7a7fd398760ca3489aa"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "58ffeab87829b6bbf9d2837e54546c63438d5fa4ef80e794d5e8d1e70e7049bd"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "huntdown",
+      "repository_id": "huntdown-nextos",
+      "title": "Huntdown",
+      "engine_version_note": "2022.3.47f1 / 6000.2.6f2",
+      "original_note": "unity-2022/huntdown.md",
+      "original_note_sha256": "e47e6479850b079ebca7dd2438e15c49c481dbd83808da32eca18fe7997d1c64",
+      "public_source_commit": "7eef080e69a66a09efc005bf3472035eef09248b",
+      "public_repository": "https://github.com/NextOs-Ports/huntdown-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "08e1e26bb65c0f5da2eb7afd33d7d3d76348f7654ac4c86ef3f7fcaf9137c206"
+        },
+        {
+          "path": "huntdown/README.md",
+          "sha256": "3473945a92a6f3f4031d9696843bb2687f0e2cf3033ee3335c2acc6a50c273e6"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "72c1e849e62a687e3e9b835f00b44085e533128b3d2eae65a8bbf5cd50b94300"
+        },
+        {
+          "path": "src/jni_shim.c",
+          "sha256": "308141e756814831abbe7402d147eb067feb2baeef5fa6f334764fd8b4c43fb6"
+        },
+        {
+          "path": "src/egl_shim.c",
+          "sha256": "ca9f4c4fb8a175c679c6cab1420c192440826649d1372912675ef9c65f7e4ae3"
+        },
+        {
+          "path": "src/gles3.c",
+          "sha256": "3388da01c717812e358e3f048f2250c5d4827a8038d0d27cc671d83e0c9fd25e"
+        },
+        {
+          "path": "src/unity6_shader.c",
+          "sha256": "21688ece1d1a6b07b1736a90beba5de2a4f29413c4ed9237cb32cde4080b4a35"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "skate3",
+      "repository_id": "skate3-nextos",
+      "title": "Skateboard Party 3",
+      "engine_version_note": "2022.3.45f1",
+      "original_note": "unity-2022/skate3.md",
+      "original_note_sha256": "c0b1c07899c1f440161c0603143555f0de18ac5a7a7cd80b982cec87fa4c362b",
+      "public_source_commit": "18621e90ce7458c3166aa50d5cc508a13e65ee84",
+      "public_repository": "https://github.com/NextOs-Ports/skate3-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "903b5451507ab2fb5d11878c008953fa0705fee3fd7f519418adbb36efcc70ba"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "1d3a006142a256e50877f1e7cf035e702e3c38dde273e71b84398a0291bcd61e"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "07ca7a956a28d7db4aa6a86df75eb71d8f9f7b3a21d4c794d1c9ef7faa223862"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "6d6fa45e7353d1c1bd26c5c451aecfded840d54b125e2a3e553155d3c967fdf1"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "a634f7dfd347311adb49f64727edffe83112fc20e33a9a4205467c4694ef004b"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "sallyface",
+      "repository_id": "sallyface-nextos",
+      "title": "Sally Face",
+      "engine_version_note": "2022.3.62f3",
+      "original_note": "unity-2022/sallyface.md",
+      "original_note_sha256": "3bd6405e44e38bc041128d44ecdc5212d189f1d210197856c6222af43f006088",
+      "public_source_commit": "39f3d3bd7fed4f160ae20af0f8824ab6b71b79bf",
+      "public_repository": "https://github.com/NextOs-Ports/sallyface-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "798f4a83ed14882e5845e34b878cd5d6074ea23e1b944a117b837b1d533a5c62"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "4e0379bfeefe00ea5c3f6a363b22318476859ef6fc78c88673c202157729a76b"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "7908462f0927344d3c7f6b56bc86c051a77c124b9c8da4c122f863d2830837c3"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "671e291d307ff8db8642a39bfcfb2097c340c42fb31be2ac8ed1573d3973dfa8"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "3347183853a34b8bbe5ada3e55ca17bdd099eae7a25e32862734fdcab17f0421"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "merchantskies",
+      "repository_id": "merchantskies-nextos",
+      "title": "Merchant of the Skies",
+      "engine_version_note": "6000.4.2f1",
+      "original_note": "unity-6/merchantskies.md",
+      "original_note_sha256": "b58d7ee35b475d283b82cdd4ca6e9e290b134b43b35cab78accec058077326b9",
+      "public_source_commit": "213a3d9875158164bb532ef031651a052ab8360e",
+      "public_repository": "https://github.com/NextOs-Ports/merchantskies-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "4425d4f0340ac9e8a0783c86d114a2b780503bbcb876b0f8ee5d2114ee62ce1d"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "6ba9a5bb53459ea83d684b9a9ae4dcd5a33ced915587c9654920eec972519743"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "59bbab19f26651ab640dfb37c5469ba9225dffd822d03ad35fe04dd28587be93"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "2551600c1758368353f2bfbeab32788b3c13f2e15ca594ca70c059455c044f8e"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "d8ef0e72e17e0d9eeb6c789e13562c1d775f696d959523075522cc7550a77e61"
+        },
+        {
+          "path": "src/gles3.c",
+          "sha256": "b0de8c3736d509c637b74318a260946112a3c1fc4675f3c0e94a031d9407c36d"
+        },
+        {
+          "path": "src/unity6_shader.c",
+          "sha256": "a7362426e92bf594a7836459657f3b09b0687844d2ace0b9ba7ac04fdf1506a2"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "namelesscat",
+      "repository_id": "namelesscat-nextos",
+      "title": "Nameless Cat",
+      "engine_version_note": "6000.3.11f1",
+      "original_note": "unity-6/namelesscat.md",
+      "original_note_sha256": "e32e9b63ab32ae9d2fc1ed46e91c92d4121e3afa951e899756bd18ac2fc8b6c6",
+      "public_source_commit": "fb489c406495e30822d50c8250c76810845414d5",
+      "public_repository": "https://github.com/NextOs-Ports/namelesscat-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "3d86d92c6cf4afc87c3f7a93275332e22995c6eafa808204049d8fea0d080550"
+        },
+        {
+          "path": "generated/namelesscat/README.md",
+          "sha256": "7872f6c275579f072921f58bd44c482fadd231a2237d9975c836c98bb5e2354e"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "a20484114c869a27291a78aab9ba001015cef63fb0b9d2531fc20ea04ee11a3b"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "b84b0a39c69afe59ab5b7aa979208c1cb99d2d0236e7494b114203e70a86caf2"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "efc4c7885ca5a191cc42b949b680b0f626c56ab4c7af2b28c3777b9aa028e5eb"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "21f4c6a8a1abbd5acb633bca19566ea115fc1a9b5e4d5a99a27ec5e88a915dda"
+        },
+        {
+          "path": "src/gles3.c",
+          "sha256": "6d6c5f53048fe7ceaa6d98aaae492999164e2263b9973131223f3c1bcd36b5d2"
+        },
+        {
+          "path": "src/unity6_shader.c",
+          "sha256": "3878c77a5f47ba0660135ca302007db9eb1d3012d283db2993c7a54e38ca7844"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    },
+    {
+      "id": "partyhard",
+      "repository_id": "partyhard-nextos",
+      "title": "Party Hard GO",
+      "engine_version_note": "6000.3.10f1",
+      "original_note": "unity-6/partyhard.md",
+      "original_note_sha256": "f456d0be988436a49513802320d25fd5666ad1bfdadb48ceb6ee143280fb0673",
+      "public_source_commit": "0a03b8483ac9c84d3be63c8dd898cf5acd305576",
+      "public_repository": "https://github.com/NextOs-Ports/partyhard-nextos",
+      "public_source_files": [
+        {
+          "path": "README.md",
+          "sha256": "29ab3ed55ffa35b92285e0bbf058afbb8efa386320814be8d20bd4be404c3661"
+        },
+        {
+          "path": "src/main.c",
+          "sha256": "9d1e5c60c4cef71b1bd20a0503734b3c1eeceaddca81b13f05a30323903062ea"
+        },
+        {
+          "path": "src/jni.c",
+          "sha256": "b5e11ad2ea9e51a9f14f645db2fe5e2f648310a6b29a799b6eb3b73a92e706a2"
+        },
+        {
+          "path": "src/input.c",
+          "sha256": "95f40b1f3421bf7e4afbfc71a34f97d102def73293afde22e5264dfd0663d56f"
+        },
+        {
+          "path": "src/egl.c",
+          "sha256": "8cec5496b337d411fbcd5074a1304920b20f5d7a9383c77641b749103104c20d"
+        },
+        {
+          "path": "src/gles3.c",
+          "sha256": "ed056eb36896a26d3b12dcc7985b8f9f126276826f36972978845381553500d6"
+        },
+        {
+          "path": "src/unity6_shader.c",
+          "sha256": "3841f98e8c4dcc1419b1bccb8ed667e681c5089f0e6d599e6153a4d68ce362ea"
+        }
+      ],
+      "editorial_adaptation": true,
+      "historical_gameplay_not_revalidated": true
+    }
+  ],
+  "generic_tool_sources": [
+    {
+      "path": "portando_unity/diagnostico/texturas/planejar_etc1.py",
+      "original_path": "diagnostico/texturas/planejar_etc1.py",
+      "sha256": "d63db8c04d0430645238573c39023e2a704c08ab453c7023233871a99ffeb010",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/texturas/test_planejar_etc1.py",
+      "original_path": "diagnostico/texturas/test_planejar_etc1.py",
+      "sha256": "42c8b1625116d097816553e5320fbcb2c8d1f25c08fc9d117399294390a99b41",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/texturas/exemplo.json",
+      "original_path": "diagnostico/texturas/exemplo.json",
+      "sha256": "ffc6b95d1f91e4c9cbab2b139a385b3c10fe6bf6e1b7250e15a96743c09a1030",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/toque/verificar_toque_curto.py",
+      "original_path": "diagnostico/toque/verificar_toque_curto.py",
+      "sha256": "69f3d68e1f130aecfd1b6dd891344fafcc4a78ce3cde984dafd162bec60b590d",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/toque/test_toque_curto.py",
+      "original_path": "diagnostico/toque/test_toque_curto.py",
+      "sha256": "f7809bbc290678badfdb0e306e4bf0cb5617d60a6407930e8d4635f0358a2b21",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/toque/fixtures/preservado.json",
+      "original_path": "diagnostico/toque/fixtures/preservado.json",
+      "sha256": "73a88357458650957860f5108c6f055b56b29355441c828cd2344a23ff188948",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/toque/fixtures/sem-consumidor.json",
+      "original_path": "diagnostico/toque/fixtures/sem-consumidor.json",
+      "sha256": "45826cc3615ed305f28f3b03941e34dd8cfa9a04183e4cf3e5463a3618e258ed",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/toque/fixtures/duplicado.json",
+      "original_path": "diagnostico/toque/fixtures/duplicado.json",
+      "sha256": "8b9bc556398f26e05d6e7454956f5897efb4fdcc13bb805b6ff41d0f544ec11f",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/toque/fixtures/cobertura-perdida.json",
+      "original_path": "diagnostico/toque/fixtures/cobertura-perdida.json",
+      "sha256": "e12df0dda11a2c149d0f5fa03a9ee2e369c0bbc2f2f7ca18b29df283a1dd3cfa",
+      "unchanged": true
+    },
+    {
+      "path": "portando_unity/diagnostico/toque/fixtures/perdido.json",
+      "original_path": "diagnostico/toque/fixtures/perdido.json",
+      "sha256": "4f1392490c7f6fefe455bd8b0de5452b3abf8bd198f20ef670f94805b8e2b3f8",
+      "unchanged": true
+    }
+  ],
+  "guide_sources": [
+    {
+      "original_path": "TRIAGEM-APK-UNITY.md",
+      "sha256": "389a91db216bc8e984871b100b49e48968065466f18fc4433c7c9935c5ed2a21",
+      "mode": "selected editorial adaptation; non-selected game examples omitted"
+    },
+    {
+      "original_path": "ETC1-DUAL-CAMADA.md",
+      "sha256": "368fae1d79957632df5114d3d928c113b90a36f9f3180009d5bde67c492b3574",
+      "mode": "selected editorial adaptation; non-selected game examples omitted"
+    },
+    {
+      "original_path": "CONTROLES-SDL-UNITY.md",
+      "sha256": "8c2b40bd60117fb1d114d89273c49262cca2bbab508981c9e7eb8dc06fa5f4db",
+      "mode": "selected editorial adaptation; non-selected game examples omitted"
+    },
+    {
+      "original_path": "RESOLUCAO-ESCALA-FPS.md",
+      "sha256": "648135fbd659e0a22539d51df369276fd77a88c26bb71510bf9ab52e5da88de0",
+      "mode": "selected editorial adaptation; non-selected game examples omitted"
+    },
+    {
+      "original_path": "IDENTIFICAR-DEFEITO-E-FIX.md",
+      "sha256": "095b13b98302653fd202ea5b12f72161620ef9d8f8ec29fd482b32833eb6c1b7",
+      "mode": "selected editorial adaptation; non-selected game examples omitted"
+    }
+  ]
+}

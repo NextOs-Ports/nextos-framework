@@ -1,46 +1,86 @@
-# Criar ports com ajuda de IA
+# Criar um port com a IA conduzindo o trabalho
 
-A IA pode conduzir a maior parte da investigação, programação, compilação e verificação. O dono fornece a cópia compatível do jogo, define o alvo e confirma a experiência física que não pode ser demonstrada por logs.
+[English](../en/AI-PORTING.md)
 
-## Uma missão inicial que você pode copiar
+A IA deve investigar, escrever código, compilar, executar verificações autorizadas e deixar resultados reproduzíveis. O dono fornece os inputs compatíveis, escolhe o alvo, relata a experiência física necessária e aprova a publicação. Não é preciso responder a uma pergunta a cada ajuste local reversível.
+
+## 1. Entregar uma missão concreta
+
+Copie o modelo e preencha apenas o que souber. Um campo desconhecido vira tarefa de investigação, não licença para inventar dados:
 
 ```text
-Leia AGENTS.md, o catálogo e o guia de arquitetura deste repositório.
-Quero criar um port Android para Linux AArch64, começando pelo alvo que informarei.
-Vou fornecer localmente uma cópia do jogo. Não envie seus dados ao GitHub.
+Leia AGENTS.md e docs/pt-BR/README.md deste clone.
+Jogo e versão: [informar]
+Cópia local fornecida por mim: [caminho privado]
+Alvo desta etapa: [sistema, CPU/GPU e ABI de userland]
+Repositório/diretório novo: [destino]
+Primeiro objetivo: identificar a build e alcançar o fluxo nativo no alvo.
 
-Faça o inventário de package ID, versão, ABIs, engine, bibliotecas, imports,
-JNI, dados e requisitos gráficos. Prefira arm64-v8a quando existir.
-Escolha referências do catálogo por engine, ABI e contratos comprovados.
-Leia SOURCE-MAP.json, licenças e limitações antes de reutilizar qualquer peça.
+Conduza autonomamente inventário, escolha das referências públicas,
+implementação do adapter, build e testes locais pertinentes.
+Prefira AArch64. Preserve a V5 e todos os ports de referência.
+Se for Unity, leia portando_unity/README.md e use somente seus casos públicos.
+Escolha a trilha Mono Android, Godot ou Cocos2d-x quando corresponder à engine.
 
-Crie o novo port em diretório separado. Preserve a V5 e os ports de referência.
-Implemente somente o adapter necessário, mantendo o fluxo nativo do jogo.
-Compile com toolchain e sysroot explícitos, use testes dirigidos e continue
-autonomamente nas etapas reversíveis autorizadas. Não invente sucesso em shims.
-
-Registre cada etapa, as fontes reutilizadas e o resultado. Peça informação
-somente quando um dado ausente realmente impedir o próximo passo.
-Não publique, não altere visibilidade e não acesse aparelhos não autorizados.
+Mantenha fontes, pins, contratos, logs privados e resultados organizados.
+Não invente offsets, assinaturas, suporte, licença ou sucesso de APIs ausentes.
+Implemente e teste o que puder; descreva precisamente qualquer bloqueio.
+Não envie dados do jogo ao GitHub. Não acesse aparelho sem endereço autorizado
+nesta tarefa. Prepare materiais revisáveis antes de pedir aprovação para publicar.
 ```
 
-## O trabalho que a IA deve entregar
+## 2. Fazer o inventário antes de escolher o loader
 
-1. Inventário técnico da cópia local, sem distribuir dados ou citar sua origem de download.
-2. Plano de contratos: o que a V5 fornece, o que a engine exige e o que falta implementar.
-3. Adapter, shims específicos e build em fonte versionada, com origem e licença de cada peça reutilizada.
-4. Diagnóstico de imports/JNI, vídeo, áudio, entrada, save e saída, com falhas explícitas.
-5. Receita NXExtract, launcher canônico, instalação limpa e documentação dos dados exigidos.
-6. Evidência do artefato exato, separando teste host, emulação e teste físico.
+Crie um relatório privado com jogo/versão, package ID, tamanho/SHA do container de referência, ABIs, bibliotecas críticas e respectivos hashes, engine/runtime real, dependências, caminhos de assets, shaders/texturas, áudio e input. Em splits, identifique todos os containers necessários. Não confunda a versão do jogo com a versão da engine.
 
-Não basta a IA devolver uma lista de sugestões: ela deve escrever e compilar o código possível, executar verificações autorizadas e documentar os bloqueios reais. Um resultado parcial precisa ser chamado de parcial.
+O comando abaixo apenas lista bibliotecas dentro de um APK informado; não extrai nem executa seu conteúdo. Package ID e versão devem vir de um leitor de manifesto Android binário apropriado; `strings` sozinho não comprova esses campos.
 
-## Como escolher uma referência
+```sh
+export NEXTOS_OWNER_APK=/private/owner-input/game.apk
+python3 - <<'PY'
+import os
+from zipfile import ZipFile
+with ZipFile(os.environ['NEXTOS_OWNER_APK']) as apk:
+    for item in apk.infolist():
+        if item.filename.startswith('lib/') and item.filename.endswith('.so'):
+            print(item.filename, item.file_size)
+PY
+```
 
-Use `catalog/ports.json`. Para Unity, compare versão, pipeline, ABI e forma de input; para Cocos/native, compare lifecycle e imports; para MonoGame/.NET ou GameMaker, use a trilha própria. Consulte `docs/pt-BR/SHIMS.md` para localizar o código disponível.
+Não comite a saída bruta se ela trouxer informações privadas. Leia dados comerciais somente no ambiente autorizado; não os envie como anexos para serviços externos de IA.
 
-Um menu renderizado não prova o jogo inteiro. Uma solução de áudio não autoriza copiar o lifecycle completo. Não aplicar automaticamente a todos os títulos os offsets, stubs, resoluções, backends ou controles de um jogo.
+## 3. Escolher a referência por contrato
 
-## O que continua dependendo de validação do dono
+Abra o catálogo e `SOURCE-MAP.json`. Registre a razão da escolha: engine/build, ABI, JNI, áudio, renderer, input e licença compatíveis. Uma mesma função pode ter assinatura diferente em outra build. Verifique se a implementação citada está nos arquivos selecionados e se a prova se refere ao mesmo artefato.
 
-Informar dados e aparelho correto, confirmar comandos físicos/áudio/imagem e aprovar uma publicação pública. A IA pode preparar todos os materiais revisáveis antes dessa aprovação. O repositório atual permanece privado até uma ordem explícita do mantenedor.
+| Encontrado | Trilha |
+| --- | --- |
+| Unity, Mono ou IL2CPP | [Portando Unity](../../portando_unity/README.md) |
+| Mono/.NET para Android, MonoGame ou FNA | [Mono Android](MONO-ANDROID.md) |
+| Projeto/runtime Godot | [Godot](GODOT.md) |
+| Cocos2d-x e callbacks Android | [Cocos2d-x](COCOS2D-X.md) |
+| Engine nativa diferente | [Shims](SHIMS.md) e contrato específico |
+
+## 4. Organizar entregas pequenas e verificáveis
+
+No repositório do **novo** port, mantenha um inventário, uma tabela de contratos, fonte do adapter, receita de build, receita NXExtract e registro de testes. Nomes sugeridos: `docs/inventory.md`, `docs/contracts.md`, `src/`, `recipes/`, `docs/validation.md`. Esses nomes são organização sugerida; os schemas reais do gerador continuam soberanos.
+
+Para cada contrato registre import/assinatura, origem do código, licença, owner da memória/thread, comportamento de erro e teste. Para cada execução, registre commit, SHA do ELF, perfil de dados, alvo e resultado. Informações privadas ficam fora da documentação publicável.
+
+## 5. Seguir a ordem nativa e corrigir uma fronteira por vez
+
+Primeiro bibliotecas/relocações e construtores; depois JNI/callbacks de inicialização e lifecycle; então contexto/surface, frames, áudio, input, persistência e saída. A ordem exata vem da engine analisada, não de uma lista universal de nomes.
+
+Quando ocorrer falha, escreva hipótese, medição que a distingue, reparo mínimo e contraprova. Por exemplo: áudio vivo com tela preta exige medir a fronteira gráfica; não é sucesso parcial de vídeo. Import desconhecido exige implementar seu contrato; um `return 0` genérico só oculta o problema.
+
+## 6. Automatizar sem apagar a evidência
+
+A IA pode gerar inventários, comparar hashes, localizar símbolos, escrever testes dirigidos e preparar o pacote. Preserve o executável aprovado; documentar ou traduzir não autoriza reconstruí-lo. Conclua alterações antes da bateria final, sem criar um ZIP novo a cada erro de desenvolvimento.
+
+Um bom checkpoint informa o que mudou, comando executado, resultado, o que ainda falta e o próximo passo independente. Ao retomar, a IA deve ler esse checkpoint e comparar os arquivos, evitando redescobrir correções já comprovadas.
+
+## 7. Concluir com o alcance correto
+
+Entregue código e receita, origem das peças, build reproduzível, diagnóstico dos contratos faltantes, [instalação limpa](NXEXTRACT.md) e [provas dos bytes finais](TESTES-E-ENTREGA.md). “Compilou”, “abriu o menu” e “gameplay completo” são resultados diferentes. Declare somente o que foi observado.
+
+Se faltar um input ou aparelho, termine o trabalho independente e diga exatamente qual fronteira não pôde testar. A visibilidade deste repositório permanece privada até aprovação explícita de NextOS.

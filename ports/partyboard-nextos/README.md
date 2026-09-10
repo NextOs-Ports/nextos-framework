@@ -1,13 +1,27 @@
-**PartyBoard / Mario Party 4 — referência NextOS**
+# PartyBoard / Mario Party 4 — referência NextOS
 
-Fonte: [partyboard-nextos](https://github.com/NextOs-Ports/partyboard-nextos), commit `6ac391d61fda260aadb0c8b1e5f77d2ae5f0d797`.
+[English](README.en.md)
 
-Plataforma de origem: GameCube. Esta pasta contém fontes selecionadas para estudo e reutilização, sem os dados do jogo. Não é um pacote instalável. Nenhum binário aprovado foi reconstruído e nenhum pin foi migrado para V5.
+[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/)
 
-Consulte `SOURCE-MAP.json` para os arquivos preservados, seus hashes e as omissões. Há 27 arquivos incluídos e 0 omissões adicionais de privacidade/conteúdo. Algumas receitas upstream dependem de arquivos fora desta seleção; a compilação autônoma de cada referência ainda será revisada.
+Origem: [partyboard-nextos](https://github.com/NextOs-Ports/partyboard-nextos), commit `6ac391d61fda260aadb0c8b1e5f77d2ae5f0d797`. Plataforma: GameCube.
 
-A IA deve usar esta pasta somente como referência, escrever o novo port em diretório separado e conferir licença, ABI, engine, callbacks e evidência antes de adaptar uma solução. Código presente não certifica gameplay completo nem suporte a todos os aparelhos.
+## Como usar esta referência
 
-Licenças: LICENSE grants MIT only for NextOS contributions; explicitly excludes unlicensed upstream PartyBoard and reconstructed game code. Whole-tree redistribution not cleared by this study.
+Esta pasta contém uma seleção de fontes públicas de um port criado/integrado por NextOS. Não é um jogo completo nem pacote instalável. Nenhum dado comercial acompanha esta seleção; o novo port precisa da cópia compatível fornecida pelo dono.
 
-Autoria da integração e desta coleção: **NextOS** — https://github.com/NextOs-Ports. Os jogos e componentes de terceiros conservam seus respectivos titulares.
+Leia [SOURCE-MAP.json](SOURCE-MAP.json) antes de copiar código: há 27 arquivos incluídos e 0 omissões adicionais registradas de privacidade/conteúdo. Receitas upstream podem exigir arquivos fora desta seleção; um clone desta pasta não garante build autônomo.
+
+Compare engine/build, ABI, assinatura, dados, renderer, áudio e consumidor de input. Escreva o novo adapter em outro diretório. Registre a fonte/hash/licença da peça e teste seu contrato no destino.
+
+## Status e limites
+
+O snapshot é o commit público observado, não uma nova certificação física. Leia o status da versão exata antes de alegar gameplay, instalação ou suporte a aparelhos. Os próprios pins da referência foram preservados: sua presença junto da V5 não migra V3/V4/V6 nem recompila binários aprovados.
+
+## Licença e autoria
+
+LICENSE concede MIT somente às contribuições NextOS; exclui upstream PartyBoard sem licença e código reconstruído do jogo. Redistribuição da árvore inteira não foi liberada neste estudo.
+
+Autoria da integração/coleção: **NextOS** — [GitHub oficial](https://github.com/NextOs-Ports). Preserve avisos de licença e créditos de terceiros. Dados, código original e marcas do jogo conservam seus respectivos titulares. [Termos da coleção](../../LICENSING.md).
+
+Os arquivos dentro de `upstream/` preservam seus bytes e idiomas originais. Esta ficha e os guias externos oferecem a navegação bilíngue sem alterar a referência auditada.

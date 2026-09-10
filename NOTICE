@@ -18,3 +18,25 @@ does not grant permission to redistribute commercial game inputs.
 No modified downstream project should be presented as an official NextOS
 release without authorization. This identity notice does not limit rights
 already granted by the applicable software licenses.
+
+--- Português ---
+
+Coleção de referências NextOS Framework
+Projeto e integração: NextOS
+Projeto oficial: https://github.com/NextOs-Ports
+
+Esta coleção inclui código de projetos com licenças independentes. A GPLv3 da
+raiz não substitui licenças de componentes nem concede direitos aos dados dos
+jogos. Leia LICENSING.md, SOURCE-MAP.json e os avisos upstream de cada referência.
+
+A linhagem do so-loader Android inclui syberia_arm64 e lswtcs_arm64 de mtojek,
+sob Apache License 2.0. Avisos de copyright, licença e NOTICE aplicáveis devem
+acompanhar o código reutilizado. PortMaster/HarbourMaster, NXExtract, NXSplash
+e outros componentes conservam suas próprias licenças e créditos.
+
+Jogos, código original, arte, música e marcas permanecem com seus titulares.
+Esta coleção não concede permissão para redistribuir dados comerciais de jogos.
+
+Projetos derivados modificados não devem ser apresentados como release oficial
+NextOS sem autorização. Este aviso de identidade não limita direitos já
+concedidos pelas licenças de software aplicáveis.

@@ -5,7 +5,7 @@
   "baseline": "657fb65a23b5c3b20040e76307b27e6470b1d17c",
   "private_review_only": true,
   "repository_count": 41,
-  "title_count": 45,
+  "title_count": 47,
   "ports": [
     {
       "id": "actionsquad-nextos",
@@ -626,5 +626,54 @@
       "status": "reference-review-pending",
       "license_review": "Preserve per-file licenses; complete publication review pending."
     }
-  ]
+  ],
+  "community_ports": [
+    {
+      "id": "strangerthings3-nextos",
+      "games": [
+        "Stranger Things 3: The Game"
+      ],
+      "platform": "Android",
+      "author": "NextOS",
+      "repository": null,
+      "source_dir": null,
+      "status": "community-distributed-catalog-only",
+      "documentation": "catalog/community/strangerthings3.md",
+      "documentation_en": "catalog/community/strangerthings3.en.md",
+      "distribution_evidence": "Maintainer reports public community distribution; no public download URL verified in this collection.",
+      "engine": "Unity 6000.2.6f2 / IL2CPP / AArch64",
+      "limitations": {
+        "pt-BR": "Sem snapshot de código nesta coleção; vínculo fonte/artefato a recuperar. Notas históricas registram limite de fonte em submenu e saída forçada.",
+        "en": "No source snapshot in this collection; source/artifact binding must be recovered. Historical notes record a submenu font limitation and forced exit."
+      }
+    },
+    {
+      "id": "avgn12deluxe-nextos",
+      "games": [
+        "AVGN I & II Deluxe"
+      ],
+      "platform": "Android",
+      "author": "NextOS",
+      "repository": null,
+      "source_dir": null,
+      "status": "community-distributed-catalog-only",
+      "documentation": "catalog/community/avgn12deluxe.md",
+      "documentation_en": "catalog/community/avgn12deluxe.en.md",
+      "distribution_evidence": "Maintainer reports public community distribution; no public download URL verified in this collection.",
+      "engine": "Unity 2019.4.16f1 / IL2CPP / AArch64",
+      "framework": "V6 opt-in reference; does not change the V5 baseline",
+      "reference_package_version": "1.0.1-docs1",
+      "reference_package_sha256": "c95000675ca7c898ebf33f403cb4aa57b55c0b02052e50b210622a81ab9a0230",
+      "limitations": {
+        "pt-BR": "Entrada de catálogo; fonte V6 e pacote não importados. Prova física documentada é específica do alvo testado, sem certificação de todos os devices.",
+        "en": "Catalog entry; V6 source and package not imported. Documented physical evidence applies to the tested target, not every device."
+      }
+    }
+  ],
+  "source_title_count": 45,
+  "community_title_count": 2,
+  "catalog_scope": {
+    "pt-BR": "Somente ports criados/integrados por NextOS: 45 títulos com fontes de repositórios públicos e 2 entradas de distribuição comunitária informada pelo mantenedor.",
+    "en": "Only ports created/integrated by NextOS: 45 titles with public-repository source selections and 2 entries whose community distribution is reported by the maintainer."
+  }
 }

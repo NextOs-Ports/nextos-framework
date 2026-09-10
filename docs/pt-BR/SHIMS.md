@@ -1,28 +1,62 @@
-# Shims e referências reutilizáveis
+# Shims: do import ao contrato testado
 
-Um shim traduz um contrato entre o código Android e seu host Linux. Resolver o nome de uma função é apenas a primeira etapa: assinatura, ABI, layout, ownership, erros e callbacks precisam estar corretos.
+[English](../en/SHIMS.md)
 
-O [exemplo compilável](../../examples/shims-reference/README.md) ensina resolução tipada, erro explícito, propriedade conhecida e errno por thread. Ele é pequeno por intenção e não é uma camada Android completa. A coleção real é a base para a IA encontrar implementações maiores.
+Um shim adapta uma interface esperada pelo guest Android ao host Linux. A implementação correta preserva assinatura, convenção de chamada, layout, ownership, duração, erros e callbacks. Encontrar o nome do símbolo não demonstra compatibilidade.
 
-| Necessidade | Onde começar a leitura |
+## 1. Estudar o exemplo executável
+
+Comece em [examples/shims-reference](../../examples/shims-reference/README.md). `shims.h` define assinaturas e uma união de ponteiros de função; `shims.c` registra somente implementações explícitas; `main.c` exercita seus contratos.
+
+| Contrato | Comportamento demonstrado | Limite |
+| --- | --- | --- |
+| `__errno` | Retorna o endereço de `errno` da thread chamadora | Não cobre todo o TLS Bionic |
+| `__android_log_write` | Diagnóstico em stderr; 1 ao entregar, erro negativo ao falhar | Não implementa filtragem/logd Android |
+| `nx_demo_property` | Somente `demo.name`, com capacidade explícita | Não é `__system_property_get` |
+| Resolver | Nome ausente ou assinatura enumerada errada retorna NULL | A enumeração não infere o ABI de um ELF |
+
+O resolver didático não faz relocações. Antes de integrar ao loader real, a IA precisa identificar o tipo do símbolo ELF e a assinatura pelo contrato da biblioteca/engine. Um objeto como `__stack_chk_guard` não pode virar endereço de função.
+
+## 2. Inventariar os imports
+
+Com uma biblioteca do dono preparada em área privada, use `readelf -Ws` para a tabela de símbolos, `readelf -d` para dependências e `readelf -r` para relocações. Separe símbolos indefinidos obrigatórios, fracos, objetos e TLS. Verifique imports obtidos por `dlsym`, `eglGetProcAddress` e JNI em runtime: a lista estática não os contém necessariamente.
+
+Uma tabela de trabalho útil tem: nome; versão do símbolo; tipo; ABI; assinatura; chamador; resultado/erro esperado; dono do buffer; thread; implementação escolhida; fonte/hash/licença; testes; limite. Essa tabela pertence ao novo port.
+
+## 3. Decidir o tipo de adaptação
+
+| Caso | Decisão |
 | --- | --- |
-| ELF, relocações, imports e ordem dos construtores | `framework/nxloader/` |
-| Lifecycle e fronteiras Android | `framework/nxandroid/` |
-| Janela, contexto, drawable e present | `framework/nxgl/` |
-| Áudio e observabilidade | `framework/nxaudio/` e `framework/nxobs/` |
-| Controles e contextos | `framework/nxinput/` |
-| Compatibilidade JNI/Unity | fontes de Bomb Chicken/Gunbrick, Suzy Cube, Horizon Chase, Nameless Cat e demais Unity do catálogo |
-| NativeActivity e APIs nativas | fontes de Castle of Illusion, Sonic 4 Episode II, KOTOR e outras referências nativas |
-| Cocos2d-x | Chrono Trigger e Geometry Dash/SubZero |
-| MonoGame/.NET | SOR4, Stardew Valley, ScourgeBringer e Blossom Tales |
-| GameMaker | Forager, preservando a licença GPL-2.0-only e seu runtime independente |
+| ABI e semântica comprovadamente idênticos | Encaminhar para o host com tipo correto |
+| Layout/enum/erro diferente | Traduzir explicitamente entrada e saída |
+| Callback assíncrono ou objeto com estado | Implementar ciclo de vida e sincronização |
+| Serviço opcional ausente | Retornar a ausência prevista pelo contrato, com prova do caminho |
+| Serviço obrigatório desconhecido | Falhar com diagnóstico preciso e implementar antes de aceitar |
 
-Os diretórios acima indicam pontos de investigação, não autorização para promover todos os seus comportamentos ao núcleo. Leia o manifesto individual e o resultado conhecido antes de copiar uma função.
+Não converter indiscriminadamente `pthread_mutex_t`, `FILE`, estruturas de sinal, `dirent` ou objetos JNI. Não forçar todo mutex a recursivo. Ponteiros gerenciados, handles JNI e ponteiros nativos não são intercambiáveis.
 
-## Meta da base ampliada
+## 4. Implementar um contrato novo
 
-Cobrir contratos recorrentes de Bionic, pthread/TLS, JNI/objetos/strings, assets, looper, native window, OpenSL ES/AudioTrack, EGL/GLES e entrada. Separar perfis de engine e ABI. Marcar cada contrato como implementado/testado, dependente de adapter, opcional explicitamente inerte ou não suportado.
+Escreva primeiro os casos que distinguem uma implementação correta de um stub: input válido, limite de buffer, erro real, NULL quando permitido, chamada concorrente, ownership e destruição. Depois registre a função tipada e integre um chamador conhecido. Não use casts genéricos para silenciar incompatibilidade.
 
-A IA deve recusar imports obrigatórios desconhecidos e produzir a lista exata dos contratos faltantes. Não trocar isso por `return 0`, objetos fictícios ou mutex sempre recursivo. Stubs opcionais só são aceitos quando o comportamento inerte for correto e demonstrado naquele contrato.
+Em JNI, registre classes, métodos e campos por assinatura exata. Preserve referências locais/globais, exceções, conversão de strings e associação da thread. `JNIEnv` pertence à thread; não compartilhe um ponteiro arbitrário entre workers. [Orientações oficiais de JNI](https://developer.android.com/ndk/guides/jni-tips).
 
-O objetivo é diminuir adaptações novas nos jogos de famílias já conhecidas. A cobertura deve ser medida nos títulos Android do catálogo. Esta primeira entrega não promete compatibilidade com a maioria de todos os jogos Android.
+## 5. Localizar implementações maiores
+
+| Fronteira | Fonte inicial |
+| --- | --- |
+| ELF e relocações | [nxloader](../../framework/nxloader/README.md) |
+| Android/lifecycle | [nxandroid](../../framework/nxandroid/README.md) |
+| Contexto/present | [nxgl](../../framework/nxgl/README.md) |
+| Mixer/saída | [nxaudio](../../framework/nxaudio/README.md) |
+| Controle e contextos | [nxinput](../../framework/nxinput/README.md) |
+| Unity | [Casos públicos e diagnóstico](../../portando_unity/README.md) |
+| Mono/.NET, Godot, Cocos | [Mono](MONO-ANDROID.md), [Godot](GODOT.md), [Cocos2d-x](COCOS2D-X.md) |
+
+Leia os manifestos e as licenças antes de adaptar código. O código upstream pode conter soluções específicas que não devem virar defaults do framework.
+
+## 6. Medir a cobertura honestamente
+
+Classifique cada contrato como `implemented-tested`, `adapter-required`, `optional-absent` ou `unsupported`. Registre o perfil de dados/ABI em que foi exercitado. “Todos os imports resolvidos” mede resolução; não mede gameplay, concorrência, save ou fidelidade gráfica.
+
+A base ampla será construída por famílias e contratos repetidos no catálogo. O exemplo atual ensina a estrutura; não é um shim Android quase completo nem uma promessa de rodar a maioria de todos os jogos. Toda mudança compartilhada da V5 exige desenvolvimento separado na linha V6.

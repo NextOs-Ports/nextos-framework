@@ -1,0 +1,10 @@
+{
+  "schema": "unity-texture-plan/1",
+  "kind": "synthetic",
+  "textures": [
+    {"id": "cenario-opaco", "width": 1024, "height": 1024, "levels": "full", "source_format": "RGBA8888", "role": "color", "alpha": "opaque", "dynamic": false},
+    {"id": "atlas-alpha", "width": 1024, "height": 1024, "levels": "full", "source_format": "RGBA8888", "role": "color", "alpha": "blend", "dynamic": false},
+    {"id": "camera-low", "width": 640, "height": 360, "levels": 1, "source_format": "RGBA8888", "role": "render_target", "alpha": "opaque", "dynamic": true},
+    {"id": "texto-sdf", "width": 512, "height": 512, "levels": 1, "source_format": "A8", "role": "font_sdf", "alpha": "unknown", "dynamic": false}
+  ]
+}

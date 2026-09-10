@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "languages": [
+    "pt-BR",
+    "en"
+  ],
+  "scope": "editorial documentation; pinned upstream sources retain original bytes/languages",
+  "pairs": [
+    {
+      "pt-BR": "docs/pt-BR/PRIMEIROS-PASSOS.md",
+      "en": "docs/en/GETTING-STARTED.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/ARQUITETURA.md",
+      "en": "docs/en/ARCHITECTURE.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/PORTAR-COM-IA.md",
+      "en": "docs/en/AI-PORTING.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/SHIMS.md",
+      "en": "docs/en/SHIMS.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/NXEXTRACT.md",
+      "en": "docs/en/NXEXTRACT.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/COMPILAR-ARM.md",
+      "en": "docs/en/BUILD-ARM.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/MONO-ANDROID.md",
+      "en": "docs/en/MONO-ANDROID.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/GODOT.md",
+      "en": "docs/en/GODOT.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/COCOS2D-X.md",
+      "en": "docs/en/COCOS2D-X.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/TESTES-E-ENTREGA.md",
+      "en": "docs/en/TESTING.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/PROBLEMAS-COMUNS.md",
+      "en": "docs/en/TROUBLESHOOTING.md"
+    },
+    {
+      "pt-BR": "examples/shims-reference/README.md",
+      "en": "examples/shims-reference/README.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/suzycube.md",
+      "en": "portando_unity/cases/suzycube.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/fp2.md",
+      "en": "portando_unity/cases/fp2.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/deadtrigger.md",
+      "en": "portando_unity/cases/deadtrigger.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/terraria.md",
+      "en": "portando_unity/cases/terraria.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/horizonchase.md",
+      "en": "portando_unity/cases/horizonchase.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/bombchicken.md",
+      "en": "portando_unity/cases/bombchicken.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/pf2.md",
+      "en": "portando_unity/cases/pf2.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/oceanhorn.md",
+      "en": "portando_unity/cases/oceanhorn.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/hitmango.md",
+      "en": "portando_unity/cases/hitmango.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/huntdown.md",
+      "en": "portando_unity/cases/huntdown.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/skate3.md",
+      "en": "portando_unity/cases/skate3.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/sallyface.md",
+      "en": "portando_unity/cases/sallyface.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/merchantskies.md",
+      "en": "portando_unity/cases/merchantskies.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/namelesscat.md",
+      "en": "portando_unity/cases/namelesscat.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/cases/partyhard.md",
+      "en": "portando_unity/cases/partyhard.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/pt-BR/FP2-VULKAN-GLES2.md",
+      "en": "portando_unity/en/FP2-VULKAN-GLES2.md"
+    },
+    {
+      "pt-BR": "portando_unity/pt-BR/DIAGNOSTICO.md",
+      "en": "portando_unity/en/DIAGNOSTICS.md"
+    },
+    {
+      "pt-BR": "portando_unity/diagnostico/texturas/README.md",
+      "en": "portando_unity/diagnostico/texturas/README.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/diagnostico/toque/README.md",
+      "en": "portando_unity/diagnostico/toque/README.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/pt-BR/TRIAGEM.md",
+      "en": "portando_unity/en/TRIAGE.md"
+    },
+    {
+      "pt-BR": "portando_unity/pt-BR/GRAFICOS-E-TEXTURAS.md",
+      "en": "portando_unity/en/GRAPHICS-AND-TEXTURES.md"
+    },
+    {
+      "pt-BR": "portando_unity/pt-BR/INPUT-E-AUDIO.md",
+      "en": "portando_unity/en/INPUT-AND-AUDIO.md"
+    },
+    {
+      "pt-BR": "CONTRIBUTING.md",
+      "en": "CONTRIBUTING.en.md"
+    },
+    {
+      "pt-BR": "LICENSING.md",
+      "en": "LICENSING.en.md"
+    },
+    {
+      "pt-BR": "AGENTS.pt-BR.md",
+      "en": "AGENTS.md"
+    },
+    {
+      "pt-BR": "publication/REVIEW.md",
+      "en": "publication/REVIEW.en.md"
+    },
+    {
+      "pt-BR": "publication/VALIDATION.md",
+      "en": "publication/VALIDATION.en.md"
+    },
+    {
+      "pt-BR": "ports/actionsquad-nextos/README.md",
+      "en": "ports/actionsquad-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/angrybirds-nextos/README.md",
+      "en": "ports/angrybirds-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/beachbuggy-nextos/README.md",
+      "en": "ports/beachbuggy-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/blossomtales-nextos/README.md",
+      "en": "ports/blossomtales-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/bombchicken-gunbrick-nextos/README.md",
+      "en": "ports/bombchicken-gunbrick-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/castleofillusion-nextos/README.md",
+      "en": "ports/castleofillusion-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/chrono-nextos/README.md",
+      "en": "ports/chrono-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/deadtrigger-nextos/README.md",
+      "en": "ports/deadtrigger-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/ff4-nextos/README.md",
+      "en": "ports/ff4-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/forager-nextos/README.md",
+      "en": "ports/forager-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/fp2-nextos/README.md",
+      "en": "ports/fp2-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/geometrydash-nextos/README.md",
+      "en": "ports/geometrydash-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/goblinsword-ios-nextos/README.md",
+      "en": "ports/goblinsword-ios-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/hitmango-nextos/README.md",
+      "en": "ports/hitmango-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/horizonchase-nextos/README.md",
+      "en": "ports/horizonchase-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/huntdown-nextos/README.md",
+      "en": "ports/huntdown-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/kotor-nextos/README.md",
+      "en": "ports/kotor-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/magicrampage-nextos/README.md",
+      "en": "ports/magicrampage-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/merchantskies-nextos/README.md",
+      "en": "ports/merchantskies-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/namelesscat-nextos/README.md",
+      "en": "ports/namelesscat-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/oceanhorn-nextos/README.md",
+      "en": "ports/oceanhorn-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/offtheroad-nextos/README.md",
+      "en": "ports/offtheroad-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/partyboard-nextos/README.md",
+      "en": "ports/partyboard-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/partyhard-nextos/README.md",
+      "en": "ports/partyhard-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/pikmin-nextos/README.md",
+      "en": "ports/pikmin-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/prizefighters2-nextos/README.md",
+      "en": "ports/prizefighters2-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/rcrdx-nextos/README.md",
+      "en": "ports/rcrdx-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/sallyface-nextos/README.md",
+      "en": "ports/sallyface-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/scourgebringer-nextos/README.md",
+      "en": "ports/scourgebringer-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/skate3-nextos/README.md",
+      "en": "ports/skate3-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/sonic4ep2-nextos/README.md",
+      "en": "ports/sonic4ep2-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/sor4-nextos/README.md",
+      "en": "ports/sor4-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/stardewvalley-nextos/README.md",
+      "en": "ports/stardewvalley-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/summertimesaga-nextos/README.md",
+      "en": "ports/summertimesaga-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/suzycube-nextos/README.md",
+      "en": "ports/suzycube-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/swordigo-nextos/README.md",
+      "en": "ports/swordigo-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/tasm2-nextos/README.md",
+      "en": "ports/tasm2-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/tearscape-nextos/README.md",
+      "en": "ports/tearscape-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/terraria-nextos/README.md",
+      "en": "ports/terraria-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/tightrope-nextos/README.md",
+      "en": "ports/tightrope-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "ports/titansouls-nextos/README.md",
+      "en": "ports/titansouls-nextos/README.en.md"
+    },
+    {
+      "pt-BR": "catalog/community/strangerthings3.md",
+      "en": "catalog/community/strangerthings3.en.md"
+    },
+    {
+      "pt-BR": "catalog/community/avgn12deluxe.md",
+      "en": "catalog/community/avgn12deluxe.en.md"
+    },
+    {
+      "pt-BR": "catalog/README.md",
+      "en": "catalog/README.en.md"
+    },
+    {
+      "pt-BR": "portando_unity/README.md",
+      "en": "portando_unity/README.en.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/README.md",
+      "en": "docs/en/README.md"
+    },
+    {
+      "pt-BR": "README.md",
+      "en": "README.en.md"
+    }
+  ],
+  "bilingual_inline": [
+    "NOTICE"
+  ],
+  "preserved_normative_texts": [
+    "LICENSE"
+  ]
+}

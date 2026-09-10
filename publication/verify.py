@@ -40,6 +40,40 @@ def main():
             if not p.is_file() or p.is_symlink() or digest(p) != record['sha256']:
                 failures.append('Reference integrity: ' + str(p.relative_to(ROOT)))
             checked += 1
+    community = catalog.get('community_ports', [])
+    if {p['id'] for p in community} != {'strangerthings3-nextos', 'avgn12deluxe-nextos'}:
+        failures.append('Community catalog differs from explicitly authorized selection')
+    if (catalog.get('source_title_count') != title_count
+            or catalog.get('community_title_count') != sum(len(p['games']) for p in community)
+            or catalog.get('title_count') != title_count + sum(len(p['games']) for p in community)):
+        failures.append('Catalog title counts disagree')
+    for port in community:
+        if (port.get('author') != 'NextOS' or port.get('repository') is not None
+                or port.get('source_dir') is not None
+                or port.get('status') != 'community-distributed-catalog-only'):
+            failures.append('Unsupported community source claim: ' + port['id'])
+        for key in ('documentation', 'documentation_en'):
+            if not (ROOT / port[key]).is_file():
+                failures.append('Missing community card: ' + port['id'])
+    unity = json.loads((ROOT / 'portando_unity/SOURCE-MAP.json').read_text())
+    references = {p['id']: p for p in catalog['ports']}
+    if len(unity['case_sources']) != 15:
+        failures.append('Unity public-source case count changed')
+    for case in unity['case_sources']:
+        port = references.get(case['repository_id'])
+        if (port is None or case['public_repository'] != port['repository']
+                or case['public_source_commit'] != port['source_commit']):
+            failures.append('Unity case is not bound to an admitted public source: ' + case['id'])
+            continue
+        for record in case['public_source_files']:
+            p = ROOT / port['source_dir'] / record['path']
+            if not p.is_file() or digest(p) != record['sha256']:
+                failures.append('Unity code reference hash: ' + case['id'] + '/' + record['path'])
+    for record in unity['generic_tool_sources']:
+        p = ROOT / record['path']
+        if not p.is_file() or p.is_symlink() or digest(p) != record['sha256']:
+            failures.append('Unity generic tool hash: ' + record['path'])
+        checked += 1
     for p in ROOT.rglob('*'):
         rel = p.relative_to(ROOT)
         if any(part in {'.git', 'work', '__pycache__'} for part in rel.parts):
@@ -61,7 +95,7 @@ def main():
     if failures:
         print('\n'.join(failures))
         return 1
-    print('PASS: %d source/auxiliary hashes; 41 repositories; 45 titles; %d pinned framework ELFs; recognized privacy/package checks' % (checked, len(allowed_elf)))
+    print('PASS: %d source/auxiliary hashes; 41 repositories / 45 source titles; 2 community-only titles; 15 Unity source cases; %d pinned framework ELFs; recognized privacy/package checks' % (checked, len(allowed_elf)))
     print('Scope: source selection only; public publication, licenses, full port builds and physical claims remain under review.')
     return 0
 

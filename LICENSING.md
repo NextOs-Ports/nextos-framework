@@ -1,5 +1,7 @@
 # Licenças, créditos e redistribuição
 
+[English](LICENSING.en.md)
+
 Autoria da coleção e da integração: **NextOS** — https://github.com/NextOs-Ports.
 
 O código novo do exemplo e da verificação desta coleção usa GPL-3.0-only. Os componentes importados conservam suas licenças. `LICENSE` contém a GPLv3; não é uma declaração de que toda a árvore, todos os ports ou os jogos possuam a mesma licença.

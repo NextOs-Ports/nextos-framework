@@ -1,39 +1,58 @@
 # NextOS Framework
 
-Base V5 para criar ports Android em Linux ARM, acompanhada de fontes de **45 títulos de referência** e guias para trabalhar com ajuda de IA.
+[English](README.en.md)
 
-**Rascunho privado para revisão. A publicação pública depende de aprovação do mantenedor NextOS.** As referências são seleções de fontes; não são 45 novos pacotes instaláveis nem uma declaração de suporte universal. Nenhum dado comercial de jogo acompanha esta coleção.
+Framework V5 para criar ports Android em Linux ARM, com **guias completos em português e inglês**, fontes selecionadas de **45 títulos** e mais **2 ports no catálogo comunitário**. A IA pode conduzir a maior parte da investigação, código, build e verificações.
 
-Autoria da coleção e integração: **NextOS** · [GitHub oficial](https://github.com/NextOs-Ports).
+**Repositório privado para revisão. Tornar público exige aprovação explícita de NextOS.** A coleção não inclui dados comerciais de jogos e não representa 47 pacotes instaláveis certificados.
+
+Autoria da coleção/integração: **NextOS** · [GitHub oficial](https://github.com/NextOs-Ports).
 
 ## Comece aqui
 
-1. [Guia para portar com IA](docs/pt-BR/PORTAR-COM-IA.md).
-2. [Compilar para ARM e AArch64](docs/pt-BR/COMPILAR-ARM.md).
-3. [Shims: exemplo executável e mapa de referências](examples/shims-reference/README.md).
-4. [Catálogo dos jogos e códigos](catalog/README.md).
-5. [Licenças, créditos e redistribuição](LICENSING.md).
+1. [Primeiros passos](docs/pt-BR/PRIMEIROS-PASSOS.md) e [índice de todos os guias](docs/pt-BR/README.md).
+2. [Deixar a IA conduzir o port](docs/pt-BR/PORTAR-COM-IA.md).
+3. [Compilar host, AArch64, ARMv7 e exemplo NDK](docs/pt-BR/COMPILAR-ARM.md).
+4. [Shims](docs/pt-BR/SHIMS.md), [NXExtract](docs/pt-BR/NXEXTRACT.md) e [testes](docs/pt-BR/TESTES-E-ENTREGA.md).
 
-Leia também o [guia de arquitetura e limites](docs/pt-BR/ARQUITETURA.md). [English overview](README.en.md).
+## Guias por engine
 
-## O que há nesta árvore
-
-| Caminho | Conteúdo |
+| Trilha | O que ensina |
 | --- | --- |
-| `framework/` | Fontes, contratos, templates e auxiliares preservados da V5 |
-| `suportando_outros_devices/extrator-universal/` | NXExtract: engine, runner e UI gráfica |
-| `ports/` | 41 repositórios de referência, representando 45 títulos |
-| `examples/shims-reference/` | Exemplo C compilável de resolução explícita e shims tipados |
-| `catalog/ports.json` | Índice para humanos e IA, com origem, commit, plataforma e limites |
-| `toolchains/` | Configuração CMake para usar um sysroot Linux escolhido explicitamente |
-| `publication/` | Manifesto da exportação, verificação e pendências antes de publicar |
+| [Unity](portando_unity/README.md) | Triagem, lifecycle, GLES2, ETC1/dual, input, áudio e 15 casos públicos |
+| [Mono Android](docs/pt-BR/MONO-ANDROID.md) | Mono/.NET, MonoGame/FNA, assemblies, Bionic e bootstrap |
+| [Godot](docs/pt-BR/GODOT.md) | Engine/export, renderer, C#, viewport e InputMap |
+| [Cocos2d-x](docs/pt-BR/COCOS2D-X.md) | Biblioteca C++, JNI, assets, texto, áudio e loop nativo |
+| [Freedom Planet 2: Vulkan → GLES2](portando_unity/pt-BR/FP2-VULKAN-GLES2.md) | SMOL-V/SPIR-V, tradução de programas, escrita cirúrgica e stencil/alpha |
 
-O núcleo provém de `framework-v5`, commit `657fb65a23b5c3b20040e76307b27e6470b1d17c`. Os bytes exportados constam em `publication/v5-export.json`. Doze testes que contêm dependências privadas não foram transportados; a suíte histórica completa não é anunciada como autossuficiente neste repositório. O código de runtime incluído foi preservado.
+## Primeiro exemplo
 
-Cada port mantém sua origem e seus próprios pins. Estar nesta coleção não migra uma referência V3/V4 para V5. Um novo port deve nascer em diretório próprio; alterações ao núcleo compartilhado pertencem à linha futura V6.
+```sh
+cmake -S examples/shims-reference -B work/host -DCMAKE_BUILD_TYPE=Release
+cmake --build work/host --parallel 2
+ctest --test-dir work/host --output-on-failure
+```
 
-## Contribuição e dados
+É um teste C de contratos no computador. Os builds ARM/NDK exigem ferramentas e sysroot explícitos; teste host não prova jogo no aparelho.
 
-Use a IA para inventariar imports, localizar soluções, escrever o adapter, compilar e executar os testes permitidos. O dono fornece sua cópia compatível do jogo e valida os resultados físicos necessários. Nunca envie APK, IPA, OBB, bibliotecas proprietárias, assets ou saves para commits, issues ou artefatos de CI.
+## Catálogo e fontes
 
-É permitido reutilizar e redistribuir conforme a licença de cada componente, preservando os avisos de autoria e licença, inclusive NextOS e terceiros, e a fonte correspondente quando exigida. A condição não comercial desejada pelo mantenedor está documentada em `LICENSING.md`; ela não substitui as permissões GPL/MIT já existentes.
+[47 títulos NextOS](catalog/README.md): 45 com seleção de fontes de 41 repositórios públicos e 2 fichas comunitárias — Stranger Things 3 e AVGN I & II Deluxe, ainda sem código importado. Freedom Planet 2 já integra os 45. Cada referência possui status, origem e limites próprios.
+
+| Diretório | Conteúdo |
+| --- | --- |
+| `framework/` | Componentes/templates V5 preservados |
+| `suportando_outros_devices/extrator-universal/` | NXExtract pinado: engine, runner e UI |
+| `ports/` | Snapshots de código, fichas PT/EN e manifestos |
+| `portando_unity/` | Edição selecionada bilíngue, casos e ferramentas genéricas |
+| `docs/pt-BR/`, `docs/en/` | Guias completos e correspondentes |
+| `examples/`, `toolchains/` | Exemplo didático e configurações de cross-compilação |
+| `publication/` | Integridade, validação, idiomas e pendências |
+
+V5: `framework-v5` @ `657fb65a23b5c3b20040e76307b27e6470b1d17c`. [Hashes exportados](publication/v5-export.json). Doze testes históricos com dependências privadas foram omitidos; os bytes do runtime foram preservados. Ports antigos conservam pins V3/V4/V5/V6; nenhuma migração foi feita.
+
+## Contribuir e redistribuir
+
+Leia [AGENTS.md](AGENTS.md), [contribuição](CONTRIBUTING.md) e [licenças/créditos](LICENSING.md). Use somente a cópia do dono para preparar dados; nunca envie APK, IPA, OBB, bibliotecas originais, assets ou saves ao GitHub/CI. ZIPs obedecem às licenças de cada componente e preservam créditos NextOS/terceiros. A proposta não comercial continua em revisão e não substitui permissões GPL/MIT existentes.
+
+Os guias editoriais são bilíngues; fontes históricas, comentários e licenças normativas preservam o idioma original. [O que foi verificado](publication/VALIDATION.md) · [Pendências antes de publicar](publication/REVIEW.md).
