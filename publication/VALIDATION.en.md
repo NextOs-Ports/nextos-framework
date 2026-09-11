@@ -2,6 +2,8 @@
 
 [Português](VALIDATION.md)
 
+**Historical record:** the figures below describe this stage before iOS ports were excluded. The current selection has 40 repositories, 44 source titles and two community entries; see the [current catalog](../catalog/README.en.md).
+
 Date: 2026-09-10. Scope: documentation, catalog and selected Unity import.
 
 - Original collection: 7,715 source/helper hashes, 41 repositories/45 titles and eight pinned V5 helper ELFs.

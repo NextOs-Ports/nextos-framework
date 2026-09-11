@@ -17,7 +17,7 @@ O SDK público inclui as ferramentas. Para acessá-las no container, monte o inp
 
 ## 2. Interpretar os campos
 
-O relatório traz package/split, versão quando disponível, tamanho/hash do container, bibliotecas por ABI, hashes, imports com tipo/binding/versão, dependências e indícios de engine. Versão ausente fica `null`; engine não identificada permanece hipótese. O catálogo tem 41 perfis de fontes, com campos desconhecidos explícitos e links de evidência. ABI significa declaração da receita histórica, não execução validada nesta edição.
+O relatório traz package/split, versão quando disponível, tamanho/hash do container, bibliotecas por ABI, hashes, imports com tipo/binding/versão, dependências e indícios de engine. Versão ausente fica `null`; engine não identificada permanece hipótese. O catálogo tem 40 perfis de fontes, com campos desconhecidos explícitos e links de evidência. ABI significa declaração da receita histórica, não execução validada nesta edição.
 
 A preferência por `arm64-v8a` é local ao APK que contém essa ABI. Examine todo o conjunto de splits; um split de assets não define a arquitetura. Builds ARMv7 exigem a revisão da fronteira softfp.
 

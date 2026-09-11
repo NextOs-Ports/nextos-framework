@@ -46,4 +46,4 @@ Audite scripts executáveis sem dependência do comando externo `stat`; ler `/pr
 
 Após criar o candidato, teste [instalação limpa pelo NXExtract](NXEXTRACT.md) a partir do input completo e preserve o ZIP sem regenerar seus bytes. Vincule os receipts, receita e hashes das saídas ao mesmo ZIP e executável. Adoção de dados antigos não basta. Registre os dispositivos/firmwares testados e os ainda não testados.
 
-A coleção atual tem verificação de fontes e exemplos host; não passou por uma nova bateria de 45 jogos. Consulte [validação desta publicação](../../publication/VALIDATION.md). Publicar a coleção como pública continua dependendo da aprovação de NextOS.
+A coleção atual tem verificação de fontes e exemplos host; não passou por uma nova bateria de 44 jogos. Consulte [validação desta publicação](../../publication/VALIDATION.md). Publicar a coleção como pública continua dependendo da aprovação de NextOS.

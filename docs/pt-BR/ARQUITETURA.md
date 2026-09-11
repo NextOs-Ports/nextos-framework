@@ -45,7 +45,7 @@ Da mesma forma, um renderer lógico GLES3 traduzido pode usar GLES2 físico some
 
 ## Fonte, pacote e dados
 
-`framework/` e a árvore NXExtract são exportações congeladas. `ports/*/upstream/` contém seleções de fontes com hashes próprios; alguns arquivos exigidos pelos builds originais foram omitidos. A ficha externa e `SOURCE-MAP.json` explicam essa seleção. Os 45 títulos são referências, não 45 instalações aprovadas desta coleção.
+`framework/` e a árvore NXExtract são exportações congeladas. `ports/*/upstream/` contém seleções de fontes com hashes próprios; alguns arquivos exigidos pelos builds originais foram omitidos. A ficha externa e `SOURCE-MAP.json` explicam essa seleção. Os 44 títulos são referências, não 44 instalações aprovadas desta coleção.
 
 O port novo deve separar fonte autoral, ferramentas de preparação, runtime redistribuível e dados privados do dono. Somente uma receita de extração permite reconstruir os dados preparados a partir da cópia local compatível. Um diretório já extraído não substitui essa prova.
 

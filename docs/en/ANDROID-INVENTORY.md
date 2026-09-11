@@ -17,7 +17,7 @@ The public SDK includes the tools. To use them in the container, explicitly moun
 
 ## 2. Interpret the fields
 
-The report includes package/split, version when available, container size/hash, ABI libraries, hashes, imports with type/binding/version, dependencies and engine hints. Missing versions remain `null`; engine identification remains a hypothesis. The catalog contains 41 source profiles, explicit unknown fields and evidence links. ABI means a historical recipe declaration, not execution validated in this edition.
+The report includes package/split, version when available, container size/hash, ABI libraries, hashes, imports with type/binding/version, dependencies and engine hints. Missing versions remain `null`; engine identification remains a hypothesis. The catalog contains 40 source profiles, explicit unknown fields and evidence links. ABI means a historical recipe declaration, not execution validated in this edition.
 
 The `arm64-v8a` preference is local to the APK containing that ABI. Examine the whole split set; an asset split does not establish architecture. ARMv7 builds require review of the softfp boundary.
 

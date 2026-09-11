@@ -27,3 +27,5 @@ Este rascunho privado é uma coleção de referências de fonte. O mantenedor pr
 - Para começar um port, siga [SDK público](toolchains/sdk/README.md), [pins da coleção](docs/pt-BR/PINS-E-FONTES.md) e [exemplo integrado](examples/first-port/README.md). Use Python 3.11+; clones precisam conter o commit fixado, não somente HEAD raso.
 - Execute inventário e busca de perfis antes de escolher uma referência. Não trate campos desconhecidos como suporte. Preserve o registro de testes/limites em [ONBOARDING-UPDATE.md](publication/ONBOARDING-UPDATE.md).
 - Os inputs de treino são autorais e gerados em work/. CI manual executa somente esse treino e não publica APKs/ELFs/logs como artefatos. Headless/QEMU não aprovam UI nem gráficos físicos.
+
+- Não adicionar ports, estudos, loaders ou exemplos de iOS/iPadOS a esta coleção. A exclusão vale para snapshots e fichas comunitárias. Componentes genéricos de terceiros mantêm seus notices e declarações multiplataforma; isso não constitui uma referência de port iOS.

@@ -2,9 +2,11 @@
 
 [English](README.en.md)
 
-Framework V5 para criar ports Android em Linux ARM, com **guias ampliados em português e inglês**, fontes selecionadas de **45 títulos** e mais **2 ports no catálogo comunitário**. A IA pode conduzir a maior parte da investigação, código, build e verificações.
+Ports, estudos e exemplos de iOS estão fora do escopo desta coleção.
 
-**Repositório privado para revisão. Tornar público exige aprovação explícita de NextOS.** A coleção não inclui dados comerciais de jogos e não representa 47 pacotes instaláveis certificados.
+Framework V5 para criar ports Android em Linux ARM, com **guias ampliados em português e inglês**, fontes selecionadas de **44 títulos** e mais **2 ports no catálogo comunitário**. A IA pode conduzir a maior parte da investigação, código, build e verificações.
+
+**Repositório privado para revisão. Tornar público exige aprovação explícita de NextOS.** A coleção não inclui dados comerciais de jogos e não representa 46 pacotes instaláveis certificados.
 
 Autoria da coleção/integração: **NextOS** · [GitHub oficial](https://github.com/NextOs-Ports).
 
@@ -39,7 +41,7 @@ Para trabalhar em outro jogo, use o [inventário executável](docs/pt-BR/INVENTA
 
 ## Catálogo e fontes
 
-[47 títulos NextOS](catalog/README.md): 45 com seleção de fontes de 41 repositórios públicos e 2 fichas comunitárias — Stranger Things 3 e AVGN I & II Deluxe, ainda sem código importado. Freedom Planet 2 já integra os 45. Cada referência possui status, origem e limites próprios.
+[46 títulos NextOS](catalog/README.md): 44 com seleção de fontes de 40 repositórios públicos e 2 fichas comunitárias — Stranger Things 3 e AVGN I & II Deluxe, ainda sem código importado. Freedom Planet 2 já integra os 44. Cada referência possui status, origem e limites próprios.
 
 | Diretório | Conteúdo |
 | --- | --- |

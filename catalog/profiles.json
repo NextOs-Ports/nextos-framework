@@ -257,23 +257,6 @@
       "manifest": "ports/geometrydash-nextos/SOURCE-MAP.json"
     },
     {
-      "id": "goblinsword-ios-nextos",
-      "games": [
-        "Goblin Sword"
-      ],
-      "engine": "unknown",
-      "engine_version": "unknown",
-      "abis": [],
-      "abi_scope": "declared in reference manifests; not retested",
-      "renderer": "unknown",
-      "source_commit": "3a0a1a7935a09619347a9bf2d35558be8b3c5e1a",
-      "build_status": "source-selection-not-built",
-      "tested_devices": [],
-      "hardware_status": "not-revalidated-in-this-collection",
-      "evidence": [],
-      "manifest": "ports/goblinsword-ios-nextos/SOURCE-MAP.json"
-    },
-    {
       "id": "hitmango-nextos",
       "games": [
         "Hitman GO"

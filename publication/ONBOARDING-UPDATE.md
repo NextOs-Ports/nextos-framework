@@ -2,6 +2,8 @@
 
 [English](ONBOARDING-UPDATE.en.md)
 
+**Registro histórico:** os números abaixo descrevem esta etapa anterior à exclusão de ports iOS. A seleção atual possui 40 repositórios, 44 títulos com fontes e dois comunitários; consulte o [catálogo atual](../catalog/README.md).
+
 Data: 10/09/2026. Esta atualização implementa o caminho de treino apontado pela [simulação anterior](ONBOARDING-SIMULATION.md). O repositório permanece privado; nenhuma release de jogo ou mudança de visibilidade foi feita.
 
 ## O que foi acrescentado

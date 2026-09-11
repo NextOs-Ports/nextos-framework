@@ -2,9 +2,11 @@
 
 [Português](README.md)
 
-V5 framework for Android-to-Linux ARM ports, with **expanded English and Portuguese guides**, selected sources for **45 titles**, and **2 additional community catalog ports**. AI can lead most investigation, coding, building and verification.
+iOS ports, studies and examples are outside this collection’s scope.
 
-**Private review repository. Public visibility requires explicit NextOS approval.** This collection contains no commercial game data and does not represent 47 certified installable packages.
+V5 framework for Android-to-Linux ARM ports, with **expanded English and Portuguese guides**, selected sources for **44 titles**, and **2 additional community catalog ports**. AI can lead most investigation, coding, building and verification.
+
+**Private review repository. Public visibility requires explicit NextOS approval.** This collection contains no commercial game data and does not represent 46 certified installable packages.
 
 Collection/integration author: **NextOS** · [official GitHub](https://github.com/NextOs-Ports).
 
@@ -39,7 +41,7 @@ For another game, use the [executable inventory](docs/en/ANDROID-INVENTORY.md), 
 
 ## Catalog and sources
 
-[47 NextOS titles](catalog/README.en.md): 45 with source selections from 41 public repositories and 2 community cards — Stranger Things 3 and AVGN I & II Deluxe, without imported code yet. Freedom Planet 2 is already among the 45. Each reference retains its own status, origin and limitations.
+[46 NextOS titles](catalog/README.en.md): 44 with source selections from 40 public repositories and 2 community cards — Stranger Things 3 and AVGN I & II Deluxe, without imported code yet. Freedom Planet 2 is already among the 44. Each reference retains its own status, origin and limitations.
 
 | Directory | Contents |
 | --- | --- |

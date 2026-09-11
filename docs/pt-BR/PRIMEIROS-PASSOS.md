@@ -4,7 +4,7 @@
 
 Após o teste C introdutório, siga o [SDK público](../../toolchains/sdk/README.md) e o [primeiro port integrado ARM64](../../examples/first-port/README.md): build, pins, guest Android, NXExtract e testes em QEMU, sem dados comerciais.
 
-Este roteiro começa no clone e termina com um exemplo C executando no seu computador. Depois você terá uma base para pedir à IA um port novo. O catálogo reúne fontes de 45 títulos; cada referência conserva seus próprios requisitos e limites.
+Este roteiro começa no clone e termina com um exemplo C executando no seu computador. Depois você terá uma base para pedir à IA um port novo. O catálogo reúne fontes de 44 títulos; cada referência conserva seus próprios requisitos e limites.
 
 ## 1. Preparar o computador
 

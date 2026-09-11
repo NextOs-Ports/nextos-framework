@@ -2,6 +2,8 @@
 
 [Português](ONBOARDING-SIMULATION.md)
 
+**Historical record:** the figures below describe this stage before iOS ports were excluded. The current selection has 40 repositories, 44 source titles and two community entries; see the [current catalog](../catalog/README.en.md).
+
 **Historical record:** the gaps below were observed at the stated commit. The [subsequent update](ONBOARDING-UPDATE.en.md) records the implemented SDK, examples and tools, their checks and current open work.
 
 Assessment dated 2026-09-10 against commit `2e7234265f8602d8a31117f65a23874769e13e59`. Scenario: a person or AI receives only this collection and their own Android game copy, without knowing the internal NextOS environment.

@@ -2,7 +2,7 @@
 
 [English](../en/README.md)
 
-[Repositório](../../README.md) · [Catálogo dos 47 títulos](../../catalog/README.md) · [Portando Unity](../../portando_unity/README.md)
+[Repositório](../../README.md) · [Catálogo dos 46 títulos](../../catalog/README.md) · [Portando Unity](../../portando_unity/README.md)
 
 Comece pelo exemplo C no host e avance ao [primeiro port integrado](../../examples/first-port/README.md), usando o [SDK público](../../toolchains/sdk/README.md). Depois escolha a engine. Os guias ensinam comandos, contratos e critérios para a IA conduzir a implementação; os dados compatíveis do dono permanecem privados.
 

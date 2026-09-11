@@ -46,4 +46,4 @@ Audit executable scripts for dependency on the external `stat` command; reading 
 
 After creating the candidate, test [clean installation through NXExtract](NXEXTRACT.md) using complete input and preserve the ZIP without regenerating its bytes. Bind receipts, recipe and output hashes to the same ZIP and executable. Adopting old data is insufficient. Record tested and untested devices/firmwares.
 
-The current collection has source and host-example checks; it has not undergone a new 45-game test campaign. See [publication validation](../../publication/VALIDATION.en.md). Making this collection public still requires NextOS approval.
+The current collection has source and host-example checks; it has not undergone a new 44-game test campaign. See [publication validation](../../publication/VALIDATION.en.md). Making this collection public still requires NextOS approval.

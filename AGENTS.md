@@ -28,3 +28,5 @@ This private draft is a source reference collection. The maintainer must explici
 - To start a port, follow the [public SDK](toolchains/sdk/README.en.md), [collection pins](docs/en/PINS-AND-SOURCES.md), and [integrated example](examples/first-port/README.en.md). Use Python 3.11+; clones must contain the fixed commit, not only a shallow HEAD.
 - Run inventory and profile search before selecting a reference. Never interpret unknown fields as support. Preserve recorded checks/limits in [ONBOARDING-UPDATE.en.md](publication/ONBOARDING-UPDATE.en.md).
 - Training inputs are original and generated in work/. Manual CI runs only this training and does not publish APKs/ELFs/logs as artifacts. Headless/QEMU do not approve UI or physical graphics.
+
+- Do not add iOS/iPadOS ports, studies, loaders or examples to this collection. The exclusion applies to snapshots and community cards. Generic third-party components retain their notices and cross-platform declarations; those are not iOS port references.

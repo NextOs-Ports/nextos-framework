@@ -4,8 +4,8 @@
   "organization": "https://github.com/NextOs-Ports",
   "baseline": "657fb65a23b5c3b20040e76307b27e6470b1d17c",
   "private_review_only": true,
-  "repository_count": 41,
-  "title_count": 47,
+  "repository_count": 40,
+  "title_count": 46,
   "ports": [
     {
       "id": "actionsquad-nextos",
@@ -190,21 +190,6 @@
       "omitted_selected_file_count": 0,
       "status": "reference-review-pending",
       "license_review": "Preserve per-file licenses; complete publication review pending."
-    },
-    {
-      "id": "goblinsword-ios-nextos",
-      "games": [
-        "Goblin Sword"
-      ],
-      "platform": "iOS",
-      "repository": "https://github.com/NextOs-Ports/goblinsword-ios-nextos",
-      "source_commit": "3a0a1a7935a09619347a9bf2d35558be8b3c5e1a",
-      "source_dir": "ports/goblinsword-ios-nextos/upstream",
-      "manifest": "ports/goblinsword-ios-nextos/SOURCE-MAP.json",
-      "source_file_count": 49,
-      "omitted_selected_file_count": 0,
-      "status": "reference-review-pending",
-      "license_review": "No root LICENSE in tree metadata; prototype with limited physical evidence according to README. Resolve ownership/license scope before copying; no full-gameplay claim."
     },
     {
       "id": "hitmango-nextos",
@@ -670,10 +655,15 @@
       }
     }
   ],
-  "source_title_count": 45,
+  "source_title_count": 44,
   "community_title_count": 2,
   "catalog_scope": {
-    "pt-BR": "Somente ports criados/integrados por NextOS: 45 títulos com fontes de repositórios públicos e 2 entradas de distribuição comunitária informada pelo mantenedor.",
-    "en": "Only ports created/integrated by NextOS: 45 titles with public-repository source selections and 2 entries whose community distribution is reported by the maintainer."
-  }
+    "pt-BR": "Somente ports criados/integrados por NextOS: 44 títulos com fontes de repositórios públicos e 2 entradas de distribuição comunitária informada pelo mantenedor.",
+    "en": "Only ports created/integrated by NextOS: 44 titles with public-repository source selections and 2 entries whose community distribution is reported by the maintainer."
+  },
+  "excluded_port_platforms": [
+    "iOS",
+    "iPadOS",
+    "iPhoneOS"
+  ]
 }

@@ -2,6 +2,8 @@
 
 [Português](ONBOARDING-UPDATE.md)
 
+**Historical record:** the figures below describe this stage before iOS ports were excluded. The current selection has 40 repositories, 44 source titles and two community entries; see the [current catalog](../catalog/README.en.md).
+
 Date: 2026-09-10. This update implements the training path identified by the [earlier simulation](ONBOARDING-SIMULATION.en.md). The repository remains private; no game release or visibility change occurred.
 
 ## What was added

@@ -4,7 +4,7 @@
 
 After the introductory C test, follow the [public SDK](../../toolchains/sdk/README.en.md) and [integrated ARM64 first port](../../examples/first-port/README.en.md): build, pins, Android guest, NXExtract and QEMU tests without commercial data.
 
-This walkthrough starts with a clone and ends with a C example running on your computer. It then prepares you to ask an AI assistant to implement a new port. The catalog contains source references for 45 titles; each reference retains its own requirements and limitations.
+This walkthrough starts with a clone and ends with a C example running on your computer. It then prepares you to ask an AI assistant to implement a new port. The catalog contains source references for 44 titles; each reference retains its own requirements and limitations.
 
 ## 1. Prepare your computer
 

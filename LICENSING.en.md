@@ -25,6 +25,5 @@ One option for new guide text is CC BY-NC-SA 4.0, with separately licensed code 
 - Forager: GPL-2.0-only. Including it as a separate reference does not authorize mixing its code into GPLv3 components.
 - Beach Buggy and FF4: GPLv3 licenses are in the game subdirectories.
 - PartyBoard/Pikmin: MIT is limited to NextOS contributions; this selection does not include the entire reconstructed game-code tree.
-- Goblin Sword: a general reuse license was not found at the public root; source remains marked for review before publication or reuse.
 
 Existing upstream notices govern their respective content. Privacy omissions and legal-notice completeness need review before making the collection public. NextOS attribution neither replaces third-party credits nor establishes ownership of the original game.

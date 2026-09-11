@@ -2,6 +2,8 @@
 
 [English](VALIDATION.en.md)
 
+**Registro histórico:** os números abaixo descrevem esta etapa anterior à exclusão de ports iOS. A seleção atual possui 40 repositórios, 44 títulos com fontes e dois comunitários; consulte o [catálogo atual](../catalog/README.md).
+
 Data: 10/09/2026. Escopo: documentação, catálogo e importação selecionada Unity.
 
 - Coleção original: 7.715 hashes de fontes/auxiliares, 41 repositórios/45 títulos e oito ELFs auxiliares V5 pinados.

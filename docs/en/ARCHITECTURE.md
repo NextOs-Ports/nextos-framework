@@ -45,7 +45,7 @@ Likewise, a translated logical GLES3 renderer can use physical GLES2 only for op
 
 ## Source, packages and data
 
-`framework/` and the NXExtract tree are frozen exports. `ports/*/upstream/` contains source selections with their own hashes; some files required by original builds were omitted. The outer reference card and `SOURCE-MAP.json` explain the selection. The 45 titles are references, not 45 approved installations from this collection.
+`framework/` and the NXExtract tree are frozen exports. `ports/*/upstream/` contains source selections with their own hashes; some files required by original builds were omitted. The outer reference card and `SOURCE-MAP.json` explain the selection. The 44 titles are references, not 44 approved installations from this collection.
 
 A new port must separate original source, preparation tools, redistributable runtime and private owner data. An extraction recipe must reproduce prepared data from a compatible local copy. A previously extracted directory does not replace that proof.
 
