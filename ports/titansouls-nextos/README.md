@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/)
+[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/) · [Guia do runtime Android](../../docs/pt-BR/NATIVE-ANDROID.md)
 
 Origem: [titansouls-nextos](https://github.com/NextOs-Ports/titansouls-nextos), commit `b697a51fde1ba32ab6f8eb5c246e6eb88bc19be3`. Plataforma: Android.
 

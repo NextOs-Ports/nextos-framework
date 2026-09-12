@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/)
+[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/) · [Guia do runtime Android](../../docs/pt-BR/NATIVE-ANDROID.md)
 
 Origem: [actionsquad-nextos](https://github.com/NextOs-Ports/actionsquad-nextos), commit `842efc61a47192cd3ac4d3062dbe9c32e808c791`. Plataforma: Android.
 

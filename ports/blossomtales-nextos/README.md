@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/)
+[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/) · [Guia do runtime Android](../../docs/pt-BR/MONO-ANDROID.md)
 
 Origem: [blossomtales-nextos](https://github.com/NextOs-Ports/blossomtales-nextos), commit `03f1088305be779c3ba528ec6a69c7542068f6f7`. Plataforma: Android.
 

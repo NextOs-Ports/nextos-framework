@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/HAXE-LIME-ANDROID.md)
 
 Origin: [tightrope-nextos](https://github.com/NextOs-Ports/tightrope-nextos), commit `75eb5da65994995e38057c758440faafd63d87e8`. Platform: Android.
 

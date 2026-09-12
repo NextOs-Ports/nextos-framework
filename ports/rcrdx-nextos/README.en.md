@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/NATIVE-ANDROID.md)
 
 Origin: [rcrdx-nextos](https://github.com/NextOs-Ports/rcrdx-nextos), commit `7d79b145f9c271ac5bbf959fb254880482ac99a1`. Platform: Android.
 

@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/NATIVE-ANDROID.md)
 
 Origin: [beachbuggy-nextos](https://github.com/NextOs-Ports/beachbuggy-nextos), commit `2d6a2dc040711c801ba43ed3a407d2093e713fb6`. Platform: Android.
 

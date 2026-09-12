@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/)
+[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/) · [Guia do runtime Android](../../docs/pt-BR/NATIVE-ANDROID.md)
 
 Origem: [tasm2-nextos](https://github.com/NextOs-Ports/tasm2-nextos), commit `efcad10d4d525ed593d34a1463021a41a780e7f0`. Plataforma: Android.
 

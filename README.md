@@ -19,12 +19,18 @@ Autoria da coleção/integração: **NextOS** · [GitHub oficial](https://github
 
 ## Guias por engine
 
+[Escolher runtime Android](docs/pt-BR/ANDROID-RUNTIMES.md). As referências de jogos são somente os ports públicos já selecionados na coleção.
+
 | Trilha | O que ensina |
 | --- | --- |
 | [Unity](portando_unity/README.md) | Triagem, lifecycle, GLES2, ETC1/dual, input, áudio e 15 casos públicos |
-| [Mono Android](docs/pt-BR/MONO-ANDROID.md) | Mono/.NET, MonoGame/FNA, assemblies, Bionic e bootstrap |
+| [Mono Android](docs/pt-BR/MONO-ANDROID.md) | Mono/.NET, MonoGame/FNA da build Android, assemblies e bootstrap |
 | [Godot](docs/pt-BR/GODOT.md) | Engine/export, renderer, C#, viewport e InputMap |
 | [Cocos2d-x](docs/pt-BR/COCOS2D-X.md) | Biblioteca C++, JNI, assets, texto, áudio e loop nativo |
+| [GameMaker Android](docs/pt-BR/GAMEMAKER-ANDROID.md) | Runner YoYo, VM/YYC, ABI e dados |
+| [Ren’Py Android](docs/pt-BR/RENPY-ANDROID.md) | Python, SDL/JNI, assets e persistência |
+| [Haxe/hxcpp/Lime Android](docs/pt-BR/HAXE-LIME-ANDROID.md) | Bootstrap, threads, TLS/GC e limites |
+| [C/C++ Android](docs/pt-BR/NATIVE-ANDROID.md) | JNI, NativeActivity, SDL Android e Bionic |
 | [Freedom Planet 2: Vulkan → GLES2](portando_unity/pt-BR/FP2-VULKAN-GLES2.md) | SMOL-V/SPIR-V, tradução de programas, escrita cirúrgica e stencil/alpha |
 
 ## Primeiro exemplo

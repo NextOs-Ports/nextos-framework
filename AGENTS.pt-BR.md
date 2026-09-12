@@ -29,3 +29,5 @@ Este rascunho privado é uma coleção de referências de fonte. O mantenedor pr
 - Os inputs de treino são autorais e gerados em work/. CI manual executa somente esse treino e não publica APKs/ELFs/logs como artefatos. Headless/QEMU não aprovam UI nem gráficos físicos.
 
 - Não adicionar ports, estudos, loaders ou exemplos de iOS/iPadOS a esta coleção. A exclusão vale para snapshots e fichas comunitárias. Componentes genéricos de terceiros mantêm seus notices e declarações multiplataforma; isso não constitui uma referência de port iOS.
+
+- Para guias de runtime, siga [Android](docs/pt-BR/ANDROID-RUNTIMES.md): input sempre Android, destino Linux ARM, incluindo MonoGame/FNA somente de builds Android. Use apenas os ports públicos já selecionados; não importe estudos privados ou novos snapshots. Classificar uma engine não aprova a referência nem disponibiliza APIs V6 na V5.

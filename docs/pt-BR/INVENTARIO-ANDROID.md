@@ -15,6 +15,10 @@ python3 tools/find_reference.py --engine Unity --abi arm64-v8a --renderer GLES2
 
 O SDK público inclui as ferramentas. Para acessá-las no container, monte o input explicitamente como somente leitura em `/private/owner-input`, além da coleção e `work/`. Não envie os inputs a CI ou serviços externos. O arquivo de saída deve ser novo.
 
+Use a [seleção de runtimes Android](ANDROID-RUNTIMES.md). `find_reference.py` filtra origem Android por padrão e aceita `--runtime` para buscar por família. Cada resultado inclui guias PT/EN; `--platform all` consulta explicitamente as demais referências históricas.
+
+O inventário reconhece também indícios GameMaker (`libyoyo.so`), Ren’Py (`librenpython.so`) e Haxe/hxcpp/Lime (par de bibliotecas na mesma ABI). Examina nomes de bibliotecas nativas inspecionadas, sem classificar por um arquivo de nome parecido em assets. Os indícios são por APK: compare os relatórios dos splits e não trate ausência como impossibilidade.
+
 ## 2. Interpretar os campos
 
 O relatório traz package/split, versão quando disponível, tamanho/hash do container, bibliotecas por ABI, hashes, imports com tipo/binding/versão, dependências e indícios de engine. Versão ausente fica `null`; engine não identificada permanece hipótese. O catálogo tem 40 perfis de fontes, com campos desconhecidos explícitos e links de evidência. ABI significa declaração da receita histórica, não execução validada nesta edição.

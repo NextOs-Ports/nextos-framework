@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/NATIVE-ANDROID.md)
 
 Origin: [kotor-nextos](https://github.com/NextOs-Ports/kotor-nextos), commit `9d8dc0cdd3cf164a39f480200ab20a9a1117b91b`. Platform: Android.
 

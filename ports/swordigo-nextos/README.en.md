@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/NATIVE-ANDROID.md)
 
 Origin: [swordigo-nextos](https://github.com/NextOs-Ports/swordigo-nextos), commit `28b315f08652db71f35158ae3af454d470ae624f`. Platform: Android.
 

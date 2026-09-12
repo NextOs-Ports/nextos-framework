@@ -6,6 +6,8 @@ Pratique primeiro o [exercício Mono autoral](../../examples/engines/README.md):
 
 Este guia ensina a escolher a rota de execução de jogos Android com código gerenciado, preservar o bootstrap e diagnosticar as pontes nativas. Não existe uma receita única “copiar as DLLs e executar mono” que cubra todas essas builds.
 
+O input permanece Android nas duas rotas; o host Linux é uma estratégia para executar essa build. MonoGame/FNA não abre uma trilha de jogos desktop. Veja [seleção de runtimes](ANDROID-RUNTIMES.md). [Blossom Tales](../../ports/blossomtales-nextos/README.md) também fornece uma referência pública Mono Android/MonoGame no catálogo.
+
 ## 1. Classificar o runtime real
 
 | Evidência na cópia local | Hipótese a confirmar | Próxima decisão |
@@ -13,7 +15,7 @@ Este guia ensina a escolher a rota de execução de jogos Android com código ge
 | `libmonodroid`, `libmonosgen`, assembly store, classes `mono.android` | Mono/.NET para Android | Estudar a cadeia de runtime Android |
 | `libunity` e assemblies gerenciados | Unity com Mono | Usar o guia Unity e sua versão exata |
 | `libunity` + `libil2cpp` + metadata | Unity IL2CPP | Código gerenciado convertido em nativo; outra rota |
-| Assemblies MonoGame/FNA e dependências desktop compatíveis | Possível host Linux gerenciado | Provar o entrypoint e cada dependência |
+| Assemblies MonoGame/FNA da build Android fornecida | Avaliar um host Linux para esses inputs Android | Provar entrypoint, BCL e cada dependência Android/nativa |
 | Godot com C# | Godot/.NET | Seguir a versão de Godot e seu host .NET |
 
 Esses nomes são indícios. Confirme versões, ABIs, dependências e forma de armazenamento dos assemblies. Assemblies podem estar em containers, comprimidos ou acompanhados por imagens AOT; a extensão `.dll` sozinha não diz se há IL suficiente para JIT.

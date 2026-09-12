@@ -6,6 +6,8 @@ First practice the [original Mono exercise](../../examples/engines/README.en.md)
 
 This guide explains how to choose an execution route for Android games with managed code, preserve bootstrap order and diagnose native bridges. No single “copy the DLLs and run mono” recipe covers all these builds.
 
+Input remains Android on both routes; the Linux host is a strategy for running that build. MonoGame/FNA does not introduce a desktop-game track. See [runtime selection](ANDROID-RUNTIMES.md). [Blossom Tales](../../ports/blossomtales-nextos/README.en.md) is also a public Mono Android/MonoGame reference in the catalog.
+
 ## 1. Identify the actual runtime
 
 | Evidence in the local copy | Hypothesis to confirm | Next decision |
@@ -13,7 +15,7 @@ This guide explains how to choose an execution route for Android games with mana
 | `libmonodroid`, `libmonosgen`, assembly store, `mono.android` classes | Mono/.NET for Android | Study the Android runtime chain |
 | `libunity` and managed assemblies | Unity with Mono | Use the Unity guide and exact version |
 | `libunity` + `libil2cpp` + metadata | Unity IL2CPP | Managed code converted to native; a different route |
-| MonoGame/FNA assemblies and compatible desktop dependencies | Possible managed Linux host | Prove the entrypoint and every dependency |
+| MonoGame/FNA assemblies from the supplied Android build | Assess a Linux host for those Android inputs | Prove entrypoint, BCL and every Android/native dependency |
 | Godot with C# | Godot/.NET | Follow Godot's version and .NET host |
 
 These names are clues. Confirm versions, ABIs, dependencies and assembly storage. Assemblies may be contained, compressed or paired with AOT images; a `.dll` extension alone does not establish enough IL for JIT.

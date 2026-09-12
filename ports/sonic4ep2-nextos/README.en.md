@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/NATIVE-ANDROID.md)
 
 Origin: [sonic4ep2-nextos](https://github.com/NextOs-Ports/sonic4ep2-nextos), commit `52ec4bfbf51753ccdc0706a901c1412c4a5a61e5`. Platform: Android.
 

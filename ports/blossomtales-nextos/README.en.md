@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/MONO-ANDROID.md)
 
 Origin: [blossomtales-nextos](https://github.com/NextOs-Ports/blossomtales-nextos), commit `03f1088305be779c3ba528ec6a69c7542068f6f7`. Platform: Android.
 

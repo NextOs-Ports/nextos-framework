@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/NATIVE-ANDROID.md)
 
 Origin: [castleofillusion-nextos](https://github.com/NextOs-Ports/castleofillusion-nextos), commit `bbe0f6bf038be7960903dad7abb3b34c5baf5a10`. Platform: Android.
 

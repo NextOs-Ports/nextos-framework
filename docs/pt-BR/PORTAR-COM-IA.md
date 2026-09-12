@@ -13,7 +13,7 @@ Copie o modelo e preencha apenas o que souber. Um campo desconhecido vira tarefa
 ```text
 Leia AGENTS.md e docs/pt-BR/README.md deste clone.
 Jogo e versão: [informar]
-Cópia local fornecida por mim: [caminho privado]
+Cópia Android local fornecida por mim: [caminho privado]
 Alvo desta etapa: [sistema, CPU/GPU e ABI de userland]
 Repositório/diretório novo: [destino]
 Primeiro objetivo: identificar a build e alcançar o fluxo nativo no alvo.
@@ -22,7 +22,8 @@ Conduza autonomamente inventário, escolha das referências públicas,
 implementação do adapter, build e testes locais pertinentes.
 Prefira AArch64. Preserve a V5 e todos os ports de referência.
 Se for Unity, leia portando_unity/README.md e use somente seus casos públicos.
-Escolha a trilha Mono Android, Godot ou Cocos2d-x quando corresponder à engine.
+Leia docs/pt-BR/ANDROID-RUNTIMES.md e escolha uma das oito trilhas Android.
+Use somente os ports públicos já selecionados, com commit e evidência fixados.
 
 Mantenha fontes, pins, contratos, logs privados e resultados organizados.
 Não invente offsets, assinaturas, suporte, licença ou sucesso de APIs ausentes.
@@ -57,11 +58,14 @@ Abra o catálogo e `SOURCE-MAP.json`. Registre a razão da escolha: engine/build
 
 | Encontrado | Trilha |
 | --- | --- |
-| Unity, Mono ou IL2CPP | [Portando Unity](../../portando_unity/README.md) |
-| Mono/.NET para Android, MonoGame ou FNA | [Mono Android](MONO-ANDROID.md) |
+| Unity (Mono ou IL2CPP) | [Portando Unity](../../portando_unity/README.md) |
+| Mono/.NET Android, incluindo MonoGame/FNA da build Android | [Mono Android](MONO-ANDROID.md) |
 | Projeto/runtime Godot | [Godot](GODOT.md) |
 | Cocos2d-x e callbacks Android | [Cocos2d-x](COCOS2D-X.md) |
-| Engine nativa diferente | [Shims](SHIMS.md) e contrato específico |
+| GameMaker Android | [GameMaker Android](GAMEMAKER-ANDROID.md) |
+| Ren’Py Android | [Ren’Py Android](RENPY-ANDROID.md) |
+| Haxe/hxcpp/Lime Android | [Haxe/hxcpp/Lime Android](HAXE-LIME-ANDROID.md) |
+| C/C++ Android | [C/C++ Android](NATIVE-ANDROID.md) |
 
 ## 4. Organizar entregas pequenas e verificáveis
 

@@ -385,6 +385,26 @@
     {
       "pt-BR": "publication/V5-REVIEW-20260912.md",
       "en": "publication/V5-REVIEW-20260912.en.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/ANDROID-RUNTIMES.md",
+      "en": "docs/en/ANDROID-RUNTIMES.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/GAMEMAKER-ANDROID.md",
+      "en": "docs/en/GAMEMAKER-ANDROID.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/RENPY-ANDROID.md",
+      "en": "docs/en/RENPY-ANDROID.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/HAXE-LIME-ANDROID.md",
+      "en": "docs/en/HAXE-LIME-ANDROID.md"
+    },
+    {
+      "pt-BR": "docs/pt-BR/NATIVE-ANDROID.md",
+      "en": "docs/en/NATIVE-ANDROID.md"
     }
   ],
   "bilingual_inline": [

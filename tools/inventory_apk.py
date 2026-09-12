@@ -99,6 +99,35 @@ def library_inventory(data,name,temp):
             'v5_preflight_blockers':sorted(set(unsupported)),
             'scope':'static hints; runtime dlsym/JNI calls and complete relocation support still require investigation'}
 
+def engine_hints(libraries):
+    """Names from inspected native libraries only; never a compatibility verdict.
+
+    Keep paired Haxe libraries within the same ABI. Asset filenames, managed
+    assembly names and a missing signature cannot classify an unknown engine.
+    """
+    by_abi = {}
+    for library in libraries:
+        by_abi.setdefault(library['abi'], set()).add(PurePosixPath(library['member']).name)
+    names = set().union(*by_abi.values()) if by_abi else set()
+    hints = []
+    for name, engine in (
+        ('libunity.so', 'Unity'), ('libil2cpp.so', 'Unity IL2CPP'),
+        ('libmonodroid.so', 'Mono Android'), ('libyoyo.so', 'GameMaker'),
+        ('librenpython.so', "Ren'Py"),
+    ):
+        if name in names:
+            hints.append(engine)
+    if any(name.startswith('libgodot') for name in names):
+        hints.append('Godot')
+    if any(name.startswith('libcocos') for name in names):
+        hints.append('Cocos family')
+    if any({'liblime.so', 'libApplicationMain.so'} <= group for group in by_abi.values()):
+        hints.append('Haxe/hxcpp/Lime')
+    elif 'liblime.so' in names:
+        hints.append('Lime (Haxe family; hxcpp application unconfirmed)')
+    return hints
+
+
 def inventory(paths,scratch):
     scratch.mkdir(parents=True,exist_ok=True)
     reports=[];total=0
@@ -130,9 +159,7 @@ def inventory(paths,scratch):
                     parts=PurePosixPath(name).parts
                     if len(parts)==3 and parts[0]=='lib' and name.endswith('.so'):
                         libraries.append(library_inventory(apk.read(name),name,Path(directory)))
-            hints=[]
-            for token,engine in [('libunity.so','Unity'),('libil2cpp.so','Unity IL2CPP'),('libmonodroid.so','Mono Android'),('libgodot','Godot'),('libcocos','Cocos family')]:
-                if any(token in name for name in names):hints.append(engine)
+            hints=engine_hints(libraries)
             arm64=[library for library in libraries if library['abi']=='arm64-v8a']
             reports.append({'input_id':'container-%02d'%number,'container_size':path.stat().st_size,
                 'container_sha256':h.hexdigest(),**identity,'engine_hints':hints,

@@ -2,7 +2,7 @@
 
 [Português](README.md)
 
-[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/)
+[Catalog](../../catalog/README.en.md) · [AI guide](../../docs/en/AI-PORTING.md) · [Selected sources](upstream/) · [Android runtime guide](../../docs/en/NATIVE-ANDROID.md)
 
 Origin: [offtheroad-nextos](https://github.com/NextOs-Ports/offtheroad-nextos), commit `2bfb806d92c64edaf9f3383ab9edc55a37f97fcd`. Platform: Android.
 

@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "author": "NextOS",
+  "source_platform": "Android",
+  "scope": "Guide routing for existing public-source port snapshots; classification is not V5 runtime support or hardware acceptance.",
+  "runtimes": [
+    {
+      "id": "unity",
+      "name": "Unity Android (Mono / IL2CPP)",
+      "guides": {"pt-BR": "portando_unity/README.md", "en": "portando_unity/README.en.md"}
+    },
+    {
+      "id": "mono-android",
+      "name": "Mono / .NET Android (including Android MonoGame/FNA builds)",
+      "guides": {"pt-BR": "docs/pt-BR/MONO-ANDROID.md", "en": "docs/en/MONO-ANDROID.md"}
+    },
+    {
+      "id": "godot",
+      "name": "Godot Android",
+      "guides": {"pt-BR": "docs/pt-BR/GODOT.md", "en": "docs/en/GODOT.md"}
+    },
+    {
+      "id": "cocos2d-x",
+      "name": "Cocos2d-x Android",
+      "guides": {"pt-BR": "docs/pt-BR/COCOS2D-X.md", "en": "docs/en/COCOS2D-X.md"}
+    },
+    {
+      "id": "gamemaker",
+      "name": "GameMaker Android / YoYo runner",
+      "guides": {"pt-BR": "docs/pt-BR/GAMEMAKER-ANDROID.md", "en": "docs/en/GAMEMAKER-ANDROID.md"}
+    },
+    {
+      "id": "renpy",
+      "name": "Ren'Py Android",
+      "guides": {"pt-BR": "docs/pt-BR/RENPY-ANDROID.md", "en": "docs/en/RENPY-ANDROID.md"}
+    },
+    {
+      "id": "haxe-lime",
+      "name": "Haxe / hxcpp / Lime Android",
+      "guides": {"pt-BR": "docs/pt-BR/HAXE-LIME-ANDROID.md", "en": "docs/en/HAXE-LIME-ANDROID.md"}
+    },
+    {
+      "id": "native-android",
+      "name": "Native Android C/C++ (JNI / NativeActivity / Android SDL)",
+      "guides": {"pt-BR": "docs/pt-BR/NATIVE-ANDROID.md", "en": "docs/en/NATIVE-ANDROID.md"}
+    }
+  ]
+}

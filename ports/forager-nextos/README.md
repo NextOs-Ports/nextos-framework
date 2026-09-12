@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/)
+[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/) · [Guia do runtime Android](../../docs/pt-BR/GAMEMAKER-ANDROID.md)
 
 Origem: [forager-nextos](https://github.com/NextOs-Ports/forager-nextos), commit `89e5c7107889f6b19a705f006f9f492bb0eb80da`. Plataforma: Android.
 

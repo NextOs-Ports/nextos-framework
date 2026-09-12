@@ -19,12 +19,18 @@ Collection/integration author: **NextOS** · [official GitHub](https://github.co
 
 ## Engine guides
 
+[Choose Android runtime](docs/en/ANDROID-RUNTIMES.md). Game references use only public ports already selected in the collection.
+
 | Track | What it teaches |
 | --- | --- |
 | [Unity](portando_unity/README.en.md) | Triage, lifecycle, GLES2, ETC1/dual, input, audio and 15 public cases |
-| [Mono Android](docs/en/MONO-ANDROID.md) | Mono/.NET, MonoGame/FNA, assemblies, Bionic and bootstrap |
+| [Mono Android](docs/en/MONO-ANDROID.md) | Mono/.NET, MonoGame/FNA from the Android build, assemblies and bootstrap |
 | [Godot](docs/en/GODOT.md) | Engine/export, renderer, C#, viewport and InputMap |
 | [Cocos2d-x](docs/en/COCOS2D-X.md) | C++ library, JNI, assets, text, audio and native loop |
+| [GameMaker Android](docs/en/GAMEMAKER-ANDROID.md) | YoYo runner, VM/YYC, ABI and data |
+| [Ren’Py Android](docs/en/RENPY-ANDROID.md) | Python, SDL/JNI, assets and persistence |
+| [Haxe/hxcpp/Lime Android](docs/en/HAXE-LIME-ANDROID.md) | Bootstrap, threads, TLS/GC and limits |
+| [C/C++ Android](docs/en/NATIVE-ANDROID.md) | JNI, NativeActivity, Android SDL and Bionic |
 | [Freedom Planet 2: Vulkan → GLES2](portando_unity/en/FP2-VULKAN-GLES2.md) | SMOL-V/SPIR-V, program translation, surgical writes and stencil/alpha |
 
 ## First example

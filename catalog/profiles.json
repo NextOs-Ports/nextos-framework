@@ -21,16 +21,25 @@
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
         "ports/actionsquad-nextos/upstream/nxproject.json",
-        "ports/actionsquad-nextos/upstream/extractor.json"
+        "ports/actionsquad-nextos/upstream/extractor.json",
+        "ports/actionsquad-nextos/upstream/actionsquad/README.md"
       ],
-      "manifest": "ports/actionsquad-nextos/SOURCE-MAP.json"
+      "manifest": "ports/actionsquad-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/actionsquad-nextos/upstream/actionsquad/README.md",
+          "sha256": "b73e938f5629ee237c5798de173f2c226371b88c7d850968531f710bcf079f83"
+        }
+      ]
     },
     {
       "id": "angrybirds-nextos",
       "games": [
         "Angry Birds Classic"
       ],
-      "engine": "unknown",
+      "engine": "Rovio Fusion",
       "engine_version": "unknown",
       "abis": [
         "armeabi-v7a"
@@ -43,9 +52,18 @@
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
         "ports/angrybirds-nextos/upstream/nxproject.json",
-        "ports/angrybirds-nextos/upstream/extractor.json"
+        "ports/angrybirds-nextos/upstream/extractor.json",
+        "ports/angrybirds-nextos/upstream/README.md"
       ],
-      "manifest": "ports/angrybirds-nextos/SOURCE-MAP.json"
+      "manifest": "ports/angrybirds-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/angrybirds-nextos/upstream/README.md",
+          "sha256": "58945c23d9a5ab4c42854e34072b7a82b1135c68ea6e783d65e0b5fa05f8e24b"
+        }
+      ]
     },
     {
       "id": "beachbuggy-nextos",
@@ -53,24 +71,56 @@
         "Beach Buggy Racing",
         "Beach Buggy Racing 2"
       ],
-      "engine": "unknown",
+      "engine": "Vector Unit native C++",
       "engine_version": "unknown",
-      "abis": [],
-      "abi_scope": "declared in reference manifests; not retested",
+      "abis": [
+        "arm64-v8a"
+      ],
+      "abi_scope": "declared in both selected Android extraction recipes; not retested",
       "renderer": "unknown",
       "source_commit": "2d6a2dc040711c801ba43ed3a407d2093e713fb6",
       "build_status": "source-selection-not-built",
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
-      "evidence": [],
-      "manifest": "ports/beachbuggy-nextos/SOURCE-MAP.json"
+      "evidence": [
+        "ports/beachbuggy-nextos/upstream/README.md",
+        "ports/beachbuggy-nextos/upstream/beachbuggy/README.md",
+        "ports/beachbuggy-nextos/upstream/bbracing2/README.md",
+        "ports/beachbuggy-nextos/upstream/beachbuggy/extractor.json",
+        "ports/beachbuggy-nextos/upstream/bbracing2/extractor.json"
+      ],
+      "manifest": "ports/beachbuggy-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/beachbuggy-nextos/upstream/README.md",
+          "sha256": "6042b4c5bd45d195662a3fd39c90fb78d4b73b8aa96521a8d727b89bc5b4da7e"
+        },
+        {
+          "path": "ports/beachbuggy-nextos/upstream/beachbuggy/README.md",
+          "sha256": "256c1681f8b5ddce6479a8543b96b995880fdc4c93642927477ebd7d064d90bb"
+        },
+        {
+          "path": "ports/beachbuggy-nextos/upstream/bbracing2/README.md",
+          "sha256": "16bb1fddbb4807843caf6a6988c76324070f5f5ce66e50d9fbc2a461a566a6c6"
+        },
+        {
+          "path": "ports/beachbuggy-nextos/upstream/beachbuggy/extractor.json",
+          "sha256": "55f9040a2587f8b4e05a82545de47f8d30afd57860956c0b1171c5a70ff52b86"
+        },
+        {
+          "path": "ports/beachbuggy-nextos/upstream/bbracing2/extractor.json",
+          "sha256": "344b3fd409fcdc28e1c02c8ae3e1ca4bf355e334d3a0b1f8f3dd961b9482cfbd"
+        }
+      ]
     },
     {
       "id": "blossomtales-nextos",
       "games": [
         "Blossom Tales: The Sleeping King"
       ],
-      "engine": "unknown",
+      "engine": "Mono Android / MonoGame",
       "engine_version": "unknown",
       "abis": [
         "arm64-v8a"
@@ -83,9 +133,18 @@
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
         "ports/blossomtales-nextos/upstream/nxproject.json",
-        "ports/blossomtales-nextos/upstream/extractor.json"
+        "ports/blossomtales-nextos/upstream/extractor.json",
+        "ports/blossomtales-nextos/upstream/README.md"
       ],
-      "manifest": "ports/blossomtales-nextos/SOURCE-MAP.json"
+      "manifest": "ports/blossomtales-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "mono-android",
+      "classification_evidence": [
+        {
+          "path": "ports/blossomtales-nextos/upstream/README.md",
+          "sha256": "ec7da99b0cf2116c481d6d34ab76360790c3170ed71c6f4912930009e0127538"
+        }
+      ]
     },
     {
       "id": "bombchicken-gunbrick-nextos",
@@ -105,14 +164,16 @@
       "evidence": [
         "portando_unity/cases/bombchicken.en.md"
       ],
-      "manifest": "ports/bombchicken-gunbrick-nextos/SOURCE-MAP.json"
+      "manifest": "ports/bombchicken-gunbrick-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "castleofillusion-nextos",
       "games": [
         "Castle of Illusion"
       ],
-      "engine": "unknown",
+      "engine": "SEGA oz",
       "engine_version": "unknown",
       "abis": [
         "arm64-v8a"
@@ -124,9 +185,18 @@
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
-        "ports/castleofillusion-nextos/upstream/extractor.json"
+        "ports/castleofillusion-nextos/upstream/extractor.json",
+        "ports/castleofillusion-nextos/upstream/README.md"
       ],
-      "manifest": "ports/castleofillusion-nextos/SOURCE-MAP.json"
+      "manifest": "ports/castleofillusion-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/castleofillusion-nextos/upstream/README.md",
+          "sha256": "d276255ecc0d567a2bf561f8498224656a93459df7c1cd8f735065adcf24539b"
+        }
+      ]
     },
     {
       "id": "chrono-nextos",
@@ -149,7 +219,9 @@
         "ports/chrono-nextos/upstream/extractor.json",
         "ports/chrono-nextos/README.en.md"
       ],
-      "manifest": "ports/chrono-nextos/SOURCE-MAP.json"
+      "manifest": "ports/chrono-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "cocos2d-x"
     },
     {
       "id": "deadtrigger-nextos",
@@ -171,7 +243,9 @@
         "ports/deadtrigger-nextos/upstream/extractor.json",
         "portando_unity/cases/deadtrigger.en.md"
       ],
-      "manifest": "ports/deadtrigger-nextos/SOURCE-MAP.json"
+      "manifest": "ports/deadtrigger-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "ff4-nextos",
@@ -179,7 +253,7 @@
         "Final Fantasy IV (3D Remake)",
         "Final Fantasy IV: The After Years"
       ],
-      "engine": "unknown",
+      "engine": "cuore / Matrix",
       "engine_version": "unknown",
       "abis": [],
       "abi_scope": "declared in reference manifests; not retested",
@@ -188,15 +262,25 @@
       "build_status": "source-selection-not-built",
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
-      "evidence": [],
-      "manifest": "ports/ff4-nextos/SOURCE-MAP.json"
+      "evidence": [
+        "ports/ff4-nextos/upstream/README.md"
+      ],
+      "manifest": "ports/ff4-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/ff4-nextos/upstream/README.md",
+          "sha256": "849aff6965d08005c6861f08146057a790dbd4236cd8db7713c89814d6c0e711"
+        }
+      ]
     },
     {
       "id": "forager-nextos",
       "games": [
         "Forager Nuclear"
       ],
-      "engine": "unknown",
+      "engine": "GameMaker / YoYo runner",
       "engine_version": "unknown",
       "abis": [
         "armeabi-v7a"
@@ -209,9 +293,19 @@
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
         "ports/forager-nextos/upstream/nxproject.json",
-        "ports/forager-nextos/upstream/extractor.json"
+        "ports/forager-nextos/upstream/extractor.json",
+        "ports/forager-nextos/upstream/README.md"
       ],
-      "manifest": "ports/forager-nextos/SOURCE-MAP.json"
+      "manifest": "ports/forager-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "gamemaker",
+      "classification_evidence": [
+        {
+          "path": "ports/forager-nextos/upstream/README.md",
+          "sha256": "fefc6a4c1b8bd426dfad4aa4c3d66a4de836d1172708501d5ef4d828efae8d2d"
+        }
+      ],
+      "reference_notes": "Game version 1.0.13 is not a GameMaker runner version. ARMv7-only source case; GPL-2.0-only loader has a separate license boundary from GPL-3.0-only collection code."
     },
     {
       "id": "fp2-nextos",
@@ -234,7 +328,9 @@
         "ports/fp2-nextos/upstream/extractor.json",
         "portando_unity/cases/fp2.en.md"
       ],
-      "manifest": "ports/fp2-nextos/SOURCE-MAP.json"
+      "manifest": "ports/fp2-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "geometrydash-nextos",
@@ -254,7 +350,9 @@
       "evidence": [
         "ports/geometrydash-nextos/README.en.md"
       ],
-      "manifest": "ports/geometrydash-nextos/SOURCE-MAP.json"
+      "manifest": "ports/geometrydash-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "cocos2d-x"
     },
     {
       "id": "hitmango-nextos",
@@ -278,7 +376,9 @@
         "ports/hitmango-nextos/upstream/project/extractor.json",
         "portando_unity/cases/hitmango.en.md"
       ],
-      "manifest": "ports/hitmango-nextos/SOURCE-MAP.json"
+      "manifest": "ports/hitmango-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "horizonchase-nextos",
@@ -297,7 +397,9 @@
       "evidence": [
         "portando_unity/cases/horizonchase.en.md"
       ],
-      "manifest": "ports/horizonchase-nextos/SOURCE-MAP.json"
+      "manifest": "ports/horizonchase-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "huntdown-nextos",
@@ -322,14 +424,16 @@
         "ports/huntdown-nextos/upstream/project/extractor.json",
         "portando_unity/cases/huntdown.en.md"
       ],
-      "manifest": "ports/huntdown-nextos/SOURCE-MAP.json"
+      "manifest": "ports/huntdown-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "kotor-nextos",
       "games": [
         "Star Wars: Knights of the Old Republic"
       ],
-      "engine": "unknown",
+      "engine": "Odyssey / Android SDL2",
       "engine_version": "unknown",
       "abis": [
         "armeabi-v7a"
@@ -341,9 +445,18 @@
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
-        "ports/kotor-nextos/upstream/extractor.json"
+        "ports/kotor-nextos/upstream/extractor.json",
+        "ports/kotor-nextos/upstream/README.md"
       ],
-      "manifest": "ports/kotor-nextos/SOURCE-MAP.json"
+      "manifest": "ports/kotor-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/kotor-nextos/upstream/README.md",
+          "sha256": "357183c9a945d4a31a72ca8d310b3b38728841fc603d2a23328b91c451479298"
+        }
+      ]
     },
     {
       "id": "magicrampage-nextos",
@@ -363,9 +476,18 @@
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
         "ports/magicrampage-nextos/upstream/project/nxproject.json",
-        "ports/magicrampage-nextos/upstream/project/extractor.json"
+        "ports/magicrampage-nextos/upstream/project/extractor.json",
+        "ports/magicrampage-nextos/upstream/magicrampage/README.md"
       ],
-      "manifest": "ports/magicrampage-nextos/SOURCE-MAP.json"
+      "manifest": "ports/magicrampage-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/magicrampage-nextos/upstream/magicrampage/README.md",
+          "sha256": "0a9c71ddf4889d49b701f017c84b564883022fb71499bb7f824675174bab7a4a"
+        }
+      ]
     },
     {
       "id": "merchantskies-nextos",
@@ -388,7 +510,9 @@
         "ports/merchantskies-nextos/upstream/extractor.json",
         "portando_unity/cases/merchantskies.en.md"
       ],
-      "manifest": "ports/merchantskies-nextos/SOURCE-MAP.json"
+      "manifest": "ports/merchantskies-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "namelesscat-nextos",
@@ -411,7 +535,9 @@
         "ports/namelesscat-nextos/upstream/extractor.json",
         "portando_unity/cases/namelesscat.en.md"
       ],
-      "manifest": "ports/namelesscat-nextos/SOURCE-MAP.json"
+      "manifest": "ports/namelesscat-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "oceanhorn-nextos",
@@ -434,14 +560,16 @@
         "ports/oceanhorn-nextos/upstream/extractor.json",
         "portando_unity/cases/oceanhorn.en.md"
       ],
-      "manifest": "ports/oceanhorn-nextos/SOURCE-MAP.json"
+      "manifest": "ports/oceanhorn-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "offtheroad-nextos",
       "games": [
         "Off The Road"
       ],
-      "engine": "unknown",
+      "engine": "xGen / Horde3D + bgfx (Cocos2d-x shell)",
       "engine_version": "unknown",
       "abis": [
         "arm64-v8a"
@@ -454,9 +582,18 @@
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
         "ports/offtheroad-nextos/upstream/nxproject.json",
-        "ports/offtheroad-nextos/upstream/extractor.json"
+        "ports/offtheroad-nextos/upstream/extractor.json",
+        "ports/offtheroad-nextos/upstream/README.md"
       ],
-      "manifest": "ports/offtheroad-nextos/SOURCE-MAP.json"
+      "manifest": "ports/offtheroad-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/offtheroad-nextos/upstream/README.md",
+          "sha256": "5079f47bed8f52451a7054ab9eb601fc6e55d0aa9e34c261da8a659191fe4678"
+        }
+      ]
     },
     {
       "id": "partyboard-nextos",
@@ -473,7 +610,9 @@
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [],
-      "manifest": "ports/partyboard-nextos/SOURCE-MAP.json"
+      "manifest": "ports/partyboard-nextos/SOURCE-MAP.json",
+      "platform": "GameCube",
+      "runtime_family": "unknown"
     },
     {
       "id": "partyhard-nextos",
@@ -496,7 +635,9 @@
         "ports/partyhard-nextos/upstream/extractor.json",
         "portando_unity/cases/partyhard.en.md"
       ],
-      "manifest": "ports/partyhard-nextos/SOURCE-MAP.json"
+      "manifest": "ports/partyhard-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "pikmin-nextos",
@@ -513,7 +654,9 @@
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [],
-      "manifest": "ports/pikmin-nextos/SOURCE-MAP.json"
+      "manifest": "ports/pikmin-nextos/SOURCE-MAP.json",
+      "platform": "GameCube",
+      "runtime_family": "unknown"
     },
     {
       "id": "prizefighters2-nextos",
@@ -535,7 +678,9 @@
         "ports/prizefighters2-nextos/upstream/extractor.json",
         "portando_unity/cases/pf2.en.md"
       ],
-      "manifest": "ports/prizefighters2-nextos/SOURCE-MAP.json"
+      "manifest": "ports/prizefighters2-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "rcrdx-nextos",
@@ -555,9 +700,18 @@
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
         "ports/rcrdx-nextos/upstream/nxproject.json",
-        "ports/rcrdx-nextos/upstream/extractor.json"
+        "ports/rcrdx-nextos/upstream/extractor.json",
+        "ports/rcrdx-nextos/upstream/README.md"
       ],
-      "manifest": "ports/rcrdx-nextos/SOURCE-MAP.json"
+      "manifest": "ports/rcrdx-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/rcrdx-nextos/upstream/README.md",
+          "sha256": "1947d2dd2198cf3178001b0177cd8ade08563afbda8ea7cabd1aff023c2f2673"
+        }
+      ]
     },
     {
       "id": "sallyface-nextos",
@@ -580,7 +734,9 @@
         "ports/sallyface-nextos/upstream/extractor.json",
         "portando_unity/cases/sallyface.en.md"
       ],
-      "manifest": "ports/sallyface-nextos/SOURCE-MAP.json"
+      "manifest": "ports/sallyface-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "scourgebringer-nextos",
@@ -602,7 +758,9 @@
         "ports/scourgebringer-nextos/upstream/extractor.json",
         "ports/scourgebringer-nextos/README.en.md"
       ],
-      "manifest": "ports/scourgebringer-nextos/SOURCE-MAP.json"
+      "manifest": "ports/scourgebringer-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "mono-android"
     },
     {
       "id": "skate3-nextos",
@@ -621,24 +779,38 @@
       "evidence": [
         "portando_unity/cases/skate3.en.md"
       ],
-      "manifest": "ports/skate3-nextos/SOURCE-MAP.json"
+      "manifest": "ports/skate3-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "sonic4ep2-nextos",
       "games": [
         "Sonic the Hedgehog 4: Episode II"
       ],
-      "engine": "unknown",
+      "engine": "SEGA libfox (native Android)",
       "engine_version": "unknown",
-      "abis": [],
-      "abi_scope": "declared in reference manifests; not retested",
+      "abis": [
+        "arm64-v8a"
+      ],
+      "abi_scope": "declared in selected Android source README; not retested",
       "renderer": "unknown",
       "source_commit": "52ec4bfbf51753ccdc0706a901c1412c4a5a61e5",
       "build_status": "source-selection-not-built",
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
-      "evidence": [],
-      "manifest": "ports/sonic4ep2-nextos/SOURCE-MAP.json"
+      "evidence": [
+        "ports/sonic4ep2-nextos/upstream/README.md"
+      ],
+      "manifest": "ports/sonic4ep2-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/sonic4ep2-nextos/upstream/README.md",
+          "sha256": "d8e53c22e96decb6979ce11c2e7b3cea20a46d0bc4c30e247a5cd5da26937f70"
+        }
+      ]
     },
     {
       "id": "sor4-nextos",
@@ -657,7 +829,9 @@
       "evidence": [
         "ports/sor4-nextos/README.en.md"
       ],
-      "manifest": "ports/sor4-nextos/SOURCE-MAP.json"
+      "manifest": "ports/sor4-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "mono-android"
     },
     {
       "id": "stardewvalley-nextos",
@@ -679,15 +853,17 @@
         "ports/stardewvalley-nextos/upstream/extractor.json",
         "ports/stardewvalley-nextos/README.en.md"
       ],
-      "manifest": "ports/stardewvalley-nextos/SOURCE-MAP.json"
+      "manifest": "ports/stardewvalley-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "mono-android"
     },
     {
       "id": "summertimesaga-nextos",
       "games": [
         "Summertime Saga Preview"
       ],
-      "engine": "unknown",
-      "engine_version": "unknown",
+      "engine": "Ren'Py",
+      "engine_version": "8.5.3 (selected Ren'Py sources; check the guest runtime separately)",
       "abis": [
         "arm64-v8a"
       ],
@@ -698,9 +874,18 @@
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
-        "ports/summertimesaga-nextos/upstream/extractor.json"
+        "ports/summertimesaga-nextos/upstream/extractor.json",
+        "ports/summertimesaga-nextos/upstream/README.md"
       ],
-      "manifest": "ports/summertimesaga-nextos/SOURCE-MAP.json"
+      "manifest": "ports/summertimesaga-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "renpy",
+      "classification_evidence": [
+        {
+          "path": "ports/summertimesaga-nextos/upstream/README.md",
+          "sha256": "193f3e9affe72959e02382d6f71dc4ba101540b162c7038e337b02fea0dfdad6"
+        }
+      ]
     },
     {
       "id": "suzycube-nextos",
@@ -723,14 +908,16 @@
         "ports/suzycube-nextos/upstream/extractor.json",
         "portando_unity/cases/suzycube.en.md"
       ],
-      "manifest": "ports/suzycube-nextos/SOURCE-MAP.json"
+      "manifest": "ports/suzycube-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "swordigo-nextos",
       "games": [
         "Swordigo"
       ],
-      "engine": "unknown",
+      "engine": "Caver",
       "engine_version": "unknown",
       "abis": [
         "arm64-v8a"
@@ -742,9 +929,18 @@
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
-        "ports/swordigo-nextos/upstream/extractor.json"
+        "ports/swordigo-nextos/upstream/extractor.json",
+        "ports/swordigo-nextos/upstream/README.md"
       ],
-      "manifest": "ports/swordigo-nextos/SOURCE-MAP.json"
+      "manifest": "ports/swordigo-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/swordigo-nextos/upstream/README.md",
+          "sha256": "0be48e3c8565ff56fe739660eb4e426a51045d6aab9e07323c7bfdd91ca1c4ff"
+        }
+      ]
     },
     {
       "id": "tasm2-nextos",
@@ -760,8 +956,18 @@
       "build_status": "source-selection-not-built",
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
-      "evidence": [],
-      "manifest": "ports/tasm2-nextos/SOURCE-MAP.json"
+      "evidence": [
+        "ports/tasm2-nextos/upstream/README.md"
+      ],
+      "manifest": "ports/tasm2-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/tasm2-nextos/upstream/README.md",
+          "sha256": "3348da53bab1f4bce8727caf01567de19db77d59bd5a9a720c42bbd5e23c29e0"
+        }
+      ]
     },
     {
       "id": "tearscape-nextos",
@@ -784,7 +990,9 @@
         "ports/tearscape-nextos/upstream/extractor.json",
         "ports/tearscape-nextos/README.en.md"
       ],
-      "manifest": "ports/tearscape-nextos/SOURCE-MAP.json"
+      "manifest": "ports/tearscape-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "godot"
     },
     {
       "id": "terraria-nextos",
@@ -807,14 +1015,16 @@
         "ports/terraria-nextos/upstream/extractor.json",
         "portando_unity/cases/terraria.en.md"
       ],
-      "manifest": "ports/terraria-nextos/SOURCE-MAP.json"
+      "manifest": "ports/terraria-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "unity"
     },
     {
       "id": "tightrope-nextos",
       "games": [
         "Tightrope Theatre"
       ],
-      "engine": "unknown",
+      "engine": "Haxe / hxcpp / Lime",
       "engine_version": "unknown",
       "abis": [
         "arm64-v8a"
@@ -826,16 +1036,31 @@
       "tested_devices": [],
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
-        "ports/tightrope-nextos/upstream/extractor.json"
+        "ports/tightrope-nextos/upstream/extractor.json",
+        "ports/tightrope-nextos/upstream/src/main.c",
+        "ports/tightrope-nextos/upstream/README.md"
       ],
-      "manifest": "ports/tightrope-nextos/SOURCE-MAP.json"
+      "manifest": "ports/tightrope-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "haxe-lime",
+      "classification_evidence": [
+        {
+          "path": "ports/tightrope-nextos/upstream/src/main.c",
+          "sha256": "e237a374cfbb61d181137038429f333e9548d7c977bb4d588d2c34181429e028"
+        },
+        {
+          "path": "ports/tightrope-nextos/upstream/README.md",
+          "sha256": "b14e19a3b841017dd0b6cdd7e8a07cf2e20e10d88e45a75c38b3ca1c808a1b0d"
+        }
+      ],
+      "reference_notes": "Selected source is 1.0.5-test.1; exact physical acceptance is pending. Earlier 1.0.4 evidence does not approve this candidate or a new adapter."
     },
     {
       "id": "titansouls-nextos",
       "games": [
         "Titan Souls"
       ],
-      "engine": "unknown",
+      "engine": "Abstraction Games native Android",
       "engine_version": "unknown",
       "abis": [
         "armeabi-v7a"
@@ -848,9 +1073,19 @@
       "hardware_status": "not-revalidated-in-this-collection",
       "evidence": [
         "ports/titansouls-nextos/upstream/nxproject.json",
-        "ports/titansouls-nextos/upstream/extractor.json"
+        "ports/titansouls-nextos/upstream/extractor.json",
+        "ports/titansouls-nextos/upstream/README.md"
       ],
-      "manifest": "ports/titansouls-nextos/SOURCE-MAP.json"
+      "manifest": "ports/titansouls-nextos/SOURCE-MAP.json",
+      "platform": "Android",
+      "runtime_family": "native-android",
+      "classification_evidence": [
+        {
+          "path": "ports/titansouls-nextos/upstream/README.md",
+          "sha256": "d2fcaa36dddc22cd7c0a32712eaca0ed7d4ceed4b66a9f66a0305f18de124473"
+        }
+      ]
     }
-  ]
+  ],
+  "runtime_classification_scope": "Android guide routing from existing public-source evidence; engine identity and framework compatibility are separate. No hardware claims added."
 }

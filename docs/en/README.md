@@ -15,10 +15,15 @@ Start with the host C example and advance to the [integrated first port](../../e
 | [Pins and sources](PINS-AND-SOURCES.md) | Exported composition and public-file recovery |
 | [Android inventory](ANDROID-INVENTORY.md) | Manifest, imports, ABI, blockers and reference search |
 | [Diagnostic laboratory](DIAGNOSTIC-LAB.md) | Good/bad logs and executable negative cases |
+| [Choose Android runtime](ANDROID-RUNTIMES.md) | Eight tracks, evidence and family search |
 | [Shims](SHIMS.md) | ABI, JNI, ownership and tests |
 | [Mono Android](MONO-ANDROID.md) | Mono/.NET, MonoGame/FNA and bootstrap |
 | [Godot](GODOT.md) | Engine, export, renderer, C# and input |
 | [Cocos2d-x](COCOS2D-X.md) | JNI, assets, text, rendering and audio |
+| [GameMaker Android](GAMEMAKER-ANDROID.md) | YoYo runner, VM/YYC, ABI and data |
+| [Ren’Py Android](RENPY-ANDROID.md) | Python, SDL/JNI, assets and persistence |
+| [Haxe/hxcpp/Lime Android](HAXE-LIME-ANDROID.md) | Bootstrap, threads, TLS/GC and limits |
+| [C/C++ Android](NATIVE-ANDROID.md) | JNI, NativeActivity, Android SDL and Bionic |
 | [NXExtract](NXEXTRACT.md) | Recipe, owner data and clean installation |
 | [Testing and delivery](TESTING.md) | Evidence, candidate and release |
 | [Troubleshooting](TROUBLESHOOTING.md) | Symptoms and targeted diagnostics |

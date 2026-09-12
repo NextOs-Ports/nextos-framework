@@ -13,7 +13,7 @@ Copy this template and fill in what you know. An unknown field becomes an invest
 ```text
 Read AGENTS.md and docs/en/README.md in this clone.
 Game and version: [provide]
-Local copy supplied by me: [private path]
+Local Android copy supplied by me: [private path]
 Target for this stage: [system, CPU/GPU and userland ABI]
 New repository/directory: [destination]
 First objective: identify the build and reach its native flow on the target.
@@ -22,7 +22,8 @@ Autonomously handle inventory, public-reference selection, adapter
 implementation, build and relevant local tests.
 Prefer AArch64. Preserve V5 and every reference port.
 For Unity, read portando_unity/README.en.md and use only its public cases.
-Choose the Mono Android, Godot or Cocos2d-x track when it matches the engine.
+Read docs/en/ANDROID-RUNTIMES.md and choose one of the eight Android tracks.
+Use only already selected public ports, with pinned commit and evidence.
 
 Keep sources, pins, contracts, private logs and results organized.
 Do not invent offsets, signatures, support, licenses or successful missing APIs.
@@ -57,11 +58,14 @@ Open the catalog and `SOURCE-MAP.json`. Record why the reference fits: compatibl
 
 | Finding | Track |
 | --- | --- |
-| Unity, Mono or IL2CPP | [Porting Unity](../../portando_unity/README.en.md) |
-| Mono/.NET for Android, MonoGame or FNA | [Mono Android](MONO-ANDROID.md) |
+| Unity (Mono or IL2CPP) | [Porting Unity](../../portando_unity/README.en.md) |
+| Mono/.NET Android, including MonoGame/FNA from the Android build | [Mono Android](MONO-ANDROID.md) |
 | Godot project/runtime | [Godot](GODOT.md) |
 | Cocos2d-x and Android callbacks | [Cocos2d-x](COCOS2D-X.md) |
-| Another native engine | [Shims](SHIMS.md) and its specific contract |
+| GameMaker Android | [GameMaker Android](GAMEMAKER-ANDROID.md) |
+| Ren’Py Android | [Ren’Py Android](RENPY-ANDROID.md) |
+| Haxe/hxcpp/Lime Android | [Haxe/hxcpp/Lime Android](HAXE-LIME-ANDROID.md) |
+| C/C++ Android | [C/C++ Android](NATIVE-ANDROID.md) |
 
 ## 4. Organize small, verifiable deliverables
 

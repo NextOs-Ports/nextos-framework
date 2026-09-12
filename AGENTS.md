@@ -30,3 +30,5 @@ This private draft is a source reference collection. The maintainer must explici
 - Training inputs are original and generated in work/. Manual CI runs only this training and does not publish APKs/ELFs/logs as artifacts. Headless/QEMU do not approve UI or physical graphics.
 
 - Do not add iOS/iPadOS ports, studies, loaders or examples to this collection. The exclusion applies to snapshots and community cards. Generic third-party components retain their notices and cross-platform declarations; those are not iOS port references.
+
+- For runtime guides, follow [Android](docs/en/ANDROID-RUNTIMES.md): always Android input, Linux ARM target, including MonoGame/FNA only from Android builds. Use only already selected public ports; import no private studies or new snapshots. Engine classification neither approves a reference nor makes V6 APIs available in V5.

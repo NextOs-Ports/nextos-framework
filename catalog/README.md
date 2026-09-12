@@ -8,6 +8,8 @@ Use os [40 perfis estruturados](profiles.json) e o [guia de inventário/busca](.
 
 O catálogo reúne somente ports criados/integrados por **NextOS**. Há **44 títulos com fontes selecionadas de 40 repositórios públicos**, mais **2 referências distribuídas à comunidade** segundo o mantenedor, sem snapshot GitHub incluído. Freedom Planet 2 já está entre os 44; o primeiro Freedom Planet não foi acrescentado.
 
+Para criar outro port Android, comece pelo [seletor de runtimes](../docs/pt-BR/ANDROID-RUNTIMES.md). A [busca de perfis](../tools/find_reference.py) usa origem Android por padrão e associa cada família aos guias PT/EN; classificação não é suporte comprovado.
+
 ## Fontes de repositórios públicos
 
 São 42 títulos Android e dois GameCube. Ports iOS foram retirados desta coleção. Cada ficha preserva commit, hashes, licença e limites. Isto não é uma matriz de 44 jogos certificados em V5 nem uma coleção de dados comerciais.

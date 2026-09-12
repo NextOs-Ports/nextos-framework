@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/)
+[Catálogo](../../catalog/README.md) · [Guia para IA](../../docs/pt-BR/PORTAR-COM-IA.md) · [Fontes selecionadas](upstream/) · [Guia do runtime Android](../../docs/pt-BR/RENPY-ANDROID.md)
 
 Origem: [summertimesaga-nextos](https://github.com/NextOs-Ports/summertimesaga-nextos), commit `bf5929bfdcdb03e17a27d053a91c36477b207032`. Plataforma: Android.
 
