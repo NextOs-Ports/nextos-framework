@@ -26,7 +26,7 @@ Do not add directories inside `source/`: doing so invalidates verification. `TOO
 python3 tools/recover_reference.py fp2-nextos --path build_universal.sh   --destination work/recovered-fp2
 ```
 
-The file is retrieved at the catalog commit with its hash recorded, only under `work/`. The command does not execute the script or modify `ports/*/upstream/`. Examine paths, dependencies and license before use. A public copy may contain historical paths unsuitable for new documentation.
+The file is retrieved at the catalog commit with its hash recorded, only under `work/`. If already included in the selection, the download must match the manifest SHA-256. Special path characters are preserved in the URL; both the file and its provenance record must be new and use mode `0600`. The command does not execute the script or modify `ports/*/upstream/`. Examine paths, dependencies and license before use. A public copy may contain historical paths unsuitable for new documentation.
 
 FP2 has this script in its public repository even though the selection omitted it. Chrono's build requires a local image and an excluded TTF; the new SDK does not automatically make that historical script portable. Consult the [profile catalog](../../catalog/profiles.json) and prepare your own recipe with explicit dependencies.
 

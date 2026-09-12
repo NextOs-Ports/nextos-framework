@@ -8,6 +8,8 @@ The maintainer must explicitly approve changing visibility. This preparation rem
 
 The [first-port update](ONBOARDING-UPDATE.en.md) records implementation of gaps identified by the [earlier simulation](ONBOARDING-SIMULATION.en.md), with explicit checks and limits.
 
+The [V5 tooling review dated 2026-09-12](V5-REVIEW-20260912.en.md) adds exact frozen-tree checks, inventory/recovery fixes and automatic collection CI, with 48 passing host tests. It preserves the V5 runtime and does not incorporate V6. The full SDK workflow remains a separate manual check.
+
 ## Included in this edition
 
 Preserved V5; sources from 40 repositories/44 titles; two additional community cards; PT/EN guides; selected Unity edition with 15 cases and generic tools; FP2 Vulkan→GLES2 study. Now includes a public SDK, collection pins, integrated nxloader/NXExtract minigame, executable inventory, searchable profiles, engine exercises and shader laboratory.

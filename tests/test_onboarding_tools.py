@@ -41,6 +41,14 @@ class InventoryTests(unittest.TestCase):
     def test_safe_members(self):
         with self.archive([('assets/seed.txt',b'seed=7\n')]) as a:
             self.assertEqual(inventory.member_index(a),['assets/seed.txt'])
+    def test_noncanonical_archive_aliases_rejected(self):
+        for name in ('./AndroidManifest.xml', 'lib//arm64-v8a/a.so',
+                     'lib/./arm64-v8a/a.so', 'assets//'):
+            with self.subTest(path=name), self.archive([(name,b'x')]) as a:
+                with self.assertRaises(ValueError):inventory.member_index(a)
+    def test_normal_directory_entries_allowed(self):
+        with self.archive([('assets/',b''),('assets/seed.txt',b'x')]) as a:
+            self.assertEqual(inventory.member_index(a),['assets/','assets/seed.txt'])
     def test_import_kinds_and_tls(self):
         text='  1: 00000000 0 FUNC GLOBAL DEFAULT UND puts@LIBC\n  2: 00000000 0 OBJECT WEAK DEFAULT UND data\n  3: 00000000 8 TLS GLOBAL DEFAULT 4 local_tls\n'
         imports,blockers=inventory.parse_symbols(text)

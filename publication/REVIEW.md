@@ -8,6 +8,8 @@ O mantenedor precisa aprovar explicitamente a mudança de visibilidade. Esta pre
 
 A [atualização do primeiro port](ONBOARDING-UPDATE.md) registra a implementação das lacunas apontadas pela [simulação anterior](ONBOARDING-SIMULATION.md), com testes e limites explícitos.
 
+A [revisão das ferramentas V5 de 12/09/2026](V5-REVIEW-20260912.md) acrescenta conferência exata das árvores congeladas, correções de inventário/recuperação e CI automático da coleção, com 48 testes host aprovados. Preserva o runtime V5 e não incorpora V6. O workflow completo do SDK continua sendo uma verificação manual separada.
+
 ## Incluído nesta edição
 
 V5 preservada; fontes de 40 repositórios/44 títulos; duas fichas comunitárias adicionais; guias PT/EN; edição Unity selecionada com 15 casos e ferramentas genéricas; estudo FP2 Vulkan→GLES2. Agora inclui SDK público, pins da coleção, minijogo integrado com nxloader/NXExtract, inventário executável, perfis pesquisáveis, exercícios de engines e laboratório de shaders.

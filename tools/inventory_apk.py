@@ -19,6 +19,8 @@ import zipfile
 ROOT=Path(__file__).resolve().parents[1]
 LIMIT=512*1024*1024
 ABI_MACHINE={'arm64-v8a':183,'armeabi-v7a':40,'x86':3,'x86_64':62}
+ABI_CLASS={'arm64-v8a':2,'armeabi-v7a':1,'x86':1,'x86_64':2}
+TOTAL_LIMIT=8*1024**3
 def digest(data):return hashlib.sha256(data).hexdigest()
 
 def member_index(archive):
@@ -26,13 +28,14 @@ def member_index(archive):
     for info in archive.infolist():
         name=info.filename;parts=PurePosixPath(name).parts
         if (not name or name.startswith('/') or '\\' in name or '..' in parts
+                or str(PurePosixPath(name)) != name.removesuffix('/')
                 or any(ord(c)<32 for c in name) or name.casefold() in seen):
             raise ValueError('unsafe or duplicate archive member')
         if stat.S_ISLNK(info.external_attr>>16):raise ValueError('symlink archive member')
         if info.file_size>LIMIT:raise ValueError('member exceeds 512 MiB inventory limit')
         if info.flag_bits&1:raise ValueError('encrypted member is unsupported')
         total+=info.file_size
-        if total>8*1024**3:raise ValueError('archive exceeds 8 GiB inventory budget')
+        if total>TOTAL_LIMIT:raise ValueError('archive exceeds 8 GiB inventory budget')
         seen.add(name.casefold())
     if len(seen)>100000:raise ValueError('too many archive members')
     return archive.namelist()
@@ -64,26 +67,41 @@ def parse_symbols(text):
     return list(symbols.values()),sorted(unsupported)
 
 def library_inventory(data,name,temp):
-    if data[:4]!=b'\x7fELF' or len(data)<64 or data[5]!=1:
+    if (len(data)<16 or data[:4]!=b'\x7fELF' or data[4] not in (1,2)
+            or data[5]!=1 or data[6]!=1):
         raise ValueError('native member is not a supported little-endian ELF')
+    header_size=52 if data[4]==1 else 64
+    if len(data)<header_size or int.from_bytes(data[20:24],'little')!=1:
+        raise ValueError('truncated or invalid native ELF header')
+    header_offset=40 if data[4]==1 else 52
+    if int.from_bytes(data[header_offset:header_offset+2],'little')!=header_size:
+        raise ValueError('incorrect native ELF header size')
     machine=int.from_bytes(data[18:20],'little');abi=name.split('/')[1]
     path=temp/'guest.so';path.write_bytes(data);path.chmod(0o600)
     env=dict(os.environ,LC_ALL='C')
     def read(*flags):return subprocess.check_output(['readelf',*flags,str(path)],stderr=subprocess.DEVNULL,text=True,env=env,timeout=45)
     dynamic=read('-dW');imports,unsupported=parse_symbols(read('--dyn-syms','--wide'))
     relocation=read('-rW')
-    for marker in ('RELR','ANDROID_REL','ANDROID_RELA','TLSDESC','IRELATIVE','TLS_','0x6000000f','0x60000011'):
+    for marker in ('RELR','ANDROID_REL','ANDROID_RELA','TLSDESC','IRELATIVE','TLS_',
+                   'TEXTREL','RPATH','RUNPATH','0x6000000f','0x60000011'):
         if marker in dynamic or marker in relocation:unsupported.append(marker)
-    if machine!=ABI_MACHINE.get(abi):unsupported.append('directory/ELF ABI mismatch')
+    abi_consistent=machine==ABI_MACHINE.get(abi) and data[4]==ABI_CLASS.get(abi)
+    if not abi_consistent:unsupported.append('directory/ELF ABI mismatch')
+    if abi not in {'arm64-v8a','armeabi-v7a'}:unsupported.append('ABI unsupported by V5 nxloader')
+    if int.from_bytes(data[16:18],'little')!=3:unsupported.append('native library must be ET_DYN')
+    if data[4]==1 and machine==40:
+        flags=int.from_bytes(data[36:40],'little')
+        if flags&0xff000000!=0x05000000:unsupported.append('ARM EABI5 required by V5 nxloader')
     return {'member':name,'size':len(data),'sha256':digest(data),'elf_class':data[4]*32,
-            'machine':machine,'abi':abi,'needed':re.findall(r'\(NEEDED\).*?\[(.*?)\]',dynamic),
+            'machine':machine,'abi':abi,'abi_consistent':abi_consistent,
+            'needed':re.findall(r'\(NEEDED\).*?\[(.*?)\]',dynamic),
             'imports':imports[:4096],'import_count':len(imports),'imports_truncated':len(imports)>4096,
             'v5_preflight_blockers':sorted(set(unsupported)),
             'scope':'static hints; runtime dlsym/JNI calls and complete relocation support still require investigation'}
 
 def inventory(paths,scratch):
     scratch.mkdir(parents=True,exist_ok=True)
-    reports=[]
+    reports=[];total=0
     for number,path in enumerate(paths,1):
         path=Path(path)
         h=hashlib.sha256()
@@ -91,8 +109,12 @@ def inventory(paths,scratch):
             for block in iter(lambda:stream.read(1024*1024),b''):h.update(block)
         with zipfile.ZipFile(str(path)) as apk:
             names=member_index(apk)
+            total+=sum(info.file_size for info in apk.infolist())
+            if total>TOTAL_LIMIT:raise ValueError('APK set exceeds 8 GiB inventory budget')
             if 'AndroidManifest.xml' not in names:
                 raise ValueError('supply complete base/split APKs separately; nested APKM/APKS/XAPK are not expanded automatically')
+            if apk.getinfo('AndroidManifest.xml').file_size>2*1024*1024:
+                raise ValueError('manifest exceeds inventory limit')
             identity=manifest_identity(apk.read('AndroidManifest.xml'))
             if not identity['package_id']:raise ValueError('manifest package identity missing')
             if identity['version_name'] is None and shutil.which('aapt'):
@@ -111,12 +133,18 @@ def inventory(paths,scratch):
             hints=[]
             for token,engine in [('libunity.so','Unity'),('libil2cpp.so','Unity IL2CPP'),('libmonodroid.so','Mono Android'),('libgodot','Godot'),('libcocos','Cocos family')]:
                 if any(token in name for name in names):hints.append(engine)
+            arm64=[library for library in libraries if library['abi']=='arm64-v8a']
             reports.append({'input_id':'container-%02d'%number,'container_size':path.stat().st_size,
                 'container_sha256':h.hexdigest(),**identity,'engine_hints':hints,
-                'preferred_abi':'arm64-v8a' if any(x['abi']=='arm64-v8a' for x in libraries) else None,
+                'preferred_abi':'arm64-v8a' if arm64 and all(x['abi_consistent'] for x in arm64) else None,
                 'libraries':libraries})
     packages={r['package_id'] for r in reports}
     if len(packages)!=1:raise ValueError('input APKs belong to different packages')
+    splits=[r['split'] or '' for r in reports]
+    if len(splits)!=len(set(splits)):raise ValueError('duplicate base or split identity in APK set')
+    for field in ('version_code','version_name'):
+        known={r[field] for r in reports if r[field] is not None}
+        if len(known)>1:raise ValueError('input APKs have conflicting '+field)
     return {'schema':'nextos-android-inventory-v1','containers':reports,
             'scope':'static inventory; no viability, complete split set or gameplay certification',
             'privacy':'no input filenames or host paths; review technical metadata before publishing'}

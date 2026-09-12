@@ -19,13 +19,13 @@ The public SDK includes the tools. To use them in the container, explicitly moun
 
 The report includes package/split, version when available, container size/hash, ABI libraries, hashes, imports with type/binding/version, dependencies and engine hints. Missing versions remain `null`; engine identification remains a hypothesis. The catalog contains 40 source profiles, explicit unknown fields and evidence links. ABI means a historical recipe declaration, not execution validated in this edition.
 
-The `arm64-v8a` preference is local to the APK containing that ABI. Examine the whole split set; an asset split does not establish architecture. ARMv7 builds require review of the softfp boundary.
+The `arm64-v8a` preference is local to the APK containing that ABI and requires a consistent 64-bit ELF class and AArch64 machine in every library in that directory. `abi_consistent` records this check; a mismatched header produces an explicit blocker and cannot select AArch64. This does not certify the remaining loader contracts. Examine the whole split set; an asset split does not establish architecture. ARMv7 builds require review of the softfp boundary.
 
 ## 3. Respect the limits
 
-Inventory rejects unsafe paths, collisions, symlinks, encrypted members, members over 512 MiB and sets over 8 GiB. Nested APKM/APKS/XAPK are not automatically expanded: prepare the set locally in a private area. The tool does not guarantee split completeness or convert files.
+Inventory rejects unsafe or noncanonical paths, collisions, symlinks, encrypted members, members over 512 MiB and sets over 8 GiB uncompressed, summed across all APKs. The 2 MiB manifest limit is checked before decompression. Duplicate base/split identities and conflicting known versions are rejected; unknown versions remain `null`. Nested APKM/APKS/XAPK are not automatically expanded: prepare the set locally in a private area. The tool does not guarantee split completeness or convert files.
 
-TLS, TLSDESC, IFUNC, IRELATIVE, RELR and packed Android relocations require attention before selecting V5 nxloader. Markers provide static triage, not comprehensive relocation certification. Imports through dlsym/JNI and buffer/thread contracts still need investigation.
+TLS, TLSDESC, IFUNC, IRELATIVE, RELR, TEXTREL, RPATH/RUNPATH and packed Android relocations require attention before selecting V5 nxloader. Inventory also flags ABIs outside ARM/AArch64, non-ET_DYN libraries and ARM without EABI5. Markers provide static triage, not comprehensive relocation certification. Imports through dlsym/JNI and buffer/thread contracts still need investigation.
 
 ## 4. Give AI a concrete next step
 

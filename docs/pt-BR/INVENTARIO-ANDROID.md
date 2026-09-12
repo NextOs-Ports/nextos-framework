@@ -19,13 +19,13 @@ O SDK público inclui as ferramentas. Para acessá-las no container, monte o inp
 
 O relatório traz package/split, versão quando disponível, tamanho/hash do container, bibliotecas por ABI, hashes, imports com tipo/binding/versão, dependências e indícios de engine. Versão ausente fica `null`; engine não identificada permanece hipótese. O catálogo tem 40 perfis de fontes, com campos desconhecidos explícitos e links de evidência. ABI significa declaração da receita histórica, não execução validada nesta edição.
 
-A preferência por `arm64-v8a` é local ao APK que contém essa ABI. Examine todo o conjunto de splits; um split de assets não define a arquitetura. Builds ARMv7 exigem a revisão da fronteira softfp.
+A preferência por `arm64-v8a` é local ao APK que contém essa ABI e exige classe ELF de 64 bits e máquina AArch64 coerentes em todas as bibliotecas dessa pasta. `abi_consistent` registra essa conferência; um cabeçalho incompatível deixa bloqueio explícito e não escolhe AArch64. Isso não certifica os demais contratos do loader. Examine todo o conjunto de splits; um split de assets não define a arquitetura. Builds ARMv7 exigem a revisão da fronteira softfp.
 
 ## 3. Respeitar os limites
 
-O inventário rejeita caminhos inseguros, colisões, symlinks, membros criptografados, membros acima de 512 MiB e conjuntos acima de 8 GiB. APKM/APKS/XAPK aninhados não são expandidos automaticamente: prepare o conjunto localmente em área privada. A ferramenta não garante completude de splits e não converte arquivos.
+O inventário rejeita caminhos inseguros ou não canônicos, colisões, symlinks, membros criptografados, membros acima de 512 MiB e conjuntos acima de 8 GiB descomprimidos, somando todos os APKs. O limite de 2 MiB do manifesto é conferido antes da descompressão. Bases/splits com identidade duplicada ou versões conhecidas conflitantes são recusados; versões desconhecidas continuam `null`. APKM/APKS/XAPK aninhados não são expandidos automaticamente: prepare o conjunto localmente em área privada. A ferramenta não garante completude de splits e não converte arquivos.
 
-TLS, TLSDESC, IFUNC, IRELATIVE, RELR e relocações Android compactadas exigem atenção antes de escolher o nxloader V5. Os marcadores são uma triagem estática, não uma certificação completa de todas as relocações. Imports via dlsym/JNI e contratos de buffers/threads ainda precisam ser investigados.
+TLS, TLSDESC, IFUNC, IRELATIVE, RELR, TEXTREL, RPATH/RUNPATH e relocações Android compactadas exigem atenção antes de escolher o nxloader V5. O inventário também aponta ABIs fora de ARM/AArch64, bibliotecas que não são ET_DYN e ARM sem EABI5. Os marcadores são uma triagem estática, não uma certificação completa de todas as relocações. Imports via dlsym/JNI e contratos de buffers/threads ainda precisam ser investigados.
 
 ## 4. Entregar uma próxima ação à IA
 
